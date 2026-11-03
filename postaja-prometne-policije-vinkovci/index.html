@@ -1,0 +1,485 @@
+ <!doctype html>
+<html lang="hr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Postaja prometne policije Vinkovci — demonstracijski preview</title>
+  <meta name="description" content="Demonstracijski preview web stranice za Postaju prometne policije Vinkovci. Informativna i prezentacijska stranica, nije službena." />
+  <meta name="robots" content="index,follow" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0f1724;
+      --card:#071028;
+      --accent:#0ea5a4;
+      --accent-2:#6ee7b7;
+      --muted:#94a3b8;
+      --glass: rgba(255,255,255,0.04);
+      --glass-2: rgba(255,255,255,0.03);
+      --white: #e6eef6;
+      --radius:14px;
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background: linear-gradient(180deg,#071027 0%, #071729 40%, #031026 100%);
+      color:var(--white);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+      font-size:16px;
+    }
+
+    /* Header */
+    .site-header{
+      position:sticky;
+      top:0;
+      z-index:60;
+      backdrop-filter: blur(6px);
+      background: linear-gradient(180deg, rgba(7,16,40,0.6), rgba(7,16,40,0.35));
+      border-bottom: 1px solid rgba(255,255,255,0.03);
+    }
+    .container{
+      max-width:1100px;
+      margin:0 auto;
+      padding:18px 24px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+    }
+    .brand{
+      display:flex;
+      gap:12px;
+      align-items:center;
+    }
+    .logo-mark{
+      width:48px;height:48px;border-radius:10px;
+      background: linear-gradient(135deg,var(--accent),var(--accent-2));
+      display:flex;align-items:center;justify-content:center;
+      box-shadow: 0 6px 22px rgba(14,165,164,0.12), inset 0 -6px 18px rgba(255,255,255,0.04);
+      font-weight:700;
+      color:#032226;
+      font-family:"Merriweather", serif;
+      font-size:18px;
+    }
+    .brand h1{margin:0;font-size:18px;letter-spacing:0.2px}
+    .brand p{margin:0;font-size:12px;color:var(--muted)}
+
+    nav{display:flex;gap:18px;align-items:center}
+    nav a{
+      color:var(--white);
+      text-decoration:none;
+      font-weight:600;
+      font-size:15px;
+      padding:8px 10px;
+      border-radius:10px;
+      transition:all .18s ease;
+    }
+    nav a:hover{background:var(--glass)}
+    .btn-ghost{
+      border:1px solid rgba(255,255,255,0.06);
+      padding:8px 12px;border-radius:10px;color:var(--white);
+      background: transparent;
+    }
+    .btn-primary{
+      background: linear-gradient(90deg,var(--accent),#10b981);
+      color:#032226;
+      padding:9px 14px;border-radius:12px;font-weight:700;
+      box-shadow: 0 8px 30px rgba(16,185,129,0.12);
+      border: none;
+      cursor:pointer;
+    }
+
+    /* Mobile */
+    .menu-toggle{display:none;background:transparent;border:none;color:var(--white);font-size:20px}
+    .nav-mobile{display:none}
+
+    /* Hero */
+    .hero{
+      padding:48px 24px;
+    }
+    .hero-inner{
+      max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center;
+    }
+    .hero-card{
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:var(--radius);
+      padding:36px;
+      box-shadow: 0 10px 40px rgba(2,6,23,0.6);
+      border: 1px solid rgba(255,255,255,0.03);
+      position:relative;overflow:hidden;
+      min-height:260px;
+    }
+    .eyebrow{display:inline-block;background:rgba(14,165,164,0.12);color:var(--accent-2);padding:6px 10px;border-radius:999px;font-weight:700;font-size:13px;margin-bottom:16px}
+    h2{margin:0 0 12px 0;font-size:28px;line-height:1.05;font-weight:800;letter-spacing:-0.5px}
+    p.lead{margin:0;color:var(--muted);font-size:15px}
+    .hero-actions{margin-top:22px;display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+    .hero-figure{
+      padding:18px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border:1px solid rgba(255,255,255,0.03);
+      box-shadow: inset 0 -10px 30px rgba(0,0,0,0.35);
+      min-height:260px;display:flex;flex-direction:column;gap:12px;justify-content:center;align-items:center;
+    }
+    .hero-figure .stat{font-weight:700;color:var(--accent-2);font-size:26px}
+    .hero-figure p{margin:0;color:var(--muted);text-align:center;font-size:14px;max-width:300px}
+
+    /* Services */
+    .section{
+      padding:48px 24px;
+    }
+    .section .container-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:20px;
+      max-width:1100px;
+      margin:0 auto;
+    }
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.008));
+      border-radius:12px;padding:22px;border:1px solid rgba(255,255,255,0.03);
+      transition:transform .28s cubic-bezier(.2,.9,.3,1), box-shadow .28s;
+      box-shadow: 0 6px 30px rgba(2,6,23,0.6);
+      display:flex;gap:14px;align-items:flex-start;
+    }
+    .card:hover{transform: translateY(-8px); box-shadow: 0 18px 50px rgba(2,6,23,0.75);}
+    .icon{
+      width:56px;height:56px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:flex;align-items:center;justify-content:center;color:#032226;font-weight:800;font-family:"Merriweather", serif;
+      flex-shrink:0;font-size:18px;
+    }
+    .card h3{margin:0 0 6px 0;font-size:16px}
+    .card p{margin:0;color:var(--muted);font-size:14px}
+
+    /* About */
+    .about{
+      max-width:1100px;margin:0 auto;padding:36px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);
+      border:1px solid rgba(255,255,255,0.02);
+      display:flex;gap:24px;align-items:center;
+    }
+    .about .about-text{flex:1}
+    .about .about-img{
+      width:260px;height:160px;border-radius:10px;background:linear-gradient(135deg,#0ea5a4,#06b6d4);
+      display:flex;justify-content:center;align-items:center;color:#032226;font-weight:800;font-family:"Merriweather",serif;font-size:20px;
+    }
+
+    /* Contact */
+    .contact-wrap{
+      max-width:1100px;margin:0 auto;padding:36px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.005));border:1px solid rgba(255,255,255,0.02);
+      display:grid;grid-template-columns:1fr 360px;gap:24px;align-items:start;
+    }
+    form{display:flex;flex-direction:column;gap:12px}
+    input[type="text"], input[type="email"], textarea{
+      background:var(--glass-2);border:1px solid rgba(255,255,255,0.03);padding:12px;border-radius:10px;color:var(--white);
+      font-size:15px;outline:none;
+    }
+    textarea{min-height:140px;resize:vertical}
+    .muted-note{font-size:13px;color:var(--muted)}
+    .disclaimer{font-size:13px;color:#ffd880;background:rgba(255,216,128,0.06);padding:12px;border-radius:10px;border:1px solid rgba(255,216,128,0.06)}
+    .map-box{
+      height:200px;border-radius:10px;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.02));
+      display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:14px;border:1px dashed rgba(255,255,255,0.03)
+    }
+
+    /* Footer */
+    .site-footer{padding:28px 24px;text-align:center;color:var(--muted);font-size:14px;border-top:1px solid rgba(255,255,255,0.02);margin-top:40px}
+
+    /* Animations */
+    .fade-in{opacity:0;transform:translateY(8px);animation:fadeIn .9s forwards}
+    .fade-in.delay{animation-delay:.12s}
+    .fade-in.late{animation-delay:.24s}
+    @keyframes fadeIn{to{opacity:1;transform:none}}
+
+    /* Responsive */
+    @media (max-width:980px){
+      .hero-inner{grid-template-columns:1fr;gap:18px}
+      .container-grid{grid-template-columns:repeat(2,1fr)}
+      .contact-wrap{grid-template-columns:1fr}
+    }
+    @media (max-width:640px){
+      .container{padding:14px}
+      .hero{padding:28px 14px}
+      .brand h1{font-size:16px}
+      nav{display:none}
+      .menu-toggle{display:block}
+      .nav-mobile{display:none}
+      .container-grid{grid-template-columns:1fr}
+      .logo-mark{width:42px;height:42px;font-size:16px}
+      .site-header{position:fixed;width:100%}
+      .hero-card{padding:22px}
+      .hero-figure{min-height:180px}
+    }
+
+    /* Mobile menu overlay */
+    .mobile-menu{
+      position:fixed;inset:0;background:linear-gradient(180deg, rgba(2,6,23,0.9), rgba(2,6,23,0.95));backdrop-filter:blur(8px);z-index:120;
+      display:none;flex-direction:column;padding:28px;
+    }
+    .mobile-menu.show{display:flex}
+    .mobile-menu a{color:var(--white);font-size:18px;padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.02)}
+
+    /* small helpers */
+    .kicker{font-size:13px;color:var(--muted);font-weight:600}
+    .badge-demo{background:#ff6b6b;color:#1b0b0b;padding:6px 10px;border-radius:999px;font-weight:700;font-size:13px}
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <div class="brand">
+        <div class="logo-mark">PP</div>
+        <div>
+          <h1>Postaja prometne policije Vinkovci</h1>
+          <p>Demonstracijski preview — nije službena stranica</p>
+        </div>
+      </div>
+
+      <nav aria-label="Glavna navigacija">
+        <a href="#usluge">Usluge</a>
+        <a href="#o-nama">O nama</a>
+        <a href="#kontakt" class="btn-ghost">Kontakt</a>
+        <button class="btn-primary" id="ctaTop">Pošaljite upit</button>
+      </nav>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Otvori izbornik">☰</button>
+    </div>
+  </header>
+
+  <!-- Mobile menu -->
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+      <div style="display:flex;gap:10px;align-items:center">
+        <div class="logo-mark" style="width:44px;height:44px">PP</div>
+        <div>
+          <div style="font-weight:700">Postaja prometne policije Vinkovci</div>
+          <div style="font-size:13px;color:var(--muted)">Demonstracijski preview</div>
+        </div>
+      </div>
+      <button id="closeMobile" style="background:transparent;border:none;color:var(--white);font-size:20px">✕</button>
+    </div>
+    <a href="#usluge" onclick="toggleMobile()">Usluge</a>
+    <a href="#o-nama" onclick="toggleMobile()">O nama</a>
+    <a href="#kontakt" onclick="toggleMobile()">Kontakt</a>
+    <div style="margin-top:auto">
+      <div class="muted-note">Ovo je demonstracija. Ovo nije službena stranica.</div>
+    </div>
+  </div>
+
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-inner">
+        <div class="hero-card fade-in">
+          <span class="eyebrow">Demonstracijski prikaz</span>
+          <h2 id="hero-title">Postaja prometne policije Vinkovci — informativni preview</h2>
+          <p class="lead">
+            Ova stranica služi isključivo kao demonstracijski, vizualni i funkcionalni pregled. Nije službena stranica postaje. Sadržaj je informativan i ne zamjenjuje službene izvore.
+          </p>
+
+          <div class="hero-actions">
+            <button class="btn-primary" id="heroContact">Kontakt</button>
+            <a href="#usluge" class="btn-ghost" style="text-decoration:none">Saznaj više</a>
+            <span style="margin-left:auto" class="badge-demo">Neslužbeno</span>
+          </div>
+
+          <div style="margin-top:18px" class="muted-note">
+            Za službene informacije posjetite izvor: <a href="http://vukovarsko-srijemska.policija.hr/MainPu.aspx?id=14801" target="_blank" rel="noopener" style="color:var(--accent-2);text-decoration:none">vukovarsko-srijemska.policija.hr</a>
+          </div>
+        </div>
+
+        <aside class="hero-figure fade-in delay" aria-hidden="true">
+          <div style="display:flex;flex-direction:column;align-items:center;gap:12px">
+            <div style="display:flex;gap:10px;align-items:center">
+              <div style="width:12px;height:12px;border-radius:50%;background:var(--accent)"></div>
+              <div style="font-weight:700">Djelatnost:</div>
+            </div>
+            <div class="stat">Promet i sigurnost na cestama</div>
+            <p>Ovo je demonstracijski prikaz modernog web dizajna namijenjen prezentaciji informacija i kontaktnog obrasca.</p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="usluge" class="section" aria-labelledby="usluge-title">
+      <div style="max-width:1100px;margin:0 auto 22px;padding:0 8px">
+        <div style="display:flex;align-items:center;gap:12px">
+          <div class="kicker">Usluge</div>
+          <h3 id="usluge-title" style="margin:0;font-size:20px">Primarni fokus i aktivnosti (općenito)</h3>
+        </div>
+        <p style="color:var(--muted);margin-top:8px">Donji opis služi informativno — izbjegavamo iznošenje službenih ili administrativnih podataka. Za službene informacije obratite se nadležnim izvorima.</p>
+      </div>
+
+      <div class="container-grid" style="padding:0 24px">
+        <article class="card fade-in">
+          <div class="icon">S</div>
+          <div>
+            <h3>Prometna sigurnost i nadzor</h3>
+            <p>Aktivnosti usmjerene na sigurnost cestovnog prometa, nadzor prometnih tokova i prevenciju opasnih situacija na cestama.</p>
+          </div>
+        </article>
+
+        <article class="card fade-in delay">
+          <div class="icon">I</div>
+          <div>
+            <h3>Informacije i suradnja</h3>
+            <p>Suradnja s lokalnom zajednicom, informiranje o sigurnosnim temama te koordinacija aktivnosti u području prometa.</p>
+          </div>
+        </article>
+
+        <article class="card fade-in late">
+          <div class="icon">P</div>
+          <div>
+            <h3>Prevencija i edukacija</h3>
+            <p>Podrška preventivnim aktivnostima i edukacijama s ciljem smanjenja rizika na cestama i podizanja svijesti sudionika u prometu.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="o-nama" class="section" aria-labelledby="onama-title" style="padding-top:8px">
+      <div style="max-width:1100px;margin:0 auto">
+        <h3 id="onama-title" style="margin:0 0 10px 0;font-size:20px">O nama</h3>
+        <div class="about fade-in">
+          <div class="about-text">
+            <p style="margin-top:0;color:var(--muted);">Ova stranica predstavlja moderni dizajnerski pregled kako bi se demonstrirale mogućnosti profesionalne, responzivne i pristupačne web prezentacije. Sadržaj je sačinjen radi ilustracije strukture i dizajna za organizacije koje se bave sigurnošću prometa i srodnim djelatnostima.</p>
+            <p style="margin-top:10px">Ako želite prilagoditi ovaj predložak za stvarnu web stranicu, kontaktirajte web dizajn tim za izradu službene verzije i povezivanje s relevantnim službenim podacima.</p>
+          </div>
+          <div class="about-img" aria-hidden="true">Vinkovci</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="kontakt" class="section" aria-labelledby="kontakt-title" style="padding-top:8px">
+      <div style="max-width:1100px;margin:0 auto">
+        <h3 id="kontakt-title" style="margin:0 0 10px 0;font-size:20px">Kontakt</h3>
+
+        <div class="contact-wrap fade-in">
+          <form id="contactForm" novalidate>
+            <label class="kicker">Obratite nam se (demo)</label>
+            <input type="text" id="name" name="name" placeholder="Vaše ime" aria-label="Vaše ime" required>
+            <input type="email" id="email" name="email" placeholder="E-mail adresa" aria-label="E-mail adresa" required>
+            <textarea id="message" name="message" placeholder="Poruka" aria-label="Poruka" required></textarea>
+
+            <div style="display:flex;gap:10px;align-items:center">
+              <button type="submit" class="btn-primary">Pošalji poruku</button>
+              <button type="button" class="btn-ghost" id="resetBtn">Očisti</button>
+              <div style="margin-left:auto" class="muted-note">Ne šaljite osjetljive podatke</div>
+            </div>
+
+            <div class="disclaimer" style="margin-top:10px">
+              Napomena: Ovo je demonstracijski preview. Forma je funkcionalna samo u demo načinu i neće poslati poruku stvarnim kontaktima. Nemojte unositi povjerljive informacije.
+            </div>
+          </form>
+
+          <aside>
+            <div class="muted-note" style="margin-bottom:10px">Kontaktni podaci nisu uključeni u ovom demonstracijskom prikazu. Za službene informacije posjetite nadležne izvore.</div>
+            <div class="map-box" role="img" aria-label="Pretpostavljena lokacija (demo)">Mapa / lokacija (demo prikaz)</div>
+
+            <div style="margin-top:12px">
+              <a href="http://vukovarsko-srijemska.policija.hr/MainPu.aspx?id=14801" target="_blank" rel="noopener" class="btn-ghost" style="display:inline-block;margin-top:10px">Pogledaj službeni izvor</a>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container" style="max-width:1100px;margin:0 auto;display:flex;flex-direction:column;gap:10px;align-items:center">
+      <div>Ovo je demonstracijski preview i nije službena stranica postaje.</div>
+      <div style="color:var(--muted)">© Dizajn i razvoj: NZ Hosting — demonstracijski prikaz</div>
+    </div>
+  </footer>
+
+  <!-- Modal (demo send) -->
+  <div id="modal" style="position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(2,6,23,0.6);z-index:200;padding:20px">
+    <div style="max-width:520px;background:linear-gradient(180deg,#062032,#041827);border-radius:12px;padding:22px;border:1px solid rgba(255,255,255,0.04);box-shadow:0 20px 60px rgba(2,6,23,0.8);color:var(--white);text-align:center">
+      <h3 style="margin:0 0 10px 0">Demo: poruka nije stvarno poslana</h3>
+      <p style="margin:0 0 14px;color:var(--muted)">Ovaj obrazac je dio demonstracijskog prikaza. Poruka nije poslana stvarnim kontaktima. Molimo ne unosite osjetljive ili povjerljive podatke.</p>
+      <button class="btn-primary" id="modalClose">Razumijem</button>
+    </div>
+  </div>
+
+  <script>
+    // Mobile menu toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const closeMobile = document.getElementById('closeMobile');
+
+    function toggleMobile(){
+      mobileMenu.classList.toggle('show');
+      mobileMenu.setAttribute('aria-hidden', !mobileMenu.classList.contains('show'));
+    }
+    menuToggle.addEventListener('click', toggleMobile);
+    closeMobile.addEventListener('click', toggleMobile);
+
+    // Smooth scroll for anchor buttons
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', function(e){
+        const target = document.querySelector(this.getAttribute('href'));
+        if(target){
+          e.preventDefault();
+          toggleMobileIfOpen();
+          target.scrollIntoView({behavior:'smooth',block:'start'});
+        }
+      });
+    });
+    function toggleMobileIfOpen(){
+      if(mobileMenu.classList.contains('show')) toggleMobile();
+    }
+
+    // Hero/contact CTA buttons
+    document.getElementById('heroContact').addEventListener('click', ()=>{
+      document.getElementById('kontakt').scrollIntoView({behavior:'smooth',block:'start'});
+    });
+    document.getElementById('ctaTop').addEventListener('click', ()=>{
+      document.getElementById('kontakt').scrollIntoView({behavior:'smooth',block:'start'});
+    });
+
+    // Contact form demo behavior
+    const form = document.getElementById('contactForm');
+    const modal = document.getElementById('modal');
+    const modalClose = document.getElementById('modalClose');
+    const resetBtn = document.getElementById('resetBtn');
+
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      // simple client-side validation
+      const name = form.querySelector('#name');
+      const email = form.querySelector('#email');
+      const message = form.querySelector('#message');
+      if(!name.value.trim() || !email.value.trim() || !message.value.trim()){
+        alert('Molimo ispunite sva polja (demo).');
+        return;
+      }
+      // show demo modal instead of sending
+      modal.style.display = 'flex';
+    });
+
+    modalClose.addEventListener('click', ()=>{
+      modal.style.display = 'none';
+      form.reset();
+    });
+
+    resetBtn.addEventListener('click', ()=> form.reset());
+
+    // Accessibility: close modal on ESC
+    document.addEventListener('keydown', function(e){
+      if(e.key === 'Escape'){
+        if(modal.style.display === 'flex') modal.style.display = 'none';
+        if(mobileMenu.classList.contains('show')) toggleMobile();
+      }
+    });
+
+    // small entrance animations on load
+    window.addEventListener('load', ()=>{
+      document.querySelectorAll('.fade-in').forEach((el,i)=>{
+        el.style.animationDelay = (i*80) + 'ms';
+        el.classList.add('visible');
+      });
+    });
+  </script>
+</body>
+</html>
