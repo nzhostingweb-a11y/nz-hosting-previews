@@ -1,0 +1,538 @@
+ <!doctype html>
+<html lang="hr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Zagrebačka banka — demonstracijski preview modernog web dizajna</title>
+  <meta name="description" content="Demonstracijski preview responzivne i premium naslovnice za Zagrebačka banka. Moderan dizajn, sekcije: ponudа, usluge, o nama i kontakt. Nije službena stranica." />
+  <meta name="robots" content="noindex, nofollow" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0f1724;
+      --card:#0b1220;
+      --accent:#0ea5a4;
+      --accent-2:#06b6d4;
+      --muted:#94a3b8;
+      --glass: rgba(255,255,255,0.04);
+      --radius:14px;
+      --max-width:1100px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background:
+        radial-gradient(1200px 600px at 10% 10%, rgba(6,182,212,0.06), transparent 8%),
+        radial-gradient(1000px 500px at 90% 90%, rgba(14,165,164,0.04), transparent 8%),
+        var(--bg);
+      color:#e6eef8;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+      padding-bottom:80px;
+    }
+
+    .wrap{
+      max-width:var(--max-width);
+      margin:0 auto;
+      padding:28px;
+    }
+
+    /* Header */
+    header{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      padding:12px 0;
+    }
+    .brand{
+      display:flex;
+      gap:12px;
+      align-items:center;
+      text-decoration:none;
+      color:inherit;
+    }
+    .logo{
+      width:52px;
+      height:52px;
+      display:grid;
+      place-items:center;
+      background:linear-gradient(135deg,var(--accent),var(--accent-2));
+      border-radius:12px;
+      box-shadow:0 6px 18px rgba(3,7,18,0.6), inset 0 -6px 18px rgba(255,255,255,0.04);
+      flex:0 0 52px;
+    }
+    .logo svg{filter:drop-shadow(0 6px 18px rgba(3,7,18,0.45));}
+    .brand h1{
+      margin:0;
+      font-size:18px;
+      letter-spacing:0.2px;
+      font-weight:700;
+      font-family:Merriweather, Georgia, serif;
+    }
+    .brand p{margin:0;font-size:12px;color:var(--muted);}
+
+    nav{
+      display:flex;
+      gap:18px;
+      align-items:center;
+    }
+    nav a{
+      color:var(--muted);
+      text-decoration:none;
+      font-weight:600;
+      font-size:14px;
+      padding:8px 12px;
+      border-radius:10px;
+    }
+    nav a:hover{background:var(--glass); color:#fff}
+    .cta{
+      background:linear-gradient(90deg,var(--accent),var(--accent-2));
+      padding:10px 14px;
+      color:#062024;
+      border-radius:10px;
+      font-weight:700;
+      text-decoration:none;
+      box-shadow:0 8px 24px rgba(6,182,212,0.12);
+      transition:transform .18s ease;
+    }
+    .cta:hover{transform:translateY(-3px)}
+
+    /* Hero */
+    .hero{
+      display:grid;
+      grid-template-columns:1fr 420px;
+      gap:28px;
+      align-items:center;
+      margin-top:22px;
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+      border-radius:var(--radius);
+      padding:36px;
+      backdrop-filter: blur(6px);
+    }
+    .hero .lead{
+      max-width:720px;
+    }
+    .kicker{
+      display:inline-block;
+      font-size:12px;
+      color:var(--muted);
+      background:rgba(255,255,255,0.02);
+      padding:8px 12px;
+      border-radius:999px;
+      margin-bottom:14px;
+    }
+    h2{
+      margin:0 0 12px 0;
+      font-size:34px;
+      line-height:1.05;
+      font-family:Merriweather, serif;
+      color:#f8fcff;
+    }
+    p.lead-text{
+      margin:0 0 18px 0;
+      color:var(--muted);
+      font-size:16px;
+      max-width:64ch;
+    }
+    .hero-cta{display:flex;gap:12px;align-items:center}
+    .btn{
+      padding:12px 16px;
+      border-radius:10px;
+      text-decoration:none;
+      font-weight:700;
+      font-size:15px;
+      color:#062024;
+      background:linear-gradient(90deg,var(--accent),var(--accent-2));
+      box-shadow:0 10px 30px rgba(6,182,212,0.12);
+      border:none;
+      cursor:pointer;
+    }
+    .btn.ghost{
+      background:transparent;
+      color:#dff7f7;
+      border:1px solid rgba(255,255,255,0.06);
+      box-shadow:none;
+    }
+    .features{
+      display:flex;
+      gap:12px;
+      margin-top:18px;
+      flex-wrap:wrap;
+    }
+    .feature{
+      display:inline-flex;
+      gap:10px;
+      align-items:center;
+      background:rgba(255,255,255,0.02);
+      padding:10px 12px;
+      border-radius:10px;
+      color:var(--muted);
+      font-weight:600;
+      font-size:13px;
+    }
+
+    /* Right card */
+    .card{
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:12px;
+      padding:18px;
+      box-shadow:inset 0 1px 0 rgba(255,255,255,0.02), 0 8px 30px rgba(2,6,23,0.6);
+    }
+    .card h3{margin:0 0 8px 0;font-size:16px}
+    .quick{
+      display:flex;
+      gap:12px;
+      flex-direction:column;
+    }
+    .quick a{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      text-decoration:none;
+      padding:12px;
+      border-radius:10px;
+      background:linear-gradient(90deg, rgba(255,255,255,0.01), transparent);
+      color:#e6eef8;
+      border:1px solid rgba(255,255,255,0.02);
+      transition:transform .12s ease, background .12s ease;
+    }
+    .quick a:hover{transform:translateY(-6px); background:linear-gradient(90deg, rgba(14,165,164,0.06), transparent)}
+
+    /* Services */
+    section.services{
+      margin-top:28px;
+      display:grid;
+      gap:18px;
+      grid-template-columns:repeat(3,1fr);
+    }
+    .service-card{
+      background:linear-gradient(180deg, rgba(255,255,255,0.015), transparent);
+      padding:20px;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,0.02);
+      transition:transform .15s ease, box-shadow .15s ease;
+    }
+    .service-card:hover{transform:translateY(-8px); box-shadow:0 20px 40px rgba(2,6,23,0.6)}
+    .service-card h4{margin:0 0 8px 0}
+    .service-card p{margin:0;color:var(--muted);font-size:14px}
+
+    /* About + Contact */
+    .about-contact{
+      display:grid;
+      grid-template-columns:1fr 420px;
+      gap:28px;
+      margin-top:28px;
+    }
+    .about{
+      background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);
+      padding:22px;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,0.02);
+    }
+    .about h3{margin-top:0}
+    .contact{
+      background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);
+      padding:18px;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,0.02);
+    }
+    form {display:flex;flex-direction:column;gap:12px}
+    input, textarea, select{
+      background:transparent;
+      border:1px solid rgba(255,255,255,0.04);
+      padding:12px;
+      border-radius:10px;
+      color:#e9f6fb;
+      outline:none;
+      font-size:14px;
+    }
+    input::placeholder, textarea::placeholder{color:rgba(230,238,248,0.35)}
+    textarea{min-height:120px;resize:vertical}
+    .note{font-size:13px;color:var(--muted)}
+
+    /* Footer */
+    footer{
+      margin-top:32px;
+      padding:20px;
+      text-align:center;
+      color:var(--muted);
+      font-size:13px;
+    }
+    .disclaimer{
+      margin-top:12px;
+      padding:12px;
+      background:linear-gradient(90deg, rgba(255,255,255,0.02), transparent);
+      border-radius:10px;
+      color:#ffdfe3;
+      font-weight:600;
+    }
+
+    /* Responsive */
+    @media (max-width:1000px){
+      .hero, .about-contact{grid-template-columns:1fr}
+      section.services{grid-template-columns:repeat(2,1fr)}
+      .wrap{padding:18px}
+    }
+    @media (max-width:640px){
+      header{flex-direction:column;align-items:flex-start;gap:8px}
+      nav{order:3; width:100%; overflow:auto}
+      .brand{gap:10px}
+      h2{font-size:28px}
+      section.services{grid-template-columns:1fr}
+      nav a{font-size:13px;padding:8px}
+      .logo{width:44px;height:44px;flex:0 0 44px}
+    }
+
+    /* subtle animations */
+    .fade-up{opacity:0;transform:translateY(10px);transition:opacity .6s ease, transform .6s ease}
+    .inview{opacity:1;transform:translateY(0)}
+    .float{
+      animation:float 6s ease-in-out infinite;
+    }
+    @keyframes float{
+      0%{transform:translateY(0)}
+      50%{transform:translateY(-8px)}
+      100%{transform:translateY(0)}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <a class="brand" href="#" aria-label="Zagrebačka banka - demonstracijski prikaz">
+        <div class="logo" aria-hidden="true">
+          <!-- stylized abstract bank icon -->
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="3" y="8" width="18" height="3" rx="1" fill="white" opacity="0.9"/>
+            <path d="M5 19h14v-6H5v6z" fill="white" opacity="0.9"/>
+            <path d="M12 2L3 7h18L12 2z" fill="white" opacity="0.9"/>
+          </svg>
+        </div>
+        <div>
+          <h1>Zagrebačka banka</h1>
+          <p>Demonstracijski preview dizajna</p>
+        </div>
+      </a>
+
+      <nav aria-label="Glavna navigacija">
+        <a href="#usluge">Usluge</a>
+        <a href="#o-nama">O nama</a>
+        <a href="#kontakt">Kontakt</a>
+        <a class="cta" href="#kontakt">Zatražite pregled (demo)</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="hero-heading">
+        <div class="lead fade-up">
+          <span class="kicker">Premium dizajn • Responzivno • Sigurno</span>
+          <h2 id="hero-heading">Moderan i profesionalan prikaz digitalnih bankarskih usluga</h2>
+          <p class="lead-text">Ovaj demonstracijski preview prikazuje modernu naslovnicu i ključne sekcije prikladne za bankarske i financijske usluge: jasno istaknuta ponuda, pregled usluga, odjeljak O nama i kontakt s pozivom na akciju. Sadržaj je primjer i ne predstavlja službene informacije.</p>
+
+          <div class="hero-cta">
+            <a class="btn" href="#kontakt">Zatraži demo</a>
+            <a class="btn ghost" href="#usluge">Pogledaj usluge</a>
+          </div>
+
+          <div class="features" aria-hidden="true">
+            <div class="feature">Digitalno bankarstvo</div>
+            <div class="feature">Poslovna rješenja</div>
+            <div class="feature">Sigurnost i podrška</div>
+          </div>
+        </div>
+
+        <aside class="card float fade-up" aria-labelledby="quick-title">
+          <h3 id="quick-title">Brzi pristup (demo)</h3>
+          <div class="quick">
+            <a href="#usluge" title="Pogledajte usluge">
+              <span>Pregled usluga</span>
+              <span style="opacity:.7">></span>
+            </a>
+            <a href="#o-nama" title="Više o ovom prikazu">
+              <span>O prikazu</span>
+              <span style="opacity:.7">></span>
+            </a>
+            <a href="#kontakt" title="Kontaktirajte nas (demo)">
+              <span>Kontakt (demo obrazac)</span>
+              <span style="opacity:.7">></span>
+            </a>
+          </div>
+        </aside>
+      </section>
+
+      <section id="usluge" class="services" aria-labelledby="usluge-title">
+        <h2 id="usluge-title" style="grid-column:1/-1;margin:18px 0 6px 0;font-size:22px;color:#fff;">Naše ključne kategorije usluga</h2>
+
+        <article class="service-card fade-up" aria-labelledby="s1">
+          <h4 id="s1">Poslovno bankarstvo</h4>
+          <p>Rješenja usmjerena na podršku tvrtkama i poduzetnicima: upravljanje računima, transakcije i poslovna digitalna rješenja (sadržaj demo prikaza).</p>
+        </article>
+
+        <article class="service-card fade-up" aria-labelledby="s2">
+          <h4 id="s2">Kreditna i financijska podrška</h4>
+          <p>Opći pregled kreditnih i financijskih kategorija za fizičke i pravne osobe — u stvarnom slučaju preporučujemo provjeru službenih izvora i uvjeta.</p>
+        </article>
+
+        <article class="service-card fade-up" aria-labelledby="s3">
+          <h4 id="s3">Digitalno bankarstvo</h4>
+          <p>Sigurni online kanali i alati za upravljanje računom, mobilne aplikacije te podrška za digitalne usluge (demo vizualizacija).</p>
+        </article>
+
+        <article class="service-card fade-up" aria-labelledby="s4">
+          <h4 id="s4">Savjetodavne usluge</h4>
+          <p>Općeniti konzervativni savjeti i informacije o financijskom planiranju; provjerite stvarnu dostupnost i uvjete preko službenih kanala.</p>
+        </article>
+
+        <article class="service-card fade-up" aria-labelledby="s5">
+          <h4 id="s5">Sigurnost i podrška</h4>
+          <p>Pristupi zaštiti korisničkih podataka i korisnička podrška za digitalne usluge—ovaj sadržaj služi kao prikaz sekcije na web stranici.</p>
+        </article>
+
+        <article class="service-card fade-up" aria-labelledby="s6">
+          <h4 id="s6">Corporate i partnerstva</h4>
+          <p>Informativna sekcija namijenjena predstavljanju partnerstava i suradnji; ovdje je sadržaj ilustrativan i ne prikazuje stvarne partner-e.</p>
+        </article>
+      </section>
+
+      <section class="about-contact">
+        <div class="about fade-up" id="o-nama" aria-labelledby="about-title">
+          <h3 id="about-title">O ovom demonstracijskom prikazu</h3>
+          <p class="note">Ovo je neslužbeni demo prikaz dizajna za web stranicu pod nazivom "Zagrebačka banka". Svrha je pokazati strukturirani, responzivni i premium vizualni dizajn stranice uz jasno obilježavanje da se radi o demonstraciji. Nisu uključene stvarne reference, recenzije, cijene ili kontakt podaci.</p>
+
+          <h4 style="margin-top:16px">Dizajn i pristup</h4>
+          <p>Fokus je na čitljivosti, intuitivnoj navigaciji, brzoj akciji (CTA) i prilagodbi mobilnim uređajima. Sekcije su osmišljene tako da lako prenesu stvarne poslovne informacije bez narušavanja vizualnog integriteta.</p>
+
+          <h4 style="margin-top:14px">Napomene</h4>
+          <ul style="color:var(--muted);margin:8px 0 0 18px">
+            <li>Ovaj prikaz ne sadrži službene ili potvrđene informacije o stvarnim proizvodima.</li>
+            <li>Za službene podatke i kontakt koristite službene kanale organizacije.</li>
+          </ul>
+        </div>
+
+        <aside class="contact fade-up" id="kontakt" aria-labelledby="contact-title">
+          <h3 id="contact-title">Kontakt (demo obrazac)</h3>
+          <p class="note">Ispunite obrazac kako biste vidjeli primjer interakcije. Obrazac je demo i neće poslati stvarnu poruku.</p>
+
+          <form id="demo-contact" onsubmit="return false;" aria-label="Demo kontakt obrazac">
+            <label class="note" for="ime">Ime i prezime</label>
+            <input id="ime" name="ime" type="text" placeholder="Vaše ime" required>
+
+            <label class="note" for="firma">Tvrtka (opcionalno)</label>
+            <input id="firma" name="firma" type="text" placeholder="Ime tvrtke">
+
+            <label class="note" for="email">E-mail</label>
+            <input id="email" name="email" type="email" placeholder="email@primjer.hr" required>
+
+            <label class="note" for="poruka">Poruka</label>
+            <textarea id="poruka" name="poruka" placeholder="Kratka poruka..." required></textarea>
+
+            <div style="display:flex;gap:10px;align-items:center">
+              <button type="submit" class="btn" id="sendBtn">Pošalji (demo)</button>
+              <button type="button" class="btn ghost" id="clearBtn">Očisti</button>
+            </div>
+
+            <p class="note" style="margin-top:8px;">Molimo ne upisujte osjetljive osobne ili bankovne podatke. Obrazac služi isključivo za demonstracijske potrebe.</p>
+
+            <div id="formMessage" role="status" aria-live="polite" style="display:none;padding:10px;border-radius:8px;margin-top:8px;background:rgba(14,165,164,0.08);color:var(--muted);font-weight:600"></div>
+          </form>
+        </aside>
+      </section>
+
+      <footer class="fade-up">
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap">
+          <div style="display:flex;flex-direction:column;gap:6px">
+            <div style="font-weight:700">Zagrebačka banka — demonstracijski preview</div>
+            <div style="color:var(--muted);font-size:13px">Svi prikazi i sadržaji ovdje su informativnog i dizajnerskog karaktera.</div>
+          </div>
+
+          <div style="text-align:right">
+            <div class="note">Ne sadrži službene kontakte niti potvrđene informacije.</div>
+          </div>
+        </div>
+
+        <div class="disclaimer" style="margin-top:16px">
+          Ovo je demonstracijski preview i nije službena stranica tvrtke.
+        </div>
+      </footer>
+    </main>
+  </div>
+
+  <script>
+    // Smooth scroll for internal links
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', function(e){
+        const id = this.getAttribute('href');
+        if(id === '#' || id === '') return;
+        const el = document.querySelector(id);
+        if(el){
+          e.preventDefault();
+          el.scrollIntoView({behavior:'smooth', block:'start'});
+        }
+      });
+    });
+
+    // Intersection observer for simple reveal animations
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){
+          e.target.classList.add('inview');
+          io.unobserve(e.target);
+        }
+      });
+    }, {threshold:0.12});
+    document.querySelectorAll('.fade-up').forEach(el=>io.observe(el));
+
+    // Demo form interactions (no real sending)
+    const form = document.getElementById('demo-contact');
+    const sendBtn = document.getElementById('sendBtn');
+    const clearBtn = document.getElementById('clearBtn');
+    const formMessage = document.getElementById('formMessage');
+
+    sendBtn.addEventListener('click', function(){
+      // Basic validation
+      const name = document.getElementById('ime').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const message = document.getElementById('poruka').value.trim();
+
+      if(!name || !email || !message){
+        showMessage('Molimo ispunite obavezna polja.', true);
+        return;
+      }
+
+      // Demo result
+      showMessage('Hvala! Ovo je demo — poruka neće biti poslana. Za stvarni kontakt koristite službene kanale.', false);
+      // Optionally clear fields after short delay
+      setTimeout(()=>form.reset(), 800);
+    });
+
+    clearBtn.addEventListener('click', function(){
+      form.reset();
+      showMessage('Polja su očišćena.', false);
+    });
+
+    function showMessage(txt, isError){
+      formMessage.style.display = 'block';
+      formMessage.textContent = txt;
+      formMessage.style.background = isError ? 'rgba(255,120,120,0.06)' : 'rgba(14,165,164,0.06)';
+      formMessage.style.color = isError ? '#ffdede' : 'var(--muted)';
+      setTimeout(()=>{ formMessage.style.display = 'none'; }, 6000);
+    }
+
+    // Accessibility: focus visible for keyboard users
+    document.addEventListener('keydown', function(e){
+      if(e.key === 'Tab') document.body.classList.add('user-tab');
+    });
+
+    // Prevent accidental form submission on Enter in textarea
+    document.getElementById('poruka').addEventListener('keydown', function(e){
+      if(e.key === 'Enter' && !e.shiftKey){
+        e.preventDefault();
+      }
+    });
+  </script>
+</body>
+</html>
