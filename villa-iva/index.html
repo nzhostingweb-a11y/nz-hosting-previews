@@ -1,0 +1,665 @@
+ <!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Villa Iva — Premium catering, pažnja na svaki detalj</title>
+  <meta name="description" content="Villa Iva pruža profesionalne catering usluge s fokusom na prilagodljive jelovnike, besprijekorno posluživanje i pedantnu logistiku. Kontaktirajte nas za ponudu: +385 32 591 011." />
+  <meta property="og:title" content="Villa Iva — Premium catering, pažnja na svaki detalj" />
+  <meta property="og:description" content="Kontakt: +385 32 591 011. Posjetite službenu stranicu za više informacija." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      /* Colors */
+      --color-primary: #1f4e4f; /* deep teal */
+      --color-secondary: #f6f2ec; /* warm ivory */
+      --color-accent: #d9822b; /* copper accent */
+      --neutral-900: #0b0b0b;
+      --neutral-700: #333333;
+      --neutral-500: #7a7a7a;
+      --neutral-300: #d8d8d8;
+      --bg: var(--color-secondary);
+      --card-bg: #ffffff;
+      --glass: rgba(255,255,255,0.6);
+
+      /* Typography */
+      --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      --font-serif: "Playfair Display", Georgia, "Times New Roman", serif;
+
+      /* Fluid type */
+      --h1: clamp(2rem, 3.5vw + 0.5rem, 3.6rem);
+      --h2: clamp(1.25rem, 2.2vw + 0.2rem, 1.8rem);
+      --lead: clamp(1rem, 1.6vw, 1.125rem);
+      --base: clamp(0.95rem, 1vw, 1rem);
+
+      /* Spacing scale */
+      --space-xs: 6px;
+      --space-sm: 12px;
+      --space-md: 20px;
+      --space-lg: 32px;
+      --space-xl: 48px;
+
+      /* Layout */
+      --max-width: 1200px;
+      --radius-sm: 8px;
+      --radius-lg: 16px;
+
+      /* Shadows */
+      --shadow-soft: 0 6px 18px rgba(16,20,25,0.08);
+      --shadow-strong: 0 12px 30px rgba(16,20,25,0.12);
+
+      /* Transitions */
+      --ease: cubic-bezier(.2,.9,.2,1);
+    }
+
+    /* Reset & base */
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:var(--font-sans);
+      background: linear-gradient(180deg, var(--bg) 0%, #fff 100%);
+      color:var(--neutral-900);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+      font-size:var(--base);
+    }
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;height:auto;display:block}
+
+    /* Container */
+    .container{
+      width:100%;
+      max-width:var(--max-width);
+      margin:0 auto;
+      padding:0 20px;
+    }
+
+    /* NAV */
+    header{
+      position:sticky;
+      top:0;
+      z-index:80;
+      backdrop-filter: blur(6px);
+      background: linear-gradient(180deg, rgba(255,255,255,0.88), rgba(255,255,255,0.72));
+      border-bottom:1px solid rgba(10,10,10,0.04);
+    }
+    .nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      padding:18px 0;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:14px;
+    }
+    .mark{
+      width:48px;height:48px;
+      background:linear-gradient(135deg,var(--color-primary),#2b6b6b);
+      border-radius:10px;
+      display:grid;
+      place-items:center;
+      color:var(--color-secondary);
+      font-family:var(--font-serif);
+      font-weight:700;
+      font-size:1.05rem;
+      box-shadow:var(--shadow-soft);
+    }
+    .wordmark{
+      display:flex;
+      flex-direction:column;
+      line-height:1;
+    }
+    .wordmark .title{
+      font-family:var(--font-serif);
+      font-size:1rem;
+      color:var(--neutral-900);
+      letter-spacing:0.2px;
+      margin:0;
+    }
+    .wordmark .sub{
+      font-size:0.8rem;
+      color:var(--neutral-500);
+      margin-top:2px;
+    }
+
+    nav ul{
+      display:flex;
+      gap:20px;
+      align-items:center;
+      list-style:none;
+      padding:0;
+      margin:0;
+    }
+    nav a{color:var(--neutral-700); font-weight:600;}
+    .cta-primary{
+      background:var(--color-primary);
+      color:var(--color-secondary);
+      padding:10px 16px;
+      border-radius:10px;
+      box-shadow:var(--shadow-soft);
+      transition:transform .22s var(--ease), box-shadow .22s var(--ease);
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      font-weight:700;
+    }
+    .cta-primary:focus {outline:3px solid rgba(33,120,118,0.14); outline-offset:3px}
+    .cta-primary:hover{transform:translateY(-3px); box-shadow:var(--shadow-strong)}
+    .cta-ghost{
+      padding:8px 12px;
+      border-radius:10px;
+      color:var(--neutral-700);
+      transition:background .18s var(--ease), color .18s var(--ease);
+    }
+    .cta-ghost:hover{background:rgba(15,70,70,0.04); color:var(--neutral-900)}
+
+    /* Mobile menu button */
+    .menu-btn{
+      display:none;
+      background:transparent;
+      border:0;
+      padding:8px;
+      border-radius:8px;
+    }
+    .menu-btn:focus{outline:3px solid rgba(33,120,118,0.12)}
+
+    /* HERO */
+    .hero{
+      padding: calc(var(--space-xl) + 8px) 0;
+      display:grid;
+      grid-template-columns: 1fr 460px;
+      gap:40px;
+      align-items:center;
+    }
+    .hero-left{
+      max-width:760px;
+    }
+    h1{
+      margin:0 0 16px 0;
+      font-size:var(--h1);
+      font-family:var(--font-serif);
+      color:var(--neutral-900);
+      letter-spacing:-0.6px;
+    }
+    p.lead{
+      margin:0 0 22px 0;
+      font-size:var(--lead);
+      color:var(--neutral-700);
+      max-width:56ch;
+    }
+    .hero-ctas{display:flex; gap:12px; align-items:center; flex-wrap:wrap}
+    .hero-visual{
+      position:relative;
+      background:linear-gradient(180deg, rgba(223,215,203,0.1), rgba(255,255,255,0));
+      padding:22px;
+      border-radius:16px;
+      box-shadow:var(--shadow-soft);
+      min-height:320px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      overflow:visible;
+    }
+
+    /* Decorative plate SVG group */
+    .plate-wrap{
+      width:100%;
+      display:grid;
+      place-items:center;
+      transform:translateY(0);
+    }
+    .plate{
+      width:320px;
+      height:320px;
+      border-radius:50%;
+      background:
+        radial-gradient(circle at 35% 30%, rgba(255,255,255,0.9) 0 6%, transparent 8%),
+        radial-gradient(circle at 70% 70%, rgba(255,255,255,0.85) 0 6%, transparent 9%),
+        linear-gradient(180deg,#fff 0%, #fbf7f2 100%);
+      display:grid;
+      place-items:center;
+      position:relative;
+      box-shadow: 0 8px 30px rgba(20,30,25,0.08);
+      border: 1px solid rgba(30,40,40,0.04);
+    }
+    .plate::after{
+      content:"";
+      position:absolute;
+      inset:14%;
+      border-radius:50%;
+      background:conic-gradient(from 180deg at 50% 50%, rgba(217,130,70,0.06), transparent 30%);
+      pointer-events:none;
+    }
+    .plate svg{width:55%; height:55%; opacity:0.95}
+
+    /* Services */
+    .cards{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:18px;
+      margin-top:var(--space-lg);
+    }
+    .card{
+      background:var(--card-bg);
+      padding:18px;
+      border-radius:12px;
+      box-shadow:var(--shadow-soft);
+      border:1px solid rgba(10,10,10,0.03);
+    }
+    .card h3{margin:0 0 8px 0; font-size:1rem; color:var(--neutral-900); font-weight:700}
+    .card p{margin:0; color:var(--neutral-500); font-size:0.95rem}
+
+    /* About & approach */
+    .split{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:28px;
+      align-items:center;
+      margin-top:var(--space-xl);
+    }
+    .stat{
+      display:flex;
+      gap:14px;
+      align-items:flex-start;
+    }
+    .icon{
+      width:56px;height:56px;border-radius:12px;
+      background:linear-gradient(135deg,var(--color-accent), #f5a05a);
+      display:grid;place-items:center;color:white;font-weight:700;
+      box-shadow:var(--shadow-soft);
+    }
+
+    /* Process */
+    .process{
+      margin-top:var(--space-xl);
+      padding:22px;
+      border-radius:12px;
+      background:linear-gradient(180deg, rgba(31,78,79,0.03), rgba(255,255,255,0.4));
+      display:flex;
+      gap:18px;
+      align-items:center;
+      justify-content:space-between;
+    }
+    .steps{display:flex;gap:16px;align-items:center}
+    .step{
+      background:var(--card-bg);
+      padding:12px 14px;
+      border-radius:12px;
+      box-shadow:var(--shadow-soft);
+      min-width:120px;
+      text-align:center;
+    }
+    .step strong{display:block;font-size:0.95rem;margin-bottom:6px}
+
+    /* Contact */
+    .contact{
+      margin-top:var(--space-xl);
+      display:flex;
+      gap:18px;
+      align-items:center;
+      justify-content:space-between;
+      flex-wrap:wrap;
+    }
+    .contact a{display:inline-flex;align-items:center;gap:10px;padding:12px 14px;border-radius:10px;background:var(--card-bg);box-shadow:var(--shadow-soft);border:1px solid rgba(10,10,10,0.03)}
+    .muted{color:var(--neutral-500);font-size:0.95rem}
+
+    /* Footer */
+    footer{
+      margin-top:var(--space-xl);
+      padding:28px 0 60px 0;
+      border-top:1px solid rgba(10,10,10,0.04);
+    }
+    .footer-grid{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+
+    /* Responsive */
+    @media (max-width:1024px){
+      .hero{grid-template-columns:1fr 360px}
+      .cards{grid-template-columns: repeat(2, 1fr)}
+      .split{grid-template-columns:1fr}
+      .process{flex-direction:column;align-items:flex-start}
+    }
+    @media (max-width:720px){
+      .nav ul{display:none}
+      .menu-btn{display:inline-flex}
+      .hero{grid-template-columns:1fr; padding:28px 0}
+      .hero-visual{order: -1; margin-bottom:18px}
+      .cards{grid-template-columns:1fr}
+      .brand .wordmark .sub{display:none}
+      .plate{width:260px;height:260px}
+      .plate svg{width:62%;height:62%}
+    }
+
+    /* Mobile menu panel */
+    .mobile-panel{
+      position:fixed;
+      inset:0;
+      background:linear-gradient(180deg, rgba(11,11,11,0.45), rgba(11,11,11,0.66));
+      display:none;
+      align-items:flex-start;
+      justify-content:flex-end;
+      padding:20px;
+      z-index:120;
+    }
+    .mobile-panel.open{display:flex}
+    .mobile-sheet{
+      background:var(--card-bg);
+      width:320px;
+      max-width:92%;
+      border-radius:14px;
+      padding:20px;
+      box-shadow:0 30px 60px rgba(10,10,10,0.28);
+      transform:translateY(0);
+    }
+    .mobile-sheet nav ul{display:flex;flex-direction:column;gap:12px}
+    .mobile-sheet a{padding:10px;border-radius:8px}
+    .mobile-sheet .ctas{display:flex;gap:10px;margin-top:12px}
+
+    /* focus & accessibility */
+    :focus{outline-offset:3px}
+    a:focus, button:focus{outline:3px solid rgba(33,120,118,0.12); border-radius:8px}
+    @media (prefers-reduced-motion: reduce){
+      *{animation:none!important;transition:none!important}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav" role="navigation" aria-label="Glavna navigacija">
+      <div class="brand">
+        <div class="mark" aria-hidden="true">IV</div>
+        <div class="wordmark">
+          <div class="title">Villa Iva</div>
+          <div class="sub">Catering</div>
+        </div>
+      </div>
+
+      <nav aria-label="Sekcije">
+        <ul>
+          <li><a href="#usluge">Ponuda</a></li>
+          <li><a href="#o-nama">O nama</a></li>
+          <li><a href="#proces">Suradnja</a></li>
+          <li><a href="#kontakt">Kontakt</a></li>
+        </ul>
+      </nav>
+
+      <div style="display:flex;align-items:center;gap:12px">
+        <a class="cta-ghost" href="http://www.villa-iva-ilok.com" target="_blank" rel="noopener">Službena stranica</a>
+        <a class="cta-primary" href="tel:+38532591011" aria-label="Nazovite Villa Iva">Nazovite nas<br><span style="font-size:0.78rem;opacity:0.9">+385 32 591 011</span></a>
+
+        <button class="menu-btn" id="menuBtn" aria-controls="mobileMenu" aria-expanded="false" aria-label="Otvori izbornik">
+          <svg width="22" height="14" viewBox="0 0 22 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect width="22" height="2" rx="1" fill="#0B0B0B"/>
+            <rect y="6" width="22" height="2" rx="1" fill="#0B0B0B"/>
+            <rect y="12" width="22" height="2" rx="1" fill="#0B0B0B"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="container hero" aria-labelledby="hero-heading">
+      <div class="hero-left">
+        <h1 id="hero-heading">Catering koji podupire svaki trenutak — besprijekorna izvedba, promišljen jelovnik</h1>
+        <p class="lead">Villa Iva pruža cjelovita catering rješenja: od prilagodljivih jelovnika do organizacije posluživanja i logističke podrške. Surađujemo s vama kako bi vaš događaj tekao bez kompromisa na kvaliteti.</p>
+
+        <div class="hero-ctas">
+          <a class="cta-primary" href="tel:+38532591011" aria-label="Nazovite Villa Iva">Rezervirajte poziv</a>
+          <a class="cta-ghost" href="http://www.villa-iva-ilok.com" target="_blank" rel="noopener">Pogledajte više</a>
+        </div>
+
+        <div class="cards" id="usluge" aria-label="Pregled ponude">
+          <article class="card" aria-labelledby="c1-title">
+            <h3 id="c1-title">Prilagodljivi jelovnici</h3>
+            <p>Opcije sastavljene prema vašim preferencijama i prirodi događaja — od koncepta do izvedbe.</p>
+          </article>
+
+          <article class="card" aria-labelledby="c2-title">
+            <h3 id="c2-title">Profesionalno posluživanje</h3>
+            <p>Iskusno osoblje usmjereno na preciznost, urednost i diskretnu uslugu tijekom događaja.</p>
+          </article>
+
+          <article class="card" aria-labelledby="c3-title">
+            <h3 id="c3-title">Logistika i oprema</h3>
+            <p>Koordinacija prostora, opreme i vremenskih planova kako bi sve proteklo u skladu s očekivanjima.</p>
+          </article>
+        </div>
+
+        <div class="split" id="o-nama" aria-labelledby="about-heading">
+          <div>
+            <h2 id="about-heading" style="font-size:var(--h2);margin:0 0 12px 0;font-family:var(--font-serif)">O Villa Iva</h2>
+            <p class="muted">Villa Iva je catering tvrtka koja pristupa svakoj suradnji individualno. Fokus nam je na jasnoj komunikaciji, pažljivo planiranim jelovnicima i kvalitetnoj realizaciji. Radimo u dogovoru s organizatorima i klijentima kako bi sadržaj događaja bio usklađen s očekivanjima.</p>
+          </div>
+
+          <div>
+            <div class="stat" aria-hidden="true">
+              <div class="icon" aria-hidden="true">
+                <!-- cutlery SVG -->
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M7 2v12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" opacity="0.98"/>
+                  <path d="M11 6v8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M15 2v12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <div>
+                <h3 style="margin:0;font-size:1rem">Individualan pristup</h3>
+                <p class="muted" style="margin-top:6px">Svaki događaj planiramo sukladno željama i uvjetima lokacije.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="process" id="proces" aria-labelledby="proces-heading">
+          <div>
+            <h2 id="proces-heading" style="font-size:var(--h2);margin:0 0 8px 0;font-family:var(--font-serif)">Kako suradnja izgleda</h2>
+            <p class="muted" style="margin:0">Jasan tijek suradnje kako bi planiranje bilo jednostavno i transparentno.</p>
+          </div>
+
+          <div class="steps" aria-hidden="true">
+            <div class="step" role="group" aria-label="Konzultacije">
+              <strong>Konzultacije</strong>
+              <span class="muted">Rasprava o željama i okvirima</span>
+            </div>
+            <div class="step" role="group" aria-label="Ponuđa">
+              <strong>Prijedlog</strong>
+              <span class="muted">Prilagodljivi jelovnik i plan</span>
+            </div>
+            <div class="step" role="group" aria-label="Izvedba">
+              <strong>Izvedba</strong>
+              <span class="muted">Realizacija na dan događaja</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact" id="kontakt" aria-labelledby="kontakt-heading">
+          <div>
+            <h2 id="kontakt-heading" style="font-size:var(--h2);margin:0 0 8px 0;font-family:var(--font-serif)">Kontakt</h2>
+            <p class="muted" style="margin:0 0 8px 0">Za upite i rezervacije nazovite ili posjetite našu stranicu.</p>
+          </div>
+
+          <div style="display:flex;gap:12px;align-items:center">
+            <a href="tel:+38532591011" aria-label="Pozovite Villa Iva">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.86 19.86 0 0 1 3.06 5.18 2 2 0 0 1 5 3h3a2 2 0 0 1 2 1.72c.12 1.01.37 1.99.74 2.92a2 2 0 0 1-.45 2.11L9.91 11.09a16 16 0 0 0 6 6l1.34-1.34a2 2 0 0 1 2.11-.45c.93.37 1.91.62 2.92.74A2 2 0 0 1 22 16.92z" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              +385 32 591 011
+            </a>
+
+            <a href="http://www.villa-iva-ilok.com" target="_blank" rel="noopener" aria-label="Otvorite službenu stranicu">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2a10 10 0 1 0 .001 20.001A10 10 0 0 0 12 2z" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M2 12h20" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" opacity="0.6"/>
+              </svg>
+              villa-iva-ilok.com
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <aside class="hero-visual" aria-hidden="false" aria-labelledby="hero-heading">
+        <div class="plate-wrap" role="img" aria-label="Ilustracija poslužene kombinacije jela">
+          <div class="plate" aria-hidden="true">
+            <!-- Decorative SVG: stylized serving with herbs -->
+            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
+              <defs>
+                <linearGradient id="g1" x1="0" x2="1" y1="0" y2="1">
+                  <stop offset="0" stop-color="#ffd9b8" stop-opacity="0.95"/>
+                  <stop offset="1" stop-color="#fff1e8" stop-opacity="0.95"/>
+                </linearGradient>
+              </defs>
+              <circle cx="100" cy="100" r="90" fill="url(#g1)"/>
+              <g transform="translate(46,46) scale(0.9)">
+                <rect x="10" y="30" width="120" height="70" rx="10" fill="#fff" stroke="#f0e6de" stroke-width="2"/>
+                <ellipse cx="70" cy="48" rx="34" ry="16" fill="#f3d7b7"/>
+                <path d="M45 74c10-6 30-8 44 0" stroke="#d9822b" stroke-width="4" stroke-linecap="round" fill="none"/>
+                <g transform="translate(18,20)">
+                  <path d="M12 6c3 2 8 2 11 0" stroke="#2b6b6b" stroke-width="2.4" stroke-linecap="round" fill="none"/>
+                  <path d="M18 2c2 1 5 1 7 0" stroke="#2b6b6b" stroke-width="1.8" stroke-linecap="round"/>
+                </g>
+              </g>
+            </svg>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <div class="container">
+      <!-- Visual highlight / decorative band -->
+      <section style="margin-top:var(--space-xl); padding:20px; border-radius:12px; background:linear-gradient(90deg, rgba(31,78,79,0.04), rgba(217,130,70,0.02)); display:flex; gap:18px; align-items:center; justify-content:space-between">
+        <div style="display:flex;gap:14px;align-items:center">
+          <div style="width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,var(--color-primary),#2b6b6b);display:grid;place-items:center;color:white;font-weight:700;font-family:var(--font-serif)">IV</div>
+          <div>
+            <div style="font-weight:700">Planirate događaj?</div>
+            <div class="muted" style="margin-top:6px">Jasna komunikacija i prilagodljive opcije kako bi sve proteklo glatko.</div>
+          </div>
+        </div>
+        <div style="display:flex;gap:12px">
+          <a class="cta-primary" href="tel:+38532591011">Zatražite poziv</a>
+          <a class="cta-ghost" href="http://www.villa-iva-ilok.com" target="_blank" rel="noopener">Saznajte više</a>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container footer-grid" role="contentinfo">
+      <div style="display:flex;gap:14px;align-items:center">
+        <div class="mark" style="width:46px;height:46px;border-radius:10px;font-size:0.95rem">IV</div>
+        <div>
+          <div style="font-weight:700">Villa Iva</div>
+          <div class="muted">Catering</div>
+        </div>
+      </div>
+
+      <div class="muted" style="text-align:right">
+        <div>Telefon: <a href="tel:+38532591011">+385 32 591 011</a></div>
+        <div style="margin-top:6px">Web: <a href="http://www.villa-iva-ilok.com" target="_blank" rel="noopener">villa-iva-ilok.com</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Mobile menu -->
+  <div class="mobile-panel" id="mobileMenu" aria-hidden="true">
+    <div class="mobile-sheet" role="dialog" aria-modal="true" aria-label="Mobilni izbornik">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px">
+        <div style="display:flex;align-items:center;gap:10px">
+          <div class="mark" style="width:44px;height:44px">IV</div>
+          <div>
+            <div style="font-weight:700">Villa Iva</div>
+            <div class="muted" style="font-size:0.9rem">Catering</div>
+          </div>
+        </div>
+        <button id="closeMenu" class="menu-btn" aria-label="Zatvori izbornik">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+            <path d="M18 6L6 18" stroke="#0B0B0B" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M6 6l12 12" stroke="#0B0B0B" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+
+      <nav aria-label="Mobilne sekcije">
+        <ul>
+          <li><a href="#usluge">Ponuda</a></li>
+          <li><a href="#o-nama">O nama</a></li>
+          <li><a href="#proces">Suradnja</a></li>
+          <li><a href="#kontakt">Kontakt</a></li>
+        </ul>
+      </nav>
+
+      <div class="ctas" style="margin-top:14px;display:flex;gap:10px">
+        <a class="cta-primary" href="tel:+38532591011">Nazovite</a>
+        <a class="cta-ghost" href="http://www.villa-iva-ilok.com" target="_blank" rel="noopener">Službena stranica</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function(){
+      const menuBtn = document.getElementById('menuBtn');
+      const mobileMenu = document.getElementById('mobileMenu');
+      const closeBtn = document.getElementById('closeMenu');
+
+      function openMenu(){
+        mobileMenu.classList.add('open');
+        mobileMenu.setAttribute('aria-hidden','false');
+        menuBtn.setAttribute('aria-expanded','true');
+        // Trap focus minimally
+        closeBtn.focus();
+        document.body.style.overflow = 'hidden';
+      }
+      function closeMenuFn(){
+        mobileMenu.classList.remove('open');
+        mobileMenu.setAttribute('aria-hidden','true');
+        menuBtn.setAttribute('aria-expanded','false');
+        menuBtn.focus();
+        document.body.style.overflow = '';
+      }
+
+      menuBtn.addEventListener('click', function(){ openMenu(); });
+      closeBtn && closeBtn.addEventListener('click', function(){ closeMenuFn(); });
+
+      // Close when clicking outside sheet
+      mobileMenu.addEventListener('click', function(e){
+        if(e.target === mobileMenu) closeMenuFn();
+      });
+
+      // Close on escape
+      window.addEventListener('keydown', function(e){
+        if(e.key === 'Escape' && mobileMenu.classList.contains('open')) closeMenuFn();
+      });
+
+      // Smooth in-page navigation and close mobile menu after click
+      document.querySelectorAll('a[href^="#"]').forEach(function(anchor){
+        anchor.addEventListener('click', function(e){
+          const href = anchor.getAttribute('href');
+          if(href.length > 1){
+            const target = document.querySelector(href);
+            if(target){
+              e.preventDefault();
+              target.scrollIntoView({behavior:'smooth', block:'start'});
+              // close mobile menu if open
+              if(mobileMenu.classList.contains('open')) closeMenuFn();
+            }
+          }
+        });
+      });
+
+      // Respect reduced motion by disabling smooth scroll if user prefers reduce motion
+      const media = window.matchMedia('(prefers-reduced-motion: reduce)');
+      if(media.matches){
+        document.documentElement.style.scrollBehavior = 'auto';
+      } else {
+        document.documentElement.style.scrollBehavior = 'smooth';
+      }
+    })();
+  </script>
+</body>
+</html>
