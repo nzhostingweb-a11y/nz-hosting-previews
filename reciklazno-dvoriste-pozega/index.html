@@ -1,0 +1,629 @@
+ <!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Reciklažno dvorište Požega — odvojeno prikupljanje otpada</title>
+  <meta name="description" content="Reciklažno dvorište Požega — informacije i upute za predaju odvojenog otpada. Službeni dokument s detaljima o radu i kategorijama otpada dostupan je u PDF-u." />
+  <meta property="og:title" content="Reciklažno dvorište Požega — odvojeno prikupljanje otpada" />
+  <meta property="og:description" content="Praktične upute i važni dokumenti za pravilno odlaganje i predaju odvojenog otpada. Preuzmite službeni PDF s detaljima." />
+  <meta name="theme-color" content="#0f1720" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      /* Boje i vizualni sustav */
+      --color-bg: #0b0f12;
+      --color-card: #0f1720;
+      --color-primary: #c7a65a; /* zlatni akcent */
+      --color-accent: #5abf6b;  /* recycling akcentska zelena */
+      --color-muted: #94a3b8;
+      --color-text: #e6eef6;
+      --color-contrast: #ffffff;
+      --glass: rgba(255,255,255,0.03);
+
+      /* Tipografija */
+      --font-heading: "Playfair Display", serif;
+      --font-body: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      --fw-regular: 400;
+      --fw-medium: 600;
+      --fw-bold: 700;
+
+      /* Spacing */
+      --space-xs: 8px;
+      --space-sm: 12px;
+      --space-md: 20px;
+      --space-lg: 36px;
+      --space-xl: 64px;
+
+      /* Border radius */
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+
+      /* Shadow */
+      --shadow-soft: 0 6px 18px rgba(2,6,23,0.6);
+      --shadow-subtle: 0 4px 12px rgba(2,6,23,0.5);
+
+      /* Breakpoints */
+      --bp-sm: 480px;
+      --bp-md: 768px;
+      --bp-lg: 1200px;
+    }
+
+    /* Reset */
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background:linear-gradient(180deg,var(--color-bg) 0%, #071018 50%);
+      color:var(--color-text);
+      font-family:var(--font-body);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    a{color:inherit;text-decoration:none}
+    img,svg{max-width:100%;height:auto;display:block}
+
+    /* Layout container */
+    .container{
+      width: min(1180px, calc(100% - 48px));
+      margin: 0 auto;
+    }
+
+    /* NAV */
+    header{
+      position:sticky;
+      top:0;
+      z-index:60;
+      backdrop-filter: blur(6px);
+      background: linear-gradient(180deg, rgba(11,15,18,0.6), rgba(11,15,18,0.38));
+      border-bottom: 1px solid rgba(255,255,255,0.03);
+    }
+    .nav-row{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:var(--space-md);
+      padding:12px 0;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      text-decoration:none;
+      color:var(--color-text);
+    }
+    .logo-mark{
+      width:52px;height:52px;
+      display:grid;place-items:center;
+      background:linear-gradient(135deg,var(--color-card),rgba(255,255,255,0.02));
+      border-radius:12px;
+      box-shadow:var(--shadow-subtle);
+      flex:0 0 52px;
+    }
+    .wordmark{
+      display:flex;
+      flex-direction:column;
+      line-height:1;
+    }
+    .wordmark .title{
+      font-family:var(--font-heading);
+      font-weight:600;
+      font-size:16px;
+      color:var(--color-contrast);
+      letter-spacing:0.2px;
+    }
+    .wordmark .tag{
+      font-size:12px;
+      color:var(--color-muted);
+    }
+
+    nav.primary{
+      display:flex;
+      gap:18px;
+      align-items:center;
+    }
+    nav.primary a{
+      font-weight:600;
+      color:var(--color-muted);
+      padding:8px 10px;
+      border-radius:8px;
+    }
+    nav.primary a:focus, nav.primary a:hover{
+      color:var(--color-contrast);
+      outline:none;
+      background:rgba(255,255,255,0.02);
+    }
+    .cta{
+      background:linear-gradient(90deg,var(--color-primary), #d3b26e);
+      color:#071018;
+      padding:10px 14px;
+      border-radius:10px;
+      font-weight:700;
+      box-shadow:0 6px 20px rgba(199,166,90,0.12);
+    }
+    .cta.secondary{
+      background:transparent;
+      border:1px solid rgba(255,255,255,0.06);
+      color:var(--color-primary);
+      padding:8px 12px;
+      border-radius:10px;
+      font-weight:600;
+    }
+
+    /* Mobile nav */
+    .menu-toggle{
+      display:none;
+      background:transparent;
+      border:1px solid rgba(255,255,255,0.04);
+      padding:8px;
+      border-radius:10px;
+      color:var(--color-text);
+    }
+
+    /* HERO */
+    .hero{
+      padding:calc(var(--space-xl) + 10px) 0 calc(var(--space-lg) + 10px);
+      display:flex;
+      gap:40px;
+      align-items:center;
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1fr 420px;
+      gap:40px;
+      align-items:center;
+      width:100%;
+    }
+    .hero-block{
+      max-width:720px;
+    }
+    h1{
+      margin:0 0 12px 0;
+      font-family:var(--font-heading);
+      font-weight:700;
+      color:var(--color-contrast);
+      font-size: clamp(28px, 4.4vw, 44px);
+      line-height:1.02;
+      letter-spacing:-0.6px;
+    }
+    .lead{
+      font-size: clamp(15px, 2.1vw, 18px);
+      color:var(--color-muted);
+      margin-bottom:20px;
+      max-width:62ch;
+    }
+    .hero-actions{
+      display:flex;
+      gap:14px;
+      align-items:center;
+      margin-top:18px;
+    }
+
+    .visual-card{
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border:1px solid rgba(255,255,255,0.04);
+      padding:20px;
+      border-radius:18px;
+      box-shadow:var(--shadow-soft);
+      display:flex;
+      flex-direction:column;
+      gap:18px;
+      align-items:center;
+      justify-content:center;
+    }
+    .visual-card svg{width:240px;height:240px;display:block}
+
+    /* USLUGE */
+    section.cards{
+      padding:var(--space-lg) 0;
+    }
+    .cards-grid{
+      display:grid;
+      grid-template-columns: repeat(3,1fr);
+      gap:22px;
+    }
+    .card{
+      background:var(--color-card);
+      border-radius:14px;
+      padding:20px;
+      border:1px solid rgba(255,255,255,0.03);
+      transition:transform .28s cubic-bezier(.2,.9,.3,1), box-shadow .28s;
+    }
+    .card:focus-within, .card:hover{
+      transform:translateY(-6px);
+      box-shadow:var(--shadow-soft);
+    }
+    .card h3{margin:0 0 8px 0;font-size:18px;color:var(--color-contrast);font-weight:600;font-family:var(--font-heading)}
+    .card p{margin:0;color:var(--color-muted);font-size:14px;line-height:1.5}
+
+    /* O NAMA / pristup */
+    .about{
+      display:grid;
+      grid-template-columns: 1fr 420px;
+      gap:32px;
+      align-items:start;
+      padding:var(--space-lg) 0;
+    }
+    .about .list{
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+    }
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      background:var(--glass);
+      padding:10px 12px;
+      border-radius:12px;
+      font-weight:600;
+      color:var(--color-muted);
+      border:1px solid rgba(255,255,255,0.02);
+    }
+    .accent-dot{width:10px;height:10px;border-radius:50%;background:var(--color-accent)}
+
+    /* Kako funkcionira */
+    .steps{
+      display:grid;
+      grid-template-columns: repeat(3,1fr);
+      gap:18px;
+      margin-top:18px;
+    }
+    .step{
+      background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);
+      padding:16px;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,0.03);
+    }
+    .step h4{margin:0 0 8px 0;font-size:15px;color:var(--color-contrast)}
+    .step p{margin:0;color:var(--color-muted);font-size:14px}
+
+    /* Kontakt */
+    .contact{
+      padding:var(--space-lg) 0;
+      display:flex;
+      gap:24px;
+      align-items:flex-start;
+      justify-content:space-between;
+    }
+    .contact .box{
+      background:var(--color-card);
+      padding:18px;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,0.03);
+      max-width:680px;
+    }
+    .contact .box p{color:var(--color-muted);margin:8px 0 0 0}
+    .contact .actions{display:flex;gap:12px;margin-top:14px}
+
+    footer{
+      padding:28px 0;
+      border-top:1px solid rgba(255,255,255,0.03);
+      color:var(--color-muted);
+    }
+    .footer-row{display:flex;align-items:center;justify-content:space-between;gap:12px}
+
+    /* Responsive */
+    @media (max-width:1200px){
+      .hero-grid{grid-template-columns: 1fr 360px}
+      .about, .hero-grid{gap:26px}
+      .cards-grid{grid-template-columns: repeat(2,1fr)}
+      .steps{grid-template-columns: repeat(2,1fr)}
+    }
+    @media (max-width:768px){
+      .container{width:calc(100% - 32px)}
+      .nav-row{padding:10px 0}
+      nav.primary{display:none}
+      .menu-toggle{display:inline-flex}
+      .hero{padding:48px 0 36px}
+      .hero-grid{grid-template-columns:1fr;gap:24px}
+      .about{grid-template-columns:1fr}
+      .cards-grid{grid-template-columns:1fr}
+      .steps{grid-template-columns:1fr}
+      .visual-card svg{width:180px;height:180px}
+    }
+
+    /* Focus & accessibility */
+    a:focus, button:focus {
+      outline:3px solid rgba(90,191,107,0.14);
+      outline-offset:3px;
+    }
+
+    /* Animations respecting reduced motion */
+    @media (prefers-reduced-motion: no-preference){
+      .hero .hero-block{transform:translateY(0);opacity:1;transition:transform .8s cubic-bezier(.2,.9,.3,1),opacity .6s}
+      .visual-card{transform:translateY(6px);transition:transform .8s cubic-bezier(.2,.9,.3,1)}
+      .hero.loaded .hero-block{transform:translateY(0);opacity:1}
+      .hero.loaded .visual-card{transform:translateY(0)}
+    }
+
+    @media (prefers-reduced-motion: reduce){
+      *{transition:none!important}
+    }
+
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav-row" role="navigation" aria-label="Primarna navigacija">
+      <a class="brand" href="#hero">
+        <span class="logo-mark" aria-hidden="true">
+          <!-- Inline SVG mark: stilizirani simbol reciklaže u luksuznoj paleti -->
+          <svg viewBox="0 0 100 100" width="40" height="40" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
+            <defs>
+              <linearGradient id="g1" x1="0" x2="1">
+                <stop offset="0" stop-color="#7fe0a0"/>
+                <stop offset="1" stop-color="#2ea55a"/>
+              </linearGradient>
+            </defs>
+            <rect x="0" y="0" width="100" height="100" rx="16" fill="#071018"/>
+            <g transform="translate(12,12) scale(0.76)" stroke="url(#g1)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none">
+              <path d="M10 34c3-6 12-18 28-18 18 0 26 18 26 18"/>
+              <path d="M68 34c-3 6-12 18-28 18-18 0-26-18-26-18"/>
+              <path d="M50 10v26" stroke-linecap="round"/>
+            </g>
+          </svg>
+        </span>
+        <span class="wordmark">
+          <span class="title">Reciklažno dvorište Požega</span>
+          <span class="tag">Prijem odvojenog otpada — informacije</span>
+        </span>
+      </a>
+
+      <nav class="primary" aria-hidden="false">
+        <a href="#usluge">Ponuda</a>
+        <a href="#o-nama">O nama</a>
+        <a href="#kako-funkcionira">Kako funkcionira</a>
+        <a href="#dokumentacija">Dokumenti</a>
+        <a href="#kontakt" class="cta secondary">Kontakt</a>
+        <a class="cta" href="#kako-funkcionira">Kako predati</a>
+      </nav>
+
+      <button class="menu-toggle" id="menuToggle" aria-controls="mobileMenu" aria-expanded="false" aria-label="Otvorite izbornik">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h18M3 12h18M3 17h18"/></svg>
+      </button>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobileMenu" style="display:none; padding:12px 0; border-top:1px solid rgba(255,255,255,0.02);">
+      <div class="container" role="menu" aria-label="Mobilni izbornik">
+        <a href="#usluge" role="menuitem" style="display:block;padding:10px 0;color:var(--color-muted)">Ponuda</a>
+        <a href="#o-nama" role="menuitem" style="display:block;padding:10px 0;color:var(--color-muted)">O nama</a>
+        <a href="#kako-funkcionira" role="menuitem" style="display:block;padding:10px 0;color:var(--color-muted)">Kako funkcionira</a>
+        <a href="#dokumentacija" role="menuitem" style="display:block;padding:10px 0;color:var(--color-muted)">Dokumenti</a>
+        <a href="#kontakt" role="menuitem" style="display:block;padding:10px 0;color:var(--color-muted)">Kontakt</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="hero" class="container hero" aria-labelledby="hero-heading">
+      <div class="hero-grid">
+        <div class="hero-block">
+          <h1 id="hero-heading">Reciklažno dvorište Požega — sigurno mjesto za odvojeni otpad</h1>
+          <p class="lead">Praktične upute i jasne informacije za predaju i privremeno odlaganje odvojenog otpada. Službeni popis kategorija i pravila dostupni su u dokumentaciji.</p>
+          <div class="hero-actions" role="group" aria-label="Hero poziv na akciju">
+            <a class="cta" href="#kako-funkcionira">Kako predati otpad</a>
+            <a class="cta secondary" href="https://www.komunalac-pozega.hr/media/attachments/2022/06/14/reciklazna_dvorista_2022.pdf" target="_blank" rel="noopener noreferrer">Preuzmite službeni dokument</a>
+          </div>
+
+          <div style="margin-top:24px;">
+            <div class="pill" aria-hidden="true"><span class="accent-dot"></span>Praktične informacije i upute</div>
+          </div>
+        </div>
+
+        <aside class="visual-card" aria-hidden="true">
+          <!-- Grafička kompozicija: stilizirana ilustracija reciklažnog dvorišta -->
+          <svg viewBox="0 0 420 420" role="img" aria-label="Ilustracija reciklažnog dvorišta" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="lg2" x1="0" x2="1">
+                <stop offset="0" stop-color="#1b7a3e"/>
+                <stop offset="1" stop-color="#5abf6b"/>
+              </linearGradient>
+            </defs>
+            <rect width="420" height="420" rx="20" fill="#071018"/>
+            <g transform="translate(36,36)">
+              <rect width="348" height="348" rx="16" fill="rgba(255,255,255,0.02)"/>
+              <g transform="translate(24,24)">
+                <rect width="300" height="120" rx="12" fill="#0f1720" stroke="rgba(255,255,255,0.03)"/>
+                <text x="20" y="44" fill="#c7a65a" font-family="Playfair Display, serif" font-size="22">Reciklažno dvorište</text>
+                <g transform="translate(0,140)">
+                  <rect x="0" y="0" width="88" height="88" rx="10" fill="url(#lg2)"/>
+                  <rect x="106" y="0" width="88" height="88" rx="10" fill="#2b6f4a"/>
+                  <rect x="212" y="0" width="88" height="88" rx="10" fill="#0f4f33"/>
+                  <g fill="#071018" font-family="Inter, sans-serif" font-size="12" transform="translate(8,16)">
+                    <text>Odvojeno</text>
+                    <text y="32">prikupljanje</text>
+                  </g>
+                </g>
+                <g transform="translate(0,260)" fill="#94a3b8" font-family="Inter, sans-serif" font-size="12">
+                  <text>Sigurno i odgovorno privremeno odlaganje</text>
+                </g>
+              </g>
+            </g>
+          </svg>
+        </aside>
+      </div>
+    </section>
+
+    <section id="usluge" class="container cards" aria-labelledby="usluge-heading">
+      <h2 id="usluge-heading" style="font-family:var(--font-heading); font-size:20px; margin:0 0 18px 0; color:var(--color-contrast)">Ponuda i namjena reciklažnog dvorišta</h2>
+      <p style="margin:0 0 18px 0;color:var(--color-muted)">Reciklažno dvorište služi za prihvat i privremeno zbrinjavanje odvojenog otpada građana. Pristup je organiziran tako da se olakša pravilno odlaganje i daljnje postupanje u skladu sa službenim uputama.</p>
+
+      <div class="cards-grid" role="list">
+        <article class="card" role="listitem" aria-labelledby="c1-title">
+          <h3 id="c1-title">Prijam odvojenog otpada</h3>
+          <p>Mjesto za predaju odvojenog otpada od strane građana i kućanstava. Prijam se obavlja prema kategorijama i pravilima navedenim u službenoj dokumentaciji.</p>
+        </article>
+
+        <article class="card" role="listitem" aria-labelledby="c2-title">
+          <h3 id="c2-title">Privremeno skladištenje</h3>
+          <p>Osigurano privremeno skladištenje otpada prije daljnjeg postupanja ili reciklaže, u odvojenim i označenim spremnicima i prostorima.</p>
+        </article>
+
+        <article class="card" role="listitem" aria-labelledby="c3-title">
+          <h3 id="c3-title">Savjeti za korisnike</h3>
+          <p>Praktične upute o pripremi otpada za predaju (npr. odvojeno pakiranje, uklanjanje opasnih sastojaka) nalaze se u priloženim dokumentima.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="o-nama" class="container about" aria-labelledby="o-nama-heading">
+      <div>
+        <h2 id="o-nama-heading" style="font-family:var(--font-heading); font-size:20px; margin:0 0 12px 0;">O reciklažnom dvorištu</h2>
+        <p style="color:var(--color-muted);margin:0 0 18px 0;">Reciklažno dvorište Požega pruža lokaciju za sigurno i pravilno odlaganje odvojenog otpada. Struktura i organizacija prilagođeni su potrebama građana uz poštivanje propisanih procedura i službenih uputa.</p>
+
+        <div class="list" aria-hidden="false">
+          <div class="pill"><span class="accent-dot" aria-hidden="true"></span>Transparentne upute i dokumentacija</div>
+          <div class="pill"><span class="accent-dot" aria-hidden="true"></span>Sigurno privremeno odlaganje</div>
+          <div class="pill"><span class="accent-dot" aria-hidden="true"></span>Pristup za građane</div>
+        </div>
+      </div>
+
+      <aside style="align-self:start">
+        <div class="visual-card" aria-hidden="true">
+          <svg viewBox="0 0 240 160" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Grafika o odgovornom zbrinjavanju otpada">
+            <rect width="240" height="160" rx="12" fill="#08121a"/>
+            <g transform="translate(16,16)" fill="#94a3b8" font-family="Inter, sans-serif">
+              <text x="0" y="18" font-size="13" fill="#c7a65a" font-family="Playfair Display, serif">Način rada</text>
+              <text x="0" y="44" font-size="12">Prijam prema uputama</text>
+              <text x="0" y="64" font-size="12">Privremeno skladištenje</text>
+              <text x="0" y="84" font-size="12">Predaja za daljnju obradu</text>
+            </g>
+          </svg>
+        </div>
+      </aside>
+    </section>
+
+    <section id="kako-funkcionira" class="container" aria-labelledby="kako-heading" style="padding-bottom:32px;">
+      <h2 id="kako-heading" style="font-family:var(--font-heading); font-size:20px; margin:0 0 12px 0;">Kako funkcionira predaja otpada</h2>
+      <p style="color:var(--color-muted);margin:0 0 18px 0;">Donosimo sažet pregled koraka koji pomažu da predaja bude brza, sigurna i u skladu sa službenim pravilima.</p>
+
+      <div class="steps" role="list">
+        <div class="step" role="listitem" aria-labelledby="step1">
+          <h4 id="step1">Priprema</h4>
+          <p>Pripremite otpad na način opisan u dokumentaciji: odvojite i, gdje je potrebno, ispraznite i oslobodite ambalažu.</p>
+        </div>
+
+        <div class="step" role="listitem" aria-labelledby="step2">
+          <h4 id="step2">Dolazak</h4>
+          <p>Na lokaciji slijedite upute i oznake te upitajte odgovorno osoblje ako nisu jasne kategorije ili postupci.</p>
+        </div>
+
+        <div class="step" role="listitem" aria-labelledby="step3">
+          <h4 id="step3">Predaja</h4>
+          <p>Otpad predajte u označene prostore ili spremnike. Više detalja o kategorijama i pravilima nalazi se u službenom dokumentu.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="dokumentacija" class="container" aria-labelledby="doc-heading" style="padding-top:24px;">
+      <h2 id="doc-heading" style="font-family:var(--font-heading); font-size:20px; margin:0 0 12px 0;">Služavni dokumenti i upute</h2>
+      <p style="color:var(--color-muted);margin:0 0 14px 0;">Za detaljne informacije preuzmite službeni dokument s popisom kategorija i pravilima.</p>
+      <div style="display:flex;gap:12px;align-items:center">
+        <a class="cta" href="https://www.komunalac-pozega.hr/media/attachments/2022/06/14/reciklazna_dvorista_2022.pdf" target="_blank" rel="noopener noreferrer">Preuzmi PDF s uputama</a>
+        <a class="cta secondary" href="#kontakt">Pitajte nadležnu službu</a>
+      </div>
+    </section>
+
+    <section id="kontakt" class="container contact" aria-labelledby="kontakt-heading">
+      <div class="box" aria-labelledby="kontakt-heading">
+        <h2 id="kontakt-heading" style="font-family:var(--font-heading); font-size:20px; margin:0 0 10px 0;">Kontakt i dodatne informacije</h2>
+        <p style="color:var(--color-muted);margin:0 0 8px 0;">Informacije o radnom vremenu, lokaciji i praktičnim detaljima nalaze se u službenim publikacijama vašeg komunalnog poduzeća. Preuzmite i provjerite dokumentaciju ili kontaktirajte upravitelja putem službenih kanala navedenih na web stranici.</p>
+
+        <div class="actions" role="group" aria-label="Kontakt akcije">
+          <a class="cta" href="https://www.komunalac-pozega.hr/media/attachments/2022/06/14/reciklazna_dvorista_2022.pdf" target="_blank" rel="noopener noreferrer">Preuzmi dokument</a>
+          <a class="cta secondary" href="https://www.komunalac-pozega.hr" target="_blank" rel="noopener noreferrer">Službena web stranica</a>
+        </div>
+      </div>
+
+      <aside style="min-width:220px;">
+        <div style="background:var(--color-card);padding:16px;border-radius:12px;border:1px solid rgba(255,255,255,0.03)">
+          <h3 style="margin:0 0 8px 0;font-size:15px;color:var(--color-contrast)">Napomena</h3>
+          <p style="margin:0;color:var(--color-muted)">Ovaj sažetak ne zamjenjuje službenu dokumentaciju. Sve detalje i obaveze provjerite u PDF-u ili na službenoj stranici komunalnog poduzeća.</p>
+        </div>
+      </aside>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container footer-row">
+      <div>
+        <div style="font-weight:700;color:var(--color-contrast);font-family:var(--font-heading)">Reciklažno dvorište Požega</div>
+        <div style="font-size:13px;color:var(--color-muted);margin-top:6px">Informacije i službeni dokumenti dostupni su putem poveznica na stranici.</div>
+      </div>
+
+      <nav aria-label="Footer navigacija">
+        <a href="#usluge" style="margin-right:12px;color:var(--color-muted)">Ponuda</a>
+        <a href="#kako-funkcionira" style="margin-right:12px;color:var(--color-muted)">Kako predati</a>
+        <a href="https://www.komunalac-pozega.hr/media/attachments/2022/06/14/reciklazna_dvorista_2022.pdf" target="_blank" rel="noopener noreferrer" style="color:var(--color-muted)">Službeni dokument</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script>
+    (function(){
+      // Mobile menu toggle
+      const toggle = document.getElementById('menuToggle');
+      const menu = document.getElementById('mobileMenu');
+      toggle.addEventListener('click', function(){
+        const expanded = this.getAttribute('aria-expanded') === 'true';
+        this.setAttribute('aria-expanded', String(!expanded));
+        if(expanded){
+          menu.style.display = 'none';
+        } else {
+          menu.style.display = 'block';
+        }
+      });
+
+      // Smooth scroll for internal links
+      const links = document.querySelectorAll('a[href^="#"]');
+      links.forEach(link=>{
+        link.addEventListener('click', function(e){
+          const targetId = this.getAttribute('href').slice(1);
+          if(!targetId) return;
+          const target = document.getElementById(targetId);
+          if(target){
+            e.preventDefault();
+            const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            const top = target.getBoundingClientRect().top + window.scrollY - 80;
+            if(prefersReduced){
+              window.scrollTo(0, top);
+            } else {
+              window.scrollTo({top, behavior:'smooth'});
+            }
+            // Close mobile menu if open
+            if(window.innerWidth < 768 && menu.style.display === 'block'){
+              menu.style.display = 'none';
+              toggle.setAttribute('aria-expanded', 'false');
+            }
+          }
+        });
+      });
+
+      // Add loaded class to trigger subtle animations
+      window.addEventListener('load', function(){
+        document.querySelectorAll('.hero').forEach(el => el.classList.add('loaded'));
+      });
+
+      // Keyboard accessibility: allow Esc to close mobile menu
+      document.addEventListener('keydown', function(e){
+        if(e.key === 'Escape'){
+          if(menu.style.display === 'block'){
+            menu.style.display = 'none';
+            toggle.setAttribute('aria-expanded','false');
+            toggle.focus();
+          }
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
