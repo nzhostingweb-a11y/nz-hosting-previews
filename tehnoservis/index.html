@@ -1,0 +1,661 @@
+ <!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Tehnoservis — Komercijalna gradnja i komercijalna elektronika</title>
+  <meta name="description" content="Tehnoservis - rješenja za komercijalnu gradnju i komercijalnu elektroniku. Kontakt: +385 43 331 003, zdruzin@tehno-servis.hr" />
+  <meta property="og:title" content="Tehnoservis — Komercijalna gradnja i komercijalna elektronika" />
+  <meta property="og:description" content="Tehnoservis pruža usluge u području komercijalne gradnje i komercijalne elektronike. Kontaktirajte nas za upit." />
+  <meta property="og:url" content="http://www.tehno-servis.hr" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      /* Boje i design system */
+      --color-primary:#0b1220; /* very dark blue / almost black */
+      --color-secondary:#d9b27c; /* warm gold */
+      --color-accent:#b86a3a; /* copper accent */
+      --neutral-100:#ffffff;
+      --neutral-90:#f7f7f8;
+      --neutral-70:#e6e7ea;
+      --neutral-50:#bfc4c9;
+      --neutral-20:#5a6573;
+      --bg:#0b0f14;
+      --glass: rgba(255,255,255,0.03);
+
+      /* Typography */
+      --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      --font-serif: "Merriweather", Georgia, "Times New Roman", serif;
+      --scale-ratio: 1.22;
+
+      /* Spacing */
+      --space-xxs: 6px;
+      --space-xs: 12px;
+      --space-sm: 18px;
+      --space-md: 28px;
+      --space-lg: 44px;
+      --space-xl: 72px;
+
+      /* Radii and shadows */
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --card-shadow: 0 6px 22px rgba(2,6,15,0.6);
+      --focus-outline: 3px solid rgba(217,178,124,0.18);
+
+      /* Breakpoints */
+      --bp-medium: 900px;
+    }
+
+    /* Basic reset */
+    *{box-sizing:border-box;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:var(--font-sans);
+      background: linear-gradient(180deg, var(--bg) 0%, #071019 60%);
+      color:var(--neutral-100);
+      -webkit-font-smoothing:antialiased;
+      line-height:1.45;
+      -webkit-text-size-adjust:100%;
+      text-rendering:optimizeLegibility;
+      scroll-behavior:smooth;
+      padding-bottom: 60px;
+    }
+
+    a{color:inherit;text-decoration:none}
+    img,svg{max-width:100%;height:auto;display:block}
+
+    /* Container */
+    .container{
+      max-width:1180px;
+      margin:0 auto;
+      padding:0 20px;
+    }
+
+    /* Header / Navigation */
+    header{
+      position:sticky;
+      top:0;
+      z-index:60;
+      backdrop-filter: blur(6px);
+      background: linear-gradient(180deg, rgba(11,17,32,0.65), rgba(11,17,32,0.35));
+      border-bottom: 1px solid rgba(255,255,255,0.03);
+    }
+    .nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+      padding:14px 0;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:14px;
+      text-decoration:none;
+    }
+    .mark{
+      width:46px;height:46px;border-radius:10px;
+      background: linear-gradient(135deg,var(--color-secondary),var(--color-accent));
+      display:flex;align-items:center;justify-content:center;
+      box-shadow: 0 6px 20px rgba(184,106,58,0.12);
+      flex-shrink:0;
+    }
+    .mark svg{width:24px;height:24px;filter:drop-shadow(0 3px 8px rgba(0,0,0,0.3))}
+    .wordmark{
+      display:flex;flex-direction:column;line-height:1;
+    }
+    .wordmark .name{
+      font-family:var(--font-serif);
+      font-weight:700;
+      font-size: clamp(16px, 2.2vw, 20px);
+      color:var(--neutral-100);
+      letter-spacing:0.4px;
+    }
+    .wordmark .tag{
+      font-size:12px;color:var(--neutral-50);margin-top:2px;
+    }
+
+    nav ul{display:flex;gap:20px;align-items:center;margin:0;padding:0;list-style:none;}
+    nav a.link{color:var(--neutral-90);font-weight:600;font-size:14px;padding:8px 12px;border-radius:8px}
+    nav a.link:focus{outline:var(--focus-outline);outline-offset:3px}
+    .cta{
+      margin-left:8px;
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      background:linear-gradient(90deg,var(--color-secondary),var(--color-accent));
+      color:var(--color-primary);
+      padding:10px 14px;border-radius:10px;font-weight:700;
+      box-shadow: 0 8px 28px rgba(11,17,32,0.6);
+      transition:transform .16s ease, box-shadow .16s ease;
+    }
+    .cta:active{transform:translateY(1px)}
+    .cta:focus{outline:var(--focus-outline);outline-offset:3px}
+
+    /* Mobile menu */
+    .mobile-toggle{
+      display:none;
+      background:transparent;border:0;color:var(--neutral-90);
+      padding:8px;border-radius:8px;
+    }
+    .mobile-toggle:focus{outline:var(--focus-outline)}
+
+    /* Hero */
+    .hero{
+      display:grid;
+      grid-template-columns: 1fr 520px;
+      gap:36px;
+      align-items:center;
+      padding:68px 0 44px;
+    }
+    .hero-left{
+      max-width:760px;
+    }
+    h1{
+      font-family:var(--font-serif);
+      font-weight:700;
+      margin:0 0 18px 0;
+      color:var(--neutral-100);
+      font-size: clamp(28px, 4.8vw, 52px);
+      line-height:1.02;
+      letter-spacing:-0.6px;
+    }
+    .lead{
+      color:var(--neutral-90);
+      font-size: clamp(14px, 1.6vw, 18px);
+      margin-bottom:22px;
+      max-width:72ch;
+    }
+    .hero-ctas{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{
+      display:inline-flex;align-items:center;gap:10px;padding:12px 16px;border-radius:12px;font-weight:600;
+      border:1px solid transparent;background:var(--glass);color:var(--neutral-90);
+      transition:transform .14s ease, background .14s ease, box-shadow .14s ease;
+    }
+    .btn:focus{outline:var(--focus-outline);outline-offset:3px}
+    .btn.primary{
+      background:linear-gradient(90deg,var(--color-secondary),var(--color-accent));
+      color:var(--color-primary);
+      box-shadow: 0 10px 28px rgba(11,17,32,0.5);
+      border: none;
+    }
+    .btn:hover{transform:translateY(-3px)}
+    .kicker{
+      display:inline-block;padding:6px 12px;border-radius:999px;background:rgba(217,178,124,0.08);
+      color:var(--color-secondary);font-weight:700;margin-bottom:14px;font-size:13px;
+    }
+
+    /* Hero visual card */
+    .hero-visual{
+      position:relative;min-height:320px;border-radius:18px;
+      background:
+        radial-gradient(1200px 300px at 10% 10%, rgba(217,178,124,0.04), transparent 8%),
+        linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.12));
+      padding:28px;
+      box-shadow:var(--card-shadow);
+      overflow:visible;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .visual-stage{
+      width:100%;height:100%;position:relative;border-radius:12px;overflow:hidden;
+      background: linear-gradient(180deg, rgba(7,12,18,0.4), rgba(2,6,10,0.6));
+      display:flex;align-items:center;justify-content:center;padding:24px;
+    }
+    .building-illustration{
+      width:100%;max-width:420px;height:auto;opacity:0.98;
+      transform:translateY(6px);
+      transition:transform .6s cubic-bezier(.2,.9,.3,1),opacity .4s;
+      will-change:transform,opacity;
+    }
+    .accent-line{
+      position:absolute;left:-60px;top:20px;width:520px;height:520px;pointer-events:none;
+      background:conic-gradient(from 200deg at 50% 50%, rgba(184,106,58,0.06), transparent 20%);
+      transform:rotate(-12deg);
+    }
+
+    /* Services */
+    section{padding:58px 0}
+    .section-head{display:flex;align-items:baseline;gap:18px;margin-bottom:24px}
+    .section-head h2{margin:0;font-family:var(--font-serif);font-size:22px}
+    .services-grid{
+      display:grid;grid-template-columns:repeat(3,1fr);gap:18px;
+    }
+    .service{
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+      border-radius:12px;padding:18px;border:1px solid rgba(255,255,255,0.03);
+      transition:transform .18s ease, box-shadow .18s ease;
+    }
+    .service:hover{transform:translateY(-8px);box-shadow:0 18px 40px rgba(2,6,15,0.6)}
+    .service .icon{
+      width:56px;height:56px;border-radius:10px;background:linear-gradient(180deg, rgba(217,178,124,0.12), rgba(184,106,58,0.06));
+      display:flex;align-items:center;justify-content:center;margin-bottom:12px;
+    }
+    .service h3{margin:0 0 8px 0;font-size:16px}
+    .service p{margin:0;color:var(--neutral-90);font-size:14px;line-height:1.45}
+
+    /* About and approach */
+    .split{
+      display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start;
+    }
+    .card{
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+      border-radius:12px;padding:20px;border:1px solid rgba(255,255,255,0.03);
+    }
+    .steps{display:flex;flex-direction:column;gap:12px}
+    .step{
+      display:flex;gap:12px;align-items:flex-start;
+    }
+    .step .num{
+      width:44px;height:44px;border-radius:10px;background:linear-gradient(180deg,var(--color-secondary),var(--color-accent));color:var(--color-primary);
+      display:flex;align-items:center;justify-content:center;font-weight:700;
+      flex-shrink:0;
+    }
+    .step p{margin:0;color:var(--neutral-90);font-size:14px}
+
+    /* Contact */
+    .contact-grid{display:grid;grid-template-columns: 1fr 420px;gap:28px;align-items:start;}
+    .contact-card{padding:20px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);border:1px solid rgba(255,255,255,0.03)}
+    .contact-list{display:flex;flex-direction:column;gap:10px}
+    .contact-item{display:flex;gap:12px;align-items:center}
+    .contact-item a{color:var(--neutral-90);font-weight:600}
+    .form-field{display:flex;flex-direction:column;gap:8px;margin-bottom:12px}
+    input[type="text"],input[type="email"],textarea{
+      background:transparent;border:1px solid rgba(255,255,255,0.06);padding:12px;border-radius:10px;color:var(--neutral-100);
+      font-size:14px;
+    }
+    textarea{min-height:120px;resize:vertical}
+    .form-actions{display:flex;gap:12px;align-items:center}
+
+    /* Footer */
+    footer{border-top:1px solid rgba(255,255,255,0.03);padding:26px 0;margin-top:36px}
+    .footer-inner{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+    .legal{color:var(--neutral-50);font-size:13px}
+
+    /* Responsive */
+    @media (max-width: 1100px){
+      .hero{grid-template-columns:1fr 1fr}
+      .services-grid{grid-template-columns:repeat(2,1fr)}
+      .contact-grid{grid-template-columns:1fr}
+    }
+    @media (max-width: 900px){
+      .mobile-toggle{display:inline-flex}
+      nav ul{display:none}
+      .hero{grid-template-columns:1fr;gap:20px;padding:42px 0}
+      .hero-visual{order: -1;}
+      .hero-visual{min-height:260px}
+      .services-grid{grid-template-columns:1fr}
+      .split{grid-template-columns:1fr}
+      .brand .wordmark .tag{display:none}
+    }
+
+    @media (prefers-reduced-motion: reduce){
+      .hero-visual, .building-illustration, .service, .btn {transition:none!important;animation:none!important}
+    }
+
+    /* Focus visibility for keyboard users */
+    :focus{outline-offset:3px}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav" role="navigation" aria-label="Gornja navigacija">
+      <a class="brand" href="#hero" aria-label="Početak - Tehnoservis">
+        <span class="mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+            <rect x="3" y="6" width="18" height="12" rx="2" fill="#0b1220" />
+            <path d="M6 12h12" stroke="#fff" stroke-opacity="0.12" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M9 9v6" stroke="#fff" stroke-opacity="0.18" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M15 9v6" stroke="#fff" stroke-opacity="0.18" stroke-width="1.6" stroke-linecap="round"/>
+          </svg>
+        </span>
+        <span class="wordmark">
+          <span class="name">Tehnoservis</span>
+          <span class="tag">komercijalna gradnja • komercijalna elektronika</span>
+        </span>
+      </a>
+
+      <nav aria-label="Glavni izbornik">
+        <button class="mobile-toggle" id="menuToggle" aria-expanded="false" aria-controls="mainMenu" aria-label="Otvorite izbornik">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+          </svg>
+        </button>
+
+        <ul id="mainMenu">
+          <li><a class="link" href="#usluge">Usluge</a></li>
+          <li><a class="link" href="#o-nama">O nama</a></li>
+          <li><a class="link" href="#kako-radimo">Pristup</a></li>
+          <li><a class="link" href="#kontakt">Kontakt</a></li>
+        </ul>
+      </nav>
+
+      <div style="display:flex;gap:10px;align-items:center">
+        <a class="cta" href="tel:+38543331003" aria-label="Nazovite +385 43 331 003">Nazovite nas</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="hero" class="container hero" aria-labelledby="hero-title">
+      <div class="hero-left">
+        <span class="kicker">Komercijalna rješenja</span>
+        <h1 id="hero-title">Komercijalna gradnja i elektronika za poslovne objekte</h1>
+        <p class="lead">Tehnoservis se usredotočuje na izvedbu i integraciju tehničkih rješenja za komercijalne objekte. Pružamo stručan pristup, jasnu komunikaciju i praktična rješenja prilagođena potrebama investitora i upravitelja objekata.</p>
+
+        <div class="hero-ctas" role="group" aria-label="Glavni pozivi na akciju">
+          <a class="btn primary" href="tel:+38543331003" aria-label="Nazovite Tehnoservis">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.86 19.86 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.86 19.86 0 0 1-3.07-8.63A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12 1.2.46 2.37 1.02 3.46a2 2 0 0 1-.45 2.11L9.91 10.09a16 16 0 0 0 6 6l1.8-1.8a2 2 0 0 1 2.11-.45c1.09.56 2.26.9 3.46 1.02A2 2 0 0 1 22 16.92z" fill="currentColor"/></svg>
+            +385 43 331 003
+          </a>
+
+          <a class="btn" href="#kontakt">Pošaljite upit</a>
+        </div>
+      </div>
+
+      <div class="hero-visual" aria-hidden="false">
+        <div class="accent-line" aria-hidden="true"></div>
+        <div class="visual-stage" role="img" aria-label="Ilustracija komercijalnog objekta i tehničkog sustava">
+          <!-- Stylized SVG building / composition -->
+          <svg class="building-illustration" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="buildingTitle buildingDesc">
+            <title id="buildingTitle">Ilustracija komercijalne zgrade</title>
+            <desc id="buildingDesc">Apstraktna kompozicija zgrade i elektroničkih elemenata predstavljena zlatno-smeđim akcentima.</desc>
+
+            <defs>
+              <linearGradient id="g1" x1="0" x2="1">
+                <stop offset="0" stop-color="#d9b27c" stop-opacity="0.95"/>
+                <stop offset="1" stop-color="#b86a3a" stop-opacity="0.95"/>
+              </linearGradient>
+              <linearGradient id="glass" x1="0" x2="0" y1="0" y2="1">
+                <stop offset="0" stop-color="#ffffff" stop-opacity="0.06"/>
+                <stop offset="1" stop-color="#ffffff" stop-opacity="0.02"/>
+              </linearGradient>
+            </defs>
+
+            <rect x="80" y="120" width="540" height="360" rx="18" fill="#081021" stroke="url(#g1)" stroke-width="3" opacity="0.96"/>
+            <g transform="translate(120,160)">
+              <!-- floors -->
+              <rect x="0" y="0" width="420" height="44" fill="url(#glass)"/>
+              <rect x="0" y="64" width="420" height="44" fill="url(#glass)"/>
+              <rect x="0" y="128" width="420" height="44" fill="url(#glass)"/>
+              <rect x="0" y="192" width="420" height="44" fill="url(#glass)"/>
+              <!-- subtle grid lines -->
+              <g stroke="rgba(255,255,255,0.03)" stroke-width="1">
+                <line x1="0" y1="0" x2="420" y2="0"/>
+                <line x1="0" y1="64" x2="420" y2="64"/>
+                <line x1="0" y1="128" x2="420" y2="128"/>
+                <line x1="0" y1="192" x2="420" y2="192"/>
+              </g>
+              <!-- accents -->
+              <g fill="url(#g1)" opacity="0.96">
+                <rect x="372" y="8" width="36" height="24" rx="4"/>
+                <rect x="372" y="72" width="36" height="24" rx="4"/>
+                <rect x="372" y="136" width="36" height="24" rx="4"/>
+                <rect x="372" y="200" width="36" height="24" rx="4"/>
+              </g>
+            </g>
+
+            <!-- foreground curved element -->
+            <path d="M40 460 C220 380 580 380 760 460 L760 520 C580 440 220 440 40 520 Z" fill="rgba(217,178,124,0.03)"/>
+            <!-- decorative nodes -->
+            <circle cx="640" cy="200" r="6" fill="url(#g1)"/>
+            <circle cx="560" cy="260" r="4" fill="url(#g1)"/>
+            <circle cx="200" cy="340" r="5" fill="url(#g1)"/>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <section id="usluge" class="container" aria-labelledby="usluge-title">
+      <div class="section-head">
+        <h2 id="usluge-title">Usluge</h2>
+      </div>
+
+      <div class="services-grid" role="list">
+        <article class="service" role="listitem" aria-labelledby="s1">
+          <div class="icon" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M3 12h18" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+          </div>
+          <h3 id="s1">Komercijalna gradnja</h3>
+          <p>Radovi prilagođeni komercijalnim objektima — od izvedbenih radova do tehničkih prilagodbi. Fokus na funkcionalnosti prostora i usklađenosti sustava.</p>
+        </article>
+
+        <article class="service" role="listitem" aria-labelledby="s2">
+          <div class="icon" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M12 2v20" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+          </div>
+          <h3 id="s2">Komercijalna elektronika</h3>
+          <p>Integracija elektroničkih sustava za komercijalne prostore, uključujući potrebne instalacije i prilagodbe u skladu s projektom i propisima.</p>
+        </article>
+
+        <article class="service" role="listitem" aria-labelledby="s3">
+          <div class="icon" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M3 21h18" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+          </div>
+          <h3 id="s3">Tehnička podrška i koordinacija</h3>
+          <p>Koordinacija izvedbe i suradnja s projektom te pružanje tehničke podrške tijekom realizacije i predaje objekta.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="o-nama" class="container" aria-labelledby="about-title">
+      <div class="section-head">
+        <h2 id="about-title">O nama</h2>
+      </div>
+
+      <div class="split">
+        <div class="card">
+          <p style="margin-top:0;color:var(--neutral-90)">Tehnoservis se bavi izvođenjem radova i integracijom tehničkih rješenja za komercijalne objekte. Radimo s fokusom na jasnu komunikaciju s klijentima i praktičnu izvedbu prilagođenu zahtjevima objekta i investitora.</p>
+          <p style="margin-bottom:0;color:var(--neutral-90)">Na ovoj stranici nalaze se kontakt podaci za upite i osnovne informacije o ponudi. Za detaljnije razgovore o projektu dostupni smo telefonom i e‑mailom.</p>
+        </div>
+
+        <div class="card">
+          <h3 style="margin-top:0">Vrijednosti pristupa</h3>
+          <ul style="margin:12px 0 0 18px;color:var(--neutral-90);line-height:1.7">
+            <li>Pragmatična izvedba i usklađenost s projektom</li>
+            <li>Transparentna komunikacija tijekom suradnje</li>
+            <li>Usmjerenost na funkcionalnost i pouzdanost sustava</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="kako-radimo" class="container" aria-labelledby="proc-title">
+      <div class="section-head">
+        <h2 id="proc-title">Kako funkcionira suradnja</h2>
+      </div>
+
+      <div class="card">
+        <div class="steps" role="list">
+          <div class="step" role="listitem">
+            <div class="num" aria-hidden="true">1</div>
+            <div><strong>Upit i konzultacija</strong><p>Kontaktirajte nas telefonom ili e‑mailom kako bismo razumjeli osnovne zahtjeve i opseg projekta.</p></div>
+          </div>
+
+          <div class="step" role="listitem">
+            <div class="num" aria-hidden="true">2</div>
+            <div><strong>Procjena i prijedlog</strong><p>Na temelju podataka pružamo pregled mogućih pristupa i potrebnih aktivnosti za realizaciju.</p></div>
+          </div>
+
+          <div class="step" role="listitem">
+            <div class="num" aria-hidden="true">3</div>
+            <div><strong>Izvedba i koordinacija</strong><p>Provedba radova prema dogovoru s transparentnom komunikacijom i koordinacijom.</p></div>
+          </div>
+
+          <div class="step" role="listitem">
+            <div class="num" aria-hidden="true">4</div>
+            <div><strong>Predaja i podrška</strong><p>U dogovorenom opsegu osiguravamo potrebnu tehničku podršku nakon završetka radova.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="kontakt" class="container" aria-labelledby="kontakt-title">
+      <div class="section-head">
+        <h2 id="kontakt-title">Kontakt</h2>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-card contact-list" aria-label="Kontakt informacije">
+          <div class="contact-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 5h18M4 8h5l2 3 3-4 6 6v5H4z" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <div>
+              <div style="font-size:13px;color:var(--neutral-50)">Telefon</div>
+              <a href="tel:+38543331003">+385 43 331 003</a>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M21 8V7a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v1" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 10v6a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-6" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <div>
+              <div style="font-size:13px;color:var(--neutral-50)">E‑pošta</div>
+              <a href="mailto:zdruzin@tehno-servis.hr">zdruzin@tehno-servis.hr</a>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M21 21H3V7a2 2 0 0 1 2-2h6l2 2h6a2 2 0 0 1 2 2z" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <div>
+              <div style="font-size:13px;color:var(--neutral-50)">Web</div>
+              <a href="http://www.tehno-servis.hr" target="_blank" rel="noopener">www.tehno-servis.hr</a>
+            </div>
+          </div>
+
+          <div style="margin-top:14px;color:var(--neutral-90)">
+            <p style="margin:0 0 8px 0">Za konkretan upit možete nam poslati osnovne podatke putem obrasca. Klikom na "Pošalji e‑mail" otvorit će se vaš zadani e‑mail klijent s popunjenim podacima.</p>
+          </div>
+        </div>
+
+        <aside class="contact-card" aria-labelledby="form-title">
+          <h3 id="form-title" style="margin-top:0">Pošaljite upit</h3>
+
+          <form id="contactForm" onsubmit="return sendMail(event)" novalidate>
+            <div class="form-field">
+              <label for="name" style="font-size:13px;color:var(--neutral-50)">Ime i prezime</label>
+              <input id="name" name="name" type="text" required aria-required="true" />
+            </div>
+
+            <div class="form-field">
+              <label for="email" style="font-size:13px;color:var(--neutral-50)">E‑mail</label>
+              <input id="email" name="email" type="email" required aria-required="true" />
+            </div>
+
+            <div class="form-field">
+              <label for="message" style="font-size:13px;color:var(--neutral-50)">Poruka / osnovne informacije o projektu</label>
+              <textarea id="message" name="message" required aria-required="true" placeholder="Kratak opis opsega ili pitanja"></textarea>
+            </div>
+
+            <div class="form-actions">
+              <button class="btn primary" type="submit">Pošalji e‑mail</button>
+              <a class="btn" href="tel:+38543331003">Pozovite nas</a>
+            </div>
+            <p id="formNote" style="margin-top:10px;color:var(--neutral-50);font-size:13px">Podaci se šalju putem vašeg e‑mail klijenta. Ne pohranjujemo podatke putem ove forme.</p>
+          </form>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner" role="contentinfo">
+      <div>
+        <div style="display:flex;align-items:center;gap:12px">
+          <div class="mark" aria-hidden="true" style="width:40px;height:40px">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="6" width="18" height="12" rx="2" fill="#0b1220" /></svg>
+          </div>
+          <div>
+            <div style="font-weight:700">Tehnoservis</div>
+            <div style="font-size:13px;color:var(--neutral-50)"><a href="mailto:zdruzin@tehno-servis.hr">zdruzin@tehno-servis.hr</a> · <a href="tel:+38543331003">+385 43 331 003</a></div>
+          </div>
+        </div>
+      </div>
+
+      <div style="text-align:right">
+        <div class="legal">Sva prava zadržana · Kontakt putem gore navedenih podataka</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    (function(){
+      const btn = document.getElementById('menuToggle');
+      const menu = document.getElementById('mainMenu');
+      btn.addEventListener('click', () => {
+        const expanded = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', String(!expanded));
+        if (!expanded) {
+          menu.style.display = 'flex';
+          menu.style.flexDirection = 'column';
+          menu.style.position = 'absolute';
+          menu.style.right = '20px';
+          menu.style.top = '64px';
+          menu.style.background = 'linear-gradient(180deg, rgba(11,17,32,0.96), rgba(11,17,32,0.98))';
+          menu.style.padding = '12px';
+          menu.style.borderRadius = '12px';
+          menu.style.gap = '8px';
+          menu.style.boxShadow = '0 14px 38px rgba(2,6,15,0.6)';
+        } else {
+          menu.style.display = '';
+          menu.style.position = '';
+          menu.style.background = '';
+          menu.style.padding = '';
+          menu.style.borderRadius = '';
+          menu.style.boxShadow = '';
+        }
+      });
+
+      // Close menu when clicking outside on small screens
+      document.addEventListener('click', (e) => {
+        if (window.innerWidth > 900) return;
+        if (!btn.contains(e.target) && !menu.contains(e.target)) {
+          btn.setAttribute('aria-expanded','false');
+          menu.style.display = '';
+        }
+      });
+
+      // Keyboard accessibility: toggle with Enter/Space
+      btn.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          btn.click();
+        }
+      });
+    })();
+
+    // Contact form: build mailto link and open user's email client
+    function sendMail(event){
+      event.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const message = document.getElementById('message').value.trim();
+
+      if(!name || !email || !message){
+        alert('Molimo ispunite sva obavezna polja: ime, e‑mail i poruka.');
+        return false;
+      }
+
+      const subject = encodeURIComponent('Upit: Tehnoservis - kontakt forma');
+      let body = `Ime i prezime: ${name}%0D%0AE-mail: ${email}%0D%0A%0D%0APoruka:%0D%0A${message}`;
+      const mailto = `mailto:zdruzin@tehno-servis.hr?subject=${subject}&body=${body}`;
+      // Open mail client
+      window.location.href = mailto;
+      return false;
+    }
+
+    // Subtle entrance animation for hero visual
+    document.addEventListener('DOMContentLoaded', () => {
+      const svg = document.querySelector('.building-illustration');
+      if (svg) {
+        requestAnimationFrame(() => {
+          svg.style.transform = 'translateY(0) scale(1)';
+          svg.style.opacity = '1';
+        });
+      }
+    });
+  </script>
+</body>
+</html>
