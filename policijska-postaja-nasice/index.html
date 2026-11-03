@@ -1,0 +1,565 @@
+ <!doctype html>
+<html lang="hr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Policijska postaja Našice — demonstracijski preview</title>
+  <meta name="description" content="Neslužbeni demonstracijski preview web stranice za Policijsku postaju Našice. Moderni, responzivni dizajn s informacijama, uslugama i kontakt formularom. Ovo nije službena stranica." />
+  <meta name="robots" content="index,follow" />
+  <meta property="og:title" content="Policijska postaja Našice — demonstracijski preview" />
+  <meta property="og:description" content="Neslužbeni demonstracijski preview web stranice za Policijsku postaja Našice. Moderni, responzivni dizajn s informacijama, uslugama i kontakt formularom. Ovo nije službena stranica." />
+  <meta property="og:type" content="website" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0f1724;
+      --card:#0b1220;
+      --accent:#0ea5e9;
+      --accent-2:#2563eb;
+      --muted:#9aa7bb;
+      --glass: rgba(255,255,255,0.03);
+      --success:#10b981;
+      --danger:#ef4444;
+      --radius:14px;
+      --max-width:1100px;
+      font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      color-scheme: dark;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background: linear-gradient(180deg, #071026 0%, #081225 50%, #071226 100%);
+      color:#e6f0fb;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+      padding:32px;
+      display:flex;
+      justify-content:center;
+      align-items:flex-start;
+      font-size:16px;
+    }
+
+    .wrap{
+      width:100%;
+      max-width:var(--max-width);
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:20px;
+      box-shadow: 0 10px 30px rgba(2,6,23,0.6);
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,0.035);
+    }
+
+    header{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+      padding:20px 28px;
+      background: linear-gradient(90deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));
+      backdrop-filter: blur(6px);
+    }
+    .brand{
+      display:flex;
+      gap:14px;
+      align-items:center;
+    }
+    .logo{
+      width:54px;height:54px;
+      background:linear-gradient(135deg,var(--accent),var(--accent-2));
+      border-radius:12px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      box-shadow: 0 6px 18px rgba(8,30,70,0.5);
+      flex-shrink:0;
+    }
+    .logo svg{filter:drop-shadow(0 3px 8px rgba(0,0,0,0.5))}
+    .brand h1{font-size:18px;margin:0;line-height:1}
+    .brand p{margin:0;font-size:13px;color:var(--muted)}
+
+    nav{
+      display:flex;
+      gap:14px;
+      align-items:center;
+    }
+    .nav-link{
+      color:var(--muted);
+      text-decoration:none;
+      padding:8px 12px;
+      border-radius:10px;
+      font-weight:600;
+      transition:all .18s ease;
+      font-size:14px;
+    }
+    .nav-link:hover{color:#fff;background:rgba(255,255,255,0.02)}
+    .cta{
+      background:linear-gradient(90deg,var(--accent),var(--accent-2));
+      color:#05202e;
+      padding:8px 14px;border-radius:10px;font-weight:700;
+      text-decoration:none;
+      box-shadow: 0 8px 22px rgba(13,101,171,0.18);
+    }
+    .mobile-toggle{display:none}
+
+    main{
+      padding:32px;
+      display:grid;
+      grid-template-columns: 1fr 380px;
+      gap:28px;
+      align-items:start;
+    }
+
+    /* HERO */
+    .hero{
+      background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));
+      padding:36px;
+      border-radius:16px;
+      border:1px solid rgba(255,255,255,0.02);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.01);
+      overflow:hidden;
+      position:relative;
+    }
+    .hero .badge{
+      display:inline-flex;
+      gap:10px;
+      align-items:center;
+      background:var(--glass);
+      color:var(--muted);
+      padding:8px 12px;border-radius:999px;font-weight:600;font-size:13px;
+      margin-bottom:18px;
+      backdrop-filter: blur(4px);
+    }
+    .hero h2{font-size:28px;margin:0 0 12px 0;line-height:1.05}
+    .hero p.lead{margin:0 0 18px 0;color:var(--muted);font-size:15px}
+
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{
+      border:0;padding:12px 16px;border-radius:12px;font-weight:700;cursor:pointer;
+      background:rgba(255,255,255,0.03);color:var(--accent);
+      transition:all .18s ease;
+    }
+    .btn.primary{
+      background:linear-gradient(90deg,var(--accent),var(--accent-2));
+      color:#05202e;
+      box-shadow: 0 10px 30px rgba(37,99,235,0.12);
+    }
+    .btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.04);color:var(--muted)}
+    .hero-visual{
+      margin-top:18px;
+      display:flex;
+      gap:12px;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+    .card-quick{
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      padding:12px;border-radius:12px;border:1px solid rgba(255,255,255,0.02);
+      display:flex;gap:10px;align-items:center;min-width:140px;
+    }
+    .kv{font-weight:700;color:#fff;font-size:18px}
+    .kv-sub{font-size:12px;color:var(--muted)}
+
+    /* RIGHT COLUMN - info box */
+    .panel{
+      background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));
+      padding:22px;border-radius:14px;border:1px solid rgba(255,255,255,0.02);
+    }
+    .panel h3{margin:0 0 10px 0}
+    .panel p{margin:0;color:var(--muted);font-size:14px}
+
+    /* SERVICES */
+    .section{
+      margin-top:24px;
+    }
+    .services{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:14px;
+      margin-top:14px;
+    }
+    .service{
+      background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));
+      padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.02);
+      transition:transform .22s cubic-bezier(.2,.9,.3,1), box-shadow .22s;
+      cursor:default;
+    }
+    .service:hover{transform:translateY(-6px);box-shadow: 0 12px 30px rgba(2,8,23,0.6)}
+    .service h4{margin:0 0 6px 0}
+    .service p{margin:0;color:var(--muted);font-size:14px}
+
+    /* ABOUT */
+    .about{
+      margin-top:18px;
+      display:flex;
+      gap:18px;
+      align-items:flex-start;
+      flex-wrap:wrap;
+    }
+    .about .about-text{flex:1;min-width:220px}
+    .about .ks{
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      padding:12px;border-radius:12px;border:1px solid rgba(255,255,255,0.02);
+      min-width:220px;
+    }
+
+    /* CONTACT */
+    form{display:flex;flex-direction:column;gap:12px}
+    label{font-size:13px;color:var(--muted);display:block}
+    input[type="text"],input[type="email"],textarea,select{
+      background:transparent;border:1px solid rgba(255,255,255,0.04);padding:10px 12px;border-radius:10px;color:#eaf6ff;
+      outline:none;font-size:14px;
+    }
+    textarea{min-height:120px;resize:vertical}
+    .form-row{display:flex;gap:10px}
+    .form-row .col{flex:1}
+    .small{font-size:13px;color:var(--muted)}
+
+    footer{
+      margin-top:20px;padding:18px 28px;border-top:1px solid rgba(255,255,255,0.02);
+      display:flex;justify-content:space-between;align-items:center;gap:10px;
+    }
+    .disclaimer{
+      background:linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,0.02);
+      color:var(--muted);font-size:13px;
+    }
+
+    /* animations */
+    .fade-in{opacity:0;transform:translateY(8px);transition:opacity .6s ease, transform .6s ease}
+    .in-view{opacity:1;transform:none}
+
+    /* responsive */
+    @media (max-width:980px){
+      main{grid-template-columns:1fr; padding:22px}
+      .services{grid-template-columns:repeat(2,1fr)}
+      .panel{order:3}
+    }
+    @media (max-width:640px){
+      body{padding:16px}
+      .wrap{border-radius:12px}
+      header{padding:14px}
+      .brand h1{font-size:16px}
+      .mobile-toggle{display:flex;background:transparent;border:0;color:var(--muted);font-weight:700}
+      nav{display:none}
+      .hero{padding:18px}
+      .services{grid-template-columns:1fr}
+      .logo{width:44px;height:44px;border-radius:10px}
+      .panel{padding:16px}
+    }
+
+    /* tiny toast/modal */
+    .toast{
+      position:fixed;left:50%;transform:translateX(-50%);bottom:22px;background:#071827;color:#ddf7ff;padding:12px 16px;border-radius:10px;box-shadow:0 8px 28px rgba(2,8,23,0.6);display:none;z-index:1200;
+    }
+    .toast.show{display:block;animation:pop .45s ease}
+    @keyframes pop{from{transform:translateX(-50%) translateY(10px);opacity:0}to{transform:translateX(-50%) translateY(0);opacity:1}}
+  </style>
+</head>
+<body>
+  <div class="wrap" role="document">
+    <header>
+      <div class="brand">
+        <div class="logo" aria-hidden="true">
+          <!-- neutral shield-ish SVG to suggest authority without official insignia -->
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2C12 2 18 4 20 7C22 10 18 16 12 20C6 16 2 10 4 7C6 4 12 2 12 2Z" fill="white" opacity="0.95"/>
+            <path d="M12 6.5C13.3807 6.5 14.5 7.61929 14.5 9C14.5 10.3807 13.3807 11.5 12 11.5C10.6193 11.5 9.5 10.3807 9.5 9C9.5 7.61929 10.6193 6.5 12 6.5Z" fill="#0b2232"/>
+          </svg>
+        </div>
+        <div>
+          <h1>Policijska postaja Našice</h1>
+          <p>Demonstracijski preview • Neslužbeno</p>
+        </div>
+      </div>
+
+      <nav aria-label="Glavna navigacija">
+        <a class="nav-link" href="#usluge">Usluge</a>
+        <a class="nav-link" href="#o-nama">O nama</a>
+        <a class="nav-link" href="#kontakt">Kontakt</a>
+        <a class="cta" href="http://osjecko-baranjska.policija.hr/MainPu.aspx?id=14522" target="_blank" rel="noopener">Službena stranica</a>
+      </nav>
+
+      <button class="mobile-toggle" aria-expanded="false" aria-controls="mobileMenu">Meni</button>
+    </header>
+
+    <main>
+      <section class="hero fade-in" aria-labelledby="hero-title">
+        <div class="badge">Neslužbeni prikaz</div>
+        <h2 id="hero-title">Policijska postaja Našice — demonstracijski preview</h2>
+        <p class="lead">Moderni i responzivni dizajn za prezentaciju djelatnosti policijske postaje. Ovo je demonstracijski prikaz i nije službena stranica. Za službene informacije koristite poveznicu prema službenoj policijskoj mrežnoj stranici.</p>
+
+        <div class="hero-actions">
+          <a class="btn primary" href="http://osjecko-baranjska.policija.hr/MainPu.aspx?id=14522" target="_blank" rel="noopener">Posjetite službenu stranicu</a>
+          <button class="btn" id="scrollContact">Kontakt</button>
+          <a class="btn ghost" href="#usluge">Pogledajte usluge</a>
+        </div>
+
+        <div class="hero-visual" aria-hidden="true">
+          <div class="card-quick">
+            <div>
+              <div class="kv">Informacije</div>
+              <div class="kv-sub">Savjeti i upute</div>
+            </div>
+          </div>
+          <div class="card-quick">
+            <div>
+              <div class="kv">Suradnja</div>
+              <div class="kv-sub">Kontakt s građanima</div>
+            </div>
+          </div>
+          <div class="card-quick">
+            <div>
+              <div class="kv">Prevencija</div>
+              <div class="kv-sub">Sigurnosne smjernice</div>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top:18px;color:var(--muted);font-size:13px">
+          Napomena: ovaj sadržaj samo demonstrira izgled i funkcionalnosti. Ništa od prikazanog ne predstavlja službenu objavu postaje.
+        </div>
+      </section>
+
+      <aside class="panel fade-in" aria-labelledby="panel-title">
+        <h3 id="panel-title">Brzi pristup</h3>
+        <p>Ovaj demo prikazuje ključne sekcije: informacije, usluge, o nama i kontakt. Za službene podatke i obavijesti posjetite službenu stranicu.</p>
+
+        <div style="margin-top:14px;display:flex;gap:10px;flex-wrap:wrap">
+          <a class="btn" href="http://osjecko-baranjska.policija.hr/MainPu.aspx?id=14522" target="_blank" rel="noopener">Službena stranica</a>
+          <button class="btn ghost" id="openContact">Kontakt formular</button>
+        </div>
+      </aside>
+
+      <section class="section fade-in" id="usluge" aria-labelledby="usluge-title" style="grid-column:1 / -1">
+        <h3 id="usluge-title">Usluge (pregled)</h3>
+        <p class="small" style="margin-top:6px;color:var(--muted)">Slijedi prikaz uobičajenih područja djelovanja policijske postaje. Ovo je informativno i ne zamjenjuje službene objave ili upute.</p>
+
+        <div class="services" style="margin-top:12px">
+          <article class="service">
+            <h4>Prijava događaja</h4>
+            <p>Informacije o postupku prijave kaznenih djela, prekršaja i drugih sigurnosnih događaja (informativno).</p>
+          </article>
+          <article class="service">
+            <h4>Upiti i informacije</h4>
+            <p>Smjernice za dobivanje općih informacija, javnih obavijesti i uputa za građane.</p>
+          </article>
+          <article class="service">
+            <h4>Suradnja s građanima</h4>
+            <p>Poticaji za prijavljivanje sumnji, prijedlozi i suradnja u preventivnim aktivnostima.</p>
+          </article>
+          <article class="service">
+            <h4>Prevencija i sigurnost</h4>
+            <p>Opće preporuke i informativne poruke o prevenciji kaznenih djela i poboljšanju osobne sigurnosti.</p>
+          </article>
+          <article class="service">
+            <h4>Promet i nadzor</h4>
+            <p>Informativna obavijest o nadzoru prometa i sigurnosnim mjerama (ne sadrži raspored ni kazne).</p>
+          </article>
+          <article class="service">
+            <h4>Ostale usluge</h4>
+            <p>Područja djelovanja koja su uobičajena za policijske postaje — informativni sažetak.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section about fade-in" id="o-nama" aria-labelledby="o-nama-title" style="grid-column:1 / -1">
+        <div class="about-text">
+          <h3 id="o-nama-title">O ovoj demonstraciji</h3>
+          <p class="small" style="margin-top:6px;color:var(--muted)">
+            Ovaj projekt je demonstracijski preview dizajna i frontend rješenja kreiran za potrebe prezentacije izgleda web stranice za "Policijsku postaju Našice". Navedeni sadržaji služe isključivo kao ilustracija dizajna, rasporeda i interakcija. Ne sadrže službene ili ovlaštene podatke postaje.
+          </p>
+
+          <p style="margin-top:12px;color:var(--muted)">
+            Za službene informacije, obavijesti i kontakt podatke posjetite službenu mrežnu stranicu policijske uprave: <a href="http://osjecko-baranjska.policija.hr/MainPu.aspx?id=14522" target="_blank" rel="noopener" style="color:var(--accent)">Prikaz na policijskoj stranici</a>.
+          </p>
+        </div>
+
+        <div class="ks">
+          <h4>Tehničke bilješke</h4>
+          <p class="small" style="margin-top:6px;color:var(--muted)">
+            Izvedeno kao jedna HTML datoteka (HTML5, CSS3, JavaScript). Responsive layout, pristupačni elementi i animacije. Nema stvarnih kontakt podataka ni službenih objava.
+          </p>
+        </div>
+      </section>
+
+      <section class="section fade-in" id="kontakt" aria-labelledby="kontakt-title" style="grid-column:1 / -1">
+        <h3 id="kontakt-title">Kontakt — demonstracijski formular</h3>
+        <p class="small" style="color:var(--muted);margin-top:6px">Molimo imate na umu da ovaj formular ne šalje poruke stvarnoj organizaciji. Za službene zahtjeve koristite službenu stranicu.</p>
+
+        <div style="margin-top:12px;display:grid;grid-template-columns:1fr 360px;gap:18px">
+          <div>
+            <form id="demoContact" novalidate>
+              <div class="form-row">
+                <div class="col">
+                  <label for="name">Ime i prezime</label>
+                  <input id="name" name="name" type="text" placeholder="Vaše ime" required>
+                </div>
+                <div class="col">
+                  <label for="email">E-mail (neće se slati)</label>
+                  <input id="email" name="email" type="email" placeholder="primjer@domena.hr" required>
+                </div>
+              </div>
+
+              <div>
+                <label for="subject">Tema</label>
+                <input id="subject" name="subject" type="text" placeholder="Kratka tema poruke" required>
+              </div>
+
+              <div>
+                <label for="message">Poruka</label>
+                <textarea id="message" name="message" placeholder="Opišite svoj upit..." required></textarea>
+              </div>
+
+              <div style="display:flex;align-items:center;gap:10px">
+                <input id="consent" type="checkbox" required>
+                <label for="consent" style="margin:0;font-size:13px;color:var(--muted)">Razumijem da je ovo demonstracijski formular i da poruka nije poslana službeno.</label>
+              </div>
+
+              <div style="display:flex;gap:10px;margin-top:8px">
+                <button class="btn primary" type="submit">Pošalji (demo)</button>
+                <button class="btn" type="reset">Očisti</button>
+              </div>
+            </form>
+          </div>
+
+          <aside class="ks" aria-hidden="true">
+            <h4 style="margin-top:0">Važne napomene</h4>
+            <p class="small" style="color:var(--muted)">Nemojte unositi osjetljive osobne podatke u ovaj demonstracijski formular. Ovaj prikaz ne čuva niti prosljeđuje unesene podatke. Za hitne slučajeve obratite se odgovarajućim službenim kanalima policije.</p>
+            <p class="small" style="margin-top:10px;color:var(--muted)"><strong>Ovo nije službena stranica.</strong></p>
+          </aside>
+        </div>
+      </section>
+
+    </main>
+
+    <footer>
+      <div class="disclaimer">
+        Ovaj sadržaj je demonstracijski prikaz i ne predstavlja službenu objavu Policijske postaje Našice.
+      </div>
+
+      <div style="display:flex;gap:10px;align-items:center">
+        <a class="cta" href="http://osjecko-baranjska.policija.hr/MainPu.aspx?id=14522" target="_blank" rel="noopener">Službena stranica</a>
+      </div>
+    </footer>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    // Smooth scroll for anchor buttons
+    (function(){
+      document.querySelectorAll('a[href^="#"], button#scrollContact').forEach(function(el){
+        el.addEventListener('click', function(e){
+          var href = this.getAttribute('href');
+          if(href && href.startsWith('#')){
+            e.preventDefault();
+            var target = document.querySelector(href);
+            if(target){
+              target.scrollIntoView({behavior:'smooth', block:'start'});
+            }
+          }
+        });
+      });
+
+      var scrollBtn = document.getElementById('scrollContact');
+      if(scrollBtn){
+        scrollBtn.addEventListener('click', function(e){
+          var target = document.getElementById('kontakt');
+          if(target) target.scrollIntoView({behavior:'smooth', block:'start'});
+        });
+      }
+    })();
+
+    // Demo contact form behavior (does not send data)
+    (function(){
+      var form = document.getElementById('demoContact');
+      var toast = document.getElementById('toast');
+
+      function showToast(msg, color){
+        toast.textContent = msg;
+        toast.style.background = color || '#071827';
+        toast.classList.add('show');
+        setTimeout(function(){ toast.classList.remove('show'); }, 4500);
+      }
+
+      form.addEventListener('submit', function(e){
+        e.preventDefault();
+        // basic validation
+        var name = form.name.value.trim();
+        var email = form.email.value.trim();
+        var subject = form.subject.value.trim();
+        var message = form.message.value.trim();
+        var consent = form.consent.checked;
+
+        if(!name || !email || !subject || !message || !consent){
+          showToast('Molimo ispunite sva polja i potvrdite da je riječ o demonstracijskom obrascu.', '#7a2c2c');
+          return;
+        }
+
+        // Show demo message
+        showToast('Poruka nije poslana. Ovo je demonstracijski formular. Za službeni kontakt posjetite službenu stranicu.', '#253a4a');
+
+        // reset form for demo clarity
+        form.reset();
+      });
+    })();
+
+    // IntersectionObserver for reveal animations
+    (function(){
+      var obs = new IntersectionObserver(function(entries){
+        entries.forEach(function(en){
+          if(en.isIntersecting){
+            en.target.classList.add('in-view');
+            obs.unobserve(en.target);
+          }
+        });
+      }, {threshold: 0.08});
+
+      document.querySelectorAll('.fade-in').forEach(function(el){
+        obs.observe(el);
+      });
+    })();
+
+    // Mobile menu toggle (simple)
+    (function(){
+      var toggle = document.querySelector('.mobile-toggle');
+      if(!toggle) return;
+      var nav = document.querySelector('nav');
+      toggle.addEventListener('click', function(){
+        var expanded = this.getAttribute('aria-expanded') === 'true';
+        this.setAttribute('aria-expanded', String(!expanded));
+        if(nav.style.display === 'flex'){
+          nav.style.display = 'none';
+        } else {
+          nav.style.display = 'flex';
+          nav.style.flexDirection = 'column';
+          nav.style.position = 'absolute';
+          nav.style.right = '20px';
+          nav.style.top = '70px';
+          nav.style.background = 'linear-gradient(180deg, rgba(2,6,23,0.9), rgba(3,8,30,0.9))';
+          nav.style.padding = '12px';
+          nav.style.borderRadius = '12px';
+        }
+      });
+
+      // close on resize
+      window.addEventListener('resize', function(){
+        if(window.innerWidth > 640){
+          nav.style.display = '';
+          nav.style.position = '';
+          nav.style.right = '';
+          nav.style.top = '';
+          nav.style.background = '';
+          nav.style.padding = '';
+          nav.style.borderRadius = '';
+        } else {
+          nav.style.display = 'none';
+          toggle.setAttribute('aria-expanded','false');
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
