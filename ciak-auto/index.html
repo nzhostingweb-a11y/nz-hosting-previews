@@ -1,0 +1,538 @@
+ <!doctype html>
+<html lang="hr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>CIAK Auto — Demo prikaz | Komercijalna vozila i opremanje</title>
+  <meta name="description" content="Demonstracijski preview web stranice za CIAK Auto — profesionalna rješenja za izradu, preradu i opremanje komercijalnih vozila. Ovo nije službena stranica." />
+  <meta name="keywords" content="CIAK Auto, komercijalna vozila, prerada vozila, opremanje vozila, demo preview" />
+  <meta name="robots" content="noindex,nofollow" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0f1724;
+      --card:#0b1220;
+      --muted:#94a3b8;
+      --accent-1: linear-gradient(135deg,#0ea5a4 0%, #06b6d4 100%);
+      --accent-2: linear-gradient(135deg,#7c3aed 0%, #06b6d4 100%);
+      --glass: rgba(255,255,255,0.03);
+      --maxw:1200px;
+      --radius:14px;
+      --shadow: 0 10px 30px rgba(2,6,23,0.7);
+      color-scheme: dark;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background:
+        radial-gradient(1200px 600px at 10% 10%, rgba(6,182,212,0.06), transparent 10%),
+        radial-gradient(1000px 500px at 90% 90%, rgba(124,58,237,0.04), transparent 10%),
+        var(--bg);
+      color:#e6eef8;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.5;
+      padding-bottom:60px;
+    }
+
+    header{
+      position:sticky;
+      top:14px;
+      z-index:60;
+      display:flex;
+      justify-content:center;
+      pointer-events:none;
+    }
+    .nav-wrap{
+      width:94%;
+      max-width:var(--maxw);
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.00));
+      border-radius:12px;
+      padding:10px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      box-shadow:var(--shadow);
+      pointer-events:auto;
+      border: 1px solid rgba(255,255,255,0.03);
+      backdrop-filter: blur(8px) saturate(120%);
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      text-decoration:none;
+      color:inherit;
+    }
+    .logo{
+      width:48px;
+      height:48px;
+      border-radius:10px;
+      background:var(--accent-1);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight:800;
+      color:#052026;
+      font-size:18px;
+      box-shadow:0 6px 18px rgba(2,6,23,0.6);
+    }
+    .brand h1{font-size:16px;margin:0;font-weight:700;letter-spacing:0.2px}
+    .brand p{margin:0;font-size:12px;color:var(--muted)}
+    nav{display:flex;align-items:center;gap:18px}
+    nav a{
+      text-decoration:none;color:var(--muted);
+      font-size:14px;padding:8px 12px;border-radius:8px;
+    }
+    nav a:hover{color:#fff;background:rgba(255,255,255,0.03)}
+    .cta-primary{
+      border:none;
+      padding:10px 14px;
+      font-weight:700;
+      color:#052026;
+      background:var(--accent-1);
+      border-radius:10px;
+      cursor:pointer;
+      transition:transform .18s ease, box-shadow .18s ease;
+    }
+    .cta-primary:hover{transform:translateY(-3px); box-shadow:0 10px 30px rgba(6,182,212,0.12)}
+    .mobile-toggle{display:none;background:transparent;border:0;color:var(--muted);font-size:18px}
+
+    main{width:94%;max-width:var(--maxw);margin:34px auto 0;display:grid;gap:40px}
+    .hero{
+      display:grid;
+      grid-template-columns: 1fr 420px;
+      gap:32px;
+      align-items:center;
+    }
+    .hero-left{
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.00));
+      padding:36px;border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      border:1px solid rgba(255,255,255,0.03);
+      position:relative;
+      overflow:hidden;
+    }
+    .badge{
+      display:inline-flex;align-items:center;gap:10px;padding:8px 12px;border-radius:999px;background:var(--glass);border:1px solid rgba(255,255,255,0.03);font-size:13px;color:var(--muted);
+    }
+    h2{margin:18px 0 8px;font-size:28px;line-height:1.05}
+    p.lead{margin:0 0 18px;color:var(--muted);font-size:15px}
+    .hero-cta{display:flex;gap:12px;flex-wrap:wrap}
+    .btn-ghost{
+      background:transparent;border:1px solid rgba(255,255,255,0.06);padding:10px 14px;border-radius:10px;color:var(--muted);cursor:pointer
+    }
+    .feature-list{display:grid;grid-template-columns:repeat(2, minmax(0,1fr));gap:12px;margin-top:18px}
+    .feature{
+      background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));
+      padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.02);font-size:14px;color:var(--muted);display:flex;gap:10px;align-items:center
+    }
+    .feature .dot{width:10px;height:10px;border-radius:50%;background:linear-gradient(180deg,#06b6d4,#7c3aed)}
+    .hero-right{
+      position:relative;min-height:320px;padding:18px;border-radius:var(--radius);overflow:hidden;
+      background:linear-gradient(135deg, rgba(12,18,33,0.7), rgba(6,8,14,0.55));
+      border:1px solid rgba(255,255,255,0.03);
+      box-shadow:0 20px 50px rgba(2,6,23,0.7);
+      display:flex;flex-direction:column;gap:14px;justify-content:center;
+    }
+    .visual-card{
+      background:linear-gradient(135deg, rgba(255,255,255,0.02), rgba(255,255,255,0.00));
+      border-radius:12px;padding:14px;border:1px solid rgba(255,255,255,0.03);
+      display:grid;grid-template-columns:70px 1fr;gap:12px;align-items:center;
+    }
+    .visual-thumb{width:70px;height:70px;border-radius:8px;background:linear-gradient(135deg,#062c2b,#053a57);display:flex;align-items:center;justify-content:center;font-weight:700;color:#dff;box-shadow:0 6px 18px rgba(2,6,23,0.6)}
+    .visual-title{font-size:15px;font-weight:700}
+    .visual-sub{font-size:13px;color:var(--muted)}
+    .decor-gear{position:absolute;right:-40px;top:-40px;width:220px;height:220px;background:conic-gradient(from 200deg, rgba(124,58,237,0.12), rgba(6,182,212,0.08));filter:blur(18px);transform:rotate(10deg);opacity:0.8}
+
+    section.services{
+      display:grid;gap:18px;
+    }
+    .services-grid{
+      display:grid;grid-template-columns:repeat(3,1fr);gap:18px;
+    }
+    .service-card{
+      background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));
+      padding:22px;border-radius:14px;border:1px solid rgba(255,255,255,0.03);
+      transition:transform .22s ease, box-shadow .22s ease;
+    }
+    .service-card:hover{transform:translateY(-8px);box-shadow:0 20px 40px rgba(2,6,23,0.6)}
+    .service-icon{width:56px;height:56px;border-radius:10px;background:var(--accent-2);display:flex;align-items:center;justify-content:center;font-weight:700;color:#041020;margin-bottom:12px}
+    .service-card h3{margin:0 0 8px;font-size:16px}
+    .service-card p{margin:0;color:var(--muted);font-size:14px}
+
+    .about{
+      display:grid;grid-template-columns:1fr 360px;gap:24px;align-items:start;
+    }
+    .about-left{
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+      padding:26px;border-radius:14px;border:1px solid rgba(255,255,255,0.03);
+    }
+    .about-right{
+      padding:18px;border-radius:12px;background:linear-gradient(180deg, rgba(124,58,237,0.04), rgba(6,182,212,0.02));border:1px solid rgba(255,255,255,0.02)
+    }
+    .pill{display:inline-block;padding:8px 12px;border-radius:999px;background:rgba(255,255,255,0.02);font-weight:600;color:var(--muted);font-size:13px}
+
+    .contact{
+      display:grid;grid-template-columns:1fr 420px;gap:24px;align-items:start;
+    }
+    .contact-form{
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.00));
+      padding:22px;border-radius:14px;border:1px solid rgba(255,255,255,0.03);
+    }
+    label{display:block;font-size:13px;margin-bottom:6px;color:var(--muted)}
+    input[type="text"], input[type="email"], textarea{
+      width:100%;padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:rgba(255,255,255,0.01);color:inherit;font-size:14px;resize:vertical;
+    }
+    textarea{min-height:120px}
+    .form-actions{display:flex;gap:12px;align-items:center;margin-top:12px}
+    .btn-primary{
+      background:linear-gradient(90deg,#06b6d4,#7c3aed);
+      color:#021318;border:none;padding:10px 14px;border-radius:10px;font-weight:700;cursor:pointer;
+    }
+    .note{font-size:13px;color:var(--muted)}
+    .contact-side{
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.00));
+      padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.03)
+    }
+    .muted{color:var(--muted)}
+    footer{
+      width:94%;max-width:var(--maxw);margin:26px auto;color:var(--muted);font-size:13px;text-align:center;
+    }
+
+    /* Responsive */
+    @media (max-width:1000px){
+      .hero{grid-template-columns:1fr 1fr}
+      .about{grid-template-columns:1fr}
+      .contact{grid-template-columns:1fr}
+      .services-grid{grid-template-columns:repeat(2,1fr)}
+      .hero-right{min-height:260px}
+    }
+    @media (max-width:720px){
+      header{top:8px}
+      .nav-wrap{padding:10px 12px}
+      nav{display:none}
+      .mobile-toggle{display:inline-flex;pointer-events:auto}
+      .hero{grid-template-columns:1fr;gap:18px}
+      .hero-right{order:2}
+      .services-grid{grid-template-columns:1fr}
+      .brand p{display:none}
+      .nav-open{position:fixed;left:12px;right:12px;top:72px;background:var(--card);border-radius:12px;padding:12px;border:1px solid rgba(255,255,255,0.03);display:flex;flex-direction:column;gap:8px}
+      .nav-open a{padding:10px;border-radius:10px}
+    }
+
+    /* Simple animations */
+    .fade-in{opacity:0;transform:translateY(8px);animation:fadeUp .9s forwards}
+    .delay-1{animation-delay:0.08s}
+    .delay-2{animation-delay:0.16s}
+    .delay-3{animation-delay:0.24s}
+    @keyframes fadeUp{
+      to{opacity:1;transform:none}
+    }
+
+    /* accessibility focus */
+    a:focus, button:focus, input:focus, textarea:focus{outline:3px solid rgba(6,182,212,0.18);outline-offset:2px}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav-wrap" role="navigation" aria-label="Glavna navigacija">
+      <a class="brand" href="#hero">
+        <span class="logo">C</span>
+        <div>
+          <h1>CIAK Auto <span style="font-weight:500;font-size:12px;color:var(--muted);">demo</span></h1>
+          <p>Izrada i opremanje komercijalnih vozila</p>
+        </div>
+      </a>
+
+      <nav aria-hidden="false">
+        <a href="#usluge">Usluge</a>
+        <a href="#o-nama">O nama</a>
+        <a href="#kontakt">Kontakt</a>
+      </nav>
+
+      <div style="display:flex;align-items:center;gap:10px">
+        <button class="cta-primary" onclick="document.getElementById('kontakt').scrollIntoView({behavior:'smooth'})">Zatražite pregled (demo)</button>
+        <button class="mobile-toggle" id="mobileToggle" aria-expanded="false" aria-controls="mobileNav">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <div id="mobileNav" class="" style="width:94%;max-width:var(--maxw);margin:10px auto 0;display:none"></div>
+
+  <main>
+    <section id="hero" class="hero" aria-label="Naslovnica">
+      <div class="hero-left fade-in delay-1" >
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:12px">
+          <div class="badge">Demonstracijski preview — neslužbeni prikaz</div>
+          <div class="pill muted">Vizualni demo</div>
+        </div>
+
+        <h2>Profesionalna rješenja za komercijalna vozila</h2>
+        <p class="lead">CIAK Auto — demonstracijski pregled premium landing stranice za izradu, preradu i opremanje komercijalnih vozila. Prikaz je namijenjen prezentaciji dizajna i strukture, a ne predstavlja službene informacije o tvrtki.</p>
+
+        <div class="hero-cta">
+          <button class="cta-primary" onclick="document.getElementById('kontakt').scrollIntoView({behavior:'smooth'})">Zatražite pregled (demo)</button>
+          <button class="btn-ghost" onclick="document.getElementById('usluge').scrollIntoView({behavior:'smooth'})">Pogledajte usluge</button>
+        </div>
+
+        <div class="feature-list" aria-hidden="false" style="margin-top:22px">
+          <div class="feature">
+            <div class="dot" aria-hidden="true"></div>
+            <div>
+              <div style="font-weight:700">Custom adaptacije</div>
+              <div class="muted" style="font-size:13px">Prilagodbe prema svrsi vozila</div>
+            </div>
+          </div>
+          <div class="feature">
+            <div class="dot" aria-hidden="true"></div>
+            <div>
+              <div style="font-weight:700">Projektiranje opreme</div>
+              <div class="muted" style="font-size:13px">Rješenja za organizaciju i sigurnost</div>
+            </div>
+          </div>
+          <div class="feature">
+            <div class="dot" aria-hidden="true"></div>
+            <div>
+              <div style="font-weight:700">Komercijalni fokus</div>
+              <div class="muted" style="font-size:13px">Namjena za poslovne flote i usluge</div>
+            </div>
+          </div>
+          <div class="feature">
+            <div class="dot" aria-hidden="true"></div>
+            <div>
+              <div style="font-weight:700">Podrška i savjetovanje</div>
+              <div class="muted" style="font-size:13px">Konzultacije vezane uz projekt</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <aside class="hero-right fade-in delay-2" aria-label="Vizualna prezentacija">
+        <div class="decor-gear" aria-hidden="true"></div>
+
+        <div class="visual-card" style="transform:translateY(0)">
+          <div class="visual-thumb">CI</div>
+          <div>
+            <div class="visual-title">Prikaz opreme i rješenja</div>
+            <div class="visual-sub">Ovaj prostor namijenjen je vizualizaciji primjera opreme i rasporeda u vozilu (demo sadržaj).</div>
+          </div>
+        </div>
+
+        <div style="display:flex;gap:12px;margin-top:12px">
+          <div style="flex:1;background:rgba(255,255,255,0.02);padding:14px;border-radius:12px;border:1px solid rgba(255,255,255,0.03)">
+            <div style="font-size:13px;color:var(--muted)">Projekt</div>
+            <div style="font-weight:700;margin-top:6px">Konfiguracija vozila</div>
+          </div>
+          <div style="width:110px;background:linear-gradient(90deg,#06b6d4,#7c3aed);border-radius:12px;display:flex;align-items:center;justify-content:center;font-weight:700;color:#021318">
+            Demo
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <section id="usluge" class="services fade-in delay-3" aria-label="Usluge">
+      <div style="display:flex;justify-content:space-between;align-items:end;gap:12px">
+        <div>
+          <h3 style="margin:0 0 6px">Usluge</h3>
+          <p class="muted" style="margin:0">Pregled ključnih usluga (demonstracijski prikaz).</p>
+        </div>
+        <div class="muted" style="font-size:13px">Prikaz bez stvarnih referenci</div>
+      </div>
+
+      <div class="services-grid" style="margin-top:12px">
+        <article class="service-card" aria-labelledby="s1">
+          <div class="service-icon">1</div>
+          <h3 id="s1">Izrada i adaptacija vozila</h3>
+          <p>Projektiranje i izvedba prilagodbi komercijalnih vozila za specifične poslovne potrebe. Ovdje su prikazane samo vrste usluga u demo formatu.</p>
+        </article>
+
+        <article class="service-card" aria-labelledby="s2">
+          <div class="service-icon">2</div>
+          <h3 id="s2">Projektiranje opreme</h3>
+          <p>Rješenja za opremanje teretnog prostora, sustave organizacije i sigurnosne elemente. Sadržaj je ilustrativan.</p>
+        </article>
+
+        <article class="service-card" aria-labelledby="s3">
+          <div class="service-icon">3</div>
+          <h3 id="s3">Prerada komercijalnih vozila</h3>
+          <p>Prerade i instalacije specijaliziranih sustava za vozila namijenjena komercijalnoj upotrebi (demo opis).</p>
+        </article>
+
+        <article class="service-card" aria-labelledby="s4">
+          <div class="service-icon">4</div>
+          <h3 id="s4">Savjetovanje i planiranje</h3>
+          <p>Konzultantske usluge u fazi planiranja projekta i optimizacije opreme vozila — prikaz u svrhu demonstracije.</p>
+        </article>
+
+        <article class="service-card" aria-labelledby="s5">
+          <div class="service-icon">5</div>
+          <h3 id="s5">Integracija i testiranje</h3>
+          <p>Integracija opreme s postojećim vozilom i testni procesi za funkcionalnost (sadržaj je ilustrativan).</p>
+        </article>
+
+        <article class="service-card" aria-labelledby="s6">
+          <div class="service-icon">6</div>
+          <h3 id="s6">Prilagodbe za flote</h3>
+          <p>Rješenja koja olakšavaju upravljanje flotom i standardizaciju opreme — demonstracijski prikaz.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="o-nama" class="about fade-in delay-1" aria-label="O nama">
+      <div class="about-left">
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <div>
+            <h3 style="margin:0 0 8px">O CIAK Auto (demo)</h3>
+            <p class="muted" style="margin:0 0 12px">Ovaj sadržaj služi kao vizualni i informativni demo landing stranice. Ne predstavlja službeni izvor podataka o tvrtki.</p>
+          </div>
+        </div>
+
+        <p style="margin-top:12px;color:var(--muted)">Struktura stranice i tekstualni sadržaji ovdje su razvijeni za prezentaciju modernog, premium web dizajna prilagođenog mobilnim uređajima, s jasno definiranim sekcijama usluga, opisa i kontakta. Ukoliko tražite službene informacije o tvrtki CIAK Auto, posjetite njihovu službenu stranicu: <a href="https://ciak-auto.hr/" target="_blank" rel="noopener" style="color:#9be7ff;text-decoration:underline">https://ciak-auto.hr/</a></p>
+      </div>
+
+      <aside class="about-right">
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <div>
+            <div class="pill">Premium dizajn</div>
+          </div>
+          <div class="muted" style="font-size:13px">Demo | Neslužbeno</div>
+        </div>
+
+        <div style="margin-top:12px;color:var(--muted);font-size:14px">
+          Ovaj demo naglasak stavlja na:
+          <ul style="margin:8px 0 0 16px;color:var(--muted)">
+            <li>jasnu komunikaciju usluga</li>
+            <li>mobilnu prilagodbu i pristupačnost</li>
+            <li>vizualnu privlačnost i profesionalni izgled</li>
+          </ul>
+        </div>
+      </aside>
+    </section>
+
+    <section id="kontakt" class="contact fade-in delay-2" aria-label="Kontakt">
+      <div class="contact-form">
+        <h3 style="margin-top:0">Kontakt</h3>
+        <p class="muted">Upotrijebite obrazac u nastavku za demonstraciju slanja poruke. Obrazac je isključivo za demo i poruke se neće stvarno prosljeđivati.</p>
+
+        <form id="demoForm" novalidate>
+          <div style="display:grid;gap:12px">
+            <div>
+              <label for="name">Ime i prezime</label>
+              <input id="name" name="name" type="text" placeholder="Vaše ime" autocomplete="name" required>
+            </div>
+
+            <div>
+              <label for="email">E‑mail (za demo)</label>
+              <input id="email" name="email" type="email" placeholder="primjer@domena.hr" autocomplete="email" required>
+            </div>
+
+            <div>
+              <label for="message">Poruka</label>
+              <textarea id="message" name="message" placeholder="Kratki opis upita..." required></textarea>
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn-primary">Pošalji (demo)</button>
+            <button type="button" class="btn-ghost" onclick="resetForm()">Očisti</button>
+          </div>
+
+          <p class="note" style="margin-top:10px">Napomena: ovo je demonstracijski obrazac. Podaci neće biti poslani niti pohranjeni. Za stvarne kontakte posjetite: <a href="https://ciak-auto.hr/" target="_blank" rel="noopener" style="color:#9be7ff;text-decoration:underline">ciak-auto.hr</a></p>
+        </form>
+      </div>
+
+      <aside class="contact-side">
+        <h4 style="margin-top:0">Dodatne informacije (demo)</h4>
+        <p class="muted">Ovaj odjeljak sadrži ilustrativne informacije o postupku suradnje, opsegu usluge i mogućim fazama projekta. Ne sadrži stvarne reference niti kontaktne podatke tvrtke.</p>
+
+        <div style="margin-top:12px">
+          <div style="font-weight:700">Kako koristiti demo</div>
+          <ul style="margin:8px 0 0 16px;color:var(--muted)">
+            <li>Pregledajte usluge</li>
+            <li>Pogledajte strukturu stranice</li>
+            <li>Isprobajte kontakt obrazac — poruka ostaje lokalna</li>
+          </ul>
+        </div>
+      </aside>
+    </section>
+
+  </main>
+
+  <footer>
+    <div style="margin-bottom:8px">Neslužbeni demonstracijski prikaz — ne predstavlja službenu web stranicu CIAK Auto.</div>
+    <div>Za službene informacije posjetite: <a href="https://ciak-auto.hr/" target="_blank" rel="noopener" style="color:#9be7ff;text-decoration:underline">ciak-auto.hr</a></div>
+  </footer>
+
+  <div id="modal" role="dialog" aria-modal="true" style="display:none;position:fixed;inset:0;align-items:center;justify-content:center;z-index:120">
+    <div style="background:linear-gradient(180deg,#021821,#06222b);padding:20px;border-radius:12px;border:1px solid rgba(255,255,255,0.04);width:92%;max-width:520px;box-shadow:0 30px 80px rgba(2,6,23,0.8);color:#eaffff">
+      <h4 style="margin:0 0 6px">Demo: poruka pripremljena</h4>
+      <p style="margin:0 0 12px;color:var(--muted)">Ovo je demonstracijska potvrda. Podaci uneseni u obrazac neće biti poslani niti pohranjeni.</p>
+      <pre id="previewData" style="white-space:pre-wrap;background:rgba(0,0,0,0.12);padding:12px;border-radius:8px;color:#dff"></pre>
+      <div style="display:flex;justify-content:flex-end;margin-top:12px;gap:12px">
+        <button class="btn-ghost" onclick="closeModal()">Zatvori</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Mobile nav toggle
+    const mobileToggle = document.getElementById('mobileToggle');
+    const mobileNav = document.getElementById('mobileNav');
+    let navOpen = false;
+    function buildMobileNav(){
+      mobileNav.innerHTML = '';
+      const navBlock = document.createElement('div');
+      navBlock.className = 'nav-open';
+      navBlock.innerHTML = '<a href=\"#usluge\" onclick=\"closeMobileNav()\">Usluge</a><a href=\"#o-nama\" onclick=\"closeMobileNav()\">O nama</a><a href=\"#kontakt\" onclick=\"closeMobileNav()\">Kontakt</a>';
+      mobileNav.appendChild(navBlock);
+    }
+    function closeMobileNav(){ mobileNav.style.display='none'; mobileToggle.setAttribute('aria-expanded','false'); navOpen=false; }
+    mobileToggle.addEventListener('click', ()=>{
+      if(!navOpen){
+        buildMobileNav();
+        mobileNav.style.display = 'block';
+        mobileToggle.setAttribute('aria-expanded','true');
+      } else {
+        closeMobileNav();
+      }
+      navOpen = !navOpen;
+    });
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', function(e){
+        const target = document.querySelector(this.getAttribute('href'));
+        if(target){
+          e.preventDefault();
+          target.scrollIntoView({behavior:'smooth', block:'start'});
+          if(window.innerWidth <= 720) closeMobileNav();
+        }
+      });
+    });
+
+    // Form handling (demo only)
+    const form = document.getElementById('demoForm');
+    const modal = document.getElementById('modal');
+    const preview = document.getElementById('previewData');
+
+    function sanitize(text){
+      const div = document.createElement('div');
+      div.textContent = text;
+      return div.innerHTML;
+    }
+
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      const name = form.name.value.trim();
+      const email = form.email.value.trim();
+      const message = form.message.value.trim();
+      if(!name || !email || !message){
+        alert('Molimo ispunite sva polja obrasca.');
+        return;
+      }
+      // Show demo modal with sanitized copy of message
+      preview.innerHTML = 'Ime: ' + sanitize(name) + '\\nE‑mail: ' + sanitize(email) + '\\n\\nPoruka:\\n' + sanitize(message) + '\\
