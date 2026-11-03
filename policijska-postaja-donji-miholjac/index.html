@@ -1,0 +1,603 @@
+ <!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Policijska postaja Donji Miholjac — Informacije i kontakti</title>
+  <meta name="description" content="Policijska postaja Donji Miholjac — informacije za građane, kontakt i upute za hitne slučajeve. Telefonski kontakt i poveznica na službenu stranicu." />
+  <meta property="og:title" content="Policijska postaja Donji Miholjac — Informacije i kontakti" />
+  <meta property="og:description" content="Informacije za građane i kontakt policijske postaje. Hitni slučajevi: 112 ili broj postaje." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      /* Design system */
+      --color-primary: #0b2447; /* deep navy */
+      --color-secondary: #111827; /* near-black charcoal */
+      --color-accent: #caa43a; /* warm gold accent */
+      --color-muted: #6b7280; /* gray for subtle text */
+      --bg-100: #f6f7f9;
+      --surface: #ffffff;
+      --text: #0b1220;
+      --radius-sm: 6px;
+      --radius-md: 12px;
+      --radius-lg: 20px;
+      --shadow-1: 0 6px 18px rgba(11,34,71,0.12);
+      --shadow-2: 0 10px 30px rgba(11,34,71,0.10);
+      --gap: 24px;
+      --container: 1200px;
+
+      /* Typography scale (fluid) */
+      --fs-h1: clamp(1.6rem, 2.2vw + 0.8rem, 3.2rem);
+      --fs-h2: clamp(1.2rem, 1.6vw + 0.6rem, 1.8rem);
+      --fs-body: clamp(0.95rem, 0.9vw + 0.6rem, 1.05rem);
+      --fs-small: 0.88rem;
+
+      /* Accessibility */
+      --focus-ring: 3px solid rgba(202,164,58,0.18);
+
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      color-scheme: light;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background: linear-gradient(180deg, var(--bg-100) 0%, #eef2f6 100%);
+      color:var(--text);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+      font-size:16px;
+      padding-bottom:48px;
+    }
+
+    a{color:inherit; text-decoration:none}
+    img{max-width:100%;height:auto;display:block}
+
+    /* Layout */
+    .site {
+      max-width:var(--container);
+      margin:0 auto;
+      padding:24px;
+    }
+
+    header.topbar{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      padding:18px 0;
+    }
+
+    .brand {
+      display:flex;
+      gap:14px;
+      align-items:center;
+    }
+
+    .logo {
+      width:56px;
+      height:56px;
+      display:grid;
+      place-items:center;
+      background: linear-gradient(180deg, rgba(202,164,58,0.12), rgba(202,164,58,0.06));
+      border-radius:12px;
+      box-shadow:var(--shadow-1);
+      flex:0 0 56px;
+    }
+    .wordmark {
+      line-height:1;
+    }
+    .wordmark .title {
+      font-family: "Merriweather", Georgia, serif;
+      font-weight:700;
+      font-size:1.05rem;
+      color:var(--color-secondary);
+      letter-spacing:0.2px;
+    }
+    .wordmark .tag {
+      font-size:0.78rem;
+      color:var(--color-muted);
+      margin-top:2px;
+    }
+
+    nav.topnav{
+      display:flex;
+      gap:18px;
+      align-items:center;
+    }
+
+    .nav-links{display:flex;gap:14px;align-items:center}
+    .nav-links a{
+      padding:8px 10px;
+      border-radius:8px;
+      color:var(--color-secondary);
+      font-weight:600;
+      font-size:0.95rem;
+    }
+    .nav-links a:focus{outline:var(--focus-ring); border-radius:8px}
+    .cta-primary {
+      background: linear-gradient(180deg,var(--color-accent), #b78f2f);
+      color: #081225;
+      padding:9px 14px;
+      border-radius:10px;
+      font-weight:700;
+      box-shadow:var(--shadow-1);
+      display:inline-flex;
+      gap:10px;
+      align-items:center;
+    }
+    .cta-secondary{
+      padding:8px 12px;
+      border-radius:10px;
+      background:transparent;
+      border:1px solid rgba(11,34,71,0.06);
+      color:var(--color-secondary);
+      font-weight:600;
+    }
+
+    /* Mobile menu */
+    .menu-toggle{
+      display:none;
+      background:transparent;
+      border:1px solid rgba(11,34,71,0.06);
+      padding:8px;
+      border-radius:8px;
+    }
+    .menu-toggle:focus{outline:var(--focus-ring)}
+
+    /* Hero */
+    .hero {
+      margin-top:18px;
+      background:linear-gradient(180deg, rgba(11,34,71,0.96) 0%, rgba(11,34,71,0.86) 100%);
+      color: #fff;
+      border-radius:var(--radius-lg);
+      padding:40px;
+      display:grid;
+      grid-template-columns: 1fr 380px;
+      gap:28px;
+      align-items:center;
+      box-shadow:var(--shadow-2);
+      overflow:hidden;
+    }
+    .hero .intro {
+      max-width:760px;
+    }
+    .hero h1{
+      margin:0 0 14px 0;
+      font-family: "Merriweather", Georgia, serif;
+      font-size:var(--fs-h1);
+      line-height:1.02;
+      letter-spacing:-0.6px;
+      color:#fff;
+    }
+    .hero p.lead{
+      margin:0 0 22px 0;
+      font-size:var(--fs-body);
+      color: rgba(255,255,255,0.9);
+    }
+    .hero .actions{display:flex;gap:12px;align-items:center}
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      border:0;
+      cursor:pointer;
+      font-weight:700;
+      border-radius:10px;
+      text-decoration:none;
+    }
+    .btn:focus{outline:var(--focus-ring)}
+    .btn.phone{
+      background: linear-gradient(90deg, rgba(250,250,250,0.95), rgba(247,244,231,0.95));
+      color:var(--color-secondary);
+      padding:12px 16px;
+      box-shadow: 0 6px 20px rgba(2,6,23,0.12);
+    }
+    .btn.link{
+      padding:10px 14px;
+      border-radius:10px;
+      background:transparent;
+      border:1px solid rgba(255,255,255,0.12);
+      color:rgba(255,255,255,0.95);
+    }
+
+    .hero .visual {
+      justify-self:end;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .shield {
+      width:320px;
+      height:320px;
+      border-radius:18px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+      display:grid;
+      place-items:center;
+      position:relative;
+      box-shadow: 0 12px 40px rgba(2,6,23,0.28);
+      padding:24px;
+    }
+    .shield svg{width:85%; height:auto; display:block}
+
+    /* Info sections */
+    main{margin-top:28px}
+    .grid {
+      display:grid;
+      gap:var(--gap);
+      grid-template-columns: repeat(12, 1fr);
+    }
+    .col-8{grid-column: span 8}
+    .col-4{grid-column: span 4}
+
+    .card {
+      background:var(--surface);
+      border-radius:var(--radius-md);
+      padding:20px;
+      box-shadow:var(--shadow-1);
+    }
+    h2{font-size:var(--fs-h2); margin:0 0 12px 0; color:var(--color-secondary); font-family:"Merriweather", serif}
+    p{margin:0 0 12px 0; color:var(--color-muted)}
+
+    .services {
+      display:grid;
+      gap:12px;
+      grid-template-columns:repeat(3,1fr);
+    }
+    .service {
+      background:linear-gradient(180deg,#fff,#fbfbfb);
+      border-radius:12px;
+      padding:16px;
+      display:flex;
+      gap:12px;
+      align-items:flex-start;
+      border:1px solid rgba(11,34,71,0.04);
+      transition:transform .18s ease, box-shadow .18s ease;
+    }
+    .service:focus-within, .service:hover{transform:translateY(-6px); box-shadow:var(--shadow-1)}
+    .service .icon{
+      width:48px;height:48px;border-radius:10px;
+      background:linear-gradient(180deg, rgba(11,34,71,0.06), rgba(11,34,71,0.03));
+      display:grid;place-items:center;font-size:20px;color:var(--color-primary)
+    }
+    .service h3{margin:0;font-size:1rem;color:var(--color-secondary);font-weight:700}
+    .service p{margin:6px 0 0 0;color:var(--color-muted);font-size:0.95rem}
+
+    /* Approach / values */
+    .values {
+      display:flex;
+      gap:12px;
+      margin-top:6px;
+    }
+    .value {
+      background: linear-gradient(180deg,#fff,#fcfcff);
+      padding:14px;
+      border-radius:12px;
+      flex:1;
+      border:1px solid rgba(11,34,71,0.04);
+      box-shadow: 0 6px 18px rgba(11,34,71,0.04);
+    }
+    .value h4{margin:0 0 8px 0;font-size:0.98rem;color:var(--color-secondary)}
+    .value p{margin:0;color:var(--color-muted);font-size:0.95rem}
+
+    /* Extra section: Kako postupiti u hitnom slučaju */
+    .steps{
+      display:grid;
+      gap:12px;
+      grid-template-columns:repeat(3,1fr);
+    }
+    .step {
+      background:linear-gradient(180deg,#fff,#fbfbfb);
+      padding:14px;border-radius:12px;border:1px solid rgba(11,34,71,0.04);
+    }
+    .step h5{margin:0 0 8px 0;color:var(--color-secondary)}
+    .step p{margin:0;color:var(--color-muted)}
+
+    /* Contact */
+    .contact-card{
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+    }
+    .contact-row{display:flex;gap:10px;align-items:center}
+    .contact-row .label{font-weight:700;color:var(--color-secondary)}
+    .contact-row a{color:var(--color-primary); font-weight:600}
+
+    footer{
+      margin-top:30px;
+      padding-top:20px;
+      border-top:1px solid rgba(11,34,71,0.04);
+      color:var(--color-muted);
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+    footer .small{font-size:0.92rem}
+
+    /* Responsive */
+    @media (max-width:1024px){
+      .hero{grid-template-columns:1fr 300px;padding:28px}
+      .shield{width:260px;height:260px}
+    }
+    @media (max-width:820px){
+      .site{padding:18px}
+      .nav-links{display:none}
+      .menu-toggle{display:inline-flex}
+      .hero{grid-template-columns:1fr;padding:22px}
+      .hero .visual{order:2;justify-self:center}
+      .hero .intro{order:1}
+      .grid{grid-template-columns:repeat(6,1fr)}
+      .col-8{grid-column: span 6}
+      .col-4{grid-column: span 6}
+      .services{grid-template-columns:repeat(2,1fr)}
+      .steps{grid-template-columns:repeat(2,1fr)}
+    }
+    @media (max-width:420px){
+      .services{grid-template-columns:1fr}
+      .steps{grid-template-columns:1fr}
+      .hero h1{font-size:clamp(1.2rem,3.5vw,1.8rem)}
+      .shield{width:200px;height:200px;padding:16px}
+    }
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion:reduce){
+      .service, .btn, .shield, .hero{transition:none}
+    }
+  </style>
+</head>
+<body>
+  <div class="site" id="top">
+    <header class="topbar" role="banner">
+      <div class="brand">
+        <div class="logo" aria-hidden="true">
+          <!-- simple shield mark -->
+          <svg width="34" height="34" viewBox="0 0 24 24" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2l6 3v5c0 5-3.5 9.7-6 12-2.5-2.3-6-7-6-12V5l6-3z" fill="#caa43a"/>
+            <path d="M12 4.1l4 2v3.8c0 3-2 6.2-4 8.2-2-2-4-5.2-4-8.2V6.1l4-2z" fill="#0b2447" opacity="0.9"/>
+          </svg>
+        </div>
+        <div class="wordmark">
+          <div class="title">Policijska postaja<br>Donji Miholjac</div>
+          <div class="tag">Lokalne policijske usluge</div>
+        </div>
+      </div>
+
+      <nav class="topnav" role="navigation" aria-label="Glavna navigacija">
+        <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="mobileMenu" aria-label="Otvorite izbornik">
+          ☰
+        </button>
+        <div class="nav-links" role="menubar">
+          <a href="#usluge" role="menuitem">Usluge</a>
+          <a href="#o-nama" role="menuitem">O nama</a>
+          <a href="#hitno" role="menuitem">Hitno</a>
+          <a href="#kontakt" role="menuitem">Kontakt</a>
+        </div>
+        <a class="cta-primary" href="tel:031631126" aria-label="Nazovite Policijsku postaju Donji Miholjac">📞 031/631-126</a>
+      </nav>
+    </header>
+
+    <!-- Mobile menu -->
+    <div id="mobileMenu" style="display:none;margin-bottom:12px;">
+      <div class="card" role="menu" aria-label="Mobilni izbornik">
+        <a href="#usluge" role="menuitem" style="display:block;padding:10px 6px;border-radius:8px">Usluge</a>
+        <a href="#o-nama" role="menuitem" style="display:block;padding:10px 6px;border-radius:8px">O nama</a>
+        <a href="#hitno" role="menuitem" style="display:block;padding:10px 6px;border-radius:8px">Hitno</a>
+        <a href="#kontakt" role="menuitem" style="display:block;padding:10px 6px;border-radius:8px">Kontakt</a>
+      </div>
+    </div>
+
+    <section class="hero" role="region" aria-labelledby="hero-title">
+      <div class="intro">
+        <h1 id="hero-title">Policijska postaja Donji Miholjac</h1>
+        <p class="lead">Lokalna postaja za pitanja javnog reda, dojave i informacije za građane. Brza poveznica na službene kontakte i upute u hitnim situacijama.</p>
+
+        <div class="actions" role="group" aria-label="Primarni pozivi na akciju">
+          <a class="btn phone" href="tel:031631126" aria-label="Nazovite Policijsku postaju Donji Miholjac">
+            📞 Nazovite: 031/631-126
+          </a>
+          <a class="btn link" href="http://osjecko-baranjska.policija.hr/MainPu.aspx?id=14518" target="_blank" rel="noopener noreferrer" aria-label="Otvorite službenu stranicu Policijske uprave">
+            Službena stranica
+          </a>
+        </div>
+
+        <div style="margin-top:18px;color:rgba(255,255,255,0.8);font-size:0.95rem">
+          Kategorije: građevina i objekti, javne službe — policijske usluge.
+        </div>
+      </div>
+
+      <div class="visual" aria-hidden="true">
+        <div class="shield" role="img" aria-label="Grupna ilustracija štita policije">
+          <!-- Decorative detailed SVG shield composition -->
+          <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" role="presentation" aria-hidden="true">
+            <defs>
+              <linearGradient id="g1" x1="0" x2="1" y1="0" y2="1">
+                <stop offset="0" stop-color="#183a63"/>
+                <stop offset="1" stop-color="#0b2447"/>
+              </linearGradient>
+              <linearGradient id="g2" x1="0" x2="1">
+                <stop offset="0" stop-color="#f8e7b6"/>
+                <stop offset="1" stop-color="#caa43a"/>
+              </linearGradient>
+            </defs>
+            <rect width="200" height="200" rx="18" fill="url(#g1)" opacity="0.08"/>
+            <g transform="translate(16,12)">
+              <path d="M84 6 L146 34 V78 C146 116 112 150 84 164 C56 150 22 116 22 78 V34 Z" fill="url(#g1)" stroke="rgba(255,255,255,0.08)" stroke-width="2"/>
+              <path d="M84 18 L136 40 V78 C136 110 106 138 84 150 C62 138 32 110 32 78 V40 Z" fill="url(#g2)" opacity="0.95"/>
+              <circle cx="84" cy="78" r="18" fill="#0b2447"/>
+              <path d="M68 72 L76 80 L96 60" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            </g>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <main>
+      <div class="grid" style="margin-top:18px">
+        <section id="usluge" class="col-8">
+          <div class="card" aria-labelledby="usluge-title">
+            <h2 id="usluge-title">Usluge</h2>
+            <p>Opći opis djelatnosti postaje: primanje prijava, informiranje građana, suradnja s lokalnom zajednicom i postupanje u skladu s važećim zakonima i pravilima. Za konkretne upite koristite kontakt broj ili službenu mrežnu stranicu.</p>
+
+            <div class="services" aria-hidden="false" style="margin-top:14px">
+              <div class="service" tabindex="0">
+                <div class="icon" aria-hidden="true">📣</div>
+                <div>
+                  <h3>Prijava događaja</h3>
+                  <p>Upute kako prijaviti kaznena djela ili narušavanje javnog reda i mira te gdje pružiti informacije.</p>
+                </div>
+              </div>
+
+              <div class="service" tabindex="0">
+                <div class="icon" aria-hidden="true">ℹ️</div>
+                <div>
+                  <h3>Informacije za građane</h3>
+                  <p>Savjeti i smjernice za sigurnost u lokalnoj zajednici te pravne informacije vezane uz postupanja.</p>
+                </div>
+              </div>
+
+              <div class="service" tabindex="0">
+                <div class="icon" aria-hidden="true">🤝</div>
+                <div>
+                  <h3>Suradnja s lokalnom zajednicom</h3>
+                  <p>Komunikacija s građanima i lokalnim tijelima radi boljeg informiranja i prevencije.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div id="o-nama" class="card" style="margin-top:18px" aria-labelledby="o-nama-title">
+            <h2 id="o-nama-title">O nama</h2>
+            <p>Policijska postaja Donji Miholjac je lokalna organizacijska jedinica koja obavlja policijske poslove u svom području. Ako trebate službene informacije, postupke ili želite prijaviti događaj, najbrži kontakt je telefonski broj postaje ili službena mrežna stranica.</p>
+
+            <div class="values" style="margin-top:12px" aria-hidden="false">
+              <div class="value">
+                <h4>Pristupačnost</h4>
+                <p>Jasni kontakti i dostupne informacije za građane.</p>
+              </div>
+              <div class="value">
+                <h4>Transparentnost</h4>
+                <p>Objava relevantnih informacija i upućivanje na službene izvore.</p>
+              </div>
+              <div class="value">
+                <h4>Profesionalan pristup</h4>
+                <p>Postupanje prema propisima i službenim procedurama.</p>
+              </div>
+            </div>
+          </div>
+
+          <div id="hitno" class="card" style="margin-top:18px" aria-labelledby="hitno-title">
+            <h2 id="hitno-title">Kako postupiti u hitnom slučaju</h2>
+            <p>U hitnim situacijama nazovite broj 112 ili, ako je potrebno, izravno broj postaje. Slijedite upute dispečera i osigurajte vlastitu sigurnost.</p>
+
+            <div class="steps" style="margin-top:12px" aria-hidden="false">
+              <div class="step">
+                <h5>1. Procjena situacije</h5>
+                <p>Ostanite mirni, procijenite opasnost i pružite ključne informacije o lokaciji i prirodi događaja.</p>
+              </div>
+              <div class="step">
+                <h5>2. Poziv na broj 112</h5>
+                <p>Za hitne intervencije koristite 112. Za lokalne upite koristite broj postaje.</p>
+              </div>
+              <div class="step">
+                <h5>3. Suradnja s dispečerom</h5>
+                <p>Odgovorite na pitanja dispečera i slijedite upute dok ne dođe pomoć.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <aside id="kontakt" class="col-4">
+          <div class="card contact-card" aria-labelledby="kontakt-title">
+            <h2 id="kontakt-title">Kontakt</h2>
+            <div class="contact-row">
+              <div class="label">Telefon:</div>
+              <div><a href="tel:031631126">031/631-126</a></div>
+            </div>
+
+            <div class="contact-row">
+              <div class="label">Službena stranica:</div>
+              <div><a href="http://osjecko-baranjska.policija.hr/MainPu.aspx?id=14518" target="_blank" rel="noopener noreferrer">osjecko-baranjska.policija.hr</a></div>
+            </div>
+
+            <div style="margin-top:8px;color:var(--color-muted);font-size:0.95rem">
+              Napomena: prikazani podaci su neprovjereni poslovni podaci. Za službene i ažurirane informacije posjetite poveznicu na službenu stranicu.
+            </div>
+
+            <div style="margin-top:14px">
+              <a class="btn phone" href="tel:031631126" aria-label="Nazovite Policijsku postaju Donji Miholjac">📞 Nazovite odmah</a>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </main>
+
+    <footer role="contentinfo">
+      <div class="small">© Policijska postaja Donji Miholjac</div>
+      <div class="small">Telefon: <a href="tel:031631126">031/631-126</a> — <a href="http://osjecko-baranjska.policija.hr/MainPu.aspx?id=14518" target="_blank" rel="noopener noreferrer">Službena stranica</a></div>
+    </footer>
+  </div>
+
+  <script>
+    (function(){
+      var menuToggle = document.getElementById('menuToggle');
+      var mobileMenu = document.getElementById('mobileMenu');
+
+      function setMenu(open){
+        if(open){
+          mobileMenu.style.display = 'block';
+          menuToggle.setAttribute('aria-expanded','true');
+        } else {
+          mobileMenu.style.display = 'none';
+          menuToggle.setAttribute('aria-expanded','false');
+        }
+      }
+
+      // initialize
+      setMenu(false);
+
+      menuToggle.addEventListener('click', function(){
+        var expanded = menuToggle.getAttribute('aria-expanded') === 'true';
+        setMenu(!expanded);
+      });
+
+      // Close mobile menu on Escape
+      document.addEventListener('keydown', function(e){
+        if(e.key === 'Escape'){
+          setMenu(false);
+          menuToggle.focus();
+        }
+      });
+
+      // Smooth in-page navigation with reduced-motion respect
+      var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if(!prefersReduced){
+        document.querySelectorAll('a[href^="#"]').forEach(function(anchor){
+          anchor.addEventListener('click', function(e){
+            var targetId = this.getAttribute('href').slice(1);
+            var target = document.getElementById(targetId);
+            if(target){
+              e.preventDefault();
+              var top = target.getBoundingClientRect().top + window.pageYOffset - 20;
+              window.scrollTo({ top: top, behavior: 'smooth' });
+              // close mobile menu if open
+              if(window.innerWidth <= 820) setMenu(false);
+            }
+          });
+        });
+      }
+
+      // Ensure focus styles for keyboard users (simple enhancement)
+      document.body.addEventListener('keydown', function(e){
+        if(e.key === 'Tab') document.documentElement.classList.add('show-focus');
+      });
+    })();
+  </script>
+</body>
+</html>
