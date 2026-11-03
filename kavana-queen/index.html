@@ -1,0 +1,571 @@
+ <!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Kavana Queen — Catering za događanja i poslovne prilike</title>
+  <meta name="description" content="Kavana Queen pruža profesionalne catering usluge za privatne proslave, poslovne evente i coffee break rješenja. Kontakt: +385 43 334 320, dules@inet.hr" />
+  <meta property="og:title" content="Kavana Queen — Catering za događanja i poslovne prilike" />
+  <meta property="og:description" content="Profesionalan catering za privatne i poslovne događaje. Zatražite ponudu ili nas nazovite." />
+  <meta property="og:url" content="http://www.kavana-queen.hr" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      /* Boje */
+      --color-primary: #4b2e2b; /* tamna toplija čokoladna */
+      --color-secondary: #d9b89f; /* topao pijesak */
+      --color-accent: #f3c072; /* zlatni akcent */
+      --neutral-900: #121212;
+      --neutral-800: #222222;
+      --neutral-700: #333333;
+      --neutral-500: #777777;
+      --neutral-300: #d6d6d6;
+      --bg: #fffaf7;
+      --card-bg: #ffffff;
+      --text: var(--neutral-900);
+
+      /* Tipografija */
+      --font-heading: "Playfair Display", Georgia, serif;
+      --font-body: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+      /* Spacing */
+      --space-xxs: 6px;
+      --space-xs: 10px;
+      --space-sm: 16px;
+      --space-md: 24px;
+      --space-lg: 40px;
+      --space-xl: 64px;
+      --container: 1200px;
+
+      /* Border radius */
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+
+      /* Shadows */
+      --shadow-soft: 0 6px 18px rgba(34,34,34,0.08);
+      --shadow-strong: 0 12px 30px rgba(18,18,18,0.10);
+
+      /* Transitions */
+      --ease: cubic-bezier(.2,.9,.2,1);
+    }
+
+    /* Fluid type scale */
+    html { font-family: var(--font-body); color:var(--text); background: linear-gradient(180deg, var(--bg) 0%, #fff 100%); -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; }
+    :root { font-size: 16px; }
+    h1{ font-family:var(--font-heading); font-weight:700; font-size: clamp(1.8rem, 2.8vw + 1rem, 3.4rem); line-height:1.02; margin:0; color:var(--neutral-900); letter-spacing:-0.02em;}
+    h2{ font-family:var(--font-heading); font-size: clamp(1.1rem, 1.6vw + 0.6rem, 1.6rem); margin:0 0 var(--space-sm) 0; color:var(--neutral-900);}
+    p, li, a, button { font-family:var(--font-body); font-size: clamp(0.95rem, 0.9vw + 0.4rem, 1.05rem); line-height:1.5; color:var(--neutral-700); margin:0; }
+    small{ font-size:0.9rem; color:var(--neutral-500); }
+
+    .container { max-width: var(--container); margin: 0 auto; padding: 0 20px; }
+
+    /* Header / Navigation */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 60;
+      backdrop-filter: blur(6px);
+      background: linear-gradient(180deg, rgba(255,250,247,0.7), rgba(255,250,247,0.5));
+      border-bottom: 1px solid rgba(34,34,34,0.04);
+    }
+    .nav-inner { display:flex; align-items:center; justify-content:space-between; gap:16px; padding:16px 20px; max-width:var(--container); margin:0 auto; }
+    .brand { display:flex; align-items:center; gap:12px; text-decoration:none; color:var(--neutral-900); }
+    .logo-mark {
+      width:46px; height:46px; border-radius:10px; display:inline-grid; place-items:center;
+      background: linear-gradient(135deg, var(--color-secondary), rgba(211,152,123,0.12));
+      box-shadow: var(--shadow-soft);
+      flex:0 0 46px;
+    }
+    .wordmark { font-family:var(--font-heading); font-size:1.05rem; letter-spacing:0.02em; }
+    nav { display:flex; gap:18px; align-items:center; }
+    .nav-links { display:flex; gap:18px; align-items:center; }
+    .nav-links a { color:var(--neutral-700); text-decoration:none; padding:8px; border-radius:8px; transition: all 180ms var(--ease); }
+    .nav-links a:hover, .nav-links a:focus { color:var(--neutral-900); background:rgba(75,46,43,0.04); outline: none; }
+    .cta-phone { display:inline-flex; align-items:center; gap:10px; background:var(--color-primary); color:#fff; padding:10px 14px; border-radius:12px; text-decoration:none; box-shadow:var(--shadow-soft); font-weight:600; }
+    .cta-phone svg{ opacity:0.95; }
+
+    /* Mobile nav */
+    .menu-toggle { display:none; background:transparent; border:0; padding:8px; border-radius:9px; }
+    .menu-toggle:focus { outline:2px solid var(--color-accent); outline-offset:2px; }
+
+    /* Hero */
+    .hero {
+      padding: calc(var(--space-xl) + 10px) 0;
+      display:grid;
+      grid-template-columns: 1fr 480px;
+      gap:48px;
+      align-items: center;
+      position:relative;
+    }
+    .hero-left { padding-right:20px; }
+    .kicker { display:inline-block; background:linear-gradient(90deg, rgba(243,192,114,0.14), rgba(217,184,159,0.08)); color:var(--color-primary); font-weight:600; padding:7px 12px; border-radius:999px; font-size:0.95rem; margin-bottom:16px; }
+    .hero-sub { color:var(--neutral-700); margin-top:12px; margin-bottom:22px; max-width:56ch; }
+    .hero-ctas { display:flex; gap:12px; align-items:center; margin-top:20px; }
+    .btn-primary {
+      background: linear-gradient(180deg, var(--color-primary), #3e2624);
+      color: #fff;
+      border: 0;
+      padding:12px 18px;
+      border-radius:12px;
+      font-weight:600;
+      box-shadow: var(--shadow-strong);
+      text-decoration:none;
+      display:inline-flex;
+      gap:10px;
+      align-items:center;
+      transition: transform 220ms var(--ease), box-shadow 220ms var(--ease), opacity 220ms var(--ease);
+    }
+    .btn-primary:hover, .btn-primary:focus { transform: translateY(-3px); box-shadow: 0 18px 40px rgba(34,34,34,0.12); outline:none; }
+    .btn-ghost {
+      background:transparent;
+      color:var(--color-primary);
+      border:1px solid rgba(75,46,43,0.08);
+      padding:10px 14px;
+      border-radius:12px;
+      text-decoration:none;
+      display:inline-flex;
+      gap:10px;
+      align-items:center;
+      transition: background 180ms var(--ease), transform 180ms var(--ease);
+    }
+    .btn-ghost:hover, .btn-ghost:focus { background: rgba(75,46,43,0.04); transform: translateY(-2px); outline:none; }
+
+    /* Hero visual card */
+    .hero-card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.8), rgba(255,255,255,0.95));
+      border-radius: var(--radius-lg);
+      padding:22px;
+      box-shadow: var(--shadow-strong);
+      display:flex;
+      gap:18px;
+      align-items:center;
+      justify-content:center;
+      min-height:320px;
+      position:relative;
+      overflow:hidden;
+    }
+    .hero-illustration { width:100%; max-width:360px; height:auto; display:block; transform-origin:center; }
+
+    /* Services */
+    .cards { display:grid; grid-template-columns: repeat(3,1fr); gap:20px; margin-top:36px; }
+    .card { background:var(--card-bg); border-radius:var(--radius-md); padding:18px; box-shadow:var(--shadow-soft); transition: transform 220ms var(--ease), box-shadow 220ms var(--ease); border:1px solid rgba(34,34,34,0.03); }
+    .card:hover { transform: translateY(-6px); box-shadow: 0 18px 36px rgba(34,34,34,0.08); }
+    .card h3 { margin-bottom:8px; font-size:1.05rem; color:var(--neutral-900); }
+    .card p { color:var(--neutral-700); }
+
+    /* About & process */
+    .split { display:grid; grid-template-columns: 1fr 1fr; gap:28px; align-items:start; padding:var(--space-lg) 0; }
+    .process-steps { display:flex; flex-direction:column; gap:14px; }
+    .step { display:flex; gap:12px; align-items:flex-start; background:linear-gradient(180deg, rgba(250,245,242,0.7), rgba(255,255,255,0.6)); padding:12px; border-radius:12px; }
+    .step .num { width:40px; height:40px; border-radius:10px; background:var(--color-secondary); display:grid; place-items:center; font-weight:700; color:var(--neutral-900); }
+
+    /* Decorative band */
+    .decor-band { margin:var(--space-lg) 0; height:86px; border-radius:14px; background:linear-gradient(90deg, rgba(75,46,43,0.03), rgba(243,192,114,0.04)); display:flex; align-items:center; justify-content:center; box-shadow: var(--shadow-soft); }
+
+    /* Contact */
+    .contact-card { background: linear-gradient(180deg, #fff, #fffbf9); border-radius:18px; padding:22px; box-shadow: var(--shadow-strong); display:flex; gap:20px; align-items:center; justify-content:space-between; flex-wrap:wrap; }
+    .contact-info { display:flex; gap:18px; align-items:center; flex:1 1 320px; }
+    .contact-actions { display:flex; gap:12px; align-items:center; }
+
+    /* Footer */
+    footer { margin-top:40px; padding:36px 20px; border-top:1px solid rgba(34,34,34,0.04); background:linear-gradient(180deg, rgba(255,250,247,0.7), rgba(255,250,247,0.9)); }
+    .footer-inner { max-width:var(--container); margin:0 auto; display:flex; justify-content:space-between; align-items:center; gap:20px; flex-wrap:wrap; }
+
+    /* Responsive */
+    @media (max-width:1100px){
+      .hero { grid-template-columns: 1fr; gap:28px; padding:48px 0; }
+      .hero-card{ min-height:260px;}
+      .cards { grid-template-columns: repeat(2,1fr); }
+      .split { grid-template-columns: 1fr; }
+    }
+    @media (max-width:700px){
+      .nav-links { display:none; }
+      .menu-toggle { display:inline-flex; }
+      .hero { padding:36px 0; }
+      .cards { grid-template-columns: 1fr; }
+      .hero-card { padding:18px; min-height:220px; }
+      .brand .wordmark { display:none; }
+      .contact-card { flex-direction:column; align-items:flex-start; gap:12px; }
+    }
+
+    /* Mobile nav panel */
+    .mobile-nav {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.45);
+      display:none;
+      align-items:flex-start;
+      justify-content:flex-end;
+      z-index:120;
+      padding:30px 20px;
+    }
+    .mobile-panel {
+      width:320px;
+      max-width:90%;
+      background:#fff;
+      border-radius:14px;
+      padding:18px;
+      box-shadow:0 30px 60px rgba(18,18,18,0.24);
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+    }
+    .mobile-panel a{ padding:10px; border-radius:10px; text-decoration:none; color:var(--neutral-700);}
+    .mobile-panel a:focus, .mobile-panel a:hover{ background:rgba(75,46,43,0.04); color:var(--neutral-900); }
+
+    /* Accessibility focus */
+    a:focus, button:focus, input:focus, textarea:focus { outline: 3px solid rgba(243,192,114,0.18); outline-offset:3px; border-radius:8px; }
+
+    /* Small helpers */
+    .muted { color:var(--neutral-500); }
+    .visually-hidden { position:absolute!important; height:1px; width:1px; overflow:hidden; clip:rect(1px,1px,1px,1px); white-space:nowrap; }
+    @media (prefers-reduced-motion: reduce) {
+      * { transition:none !important; animation:none !important; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav-inner container" role="navigation" aria-label="Glavna navigacija">
+      <a class="brand" href="#hero">
+        <div class="logo-mark" aria-hidden="true">
+          <!-- simple coffee cup motif -->
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+            <rect x="3" y="7" width="14" height="9" rx="2" fill="white" />
+            <path d="M7 7c0-1.5 1.343-2.5 3-2.5S13 5.5 13 7" stroke="#4b2e2b" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M19 9.5c0 1.38-1.12 2.5-2.5 2.5" stroke="#4b2e2b" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <span class="wordmark">Kavana Queen</span>
+      </a>
+
+      <nav aria-label="Primarna navigacija">
+        <div class="nav-links" role="menubar" aria-hidden="false">
+          <a href="#usluge">Usluge</a>
+          <a href="#o-nama">O nama</a>
+          <a href="#proces">Kako radimo</a>
+          <a href="#kontakt">Kontakt</a>
+        </div>
+
+        <a class="cta-phone" href="tel:+38543334320" aria-label="Nazovite Kavana Queen">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.8 19.8 0 0 1 3.09 5.18 2 2 0 0 1 5 3h3a1 1 0 0 1 1 .75c.12.66.33 1.3.62 1.91a1 1 0 0 1-.24 1.05L8.91 8.91a16 16 0 0 0 6.18 6.18l1.2-1.2a1 1 0 0 1 1.05-.24c.61.29 1.25.5 1.91.62A1 1 0 0 1 22 16.92z" stroke="#fff" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span>+385 43 334 320</span>
+        </a>
+
+        <button class="menu-toggle" aria-expanded="false" aria-controls="mobileNav" aria-label="Otvori izbornik" id="menuToggle">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4 7h16M4 12h16M4 17h16" stroke="#4b2e2b" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="hero" class="hero container" aria-label="Početna sekcija">
+      <div class="hero-left">
+        <span class="kicker">Catering & event servis</span>
+        <h1>Kvalitetan catering za vaše događanje — pažljivo, promišljeno, pouzdano</h1>
+        <p class="hero-sub">Kavana Queen pruža catering rješenja za privatne proslave i poslovne evente te coffee break usluge. Radimo s fokusom na detalj, logistiku i jasnoću komunikacije kako bi vaše događanje prošlo bez stresa.</p>
+
+        <div class="hero-ctas" role="group" aria-label="Glavni pozivi na akciju">
+          <a class="btn-primary" href="mailto:dules@inet.hr?subject=Upit%20za%20ponudu%20-%20Kavana%20Queen" title="Zatražite ponudu putem e-maila">Zatražite ponudu
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true" style="opacity:.95; transform:translateY(1px);">
+              <path d="M22 2L11 13" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M22 2l-7 20-4-9-9-4 20-7z" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+
+          <a class="btn-ghost" href="tel:+38543334320" title="Nazovite Kavana Queen">Nazovite nas
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true" style="opacity:.9;">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.8 19.8 0 0 1 3.09 5.18 2 2 0 0 1 5 3h3a1 1 0 0 1 1 .75c.12.66.33 1.3.62 1.91a1 1 0 0 1-.24 1.05L8.91 8.91a16 16 0 0 0 6.18 6.18l1.2-1.2a1 1 0 0 1 1.05-.24c.61.29 1.25.5 1.91.62A1 1 0 0 1 22 16.92z" stroke="var(--color-primary)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+
+        <div class="cards" aria-hidden="false">
+          <article class="card" aria-labelledby="s1">
+            <h3 id="s1">Privatne proslave</h3>
+            <p>Prilagodljivo posluživanje za proslave, obiteljska okupljanja i intimne evente. Fokus na jasnoj koordinaciji i kvalitetnom posluženju gosta.</p>
+          </article>
+
+          <article class="card" aria-labelledby="s2">
+            <h3 id="s2">Poslovni eventi</h3>
+            <p>Catering za poslovne sastanke i evente, uključujući organizaciju prostora, posluživanje i logističku podršku po dogovoru.</p>
+          </article>
+
+          <article class="card" aria-labelledby="s3">
+            <h3 id="s3">Coffee break & pauze</h3>
+            <p>Rješenja za pauze i coffee break — jednostavno, profesionalno i u skladu s ritmom vašeg događaja.</p>
+          </article>
+        </div>
+      </div>
+
+      <aside class="hero-card" aria-hidden="true">
+        <!-- Decorative composition with inline SVG (no external images) -->
+        <svg class="hero-illustration" viewBox="0 0 600 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
+          <defs>
+            <linearGradient id="g1" x1="0" x2="1">
+              <stop offset="0" stop-color="#f7efe8"/>
+              <stop offset="1" stop-color="#fff"/>
+            </linearGradient>
+          </defs>
+          <rect x="0" y="0" width="600" height="420" rx="20" fill="url(#g1)"/>
+          <!-- stylized tray -->
+          <g transform="translate(30,30)">
+            <path d="M60 260c60 0 140-20 220-20s160 20 220 20v12c0 12-14 24-32 24H92c-18 0-32-12-32-24z" fill="#fff" opacity="0.98" />
+            <rect x="90" y="60" width="360" height="160" rx="14" fill="#fff" stroke="#f0e6e2" stroke-width="2"/>
+            <g transform="translate(120,90)">
+              <rect x="0" y="0" width="80" height="60" rx="8" fill="#f7f0ea" />
+              <rect x="110" y="0" width="120" height="60" rx="8" fill="#fff4ea" />
+              <rect x="260" y="0" width="80" height="60" rx="8" fill="#fff" stroke="#f0e6e2" />
+            </g>
+            <g transform="translate(140,170)">
+              <rect x="0" y="0" width="320" height="8" rx="4" fill="#f3c072" opacity="0.18"/>
+            </g>
+          </g>
+          <!-- small coffee steam motif -->
+          <g transform="translate(460,230)" fill="none" stroke="#4b2e2b" stroke-width="1.8" stroke-linecap="round">
+            <path d="M6 0c0 4-3 6-3 10"/>
+            <path d="M14 0c0 5-4 7-4 11" />
+          </g>
+        </svg>
+      </aside>
+    </section>
+
+    <div class="container">
+      <section id="o-nama" aria-labelledby="about-heading" style="padding-top:30px;">
+        <h2 id="about-heading">O nama</h2>
+        <div class="split">
+          <div>
+            <p>Kavana Queen pruža catering usluge namijenjene privatnim i poslovnim događanjima. U komunikaciji pridajemo važnost jasnoći, odgovornosti i prilagodbi potrebama organizatora. Kontaktni podaci za dogovor nalaze se pri dnu stranice.</p>
+            <div style="margin-top:18px;">
+              <small class="muted">Kontakt telefon i e‑mail:</small>
+              <div style="margin-top:8px; display:flex; gap:12px; align-items:center; flex-wrap:wrap;">
+                <a href="tel:+38543334320" class="cta-phone" style="background:transparent;color:var(--color-primary);box-shadow:none;padding:8px 10px;border-radius:10px;border:1px solid rgba(75,46,43,0.06);">
+                  +385 43 334 320
+                </a>
+                <a href="mailto:dules@inet.hr" style="padding:8px 10px;border-radius:10px;border:1px solid rgba(34,34,34,0.04);text-decoration:none;color:var(--neutral-700);">dules@inet.hr</a>
+                <a href="http://www.kavana-queen.hr" target="_blank" rel="noopener" style="padding:8px 10px;border-radius:10px;border:1px solid rgba(34,34,34,0.04);text-decoration:none;color:var(--neutral-700);">Posjetite web</a>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <h3 style="margin-bottom:8px;">Naš pristup</h3>
+            <p class="muted">Radimo u suradnji s organizatorom događanja kako bismo jasno definirali potrebe, logistiku i raspored posluživanja. Fokus je na pravovremenoj realizaciji i transparentnoj komunikaciji.</p>
+
+            <div style="margin-top:16px;">
+              <div style="display:flex; gap:12px; align-items:center;">
+                <svg width="42" height="42" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M12 1v4" stroke="#f3c072" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M20 7l-8-6-8 6" stroke="#4b2e2b" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <div>
+                  <strong>Transparentna ponuda</strong>
+                  <div class="muted" style="margin-top:6px;">Jasno izloženi elementi ponude i logistike.</div>
+                </div>
+              </div>
+
+              <div style="display:flex; gap:12px; align-items:center; margin-top:12px;">
+                <svg width="42" height="42" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M3 12h18" stroke="#4b2e2b" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M12 3v18" stroke="#f3c072" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <div>
+                  <strong>Fleksibilnost na mjestu</strong>
+                  <div class="muted" style="margin-top:6px;">Prilagodba rasporeda posluživanja prema vašim potrebama.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="proces" aria-labelledby="process-heading" style="padding-top:30px;">
+        <h2 id="process-heading">Kako funkcionira suradnja</h2>
+        <div class="process-steps" style="margin-top:14px;">
+          <div class="step" role="article">
+            <div class="num" aria-hidden="true">1</div>
+            <div>
+              <strong>Kontakt i upit</strong>
+              <div class="muted" style="margin-top:6px;">Pošaljite osnovne informacije e‑mailom ili nazovite za početnu konzultaciju.</div>
+            </div>
+          </div>
+
+          <div class="step" role="article">
+            <div class="num" aria-hidden="true">2</div>
+            <div>
+              <strong>Konzultacija i prijedlog</strong>
+              <div class="muted" style="margin-top:6px;">Dogovaramo opseg usluge, raspored i logistiku. Pripremamo ponudu prilagođenu događaju.</div>
+            </div>
+          </div>
+
+          <div class="step" role="article">
+            <div class="num" aria-hidden="true">3</div>
+            <div>
+              <strong>Provedba</strong>
+              <div class="muted" style="margin-top:6px;">Koordinacija na dan događaja i pravovremeno izvršenje posluživanja.</div>
+            </div>
+          </div>
+
+          <div class="step" role="article">
+            <div class="num" aria-hidden="true">4</div>
+            <div>
+              <strong>Podrška</strong>
+              <div class="muted" style="margin-top:6px;">Nakon događaja ostajemo dostupni za eventualna pitanja i povratne informacije.</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="decor-band" aria-hidden="true">
+        <svg width="100%" height="56" viewBox="0 0 800 56" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+          <defs>
+            <linearGradient id="band" x1="0" x2="1">
+              <stop offset="0" stop-color="#f7f0ea" />
+              <stop offset="1" stop-color="#fff" />
+            </linearGradient>
+          </defs>
+          <rect width="800" height="56" fill="url(#band)"/>
+          <g fill="#f3c072" opacity="0.14">
+            <circle cx="120" cy="28" r="18"/>
+            <circle cx="380" cy="18" r="30"/>
+            <circle cx="640" cy="32" r="22"/>
+          </g>
+        </svg>
+      </div>
+
+      <section id="kontakt" aria-labelledby="contact-heading" style="padding-bottom:60px;">
+        <h2 id="contact-heading">Kontakt</h2>
+
+        <div class="contact-card" style="margin-top:18px;">
+          <div class="contact-info">
+            <div style="display:flex; flex-direction:column;">
+              <strong style="font-size:1.05rem; color:var(--neutral-900);">Kavana Queen</strong>
+              <small class="muted" style="margin-top:6px;">Za upite i dogovore</small>
+            </div>
+
+            <div style="display:flex; flex-direction:column;">
+              <a href="tel:+38543334320" style="text-decoration:none; color:var(--neutral-700); font-weight:600;">+385 43 334 320</a>
+              <a href="mailto:dules@inet.hr" style="text-decoration:none; color:var(--neutral-700); margin-top:6px;">dules@inet.hr</a>
+            </div>
+          </div>
+
+          <div class="contact-actions" role="group" aria-label="Kontakt akcije">
+            <a class="btn-primary" href="mailto:dules@inet.hr?subject=Upit%20za%20ponudu%20-%20Kavana%20Queen">Pošaljite upit</a>
+            <a class="btn-ghost" href="tel:+38543334320">Nazovite</a>
+          </div>
+        </div>
+
+        <div style="margin-top:22px;">
+          <p class="muted">Napomena: adresa mjesta događaja određuje se dogovorom. Ako želite, navedite osnovne informacije u e‑mailu: tip događaja, približan broj gostiju i datum.</p>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-inner container" role="contentinfo">
+      <div style="display:flex; gap:14px; align-items:center;">
+        <div class="logo-mark" aria-hidden="true" style="width:44px;height:44px;border-radius:10px;">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <rect x="3" y="7" width="14" height="9" rx="2" fill="white" />
+            <path d="M7 7c0-1.5 1.343-2.5 3-2.5S13 5.5 13 7" stroke="#4b2e2b" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div>
+          <div style="font-weight:700;">Kavana Queen</div>
+          <small class="muted">Kontakt: <a href="tel:+38543334320" style="color:inherit;text-decoration:none;">+385 43 334 320</a> • <a href="mailto:dules@inet.hr" style="color:inherit;text-decoration:none;">dules@inet.hr</a></small>
+        </div>
+      </div>
+
+      <nav aria-label="Sekundarna navigacija" style="display:flex; gap:14px; align-items:center;">
+        <a href="#usluge">Usluge</a>
+        <a href="#o-nama">O nama</a>
+        <a href="#kontakt">Kontakt</a>
+        <a href="http://www.kavana-queen.hr" rel="noopener" target="_blank">Web</a>
+      </nav>
+    </div>
+  </footer>
+
+  <!-- Mobile nav panel -->
+  <div id="mobileNav" class="mobile-nav" aria-hidden="true">
+    <div class="mobile-panel" role="dialog" aria-label="Mobilni izbornik">
+      <a href="#usluge">Usluge</a>
+      <a href="#o-nama">O nama</a>
+      <a href="#proces">Kako radimo</a>
+      <a href="#kontakt">Kontakt</a>
+      <a href="tel:+38543334320">Nazovite: +385 43 334 320</a>
+      <a href="mailto:dules@inet.hr">Pošaljite e-mail</a>
+      <button id="closeMobile" style="margin-top:6px;padding:10px;border-radius:10px;background:#f7f0ea;border:0;cursor:pointer;">Zatvori</button>
+    </div>
+  </div>
+
+  <script>
+    // Mobile menu toggle
+    (function(){
+      const menuToggle = document.getElementById('menuToggle');
+      const mobileNav = document.getElementById('mobileNav');
+      const closeBtn = document.getElementById('closeMobile');
+
+      function openMenu(){
+        mobileNav.style.display = 'flex';
+        mobileNav.setAttribute('aria-hidden','false');
+        menuToggle.setAttribute('aria-expanded','true');
+      }
+      function closeMenu(){
+        mobileNav.style.display = 'none';
+        mobileNav.setAttribute('aria-hidden','true');
+        menuToggle.setAttribute('aria-expanded','false');
+        menuToggle.focus();
+      }
+
+      menuToggle.addEventListener('click', function(){
+        const expanded = this.getAttribute('aria-expanded') === 'true';
+        if(expanded) closeMenu(); else openMenu();
+      });
+
+      closeBtn.addEventListener('click', closeMenu);
+
+      // Close on outside click
+      mobileNav.addEventListener('click', function(e){
+        if(e.target === mobileNav) closeMenu();
+      });
+
+      // Smooth scroll for internal links
+      document.querySelectorAll('a[href^="#"]').forEach(a=>{
+        a.addEventListener('click', function(e){
+          const href = this.getAttribute('href');
+          if(href.length > 1){
+            const target = document.querySelector(href);
+            if(target){
+              e.preventDefault();
+              target.scrollIntoView({behavior: 'smooth', block:'start'});
+              // close mobile nav if open
+              if(mobileNav.style.display === 'flex') closeMenu();
+            }
+          }
+        });
+      });
+
+      // Keyboard accessibility: close mobile nav with Escape
+      document.addEventListener('keydown', function(e){
+        if(e.key === 'Escape' && mobileNav.style.display === 'flex'){
+          closeMenu();
+        }
+      });
+
+      // Ensure no aggressive animations on reduced-motion
+      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)');
+      if(prefersReduced.matches){
+        document.documentElement.style.scrollBehavior = 'auto';
+      }
+    })();
+  </script>
+</body>
+</html>
