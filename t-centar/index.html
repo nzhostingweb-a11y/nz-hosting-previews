@@ -1,0 +1,768 @@
+ <!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>T-centar — Trgovina elektronikom | Pregled ponude i kontakt</title>
+  <meta name="description" content="T-centar — trgovina elektronikom. Pregledajte kategorije proizvoda, pročitajte kratak vodič kako kupiti i posjetite službenu stranicu za detalje." />
+  <meta property="og:title" content="T-centar — Trgovina elektronikom" />
+  <meta property="og:description" content="Pregledajte kategorije proizvoda i saznajte kako jednostavno provjeriti ponudu." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      /* Boje */
+      --color-primary: #0b66ff; /* active / CTA */
+      --color-secondary: #0f2137; /* deep neutral */
+      --color-accent: #00c2a8; /* accent for highlights */
+      --neutral-900: #0b1220;
+      --neutral-800: #162033;
+      --neutral-700: #263241;
+      --neutral-500: #6b7b8e;
+      --neutral-300: #cbd6e0;
+      --neutral-100: #f5f7fa;
+      --bg: linear-gradient(180deg,#ffffff 0%, #fbfdff 100%);
+
+      /* Typographic scale */
+      --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      --font-serif: "Merriweather", Georgia, "Times New Roman", serif;
+
+      /* Spacing */
+      --space-xxs: 6px;
+      --space-xs: 10px;
+      --space-sm: 16px;
+      --space-md: 24px;
+      --space-lg: 40px;
+      --space-xl: 64px;
+
+      /* Radii */
+      --r-sm: 8px;
+      --r-md: 14px;
+      --r-lg: 20px;
+
+      /* Shadows */
+      --shadow-soft: 0 6px 18px rgba(16,24,40,0.08);
+      --shadow-elev: 0 12px 40px rgba(11,22,40,0.12);
+
+      /* Transition */
+      --ease: cubic-bezier(.2,.9,.25,1);
+
+      /* Layout */
+      --container: 1200px;
+    }
+
+    /* Reset & base */
+    * { box-sizing: border-box; }
+    html,body { height:100%; }
+    body{
+      margin:0;
+      font-family:var(--font-sans);
+      color:var(--neutral-900);
+      background:var(--bg);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    a { color:inherit; text-decoration:none; }
+    img, svg { display:block; max-width:100%; height:auto; }
+
+    /* Container */
+    .wrap{
+      max-width:var(--container);
+      margin:0 auto;
+      padding:0 20px;
+    }
+
+    /* Skip link */
+    .skip-link{
+      position: fixed;
+      left:12px;
+      top:12px;
+      background:#fff;
+      color:var(--neutral-900);
+      padding:8px 12px;
+      border-radius:8px;
+      box-shadow:var(--shadow-soft);
+      z-index:1001;
+      transform:translateY(-110%);
+      transition:transform .18s var(--ease);
+    }
+    .skip-link:focus{ transform:none; outline:2px solid var(--color-accent); }
+
+    /* Header / Nav */
+    header{
+      position:sticky;
+      top:0;
+      z-index:1000;
+      backdrop-filter: blur(6px);
+      background: linear-gradient(180deg, rgba(255,255,255,0.85), rgba(255,255,255,0.6));
+      border-bottom:1px solid rgba(16,24,40,0.04);
+    }
+    .nav{
+      display:flex;
+      align-items:center;
+      gap:24px;
+      padding:18px 0;
+      justify-content:space-between;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+    .brand .logo{
+      width:56px;
+      height:56px;
+      display:grid;
+      place-items:center;
+      background:linear-gradient(135deg,var(--color-primary),var(--color-accent));
+      color:white;
+      border-radius:12px;
+      box-shadow:var(--shadow-soft);
+      font-weight:700;
+      font-family:var(--font-sans);
+      font-size:18px;
+    }
+    .brand .wordmark{
+      line-height:1;
+    }
+    .brand .wordmark .title{
+      font-weight:700;
+      color:var(--neutral-900);
+      font-size:18px;
+      letter-spacing:0.2px;
+    }
+    .brand .wordmark .tag{
+      font-size:12px;
+      color:var(--neutral-500);
+      margin-top:2px;
+    }
+
+    nav.primary{
+      display:flex;
+      align-items:center;
+      gap:18px;
+    }
+    nav.primary a{
+      color:var(--neutral-700);
+      font-weight:600;
+      padding:8px 10px;
+      border-radius:10px;
+      transition:all .18s var(--ease);
+    }
+    nav.primary a:hover, nav.primary a:focus{
+      color:var(--neutral-900);
+      background:rgba(11,102,255,0.06);
+      outline:none;
+    }
+
+    .cta-desktop{
+      margin-left:12px;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:10px 16px;
+      border-radius:12px;
+      font-weight:700;
+      cursor:pointer;
+      transition:transform .14s var(--ease), box-shadow .14s var(--ease);
+      border:0;
+      background:var(--color-primary);
+      color:white;
+      box-shadow:0 6px 20px rgba(11,102,255,0.12);
+      text-decoration:none;
+    }
+    .btn.secondary{
+      background:transparent;
+      color:var(--neutral-800);
+      border:1px solid rgba(16,24,40,0.06);
+      font-weight:600;
+    }
+    .btn:active{ transform:translateY(1px); }
+
+    /* Hamburger (mobile) */
+    .hamburger{
+      display:none;
+      background:transparent;
+      border:0;
+      width:44px;
+      height:44px;
+      border-radius:10px;
+      align-items:center;
+      justify-content:center;
+    }
+    .hamburger svg{ width:22px; height:22px; color:var(--neutral-700); }
+    .mobile-nav{
+      display:none;
+    }
+
+    /* Hero */
+    .hero{
+      padding:48px 0 56px;
+      display:grid;
+      grid-template-columns: 1fr 420px;
+      gap:36px;
+      align-items:center;
+    }
+    .hero-left{
+      padding-right:12px;
+    }
+    h1{
+      margin:0 0 14px 0;
+      font-family:var(--font-serif);
+      font-weight:700;
+      color:var(--neutral-900);
+      font-size: clamp(28px, 4.5vw, 44px);
+      line-height:1.02;
+      letter-spacing:-0.4px;
+    }
+    .lede{
+      margin:0 0 22px 0;
+      color:var(--neutral-700);
+      font-size:clamp(15px, 2.1vw, 17px);
+      max-width:66ch;
+    }
+    .hero-ctas{ display:flex; gap:12px; flex-wrap:wrap; }
+
+    .hero-right{
+      position:relative;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      min-height:320px;
+    }
+    .device-card{
+      width:100%;
+      max-width:420px;
+      border-radius:18px;
+      padding:22px;
+      background:linear-gradient(180deg, rgba(11,102,255,0.06), rgba(0,194,168,0.03));
+      box-shadow:var(--shadow-elev);
+      border:1px solid rgba(11,22,40,0.04);
+      transform:translateY(0);
+      transition:transform .28s var(--ease);
+    }
+    .device-card:hover{ transform:translateY(-6px); }
+    .device-visual{
+      display:flex;
+      gap:12px;
+      align-items:center;
+    }
+    .device-visual .mock{
+      width:84px;
+      height:84px;
+      border-radius:14px;
+      background:linear-gradient(135deg,#fff,#f7fbff);
+      box-shadow:0 8px 26px rgba(11,22,40,0.06);
+      display:grid;
+      place-items:center;
+      border:1px solid rgba(11,22,40,0.03);
+    }
+    .device-visual .desc{
+      display:flex;
+      flex-direction:column;
+      gap:6px;
+    }
+    .muted{
+      color:var(--neutral-500);
+      font-size:13px;
+    }
+
+    /* Ponuda / Cards */
+    .grid{
+      display:grid;
+      gap:18px;
+      grid-template-columns: repeat(3, 1fr);
+    }
+    .card{
+      background:white;
+      padding:18px;
+      border-radius:14px;
+      box-shadow:var(--shadow-soft);
+      border:1px solid rgba(11,22,40,0.03);
+      transition:transform .18s var(--ease), box-shadow .18s var(--ease);
+    }
+    .card:hover{ transform:translateY(-8px); box-shadow:var(--shadow-elev); }
+    .card .icon{
+      width:56px;
+      height:56px;
+      border-radius:10px;
+      display:grid;
+      place-items:center;
+      margin-bottom:12px;
+      background:linear-gradient(135deg, rgba(11,102,255,0.06), rgba(0,194,168,0.05));
+    }
+    .card h3{ margin:0 0 8px 0; font-size:16px; color:var(--neutral-900); }
+    .card p{ margin:0; color:var(--neutral-600); font-size:14px; }
+
+    /* Sections */
+    section{
+      padding:44px 0;
+    }
+    .section-head{
+      display:flex;
+      justify-content:space-between;
+      align-items:end;
+      gap:20px;
+      margin-bottom:18px;
+    }
+    .section-head h2{
+      margin:0;
+      font-size:20px;
+      color:var(--neutral-900);
+    }
+    .section-head p{ margin:0; color:var(--neutral-500); }
+
+    /* Advantages / list */
+    .advantages{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:20px;
+    }
+    .adv{
+      display:flex;
+      gap:14px;
+      align-items:flex-start;
+      background:linear-gradient(180deg,#fff,#fbfdff);
+      padding:16px;
+      border-radius:12px;
+      border:1px solid rgba(16,24,40,0.03);
+      box-shadow:var(--shadow-soft);
+    }
+    .adv .num{
+      font-weight:700;
+      color:var(--color-primary);
+      min-width:44px;
+      height:44px;
+      border-radius:10px;
+      display:grid;
+      place-items:center;
+      background:rgba(11,102,255,0.06);
+      font-size:16px;
+    }
+    .adv p{ margin:0; color:var(--neutral-700); }
+
+    /* How it works */
+    .steps{
+      display:flex;
+      gap:14px;
+      align-items:stretch;
+    }
+    .step{
+      flex:1;
+      background:white;
+      padding:16px;
+      border-radius:12px;
+      border:1px solid rgba(16,24,40,0.04);
+      text-align:center;
+      box-shadow:var(--shadow-soft);
+    }
+    .step .snum{
+      width:44px;
+      height:44px;
+      margin:0 auto 8px;
+      border-radius:10px;
+      background:var(--neutral-100);
+      display:grid;
+      place-items:center;
+      color:var(--neutral-700);
+      font-weight:700;
+    }
+
+    /* Contact */
+    .contact-card{
+      padding:20px;
+      border-radius:12px;
+      background:linear-gradient(90deg,#fff,#fbfdff);
+      border:1px solid rgba(16,24,40,0.03);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+    }
+    .contact-card .meta{ color:var(--neutral-700); }
+    .contact-actions{ display:flex; gap:12px; align-items:center; }
+
+    footer{
+      padding:28px 0;
+      border-top:1px solid rgba(16,24,40,0.04);
+      margin-top:28px;
+    }
+    .footer-grid{
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+    .fineprint{ color:var(--neutral-500); font-size:13px; }
+
+    /* Responsive */
+    @media (max-width:1024px){
+      .hero{ grid-template-columns: 1fr 360px; }
+      .grid{ grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width:780px){
+      .nav { padding:12px 0; }
+      .hamburger{ display:flex; }
+      nav.primary{ display:none; }
+      .cta-desktop{ display:none; }
+      .mobile-nav{ display:block; }
+      .hero{ grid-template-columns: 1fr; gap:24px; padding:36px 0 44px; }
+      .hero-right{ order:2; min-height:220px; }
+      .grid{ grid-template-columns: 1fr; }
+      .advantages{ grid-template-columns: 1fr; }
+      .steps{ flex-direction:column; }
+      .brand .wordmark .title{ font-size:16px; }
+    }
+
+    /* Animations & reveal */
+    .reveal{
+      opacity:0;
+      transform:translateY(8px);
+      transition:opacity .6s var(--ease), transform .6s var(--ease);
+      will-change:opacity, transform;
+    }
+    .reveal.visible{ opacity:1; transform:none; }
+
+    /* Focus visible for keyboard */
+    :focus{ outline:none; }
+    a:focus-visible, button:focus-visible, [tabindex]:focus-visible{
+      outline:3px solid rgba(0,194,168,0.18);
+      outline-offset:2px;
+      border-radius:8px;
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Preskoči na sadržaj</a>
+
+  <header>
+    <div class="wrap nav" role="navigation" aria-label="Glavna navigacija">
+      <div class="brand" aria-hidden="false">
+        <div class="logo" aria-hidden="true">T‑c</div>
+        <div class="wordmark">
+          <div class="title">T-centar</div>
+          <div class="tag">trgovina elektronikom</div>
+        </div>
+      </div>
+
+      <nav class="primary" aria-label="Sekcije stranice">
+        <a href="#ponuda">Ponuda</a>
+        <a href="#onama">O nama</a>
+        <a href="#prednosti">Prednosti</a>
+        <a href="#kako">Kako kupiti</a>
+        <a href="#kontakt">Kontakt</a>
+      </nav>
+
+      <div style="display:flex;align-items:center;gap:12px;">
+        <a class="btn cta-desktop" href="#ponuda">Pogledajte ponudu</a>
+
+        <button class="hamburger" id="hambBtn" aria-label="Otvori izbornik" aria-expanded="false" aria-controls="mobileMenu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M3 7h18M3 12h18M3 17h18"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <div id="mobileMenu" class="mobile-nav" hidden>
+      <div class="wrap" style="padding-bottom:16px;">
+        <nav aria-label="Mobilni izbornik" style="display:flex;flex-direction:column;gap:8px;">
+          <a class="btn secondary" href="#ponuda">Ponuda</a>
+          <a class="btn secondary" href="#onama">O nama</a>
+          <a class="btn secondary" href="#prednosti">Prednosti</a>
+          <a class="btn secondary" href="#kako">Kako kupiti</a>
+          <a class="btn secondary" href="#kontakt">Kontakt</a>
+          <a class="btn" href="https://www.hrvatskitelekom.hr/" target="_blank" rel="noopener">Službena stranica</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="wrap hero" role="region" aria-label="Hero: T-centar">
+      <div class="hero-left">
+        <p class="muted">T-centar — trgovina elektronikom</p>
+        <h1>Pametna i jasna ponuda potrošačke elektronike</h1>
+        <p class="lede">Pregledajte kategorije uređaja i dodatne opreme uz sažete opise koji pomažu pri odabiru. Stranica je namijenjena brzom informiranju i upućivanju na službenu web stranicu za detalje.</p>
+
+        <div class="hero-ctas">
+          <a class="btn" href="#ponuda">Pogledajte ponudu</a>
+          <a class="btn secondary" href="https://www.hrvatskitelekom.hr/" target="_blank" rel="noopener">Posjetite službenu stranicu</a>
+        </div>
+      </div>
+
+      <div class="hero-right" aria-hidden="false">
+        <div class="device-card" role="img" aria-label="Ilustracija proizvoda">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+            <div style="font-weight:700;color:var(--neutral-800);">Izbor kategorija</div>
+            <div style="font-size:13px;color:var(--neutral-500);">Jednostavno za pregled</div>
+          </div>
+
+          <div class="device-visual">
+            <div class="mock" aria-hidden="true">
+              <!-- simple abstract device SVG -->
+              <svg width="44" height="44" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <rect x="3" y="4" width="18" height="16" rx="2" fill="#fff"></rect>
+                <rect x="7" y="8" width="10" height="6" rx="1" fill="rgba(11,102,255,0.12)"></rect>
+              </svg>
+            </div>
+            <div class="desc">
+              <div style="font-weight:700;color:var(--neutral-900);">Odabrane kategorije</div>
+              <div class="muted">Audio, telefoni, televizori i dodaci — pregled uz jasne kratke opise.</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <section id="ponuda" class="wrap reveal" aria-labelledby="ponuda-head">
+      <div class="section-head">
+        <h2 id="ponuda-head">Ponuda</h2>
+        <p>Kratak pregled glavnih kategorija dostupne elektronike.</p>
+      </div>
+
+      <div class="grid" style="margin-top:12px;">
+        <article class="card" aria-labelledby="c1">
+          <div class="icon" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+              <rect x="3" y="5" width="18" height="12" rx="2" stroke="currentColor" stroke-width="1.5" stroke="#0b66ff"></rect>
+            </svg>
+          </div>
+          <h3 id="c1">Audio i TV</h3>
+          <p>Televizori, soundbarovi i audio sustavi — opis ključnih karakteristika i savjet za usporedbu osnovnih vrsta proizvoda.</p>
+        </article>
+
+        <article class="card" aria-labelledby="c2">
+          <div class="icon" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+              <rect x="5" y="3" width="14" height="18" rx="2" stroke="#00c2a8" stroke-width="1.5"></rect>
+            </svg>
+          </div>
+          <h3 id="c2">Pametni telefoni</h3>
+          <p>Pregled telefona različitih profila — fokus na značajke poput zaslona, baterije i kamera radi lakšeg odlučivanja.</p>
+        </article>
+
+        <article class="card" aria-labelledby="c3">
+          <div class="icon" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+              <circle cx="12" cy="8" r="3" stroke="#162033" stroke-width="1.5"></circle>
+              <rect x="6" y="13" width="12" height="6" rx="2" stroke="#162033" stroke-width="1.5"></rect>
+            </svg>
+          </div>
+          <h3 id="c3">Dodaci i oprema</h3>
+          <p>Kablovi, slušalice i punjači — praktični savjeti za kompatibilnost i osnovne karakteristike koje treba pratiti.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="onama" class="wrap reveal" aria-labelledby="onama-head">
+      <div class="section-head">
+        <h2 id="onama-head">O nama</h2>
+        <p>Neutralan opis djelatnosti i namjene stranice.</p>
+      </div>
+
+      <div style="display:flex;gap:20px;align-items:flex-start;flex-wrap:wrap;">
+        <div style="flex:1;min-width:280px;">
+          <p class="muted">T-centar je naziv predstavljen na ovoj stranici za trgovinu elektronikom. Sadržaj stranice služi za pregled kategorija proizvoda i upućivanje posjetitelja na službenu web stranicu za detaljnije informacije i zakup ili kupnju. Nisu navedeni konkretni kontakti ili adrese osim linka na službenu web stranicu.</p>
+        </div>
+
+        <aside style="width:320px;">
+          <div class="contact-card" role="region" aria-label="Kontakt informacije">
+            <div>
+              <div class="meta" style="font-weight:700;color:var(--neutral-900);">Kontakt i informacije</div>
+              <div class="muted" style="margin-top:6px;">Za detalje posjetite službenu stranicu.</div>
+            </div>
+            <div class="contact-actions">
+              <a class="btn" href="https://www.hrvatskitelekom.hr/" target="_blank" rel="noopener">Službena stranica</a>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="prednosti" class="wrap reveal" aria-labelledby="prednosti-head">
+      <div class="section-head">
+        <h2 id="prednosti-head">Prednosti</h2>
+        <p>Što možete očekivati pri pregledu ponude</p>
+      </div>
+
+      <div class="advantages" style="margin-top:12px;">
+        <div class="adv" aria-hidden="false">
+          <div class="num">1</div>
+          <div>
+            <p style="font-weight:700;margin-bottom:6px;">Jasan pregled kategorija</p>
+            <p class="muted">Struktura pomaže brzo pronaći relevantne proizvode i osnovne informacije o njima.</p>
+          </div>
+        </div>
+
+        <div class="adv">
+          <div class="num">2</div>
+          <div>
+            <p style="font-weight:700;margin-bottom:6px;">Neutralni opisi</p>
+            <p class="muted">Kratki, precizni opisi pomažu pri usporedbi bez pretjeranih tvrdnji.</p>
+          </div>
+        </div>
+
+        <div class="adv">
+          <div class="num">3</div>
+          <div>
+            <p style="font-weight:700;margin-bottom:6px;">Jednostavne smjernice za kupnju</p>
+            <p class="muted">Sadržaj nudi praktične korake kako pristupiti provjeri ponude i ostvariti daljnju akciju.</p>
+          </div>
+        </div>
+
+        <div class="adv">
+          <div class="num">4</div>
+          <div>
+            <p style="font-weight:700;margin-bottom:6px;">Poveznica na službene izvore</p>
+            <p class="muted">Za sve detalje i kontakt koristite službenu web stranicu navedenu u ovom prikazu.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="kako" class="wrap reveal" aria-labelledby="kako-head">
+      <div class="section-head">
+        <h2 id="kako-head">Kako provjeriti ponudu</h2>
+        <p>Jednostavan vodič u tri koraka</p>
+      </div>
+
+      <div class="steps" style="margin-top:12px;">
+        <div class="step" aria-hidden="false">
+          <div class="snum">1</div>
+          <div style="font-weight:700;margin-bottom:6px;">Pregledajte kategorije</div>
+          <div class="muted">Odaberite kategoriju koja odgovara vašim potrebama.</div>
+        </div>
+
+        <div class="step">
+          <div class="snum">2</div>
+          <div style="font-weight:700;margin-bottom:6px;">Pročitajte kratke opise</div>
+          <div class="muted">Usporedite ključne značajke i odlučite što želite saznati detaljnije.</div>
+        </div>
+
+        <div class="step">
+          <div class="snum">3</div>
+          <div style="font-weight:700;margin-bottom:6px;">Posjetite službenu stranicu</div>
+          <div class="muted">Za točne specifikacije i kontakt koristite poveznicu na službenu web adresu.</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="kontakt" class="wrap reveal" aria-labelledby="kontakt-head">
+      <div class="section-head">
+        <h2 id="kontakt-head">Kontakt</h2>
+        <p>Kako ostvariti daljnju komunikaciju</p>
+      </div>
+
+      <div style="display:flex;gap:20px;align-items:center;flex-wrap:wrap;">
+        <div style="flex:1;min-width:260px;">
+          <p class="muted">Ova stranica ne sadrži izravne telefonske brojeve, email ili adresu. Za službene kontakte i podršku koristite službenu web stranicu navedenu dolje.</p>
+        </div>
+
+        <div style="width:320px;">
+          <div class="contact-card">
+            <div>
+              <div style="font-weight:700;color:var(--neutral-900);">Službena web stranica</div>
+              <div class="muted" style="margin-top:6px;">Kliknite za detalje o kontaktima i uslugama.</div>
+            </div>
+            <div class="contact-actions">
+              <a class="btn" href="https://www.hrvatskitelekom.hr/" target="_blank" rel="noopener">Otvori stranicu</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="wrap footer-grid">
+        <div style="display:flex;flex-direction:column;gap:6px;">
+          <div style="font-weight:700;">T-centar</div>
+          <div class="fineprint">Trgovina elektronikom — pregledna prezentacija kategorija</div>
+        </div>
+
+        <div style="display:flex;gap:12px;align-items:center;">
+          <a class="btn secondary" href="#ponuda">Ponuda</a>
+          <a class="btn secondary" href="#kontakt">Kontakt</a>
+          <a class="btn" href="https://www.hrvatskitelekom.hr/" target="_blank" rel="noopener">Službena stranica</a>
+        </div>
+
+        <div class="fineprint" aria-hidden="true">© T-centar — prikaz informacija</div>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    // Mobile menu toggle
+    (function(){
+      const btn = document.getElementById('hambBtn');
+      const menu = document.getElementById('mobileMenu');
+      btn.addEventListener('click', () => {
+        const open = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', String(!open));
+        if(open){
+          menu.hidden = true;
+          btn.querySelector('svg').innerHTML = '<path d="M3 7h18M3 12h18M3 17h18"></path>';
+        } else {
+          menu.hidden = false;
+          btn.querySelector('svg').innerHTML = '<path d="M6 18L18 6M6 6l12 12"></path>';
+        }
+      });
+    })();
+
+    // Reveal on scroll with IntersectionObserver
+    (function(){
+      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if(prefersReduced) {
+        document.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
+        return;
+      }
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if(entry.isIntersecting){
+            entry.target.classList.add('visible');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+      document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+    })();
+
+    // Smooth scroll for internal links (respect user prefs)
+    (function(){
+      const links = document.querySelectorAll('a[href^="#"]');
+      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      for(const a of links){
+        a.addEventListener('click', (e) => {
+          const targetId = a.getAttribute('href').slice(1);
+          const target = document.getElementById(targetId);
+          if(target){
+            e.preventDefault();
+            const top = target.getBoundingClientRect().top + window.scrollY - 16;
+            if(prefersReduced){
+              window.scrollTo(0, top);
+            } else {
+              window.scrollTo({ top, behavior: 'smooth' });
+            }
+            // close mobile menu if open
+            const mobileMenu = document.getElementById('mobileMenu');
+            const hamb = document.getElementById('hambBtn');
+            if(mobileMenu && !mobileMenu.hidden){
+              mobileMenu.hidden = true;
+              hamb.setAttribute('aria-expanded', 'false');
+              hamb.querySelector('svg').innerHTML = '<path d="M3 7h18M3 12h18M3 17h18"></path>';
+            }
+          }
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
