@@ -1,0 +1,592 @@
+ <!doctype html>
+<html lang="hr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>ELCO — Demonstracijski preview | DIY rješenja</title>
+  <meta name="description" content="Demonstracijski preview modernog web dizajna za ELCO — DIY rješenja, savjeti i podrška za samostalne projekte. Ovaj prikaz nije službena stranica tvrtke." />
+  <meta property="og:title" content="ELCO — Demonstracijski preview | DIY rješenja" />
+  <meta property="og:description" content="Demonstracijski preview modernog web dizajna za ELCO — DIY rješenja. Ovo nije službena stranica." />
+  <meta property="og:type" content="website" />
+  <link rel="canonical" href="https://www.elco.hr/" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0f1724;
+      --card:#0b1220;
+      --muted:#9aa4b2;
+      --accent:#ff7a18;
+      --accent-2:#ffb86b;
+      --glass: rgba(255,255,255,0.04);
+      --radius:14px;
+      --max-width:1100px;
+      --shadow: 0 6px 24px rgba(2,6,23,0.6);
+      --ease:cubic-bezier(.2,.9,.3,1);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background: linear-gradient(180deg,#081122 0%, #051124 40%), radial-gradient(600px 400px at 10% 10%, rgba(255,122,24,0.06), transparent 6%), radial-gradient(500px 300px at 90% 90%, rgba(255,184,107,0.03), transparent 10%);
+      color:#e6eef8;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      -webkit-tap-highlight-color:transparent;
+      line-height:1.45;
+      padding:32px 20px;
+    }
+
+    .container{
+      max-width:var(--max-width);
+      margin:0 auto;
+    }
+
+    header{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+      margin-bottom:22px;
+    }
+    .brand{
+      display:flex;
+      gap:14px;
+      align-items:center;
+      text-decoration:none;
+      color:inherit;
+    }
+    .logo{
+      width:56px;
+      height:56px;
+      border-radius:10px;
+      background:linear-gradient(135deg,var(--accent),var(--accent-2));
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      box-shadow: 0 6px 18px rgba(255,122,24,0.12);
+      flex-shrink:0;
+    }
+    .logo svg{filter:drop-shadow(0 4px 18px rgba(0,0,0,0.35))}
+    .brand h1{
+      margin:0;
+      font-family: "Playfair Display", serif;
+      font-size:20px;
+      letter-spacing:0.2px;
+      line-height:1;
+    }
+    .brand p{margin:0;font-size:12px;color:var(--muted);}
+
+    nav{
+      display:flex;
+      gap:14px;
+      align-items:center;
+    }
+    .nav-link{
+      color:var(--muted);
+      text-decoration:none;
+      font-weight:600;
+      padding:8px 12px;
+      border-radius:10px;
+      transition:all .22s var(--ease);
+      font-size:14px;
+    }
+    .nav-link:hover{color:#fff;background:rgba(255,255,255,0.03);transform:translateY(-2px)}
+    .cta-primary{
+      background: linear-gradient(90deg,var(--accent),var(--accent-2));
+      color:#06101b;
+      padding:10px 14px;
+      border-radius:12px;
+      font-weight:700;
+      text-decoration:none;
+      box-shadow:var(--shadow);
+      transition:transform .18s var(--ease);
+    }
+    .cta-primary:active{transform:scale(.98)}
+
+    main{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:36px;
+      align-items:start;
+    }
+
+    /* HERO */
+    .hero{
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+      border-radius:var(--radius);
+      padding:36px;
+      display:grid;
+      grid-template-columns: 1fr 400px;
+      gap:28px;
+      align-items:center;
+      box-shadow: 0 10px 40px rgba(2,6,23,0.6);
+      position:relative;
+      overflow:hidden;
+    }
+    .hero:before{
+      content:"";
+      position:absolute;
+      right:-120px;
+      top:-120px;
+      width:420px;
+      height:420px;
+      background: radial-gradient(circle at 30% 30%, rgba(255,122,24,0.06), transparent 20%), radial-gradient(circle at 70% 70%, rgba(255,184,107,0.03), transparent 25%);
+      transform:rotate(14deg);
+      pointer-events:none;
+    }
+    .hero-left h2{
+      margin:0 0 8px 0;
+      font-size:34px;
+      line-height:1.06;
+      letter-spacing:-0.6px;
+      font-weight:800;
+      color:#fff;
+      font-family: "Playfair Display", serif;
+      text-wrap:balance;
+    }
+    .hero-left p.lead{
+      margin:0 0 20px 0;
+      color:var(--muted);
+      font-size:15px;
+      max-width:55ch;
+    }
+    .hero-ctas{display:flex;gap:12px;flex-wrap:wrap}
+    .btn-outline{
+      padding:10px 14px;
+      border-radius:12px;
+      background:transparent;
+      border:1px solid rgba(255,255,255,0.06);
+      color:var(--muted);
+      text-decoration:none;
+      font-weight:600;
+    }
+
+    .hero-right{
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.0));
+      border-radius:12px;
+      padding:18px;
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+      align-items:stretch;
+      justify-content:center;
+      min-height:220px;
+    }
+    .feature{
+      display:flex;
+      gap:12px;
+      align-items:center;
+      background: linear-gradient(90deg, rgba(255,255,255,0.01), rgba(255,255,255,0.0));
+      padding:12px;
+      border-radius:10px;
+      transition:transform .25s var(--ease);
+    }
+    .feature:hover{transform:translateY(-6px)}
+    .feature .icon{
+      width:48px;height:48px;border-radius:10px;background:rgba(255,255,255,0.03);display:flex;align-items:center;justify-content:center;
+    }
+    .feature h4{margin:0;font-size:15px}
+    .feature p{margin:2px 0 0 0;color:var(--muted);font-size:13px}
+
+    /* SECTIONS */
+    section{padding:10px 0}
+    .section-head{
+      display:flex;
+      align-items:baseline;
+      justify-content:space-between;
+      gap:12px;
+      margin-bottom:18px;
+    }
+    .section-head h3{margin:0;font-size:18px;color:#fff}
+    .section-head p{margin:0;color:var(--muted);font-size:13px}
+
+    .grid{
+      display:grid;
+      gap:18px;
+    }
+
+    /* Services */
+    .services-grid{
+      grid-template-columns:repeat(3,1fr);
+    }
+    .card{
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+      border-radius:12px;
+      padding:18px;
+      box-shadow: 0 8px 30px rgba(2,6,23,0.45);
+      transition:transform .26s var(--ease), box-shadow .26s var(--ease);
+      border:1px solid rgba(255,255,255,0.03);
+    }
+    .card:hover{transform:translateY(-10px);box-shadow:0 18px 50px rgba(2,6,23,0.6)}
+    .card .ic{width:48px;height:48px;border-radius:10px;background:linear-gradient(90deg,var(--accent),var(--accent-2));display:flex;align-items:center;justify-content:center;font-weight:700}
+    .card h4{margin:10px 0 6px 0}
+    .card p{margin:0;color:var(--muted);font-size:14px}
+
+    /* About */
+    .about{
+      display:grid;
+      grid-template-columns:1fr 320px;
+      gap:22px;
+      align-items:start;
+    }
+    .about p{color:var(--muted);font-size:15px}
+    .about .aside{
+      background:var(--glass);
+      padding:16px;border-radius:12px;border:1px solid rgba(255,255,255,0.02);
+      font-size:14px;color:var(--muted);
+    }
+
+    /* Contact */
+    .contact-form{
+      display:flex;
+      gap:18px;
+      align-items:flex-start;
+      background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);
+      padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.02);
+    }
+    .form-left{flex:1}
+    .form-row{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:12px}
+    .form-row .field{flex:1;min-width:160px}
+    label{display:block;font-size:13px;color:var(--muted);margin-bottom:6px}
+    input[type="text"], input[type="email"], textarea{
+      width:100%;
+      padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);
+      background:transparent;color:#e9f2ff;font-size:14px;
+      outline:none;transition:box-shadow .15s ease;
+    }
+    input:focus, textarea:focus{box-shadow:0 6px 22px rgba(3,10,20,0.6)}
+    textarea{min-height:140px;resize:vertical;padding-top:12px}
+
+    .form-actions{display:flex;gap:12px;align-items:center;margin-top:8px}
+    .btn-ghost{
+      background:transparent;border:1px solid rgba(255,255,255,0.06);padding:10px 14px;border-radius:12px;color:var(--muted);
+    }
+
+    /* Footer */
+    footer{margin-top:18px;color:var(--muted);font-size:13px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+    .badge-demo{background:rgba(255,255,255,0.03);padding:8px 10px;border-radius:10px;border:1px dashed rgba(255,255,255,0.04);font-weight:600;color:var(--accent-2);font-size:13px}
+
+    /* Responsive */
+    @media (max-width:1000px){
+      .hero{grid-template-columns:1fr; padding:26px}
+      .about{grid-template-columns:1fr}
+      .hero-right{order:3}
+      .services-grid{grid-template-columns:repeat(2,1fr)}
+    }
+    @media (max-width:640px){
+      body{padding:18px}
+      header{flex-direction:column;align-items:stretch}
+      nav{justify-content:space-between}
+      .brand h1{font-size:18px}
+      .hero{padding:18px}
+      .services-grid{grid-template-columns:1fr}
+      .logo{width:48px;height:48px}
+      .hero-left h2{font-size:26px}
+      .hero-right{min-height:140px}
+      .about{grid-template-columns:1fr}
+      .hero:before{display:none}
+      .contact-form{flex-direction:column}
+    }
+
+    /* Animations */
+    .fade-up{opacity:0;transform:translateY(12px);transition:opacity .6s var(--ease), transform .6s var(--ease)}
+    .inview{opacity:1;transform:none}
+    .toast{
+      position:fixed;left:50%;bottom:32px;transform:translateX(-50%);
+      background:#051428;color:#eaf7ff;padding:12px 18px;border-radius:10px;box-shadow:0 8px 30px rgba(2,6,23,0.6);border-left:4px solid var(--accent);
+      display:flex;gap:10px;align-items:center;font-weight:600;z-index:1200;
+    }
+
+    /* small accessibility focus */
+    a:focus, button:focus, input:focus, textarea:focus{outline:2px dashed rgba(255,122,24,0.22);outline-offset:3px}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <a class="brand" href="https://www.elco.hr" target="_blank" rel="noopener noreferrer" aria-label="ELCO - Posjetite službenu stranicu">
+        <div class="logo" aria-hidden="true">
+          <!-- simple SVG monogram -->
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="1.5" y="1.5" width="21" height="21" rx="4" fill="white" opacity="0.07"/>
+            <path d="M6 16V8h12v8" stroke="#051221" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M8 12h8" stroke="#051221" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </div>
+        <div>
+          <h1>ELCO</h1>
+          <p>Demonstracijski preview</p>
+        </div>
+      </a>
+
+      <nav aria-label="Glavna navigacija">
+        <a class="nav-link" href="#usluge">Usluge</a>
+        <a class="nav-link" href="#o-nama">O nama</a>
+        <a class="nav-link" href="#kontakt">Kontakt</a>
+        <a class="cta-primary" href="#kontakt">Zatražite savjet</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-left">
+          <span class="badge-demo" style="display:inline-block;margin-bottom:12px">Neslužbeni demonstracijski prikaz</span>
+          <h2 id="hero-title">ELCO — Podrška i rješenja za vaše DIY projekte</h2>
+          <p class="lead">Moderan vizualni prikaz stranice za tvrtku koja se bavi do-it-yourself aktivnostima. Jasna ponuda, pregled usluga i kontaktni poziv na akciju kako bi posjetitelji lako započeli suradnju ili zatražili savjet.</p>
+          <div class="hero-ctas">
+            <a class="cta-primary" href="#kontakt">Zatražite savjet</a>
+            <a class="btn-outline" href="#usluge">Pogledajte usluge</a>
+          </div>
+        </div>
+
+        <aside class="hero-right" aria-labelledby="hero-features">
+          <div class="feature fade-up">
+            <div class="icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 2v20" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/><path d="M5 7h14" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/></svg>
+            </div>
+            <div>
+              <h4>Praktični savjeti</h4>
+              <p>Jasne smjernice i ideje za samostalne radove.</p>
+            </div>
+          </div>
+
+          <div class="feature fade-up" style="transition-delay:.05s">
+            <div class="icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 20h16" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/><path d="M6 4h12v12H6z" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div>
+              <h4>Alati i materijali</h4>
+              <p>Preporuke i ideje za odabir opreme.</p>
+            </div>
+          </div>
+
+          <div class="feature fade-up" style="transition-delay:.1s">
+            <div class="icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 2l3 7h7l-5.5 4 2 7L12 17l-6.5 3 2-7L2 9h7z" stroke="#fff" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div>
+              <h4>Planiranje projekata</h4>
+              <p>Razrada koraka kako bi projekt bio uspješan.</p>
+            </div>
+          </div>
+        </aside>
+      </section>
+
+      <section id="usluge" aria-labelledby="usluge-title">
+        <div class="section-head">
+          <h3 id="usluge-title">Usluge</h3>
+          <p>Pregled osnovnih područja podrške za DIY entuzijaste. Ovo je demonstracijski sadržaj.</p>
+        </div>
+
+        <div class="grid services-grid">
+          <article class="card fade-up" tabindex="0">
+            <div class="ic" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M3 12h18" stroke="#051221" stroke-width="1.4" stroke-linecap="round"/></svg>
+            </div>
+            <h4>Savjetovanje i planiranje</h4>
+            <p>Podrška u planiranju koraka projekta, procjena potrebnih materijala i alata.</p>
+          </article>
+
+          <article class="card fade-up" tabindex="0" style="transition-delay:.03s">
+            <div class="ic" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M4 7h16v10H4z" stroke="#051221" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <h4>Instalacije i montaža</h4>
+            <p>Smjernice i upute za sigurno postavljanje elemenata i uređaja u okviru DIY projekta.</p>
+          </article>
+
+          <article class="card fade-up" tabindex="0" style="transition-delay:.06s">
+            <div class="ic" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 2v6" stroke="#051221" stroke-width="1.4" stroke-linecap="round"/><path d="M6 9v13h12V9" stroke="#051221" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <h4>Popravci i održavanje</h4>
+            <p>Upute i najbolje prakse za održavanje i manje popravke u kućanstvu ili radionici.</p>
+          </article>
+
+          <article class="card fade-up" tabindex="0" style="transition-delay:.09s">
+            <div class="ic" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M3 12h18" stroke="#051221" stroke-width="1.4" stroke-linecap="round"/></svg>
+            </div>
+            <h4>Alati i sigurnost</h4>
+            <p>Preporuke za adekvatnu i sigurnu uporabu alata pri samostalnim radovima.</p>
+          </article>
+
+          <article class="card fade-up" tabindex="0" style="transition-delay:.12s">
+            <div class="ic" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 2l3 7h7l-5.5 4 2 7L12 17l-6.5 3 2-7L2 9h7z" stroke="#051221" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <h4>Personalizirane smjernice</h4>
+            <p>Prilagodljivi savjeti ovisno o tipu projekta i razini iskustva.</p>
+          </article>
+
+          <article class="card fade-up" tabindex="0" style="transition-delay:.15s">
+            <div class="ic" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M4 7h16v10H4z" stroke="#051221" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <h4>Resursi i reference</h4>
+            <p>Smjernice na materijale za učenje i izvore informacija dostupne za DIY projekte.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="o-nama" aria-labelledby="o-title">
+        <div class="section-head">
+          <h3 id="o-title">O nama</h3>
+          <p>Kratak opis djelatnosti — napomena: sadržaj je demonstracijski.</p>
+        </div>
+
+        <div class="about">
+          <div class="content fade-up">
+            <p>
+              ELCO je ovdje prikazan kroz moderan i responzivan dizajn kao demonstracijski primjer web stranice za
+              djelatnost vezanu uz do-it-yourself (DIY). Struktura stranice obuhvaća jasnu naslovnicu s ponudom,
+              sekciju usluga, informacije o pristupu radu i mogućnost kontaktiranja zainteresiranih posjetitelja.
+            </p>
+            <p>
+              Ovaj prikaz nastao je u svrhu demonstracije dizajna i korisničkog sučelja. Ne predstavlja službenu ili
+              kompletno ažuriranu prezentaciju tvrtke. Za službene informacije posjetite službenu web stranicu:
+              <a href="https://www.elco.hr" target="_blank" rel="noopener noreferrer" style="color:var(--accent);text-decoration:none">www.elco.hr</a>.
+            </p>
+          </div>
+
+          <aside class="aside fade-up" aria-hidden="true">
+            <strong style="color:#fff;display:block;margin-bottom:8px">Brzi sažetak</strong>
+            <ul style="padding-left:18px;margin:0;color:var(--muted);line-height:1.6">
+              <li>Jasan fokus na DIY podršku i smjernice</li>
+              <li>Pregled usluga i praktičnih savjeta</li>
+              <li>Neslužbeni demonstracijski prikaz</li>
+            </ul>
+          </aside>
+        </div>
+      </section>
+
+      <section id="kontakt" aria-labelledby="kontakt-title">
+        <div class="section-head">
+          <h3 id="kontakt-title">Kontakt</h3>
+          <p>Pošaljite upit putem obrasca. Napomena: ovaj obrazac ne šalje stvarne podatke — demonstracijski prikaz.</p>
+        </div>
+
+        <div class="contact-form fade-up">
+          <form class="form-left" id="contactForm" onsubmit="return false;" aria-label="Kontakt obrazac">
+            <div class="form-row">
+              <div class="field">
+                <label for="name">Ime i prezime</label>
+                <input id="name" name="name" type="text" placeholder="Vaše ime" required>
+              </div>
+              <div class="field">
+                <label for="email">Email adresa</label>
+                <input id="email" name="email" type="email" placeholder="primjer@domena.hr" required>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div style="flex:1">
+                <label for="subject">Naslov upita</label>
+                <input id="subject" name="subject" type="text" placeholder="Kratki opis upita">
+              </div>
+            </div>
+
+            <div>
+              <label for="message">Poruka</label>
+              <textarea id="message" name="message" placeholder="Opišite svoj upit ovdje..." required></textarea>
+            </div>
+
+            <div class="form-actions">
+              <button class="cta-primary" id="sendBtn" type="submit">Pošalji upit</button>
+              <button class="btn-ghost" type="button" id="clearBtn">Očisti</button>
+              <div style="margin-left:auto;color:var(--muted);font-size:13px">Podaci se neće poslati — demonstracijski prikaz</div>
+            </div>
+          </form>
+
+          <div class="aside" aria-hidden="true" style="min-width:260px">
+            <strong style="color:#fff;display:block;margin-bottom:8px">Informacije</strong>
+            <p style="margin:0 0 8px 0;color:var(--muted)">Ovo je neslužbeni demonstracijski prikaz. Stranica ne sadrži stvarne kontakt podatke. Za službene informacije posjetite službeni web: <a href="https://www.elco.hr" target="_blank" rel="noopener noreferrer" style="color:var(--accent);text-decoration:none">www.elco.hr</a>.</p>
+            <p style="margin:0;color:var(--muted)">Ako želite testirati funkcionalnost, koristite gumb "Pošalji upit" — rezultat će biti samo lokalna poruka o pokaznom slanju.</p>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <footer>
+      <div class="badge-demo">Neslužbeni demonstracijski prikaz</div>
+      <div style="flex:1;text-align:center;color:var(--muted);font-size:13px">Sadržaj je namijenjen za vizualnu demonstraciju dizajna. Ne predstavlja službenu web stranicu tvrtke.</div>
+      <div style="color:var(--muted)">© ELCO — demonstracijski preview</div>
+    </footer>
+  </div>
+
+  <script>
+    // Smooth scroll for internal links
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+      link.addEventListener('click', (e) => {
+        const target = document.querySelector(link.getAttribute('href'));
+        if(target){
+          e.preventDefault();
+          target.scrollIntoView({behavior:'smooth', block:'start'});
+        }
+      });
+    });
+
+    // Simple form handling: no external submission, local demo only
+    const form = document.getElementById('contactForm');
+    const sendBtn = document.getElementById('sendBtn');
+    const clearBtn = document.getElementById('clearBtn');
+
+    function showToast(message, timeout=4200){
+      const t = document.createElement('div');
+      t.className = 'toast';
+      t.textContent = message;
+      document.body.appendChild(t);
+      setTimeout(()=>{ t.style.opacity = '1'; }, 20);
+      setTimeout(()=>{ t.style.opacity = '0'; t.style.transform = 'translateX(-50%) translateY(8px)'; }, timeout);
+      setTimeout(()=>{ t.remove(); }, timeout + 400);
+    }
+
+    sendBtn.addEventListener('click', () => {
+      // Basic validation
+      const name = form.name.value.trim();
+      const email = form.email.value.trim();
+      const message = form.message.value.trim();
+
+      if(!name || !email || !message){
+        showToast('Molimo ispunite obavezna polja.');
+        return;
+      }
+      // Demonstration: do not send anywhere
+      showToast('Poruka nije poslana. Ovo je demonstracijski prikaz.');
+      // Optionally clear fields to simulate send
+      // form.reset();
+    });
+
+    clearBtn.addEventListener('click', () => {
+      form.reset();
+      showToast('Obrazac očišćen (lokalno).');
+    });
+
+    // Reveal animations on scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          entry.target.classList.add('inview');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {threshold:0.12});
+
+    document.querySelectorAll('.fade-up').forEach(el => {
+      observer.observe(el);
+    });
+
+    // keyboard accessibility: focus visible for cards
+    document.querySelectorAll('.card').forEach(card => {
+      card.addEventListener('keydown', (e) => {
+        if(e.key === 'Enter' || e.key === ' '){
+          e.preventDefault();
+          card.classList.toggle('active');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
