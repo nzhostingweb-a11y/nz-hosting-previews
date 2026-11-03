@@ -1,0 +1,565 @@
+ <!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Požega Shopping Capitol — trgovački i komercijalni centar</title>
+  <meta name="description" content="Požega Shopping Capitol — trgovački i komercijalni centar. Informacije o djelatnosti i poveznica na službenu web stranicu." />
+  <meta property="og:title" content="Požega Shopping Capitol — trgovački i komercijalni centar" />
+  <meta property="og:description" content="Informacije o djelatnosti i poveznica na službenu web stranicu." />
+  <meta property="og:url" content="https://pzsc.hr/" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      /* Boje */
+      --color-primary: #0b4f6c;        /* tamno plavozeleno - glavni ton */
+      --color-secondary: #f3f3f6;      /* svijetli neutral */
+      --color-accent: #f08a24;         /* topli naglasak */
+      --neutral-900: #0b1220;
+      --neutral-700: #3b4550;
+      --neutral-500: #7a858f;
+      --neutral-200: #dfe6ea;
+      --bg: #ffffff;
+
+      /* Tipografija */
+      --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      --font-serif: "Playfair Display", Georgia, serif;
+
+      /* Spacing */
+      --space-xxs: 6px;
+      --space-xs: 10px;
+      --space-sm: 16px;
+      --space-md: 24px;
+      --space-lg: 40px;
+      --space-xl: 64px;
+
+      /* Border radius */
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+
+      /* Shadow */
+      --shadow-soft: 0 6px 20px rgba(11,18,32,0.06);
+      --shadow-float: 0 12px 40px rgba(11,18,32,0.08);
+
+      /* Transitions */
+      --ease: cubic-bezier(.2,.9,.2,1);
+    }
+
+    /* Global resets */
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:var(--font-sans);
+      color:var(--neutral-900);
+      background:linear-gradient(180deg,var(--bg) 0%, #fbfdff 100%);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.5;
+      font-size:16px;
+    }
+
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;height:auto;display:block}
+
+    /* Container */
+    .container{max-width:1180px;margin:0 auto;padding:0 20px}
+
+    /* NAV */
+    header{
+      position:sticky;top:10px;z-index:60;
+      display:flex;align-items:center;justify-content:center;
+      pointer-events:none;
+    }
+    .nav-wrap{
+      pointer-events:auto;
+      width:100%;
+      max-width:1180px;
+      display:flex;align-items:center;gap:16px;
+      padding:12px 20px;
+      border-radius:12px;
+      background:linear-gradient(180deg, rgba(255,255,255,0.7), rgba(255,255,255,0.55));
+      box-shadow:var(--shadow-soft);
+      backdrop-filter: blur(6px);
+    }
+    .brand{
+      display:flex;align-items:center;gap:14px;
+      flex:1 1 auto;
+    }
+    .wordmark{
+      font-family:var(--font-serif);
+      font-weight:600;
+      color:var(--color-primary);
+      font-size:18px;
+      letter-spacing:0.4px;
+    }
+    nav{display:flex;align-items:center;gap:18px}
+    nav a{
+      color:var(--neutral-700);font-weight:600;font-size:14px;padding:8px;border-radius:8px;
+    }
+    nav a:focus{outline:3px solid rgba(11,79,108,0.12);outline-offset:4px}
+    .cta-primary{
+      background:linear-gradient(90deg,var(--color-accent), #ffb564);
+      color:white;padding:10px 16px;border-radius:10px;font-weight:700;
+      box-shadow: 0 6px 18px rgba(240,138,36,0.18);
+    }
+    .menu-toggle{
+      display:none;
+      background:transparent;border:0;padding:8px;border-radius:8px;
+    }
+    .menu-toggle:focus{outline:3px solid rgba(11,79,108,0.12);outline-offset:4px}
+
+    /* HERO */
+    .hero{
+      margin-top:36px;
+      display:grid;grid-template-columns:1fr 480px;gap:40px;align-items:center;
+      padding:40px 0 72px;
+    }
+    .hero-left{
+      max-width:680px;
+    }
+    h1{
+      margin:0 0 14px;
+      font-family:var(--font-serif);
+      font-weight:700;
+      color:var(--neutral-900);
+      font-size: clamp(28px, 4.2vw, 44px);
+      line-height:1.02;
+      letter-spacing:-0.02em;
+    }
+    .lead{
+      color:var(--neutral-700);
+      font-size:clamp(15px,2.1vw,18px);
+      margin-bottom:20px;
+      max-width:52ch;
+    }
+    .hero-ctas{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{
+      display:inline-flex;align-items:center;gap:10px;border:0;padding:12px 16px;border-radius:12px;font-weight:700;cursor:pointer;
+      transition:transform .22s var(--ease), box-shadow .22s var(--ease);
+    }
+    .btn:focus{outline:3px solid rgba(11,79,108,0.12);outline-offset:4px}
+    .btn-ghost{
+      background:transparent;color:var(--color-primary);border:1px solid rgba(11,79,108,0.08);
+    }
+    .btn-ghost:hover{transform:translateY(-4px)}
+    .btn-primary{
+      background:linear-gradient(90deg,var(--color-accent), #ffb564);color:white;
+      box-shadow:var(--shadow-float);
+    }
+    .hero-right{
+      position:relative;
+      display:flex;align-items:center;justify-content:center;
+      padding:28px;border-radius:20px;background:linear-gradient(180deg,rgba(11,79,108,0.04),rgba(11,79,108,0.02));
+      box-shadow:var(--shadow-soft);
+      min-height:320px;
+    }
+    .hero-visual{
+      width:94%;height:260px;display:block;
+    }
+
+    /* SERVICES */
+    section{padding: var(--space-lg) 0}
+    .section-title{display:flex;align-items:baseline;gap:14px;margin-bottom:20px}
+    .section-title h2{margin:0;font-size:20px;color:var(--neutral-900);font-family:var(--font-serif)}
+    .section-sub{color:var(--neutral-700);font-size:15px}
+
+    .cards{
+      display:grid;grid-template-columns:repeat(3,1fr);gap:20px;
+    }
+    .card{
+      background:white;border-radius:var(--radius-md);padding:20px;box-shadow:var(--shadow-soft);
+      transition:transform .22s var(--ease), box-shadow .22s var(--ease);
+      min-height:140px;
+      display:flex;flex-direction:column;gap:12px;
+    }
+    .card:hover{transform:translateY(-6px);box-shadow:var(--shadow-float)}
+    .card h3{margin:0;font-size:16px;color:var(--neutral-900);font-weight:700}
+    .card p{margin:0;color:var(--neutral-700);font-size:14px;line-height:1.45}
+
+    .icon{
+      width:56px;height:56px;border-radius:12px;display:inline-grid;place-items:center;color:white;
+      background:linear-gradient(180deg,var(--color-primary),#0f5f7f);flex-shrink:0;
+    }
+
+    /* ABOUT / APPROACH */
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start}
+    .pill{display:inline-block;padding:6px 10px;border-radius:999px;background:var(--color-secondary);color:var(--neutral-700);font-weight:600;font-size:13px}
+
+    /* HOW IT WORKS */
+    .steps{display:flex;flex-direction:column;gap:12px}
+    .step{
+      display:flex;gap:16px;align-items:flex-start;background:white;padding:14px;border-radius:12px;box-shadow:var(--shadow-soft)
+    }
+    .step .num{width:44px;height:44px;border-radius:10px;background:var(--color-primary);color:white;display:grid;place-items:center;font-weight:700}
+
+    /* CONTACT */
+    .contact-card{
+      background:linear-gradient(180deg,#ffffff, #fbfdff);padding:20px;border-radius:14px;box-shadow:var(--shadow-soft);
+      display:flex;flex-direction:column;gap:12px;
+    }
+    .contact-list a{color:var(--color-primary);font-weight:700}
+
+    /* FOOTER */
+    footer{padding:40px 0;border-top:1px solid var(--neutral-200);margin-top:40px;background:transparent}
+    .footer-inner{display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .copyright{color:var(--neutral-500);font-size:14px}
+
+    /* Responsive */
+    @media (max-width:1024px){
+      .hero{grid-template-columns:1fr 360px}
+      .cards{grid-template-columns:repeat(2,1fr)}
+      nav{display:none}
+      .menu-toggle{display:inline-flex}
+    }
+    @media (max-width:720px){
+      .hero{grid-template-columns:1fr;gap:18px}
+      .hero-right{order:-1}
+      .cards{grid-template-columns:1fr}
+      .two-col{grid-template-columns:1fr}
+      .nav-wrap{padding:10px}
+    }
+
+    /* Mobile nav panel */
+    .mobile-panel{
+      display:none;
+      position:fixed;inset:0;padding:20px;background:linear-gradient(180deg,rgba(11,18,32,0.02),rgba(255,255,255,0.98));
+      z-index:80;
+    }
+    .mobile-panel.open{display:block}
+    .mobile-panel nav{display:flex;flex-direction:column;gap:12px;padding-top:20px}
+    .mobile-panel a{padding:12px;border-radius:10px;color:var(--neutral-700);background:white;box-shadow:var(--shadow-soft)}
+
+    /* Focus states */
+    a:focus, button:focus, input:focus, textarea:focus{outline-offset:3px}
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce){
+      *{transition:none !important}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav-wrap container" role="banner">
+      <div class="brand" aria-hidden="false">
+        <svg width="44" height="44" viewBox="0 0 64 64" fill="none" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+          <rect width="64" height="64" rx="12" fill="#0B4F6C"/>
+          <path d="M16 44V24h6l6 8 6-8h6v20H38V30l-6 8-6-8v14H16z" fill="#FFF9F3" opacity="0.94"/>
+        </svg>
+        <div>
+          <div class="wordmark">Požega Shopping Capitol</div>
+          <div style="font-size:12px;color:var(--neutral-500);margin-top:2px">trgovački i komercijalni centar</div>
+        </div>
+      </div>
+
+      <nav aria-label="Glavna navigacija">
+        <a href="#ponuda">Ponuda</a>
+        <a href="#o-nama">O nama</a>
+        <a href="#kako">Kako surađujemo</a>
+        <a href="#kontakt" class="cta-primary">Kontakt</a>
+      </nav>
+
+      <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="mobilePanel" aria-label="Otvori izbornik">
+        <svg width="22" height="14" viewBox="0 0 22 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M0 1.5h22M0 7h22M0 12.5h22" stroke="#0B4F6C" stroke-width="1.6" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <div id="mobilePanel" class="mobile-panel" role="dialog" aria-modal="true" aria-hidden="true">
+    <div style="display:flex;align-items:center;justify-content:space-between">
+      <div style="display:flex;gap:12px;align-items:center">
+        <svg width="40" height="40" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+          <rect width="64" height="64" rx="12" fill="#0B4F6C"/>
+          <path d="M16 44V24h6l6 8 6-8h6v20H38V30l-6 8-6-8v14H16z" fill="#FFF9F3" opacity="0.94"/>
+        </svg>
+        <div style="font-weight:700">Požega Shopping Capitol</div>
+      </div>
+      <button id="mobileClose" aria-label="Zatvori izbornik" style="background:transparent;border:0;font-size:20px">✕</button>
+    </div>
+    <nav aria-label="Mobilna navigacija" style="margin-top:18px">
+      <a href="#ponuda" onclick="closeMobile()">Ponuda</a>
+      <a href="#o-nama" onclick="closeMobile()">O nama</a>
+      <a href="#kako" onclick="closeMobile()">Kako surađujemo</a>
+      <a href="#kontakt" class="cta-primary" onclick="closeMobile()">Kontakt</a>
+      <a href="https://pzsc.hr/" target="_blank" rel="noopener">Službena stranica</a>
+    </nav>
+  </div>
+
+  <main>
+    <section class="hero container" id="hero" aria-labelledby="hero-title">
+      <div class="hero-left">
+        <p class="pill" aria-hidden="true">Trgovački & komercijalni</p>
+        <h1 id="hero-title">Požega Shopping Capitol — suvremeno središte trgovačkih i komercijalnih prostora</h1>
+        <p class="lead">Informativna stranica o djelatnosti: trgovački centar i komercijalni objekti. Ovdje pronađite osnovne informacije i poveznicu na službenu web stranicu za detalje.</p>
+        <div class="hero-ctas" role="group" aria-label="Call to action">
+          <a class="btn btn-primary" href="#ponuda">Saznajte više</a>
+          <a class="btn btn-ghost" href="https://pzsc.hr/" target="_blank" rel="noopener">Posjetite službenu stranicu</a>
+        </div>
+      </div>
+
+      <div class="hero-right" aria-hidden="false">
+        <!-- Originalna SVG kompozicija umjesto fotografija -->
+        <svg class="hero-visual" viewBox="0 0 820 520" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Ilustracija trgovačkog centra">
+          <defs>
+            <linearGradient id="g1" x1="0" x2="1">
+              <stop offset="0" stop-color="#E9FBFF"/>
+              <stop offset="1" stop-color="#FFFFFF"/>
+            </linearGradient>
+          </defs>
+          <rect x="12" y="52" width="520" height="340" rx="24" fill="url(#g1)" stroke="#E6F6FA" stroke-width="2"/>
+          <rect x="560" y="82" width="220" height="240" rx="18" fill="#0B4F6C" opacity="0.07"/>
+          <g transform="translate(36,82)">
+            <rect x="0" y="0" width="420" height="60" rx="8" fill="#0B4F6C" opacity="0.06"/>
+            <rect x="0" y="84" width="380" height="26" rx="6" fill="#0B4F6C" opacity="0.04"/>
+            <rect x="12" y="128" width="140" height="120" rx="10" fill="#fff"/>
+            <rect x="170" y="128" width="200" height="120" rx="10" fill="#fff"/>
+            <g transform="translate(0,260)">
+              <rect x="0" y="0" width="420" height="40" rx="8" fill="#fff" opacity="0.7"/>
+              <circle cx="40" cy="20" r="14" fill="#F08A24"/>
+              <circle cx="100" cy="20" r="14" fill="#0B4F6C"/>
+            </g>
+          </g>
+
+          <g transform="translate(540,320)">
+            <rect x="0" y="0" width="240" height="60" rx="10" fill="#fff" opacity="0.95"/>
+            <rect x="10" y="10" width="60" height="40" rx="6" fill="#0B4F6C"/>
+            <rect x="84" y="10" width="140" height="40" rx="6" fill="#F08A24" opacity="0.12"/>
+          </g>
+
+          <g transform="translate(540,24)">
+            <path d="M0 220c48-52 160-68 220-40" stroke="#F08A24" stroke-width="6" stroke-linecap="round" opacity="0.18"/>
+          </g>
+        </svg>
+      </div>
+    </section>
+
+    <section id="ponuda" class="container" aria-labelledby="ponuda-title">
+      <div class="section-title">
+        <h2 id="ponuda-title">Ponuda</h2>
+        <div class="section-sub">Sažetak djelatnosti</div>
+      </div>
+
+      <p style="color:var(--neutral-700);max-width:74ch;margin-bottom:18px">
+        Požega Shopping Capitol djeluje u segmentu trgovačkih i komercijalnih objekata. Ova stranica služi kao info izvor o osnovnoj namjeni i poveznica na službene kanale za više detalja.
+      </p>
+
+      <div class="cards" role="list">
+        <article class="card" role="listitem" aria-labelledby="c1">
+          <div style="display:flex;gap:12px;align-items:center">
+            <div class="icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M3 13h18M6 6h12v12H6z" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h3 id="c1">Trgovački prostori</h3>
+          </div>
+          <p>Prostori namijenjeni maloprodaji i komercijalnim djelatnostima u okviru trgovačkog i poslovnog centra.</p>
+        </article>
+
+        <article class="card" role="listitem" aria-labelledby="c2">
+          <div style="display:flex;gap:12px;align-items:center">
+            <div class="icon" style="background:linear-gradient(180deg,#0f6b86,#0b4f6c)" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M4 20h16V8H4z" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M8 8v-3h8v3" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h3 id="c2">Komercijalni sadržaji</h3>
+          </div>
+          <p>Razine i površine u okviru komercijalne namjene usklađene s konceptom trgovačkog centra.</p>
+        </article>
+
+        <article class="card" role="listitem" aria-labelledby="c3">
+          <div style="display:flex;gap:12px;align-items:center">
+            <div class="icon" style="background:linear-gradient(180deg,#f08a24,#ffb564)" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M12 2v20" stroke="white" stroke-width="1.6" stroke-linecap="round"/>
+                <path d="M2 12h20" stroke="white" stroke-width="1.6" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3 id="c3">Središnja funkcija</h3>
+          </div>
+          <p>Kompozicija prostora i infrastrukture usmjerena na trgovačku i komercijalnu primjenu unutar kompleksa.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="o-nama" class="container" aria-labelledby="onama-title">
+      <div class="section-title">
+        <h2 id="onama-title">O nama</h2>
+        <div class="section-sub">Kratko i jasno</div>
+      </div>
+
+      <div class="two-col" style="align-items:center">
+        <div>
+          <p style="color:var(--neutral-700);margin-bottom:12px">Požega Shopping Capitol predstavlja entitet djelatnosti koji je klasificiran kao trgovački centar i komercijalni objekt. Ova stranica prenosi osnovne informacije i omogućuje lak pristup službenoj web adresi za dodatne informacije.</p>
+          <p style="color:var(--neutral-700)">Ako trebate detalje o konkretnim uslugama, raspoloživosti prostora ili drugim podacima, preporučujemo posjet službenoj stranici putem donjeg gumba.</p>
+
+          <div style="margin-top:18px">
+            <a class="btn btn-primary" href="https://pzsc.hr/" target="_blank" rel="noopener">Službena stranica</a>
+          </div>
+        </div>
+
+        <div>
+          <div class="contact-card" aria-labelledby="kontakt-mini">
+            <h3 id="kontakt-mini" style="margin:0;font-family:var(--font-serif)">Kontakt i informacije</h3>
+            <p style="margin:0;color:var(--neutral-700)">Na ovoj stranici dostupne su opće informacije. Za izravne upite koristite službeni kanal.</p>
+            <div class="contact-list" style="margin-top:8px">
+              <div style="font-size:14px;color:var(--neutral-700)"><strong>Web:</strong> <a href="https://pzsc.hr/" target="_blank" rel="noopener">pzsc.hr</a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="kako" class="container" aria-labelledby="kako-title">
+      <div class="section-title">
+        <h2 id="kako-title">Kako surađujemo</h2>
+        <div class="section-sub">Jednostavan pristup informacijama</div>
+      </div>
+
+      <div class="steps" role="list">
+        <div class="step" role="listitem">
+          <div class="num" aria-hidden="true">1</div>
+          <div>
+            <strong>Provjerite službenu stranicu</strong>
+            <div style="color:var(--neutral-700);font-size:14px">Posjetite pzsc.hr za najdetaljnije i ažurirane informacije.</div>
+          </div>
+        </div>
+
+        <div class="step" role="listitem">
+          <div class="num" aria-hidden="true">2</div>
+          <div>
+            <strong>Kontakt preko službenog kanala</strong>
+            <div style="color:var(--neutral-700);font-size:14px">Sve daljnje upite i formalne zahtjeve uputite putem dostupnih kanala na službenoj stranici.</div>
+          </div>
+        </div>
+
+        <div class="step" role="listitem">
+          <div class="num" aria-hidden="true">3</div>
+          <div>
+            <strong>Informirajte se i dogovorite</strong>
+            <div style="color:var(--neutral-700);font-size:14px">Službena stranica je najprikladniji izvor za potvrdu detalja ili zakazivanje daljnjih koraka.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="kontakt" class="container" aria-labelledby="kontakt-title">
+      <div class="section-title">
+        <h2 id="kontakt-title">Kontakt</h2>
+        <div class="section-sub">Službeni kanal</div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:1fr 360px;gap:28px;align-items:start">
+        <div>
+          <p style="color:var(--neutral-700);margin-bottom:12px">Za sve službene informacije, upite o dostupnosti prostora i ostale detalje posjetite službenu web stranicu ili koristite dostupne kontakte na toj stranici.</p>
+          <p style="margin:0"><strong>Web:</strong> <a href="https://pzsc.hr/" target="_blank" rel="noopener">https://pzsc.hr/</a></p>
+        </div>
+
+        <aside class="contact-card" aria-label="Brzi kontakt">
+          <div style="display:flex;align-items:center;justify-content:space-between">
+            <div>
+              <div style="font-weight:700">Požega Shopping Capitol</div>
+              <div style="font-size:13px;color:var(--neutral-500)">trgovački i komercijalni centar</div>
+            </div>
+            <div style="font-size:12px;color:var(--neutral-500)">Info</div>
+          </div>
+
+          <div style="margin-top:8px">
+            <a class="btn btn-ghost" href="https://pzsc.hr/" target="_blank" rel="noopener">Posjetite službenu stranicu</a>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner" role="contentinfo">
+      <div>
+        <div style="font-weight:700">Požega Shopping Capitol</div>
+        <div style="font-size:13px;color:var(--neutral-500);margin-top:6px">trgovački i komercijalni centar</div>
+      </div>
+
+      <div style="display:flex;gap:18px;align-items:center">
+        <a href="#hero">Na vrh</a>
+        <a href="https://pzsc.hr/" target="_blank" rel="noopener">Službena stranica</a>
+      </div>
+    </div>
+
+    <div class="container" style="margin-top:18px">
+      <div class="copyright">© Požega Shopping Capitol — informacije i poveznice. Sva prava pridržana.</div>
+    </div>
+  </footer>
+
+  <script>
+    (function(){
+      const menuToggle = document.getElementById('menuToggle');
+      const mobilePanel = document.getElementById('mobilePanel');
+      const mobileClose = document.getElementById('mobileClose');
+
+      function openMobile(){
+        mobilePanel.classList.add('open');
+        mobilePanel.setAttribute('aria-hidden','false');
+        menuToggle.setAttribute('aria-expanded','true');
+        document.body.style.overflow = 'hidden';
+      }
+      function closeMobile(){
+        mobilePanel.classList.remove('open');
+        mobilePanel.setAttribute('aria-hidden','true');
+        menuToggle.setAttribute('aria-expanded','false');
+        document.body.style.overflow = '';
+      }
+
+      menuToggle.addEventListener('click', function(){
+        if(mobilePanel.classList.contains('open')) closeMobile(); else openMobile();
+      });
+      mobileClose.addEventListener('click', closeMobile);
+      window.closeMobile = closeMobile;
+
+      // Smooth scroll for internal links
+      document.querySelectorAll('a[href^="#"]').forEach(a=>{
+        a.addEventListener('click', function(e){
+          const href = this.getAttribute('href');
+          if(href.length>1){
+            const el = document.querySelector(href);
+            if(el){
+              e.preventDefault();
+              el.scrollIntoView({behavior: 'smooth', block:'start'});
+              // close mobile if open
+              if(mobilePanel.classList.contains('open')) closeMobile();
+            }
+          }
+        });
+      });
+
+      // Respect prefers-reduced-motion
+      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if(!prefersReduced){
+        // Simple reveal on scroll
+        const observer = new IntersectionObserver((entries)=>{
+          entries.forEach(e=>{
+            if(e.isIntersecting){
+              e.target.style.transform = 'translateY(0)';
+              e.target.style.opacity = '1';
+              observer.unobserve(e.target);
+            }
+          });
+        }, {threshold: 0.12});
+
+        document.querySelectorAll('section, .card, .step').forEach((el,i)=>{
+          el.style.transition = 'opacity .6s var(--ease), transform .6s var(--ease)';
+          el.style.opacity = '0';
+          el.style.transform = 'translateY(12px)';
+          observer.observe(el);
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
