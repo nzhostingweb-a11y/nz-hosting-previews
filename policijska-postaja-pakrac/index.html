@@ -1,0 +1,626 @@
+ <!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Policijska postaja Pakrac — kontakt i informacije</title>
+  <meta name="description" content="Policijska postaja Pakrac — službeni kontakti i informacije. Brzi poziv i poveznica na službenu web-stranicu." />
+  <meta property="og:title" content="Policijska postaja Pakrac — kontakt i informacije" />
+  <meta property="og:description" content="Kontaktirajte Policijsku postaju Pakrac. Telefonski kontakt i poveznica na službenu stranicu za dodatne informacije." />
+  <meta name="theme-color" content="#071b2a" />
+
+  <!-- Google Fonts: Inter (body) + Playfair Display (headings) -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      /* Design system */
+      --color-primary: #07293a;      /* deep navy */
+      --color-secondary: #0f5a6a;    /* teal-blue */
+      --color-accent: #f2b63c;       /* warm amber */
+      --neutral-900: #071422;
+      --neutral-800: #0b2a36;
+      --neutral-700: #23343a;
+      --neutral-500: #7a8a90;
+      --neutral-300: #d8e2e6;
+      --bg: #f7fbfc;
+      --card-bg: #ffffff;
+      --text: #071422;
+
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+
+      --gap-xs: 8px;
+      --gap-sm: 16px;
+      --gap-md: 24px;
+      --gap-lg: 40px;
+      --gap-xl: 64px;
+
+      --shadow-elev: 0 6px 24px rgba(7,20,34,0.12);
+      --transition: 220ms cubic-bezier(.2,.9,.3,1);
+      --max-width: 1200px;
+    }
+
+    /* Basic reset */
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      color:var(--text);
+      background:linear-gradient(180deg,var(--bg),#eef6f8 50%);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    a{color:inherit; text-decoration:none}
+    img{max-width:100%;height:auto;display:block}
+
+    /* Utility container */
+    .container{
+      width:calc(100% - 48px);
+      max-width:var(--max-width);
+      margin:0 auto;
+      padding:0 24px;
+    }
+
+    header{
+      position:sticky;
+      top:0;
+      z-index:60;
+      backdrop-filter:saturate(120%) blur(6px);
+      background: linear-gradient(180deg, rgba(255,255,255,0.6), rgba(255,255,255,0.45));
+      border-bottom:1px solid rgba(11,42,54,0.06);
+    }
+
+    .nav-wrap{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:var(--gap-md);
+      padding:14px 0;
+      max-width:var(--max-width);
+      margin:0 auto;
+      padding-left:24px;
+      padding-right:24px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:14px;
+    }
+
+    .wordmark{
+      font-family: "Playfair Display", serif;
+      font-size: clamp(18px, 2.0vw, 22px);
+      letter-spacing:0.2px;
+      font-weight:700;
+      color:var(--color-primary);
+    }
+
+    .brand-mark{
+      width:44px;
+      height:44px;
+      display:grid;
+      place-items:center;
+      border-radius:10px;
+      background:linear-gradient(180deg,var(--color-primary),var(--color-secondary));
+      box-shadow:var(--shadow-elev);
+      color:white;
+      font-weight:700;
+      font-family: Inter, sans-serif;
+      font-size:14px;
+    }
+
+    nav.desktop{
+      display:flex;
+      gap:22px;
+      align-items:center;
+    }
+
+    nav a{
+      color:var(--neutral-700);
+      font-weight:600;
+      font-size:14px;
+      padding:8px 10px;
+      border-radius:8px;
+      transition:color var(--transition), background var(--transition), transform var(--transition);
+    }
+
+    nav a:hover, nav a:focus{
+      color:var(--color-primary);
+      background:rgba(11,42,54,0.03);
+      outline:none;
+      transform:translateY(-2px);
+    }
+
+    .cta-primary{
+      background:linear-gradient(90deg,var(--color-secondary),var(--color-primary));
+      color:white;
+      padding:10px 16px;
+      border-radius:10px;
+      font-weight:700;
+      box-shadow:0 6px 18px rgba(7,41,58,0.12);
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+    .cta-primary:hover, .cta-primary:focus{ transform:translateY(-3px); box-shadow:0 10px 30px rgba(7,41,58,0.18) }
+
+    /* Mobile menu */
+    .hamburger{
+      display:none;
+      width:46px;
+      height:46px;
+      border-radius:10px;
+      background:transparent;
+      border:1px solid rgba(11,42,54,0.06);
+      align-items:center;
+      justify-content:center;
+    }
+    .hamburger:focus{ outline:2px solid var(--color-accent); outline-offset:2px }
+
+    /* Hero */
+    .hero{
+      padding:60px 0 48px;
+      display:grid;
+      grid-template-columns: 1fr 420px;
+      gap:40px;
+      align-items:center;
+    }
+
+    .hero-content{
+      max-width:760px;
+    }
+
+    h1{
+      font-family:"Playfair Display", serif;
+      font-size: clamp(28px, 4.5vw, 44px);
+      margin:0 0 12px 0;
+      letter-spacing:-0.6px;
+      color:var(--neutral-900);
+      line-height:1.02;
+    }
+
+    .lead{
+      font-size: clamp(15px, 2.1vw, 18px);
+      color:var(--neutral-700);
+      margin:0 0 22px 0;
+    }
+
+    .hero-actions{
+      display:flex;
+      gap:12px;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      border-radius:12px;
+      padding:12px 16px;
+      font-weight:600;
+      font-size:15px;
+      border:1px solid transparent;
+      background:var(--card-bg);
+      box-shadow:var(--shadow-elev);
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+    .btn:hover, .btn:focus{ transform:translateY(-3px) }
+
+    .btn-ghost{
+      background:transparent;
+      border:1px solid rgba(7,20,34,0.06);
+      color:var(--neutral-700);
+      box-shadow:none;
+    }
+
+    .hero-visual{
+      padding:28px;
+      border-radius:var(--radius-lg);
+      background:linear-gradient(180deg, rgba(7,20,34,0.02), rgba(11,42,54,0.01));
+      box-shadow:var(--shadow-elev);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      min-height:240px;
+    }
+
+    /* Stylized SVG frame */
+    .svg-frame{
+      width:100%;
+      max-width:360px;
+      height:220px;
+      display:block;
+    }
+
+    /* Services */
+    section.services{
+      margin-top:24px;
+      padding:34px 0 10px;
+    }
+    .grid-cards{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:20px;
+    }
+    .card{
+      background:var(--card-bg);
+      padding:20px;
+      border-radius:14px;
+      box-shadow:0 10px 30px rgba(11,42,54,0.04);
+      border:1px solid rgba(11,42,54,0.03);
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+    .card:hover, .card:focus-within{ transform:translateY(-6px); box-shadow:0 18px 40px rgba(11,42,54,0.06) }
+    .card h3{ margin:0 0 8px 0; font-size:16px; color:var(--color-primary); font-weight:700; font-family:Playfair Display, serif }
+    .card p{ margin:0; color:var(--neutral-700); font-size:14px }
+
+    /* About & advantages */
+    .split{
+      display:grid;
+      grid-template-columns:1fr 360px;
+      gap:36px;
+      align-items:start;
+      margin-top:36px;
+    }
+
+    .about{
+      background:transparent;
+    }
+
+    .advantages{
+      background:linear-gradient(180deg,#ffffff,#fbfeff);
+      padding:20px;
+      border-radius:14px;
+      border:1px solid rgba(11,42,54,0.04);
+    }
+    .adv-list{ display:flex; flex-direction:column; gap:12px; margin:0; padding:0; list-style:none }
+    .adv-item{
+      display:flex;
+      gap:12px;
+      align-items:flex-start;
+    }
+    .adv-icon{
+      width:44px;height:44px;border-radius:10px;background:linear-gradient(180deg,var(--color-accent),#ffd88a);
+      display:grid;place-items:center;font-weight:700;color:var(--neutral-900);
+      flex-shrink:0;
+    }
+    .adv-item h4{ margin:0 0 4px 0; font-size:15px; color:var(--neutral-900) }
+    .adv-item p{ margin:0; color:var(--neutral-700); font-size:14px }
+
+    /* Contact */
+    .contact{
+      margin-top:48px;
+      padding:28px;
+      border-radius:14px;
+      background:linear-gradient(180deg,#ffffff,#f8fbfc);
+      border:1px solid rgba(11,42,54,0.04);
+      display:flex;
+      gap:20px;
+      align-items:center;
+      justify-content:space-between;
+      flex-wrap:wrap;
+    }
+
+    .contact .info{ display:flex; gap:18px; align-items:center; }
+    .phone{
+      display:flex;flex-direction:column;
+    }
+    .phone a{ font-weight:700; color:var(--color-primary); font-size:18px }
+    .contact .links{ display:flex; gap:12px; align-items:center }
+
+    footer{
+      margin-top:64px;
+      padding:28px 0;
+      color:var(--neutral-500);
+      border-top:1px solid rgba(11,42,54,0.04);
+      background:transparent;
+    }
+
+    /* Responsive */
+    @media (max-width:1024px){
+      .hero{ grid-template-columns:1fr 360px }
+      .split{ grid-template-columns:1fr 320px }
+      .grid-cards{ grid-template-columns:repeat(2,1fr) }
+    }
+    @media (max-width:720px){
+      .nav-wrap{ padding-left:16px;padding-right:16px }
+      nav.desktop{ display:none }
+      .hamburger{ display:flex }
+      .hero{ grid-template-columns:1fr; padding:40px 0 24px }
+      .hero-visual{ order:-1; margin-bottom:8px }
+      .hero-visual{ min-height:180px }
+      .grid-cards{ grid-template-columns:1fr }
+      .split{ grid-template-columns:1fr }
+      .container{ width:calc(100% - 32px); padding:0 16px }
+    }
+
+    /* Focus visible for keyboard users */
+    :focus{ outline:none }
+    :focus-visible{ outline:3px solid var(--color-accent); outline-offset:3px; border-radius:8px }
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce){
+      *{ transition:none !important; animation:none !important; scroll-behavior:auto !important }
+    }
+  </style>
+</head>
+<body>
+  <header role="banner">
+    <div class="nav-wrap" aria-label="Glavna navigacija">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true">PP</div>
+        <div class="wordmark">Policijska postaja Pakrac</div>
+      </div>
+
+      <nav class="desktop" role="navigation" aria-label="Meni">
+        <a href="#usluge">Usluge</a>
+        <a href="#o-nama">O nama</a>
+        <a href="#prednosti">Prednosti</a>
+        <a href="#kontakt">Kontakt</a>
+        <a class="cta-primary" href="tel:+38534454639" aria-label="Nazovite Policijsku postaju Pakrac">Nazovite nas</a>
+      </nav>
+
+      <button class="hamburger" id="menuToggle" aria-controls="mobileMenu" aria-expanded="false" aria-label="Otvori izbornik">
+        <svg width="20" height="14" viewBox="0 0 20 14" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+          <rect y="0" width="20" height="2" rx="1" fill="#23343A"/>
+          <rect y="6" width="20" height="2" rx="1" fill="#23343A"/>
+          <rect y="12" width="20" height="2" rx="1" fill="#23343A"/>
+        </svg>
+      </button>
+    </div>
+
+    <div id="mobileMenu" style="display:none; padding:12px 24px 20px; border-top:1px solid rgba(11,42,54,0.04); background:linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.85));">
+      <nav role="navigation" aria-label="Mobilni meni">
+        <a href="#usluge" style="display:block;padding:10px 0;border-radius:8px">Usluge</a>
+        <a href="#o-nama" style="display:block;padding:10px 0;border-radius:8px">O nama</a>
+        <a href="#prednosti" style="display:block;padding:10px 0;border-radius:8px">Prednosti</a>
+        <a href="#kontakt" style="display:block;padding:10px 0;border-radius:8px">Kontakt</a>
+        <a class="cta-primary" href="tel:+38534454639" style="display:inline-block;margin-top:8px;padding:10px 12px">Nazovite nas</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero container" aria-labelledby="hero-title">
+      <div class="hero-content">
+        <h1 id="hero-title">Policijska postaja Pakrac</h1>
+        <p class="lead">Informacije i izravan kontakt. Brzi poziv za sve hitne i operativne potrebe te poveznica na službenu web-stranicu za dodatne informacije.</p>
+
+        <div class="hero-actions" role="group" aria-label="Glavni pozivi na akciju">
+          <a class="btn cta-primary" href="tel:+38534454639" aria-label="Nazovite Policijsku postaju Pakrac">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.79 19.79 0 0 1 3 5.18 2 2 0 0 1 5 3h3a1 1 0 0 1 1 .75c.12.63.37 1.24.73 1.79a1 1 0 0 1-.24 1L8.21 7.79a16 16 0 0 0 8 8l.25-1.31a1 1 0 0 1 1-.24c.55.36 1.16.61 1.79.73A1 1 0 0 1 22 16.92z" fill="currentColor"/></svg>
+            Nazovite nas
+          </a>
+          <a class="btn btn-ghost" href="http://pozesko-slavonska.policija.hr/MainPu.aspx?id=14434" target="_blank" rel="noopener" aria-label="Posjetite službenu web-stranicu Policijske postaje Pakrac">
+            Službena stranica
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><path d="M14 3h7v7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M10 14L21 3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 21H3V3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-visual" aria-hidden="false">
+        <svg class="svg-frame" viewBox="0 0 600 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Apstraktni grafički motiv">
+          <defs>
+            <linearGradient id="g1" x1="0" x2="1" y1="0" y2="1">
+              <stop offset="0" stop-color="#0f5a6a" stop-opacity="0.95"/>
+              <stop offset="1" stop-color="#07293a" stop-opacity="0.95"/>
+            </linearGradient>
+            <linearGradient id="g2" x1="0" x2="1" y1="0" y2="1">
+              <stop offset="0" stop-color="#f2b63c" stop-opacity="0.95"/>
+              <stop offset="1" stop-color="#ffd88a" stop-opacity="0.95"/>
+            </linearGradient>
+          </defs>
+
+          <!-- Architectural grid -->
+          <rect x="24" y="28" width="552" height="304" rx="18" fill="white" stroke="rgba(7,20,34,0.04)"/>
+          <g opacity="0.12" stroke="#07293a" stroke-width="1.2">
+            <path d="M48 80h504" />
+            <path d="M48 140h504" />
+            <path d="M48 200h504" />
+            <path d="M48 260h504" />
+            <path d="M148 28v304" />
+            <path d="M248 28v304" />
+            <path d="M348 28v304" />
+            <path d="M448 28v304" />
+          </g>
+
+          <!-- Stylized shield + structure symbol -->
+          <g transform="translate(140,70)">
+            <path d="M140 0c30 0 54 24 54 54v36c0 56-64 96-64 96s-64-40-64-96V54c0-30 24-54 54-54z" fill="url(#g1)" stroke="#07293a" stroke-width="2.5" />
+            <rect x="92" y="54" width="96" height="8" rx="4" fill="#ffffff" opacity="0.12" />
+            <rect x="106" y="74" width="64" height="6" rx="3" fill="#ffffff" opacity="0.08" />
+            <path d="M120 34c10 6 24 6 34 0" stroke="rgba(255,255,255,0.18)" stroke-width="3" stroke-linecap="round" fill="none"/>
+            <circle cx="140" cy="48" r="4" fill="url(#g2)" stroke="#fff" stroke-opacity="0.12"/>
+          </g>
+
+          <!-- Decorative corner lines -->
+          <g stroke="#07293a" stroke-opacity="0.06" stroke-width="2">
+            <path d="M34 320c40-28 120-42 200-42s160 14 200 42" fill="none" stroke-linecap="round"/>
+          </g>
+        </svg>
+      </div>
+    </section>
+
+    <section id="usluge" class="services container" aria-labelledby="usluge-title">
+      <h2 id="usluge-title" style="font-family:Playfair Display, serif; font-size:20px; margin:0 0 16px 0; color:var(--color-primary)">Usluge i informacije</h2>
+
+      <p style="margin:0 0 20px 0; color:var(--neutral-700)">Policijska postaja pruža kontaktne informacije i pristup službenim izvorima te koordinira osnovne policijske aktivnosti u okviru svoje nadležnosti. U nastavku su istaknute općenite kategorije rada.</p>
+
+      <div class="grid-cards" role="list" aria-label="Kategorije informacija">
+        <article class="card" role="listitem" tabindex="0" aria-labelledby="c1">
+          <h3 id="c1">Prijave i informacije</h3>
+          <p>Upute za podnošenje prijava, informacije o postupcima i smjernice za kontakte sa službenim osobljem.</p>
+        </article>
+
+        <article class="card" role="listitem" tabindex="0" aria-labelledby="c2">
+          <h3 id="c2">Prevencija i nadzor</h3>
+          <p>Općenite informacije o aktivnostima usmjerenim na sigurnost i prevenciju u lokalnoj zajednici.</p>
+        </article>
+
+        <article class="card" role="listitem" tabindex="0" aria-labelledby="c3">
+          <h3 id="c3">Suradnja s građanima</h3>
+          <p>Povezivanje s lokalnim inicijativama, savjeti za građane i načini suradnje u rješavanju sigurnosnih pitanja.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="o-nama" class="container" style="margin-top:30px;" aria-labelledby="onama-title">
+      <div class="split">
+        <div class="about">
+          <h2 id="onama-title" style="font-family:Playfair Display, serif; font-size:20px; margin:0 0 12px 0; color:var(--color-primary)">O nama</h2>
+          <p style="color:var(--neutral-700); margin:0 0 16px 0">Policijska postaja Pakrac dostupna je za informiranje i usmjeravanje građana. Ovdje su navedeni osnovni kontakti i poveznica na službenu web-stranicu za detaljnije informacije.</p>
+
+          <h3 style="font-size:16px; margin:16px 0 8px 0; color:var(--neutral-900)">Rad s građanima</h3>
+          <p style="color:var(--neutral-700); margin:0 0 12px 0">Za upite i prijave koristite telefonski kontakt ili posjetite službenu stranicu. Ako je potreban hitan odgovor, telefon je najbrži kanal.</p>
+        </div>
+
+        <aside class="advantages" aria-labelledby="prednosti-title">
+          <h2 id="prednosti-title" style="font-family:Playfair Display, serif; font-size:18px; margin:0 0 12px 0; color:var(--color-primary)">Prednosti kontakta</h2>
+          <ul class="adv-list">
+            <li class="adv-item">
+              <div class="adv-icon" aria-hidden="true">01</div>
+              <div>
+                <h4>Brz kontakt</h4>
+                <p>Jednostavan pristup informacijama putem telefona i službenih izvora.</p>
+              </div>
+            </li>
+
+            <li class="adv-item">
+              <div class="adv-icon" aria-hidden="true">02</div>
+              <div>
+                <h4>Jasne smjernice</h4>
+                <p>Upute za postupanje i osnovne informacije o procesu prijave.</p>
+              </div>
+            </li>
+
+            <li class="adv-item">
+              <div class="adv-icon" aria-hidden="true">03</div>
+              <div>
+                <h4>Transparentne poveznice</h4>
+                <p>Veza na službene izvore za dodatne detalje i ažurirane informacije.</p>
+              </div>
+            </li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <section id="prednosti" class="container" style="margin-top:28px;">
+      <h2 style="font-family:Playfair Display, serif; font-size:20px; margin:0 0 12px 0; color:var(--color-primary)">Kako funkcionira kontakt</h2>
+      <p style="color:var(--neutral-700); margin:0 0 18px 0">Ako imate pitanje ili trebate informaciju, preporučujemo prvo telefonski kontakt. Za dodatne i detaljnije informacije dostupna je poveznica na službenu stranicu.</p>
+
+      <div style="display:flex;gap:12px;flex-wrap:wrap;">
+        <a class="btn cta-primary" href="tel:+38534454639" aria-label="Nazovite Policijsku postaju Pakrac">Pozovite odmah</a>
+        <a class="btn btn-ghost" href="http://pozesko-slavonska.policija.hr/MainPu.aspx?id=14434" target="_blank" rel="noopener" aria-label="Službena stranica Policijske postaje Pakrac">Posjetite službenu stranicu</a>
+      </div>
+    </section>
+
+    <section id="kontakt" class="container" style="margin-top:40px;" aria-labelledby="kontakt-title">
+      <h2 id="kontakt-title" style="font-family:Playfair Display, serif; font-size:20px; margin:0 0 16px 0; color:var(--color-primary)">Kontakt</h2>
+
+      <div class="contact" role="region" aria-label="Kontakt informacije">
+        <div class="info">
+          <div>
+            <div style="font-size:13px;color:var(--neutral-500)">Naziv</div>
+            <div style="font-weight:700;color:var(--neutral-900);font-size:16px;margin-top:6px">Policijska postaja Pakrac</div>
+          </div>
+
+          <div class="phone" aria-label="Telefonski kontakt">
+            <div style="font-size:13px;color:var(--neutral-500)">Telefon</div>
+            <a href="tel:+38534454639" aria-label="Poziv na broj +385 34 454 639">+385 34 454 639</a>
+          </div>
+        </div>
+
+        <div class="links" aria-hidden="false">
+          <a class="btn btn-ghost" href="http://pozesko-slavonska.policija.hr/MainPu.aspx?id=14434" target="_blank" rel="noopener" aria-label="Otvori službenu web-stranicu">Službena stranica</a>
+          <a class="btn cta-primary" href="tel:+38534454639" aria-label="Nazovi odmah">Nazovite</a>
+        </div>
+      </div>
+
+      <p style="margin-top:14px;color:var(--neutral-500)">Podaci prikazani na ovoj stranici su neprovjereni poslovni podaci. Ne sadrže adrese ili email ako nisu izričito navedeni.</p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container" style="display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap">
+      <div>
+        <div style="font-weight:700;color:var(--neutral-900)">Policijska postaja Pakrac</div>
+        <div style="color:var(--neutral-500);font-size:14px;margin-top:6px">Telefon: <a href="tel:+38534454639" style="color:var(--color-primary);font-weight:600">+385 34 454 639</a></div>
+      </div>
+
+      <nav aria-label="Footer navigacija" style="display:flex;gap:14px;align-items:center">
+        <a href="#usluge">Usluge</a>
+        <a href="#kontakt">Kontakt</a>
+        <a href="http://pozesko-slavonska.policija.hr/MainPu.aspx?id=14434" target="_blank" rel="noopener">Službena stranica</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script>
+    (function(){
+      var menuBtn = document.getElementById('menuToggle');
+      var mobileMenu = document.getElementById('mobileMenu');
+
+      menuBtn.addEventListener('click', function(){
+        var expanded = menuBtn.getAttribute('aria-expanded') === 'true';
+        menuBtn.setAttribute('aria-expanded', String(!expanded));
+        if(!expanded){
+          mobileMenu.style.display = 'block';
+          // focus first link for accessibility
+          var firstLink = mobileMenu.querySelector('a');
+          if(firstLink) firstLink.focus();
+        } else {
+          mobileMenu.style.display = 'none';
+        }
+      });
+
+      // Close mobile menu on outside click or Escape
+      document.addEventListener('click', function(e){
+        if(!mobileMenu.contains(e.target) && !menuBtn.contains(e.target)){
+          mobileMenu.style.display = 'none';
+          menuBtn.setAttribute('aria-expanded','false');
+        }
+      });
+      document.addEventListener('keydown', function(e){
+        if(e.key === 'Escape'){
+          mobileMenu.style.display = 'none';
+          menuBtn.setAttribute('aria-expanded','false');
+          menuBtn.focus();
+        }
+      });
+
+      // Smooth scroll for in-page links but respect reduced motion
+      var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if(!prefersReduced){
+        document.querySelectorAll('a[href^="#"]').forEach(function(a){
+          a.addEventListener('click', function(e){
+            var href = a.getAttribute('href');
+            if(href.length > 1){
+              var target = document.querySelector(href);
+              if(target){
+                e.preventDefault();
+                target.scrollIntoView({behavior:'smooth', block:'start'});
+                // close mobile menu if open
+                mobileMenu.style.display = 'none';
+                menuBtn.setAttribute('aria-expanded','false');
+              }
+            }
+          });
+        });
+      }
+
+      // Ensure focus outlines for keyboard navigation
+      document.body.addEventListener('keydown', function(e){
+        if(e.key === 'Tab') document.documentElement.classList.add('show-focus');
+      }, {once:true});
+    })();
+  </script>
+</body>
+</html>
