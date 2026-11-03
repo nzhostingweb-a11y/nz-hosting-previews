@@ -1,0 +1,703 @@
+ <!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Policijska postaja Slavonski Brod — Javna sigurnost i informacije</title>
+  <meta name="description" content="Policijska postaja Slavonski Brod — kontakt i informacije za građane. Prijave, savjeti i suradnja u okviru javne sigurnosti. Telefon: +385 35 211 155" />
+  <meta property="og:title" content="Policijska postaja Slavonski Brod — Javna sigurnost i informacije" />
+  <meta property="og:description" content="Kontakt i informacije za građane. Prijave, savjeti i suradnja u okviru javne sigurnosti. Telefon: +385 35 211 155" />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Merriweather:wght@300;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      /* Boje i tonovi */
+      --color-primary: #081826; /* duboka noćna/plava - autoritet */
+      --color-secondary: #C9A45A; /* sofisticirani topaz / akcent */
+      --color-accent: #EDE6D6; /* svijetli kontrast akcent */
+      --neutral-900: #0b1a23;
+      --neutral-800: #12232c;
+      --neutral-700: #2a3b45;
+      --neutral-500: #6b7b84;
+      --neutral-300: #c7d0d6;
+      --bg: #f8f9fa;
+      --glass: rgba(255,255,255,0.04);
+
+      /* Tipografija */
+      --font-heading: "Merriweather", serif;
+      --font-body: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+      /* Spacing */
+      --space-xxs: 6px;
+      --space-xs: 12px;
+      --space-sm: 18px;
+      --space-md: 28px;
+      --space-lg: 48px;
+      --space-xl: 80px;
+
+      /* Border radii */
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+
+      /* Shadow */
+      --shadow-soft: 0 6px 18px rgba(2,10,20,0.28);
+
+      /* Layout */
+      --container-max: 1200px;
+    }
+
+    /* Reset & base */
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:var(--font-body);
+      color:var(--neutral-900);
+      background: linear-gradient(180deg, #fbfcfd 0%, #f3f6f8 100%);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+      padding-bottom:60px;
+    }
+
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;height:auto;display:block}
+
+    /* Container */
+    .container{
+      width:calc(100% - 40px);
+      max-width:var(--container-max);
+      margin-inline:auto;
+      padding-inline:20px;
+    }
+
+    /* Header / Nav */
+    header{
+      position:sticky;
+      top:0;
+      z-index:60;
+      backdrop-filter:saturate(1) blur(6px);
+      background: linear-gradient(180deg, rgba(255,255,255,0.66), rgba(255,255,255,0.56));
+      box-shadow: 0 1px 0 rgba(11,26,36,0.04);
+      border-bottom: 1px solid rgba(11,26,36,0.04);
+    }
+    .nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      padding-block:14px;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:14px;
+    }
+    .mark{
+      width:52px;height:52px;
+      display:inline-grid;
+      place-items:center;
+      background:linear-gradient(180deg,var(--color-primary),var(--neutral-800));
+      border-radius:12px;
+      box-shadow:var(--shadow-soft);
+      flex-shrink:0;
+    }
+    .mark svg{width:34px;height:34px;display:block}
+    .wordmark{
+      display:flex;flex-direction:column;
+      line-height:1;
+    }
+    .wordmark .title{
+      font-family:var(--font-heading);
+      font-weight:700;
+      font-size:16px;
+      color:var(--neutral-900);
+      letter-spacing:0.2px;
+    }
+    .wordmark .subtitle{
+      font-size:12px;
+      color:var(--neutral-700);
+      margin-top:2px;
+    }
+
+    nav ul{
+      display:flex;
+      gap:18px;
+      align-items:center;
+      margin:0;padding:0;list-style:none;
+    }
+    nav a{color:var(--neutral-700);font-weight:600;font-size:15px}
+    nav a:focus{outline:2px solid var(--color-secondary);outline-offset:4px;border-radius:6px;padding:4px}
+    .cta{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      background:var(--color-primary);
+      color:var(--color-accent);
+      padding:10px 16px;
+      border-radius:10px;
+      box-shadow:0 8px 24px rgba(9,20,30,0.14);
+      font-weight:700;
+      transition:transform .16s ease, box-shadow .16s ease;
+      font-size:15px;
+    }
+    .cta:hover{transform:translateY(-3px)}
+    .cta:active{transform:translateY(0)}
+
+    /* Mobile nav */
+    .mobile-toggle{
+      display:none;
+      background:transparent;border:0;padding:8px;border-radius:8px;
+    }
+    .mobile-toggle:focus{outline:2px solid var(--color-secondary);outline-offset:3px}
+
+    /* Hero */
+    .hero{
+      padding-block:56px;
+      position:relative;
+      overflow:visible;
+      background:
+        radial-gradient(800px 300px at 85% 30%, rgba(200,164,90,0.09) 0%, transparent 18%),
+        linear-gradient(180deg, rgba(8,24,38,0.03), rgba(8,24,38,0.02));
+      margin-bottom:8px;
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1fr 460px;
+      gap:36px;
+      align-items:center;
+      align-content:center;
+    }
+    .hero-content{
+      max-width:760px;
+    }
+    h1{
+      margin:0 0 12px 0;
+      font-family:var(--font-heading);
+      color:var(--neutral-900);
+      font-weight:700;
+      font-size: clamp(28px, 3.6vw, 44px);
+      line-height:1.03;
+      letter-spacing:-0.02em;
+    }
+    p.lead{
+      margin:0 0 18px 0;
+      color:var(--neutral-700);
+      font-size: clamp(15px, 1.6vw, 18px);
+      max-width:62ch;
+    }
+    .hero-actions{display:flex;gap:12px;align-items:center;margin-top:18px}
+    .btn-primary{
+      background:linear-gradient(180deg,var(--color-primary),var(--neutral-800));
+      color:var(--color-accent);
+      padding:12px 18px;border-radius:12px;font-weight:700;display:inline-flex;
+      align-items:center;gap:10px;box-shadow:0 10px 30px rgba(9,20,30,0.18);transition:transform .14s ease, box-shadow .14s ease;
+    }
+    .btn-primary:hover{transform:translateY(-4px)}
+    .btn-ghost{
+      padding:10px 14px;border-radius:10px;border:1px solid rgba(11,26,36,0.06);
+      background:transparent;color:var(--neutral-700);font-weight:600;
+    }
+
+    /* Hero visual (custom SVG emblem) */
+    .hero-visual{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .emblem{
+      width:420px;height:320px;
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:18px;
+      padding:26px;
+      box-shadow: var(--shadow-soft);
+      position:relative;
+      overflow:visible;
+    }
+    .emblem svg{width:100%;height:100%;display:block}
+    .emblem .badge{
+      position:absolute;left:22px;bottom:22px;padding:8px 12px;border-radius:12px;background:rgba(255,255,255,0.02);color:var(--color-accent);font-weight:700;font-size:13px;border:1px solid rgba(201,164,90,0.09)
+    }
+
+    /* Sections */
+    section{padding-block:48px}
+    .section-head{display:flex;align-items:baseline;gap:18px;margin-bottom:18px}
+    .section-head h2{margin:0;font-family:var(--font-heading);font-size:20px;color:var(--neutral-900)}
+    .section-sub{color:var(--neutral-700);font-size:15px}
+
+    /* Services cards */
+    .cards{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+    }
+    .card{
+      background:white;padding:20px;border-radius:14px;box-shadow:0 8px 24px rgba(9,20,30,0.06);border:1px solid rgba(11,26,36,0.03);
+      display:flex;gap:14px;align-items:flex-start;
+      transition:transform .14s ease, box-shadow .14s ease;
+    }
+    .card:hover{transform:translateY(-6px)}
+    .card .icon{
+      width:56px;height:56px;border-radius:10px;background:linear-gradient(180deg,var(--color-primary),var(--neutral-800));display:grid;place-items:center;color:var(--color-accent);flex-shrink:0;
+    }
+    .card h3{margin:0;font-size:16px;font-weight:700}
+    .card p{margin:6px 0 0 0;color:var(--neutral-700);font-size:14px}
+
+    /* About */
+    .about{
+      display:grid;
+      grid-template-columns:1fr 360px;
+      gap:28px;
+      align-items:start;
+    }
+    .about .box{
+      background:linear-gradient(180deg,#fff, #fbfdff);padding:20px;border-radius:12px;border:1px solid rgba(11,26,36,0.03);
+      box-shadow:0 8px 20px rgba(9,20,30,0.04);
+    }
+
+    /* Values / advantages */
+    .values{display:flex;gap:14px;flex-wrap:wrap}
+    .value{
+      background:linear-gradient(180deg, white, #fbfbfd);padding:16px;border-radius:12px;border:1px solid rgba(11,26,36,0.03);
+      min-width:220px;flex:1;box-shadow:0 6px 18px rgba(9,20,30,0.04)
+    }
+    .value h4{margin:0 0 6px 0;font-size:15px}
+    .value p{margin:0;color:var(--neutral-700);font-size:14px}
+
+    /* Steps */
+    .steps{display:flex;flex-direction:column;gap:12px}
+    .step{display:flex;gap:14px;align-items:flex-start;background:rgba(8,24,38,0.02);padding:14px;border-radius:12px}
+    .step .num{width:44px;height:44px;border-radius:10px;background:var(--neutral-900);color:var(--color-accent);display:grid;place-items:center;font-weight:700}
+    .step p{margin:0;color:var(--neutral-700)}
+
+    /* Contact */
+    .contact-grid{display:grid;grid-template-columns:1fr 360px;gap:28px;align-items:start}
+    .contact-card{
+      background:linear-gradient(180deg,#fff,#fbfdff);padding:22px;border-radius:14px;border:1px solid rgba(11,26,36,0.04);
+      box-shadow:0 10px 30px rgba(9,20,30,0.05)
+    }
+    .contact-list{display:flex;flex-direction:column;gap:12px}
+    .contact-list a{display:inline-flex;gap:12px;align-items:center;padding:10px;border-radius:10px;border:1px solid rgba(11,26,36,0.03);background:white;color:var(--neutral-900);font-weight:600}
+    .contact-list a svg{opacity:0.9}
+
+    footer{
+      margin-top:28px;padding:24px 0;background:linear-gradient(180deg,#f1f5f8,#eef4f8);
+      border-top:1px solid rgba(11,26,36,0.03);
+    }
+    .footer-grid{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+    .footer-nav{display:flex;gap:14px;align-items:center}
+
+    /* Responsive */
+    @media (max-width:1100px){
+      .hero-grid{grid-template-columns:1fr 1fr}
+      .emblem{width:360px;height:260px}
+      .container{padding-inline:18px}
+    }
+    @media (max-width:880px){
+      nav ul{display:none}
+      .mobile-toggle{display:inline-flex}
+      .hero-grid{grid-template-columns:1fr;gap:24px}
+      .hero{padding-block:40px}
+      .emblem{width:100%;height:240px}
+      .about{grid-template-columns:1fr}
+      .contact-grid{grid-template-columns:1fr}
+      .cards{grid-template-columns:1fr}
+      .values{flex-direction:column}
+    }
+
+    /* Mobile menu panel */
+    .mobile-panel{
+      position:fixed;inset:0;background:linear-gradient(180deg, rgba(8,24,38,0.92), rgba(8,24,38,0.96));
+      color:var(--color-accent);padding:40px 20px;display:none;flex-direction:column;gap:18px;z-index:80;
+    }
+    .mobile-panel.open{display:flex}
+    .mobile-panel a{color:var(--color-accent);font-size:18px;font-weight:700}
+    .mobile-panel .close{align-self:flex-end;background:transparent;border:0;color:var(--color-accent);font-size:18px;padding:8px}
+
+    /* Focus states */
+    a:focus, button:focus{outline:3px solid rgba(201,164,90,0.18);outline-offset:4px;border-radius:8px}
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce){
+      *{transition:none!important}
+    }
+
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav" role="navigation" aria-label="Glavna navigacija">
+      <div class="brand">
+        <div class="mark" aria-hidden="true">
+          <!-- Stylized shield emblem -->
+          <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <defs>
+              <linearGradient id="g1" x1="0" x2="1">
+                <stop offset="0" stop-color="#C9A45A"/>
+                <stop offset="1" stop-color="#EDE6D6"/>
+              </linearGradient>
+            </defs>
+            <path d="M32 2c8 6 22 5 28 9v12c0 16-12 26-28 39C16 49 4 39 4 23V11c6-4 20-3 28-9z" fill="url(#g1)" opacity="0.98"/>
+            <circle cx="32" cy="24" r="6" fill="#081826" opacity="0.18"/>
+          </svg>
+        </div>
+        <div class="wordmark">
+          <div class="title">Policijska postaja Slavonski Brod</div>
+          <div class="subtitle">Javna sigurnost • Informacije građanima</div>
+        </div>
+      </div>
+
+      <nav aria-label="Sekcije stranice">
+        <ul>
+          <li><a href="#usluge">Usluge</a></li>
+          <li><a href="#o-nama">O nama</a></li>
+          <li><a href="#prednosti">Pristup</a></li>
+          <li><a href="#kontakt">Kontakt</a></li>
+        </ul>
+      </nav>
+
+      <div style="display:flex;align-items:center;gap:12px">
+        <a class="cta" href="tel:+38535211155" aria-label="Pozovite Policijsku postaju Slavonski Brod">Nazovite: +385 35 211 155</a>
+        <button class="mobile-toggle" aria-expanded="false" aria-controls="mobile-panel" id="mobileToggle" aria-label="Otvorite izbornik">
+          <svg width="22" height="14" viewBox="0 0 22 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect width="22" height="2" rx="1" fill="#0b1a23"></rect>
+            <rect y="6" width="22" height="2" rx="1" fill="#0b1a23"></rect>
+            <rect y="12" width="22" height="2" rx="1" fill="#0b1a23"></rect>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <div id="mobile-panel" class="mobile-panel" aria-hidden="true">
+      <button class="close" id="mobileClose" aria-label="Zatvori izbornik">Zatvori ✕</button>
+      <a href="#usluge">Usluge</a>
+      <a href="#o-nama">O nama</a>
+      <a href="#prednosti">Pristup</a>
+      <a href="#kontakt">Kontakt</a>
+      <a href="tel:+38535211155">Nazovite: +385 35 211 155</a>
+      <a href="http://brodsko-posavska.policija.hr/MainPu.aspx?id=14418" target="_blank" rel="noopener">Službena stranica</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <h1 id="hero-title">Policijska postaja Slavonski Brod</h1>
+          <p class="lead">Kontakt za informacije i suradnju u području javne sigurnosti u Brodsko-posavskoj županiji. Prijave, savjeti i podrška građanima dostupni su putem telefona i službenih kanala.</p>
+
+          <div class="hero-actions" role="group" aria-label="Glavni pozivi na akciju">
+            <a class="btn-primary" href="tel:+38535211155" aria-label="Pozovite Policijsku postaju Slavonski Brod sada">
+              <!-- phone icon -->
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+                <path d="M21 16.5v3a2.25 2.25 0 0 1-2.445 2.244c-9.318-.553-16.917-8.152-17.47-17.47A2.25 2.25 0 0 1 3.5 1H6.5a1 1 0 0 1 1 .775l.7 3.1a1 1 0 0 1-.27.92L7.6 7.8a12.1 12.1 0 0 0 6.6 6.6l1.2-.33a1 1 0 0 1 .92.27l3.1.7a1 1 0 0 1 .78 1z" fill="#EDE6D6"/>
+              </svg>
+              Nazovite odmah
+            </a>
+            <a class="btn-ghost" href="#o-nama">Saznajte više</a>
+          </div>
+
+          <div style="margin-top:20px;color:var(--neutral-500);font-size:14px">Službena web stranica: <a href="http://brodsko-posavska.policija.hr/MainPu.aspx?id=14418" target="_blank" rel="noopener">brodsko-posavska.policija.hr</a></div>
+        </div>
+
+        <div class="hero-visual" aria-hidden="true">
+          <div class="emblem" role="img" aria-label="Vizualni grb policijske postaje — simbol zaštite i reda">
+            <!-- Decorative SVG composition representing shield & cityscape lines -->
+            <svg viewBox="0 0 840 640" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" role="presentation">
+              <defs>
+                <linearGradient id="lg" x1="0" x2="1">
+                  <stop offset="0" stop-color="#081826"/>
+                  <stop offset="1" stop-color="#12232c"/>
+                </linearGradient>
+                <linearGradient id="gld" x1="0" x2="1">
+                  <stop offset="0" stop-color="#C9A45A"/>
+                  <stop offset="1" stop-color="#EDE6D6"/>
+                </linearGradient>
+              </defs>
+
+              <rect width="840" height="640" rx="24" fill="url(#lg)" opacity="0.08"/>
+              <g transform="translate(120,40)">
+                <path d="M300 12c62 46 168 36 208 66v86c0 110-84 170-208 252C176 364 92 304 92 190V98c40-30 136-20 208-86z" fill="url(#gld)" opacity="0.98"/>
+                <g transform="translate(78,64)" fill="#08202B" opacity="0.06">
+                  <rect x="12" y="20" width="36" height="12" rx="3"/>
+                  <rect x="68" y="14" width="22" height="8" rx="2"/>
+                  <rect x="102" y="36" width="18" height="8" rx="2"/>
+                </g>
+                <g transform="translate(160,128)" fill="#081826" opacity="0.14">
+                  <rect x="8" y="10" width="36" height="10" rx="2"/>
+                  <rect x="54" y="6" width="28" height="8" rx="2"/>
+                  <rect x="96" y="18" width="18" height="8" rx="2"/>
+                </g>
+                <circle cx="260" cy="128" r="12" fill="#081826" opacity="0.08"/>
+              </g>
+            </svg>
+
+            <div class="badge">Javna sigurnost • Slavonski Brod</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="usluge" aria-labelledby="usluge-title" class="container">
+      <div class="section-head">
+        <h2 id="usluge-title">Usluge i informacije</h2>
+        <div class="section-sub">Osnovne informacije i načini suradnje s Policijskom postajom.</div>
+      </div>
+
+      <div class="cards" role="list">
+        <article class="card" role="listitem" aria-labelledby="srv-1">
+          <div class="icon" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4 4h16v6H4z" fill="#EDE6D6"/>
+              <path d="M4 12h16v8H4z" fill="#081826" opacity="0.06"/>
+            </svg>
+          </div>
+          <div>
+            <h3 id="srv-1">Prijave i informacije</h3>
+            <p>Podrška građanima pri prijavi događaja te pružanje informacija o daljnjim postupcima i dostupnim kanalima.</p>
+          </div>
+        </article>
+
+        <article class="card" role="listitem" aria-labelledby="srv-2">
+          <div class="icon" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M3 12h18" stroke="#EDE6D6" stroke-width="2" stroke-linecap="round"/>
+              <path d="M6 6v12" stroke="#EDE6D6" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div>
+            <h3 id="srv-2">Promet i sigurnost</h3>
+            <p>Informacije o sigurnosti prometa i suradnji u cilju prevencije rizika za sve sudionike u prometu.</p>
+          </div>
+        </article>
+
+        <article class="card" role="listitem" aria-labelledby="srv-3">
+          <div class="icon" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="4" y="4" width="16" height="16" rx="2" fill="#EDE6D6"/>
+              <path d="M8 9h8" stroke="#081826" stroke-width="1.4" stroke-linecap="round"/>
+              <path d="M8 13h8" stroke="#081826" stroke-width="1.4" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div>
+            <h3 id="srv-3">Informacije za građane</h3>
+            <p>Praktični savjeti i upute kako postupiti u različitim situacijama te usmjeravanje prema službenim kanalima podrške.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="o-nama" class="container" aria-labelledby="onama-title">
+      <div class="section-head">
+        <h2 id="onama-title">O Policijskoj postaji</h2>
+        <div class="section-sub">Neutralan pregled uloge i kontakta bez nepotvrđenih izjava.</div>
+      </div>
+
+      <div class="about">
+        <div class="box">
+          <p class="section-sub" style="margin-bottom:10px">Policijska postaja Slavonski Brod obavlja svakodnevne zadaće u okviru javne sigurnosti. Kroz dostupnost za prijave i informiranje građana postupa u skladu sa zakonima i službenim procedurama.</p>
+          <p style="color:var(--neutral-700);margin-top:12px">Ako trebate priopćenje ili želite prijaviti događaj, kontaktirajte postaju telefonom ili putem službene mrežne stranice. Ovdje na stranici nalaze se osnovne informacije kako ostvariti kontakt i što možete očekivati u općem smislu postupanja.</p>
+        </div>
+
+        <div>
+          <div class="box" style="margin-bottom:14px">
+            <h3 style="margin:0 0 8px 0;font-size:16px">Rad s građanima</h3>
+            <p style="margin:0;color:var(--neutral-700)">Postupa se profesionalno i u skladu s propisima. Građanima se daje smjernica o daljnjim koracima i dostupnim kanalima podrške.</p>
+          </div>
+
+          <div class="box">
+            <h3 style="margin:0 0 8px 0;font-size:16px">Službeni kanali</h3>
+            <p style="margin:0 0 8px 0;color:var(--neutral-700)">Službene informacije i obavijesti dostupne su na web stranici županijske policije.</p>
+            <a href="http://brodsko-posavska.policija.hr/MainPu.aspx?id=14418" target="_blank" rel="noopener" class="btn-ghost" style="margin-top:10px;display:inline-block">Posjetite službenu stranicu</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="prednosti" class="container" aria-labelledby="prednosti-title">
+      <div class="section-head">
+        <h2 id="prednosti-title">Naš pristup</h2>
+        <div class="section-sub">Jasan i pouzdan način rada u komunikaciji s građanima.</div>
+      </div>
+
+      <div class="values" role="list">
+        <div class="value" role="listitem">
+          <h4>Profesionalnost</h4>
+          <p>Postupci temeljeni na pravilima i službenim standardima, s ciljem sigurnog rješavanja prijavljenih situacija.</p>
+        </div>
+
+        <div class="value" role="listitem">
+          <h4>Dostupnost</h4>
+          <p>Kontakt putem telefona i službenih kanala za hitne i nehitne informacije.</p>
+        </div>
+
+        <div class="value" role="listitem">
+          <h4>Suradnja</h4>
+          <p>Suradnja s građanima i drugim službama u okviru propisanih nadležnosti i postupaka.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="kako" class="container" aria-labelledby="kako-title">
+      <div class="section-head">
+        <h2 id="kako-title">Kako postupiti — kratki vodič</h2>
+        <div class="section-sub">Preporučeni koraci za brzo usmjerenje u slučaju potrebe za policijskom podrškom.</div>
+      </div>
+
+      <div class="steps" role="list">
+        <div class="step" role="listitem">
+          <div class="num" aria-hidden="true">1</div>
+          <div>
+            <p><strong>Procijenite sigurnost:</strong> Prvo osigurajte vlastitu i tuđu sigurnost. Ako je situacija opasna, obratite se najbližim službama za hitnu intervenciju.</p>
+          </div>
+        </div>
+
+        <div class="step" role="listitem">
+          <div class="num" aria-hidden="true">2</div>
+          <div>
+            <p><strong>Prijava događaja:</strong> Detaljno zabilježite osnovne činjenice (vrijeme, mjesto, sudionici) i obratite se policijskoj postaji putem dostupnih kontakata.</p>
+          </div>
+        </div>
+
+        <div class="step" role="listitem">
+          <div class="num" aria-hidden="true">3</div>
+          <div>
+            <p><strong>Suradnja i dokazi:</strong> Ako je moguće, sačuvajte dokaze i budite spremni dati izjavu nadležnim službama kako bi se postupilo u skladu s propisanim postupcima.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="kontakt" class="container" aria-labelledby="kontakt-title">
+      <div class="section-head">
+        <h2 id="kontakt-title">Kontakt</h2>
+        <div class="section-sub">Dostupni kanali kontakta i osnovne informacije (podaci su neprovjereni).</div>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-card">
+          <h3 style="margin-top:0">Policijska postaja Slavonski Brod</h3>
+          <p style="margin:8px 0;color:var(--neutral-700)">Za prijave i informacije nazovite telefonom ili posjetite službenu mrežnu stranicu za dodatne upute.</p>
+
+          <div class="contact-list" role="list">
+            <a href="tel:+38535211155" role="link" aria-label="Pozovite Policijsku postaju Slavonski Brod">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><path d="M17 2H7a2 2 0 0 0-2 2v16l4-2 4 2 4-2 4 2V4a2 2 0 0 0-2-2z" fill="#081826" opacity="0.06"/></svg>
+              +385 35 211 155
+            </a>
+
+            <a href="http://brodsko-posavska.policija.hr/MainPu.aspx?id=14418" target="_blank" rel="noopener" aria-label="Otvorite službenu stranicu Policijske postaje Slavonski Brod">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><path d="M3 12h18" stroke="#081826" stroke-width="1.5" stroke-linecap="round"/></svg>
+              brodsko-posavska.policija.hr
+            </a>
+          </div>
+        </div>
+
+        <aside style="align-self:start">
+          <div class="box" style="padding:16px">
+            <h4 style="margin:0 0 8px 0">Brzi savjet</h4>
+            <p style="margin:0;color:var(--neutral-700)">Ako niste sigurni kome se obratiti, telefon je najbrži način da dobijete osnovnu informaciju i smjernice.</p>
+          </div>
+
+          <div style="height:12px"></div>
+
+          <div class="box">
+            <h4 style="margin:0 0 8px 0">Izjava o podacima</h4>
+            <p style="margin:0;color:var(--neutral-700)">Kontaktni podaci prikazani na ovoj stranici temeljeni su na dostavljenim informacijama i nisu dodatno provjeravani.</p>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-grid" role="contentinfo">
+      <div style="display:flex;align-items:center;gap:12px">
+        <div style="width:44px;height:44px;border-radius:10px;background:var(--neutral-900);display:grid;place-items:center;color:var(--color-accent);font-weight:700">PP</div>
+        <div>
+          <div style="font-weight:700">Policijska postaja Slavonski Brod</div>
+          <div style="color:var(--neutral-700);font-size:13px">Telefon: <a href="tel:+38535211155">+385 35 211 155</a></div>
+        </div>
+      </div>
+
+      <nav class="footer-nav" aria-label="Footer navigacija">
+        <a href="#usluge">Usluge</a>
+        <a href="#o-nama">O nama</a>
+        <a href="#kontakt">Kontakt</a>
+        <a href="http://brodsko-posavska.policija.hr/MainPu.aspx?id=14418" target="_blank" rel="noopener">Službena stranica</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle with accessibility and reduced-motion respect
+    (function(){
+      const toggle = document.getElementById('mobileToggle');
+      const panel = document.getElementById('mobile-panel');
+      const closeBtn = document.getElementById('mobileClose');
+
+      function openMenu(){
+        panel.classList.add('open');
+        panel.setAttribute('aria-hidden','false');
+        toggle.setAttribute('aria-expanded','true');
+        // trap focus - minimal
+        closeBtn.focus();
+        document.body.style.overflow = 'hidden';
+      }
+      function closeMenu(){
+        panel.classList.remove('open');
+        panel.setAttribute('aria-hidden','true');
+        toggle.setAttribute('aria-expanded','false');
+        toggle.focus();
+        document.body.style.overflow = '';
+      }
+
+      toggle.addEventListener('click', function(){
+        const open = panel.classList.contains('open');
+        if(open) closeMenu(); else openMenu();
+      });
+      closeBtn.addEventListener('click', closeMenu);
+
+      // Close on escape
+      document.addEventListener('keydown', function(e){
+        if(e.key === 'Escape' && panel.classList.contains('open')) closeMenu();
+      });
+
+      // Smooth scroll for same-page links
+      document.querySelectorAll('a[href^="#"]').forEach(link=>{
+        link.addEventListener('click', function(e){
+          const targetId = this.getAttribute('href').slice(1);
+          if(!targetId) return;
+          const target = document.getElementById(targetId);
+          if(target){
+            e.preventDefault();
+            const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            const top = target.getBoundingClientRect().top + window.pageYOffset - 20;
+            if(prefersReduced){
+              window.scrollTo(0, top);
+            } else {
+              window.scrollTo({top, behavior:'smooth'});
+            }
+            // close mobile panel if open
+            if(panel.classList.contains('open')) closeMenu();
+          }
+        });
+      });
+
+      // Ensure mobile menu links reachable by keyboard when opened
+      panel.addEventListener('keydown', function(e){
+        if(e.key === 'Tab'){
+          // keep focus inside panel - minimal focus trap
+          const focusable = panel.querySelectorAll('a,button');
+          if(focusable.length === 0) return;
+          const first = focusable[0];
+          const last = focusable[focusable.length-1];
+          if(e.shiftKey && document.activeElement === first){ e.preventDefault(); last.focus(); }
+          else if(!e.shiftKey && document.activeElement === last){ e.preventDefault(); first.focus(); }
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
