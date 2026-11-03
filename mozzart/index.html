@@ -1,0 +1,661 @@
+ <!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mozzart — Sportsko klađenje i uživo oklade | Online platforma</title>
+  <meta name="description" content="Mozzart — pristup platformi za sportsko klađenje i uživo oklade. Brz kontakt: +381 800 800899 • help@mozzartbet.com" />
+  <meta property="og:title" content="Mozzart — Sportsko klađenje i uživo oklade" />
+  <meta property="og:description" content="Pregled ponude sportskog i uživo klađenja. Kontakt: +381 800 800899 • help@mozzartbet.com" />
+  <meta property="og:url" content="https://www.mozzartbet.com" />
+  <meta name="theme-color" content="#071020" />
+
+  <!-- Google Fonts: Playfair Display (headline) + Inter (UI) -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      /* Design system */
+      --color-primary: #07102a;      /* deep navy */
+      --color-secondary: #f2c94c;    /* warm gold */
+      --color-accent: #1fc7a4;       /* mint accent */
+      --neutral-900: #0b1120;
+      --neutral-800: #121722;
+      --neutral-700: #2a3440;
+      --neutral-500: #6b7582;
+      --neutral-300: #d7dbe0;
+      --bg: #fafbfd;
+      --card-bg: #ffffff;
+      --glass: rgba(255,255,255,0.04);
+
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 22px;
+
+      --shadow-1: 0 6px 18px rgba(7,16,42,0.12);
+      --shadow-2: 0 10px 30px rgba(7,16,42,0.16);
+
+      --site-max: 1200px;
+
+      --space-xxs: 6px;
+      --space-xs: 10px;
+      --space-sm: 16px;
+      --space-md: 24px;
+      --space-lg: 40px;
+      --space-xl: 64px;
+    }
+
+    /* Base */
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      color:var(--neutral-900);
+      background: linear-gradient(180deg, #fbfcfd 0%, #f7f9fb 100%);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.4;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;height:auto;display:block}
+
+    /* Layout */
+    .container{
+      width: calc(100% - 48px);
+      max-width: var(--site-max);
+      margin: 0 auto;
+      padding: 0;
+    }
+
+    header{
+      position:sticky;
+      top:0;
+      z-index:40;
+      backdrop-filter: blur(6px);
+      background: linear-gradient(180deg, rgba(255,255,255,0.70), rgba(255,255,255,0.55));
+      border-bottom: 1px solid rgba(8,16,34,0.04);
+      transition: box-shadow .25s ease;
+    }
+    header.scrolled{box-shadow: var(--shadow-1)}
+
+    .nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:var(--space-md);
+      padding:18px 0;
+    }
+
+    .brand{
+      display:flex;
+      gap:12px;
+      align-items:center;
+    }
+    .brand .logo{
+      width:46px;height:46px;
+      background: linear-gradient(135deg,var(--color-secondary),#d49b2e);
+      border-radius:12px;
+      display:grid;
+      place-items:center;
+      box-shadow: var(--shadow-1);
+      color:#07102a;
+      font-weight:700;
+      font-family:"Playfair Display", serif;
+      font-size:18px;
+      letter-spacing:0.6px;
+    }
+    .brand .wordmark{
+      display:flex;
+      flex-direction:column;
+      line-height:1;
+    }
+    .brand .company{
+      font-family:"Playfair Display", serif;
+      font-weight:700;
+      color:var(--neutral-900);
+      font-size:18px;
+    }
+    .brand .subl{
+      font-size:12px;
+      color:var(--neutral-500);
+    }
+
+    nav.desktop{
+      display:flex;
+      gap:20px;
+      align-items:center;
+    }
+    nav.desktop a{
+      color:var(--neutral-700);
+      padding:8px 10px;
+      border-radius:8px;
+      font-weight:600;
+      font-size:14px;
+    }
+    nav.desktop a:focus{outline:3px solid rgba(31,199,164,0.12);outline-offset:2px}
+    .cta-primary{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      background: linear-gradient(90deg,var(--color-secondary), #e0b248);
+      color: #07102a;
+      padding:10px 16px;
+      border-radius:12px;
+      font-weight:700;
+      box-shadow: var(--shadow-1);
+      transition: transform .12s ease, box-shadow .12s ease;
+    }
+    .cta-primary:hover{transform: translateY(-2px); box-shadow: var(--shadow-2)}
+
+    .nav-actions{
+      display:flex;
+      gap:12px;
+      align-items:center;
+    }
+
+    /* Mobile menu */
+    .menu-btn{
+      display:none;
+      background:transparent;
+      border:0;
+      padding:8px;
+      border-radius:10px;
+    }
+    .menu-btn:focus{outline:3px solid rgba(7,16,42,0.06);outline-offset:2px}
+
+    /* Hero */
+    .hero{
+      padding: calc(var(--space-xl) + 10px) 0 var(--space-xl);
+      position:relative;
+      overflow:hidden;
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1fr 420px;
+      gap:var(--space-lg);
+      align-items:center;
+      max-width:var(--site-max);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .hero-title{
+      font-family:"Playfair Display", serif;
+      font-weight:700;
+      color:var(--neutral-900);
+      font-size: clamp(28px, 5vw, 48px);
+      line-height:1.02;
+      margin:0 0 14px 0;
+      letter-spacing:-0.6px;
+    }
+    .hero-lead{
+      color:var(--neutral-700);
+      font-size: clamp(15px, 2.2vw, 18px);
+      margin:0 0 22px 0;
+      max-width:56ch;
+    }
+    .hero-ctas{display:flex;gap:12px;align-items:center}
+
+    .btn-outline{
+      padding:10px 14px;
+      border-radius:12px;
+      border:1px solid rgba(7,16,42,0.06);
+      background:transparent;
+      color:var(--neutral-900);
+      font-weight:600;
+    }
+    .secondary-cta{color:var(--neutral-700);font-weight:600}
+
+    /* Right visual card */
+    .visual-card{
+      background: linear-gradient(180deg, rgba(255,255,255,0.85), rgba(255,255,255,0.75));
+      border-radius:18px;
+      padding:18px;
+      box-shadow: var(--shadow-1);
+      border: 1px solid rgba(7,16,42,0.04);
+    }
+    .visual-graphic{
+      display:flex;
+      gap:12px;
+      align-items:center;
+      justify-content:space-between;
+    }
+    .stats{
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+    }
+    .stat{
+      display:flex;
+      gap:12px;
+      align-items:center;
+    }
+    .stat svg{flex:0 0 36px}
+    .stat .label{font-size:13px;color:var(--neutral-500)}
+    .stat .value{font-weight:700;color:var(--neutral-900)}
+
+    /* Services */
+    section.services{
+      padding: var(--space-xl) 0;
+      background: linear-gradient(180deg, rgba(247,249,251,0), rgba(247,249,251,1));
+    }
+    .services-grid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:20px;
+      align-items:start;
+    }
+    .card{
+      background:var(--card-bg);
+      border-radius:14px;
+      padding:18px;
+      box-shadow: var(--shadow-1);
+      border:1px solid rgba(7,16,42,0.04);
+      transition: transform .14s ease, box-shadow .14s ease;
+    }
+    .card:hover{transform:translateY(-6px); box-shadow: var(--shadow-2)}
+    .card h3{margin:0 0 8px 0;font-size:16px;color:var(--neutral-900);font-weight:700}
+    .card p{margin:0;color:var(--neutral-700);font-size:14px}
+
+    /* About */
+    .about{
+      display:grid;
+      grid-template-columns: 1fr 360px;
+      gap:32px;
+      align-items:start;
+      padding: var(--space-xl) 0;
+    }
+    .about p{color:var(--neutral-700);font-size:15px}
+
+    .approach{
+      background: linear-gradient(90deg, rgba(31,199,164,0.06), rgba(242,201,76,0.04));
+      border-radius:16px;
+      padding:18px;
+      border:1px solid rgba(7,16,42,0.03);
+    }
+    .approach ul{margin:0;padding:0 0 0 18px;color:var(--neutral-700);font-size:14px}
+
+    /* How it works */
+    .how{
+      padding: var(--space-xl) 0;
+    }
+    .steps{
+      display:flex;
+      gap:16px;
+      align-items:stretch;
+    }
+    .step{
+      flex:1;
+      background:var(--card-bg);
+      border-radius:12px;
+      padding:18px;
+      box-shadow:var(--shadow-1);
+      border:1px solid rgba(7,16,42,0.04);
+    }
+    .step h4{margin:0 0 8px 0;font-size:15px}
+    .step p{margin:0;color:var(--neutral-700);font-size:14px}
+
+    /* Contact */
+    .contact{
+      padding: var(--space-xl) 0;
+      background: linear-gradient(180deg, rgba(255,255,255,0.6), rgba(250,251,252,1));
+      border-top: 1px solid rgba(7,16,42,0.03);
+    }
+    .contact-grid{
+      display:grid;
+      grid-template-columns: 1fr 360px;
+      gap:24px;
+      align-items:start;
+    }
+    .contact-card{
+      background:linear-gradient(180deg,#fff,#fbfdff);
+      border-radius:14px;
+      padding:18px;
+      border:1px solid rgba(7,16,42,0.04);
+      box-shadow:var(--shadow-1);
+    }
+    .contact-list{display:flex;flex-direction:column;gap:10px}
+    .contact-item{display:flex;gap:12px;align-items:center}
+    .contact-item a{color:var(--neutral-900);font-weight:600}
+
+    .note{font-size:13px;color:var(--neutral-500);margin-top:12px}
+
+    footer{
+      padding:24px 0;
+      border-top:1px solid rgba(7,16,42,0.04);
+      background:transparent;
+    }
+    .footer-grid{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+    .footer-links{display:flex;gap:12px;align-items:center;color:var(--neutral-700);font-size:14px}
+
+    /* Responsive */
+    @media (max-width: 1024px){
+      .hero-grid{grid-template-columns: 1fr 360px}
+      .services-grid{grid-template-columns: repeat(2,1fr)}
+      .about{grid-template-columns:1fr}
+      .contact-grid{grid-template-columns:1fr}
+    }
+    @media (max-width: 720px){
+      .menu-btn{display:inline-flex}
+      nav.desktop{display:none}
+      .hero-grid{grid-template-columns:1fr; gap:20px}
+      .visual-card{order:2}
+      .hero{padding:32px 0}
+      .services-grid{grid-template-columns:1fr}
+      .brand .wordmark{display:none}
+    }
+
+    /* Accessibility & motion */
+    :focus{outline: none}
+    :focus-visible{outline:3px solid rgba(31,199,164,0.15);outline-offset:3px;border-radius:8px}
+    @media (prefers-reduced-motion: reduce){
+      *{transition:none!important;animation:none!important}
+    }
+  </style>
+</head>
+<body>
+  <header id="site-header">
+    <div class="container nav" role="navigation" aria-label="Glavna navigacija">
+      <div class="brand" aria-hidden="false">
+        <div class="logo" aria-hidden="true">MZ</div>
+        <div class="wordmark">
+          <div class="company">Mozzart</div>
+          <div class="subl">Sportsko klađenje i uživo oklade</div>
+        </div>
+      </div>
+
+      <nav class="desktop" aria-label="Sekcije">
+        <a href="#ponuda">Ponuda</a>
+        <a href="#kako">Kako funkcionira</a>
+        <a href="#kontakt">Kontakt</a>
+        <a class="cta-primary" href="https://www.mozzartbet.com" target="_blank" rel="noopener">Posjeti web</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="menu-btn" id="menuBtn" aria-label="Otvori izbornik" aria-expanded="false">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M4 7h16M4 12h16M4 17h16" stroke="#07102a" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobileMenu" style="display:none; padding:8px 24px; border-top:1px solid rgba(7,16,42,0.03); background:linear-gradient(180deg, rgba(255,255,255,0.98), rgba(255,255,255,0.96));">
+      <div style="display:flex;flex-direction:column;gap:8px;max-width:var(--site-max);margin:0 auto;">
+        <a href="#ponuda" class="btn-outline">Ponuda</a>
+        <a href="#kako" class="btn-outline">Kako funkcionira</a>
+        <a href="#kontakt" class="btn-outline">Kontakt</a>
+        <a href="https://www.mozzartbet.com" class="cta-primary" target="_blank" rel="noopener">Posjeti web</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-grid">
+        <div>
+          <h1 id="hero-title" class="hero-title">Mozzart — platforma za sportsko i uživo klađenje</h1>
+          <p class="hero-lead">
+            Brzi pristup tržištima klađenja putem web platforme. Pregledajte dostupne oklade uživo i prije početka, kontaktirajte podršku ili započnite pregled ponude.
+          </p>
+
+          <div class="hero-ctas" role="group" aria-label="Glavni pozivi na akciju">
+            <a class="cta-primary" href="https://www.mozzartbet.com" target="_blank" rel="noopener">Posjeti platformu</a>
+            <a class="btn-outline secondary-cta" href="#ponuda">Pogledaj ponudu uživo</a>
+            <a class="btn-outline" href="mailto:help@mozzartbet.com">Kontakt podrške</a>
+          </div>
+
+          <p class="note" style="margin-top:16px;">
+            Dostupnost usluga razlikuje se ovisno o lokalnim zakonima i pravilima. Igrajte odgovorno.
+          </p>
+        </div>
+
+        <aside class="visual-card" aria-hidden="false" aria-label="Brzi pregled ponude">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px">
+            <div style="display:flex;flex-direction:column">
+              <div style="font-size:13px;color:var(--neutral-500)">Trenutno istaknuto</div>
+              <div style="font-weight:700;font-size:15px;color:var(--neutral-900)">Uživo: Nogomet — Početak utakmice</div>
+            </div>
+            <div style="font-size:12px;color:var(--neutral-500)">Ažurirano: uživo</div>
+          </div>
+
+          <div class="visual-graphic" style="margin-bottom:12px">
+            <svg width="120" height="80" viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect x="0" y="0" width="120" height="80" rx="12" fill="#07102a" opacity="0.06"/>
+              <path d="M8 58c10-18 26-30 44-30 18 0 34 12 44 30" stroke="url(#g1)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+              <defs>
+                <linearGradient id="g1" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0" stop-color="#f2c94c"/>
+                  <stop offset="1" stop-color="#1fc7a4"/>
+                </linearGradient>
+              </defs>
+            </svg>
+
+            <div class="stats" style="flex:1">
+              <div class="stat">
+                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2v20" stroke="#1fc7a4" stroke-width="1.8" stroke-linecap="round"/><path d="M4 12h16" stroke="#f2c94c" stroke-width="1.8" stroke-linecap="round"/></svg>
+                <div>
+                  <div class="label">Tržišta</div>
+                  <div class="value">Raznolika ponuda</div>
+                </div>
+              </div>
+
+              <div class="stat">
+                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="#07102a" stroke-width="1.6"/><path d="M8 12h8" stroke="#07102a" stroke-width="1.6" stroke-linecap="round"/></svg>
+                <div>
+                  <div class="label">Uživo</div>
+                  <div class="value">Ažuriranja u realnom vremenu</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div style="display:flex;gap:10px;align-items:center;justify-content:space-between">
+            <a class="btn-outline" href="https://www.mozzartbet.com" target="_blank" rel="noopener">Prikaži detalje</a>
+            <div style="font-size:12px;color:var(--neutral-500)">Sigurnost i podrška dostupni</div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="ponuda" class="services container" aria-labelledby="ponuda-title">
+      <h2 id="ponuda-title" style="font-family:'Playfair Display', serif; font-size:22px; margin:0 0 18px;">Ponuda</h2>
+      <div class="services-grid" role="list">
+        <article class="card" role="listitem" aria-labelledby="s1">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <rect x="2" y="4" width="20" height="16" rx="3" stroke="#07102a" stroke-width="1.6"/>
+            <path d="M7 8h10M7 12h6" stroke="#07102a" stroke-width="1.6" stroke-linecap="round"/>
+          </svg>
+          <h3 id="s1">Sportsko klađenje</h3>
+          <p>Pregledajte tržišta za nogomet, košarku i druga sportska događanja. Interaktivni prikazi olakšavaju izbor oklada prije početka susreta.</p>
+        </article>
+
+        <article class="card" role="listitem" aria-labelledby="s2">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M3 12h18" stroke="#1fc7a4" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M7 6v12" stroke="#07102a" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M17 6v12" stroke="#07102a" stroke-width="1.6" stroke-linecap="round"/>
+          </svg>
+          <h3 id="s2">Uživo klađenje</h3>
+          <p>Uživo praćenje utakmica i ažuriranja tržišta u realnom vremenu. Brz pristup mogućnostima tijekom događaja.</p>
+        </article>
+
+        <article class="card" role="listitem" aria-labelledby="s3">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <circle cx="12" cy="8" r="3" stroke="#f2c94c" stroke-width="1.6"/>
+            <path d="M5 20c1.5-4 5-6 7-6s5.5 2 7 6" stroke="#07102a" stroke-width="1.6" stroke-linecap="round"/>
+          </svg>
+          <h3 id="s3">Podrška i informacije</h3>
+          <p>Brzi kanali komunikacije za sve upite i pomoć pri korištenju platforme. Kontaktirajte tim za podršku putem e‑maila ili telefona.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="o-nama" class="about container" aria-labelledby="o-nama-title">
+      <div>
+        <h2 id="o-nama-title" style="font-family:'Playfair Display', serif; font-size:22px; margin:0 0 12px;">O Mozzartu</h2>
+        <p>
+          Mozzart pruža pristup online tržištima klađenja i uživo okladama. Ova stranica predstavlja pregled ponude i kanala za kontakt. Za potpune informacije i pristup platformi koristite službenu web adresu.
+        </p>
+
+        <div style="margin-top:18px" class="approach" aria-hidden="false">
+          <strong style="display:block;margin-bottom:8px;color:var(--neutral-900)">Naš pristup</strong>
+          <ul>
+            <li>Jasan i brz pristup informacijama o događajima</li>
+            <li>Transparentni kanali komunikacije za korisničku podršku</li>
+            <li>Fokus na sigurnost i odgovorno korištenje usluga</li>
+          </ul>
+        </div>
+      </div>
+
+      <aside style="display:flex;flex-direction:column;gap:12px;">
+        <div class="contact-card" aria-labelledby="support-title">
+          <h3 id="support-title" style="margin:0 0 8px">Podrška</h3>
+          <p style="margin:0 0 12px;color:var(--neutral-700)">Imate pitanje? Obratite se službi za podršku putem telefona ili e‑maila.</p>
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <div class="contact-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18" stroke="#07102a" stroke-width="1.6" stroke-linecap="round"/><path d="M3 10l9 6 9-6" stroke="#07102a" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <div style="font-size:14px;color:var(--neutral-900)"><a href="mailto:help@mozzartbet.com">help@mozzartbet.com</a></div>
+            </div>
+            <div class="contact-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92V21a1 1 0 0 1-1.11 1A19 19 0 0 1 3 5.11 1 1 0 0 1 4 4h4.09a1 1 0 0 1 1 .75c.12.68.32 1.34.59 1.97a1 1 0 0 1-.24 1.07L8.91 9.91a12.07 12.07 0 0 0 5.18 5.18l1.01-1.01a1 1 0 0 1 1.07-.24c.63.27 1.29.47 1.97.59a1 1 0 0 1 .75 1V21z" stroke="#07102a" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+              <div style="font-size:14px;color:var(--neutral-900)"><a href="tel:+381800800899">+381 800 800899</a></div>
+            </div>
+          </div>
+
+          <div class="note">Za sve upite vezane uz pristup platformi ili tehničku pomoć koristite navedene kanale.</div>
+        </div>
+
+        <div class="contact-card" aria-labelledby="legal-title">
+          <h3 id="legal-title" style="margin:0 0 8px">Pravna napomena</h3>
+          <p style="margin:0;color:var(--neutral-700);font-size:14px">
+            Ovaj prikaz nije pravni ili reklamni dokument. Informacije su informativne naravi. Dostupnost usluga ovisi o lokalnim propisima.
+          </p>
+        </div>
+      </aside>
+    </section>
+
+    <section id="kako" class="how container" aria-labelledby="kako-title">
+      <h2 id="kako-title" style="font-family:'Playfair Display', serif; font-size:22px; margin:0 0 18px;">Kako funkcionira</h2>
+      <div class="steps" role="list">
+        <article class="step" role="listitem" aria-labelledby="step1">
+          <h4 id="step1">1. Pregled tržišta</h4>
+          <p>Odaberite sport i tržište od interesa. Pregledajte dostupne vrste oklada i uvjete prije potvrde.</p>
+        </article>
+
+        <article class="step" role="listitem" aria-labelledby="step2">
+          <h4 id="step2">2. Praćenje uživo</h4>
+          <p>Tijekom događaja možete pratiti promjene i ažuriranja tržišta te donijeti odluke u realnom vremenu.</p>
+        </article>
+
+        <article class="step" role="listitem" aria-labelledby="step3">
+          <h4 id="step3">3. Podrška i sigurnost</h4>
+          <p>Za upite vezane uz pristup ili korištenje platforme obratite se službi za korisnike putem e‑maila ili telefona.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="kontakt" class="contact container" aria-labelledby="kontakt-title">
+      <h2 id="kontakt-title" style="font-family:'Playfair Display', serif; font-size:22px; margin:0 0 12px;">Kontakt</h2>
+      <div class="contact-grid">
+        <div class="contact-card" aria-hidden="false">
+          <h3 style="margin:0 0 8px">Brzi kontakti</h3>
+          <div class="contact-list">
+            <div class="contact-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18" stroke="#07102a" stroke-width="1.6" stroke-linecap="round"/><path d="M3 10l9 6 9-6" stroke="#07102a" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <div><a href="mailto:help@mozzartbet.com">help@mozzartbet.com</a></div>
+            </div>
+            <div class="contact-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92V21a1 1 0 0 1-1.11 1A19 19 0 0 1 3 5.11 1 1 0 0 1 4 4h4.09a1 1 0 0 1 1 .75c.12.68.32 1.34.59 1.97a1 1 0 0 1-.24 1.07L8.91 9.91a12.07 12.07 0 0 0 5.18 5.18l1.01-1.01a1 1 0 0 1 1.07-.24c.63.27 1.29.47 1.97.59a1 1 0 0 1 .75 1V21z" stroke="#07102a" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+              <div><a href="tel:+381800800899">+381 800 800899</a></div>
+            </div>
+            <div style="margin-top:8px;color:var(--neutral-500);font-size:13px">Radno vrijeme i dodatne informacije dostupne su na službenoj web stranici.</div>
+          </div>
+        </div>
+
+        <div class="contact-card" aria-hidden="false">
+          <h3 style="margin:0 0 8px">Pitanja i podrška</h3>
+          <p style="margin:0 0 12px;color:var(--neutral-700)">Ako trebate pomoć s pristupom platformi, tehničkim pitanjima ili informacijama o ponudi, kontaktirajte nas putem navedenih kanala.</p>
+          <a class="cta-primary" href="https://www.mozzartbet.com" target="_blank" rel="noopener">Posjeti službenu stranicu</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-grid" role="contentinfo">
+      <div style="display:flex;gap:12px;align-items:center">
+        <div class="logo" style="width:40px;height:40px;border-radius:10px;font-size:16px">MZ</div>
+        <div style="font-size:14px;color:var(--neutral-700)"><strong>Mozzart</strong></div>
+      </div>
+
+      <div class="footer-links">
+        <a href="#ponuda">Ponuda</a>
+        <a href="#kako">Kako funkcionira</a>
+        <a href="#kontakt">Kontakt</a>
+        <a href="https://www.mozzartbet.com" target="_blank" rel="noopener">Službena stranica</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function(){
+      // Mobile menu toggle
+      const btn = document.getElementById('menuBtn');
+      const menu = document.getElementById('mobileMenu');
+      const header = document.getElementById('site-header');
+
+      btn.addEventListener('click', function(){
+        const expanded = this.getAttribute('aria-expanded') === 'true';
+        this.setAttribute('aria-expanded', String(!expanded));
+        menu.style.display = expanded ? 'none' : 'block';
+      });
+
+      // Header shadow on scroll
+      let lastScroll = 0;
+      window.addEventListener('scroll', function(){
+        const y = window.scrollY;
+        if(y > 10) header.classList.add('scrolled');
+        else header.classList.remove('scrolled');
+        lastScroll = y;
+      }, {passive:true});
+
+      // Smooth scroll for internal links
+      document.querySelectorAll('a[href^="#"]').forEach(a=>{
+        a.addEventListener('click', function(e){
+          const targetId = this.getAttribute('href').slice(1);
+          const target = document.getElementById(targetId);
+          if(target){
+            e.preventDefault();
+            const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            const top = target.getBoundingClientRect().top + window.scrollY - 22;
+            if(reduce){
+              window.scrollTo(0, top);
+            } else {
+              window.scrollTo({top, behavior:'smooth'});
+            }
+            // close mobile menu if open
+            if(window.innerWidth < 720 && menu.style.display === 'block'){
+              menu.style.display = 'none';
+              btn.setAttribute('aria-expanded','false');
+            }
+          }
+        });
+      });
+
+      // Keyboard accessibility for menu button
+      btn.addEventListener('keydown', function(e){
+        if(e.key === 'Enter' || e.key === ' '){
+          e.preventDefault();
+          this.click();
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
