@@ -1,0 +1,626 @@
+ <!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Policijska postaja Garešnica — Javna sigurnost i suradnja s građanima</title>
+  <meta name="description" content="Policijska postaja Garešnica — kontakt i informacije o javnoj sigurnosti, prijavi događaja i suradnji s građanima. Telefonski kontakt: +385 43 270 000.">
+  <meta property="og:title" content="Policijska postaja Garešnica — Javna sigurnost i suradnja s građanima">
+  <meta property="og:description" content="Kontakt i informacije Policijske postaje Garešnica. Telefonski kontakt: +385 43 270 000.">
+  <meta property="og:site_name" content="Policijska postaja Garešnica">
+  <meta property="og:url" content="http://bjelovarsko-bilogorska.policija.hr/MainPu.aspx?id=14511">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Spectral:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      /* Dizajnerski sustav */
+      --primary: #0b2a3a;          /* duboka policijska tamno-plava */
+      --secondary: #f5f7f8;        /* svijetli neutralni ton */
+      --accent: #c49a5a;          /* suptilna zlatna akcent */
+      --muted: #6b7a86;           /* neutralni tekst */
+      --bg: #07151a;              /* hero pozadina */
+      --card-bg: #0f2b36;
+      --surface: #021015;
+      --text: #eaf2f6;
+      --radius: 12px;
+      --radius-sm: 8px;
+      --glass: rgba(255,255,255,0.03);
+      --shadow-1: 0 6px 18px rgba(2,8,12,0.55);
+      --shadow-2: 0 10px 30px rgba(2,8,12,0.6);
+      --gap: 24px;
+      --container: 1200px;
+      --fw-heading: 700;
+      --fw-body: 400;
+      --focus: 3px solid rgba(196,154,90,0.18);
+
+      /* typographic scales */
+      --fs-hero: clamp(28px, 4.8vw, 48px);
+      --fs-h2: clamp(18px, 2.6vw, 28px);
+      --fs-base: clamp(15px, 1.8vw, 18px);
+      --fs-small: clamp(13px, 1.4vw, 14px);
+    }
+
+    /* Reset & base */
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background: linear-gradient(180deg,var(--surface),#00131a 40%);
+      color:var(--text);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+      -webkit-tap-highlight-color: transparent;
+    }
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block;height:auto}
+
+    .wrap{
+      max-width:var(--container);
+      margin:0 auto;
+      padding:0 20px;
+    }
+
+    header{
+      position:sticky;
+      top:0;
+      z-index:40;
+      backdrop-filter: blur(6px);
+      background: linear-gradient(180deg, rgba(2,10,14,0.6), rgba(2,10,14,0.35));
+      border-bottom: 1px solid rgba(255,255,255,0.03);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+    }
+    .nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      padding:18px 0;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:14px;
+    }
+    .wordmark{
+      display:flex;
+      flex-direction:column;
+      line-height:1;
+    }
+    .wordmark .title{
+      font-family: Spectral, serif;
+      font-weight:700;
+      font-size:18px;
+      color:var(--text);
+      letter-spacing:0.2px;
+    }
+    .wordmark .sub{
+      font-size:12px;
+      color:var(--muted);
+    }
+
+    nav.desktop{
+      display:flex;
+      gap:18px;
+      align-items:center;
+    }
+    nav.desktop a{
+      color:var(--secondary);
+      font-weight:600;
+      font-size:14px;
+      padding:10px 12px;
+      border-radius:8px;
+      transition: all 180ms ease;
+    }
+    nav.desktop a:hover, nav.desktop a:focus{
+      background:rgba(255,255,255,0.02);
+      transform:translateY(-2px);
+      outline:none;
+    }
+    .cta-phone{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      background:linear-gradient(180deg,var(--accent), rgba(196,154,90,0.9));
+      color:var(--primary);
+      padding:10px 14px;
+      border-radius:10px;
+      font-weight:700;
+      box-shadow: var(--shadow-1);
+      transition: transform 180ms;
+    }
+    .cta-phone:active{transform:scale(.99)}
+    .cta-secondary{
+      padding:8px 12px;
+      border-radius:10px;
+      background:transparent;
+      color:var(--secondary);
+      border:1px solid rgba(255,255,255,0.03);
+      font-weight:600;
+    }
+
+    /* Hamburger */
+    .hamburger{
+      display:none;
+      background:transparent;
+      border:0;
+      color:var(--text);
+      padding:10px;
+      border-radius:8px;
+    }
+
+    /* HERO */
+    .hero{
+      position:relative;
+      min-height:68vh;
+      display:flex;
+      align-items:center;
+      padding:64px 0 84px;
+      overflow:hidden;
+    }
+    .hero .panel{
+      display:grid;
+      grid-template-columns: 1fr 420px;
+      gap:48px;
+      align-items:center;
+      width:100%;
+    }
+    .hero .content{
+      max-width:720px;
+    }
+    h1{
+      margin:0 0 14px 0;
+      font-family: Spectral, serif;
+      font-weight:var(--fw-heading);
+      color:var(--text);
+      font-size:var(--fs-hero);
+      line-height:1.02;
+      letter-spacing:-0.02em;
+    }
+    .lead{
+      color:var(--secondary);
+      font-size:var(--fs-base);
+      margin-bottom:22px;
+    }
+    .hero-ctas{
+      display:flex;
+      gap:12px;
+      align-items:center;
+      margin-top:8px;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:12px 16px;
+      border-radius:10px;
+      font-weight:700;
+      cursor:pointer;
+      border:0;
+      transition: transform 160ms ease, box-shadow 160ms ease;
+    }
+    .btn-primary{
+      background:linear-gradient(180deg,var(--accent), #b8843f);
+      color:var(--primary);
+      box-shadow: var(--shadow-1);
+    }
+    .btn-primary:hover{transform:translateY(-4px)}
+    .btn-outline{
+      background:transparent;
+      color:var(--secondary);
+      border:1px solid rgba(255,255,255,0.04);
+    }
+
+    /* Hero visual / emblem */
+    .emblem{
+      position:relative;
+      width:100%;
+      display:flex;
+      justify-content:center;
+    }
+    .card-emblem{
+      width:420px;
+      max-width:92%;
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:18px;
+      padding:28px;
+      box-shadow: var(--shadow-2);
+      border: 1px solid rgba(255,255,255,0.03);
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      gap:18px;
+      transform:translateY(0);
+    }
+    .shield{
+      width:240px;
+      height:240px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      border-radius:50%;
+      background: radial-gradient(circle at 30% 20%, rgba(196,154,90,0.12), rgba(196,154,90,0.04) 30%, transparent 65%);
+      box-shadow: inset 0 -6px 18px rgba(2,8,12,0.45);
+    }
+    .shield svg{width:60%;height:60%}
+    .emblem-caption{
+      color:var(--secondary);
+      font-size:14px;
+      text-align:center;
+      max-width:300px;
+    }
+
+    /* Sections */
+    section{padding:64px 0}
+    .kicker{
+      color:var(--muted);
+      letter-spacing:1px;
+      font-size:13px;
+      text-transform:uppercase;
+      margin-bottom:12px;
+    }
+
+    /* Usluge */
+    .cards{
+      display:grid;
+      grid-template-columns: repeat(3,1fr);
+      gap:20px;
+      margin-top:18px;
+    }
+    .card{
+      background:var(--card-bg);
+      border-radius:var(--radius);
+      padding:20px;
+      box-shadow:var(--shadow-1);
+      border:1px solid rgba(255,255,255,0.03);
+      transition: transform 180ms ease, box-shadow 180ms;
+    }
+    .card:hover{transform:translateY(-8px); box-shadow: 0 18px 40px rgba(0,0,0,0.6)}
+    .card h3{margin:6px 0 8px 0; font-size:16px; color:var(--text); font-weight:700; font-family:Spectral, serif}
+    .card p{margin:0;color:var(--secondary); font-size:14px}
+
+    /* O nama / pristup */
+    .two-col{display:grid;grid-template-columns:1fr 320px;gap:28px;align-items:start}
+    .panel-box{background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00)); padding:20px;border-radius:12px;border:1px solid rgba(255,255,255,0.02)}
+
+    /* Kontakt */
+    .contact-grid{display:grid;grid-template-columns:1fr 340px;gap:28px;align-items:start}
+    .contact-card{padding:18px;border-radius:12px;background:var(--card-bg);border:1px solid rgba(255,255,255,0.03)}
+    .contact-list{display:flex;flex-direction:column;gap:10px}
+    .contact-list a{display:inline-flex;gap:12px;align-items:center;color:var(--secondary);padding:10px;border-radius:8px}
+    .contact-legal{font-size:13px;color:var(--muted);margin-top:12px}
+
+    footer{
+      padding:28px 0;
+      border-top:1px solid rgba(255,255,255,0.02);
+      margin-top:40px;
+    }
+    .footer-inner{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+    .socials{display:flex;gap:12px}
+
+    /* responsive */
+    @media (max-width:1024px){
+      .hero .panel{grid-template-columns:1fr 360px}
+      .cards{grid-template-columns:repeat(2,1fr)}
+      .two-col{grid-template-columns:1fr}
+      .contact-grid{grid-template-columns:1fr}
+    }
+    @media (max-width:720px){
+      nav.desktop{display:none}
+      .hamburger{display:inline-flex}
+      .hero{min-height:66vh;padding:48px 0 64px}
+      .hero .panel{grid-template-columns:1fr; gap:28px}
+      .emblem{order:2}
+      .emblem-caption{max-width:100%}
+      .cards{grid-template-columns:1fr}
+      .brand .wordmark .title{font-size:16px}
+      .card-emblem{padding:18px;border-radius:14px}
+    }
+
+    /* Mobile menu panel */
+    .mobile-menu{
+      display:none;
+      position:fixed;
+      inset:0;
+      background:linear-gradient(180deg, rgba(1,6,8,0.85), rgba(0,0,0,0.6));
+      padding:80px 24px 24px;
+      z-index:60;
+      overflow:auto;
+    }
+    .mobile-menu.open{display:block}
+    .mobile-menu nav{display:flex;flex-direction:column;gap:14px}
+    .mobile-menu a{padding:12px;border-radius:10px;background:rgba(255,255,255,0.02);color:var(--secondary)}
+
+    /* focus */
+    :focus{outline:none}
+    a:focus, button:focus, input:focus{box-shadow:var(--focus);border-radius:8px}
+
+    /* small utilities */
+    .muted{color:var(--muted)}
+    .mb-8{margin-bottom:8px}
+    .mb-16{margin-bottom:16px}
+
+    /* prefers-reduced-motion */
+    @media (prefers-reduced-motion: reduce){
+      *{transition:none!important; animation:none!important}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap nav" role="navigation" aria-label="Glavna navigacija">
+      <div class="brand" aria-hidden="false">
+        <svg width="44" height="44" viewBox="0 0 64 64" fill="none" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="g1" x1="0" x2="1">
+              <stop offset="0" stop-color="#c49a5a"/>
+              <stop offset="1" stop-color="#8a6d3b"/>
+            </linearGradient>
+          </defs>
+          <rect width="64" height="64" rx="12" fill="url(#g1)" />
+          <path d="M32 12 L42 26 L32 20 L22 26 Z" fill="#021015" opacity="0.08"/>
+          <path d="M32 16 L40 28 L32 24 L24 28 Z" fill="#021015" opacity="0.12"/>
+        </svg>
+        <div class="wordmark">
+          <div class="title">Policijska postaja Garešnica</div>
+          <div class="sub">Policija | Javna sigurnost</div>
+        </div>
+      </div>
+
+      <nav class="desktop" aria-label="Primarna">
+        <a href="#hero">Početna</a>
+        <a href="#usluge">Usluge</a>
+        <a href="#o-nama">O nama</a>
+        <a href="#kontakt">Kontakt</a>
+        <a class="cta-secondary" href="http://bjelovarsko-bilogorska.policija.hr/MainPu.aspx?id=14511" target="_blank" rel="noopener">Službena stranica</a>
+        <a class="cta-phone" href="tel:+38543270000" aria-label="Nazovite Policijsku postaju Garešnica">+385 43 270 000</a>
+      </nav>
+
+      <button class="hamburger" aria-expanded="false" aria-controls="mobile-menu" aria-label="Otvorite izbornik" id="hamburger">
+        <svg width="22" height="16" viewBox="0 0 22 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect width="22" height="2" rx="1" fill="white" />
+          <rect y="7" width="22" height="2" rx="1" fill="white" opacity="0.85"/>
+          <rect y="14" width="22" height="2" rx="1" fill="white" opacity="0.7"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <div id="mobile-menu" class="mobile-menu" role="dialog" aria-modal="true" aria-hidden="true">
+    <nav>
+      <a href="#hero" onclick="closeMenu()">Početna</a>
+      <a href="#usluge" onclick="closeMenu()">Usluge</a>
+      <a href="#o-nama" onclick="closeMenu()">O nama</a>
+      <a href="#kontakt" onclick="closeMenu()">Kontakt</a>
+      <a href="http://bjelovarsko-bilogorska.policija.hr/MainPu.aspx?id=14511" target="_blank" rel="noopener">Službena stranica</a>
+      <a href="tel:+38543270000">Nazovite: +385 43 270 000</a>
+    </nav>
+  </div>
+
+  <main>
+    <section id="hero" class="hero" aria-labelledby="hp-title">
+      <div class="wrap panel" role="region" aria-label="Hero">
+        <div class="content">
+          <p class="kicker">Javna služba</p>
+          <h1 id="hp-title">Policijska postaja Garešnica — sigurnost i suradnja s građanima</h1>
+          <p class="lead">Kontaktna točka za prijavu događaja, informacije i koordinaciju sa stanovništvom. Pristup temeljen na odgovornosti, transparentnosti i profesionalnosti.</p>
+
+          <div class="hero-ctas">
+            <a class="btn btn-primary" href="tel:+38543270000" aria-label="Nazovite Policijsku postaju Garešnica">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6.6 10.8a15.02 15.02 0 006.6 6.6l2.2-2.2a1 1 0 011.02-.24c1.12.37 2.33.57 3.56.57a1 1 0 011 1v3.8a1 1 0 01-1 1C10.07 21.99 2 13.92 2 3a1 1 0 011-1h3.8a1 1 0 011 1c0 1.23.2 2.44.57 3.56a1 1 0 01-.24 1.02L6.6 10.8z" fill="#021015" /></svg>
+              Nazovite odmah
+            </a>
+
+            <a class="btn btn-outline" href="http://bjelovarsko-bilogorska.policija.hr/MainPu.aspx?id=14511" target="_blank" rel="noopener">Službena stranica</a>
+          </div>
+
+          <p class="muted mb-8" style="margin-top:18px">Telefon: <a href="tel:+38543270000" style="color:var(--secondary);text-decoration:underline">+385 43 270 000</a></p>
+        </div>
+
+        <div class="emblem" aria-hidden="false">
+          <div class="card-emblem" role="img" aria-label="Amblem Policijske postaje — stilizirani štit">
+            <div class="shield" aria-hidden="true">
+              <!-- inline SVG štit -->
+              <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
+                <defs>
+                  <linearGradient id="lg" x1="0" x2="1">
+                    <stop offset="0" stop-color="#c49a5a"/>
+                    <stop offset="1" stop-color="#8b6d3c"/>
+                  </linearGradient>
+                </defs>
+                <g fill="none" stroke="rgba(2,8,12,0.08)" stroke-width="2">
+                  <path d="M100 12 C140 12 176 36 176 88 C176 148 138 176 100 188 C62 176 24 148 24 88 C24 36 60 12 100 12Z" fill="#021015" />
+                </g>
+                <g transform="translate(40,34)">
+                  <path d="M60 0 L100 36 L60 28 L20 36 Z" fill="url(#lg)" opacity="0.96"/>
+                  <circle cx="60" cy="72" r="30" fill="#021015" opacity="0.06"/>
+                  <path d="M60 48 L70 68 L50 68 Z" fill="#c49a5a" opacity="0.9"/>
+                </g>
+              </svg>
+            </div>
+            <div style="text-align:center">
+              <div style="font-weight:700;font-family:Spectral,serif;color:var(--text);font-size:16px">Policijska postaja Garešnica</div>
+              <div class="emblem-caption">Javni kontakt za prijave, informacije i suradnju s građanima. Telefonski kontakt dostupan je 24/7.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="usluge" class="wrap" aria-labelledby="usluge-title">
+      <div class="kicker">Što radimo</div>
+      <h2 id="usluge-title" style="font-size:var(--fs-h2);margin:0 0 6px 0;font-family:Spectral,serif">Temeljne funkcije policijske postaje</h2>
+      <p class="muted mb-16">Policijska postaja obavlja zadatke vezane uz održavanje javnog reda i sigurnosti te suradnju s lokalnom zajednicom.</p>
+
+      <div class="cards" role="list">
+        <article class="card" role="listitem" aria-labelledby="c1">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" style="display:block"><path d="M12 2v2" stroke="#c49a5a" stroke-width="1.4" stroke-linecap="round"/><path d="M5 7h14" stroke="#c49a5a" stroke-width="1.4" stroke-linecap="round"/><path d="M7 11h10" stroke="#fff" stroke-opacity="0.9" stroke-width="1.2" stroke-linecap="round"/></svg>
+          <h3 id="c1">Prijave i dojave</h3>
+          <p>Primamo informacije i prijave o incidentima te vodimo evidenciju i daljnje postupke sukladno nadležnostima.</p>
+        </article>
+
+        <article class="card" role="listitem" aria-labelledby="c2">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" style="display:block"><path d="M12 2l3 6 6 .5-4.5 3.5L19 19 12 15 5 19l1.5-6.9L2 8.5 8.5 8 12 2z" fill="#c49a5a" opacity="0.95"/></svg>
+          <h3 id="c2">Sigurnost i prevencija</h3>
+          <p>Rad na očuvanju javnog reda, prevenciji i odgovaranju na potrebe lokalne zajednice.</p>
+        </article>
+
+        <article class="card" role="listitem" aria-labelledby="c3">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" style="display:block"><path d="M3 12h18" stroke="#c49a5a" stroke-width="1.4" stroke-linecap="round"/><path d="M7 6h0" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/><path d="M17 6h0" stroke="#fff" stroke-width="1.6" /></svg>
+          <h3 id="c3">Komunikacija i suradnja</h3>
+          <p>Informiranje građana, suradnja s lokalnim institucijama i pružanje potrebnih uputa u okviru nadležnosti.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="o-nama" class="wrap" aria-labelledby="on-title">
+      <div class="kicker">O postaji</div>
+      <h2 id="on-title" style="font-size:var(--fs-h2);font-family:Spectral,serif;margin:0 0 8px 0">Transparentno i odgovorno</h2>
+      <div class="two-col">
+        <div>
+          <p class="muted">Policijska postaja Garešnica provodi aktivnosti vezane uz očuvanje javnog reda i sigurnosti te je dostupna za prijave i informacije građana. Informacije na ovoj stranici služe kao kontakt i orijentir; za detalje i službene objave posjetite službenu web stranicu županijske policije.</p>
+
+          <div style="margin-top:18px" class="panel-box">
+            <div class="kicker">Naš pristup</div>
+            <h3 style="margin:6px 0 8px 0;font-family:Spectral,serif">Jasnoća i suradnja</h3>
+            <p class="muted">Radimo u skladu sa zakonima i procedurama. Građanima pružamo informacije i upute, te zaprimamo prijave za daljnje postupanje od nadležnih službi.</p>
+          </div>
+        </div>
+
+        <aside class="panel-box" aria-labelledby="info-side">
+          <h3 id="info-side" style="margin:0 0 8px 0">Kategorije djelatnosti</h3>
+          <p class="muted mb-8">Policijska postaja obavlja zadatke u okviru:</p>
+          <ul style="margin:0;padding-left:18px;color:var(--secondary);line-height:1.6">
+            <li>Javne sigurnosti i održavanja reda</li>
+            <li>Suradnje s građanima i lokalnom zajednicom</li>
+            <li>Zaprimanja i obrade prijava</li>
+          </ul>
+          <p class="contact-legal">Podaci na stranici su informativnog karaktera. Za službene informacije koristite poveznicu prema županijskoj policiji.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section id="kontakt" class="wrap" aria-labelledby="kontakt-title">
+      <div class="kicker">Kontakt</div>
+      <h2 id="kontakt-title" style="font-size:var(--fs-h2);font-family:Spectral,serif;margin:0 0 8px 0">Kako do nas</h2>
+
+      <div class="contact-grid">
+        <div>
+          <p class="muted mb-16">Za hitne intervencije nazovite telefonski broj. Za informacije i upute dostupni smo na službenoj stranici.</p>
+
+          <div class="panel-box">
+            <div class="kicker">Telefonski kontakt</div>
+            <div class="contact-list" style="margin-top:12px">
+              <a href="tel:+38543270000" aria-label="Nazovite Policijsku postaju Garešnica">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6.6 10.8a15.02 15.02 0 006.6 6.6l2.2-2.2" stroke="#c49a5a" stroke-width="1.2" stroke-linecap="round"/></svg>
+                +385 43 270 000
+              </a>
+
+              <a href="http://bjelovarsko-bilogorska.policija.hr/MainPu.aspx?id=14511" target="_blank" rel="noopener">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 12h18" stroke="#c49a5a" stroke-width="1.4" stroke-linecap="round"/></svg>
+                Službena stranica županijske policije
+              </a>
+            </div>
+
+            <p class="contact-legal">Napomena: Za hitne slučajeve uvijek koristite telefonski kontakt. Na ovoj stranici nalaze se opće informacije; službene obavijesti objavljuje policijska uprava.</p>
+          </div>
+        </div>
+
+        <aside class="contact-card" aria-labelledby="as-contact">
+          <h3 id="as-contact" style="margin:0 0 8px 0;font-family:Spectral,serif">Brzi poziv</h3>
+          <p class="muted mb-16">Ako trebate razgovarati s dežurnim upotrijebite broj ispod.</p>
+          <a class="cta-phone" href="tel:+38543270000" style="justify-content:center">+385 43 270 000</a>
+          <p class="muted" style="margin-top:12px">Dodatne informacije dostupne su na službenoj stranici.</p>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-inner">
+      <div>
+        <div style="font-weight:700;font-family:Spectral,serif">Policijska postaja Garešnica</div>
+        <div class="muted" style="font-size:13px">Telefon: <a href="tel:+38543270000" style="color:var(--secondary)">+385 43 270 000</a></div>
+        <div style="margin-top:8px"><a href="http://bjelovarsko-bilogorska.policija.hr/MainPu.aspx?id=14511" target="_blank" rel="noopener" style="color:var(--secondary)">Službena stranica županijske policije</a></div>
+      </div>
+
+      <div class="muted" style="font-size:13px">© Informativna stranica — Policijska postaja Garešnica</div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle - pristupačno i jednostavno
+    (function(){
+      const btn = document.getElementById('hamburger');
+      const menu = document.getElementById('mobile-menu');
+
+      function openMenu(){
+        btn.setAttribute('aria-expanded','true');
+        menu.classList.add('open');
+        menu.setAttribute('aria-hidden','false');
+        // trap focus minimally by focusing first link
+        const first = menu.querySelector('a');
+        if(first) first.focus();
+      }
+      function closeMenu(){
+        btn.setAttribute('aria-expanded','false');
+        menu.classList.remove('open');
+        menu.setAttribute('aria-hidden','true');
+        btn.focus();
+      }
+
+      btn.addEventListener('click', function(){
+        const expanded = btn.getAttribute('aria-expanded') === 'true';
+        if(expanded) closeMenu(); else openMenu();
+      });
+
+      // close when clicking outside (on background)
+      menu.addEventListener('click', function(e){
+        if(e.target === menu) closeMenu();
+      });
+
+      // Expose close to inline handlers
+      window.closeMenu = closeMenu;
+
+      // Keyboard accessibility: Esc closes menu
+      document.addEventListener('keydown', function(e){
+        if(e.key === 'Escape' || e.key === 'Esc'){
+          if(menu.classList.contains('open')) closeMenu();
+        }
+      });
+
+      // Smooth scroll for internal links
+      document.querySelectorAll('a[href^="#"]').forEach(a=>{
+        a.addEventListener('click', function(e){
+          const href = this.getAttribute('href');
+          if(href === '#' || href === '') return;
+          const target = document.querySelector(href);
+          if(target){
+            e.preventDefault();
+            target.scrollIntoView({behavior:'smooth',block:'start'});
+            // close mobile menu if open
+            if(menu.classList.contains('open')) closeMenu();
+          }
+        });
+      });
+
+      // Respect reduced motion: instant scroll if reduced
+      const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
+      if(mq.matches){
+        document.querySelectorAll('a[href^="#"]').forEach(a=>{
+          a.addEventListener('click', function(e){
+            const href = this.getAttribute('href');
+            const target = document.querySelector(href);
+            if(target){
+              e.preventDefault();
+              target.scrollIntoView();
+              if(menu.classList.contains('open')) closeMenu();
+            }
+          });
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
