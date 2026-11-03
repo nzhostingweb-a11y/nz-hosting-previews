@@ -1,0 +1,508 @@
+ <!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Policijska postaja Pleternica — Kontakt i informacije</title>
+  <meta name="description" content="Policijska postaja Pleternica — kontaktni podaci, korisne informacije i upute za građane. Telefon za kontakt: +385 34 454 739." />
+  <meta property="og:title" content="Policijska postaja Pleternica — Kontakt i informacije" />
+  <meta property="og:description" content="Kontaktni podaci i osnovne informacije za građane. Telefon: +385 34 454 739. Više na službenoj stranici PU." />
+  <meta property="og:type" content="website" />
+  <link rel="canonical" href="http://pozesko-slavonska.policija.hr/MainPu.aspx?id=14460" />
+  <!-- Google Fonts: Inter (UI) + Merriweather (headings) -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Merriweather:wght@700;900&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      /* Colors */
+      --color-primary: #0b4f6c;        /* deep teal */
+      --color-secondary: #f5f7f8;      /* soft light background */
+      --color-accent: #ffd166;         /* warm accent */
+      --neutral-900: #0b0f12;
+      --neutral-700: #374151;
+      --neutral-500: #6b7280;
+      --neutral-300: #d1d5db;
+      --glass: rgba(255,255,255,0.6);
+
+      /* Backgrounds */
+      --bg-page: linear-gradient(180deg, #fbfdff 0%, #f7fbfc 100%);
+
+      /* Type scale */
+      --fs-xxl: clamp(2rem, 3.6vw, 3.2rem);
+      --fs-xl: clamp(1.5rem, 2.6vw, 2rem);
+      --fs-lg: clamp(1.125rem, 1.9vw, 1.25rem);
+      --fs-md: 1rem;
+      --fs-sm: 0.875rem;
+
+      /* Layout */
+      --container: 1180px;
+      --radius: 12px;
+      --card-radius: 10px;
+      --gap: 1.25rem;
+      --shadow-soft: 0 6px 22px rgba(11,15,18,0.08);
+      --shadow-strong: 0 10px 30px rgba(11,15,18,0.10);
+
+      /* Transitions */
+      --ease: cubic-bezier(.2,.9,.25,1);
+    }
+
+    /* Reset & base */
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background:var(--bg-page);
+      color:var(--neutral-900);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+      -webkit-tap-highlight-color:transparent;
+      padding-bottom:4rem;
+    }
+
+    a{color:inherit;text-decoration:none}
+    .container{max-width:var(--container);margin:0 auto;padding:0 1rem}
+
+    header{
+      position:sticky;top:0;z-index:60;
+      backdrop-filter: blur(6px);
+      background: linear-gradient(180deg, rgba(255,255,255,0.72), rgba(255,255,255,0.58));
+      border-bottom:1px solid rgba(11,15,18,0.04);
+    }
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:0.85rem 0}
+    .brand{
+      display:flex;align-items:center;gap:0.75rem;font-weight:700;
+    }
+    .wordmark{
+      display:flex;flex-direction:column;line-height:1;
+    }
+    .wordmark .title{font-family:Merriweather, serif;font-size:1rem;color:var(--color-primary);letter-spacing:0.2px}
+    .wordmark .sub{font-size:0.8rem;color:var(--neutral-700);font-weight:600}
+
+    nav ul{display:flex;gap:1rem;align-items:center;margin:0;padding:0;list-style:none}
+    nav a{font-size:var(--fs-sm);color:var(--neutral-700);padding:0.5rem;border-radius:8px}
+    nav a:hover, nav a:focus{background:rgba(11,79,108,0.06);color:var(--neutral-900);outline:none}
+
+    .cta-primary{
+      background:linear-gradient(90deg,var(--color-primary),#0e6a88);
+      color:white;padding:0.6rem 0.95rem;border-radius:10px;
+      box-shadow:var(--shadow-soft);font-weight:700;font-size:0.95rem;border:none;cursor:pointer;
+      transition:transform .18s var(--ease), box-shadow .18s var(--ease);
+    }
+    .cta-primary:hover{transform:translateY(-3px);box-shadow:var(--shadow-strong)}
+    .cta-secondary{font-size:0.9rem;color:var(--neutral-700);padding:0.45rem 0.7rem;border-radius:8px;border:1px solid transparent}
+    .cta-secondary:hover{background:rgba(11,79,108,0.04)}
+
+    /* Mobile menu */
+    .menu-toggle{display:none;background:transparent;border:1px solid rgba(11,15,18,0.06);padding:0.55rem;border-radius:10px}
+    .menu-toggle:focus{outline:3px solid rgba(11,79,108,0.15)}
+
+    /* Hero */
+    .hero{
+      padding:3.25rem 0 2.25rem;
+      display:grid;grid-template-columns:1fr 460px;gap:2rem;align-items:center;
+    }
+    .hero-left{padding-right:1rem}
+    .kicker{display:inline-flex;align-items:center;gap:0.6rem;padding:0.4rem 0.7rem;background:rgba(11,79,108,0.08);border-radius:999px;font-weight:600;color:var(--color-primary);font-size:0.875rem}
+    .hero h1{font-family:Merriweather, serif;font-size:var(--fs-xxl);margin:0.5rem 0;color:var(--neutral-900);line-height:1.02}
+    .lead{font-size:var(--fs-lg);color:var(--neutral-700);margin-bottom:1.25rem}
+    .hero-actions{display:flex;gap:0.75rem;flex-wrap:wrap}
+    .hero-card{
+      background:linear-gradient(180deg,rgba(255,255,255,0.9),rgba(255,255,255,0.85));
+      border-radius:var(--card-radius);
+      padding:1.2rem;
+      box-shadow:var(--shadow-soft);
+      border:1px solid rgba(11,15,18,0.04);
+      display:flex;flex-direction:column;gap:0.5rem;
+    }
+    .contact-line{display:flex;gap:0.75rem;align-items:center}
+    .contact-line svg{flex:0 0 36px}
+    .contact-info{display:flex;flex-direction:column}
+    .contact-info a{font-weight:700;color:var(--color-primary);font-size:1rem}
+    .meta{font-size:0.9rem;color:var(--neutral-700)}
+
+    /* Right visual */
+    .hero-visual{
+      position:relative;border-radius:16px;padding:1rem;overflow:hidden;
+      background:linear-gradient(180deg, rgba(11,79,108,0.04), rgba(11,79,108,0.02));
+      border:1px solid rgba(11,79,108,0.04);
+      display:flex;align-items:center;justify-content:center;min-height:220px;
+    }
+    .visual-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:0.7rem;width:100%}
+    .visual-tile{
+      background:linear-gradient(180deg, rgba(255,255,255,0.6), rgba(255,255,255,0.4));
+      border-radius:10px;padding:0.9rem;display:flex;align-items:center;gap:0.8rem;box-shadow:0 6px 18px rgba(11,15,18,0.04)
+    }
+    .visual-tile svg{width:42px;height:42px;flex:0 0 42px}
+    .visual-tile h4{margin:0;font-size:0.95rem;color:var(--neutral-900);font-weight:700}
+    .visual-tile p{margin:0;font-size:0.875rem;color:var(--neutral-700)}
+
+    /* Services */
+    section.services{padding:2rem 0 1rem}
+    .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+    .service{
+      background:white;border-radius:12px;padding:1.2rem;border:1px solid rgba(11,15,18,0.04);box-shadow:var(--shadow-soft);
+      transition:transform .18s var(--ease), box-shadow .18s var(--ease);
+    }
+    .service:hover{transform:translateY(-6px);box-shadow:var(--shadow-strong)}
+    .service svg{width:44px;height:44px;margin-bottom:0.5rem}
+    .service h3{margin:0;font-size:1.05rem;color:var(--neutral-900);font-weight:700}
+    .service p{margin-top:0.45rem;color:var(--neutral-700);font-size:0.95rem}
+
+    /* How it works / steps */
+    .steps{display:grid;grid-template-columns:1fr 1fr;gap:1rem;padding:2rem 0}
+    .step{
+      background:linear-gradient(180deg, rgba(255,255,255,0.95), rgba(255,255,255,0.9));
+      border-radius:12px;padding:1rem;border:1px solid rgba(11,15,18,0.04);
+      display:flex;gap:0.75rem;align-items:flex-start;
+    }
+    .step-count{background:var(--color-primary);color:white;border-radius:8px;padding:0.5rem 0.65rem;font-weight:700;min-width:44px;text-align:center}
+    .step p{margin:0;color:var(--neutral-700)}
+
+    /* FAQ / Info */
+    .info{
+      display:grid;grid-template-columns:1fr 320px;gap:1rem;padding:2rem 0;
+      align-items:start;
+    }
+    .card{background:white;border-radius:12px;padding:1rem;border:1px solid rgba(11,15,18,0.04);box-shadow:var(--shadow-soft)}
+
+    /* Contact section */
+    .contact-hero{padding:2rem 0;display:flex;gap:1rem;flex-wrap:wrap}
+    .contact-cta{flex:1;min-width:260px}
+    .contact-cta .phone{display:inline-flex;align-items:center;gap:0.7rem;background:var(--color-primary);color:white;padding:0.85rem 1rem;border-radius:12px;font-weight:700}
+    .contact-aside{min-width:260px}
+
+    footer{
+      margin-top:2rem;padding:2rem 0;color:var(--neutral-700);border-top:1px solid rgba(11,15,18,0.04);
+    }
+    footer .foot-grid{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap}
+    footer a{color:var(--neutral-700)}
+
+    /* Responsive */
+    @media (max-width:1024px){
+      .hero{grid-template-columns:1fr;gap:1.25rem;padding-top:2.5rem}
+      .hero-visual{order:2}
+      .hero-left{order:1}
+      .visual-grid{grid-template-columns:1fr 1fr}
+      .services-grid{grid-template-columns:repeat(2,1fr)}
+      .steps{grid-template-columns:1fr}
+      .info{grid-template-columns:1fr}
+      nav ul{display:none}
+      .menu-toggle{display:inline-flex}
+    }
+    @media (max-width:520px){
+      :root{--gap:1rem}
+      .visual-tile h4{font-size:0.95rem}
+      .hero h1{font-size:2rem}
+      .services-grid{grid-template-columns:1fr}
+      .hero{padding:1.5rem 0}
+      .brand .sub{display:none}
+    }
+
+    /* Accessibility & animations */
+    :focus{outline:3px solid rgba(11,79,108,0.12);outline-offset:2px}
+    [data-animate] {opacity:0;transform:translateY(8px);transition:opacity .6s var(--ease), transform .6s var(--ease)}
+    [data-animate].in {opacity:1;transform:none}
+    @media (prefers-reduced-motion: reduce){
+      *{transition:none!important}
+      [data-animate]{opacity:1;transform:none}
+    }
+  </style>
+</head>
+<body>
+  <header role="banner">
+    <div class="container nav-inner">
+      <div class="brand" aria-hidden="false">
+        <svg width="44" height="44" viewBox="0 0 64 64" fill="none" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+          <rect x="2" y="6" width="60" height="48" rx="10" fill="url(#g)"/>
+          <path d="M32 16L40 28H24L32 16Z" fill="white" opacity="0.95"/>
+          <defs><linearGradient id="g" x1="0" x2="1"><stop offset="0" stop-color="#0b4f6c"/><stop offset="1" stop-color="#0e6a88"/></linearGradient></defs>
+        </svg>
+        <div class="wordmark">
+          <span class="title">Policijska postaja Pleternica</span>
+          <span class="sub">Javna sigurnost i informacije</span>
+        </div>
+      </div>
+
+      <nav role="navigation" aria-label="Glavna navigacija">
+        <ul>
+          <li><a href="#usluge">Informacije</a></li>
+          <li><a href="#kako">Kako postupiti</a></li>
+          <li><a href="#kontakt">Kontakt</a></li>
+        </ul>
+      </nav>
+
+      <div style="display:flex;gap:0.6rem;align-items:center">
+        <a class="cta-secondary" href="http://pozesko-slavonska.policija.hr/MainPu.aspx?id=14460" target="_blank" rel="noopener">Službena stranica</a>
+        <a class="cta-primary" href="tel:+38534454739">Nazovite: +385 34 454 739</a>
+        <button class="menu-toggle" aria-controls="mobile-menu" aria-expanded="false" aria-label="Otvori izbornik" id="menuToggle">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="#0b4f6c" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div id="mobile-menu" aria-hidden="true" style="display:none;border-top:1px solid rgba(11,15,18,0.03);background:linear-gradient(180deg,rgba(255,255,255,0.98),rgba(255,255,255,0.95));">
+      <div class="container" style="padding:0.75rem 1rem 1rem;">
+        <nav>
+          <ul style="display:flex;flex-direction:column;gap:0.5rem;padding:0;margin:0;list-style:none">
+            <li><a href="#usluge">Informacije</a></li>
+            <li><a href="#kako">Kako postupiti</a></li>
+            <li><a href="#kontakt">Kontakt</a></li>
+            <li><a href="http://pozesko-slavonska.policija.hr/MainPu.aspx?id=14460" target="_blank" rel="noopener">Službena stranica</a></li>
+            <li><a class="cta-primary" href="tel:+38534454739" style="display:inline-block;text-align:center;margin-top:0.5rem">Nazovite odmah</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero container" aria-labelledby="hero-title">
+      <div class="hero-left" data-animate>
+        <div class="kicker" aria-hidden="true">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 2l2.5 5.5L20 9l-4 3.5L17 20l-5-3-5 3 1-7.5L2 9l5.5-1.5L12 2z" fill="#0b4f6c"/></svg>
+          Javni kontakt
+        </div>
+        <h1 id="hero-title">Policijska postaja Pleternica — lokalna povezanost i informacije</h1>
+        <p class="lead">Vaš kontakt za informacije, prijave i suradnju s lokalnom policijskom postajom. Brzi pristup kontaktu i uputama za hitne situacije.</p>
+
+        <div class="hero-actions" role="group" aria-label="Glavne radnje">
+          <a class="cta-primary" href="tel:+38534454739">Nazovite postaju</a>
+          <a class="cta-secondary" href="#kako">Kako postupiti</a>
+          <a class="cta-secondary" href="http://pozesko-slavonska.policija.hr/MainPu.aspx?id=14460" target="_blank" rel="noopener">Službena stranica</a>
+        </div>
+
+        <div style="height:1rem"></div>
+
+        <div class="hero-card" role="region" aria-label="Brzi kontakt">
+          <div class="contact-line">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2h-1a16 16 0 0 1-14-14V6A2 2 0 0 1 7 4h4" stroke="#0b4f6c" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <div class="contact-info">
+              <a href="tel:+38534454739">+385 34 454 739</a>
+              <span class="meta">Telefon za kontakt s postajom</span>
+            </div>
+          </div>
+          <div style="height:0.4rem"></div>
+          <div class="contact-line">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M21 10a9 9 0 1 1-18 0 9 9 0 0 1 18 0z" stroke="#0e6a88" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 12h8" stroke="#0e6a88" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <div class="contact-info">
+              <a href="http://pozesko-slavonska.policija.hr/MainPu.aspx?id=14460" target="_blank" rel="noopener">Službena stranica PU</a>
+              <span class="meta">Više informacija i službeni kontakti</span>
+            </div>
+          </div>
+          <div style="height:0.6rem"></div>
+          <p style="margin:0;color:var(--neutral-700);font-size:0.9rem">Za točne podatke o lokaciji i radnim vremenima pogledajte službenu mrežnu stranicu ili nazovite postaju.</p>
+        </div>
+      </div>
+
+      <aside class="hero-visual" aria-hidden="false" data-animate>
+        <div style="position:absolute;inset:0;pointer-events:none;opacity:0.06">
+          <!-- subtle decorative SVG pattern -->
+          <svg width="100%" height="100%" preserveAspectRatio="none" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="lg" x1="0" x2="1">
+                <stop offset="0" stop-color="#0b4f6c"/>
+                <stop offset="1" stop-color="#0e6a88"/>
+              </linearGradient>
+            </defs>
+            <g fill="none" stroke="url(#lg)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M0 80c120 20 240 30 360 10 120-20 240-40 360-10"/>
+              <path d="M0 260c120 30 240 10 360 20 120 10 240 40 360 20"/>
+              <path d="M0 440c120 10 240 20 360 30 120 10 240 0 360-20"/>
+            </g>
+          </svg>
+        </div>
+
+        <div class="visual-grid">
+          <div class="visual-tile" role="img" aria-label="Sigurnost i prevencija">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M12 2l6 3v4c0 5-3 9-6 11-3-2-6-6-6-11V5l6-3z" fill="#0b4f6c"/><path d="M9.5 11.5L11 13l3.5-3" stroke="#fff" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <div>
+              <h4>Sigurnost zajednice</h4>
+              <p>Suradnja s građanima radi očuvanja javnog reda.</p>
+            </div>
+          </div>
+
+          <div class="visual-tile" role="img" aria-label="Prijave i informacije">
+            <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="14" rx="2" fill="#0e6a88"/><path d="M8 9h8M8 13h5" stroke="#fff" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <div>
+              <h4>Kontakt i upute</h4>
+              <p>Dostupne informacije i upute za građane.</p>
+            </div>
+          </div>
+
+          <div class="visual-tile" role="img" aria-label="Suradnja">
+            <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="3" fill="#ffd166"/><path d="M6 20c1-4 5-6 6-6s5 2 6 6" stroke="#0b4f6c" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <div>
+              <h4>Suradnja s građanima</h4>
+              <p>Kanal otvoren za sigurnosne informacije i preporuke.</p>
+            </div>
+          </div>
+
+          <div class="visual-tile" role="img" aria-label="Podrška">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M12 3v4" stroke="#0b4f6c" stroke-width="1.6" stroke-linecap="round"/><path d="M5 21v-6a7 7 0 0 1 14 0v6" stroke="#0e6a88" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <div>
+              <h4>Podrška i informacije</h4>
+              <p>Praktične upute dostupne telefonom i na službenoj stranici.</p>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <section id="usluge" class="services container" aria-labelledby="usluge-title">
+      <h2 id="usluge-title" style="font-size:1.25rem;margin-bottom:0.8rem;font-weight:700">Informacije i upute</h2>
+      <p style="margin-top:0;margin-bottom:1rem;color:var(--neutral-700)">Osnovne informacije i smjernice koje građani često traže. Ako trebate službeni podatak ili lokaciju, obratite se telefonom ili posjetite službenu stranicu.</p>
+      <div class="services-grid" data-animate>
+        <article class="service" role="article" aria-labelledby="s1">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 12h18" stroke="#0b4f6c" stroke-width="1.6" stroke-linecap="round"/><path d="M4 6h6v12H4z" fill="#f5f7f8" stroke="#d1d5db"/><path d="M14 6h6v12h-6z" fill="#fff" stroke="#d1d5db"/></svg>
+          <h3 id="s1">Brzi kontakt</h3>
+          <p>Nazovite postaju za izravnu komunikaciju i informacije: <strong>+385 34 454 739</strong>.</p>
+        </article>
+
+        <article class="service" role="article" aria-labelledby="s2">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M12 2l3 6 6 .5-4.5 4 1.5 6L12 16l-6 3 1.5-6L3 8.5 9 8 12 2z" fill="#0e6a88"/></svg>
+          <h3 id="s2">Upute za postupanje</h3>
+          <p>Opće smjernice za postupanje u slučaju nezgoda, prijava ili drugih sigurnosnih situacija.</p>
+        </article>
+
+        <article class="service" role="article" aria-labelledby="s3">
+          <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="14" rx="2" fill="#fff" stroke="#d1d5db"/><path d="M8 8h8M8 12h6" stroke="#0b4f6c" stroke-width="1.4" stroke-linecap="round"/></svg>
+          <h3 id="s3">Službeni izvori</h3>
+          <p>Za provjerene podatke uvijek koristite službenu mrežnu stranicu Policijske uprave.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="kako" class="container" aria-labelledby="kako-title">
+      <h2 id="kako-title" style="font-size:1.25rem;margin-top:1.8rem;font-weight:700">Kako postupiti u najčešćim situacijama</h2>
+      <p style="margin-top:0;color:var(--neutral-700)">Kratke i jasne smjernice. U hitnim slučajevima koristite hitni broj, a za sve ostalo kontaktirajte lokalnu postaju.</p>
+
+      <div class="steps" data-animate>
+        <div class="step card" role="region" aria-label="Hitni slučajevi">
+          <div class="step-count">1</div>
+          <div>
+            <h3 style="margin:0;font-size:1rem;color:var(--neutral-900)">Hitni slučajevi</h3>
+            <p style="margin-top:0.35rem">U hitnom slučaju nazovite <strong>112</strong> (hitni broj) ili lokalni broj postaje <a href="tel:+38534454739">+385 34 454 739</a>.</p>
+          </div>
+        </div>
+
+        <div class="step card" role="region" aria-label="Prijava incidenta">
+          <div class="step-count" style="background:var(--color-accent);color:#082034">2</div>
+          <div>
+            <h3 style="margin:0;font-size:1rem;color:var(--neutral-900)">Prijava incidenta</h3>
+            <p style="margin-top:0.35rem">Za prijave i informacije obratite se postaji telefonom ili putem službenih kanala objavljenih na mrežnoj stranici.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="container info" aria-labelledby="info-title">
+      <div>
+        <h2 id="info-title" style="font-size:1.1rem;margin-bottom:0.6rem;font-weight:700">Korisne napomene</h2>
+        <div class="card" data-animate>
+          <h3 style="margin-top:0;font-size:1rem">Informacije za građane</h3>
+          <ul style="color:var(--neutral-700);margin:0.6rem 0 0 1.2rem;padding:0;font-size:0.95rem;line-height:1.5">
+            <li>Za točne lokacije i službene informacije koristite poveznicu na službenu stranicu Policijske uprave.</li>
+            <li>Telefon postaje je najbolji prvi kontakt za lokalne upite: <strong>+385 34 454 739</strong>.</li>
+            <li>Ako niste sigurni radi li se o hitnom slučaju, nazovite 112.</li>
+          </ul>
+        </div>
+      </div>
+
+      <aside class="card" data-animate aria-labelledby="aside-title">
+        <h3 id="aside-title" style="margin-top:0;font-size:1rem">Brzi linkovi</h3>
+        <p style="margin:0.4rem 0 0;color:var(--neutral-700)">Službena stranica Policijske uprave sadrži ažurirane kontaktne i organizacijske informacije:</p>
+        <p style="margin-top:0.8rem"><a href="http://pozesko-slavonska.policija.hr/MainPu.aspx?id=14460" target="_blank" rel="noopener">pozesko-slavonska.policija.hr — Policijska postaja Pleternica</a></p>
+      </aside>
+    </section>
+
+    <section id="kontakt" class="container contact-hero" aria-labelledby="kontakt-title">
+      <div class="contact-cta card" data-animate>
+        <h2 id="kontakt-title" style="margin:0 0 0.5rem;font-size:1.1rem;font-weight:700">Kontakt</h2>
+        <p style="margin:0 0 0.8rem;color:var(--neutral-700)">Telefon postaje je primarni kanal za upite i informacije.</p>
+        <a class="phone" href="tel:+38534454739" aria-label="Nazovite Policijsku postaju Pleternica">📞 +385 34 454 739</a>
+        <div style="height:0.8rem"></div>
+        <p style="margin:0;color:var(--neutral-700)">Za lokaciju, radno vrijeme i ostale službene podatke posjetite:</p>
+        <p style="margin-top:0.6rem"><a href="http://pozesko-slavonska.policija.hr/MainPu.aspx?id=14460" target="_blank" rel="noopener">Službena stranica Policijske uprave</a></p>
+      </div>
+
+      <div class="contact-aside" data-animate>
+        <div class="card">
+          <h3 style="margin-top:0;font-size:1rem">Napomena o podacima</h3>
+          <p style="margin:0;color:var(--neutral-700)">Podaci na ovoj stranici prikazani su radi informiranja. Ako trebate službenu potvrdu ili detalje koji zahtijevaju ažuriranje, kontaktirajte postaju putem telefona ili službene mrežne stranice.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer role="contentinfo">
+    <div class="container">
+      <div class="foot-grid">
+        <div>
+          <strong>Policijska postaja Pleternica</strong>
+          <div style="color:var(--neutral-700);margin-top:0.35rem">Telefon: <a href="tel:+38534454739">+385 34 454 739</a></div>
+        </div>
+        <div style="color:var(--neutral-700)">
+          <a href="http://pozesko-slavonska.policija.hr/MainPu.aspx?id=14460" target="_blank" rel="noopener">Službena stranica PU</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle -- accessible
+    (function(){
+      const btn = document.getElementById('menuToggle');
+      const menu = document.getElementById('mobile-menu');
+
+      function setState(open){
+        btn.setAttribute('aria-expanded', String(open));
+        if(open){
+          menu.style.display = 'block';
+          menu.setAttribute('aria-hidden','false');
+        } else {
+          menu.style.display = 'none';
+          menu.setAttribute('aria-hidden','true');
+        }
+      }
+
+      btn.addEventListener('click', () => {
+        const open = btn.getAttribute('aria-expanded') === 'true';
+        setState(!open);
+      });
+
+      // close on outside click (mobile)
+      document.addEventListener('click', (e) => {
+        if(window.innerWidth > 1024) return;
+        if(!menu.contains(e.target) && !btn.contains(e.target)){
+          setState(false);
+        }
+      });
+
+      // simple reveal on scroll for elements with data-animate
+      const animated = document.querySelectorAll('[data-animate]');
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(e=>{
+          if(e.isIntersecting){
+            e.target.classList.add('in');
+            io.unobserve(e.target);
+          }
+        });
+      }, {rootMargin: '0px 0px -10% 0px', threshold:0.05});
+
+      animated.forEach(el => io.observe(el));
+
+      // keyboard accessibility for nav links (mobile)
+      const mobileLinks = menu.querySelectorAll('a');
+      mobileLinks.forEach(a => {
+        a.addEventListener('keydown', (ev) => {
+          if(ev.key === 'Escape') { btn.focus(); setState(false); }
+        });
+      });
+
+      // Initialize state
+      setState(false);
+    })();
+  </script>
+</body>
+</html>
