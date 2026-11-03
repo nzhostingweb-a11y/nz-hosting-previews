@@ -1,0 +1,452 @@
+ <!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Copy centar Marko — profesionalne usluge ispisa i grafičke pripreme</title>
+  <meta name="description" content="Copy centar Marko — profesionalne usluge ispisa, kopiranja, grafičke pripreme i dorade marketinških i uredskih materijala. Kontaktirajte nas za ponudu." />
+  <meta property="og:title" content="Copy centar Marko — profesionalne usluge ispisa i grafičke pripreme" />
+  <meta property="og:description" content="Copy centar Marko — usluge ispisa, kopiranja i grafičke pripreme. Zatražite ponudu putem obrasca." />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      /* Color system */
+      --color-primary: #0b5561;       /* deep teal */
+      --color-secondary: #f5f0ea;     /* warm neutral background */
+      --color-accent: #d4a84a;        /* warm gold accent */
+      --neutral-900: #0b0b0b;
+      --neutral-700: #3a3a3a;
+      --neutral-500: #797979;
+      --neutral-200: #e7e7e7;
+      --white: #ffffff;
+
+      /* Typography */
+      --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      --font-serif: "Merriweather", Georgia, "Times New Roman", serif;
+
+      /* Sizing / spacing */
+      --space-xs: 6px;
+      --space-sm: 12px;
+      --space-md: 20px;
+      --space-lg: 36px;
+      --space-xl: 56px;
+      --container-width: 1200px;
+
+      /* Border radius */
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+
+      /* Shadows */
+      --shadow-sm: 0 6px 18px rgba(11,85,97,0.08);
+      --shadow-md: 0 14px 40px rgba(11,85,97,0.08);
+
+      /* Transition */
+      --transition-fast: 180ms cubic-bezier(.2,.8,.2,1);
+      --transition-med: 300ms cubic-bezier(.2,.8,.2,1);
+    }
+
+    /* Fluid typography */
+    html { font-family: var(--font-sans); color:var(--neutral-900); background:linear-gradient(180deg,var(--color-secondary),#fbfbfb); -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; }
+    :root{ --fs-hero: clamp(1.6rem, 2.8vw + 1rem, 3.2rem); --fs-h2: clamp(1.1rem, 1.6vw + .6rem, 1.6rem); --fs-base: clamp(.95rem, .9vw + .6rem, 1rem); }
+
+    *{box-sizing:border-box}
+    img,svg{max-width:100%;height:auto;display:block}
+    a{color:inherit;text-decoration:none}
+
+    /* Layout */
+    .site{max-width:var(--container-width);margin:0 auto;padding:var(--space-lg);display:flex;flex-direction:column;gap:var(--space-lg)}
+    header{display:flex;align-items:center;justify-content:space-between;gap:var(--space-md);padding:calc(var(--space-sm)) 0}
+    .brand{display:flex;align-items:center;gap:12px}
+    .wordmark{font-family:var(--font-serif);font-weight:700;font-size:1.125rem;letter-spacing:.4px;color:var(--color-primary)}
+    .tagline{font-size:.85rem;color:var(--neutral-700);margin-top:4px}
+
+    nav{display:flex;align-items:center;gap:18px}
+    .nav-links{display:flex;gap:18px;align-items:center}
+    .nav-links a{font-weight:600;color:var(--neutral-700);padding:8px;border-radius:8px}
+    .nav-links a:focus, .nav-links a:hover{color:var(--color-primary);outline:none;box-shadow:inset 0 -2px 0 var(--color-accent)}
+
+    .cta-primary{background:linear-gradient(180deg,var(--color-primary),#0a4850);color:var(--white);padding:10px 16px;border-radius:10px;font-weight:700;box-shadow:var(--shadow-sm);transition:transform var(--transition-fast),box-shadow var(--transition-fast)}
+    .cta-primary:hover{transform:translateY(-3px);box-shadow:var(--shadow-md)}
+    .cta-ghost{background:transparent;border:2px solid transparent;padding:8px 12px;border-radius:10px;color:var(--neutral-700);font-weight:600}
+    .cta-ghost:hover{color:var(--color-primary);transform:translateY(-2px)}
+
+    /* Mobile menu */
+    .menu-toggle{display:none;background:none;border:0;padding:8px;border-radius:10px}
+    .menu-toggle svg{width:22px;height:22px;color:var(--neutral-700)}
+
+    /* Hero */
+    .hero{display:grid;grid-template-columns:1fr 480px;align-items:center;gap:40px;padding:36px;background:linear-gradient(180deg,rgba(255,255,255,0.6),rgba(255,255,255,0.9));border-radius:var(--radius-lg);box-shadow:var(--shadow-md)}
+    .hero-content{max-width:720px}
+    h1{font-family:var(--font-serif);font-size:var(--fs-hero);line-height:1.03;margin:0 0 12px;color:var(--neutral-900)}
+    p.lead{font-size:var(--fs-base);color:var(--neutral-700);margin:0 0 20px;max-width:62ch}
+
+    .hero-ctas{display:flex;gap:12px;flex-wrap:wrap}
+    .hero-decor{display:flex;align-items:center;justify-content:center;padding:22px;background:linear-gradient(180deg,#ffffff,rgba(255,255,255,0.7));border-radius:16px;box-shadow:var(--shadow-sm)}
+
+    /* Visual composition: stylized print + paper */
+    .printer-illustration{width:100%;max-width:420px;display:block}
+
+    /* Services */
+    section.services{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;padding:12px 0}
+    .card{background:white;padding:20px;border-radius:14px;box-shadow:var(--shadow-sm);display:flex;gap:14px;align-items:flex-start}
+    .card h3{margin:0;font-size:1rem;color:var(--neutral-900);font-weight:700}
+    .card p{margin:6px 0 0;color:var(--neutral-700);font-size:.95rem;line-height:1.35}
+
+    .icon-wrap{width:56px;height:56px;border-radius:10px;background:linear-gradient(180deg,rgba(11,85,97,0.06),rgba(11,85,97,0.02));display:flex;align-items:center;justify-content:center;color:var(--color-primary);flex-shrink:0}
+
+    /* About / Approach */
+    .about{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center;padding:12px 0}
+    .about p{margin:0;color:var(--neutral-700)}
+    .process{background:linear-gradient(90deg,#fff,rgba(255,255,255,.95));padding:18px;border-radius:12px;display:flex;flex-direction:column;gap:12px}
+    .step{display:flex;gap:12px;align-items:flex-start}
+    .step .num{width:40px;height:40px;border-radius:10px;background:var(--color-accent);color:var(--white);display:flex;align-items:center;justify-content:center;font-weight:700}
+
+    /* Contact */
+    #kontakt{background:linear-gradient(180deg,var(--color-secondary),#ffffff);padding:22px;border-radius:16px;box-shadow:var(--shadow-sm);display:grid;grid-template-columns:1fr 1fr;gap:24px}
+    form{display:flex;flex-direction:column;gap:12px}
+    label{font-size:.9rem;color:var(--neutral-700)}
+    input[type="text"],input[type="email"],textarea{
+      padding:12px;border-radius:10px;border:1px solid var(--neutral-200);font-size:1rem;font-family:var(--font-sans);color:var(--neutral-900)
+    }
+    input:focus,textarea:focus{outline:3px solid rgba(13,86,89,0.08);border-color:var(--color-primary)}
+    .form-actions{display:flex;gap:10px;align-items:center}
+    .note{font-size:.9rem;color:var(--neutral-500)}
+
+    footer{display:flex;justify-content:space-between;align-items:center;padding:18px 0;border-top:1px solid var(--neutral-200);color:var(--neutral-700);font-size:.95rem}
+
+    /* Responsive */
+    @media (max-width:1100px){
+      .hero{grid-template-columns:1fr 360px}
+      .services{grid-template-columns:repeat(2,1fr)}
+      .about{grid-template-columns:1fr}
+      #kontakt{grid-template-columns:1fr}
+    }
+    @media (max-width:720px){
+      .site{padding:18px}
+      nav{display:none}
+      .menu-toggle{display:inline-block}
+      .hero{grid-template-columns:1fr;gap:18px;padding:20px}
+      h1{font-size:1.8rem}
+      .services{grid-template-columns:1fr}
+      header{align-items:flex-start}
+    }
+
+    /* Mobile menu panel */
+    .mobile-panel{position:fixed;right:18px;top:68px;background:white;padding:12px;border-radius:12px;box-shadow:0 12px 40px rgba(11,85,97,0.12);display:none;flex-direction:column;gap:8px;min-width:200px;z-index:80}
+    .mobile-panel a{padding:8px;border-radius:8px}
+    .mobile-panel a:focus, .mobile-panel a:hover{background:var(--neutral-200)}
+    .mobile-panel.show{display:flex}
+
+    /* Focus */
+    a:focus,button:focus,input:focus,textarea:focus{outline-offset:3px}
+    :focus{box-shadow:0 0 0 4px rgba(13,86,89,0.06)}
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce){
+      *{transition:none!important}
+    }
+  </style>
+</head>
+<body>
+  <div class="site" id="top">
+    <header>
+      <div class="brand" aria-label="Copy centar Marko">
+        <svg width="44" height="44" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+          <rect x="6" y="10" width="44" height="32" rx="6" fill="#fff"/>
+          <path d="M14 18h36v8H14z" fill="none" stroke="#0b5561" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+          <rect x="16" y="28" width="32" height="14" rx="3" fill="#0b5561" opacity="0.08"/>
+          <circle cx="48" cy="42" r="2.5" fill="#d4a84a"/>
+        </svg>
+        <div>
+          <div class="wordmark">Copy centar Marko</div>
+          <div class="tagline">ispis • kopiranje • grafička priprema</div>
+        </div>
+      </div>
+
+      <nav aria-label="Glavna navigacija">
+        <div class="nav-links">
+          <a href="#usluge">Usluge</a>
+          <a href="#o-nama">O nama</a>
+          <a href="#kako-radimo">Kako radimo</a>
+          <a href="#kontakt" class="cta-ghost">Kontakt</a>
+        </div>
+        <a href="#kontakt" class="cta-primary" style="margin-left:12px">Zatražite ponudu</a>
+      </nav>
+
+      <button class="menu-toggle" id="menuToggle" aria-controls="mobilePanel" aria-expanded="false" aria-label="Otvorite izbornik">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M3 6h18M3 12h18M3 18h18"/>
+        </svg>
+      </button>
+    </header>
+
+    <div id="mobilePanel" class="mobile-panel" role="menu" aria-hidden="true">
+      <a href="#usluge" role="menuitem">Usluge</a>
+      <a href="#o-nama" role="menuitem">O nama</a>
+      <a href="#kako-radimo" role="menuitem">Kako radimo</a>
+      <a href="#kontakt" role="menuitem">Kontakt</a>
+    </div>
+
+    <main>
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-content">
+          <h1 id="hero-title">Profesionalne usluge ispisa i grafičke pripreme za tvrtke i pojedince</h1>
+          <p class="lead">Copy centar Marko nudi pouzdane usluge ispisa, kopiranja i dorade dokumenata te pripremu grafičkih materijala za ispis. Ako trebate kvalitetan ispis ili savjet za print-ready datoteke, započnite ovdje.</p>
+
+          <div class="hero-ctas">
+            <a class="cta-primary" href="#kontakt">Zatražite ponudu</a>
+            <a class="cta-ghost" href="#usluge">Pogledajte usluge</a>
+          </div>
+
+          <ul style="display:flex;gap:12px;margin-top:18px;padding:0;list-style:none">
+            <li style="display:flex;gap:8px;align-items:center;color:var(--neutral-700)">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12h16M9 6h6" stroke="#0b5561" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span style="font-size:.95rem">Kvaliteta tiska</span>
+            </li>
+            <li style="display:flex;gap:8px;align-items:center;color:var(--neutral-700)">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 7h18v10H3zM7 3v4" stroke="#0b5561" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span style="font-size:.95rem">Fleksibilne opcije dorade</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="hero-decor" aria-hidden="true">
+          <!-- Stylized printer + paper stack illustration (inline SVG) -->
+          <svg class="printer-illustration" viewBox="0 0 560 420" role="img" aria-hidden="true">
+            <defs>
+              <linearGradient id="g1" x1="0" x2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#f7fbfb"/></linearGradient>
+            </defs>
+            <rect x="10" y="20" rx="18" width="540" height="380" fill="url(#g1)" stroke="rgba(11,85,97,0.06)"/>
+            <!-- paper stack -->
+            <g transform="translate(70,60)">
+              <rect x="0" y="0" width="300" height="200" rx="8" fill="#fff" stroke="#e9eef0"></rect>
+              <rect x="10" y="18" width="280" height="184" rx="6" fill="#fbfbfb" stroke="#f1f5f6"></rect>
+              <rect x="18" y="36" width="264" height="160" rx="4" fill="#fff" stroke="#f6f8f8"></rect>
+              <g transform="translate(34,56)" fill="#0b5561" opacity="0.95">
+                <rect x="0" y="0" width="240" height="12" rx="6"/>
+                <rect x="0" y="28" width="240" height="8" rx="4" opacity="0.85"/>
+              </g>
+            </g>
+            <!-- small printer base -->
+            <g transform="translate(40,280)">
+              <rect x="250" y="0" width="220" height="90" rx="12" fill="#0b5561" opacity="0.08"></rect>
+              <rect x="270" y="2" width="180" height="86" rx="10" fill="#0b5561" opacity="0.06"></rect>
+              <rect x="292" y="10" width="136" height="62" rx="8" fill="#0b5561"></rect>
+              <rect x="306" y="20" width="110" height="6" rx="4" fill="#d4a84a"></rect>
+            </g>
+          </svg>
+        </div>
+      </section>
+
+      <section id="usluge" aria-labelledby="usluge-title" style="padding-top:14px">
+        <h2 id="usluge-title" style="font-size:var(--fs-h2);margin-bottom:12px;font-weight:700">Usluge</h2>
+        <p style="margin:0 0 18px;color:var(--neutral-700)">U nastavku su istaknute uobičajene usluge koje nudi copy centar. Za potvrdu dostupnih opcija i rokova pošaljite upit putem obrasca.</p>
+
+        <div class="services" role="list">
+          <article class="card" role="listitem" aria-labelledby="s1">
+            <div class="icon-wrap" aria-hidden="true">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M4 7h16v10H4z" stroke="#0b5561" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 3h8v4" stroke="#0b5561" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div>
+              <h3 id="s1">Ispis i kopiranje</h3>
+              <p>Crno-bijeli i kolor ispisi raznih formata te brze kopije dokumenata. Prilagodljivo prema potrebama tiskovine.</p>
+            </div>
+          </article>
+
+          <article class="card" role="listitem" aria-labelledby="s2">
+            <div class="icon-wrap" aria-hidden="true">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M4 7h16v10H4z" stroke="#0b5561" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 13h6" stroke="#0b5561" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div>
+              <h3 id="s2">Grafička priprema</h3>
+              <p>Priprema i provjera datoteka za tisak (print‑ready). Savjeti za optimiranje izlaza i materijala za ispis.</p>
+            </div>
+          </article>
+
+          <article class="card" role="listitem" aria-labelledby="s3">
+            <div class="icon-wrap" aria-hidden="true">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M3 7h18v10H3z" stroke="#0b5561" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 17v4h8v-4" stroke="#0b5561" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div>
+              <h3 id="s3">Dorada i uvezivanje</h3>
+              <p>Opcije dorade kao što su uvezivanje, laminacija, rezanje i oblikovanje gotovih materijala.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="o-nama" aria-labelledby="onama-title" style="padding-top:14px">
+        <h2 id="onama-title" style="font-size:var(--fs-h2);margin-bottom:12px;font-weight:700">O nama</h2>
+        <div class="about">
+          <div>
+            <p>Copy centar Marko fokusira se na izvornu i jasnu komunikaciju te praktična rješenja za ispis i pripremu materijala. Sadržaj i podrška prilagođavaju se potrebama klijenata, bez nepotrebnih komplikacija.</p>
+            <p style="margin-top:12px;color:var(--neutral-700)">Na ovoj stranici nalaze se informacije o tipičnim uslugama i načinu suradnje. Za konkretne zahtjeve najbolje je poslati detalje putem kontaktnog obrasca.</p>
+          </div>
+
+          <div class="process" id="kako-radimo" aria-labelledby="kako-title">
+            <h3 id="kako-title" style="margin:0;font-size:1rem;font-weight:700">Kako obično surađujemo</h3>
+
+            <div class="step" aria-hidden="false">
+              <div class="num">1</div>
+              <div>
+                <strong>Pošaljite upit</strong>
+                <div style="color:var(--neutral-700)">Opis projekta, formati i očekivana količina — što preciznije, to brže možemo odgovoriti.</div>
+              </div>
+            </div>
+
+            <div class="step">
+              <div class="num" style="background:var(--color-primary)">2</div>
+              <div>
+                <strong>Provjera i ponuda</strong>
+                <div style="color:var(--neutral-700)">Procjena tehničkih detalja i rokova. Ako je potrebno, predlažemo optimizacije za tisak.</div>
+              </div>
+            </div>
+
+            <div class="step">
+              <div class="num">3</div>
+              <div>
+                <strong>Izrada i preuzimanje</strong>
+                <div style="color:var(--neutral-700)">Nakon potvrde izrađujemo materijale; možete ih preuzeti ili dogovoriti isporuku.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="kontakt" aria-labelledby="kontakt-title" style="padding-top:14px">
+        <h2 id="kontakt-title" style="font-size:var(--fs-h2);margin-bottom:12px;font-weight:700">Kontakt</h2>
+
+        <div id="kontakt" role="region" aria-label="Kontakt forma i podaci">
+          <div>
+            <p style="margin-top:0;color:var(--neutral-700)">Pošaljite upit s opisom zadatka — format datoteke, dimenzije i procijenjena količina. Odgovorit ćemo s informacijama o rokovima i mogućnostima.</p>
+
+            <address style="font-style:normal;margin-top:12px;color:var(--neutral-700)">
+              <strong>Copy centar Marko</strong><br>
+              Web: <a href="http://www.copy-marko.com/" target="_blank" rel="noopener">www.copy-marko.com</a><br>
+              Napomena: točni kontaktni podaci i radno vrijeme objektivno nisu dostupni u ovom prikazu — molimo pošaljite upit putem obrasca.
+            </address>
+          </div>
+
+          <form id="contactForm" onsubmit="handleSubmit(event)" aria-label="Kontakt obrazac">
+            <div>
+              <label for="name">Ime i prezime</label>
+              <input id="name" name="name" type="text" required aria-required="true" placeholder="Vaše ime" />
+            </div>
+
+            <div>
+              <label for="email">E-mail adresa</label>
+              <input id="email" name="email" type="email" required aria-required="true" placeholder="primjer@domena.hr" />
+            </div>
+
+            <div>
+              <label for="message">Poruka / detalji</label>
+              <textarea id="message" name="message" rows="5" required aria-required="true" placeholder="Kratki opis projekta, formati, količina, rok..."></textarea>
+            </div>
+
+            <div class="form-actions">
+              <button type="submit" class="cta-primary">Pošaljite upit</button>
+              <div class="note">Ne šaljemo podatke trećim stranama. Ovaj obrazac za sada je kontaktni kanal — odgovor ćete dobiti na navedeni e-mail.</div>
+            </div>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div>
+        <div style="font-weight:700;color:var(--color-primary)">Copy centar Marko</div>
+        <div style="color:var(--neutral-700)">Web: <a href="http://www.copy-marko.com/" target="_blank" rel="noopener">copy-marko.com</a></div>
+      </div>
+
+      <nav aria-label="Footer navigacija">
+        <a href="#usluge">Usluge</a> &nbsp;•&nbsp;
+        <a href="#o-nama">O nama</a> &nbsp;•&nbsp;
+        <a href="#kontakt">Kontakt</a>
+      </nav>
+    </footer>
+  </div>
+
+  <script>
+    // Mobile menu toggle
+    (function(){
+      const toggle = document.getElementById('menuToggle');
+      const panel = document.getElementById('mobilePanel');
+      toggle.addEventListener('click', function(){
+        const isOpen = panel.classList.toggle('show');
+        toggle.setAttribute('aria-expanded', String(isOpen));
+        panel.setAttribute('aria-hidden', String(!isOpen));
+      });
+
+      // Close mobile panel when clicking a link
+      panel.addEventListener('click', function(e){
+        if(e.target.tagName === 'A'){
+          panel.classList.remove('show');
+          toggle.setAttribute('aria-expanded','false');
+          panel.setAttribute('aria-hidden','true');
+        }
+      });
+
+      // Smooth scroll for internal links
+      document.querySelectorAll('a[href^="#"]').forEach(a=>{
+        a.addEventListener('click', function(e){
+          const targetId = this.getAttribute('href').slice(1);
+          if(!targetId) return;
+          const target = document.getElementById(targetId);
+          if(target){
+            e.preventDefault();
+            const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+            const top = target.getBoundingClientRect().top + window.pageYOffset - 22;
+            if(prefersReduced){
+              window.scrollTo(0, top);
+            }else{
+              window.scrollTo({top, behavior:'smooth'});
+            }
+            // update focus for accessibility
+            target.setAttribute('tabindex','-1');
+            target.focus({preventScroll:true});
+            window.setTimeout(()=>{ target.removeAttribute('tabindex'); },1000);
+          }
+        });
+      });
+    })();
+
+    // Minimal form handler: prevent default submit and show a neutral confirmation without implying delivery
+    function handleSubmit(e){
+      e.preventDefault();
+      const form = e.target;
+      const name = form.name.value.trim();
+      const email = form.email.value.trim();
+      const message = form.message.value.trim();
+      if(!name || !email || !message){
+        alert('Molimo ispunite obavezna polja.');
+        return;
+      }
+      // Do not simulate sending or show fake success. Provide clear next step.
+      // Open user's mail client with prefilled content as a convenience (if supported).
+      const mailtoSubject = encodeURIComponent('Upit: Copy centar Marko');
+      const mailtoBody = encodeURIComponent('Ime: ' + name + '\nE-mail: ' + email + '\n\nPoruka:\n' + message);
+      // Using mailto is optional; ask user to send email if they prefer. Since official email nije dostavljen, we will not auto-send.
+      const proceed = confirm('Obrazac je spreman. Želite li otvoriti svoju aplikaciju za e-mail radi slanja upita (ako koristite e-mail klijent)? Ako ne, kopirajte poruku i pošaljite je putem weba ili kontakta koji imate.');
+      if(proceed){
+        // This will open mail client but won't send automatically and requires a valid recipient address.
+        // No recipient address is provided (ne izmišljamo adresu), so we only open a new window with body (user must paste).
+        const mailtoURL = 'mailto:?subject=' + mailtoSubject + '&body=' + mailtoBody;
+        window.location.href = mailtoURL;
+      } else {
+        // Copy content to clipboard as convenience
+        const text = 'Ime: ' + name + '\nE-mail: ' + email + '\n\nPoruka:\n' + message;
+        if(navigator.clipboard){
+          navigator.clipboard.writeText(text).then(()=>{
+            alert('Tekst je kopiran u međuspremnik. Zalijepite ga u svoj e-mail ili u alat koji koristite za slanje upita.');
+          }, ()=>{
+            alert('Kopiranje nije uspjelo. Molimo ručno kopirajte tekst iz obrasca.');
+          });
+        } else {
+          alert('Molimo ručno kopirajte podatke iz obrasca i pošaljite putem vašeg e-maila.');
+        }
+      }
+    }
+  </script>
+</body>
+</html>
