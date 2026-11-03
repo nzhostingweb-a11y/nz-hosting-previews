@@ -1,0 +1,677 @@
+ <!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Adria — catering i restoranska usluga</title>
+  <meta name="description" content="Adria | Profesionalni catering i restoranska usluga. Prilagodljivi jelovnici, diskretan servis i pažljivo planiranje događanja." />
+  <meta property="og:title" content="Adria — catering i restoranska usluga" />
+  <meta property="og:description" content="Profesionalni catering i restoranska usluga. Prilagodljivi jelovnici, diskretan servis i pažljivo planiranje događanja." />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      /* Color system */
+      --color-primary: #0f6b63;       /* deep teal - primary */
+      --color-secondary: #f3a57a;     /* warm coral - secondary */
+      --color-accent: #ffd89b;        /* soft accent */
+      --neutral-900: #0b0b0b;
+      --neutral-800: #222222;
+      --neutral-700: #3b3b3b;
+      --neutral-500: #8a8a8a;
+      --neutral-300: #d6d6d6;
+      --neutral-100: #f6f6f6;
+      --bg: #ffffff;
+
+      /* Typography */
+      --font-heading: "Playfair Display", Georgia, serif;
+      --font-base: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      --text-size-sm: clamp(0.9rem, 0.9rem + 0.1vw, 1rem);
+      --text-size-base: clamp(1rem, 0.98rem + 0.2vw, 1.125rem);
+      --text-size-lg: clamp(1.125rem, 1.09rem + 0.5vw, 1.375rem);
+      --title-xl: clamp(2rem, 2.2rem + 1.5vw, 3.25rem);
+      --title-md: clamp(1.25rem, 1.2rem + 0.8vw, 1.75rem);
+
+      /* Spacing system */
+      --space-xxs: 4px;
+      --space-xs: 8px;
+      --space-sm: 12px;
+      --space-md: 20px;
+      --space-lg: 36px;
+      --space-xl: 64px;
+      --container-width: 1200px;
+
+      /* Radii */
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 22px;
+
+      /* Shadows & borders */
+      --shadow-soft: 0 6px 18px rgba(15,107,99,0.08);
+      --shadow-strong: 0 14px 40px rgba(15,107,99,0.08);
+      --border-1: 1px solid rgba(11,11,11,0.06);
+
+      /* Interaction */
+      --ease: cubic-bezier(.2,.9,.2,1);
+    }
+
+    /* Base */
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:var(--font-base);
+      color:var(--neutral-900);
+      background:linear-gradient(180deg, var(--bg) 0%, #fbfbfb 100%);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+      font-size:var(--text-size-base);
+    }
+
+    a{color:inherit;text-decoration:none}
+    img,svg{max-width:100%;height:auto;display:block}
+
+    /* Layout container */
+    .wrap{
+      max-width:var(--container-width);
+      margin:0 auto;
+      padding:0 clamp(var(--space-md), 4vw, var(--space-lg));
+    }
+
+    /* Skip link */
+    .skiplink{
+      position:absolute;
+      left:8px;
+      top:8px;
+      background:#111;
+      color:#fff;
+      padding:6px 10px;
+      border-radius:6px;
+      z-index:1000;
+      transform:translateY(-120%);
+      transition:transform .18s var(--ease);
+    }
+    .skiplink:focus{transform:none}
+
+    /* Header / Nav */
+    header{
+      position:sticky;
+      top:0;
+      backdrop-filter:saturate(120%) blur(6px);
+      background:linear-gradient(180deg, rgba(255,255,255,0.85), rgba(255,255,255,0.7));
+      border-bottom:var(--border-1);
+      z-index:60;
+    }
+    .nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      height:72px;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:14px;
+    }
+    .mark{
+      width:48px;
+      height:48px;
+      display:grid;
+      place-items:center;
+      border-radius:12px;
+      background:linear-gradient(135deg, var(--color-primary), #0e8a7e);
+      box-shadow:var(--shadow-soft);
+      flex:0 0 48px;
+    }
+    .mark svg{width:28px;height:28px;fill:#fff}
+    .wordmark{
+      font-family:var(--font-heading);
+      font-weight:600;
+      font-size:1.05rem;
+      letter-spacing:0.02em;
+      color:var(--neutral-900);
+    }
+
+    nav ul{
+      display:flex;
+      list-style:none;
+      gap:18px;
+      margin:0;padding:0;
+      align-items:center;
+    }
+    nav a{
+      color:var(--neutral-700);
+      font-weight:600;
+      font-size:var(--text-size-sm);
+      padding:8px 10px;
+      border-radius:8px;
+    }
+    nav a:hover, nav a:focus{color:var(--neutral-900);outline:none}
+
+    .cta-primary{
+      background:linear-gradient(90deg,var(--color-primary), #0b8a79);
+      color:#fff;
+      padding:10px 16px;
+      border-radius:12px;
+      box-shadow:var(--shadow-soft);
+      font-weight:600;
+      transition:transform .18s var(--ease), box-shadow .18s var(--ease);
+    }
+    .cta-primary:hover{transform:translateY(-3px);box-shadow:var(--shadow-strong)}
+
+    .menu-toggle{
+      display:none;
+      background:none;
+      border:0;
+      padding:8px;
+      border-radius:8px;
+    }
+    .menu-toggle svg{width:22px;height:22px}
+
+    /* Hero */
+    .hero{
+      display:grid;
+      grid-template-columns:1fr 520px;
+      gap:48px;
+      align-items:center;
+      padding:calc(var(--space-xl) + 12px) 0;
+    }
+    .hero-left{
+      max-width:760px;
+      padding-right:12px;
+    }
+    h1{
+      margin:0 0 14px 0;
+      font-family:var(--font-heading);
+      font-size:var(--title-xl);
+      line-height:1.02;
+      color:var(--neutral-900);
+      letter-spacing:-0.01em;
+    }
+    .lead{
+      margin:0 0 22px 0;
+      color:var(--neutral-700);
+      font-size:var(--text-size-lg);
+    }
+    .hero-ctas{display:flex;gap:14px;flex-wrap:wrap}
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:12px 16px;
+      border-radius:12px;
+      font-weight:600;
+      cursor:pointer;
+      border:0;
+    }
+    .btn-ghost{
+      background:transparent;
+      color:var(--neutral-800);
+      border:1px solid rgba(11,11,11,0.06);
+    }
+
+    /* Visual card on right */
+    .hero-visual{
+      background:linear-gradient(180deg, rgba(15,107,99,0.03), rgba(243,165,122,0.03));
+      border-radius:18px;
+      padding:28px;
+      box-shadow:var(--shadow-soft);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      position:relative;
+    }
+    .plate{
+      width:320px;
+      height:320px;
+      display:grid;
+      place-items:center;
+      border-radius:50%;
+      background:radial-gradient(circle at 35% 25%, var(--color-accent) 0%, rgba(255,216,155,0.4) 18%, rgba(255,255,255,0.6) 70%);
+      box-shadow:inset 0 6px 20px rgba(11,11,11,0.03), 0 18px 40px rgba(11,11,11,0.06);
+      transform:rotate(-6deg);
+    }
+    .plate svg{width:58%;height:58%}
+
+    /* Services */
+    .section{
+      padding:48px 0;
+    }
+    .section-title{
+      display:flex;
+      align-items:baseline;
+      gap:18px;
+      margin-bottom:22px;
+    }
+    .section-title h2{
+      margin:0;
+      font-size:var(--title-md);
+      font-family:var(--font-heading);
+    }
+    .cards{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:20px;
+    }
+    .card{
+      background:linear-gradient(180deg,#fff, #fff);
+      border-radius:var(--radius-md);
+      padding:20px;
+      border:var(--border-1);
+      box-shadow:0 8px 26px rgba(17,17,17,0.03);
+      transition:transform .18s var(--ease), box-shadow .18s var(--ease);
+    }
+    .card:hover{transform:translateY(-6px);box-shadow:var(--shadow-strong)}
+    .card h3{margin:0 0 8px 0;font-size:1.05rem;font-family:var(--font-heading)}
+    .card p{margin:0;color:var(--neutral-700);font-size:var(--text-size-sm)}
+
+    /* Process */
+    .process{
+      display:grid;
+      grid-template-columns:1fr 320px;
+      gap:28px;
+      align-items:start;
+    }
+    .steps{display:flex;flex-direction:column;gap:14px}
+    .step{
+      display:flex;
+      gap:14px;
+      align-items:flex-start;
+      background:linear-gradient(180deg, #fff, #fff);
+      padding:14px;
+      border-radius:12px;
+      border:var(--border-1);
+    }
+    .step .num{
+      width:44px;height:44px;border-radius:10px;
+      background:var(--color-primary);color:#fff;display:grid;place-items:center;font-weight:700;
+      box-shadow:0 8px 18px rgba(15,107,99,0.08);
+      flex:0 0 44px;
+    }
+
+    /* Contact */
+    .contact-grid{
+      display:grid;
+      grid-template-columns:1fr 360px;
+      gap:28px;
+      align-items:start;
+    }
+    form{
+      background:#fff;
+      padding:18px;
+      border-radius:12px;
+      border:var(--border-1);
+    }
+    label{display:block;font-size:0.9rem;color:var(--neutral-700);margin-bottom:8px}
+    input[type="text"], input[type="email"], textarea, input[type="date"]{
+      width:100%;
+      padding:10px 12px;
+      border-radius:10px;
+      border:1px solid #e7e7e7;
+      font-size:var(--text-size-base);
+      outline:none;
+    }
+    textarea{min-height:120px;resize:vertical}
+    .form-row{margin-bottom:12px}
+    .form-actions{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-top:8px}
+
+    /* Footer */
+    footer{
+      margin-top:48px;
+      padding:28px 0;
+      border-top:var(--border-1);
+      color:var(--neutral-700);
+    }
+    .footer-grid{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+
+    /* Responsive */
+    @media (max-width:1100px){
+      .hero{grid-template-columns:1fr 420px}
+      .cards{grid-template-columns:repeat(2,1fr)}
+      .process{grid-template-columns:1fr}
+      .contact-grid{grid-template-columns:1fr}
+    }
+    @media (max-width:720px){
+      .nav ul{display:none}
+      .menu-toggle{display:inline-flex}
+      .hero{grid-template-columns:1fr;gap:24px}
+      .hero-visual{order:2}
+      .hero-left{order:1}
+      .cards{grid-template-columns:1fr}
+      header .wrap{padding-left:16px;padding-right:16px}
+    }
+
+    /* Mobile menu (simple) */
+    .mobile-nav{
+      display:none;
+      background:linear-gradient(180deg, rgba(255,255,255,0.98), rgba(255,255,255,0.98));
+      border-top:var(--border-1);
+      padding:12px;
+    }
+    .mobile-nav.open{display:block}
+    .mobile-nav a{display:block;padding:10px 8px;border-radius:8px;color:var(--neutral-800)}
+
+    /* Focus styles */
+    :focus{outline:3px solid rgba(15,107,99,0.12);outline-offset:3px}
+
+    /* Simple reveal animation */
+    .reveal{opacity:0;transform:translateY(12px);transition:opacity .6s var(--ease), transform .6s var(--ease)}
+    .reveal.visible{opacity:1;transform:none}
+
+    /* Respect reduced motion */
+    @media (prefers-reduced-motion: reduce){
+      *{transition:none!important;animation:none!important}
+    }
+  </style>
+</head>
+<body>
+  <a class="skiplink" href="#main">Preskoči na sadržaj</a>
+  <header>
+    <div class="wrap nav" aria-label="Glavna navigacija">
+      <div class="brand">
+        <div class="mark" aria-hidden="true">
+          <!-- minimal plate + wave mark -->
+          <svg viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+            <g fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="32" cy="32" r="18" stroke="#fff" />
+            </g>
+            <path d="M18 38c6 6 18 6 26 0" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" />
+          </svg>
+        </div>
+        <div>
+          <div class="wordmark">Adria</div>
+          <div style="font-size:0.8rem;color:var(--neutral-500);margin-top:2px">catering · restoranska usluga</div>
+        </div>
+      </div>
+
+      <nav aria-label="Glavni izbornik">
+        <ul>
+          <li><a href="#services">Ponuda</a></li>
+          <li><a href="#about">O nama</a></li>
+          <li><a href="#process">Kako radimo</a></li>
+          <li><a href="#contact" class="cta-primary">Zatražite ponudu</a></li>
+        </ul>
+      </nav>
+
+      <button class="menu-toggle" aria-expanded="false" aria-controls="mobile-nav" aria-label="Otvori izbornik">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <path d="M3 6h18M3 12h18M3 18h18" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </div>
+
+    <div id="mobile-nav" class="mobile-nav" role="menu" aria-hidden="true">
+      <div class="wrap">
+        <a href="#services" role="menuitem">Ponuda</a>
+        <a href="#about" role="menuitem">O nama</a>
+        <a href="#process" role="menuitem">Kako radimo</a>
+        <a href="#contact" role="menuitem" style="display:inline-block;margin-top:8px;" class="cta-primary">Zatražite ponudu</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="wrap hero" aria-labelledby="hero-title">
+      <div class="hero-left">
+        <h1 id="hero-title">Adria — catering i restoranska usluga jasno prilagođena vašem događanju</h1>
+        <p class="lead">Diskretan servis, promišljeni jelovnici i fleksibilna organizacija. Pomažemo u pripremi i izvedbi hrane i posluživanja, prilagođeno veličini i stilu vašeg događaja.</p>
+        <div class="hero-ctas">
+          <a class="btn cta-primary" href="#contact">Zatražite ponudu</a>
+          <a class="btn btn-ghost" href="#services">Pogledajte ponudu</a>
+        </div>
+
+        <div style="margin-top:28px;color:var(--neutral-600);font-size:0.95rem;display:flex;gap:18px;align-items:center;">
+          <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false" style="flex:0 0 18px">
+            <path d="M12 2v3M5 6.5l1.8 1.2M2 12h3M5 17.5l1.8-1.2M12 19v3M17 17.5l-1.8-1.2M22 12h-3M17 6.5l-1.8 1.2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          </svg>
+          <div>Personalizirani pristup — razgovor, plan i izvedba po dogovoru.</div>
+        </div>
+      </div>
+
+      <div class="hero-visual" aria-hidden="true">
+        <div class="plate" role="img" aria-label="Dekorativna kompozicija - stilizirani tanjur">
+          <!-- Stylized plate and utensils SVG -->
+          <svg viewBox="0 0 200 200" aria-hidden="true" focusable="false">
+            <defs>
+              <linearGradient id="g1" x1="0" x2="1" y1="0" y2="1">
+                <stop offset="0" stop-color="#fff8f0" stop-opacity="1"/>
+                <stop offset="1" stop-color="#fff1e6" stop-opacity="1"/>
+              </linearGradient>
+            </defs>
+            <circle cx="100" cy="100" r="90" fill="url(#g1)" />
+            <circle cx="100" cy="100" r="60" fill="rgba(15,107,99,0.06)"/>
+            <g transform="translate(52,56)" stroke="#0f6b63" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none">
+              <path d="M18 12c8 4 24 4 36 0" />
+              <path d="M36 8v56" />
+            </g>
+            <g transform="translate(120,95)" fill="#f3a57a" opacity="0.95">
+              <rect x="0" y="0" width="12" height="36" rx="3"/>
+              <rect x="16" y="0" width="6" height="36" rx="2"/>
+            </g>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="wrap section" aria-labelledby="services-title">
+      <div class="section-title">
+        <h2 id="services-title">Ponuda</h2>
+        <div style="color:var(--neutral-500);font-size:0.95rem">Fleksibilne opcije usluga, organizirane prema potrebama događanja</div>
+      </div>
+
+      <div class="cards">
+        <article class="card reveal" tabindex="0" aria-labelledby="svc1-title">
+          <svg width="48" height="48" viewBox="0 0 24 24" style="margin-bottom:12px" aria-hidden="true">
+            <rect x="3" y="6" width="18" height="12" rx="2" fill="#f3a57a" />
+            <path d="M3 10h18" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/>
+          </svg>
+          <h3 id="svc1-title">Usluge posluživanja</h3>
+          <p>Profesionalno posluživanje na lokaciji — organizacija protoka posluživanja i koordinacija osoblja prema potrebama događanja.</p>
+        </article>
+
+        <article class="card reveal" tabindex="0" aria-labelledby="svc2-title">
+          <svg width="48" height="48" viewBox="0 0 24 24" style="margin-bottom:12px" aria-hidden="true">
+            <circle cx="12" cy="12" r="9" fill="#0f6b63"/>
+            <path d="M7 12h10" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M7 15h10" stroke="#fff" stroke-width="1.4" stroke-linecap="round"/>
+          </svg>
+          <h3 id="svc2-title">Prilagodljivi jelovnici</h3>
+          <p>Jelovnici koji se oblikuju prema zahtjevima, broju gostiju i stilu događanja, uz jasnu komunikaciju tijekom planiranja.</p>
+        </article>
+
+        <article class="card reveal" tabindex="0" aria-labelledby="svc3-title">
+          <svg width="48" height="48" viewBox="0 0 24 24" style="margin-bottom:12px" aria-hidden="true">
+            <rect x="3" y="3" width="18" height="18" rx="3" fill="#ffd89b"/>
+            <path d="M7 12h10" stroke="#0f6b63" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M7 8h10" stroke="#0f6b63" stroke-width="1.6" stroke-linecap="round"/>
+          </svg>
+          <h3 id="svc3-title">Logistika i oprema</h3>
+          <p>Koordinacija dostave, postave i potrebne opreme na mjestu događanja te briga o detaljima izvedbe.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="about" class="wrap section" aria-labelledby="about-title">
+      <div class="section-title">
+        <h2 id="about-title">O nama</h2>
+        <div style="color:var(--neutral-500);font-size:0.95rem">Jasan pristup, profesionalna izvedba</div>
+      </div>
+
+      <div class="reveal" style="display:grid;grid-template-columns:1fr 320px;gap:28px;align-items:start">
+        <div>
+          <p style="margin-top:0;color:var(--neutral-700);font-size:var(--text-size-lg)">Adria pruža usluge cateringa i restoranske podrške s fokusom na prilagodbu i kvalitetu izvedbe. Radimo s ciljem da svaki događaj ima ugodno gastronomsko iskustvo i besprijekoran servis, uz jasnu komunikaciju tijekom pripreme.</p>
+          <p style="color:var(--neutral-700)">Naše usluge prilagođavamo raznim formatima događanja i potrebama naručitelja. U planiranju se koncentriramo na jasne opcije, logistiku i koordinaciju na dan događaja.</p>
+        </div>
+        <aside style="background:linear-gradient(180deg,#fff,#fff);padding:18px;border-radius:12px;border:var(--border-1);">
+          <h3 style="margin:0 0 8px 0;font-family:var(--font-heading)">Kvaliteta izvedbe</h3>
+          <p style="margin:0;color:var(--neutral-700)">Pažnja posvećena detaljima — od prezentacije jela do koordinacije posluživanja.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section id="process" class="wrap section" aria-labelledby="process-title">
+      <div class="section-title">
+        <h2 id="process-title">Kako radimo</h2>
+        <div style="color:var(--neutral-500);font-size:0.95rem">Jasan i transparentan proces</div>
+      </div>
+
+      <div class="process">
+        <div class="steps">
+          <div class="step reveal" tabindex="0">
+            <div class="num">1</div>
+            <div>
+              <strong>Početni razgovor</strong>
+              <div style="color:var(--neutral-700)">Razgovaramo o osnovnim potrebama — format događaja, broj gostiju i želje naručitelja.</div>
+            </div>
+          </div>
+
+          <div class="step reveal" tabindex="0">
+            <div class="num">2</div>
+            <div>
+              <strong>Planiranje</strong>
+              <div style="color:var(--neutral-700)">Predlažemo opcije jelovnika, raspored posluživanja i potrebnu opremu, uz jasne informacije o izvedbi.</div>
+            </div>
+          </div>
+
+          <div class="step reveal" tabindex="0">
+            <div class="num">3</div>
+            <div>
+              <strong>Izvedba</strong>
+              <div style="color:var(--neutral-700)">Na dan događaja koordiniramo logistiku i posluživanje, usredotočeni na urednu i profesionalnu realizaciju.</div>
+            </div>
+          </div>
+        </div>
+
+        <div style="background:linear-gradient(180deg,#fff,#fff);padding:20px;border-radius:12px;border:var(--border-1);">
+          <h3 style="margin-top:0;font-family:var(--font-heading)">Prilagodba</h3>
+          <p style="color:var(--neutral-700)">Svaki projekt prilagođavamo dostupnim resursima i željama naručitelja. Jasna komunikacija i dogovor ključni su za uspješnu izvedbu.</p>
+          <div style="margin-top:14px">
+            <a class="btn cta-primary" href="#contact">Dogovorite termin</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="wrap section" aria-labelledby="contact-title">
+      <div class="section-title">
+        <h2 id="contact-title">Kontakt</h2>
+        <div style="color:var(--neutral-500);font-size:0.95rem">Pošaljite upit i opišite svoje potrebe</div>
+      </div>
+
+      <div class="contact-grid">
+        <form aria-label="Kontakt obrazac" method="post" action="#contact" onsubmit="/* form submits to this page; backend nije konfiguriran */">
+          <div class="form-row">
+            <label for="name">Vaše ime</label>
+            <input id="name" name="name" type="text" required placeholder="Ime i prezime" />
+          </div>
+
+          <div class="form-row" style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+            <div>
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" required placeholder="primjer@domena.hr" />
+            </div>
+            <div>
+              <label for="date">Datum događaja (opcional)</label>
+              <input id="date" name="date" type="date" />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <label for="message">Poruka / napomene</label>
+            <textarea id="message" name="message" placeholder="Kratki opis događaja i posebne želje" required></textarea>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn cta-primary">Pošaljite upit</button>
+            <a href="http://adria-restoran.hr/index.html" class="btn btn-ghost" target="_blank" rel="noopener">Posjetite službenu web stranicu</a>
+          </div>
+
+          <p style="margin-top:12px;color:var(--neutral-500);font-size:0.9rem">Napomena: obrazac šalje upit na adresu tvrtke. Ako trebate direktnu potvrdu, koristite dostupne kontakte na službenoj web stranici.</p>
+        </form>
+
+        <aside style="padding:18px;border-radius:12px;border:var(--border-1);background:linear-gradient(180deg,#fff,#fff);">
+          <h3 style="margin-top:0;font-family:var(--font-heading)">Dodatne informacije</h3>
+          <p style="color:var(--neutral-700);margin-bottom:8px">Ako želite, u poruci navedite očekivani broj gostiju, datum i lokaciju događanja. To nam pomaže pripremiti relevantne opcije.</p>
+
+          <div style="margin-top:12px;color:var(--neutral-700)">
+            <strong>Web:</strong><br />
+            <a href="http://adria-restoran.hr/index.html" target="_blank" rel="noopener">adria-restoran.hr</a>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-grid">
+      <div>
+        <div style="font-weight:700;font-family:var(--font-heading)">Adria</div>
+        <div style="color:var(--neutral-500)">catering · restoranska usluga</div>
+      </div>
+
+      <nav aria-label="Podnožje">
+        <a href="#services" style="margin-right:12px;color:var(--neutral-700)">Ponuda</a>
+        <a href="#about" style="margin-right:12px;color:var(--neutral-700)">O nama</a>
+        <a href="#contact" style="color:var(--neutral-700)">Kontakt</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script>
+    (function(){
+      // Mobile menu toggle
+      const toggle = document.querySelector('.menu-toggle');
+      const mobileNav = document.getElementById('mobile-nav');
+      toggle && toggle.addEventListener('click', function(){
+        const open = mobileNav.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', String(open));
+        mobileNav.setAttribute('aria-hidden', String(!open));
+      });
+
+      // Reveal on scroll
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (!prefersReducedMotion) {
+        const reveals = document.querySelectorAll('.reveal');
+        const io = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              io.unobserve(entry.target);
+            }
+          });
+        }, {threshold: 0.12});
+        reveals.forEach(r => io.observe(r));
+      } else {
+        // show all
+        document.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
+      }
+
+      // Keyboard accessibility for mobile nav links
+      document.querySelectorAll('#mobile-nav a').forEach(a=>{
+        a.addEventListener('click', ()=> {
+          mobileNav.classList.remove('open');
+          toggle && toggle.setAttribute('aria-expanded','false');
+          mobileNav.setAttribute('aria-hidden','true');
+        });
+      });
+
+      // Ensure internal links navigate smoothly for keyboard users
+      document.querySelectorAll('a[href^="#"]').forEach(a=>{
+        a.addEventListener('click', function(e){
+          const targetId = this.getAttribute('href').slice(1);
+          if(!targetId) return;
+          const target = document.getElementById(targetId);
+          if(target){
+            e.preventDefault();
+            target.focus({preventScroll:true});
+            window.scrollTo({top: target.getBoundingClientRect().top + window.scrollY - 72, behavior: 'smooth'});
+            setTimeout(()=> target.focus(), 400);
+          }
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
