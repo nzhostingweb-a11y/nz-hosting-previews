@@ -1,0 +1,493 @@
+ <!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Kuća Pizze — Catering pizza za događanja | Zatražite ponudu</title>
+  <meta name="description" content="Kuća Pizze — profesionalni pizza catering za događanja i okupljanja. Prilagođeni jelovnici, pouzdana komunikacija i izrada za veće grupe. Kontakt: +385 1 7898 675" />
+  <meta property="og:title" content="Kuća Pizze — Catering pizza za događanja" />
+  <meta property="og:description" content="Pizza catering prilagođen događanjima i poslovnim susretima. Javite se za ponudu: +385 1 7898 675" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="http://www.kucapizze.com/" />
+  <link rel="canonical" href="http://www.kucapizze.com/" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --brand-primary: #C94A28; /* top warm tomato */
+      --brand-secondary: #142028; /* deep slate */
+      --accent: #F2C94C; /* warm cheese accent */
+      --neutral-900: #0B1320;
+      --neutral-700: #2F3B45;
+      --neutral-500: #6B7680;
+      --neutral-200: #E9ECEF;
+      --bg: #fffdfb;
+      --glass: rgba(20,32,40,0.04);
+
+      --radius-sm: 8px;
+      --radius-md: 16px;
+      --radius-xl: 28px;
+
+      --spacing-xs: 8px;
+      --spacing-sm: 16px;
+      --spacing-md: 28px;
+      --spacing-lg: 48px;
+
+      --shadow-1: 0 6px 20px rgba(10,18,24,0.08);
+      --shadow-2: 0 10px 40px rgba(10,18,24,0.10);
+
+      --ff-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      --ff-serif: "Playfair Display", Georgia, "Times New Roman", serif;
+
+      --container: 1200px;
+    }
+
+    /* Fluid typography */
+    html { font-family: var(--ff-sans); color: var(--neutral-900); background: linear-gradient(180deg,var(--bg) 0%, #fff 60%); -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; }
+    :root { font-size: 16px; }
+    h1 { font-family: var(--ff-serif); font-weight:700; font-size: clamp(1.6rem, 2.6vw, 2.6rem); line-height:1.02; margin:0; color:var(--brand-secondary); }
+    h2 { font-family: var(--ff-serif); font-weight:600; font-size: clamp(1.15rem, 1.8vw, 1.6rem); color:var(--neutral-900); margin:0 0 var(--spacing-sm) 0; }
+    p { font-size: clamp(0.95rem, 1.2vw, 1rem); color:var(--neutral-700); margin:0 0 var(--spacing-sm) 0; }
+    small { color:var(--neutral-500); }
+
+    .container { max-width:var(--container); margin:0 auto; padding:0 20px; }
+
+    /* NAV */
+    header { position:sticky; top:16px; z-index:40; display:flex; justify-content:center; }
+    nav { width:100%; background:transparent; display:flex; align-items:center; justify-content:space-between; gap:16px; padding:10px 20px; border-radius:14px; max-width:var(--container); }
+    .brand { display:flex; align-items:center; gap:12px; text-decoration:none; color:inherit; }
+    .wordmark { display:flex; flex-direction:column; line-height:1; }
+    .wordmark .name { font-family:var(--ff-serif); font-weight:700; font-size:1.05rem; color:var(--brand-secondary); }
+    .wordmark .tag { font-size:0.78rem; color:var(--neutral-500); letter-spacing:0.02em; }
+
+    .nav-links { display:flex; gap:18px; align-items:center; }
+    .nav-links a { color:var(--neutral-700); text-decoration:none; padding:8px 10px; border-radius:10px; font-weight:600; }
+    .nav-links a:focus, .nav-links a:hover { color:var(--brand-primary); outline:none; box-shadow:inset 0 -2px 0 var(--brand-primary); }
+
+    .cta { display:inline-flex; align-items:center; gap:10px; background:linear-gradient(90deg,var(--brand-primary), #E34B2B); color:white; padding:10px 16px; border-radius:12px; text-decoration:none; font-weight:700; box-shadow:var(--shadow-1); transition:transform .18s ease, box-shadow .18s ease; }
+    .cta:active { transform:translateY(1px); }
+    .cta:focus { outline:3px solid rgba(201,74,40,0.18); }
+
+    /* Mobile menu */
+    .menu-toggle { display:none; background:transparent; border:1px solid rgba(20,32,40,0.06); padding:8px; border-radius:10px; }
+    .menu-toggle[aria-expanded="true"] { background:var(--brand-primary); color:#fff; }
+
+    /* HERO */
+    .hero { padding:calc(var(--spacing-lg) + 10px) 0 calc(var(--spacing-lg)/1.2); display:grid; grid-template-columns: 1fr 420px; gap:48px; align-items:center; }
+    .hero-left { max-width:720px; }
+    .kicker { display:inline-flex; gap:10px; align-items:center; background:var(--glass); border-radius:999px; padding:8px 12px; color:var(--neutral-700); font-weight:600; font-size:0.9rem; margin-bottom:12px; }
+    .hero p.lead { font-size:clamp(1.02rem,1.6vw,1.08rem); color:var(--neutral-700); margin-top:12px; margin-bottom:22px; }
+    .hero-ctas { display:flex; gap:16px; align-items:center; margin-top:18px; }
+    .secondary { padding:10px 14px; border-radius:12px; background:transparent; border:1px solid var(--neutral-200); color:var(--neutral-700); text-decoration:none; font-weight:600; }
+    .hero-meta { display:flex; gap:18px; margin-top:18px; color:var(--neutral-500); align-items:center; font-weight:600; }
+
+    /* Hero visual */
+    .hero-right { position:relative; display:flex; align-items:center; justify-content:center; }
+    .visual-card { width:100%; max-width:420px; background:linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.85)); border-radius:var(--radius-xl); box-shadow:var(--shadow-2); padding:20px; border:1px solid rgba(20,32,40,0.04); display:flex; gap:14px; align-items:center; }
+    .pizza-illustration { width:160px; height:160px; flex:0 0 160px; display:block; border-radius:14px; background:linear-gradient(180deg,#fff7ef, #fff2ea); padding:10px; display:grid; place-items:center; }
+    .visual-info { flex:1; }
+    .visual-info h3 { margin:0 0 6px 0; font-size:1.02rem; color:var(--brand-secondary); }
+    .visual-info p { margin:0; color:var(--neutral-700); }
+
+    /* Sections */
+    main { padding-bottom:80px; }
+    section { padding: calc(var(--spacing-lg)/1.2) 0; }
+    .section-head { display:flex; justify-content:space-between; align-items:end; gap:20px; margin-bottom:20px; }
+    .cards { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+    .card { background:white; border-radius:16px; padding:20px; box-shadow:var(--shadow-1); border:1px solid rgba(10,18,24,0.03); display:flex; gap:14px; align-items:flex-start; }
+    .card svg { flex:0 0 48px; width:48px; height:48px; border-radius:12px; padding:8px; background:linear-gradient(180deg,rgba(201,74,40,0.08), rgba(242,201,76,0.03)); }
+    .card h4 { margin:0 0 6px 0; font-size:1rem; color:var(--brand-secondary); }
+    .card p { margin:0; color:var(--neutral-700); }
+
+    /* How it works */
+    .steps { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+    .step { background:linear-gradient(180deg, rgba(248,246,243,1), white); padding:18px; border-radius:12px; border:1px solid rgba(10,18,24,0.03); }
+
+    /* Contact */
+    .contact-grid { display:grid; grid-template-columns: 1fr 360px; gap:28px; align-items:start; }
+    .contact-card { background:white; padding:20px; border-radius:12px; box-shadow:var(--shadow-1); border:1px solid rgba(10,18,24,0.03); }
+    .phone { display:flex; gap:12px; align-items:center; font-weight:700; color:var(--brand-secondary); }
+    .contact-actions { display:flex; gap:12px; margin-top:12px; flex-wrap:wrap; }
+    .btn-ghost { background:transparent; border:1px solid var(--neutral-200); padding:10px 12px; border-radius:10px; color:var(--neutral-700); text-decoration:none; font-weight:600; }
+
+    /* Footer */
+    footer { padding:30px 0; border-top:1px solid rgba(10,18,24,0.03); background:transparent; }
+    .footer-grid { display:flex; justify-content:space-between; align-items:center; gap:20px; flex-wrap:wrap; }
+
+    /* Responsiveness */
+    @media (max-width: 1100px){
+      .hero { grid-template-columns: 1fr 360px; gap:28px; }
+      .cards { grid-template-columns:repeat(2,1fr); }
+      .steps { grid-template-columns:repeat(2,1fr); }
+      .contact-grid { grid-template-columns:1fr; }
+    }
+    @media (max-width: 760px){
+      header { padding:12px 10px; }
+      nav { padding:8px 10px; }
+      .menu-toggle { display:inline-flex; align-items:center; justify-content:center; }
+      .nav-links { display:none; position:absolute; right:18px; top:64px; background:white; border-radius:12px; padding:12px; box-shadow:var(--shadow-2); flex-direction:column; min-width:200px; }
+      .nav-links.show { display:flex; }
+      .hero { grid-template-columns:1fr; gap:24px; padding-top:40px; padding-bottom:40px; }
+      .hero-right { order:-1; justify-content:flex-end; }
+      .cards { grid-template-columns:1fr; }
+      .steps { grid-template-columns:1fr; }
+      .visual-card { max-width:320px; width:100%; }
+      .brand .tag { display:none; }
+    }
+
+    /* Reveal animations */
+    .reveal { opacity:0; transform:translateY(12px) scale(.995); transition:opacity .6s ease, transform .6s cubic-bezier(.2,.9,.3,1); will-change:opacity,transform; }
+    .reveal.visible { opacity:1; transform:none; }
+
+    /* Focus styles */
+    :focus { outline: none; }
+    a:focus, button:focus, input:focus { box-shadow: 0 0 0 3px rgba(20,32,40,0.08); border-radius:10px; }
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce){
+      .reveal { transition:none; transform:none; opacity:1; }
+      .cta, .menu-toggle { transition:none; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="container" aria-label="Glavna navigacija">
+      <a href="#hero" class="brand" aria-label="Kuća Pizze početna">
+        <svg width="42" height="42" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+          <defs>
+            <linearGradient id="g1" x1="0" x2="1">
+              <stop offset="0" stop-color="#FFD9B3"/>
+              <stop offset="1" stop-color="#FFEFE6"/>
+            </linearGradient>
+          </defs>
+          <rect width="64" height="64" rx="12" fill="#fff7ef"></rect>
+          <g transform="translate(6,6)" fill="none" stroke="#C94A28" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M26 4c8 0 14 6 14 14s-6 14-14 14S12 26 12 18 18 4 26 4z" fill="url(#g1)" stroke="none" />
+            <path d="M8 28c6 4 18 4 24 0" stroke-opacity=".18"/>
+          </g>
+        </svg>
+        <div class="wordmark">
+          <span class="name">Kuća Pizze</span>
+          <span class="tag">pizza catering i događanja</span>
+        </div>
+      </a>
+
+      <button class="menu-toggle" aria-expanded="false" aria-controls="primary-navigation" aria-label="Otvorite izbornik">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M3 6h18M3 12h18M3 18h18" stroke="#142028" stroke-width="1.6" stroke-linecap="round" />
+        </svg>
+      </button>
+
+      <div id="primary-navigation" class="nav-links" role="navigation">
+        <a href="#usluge">Usluge</a>
+        <a href="#o-nama">O nama</a>
+        <a href="#kako-funkcionira">Kako surađujemo</a>
+        <a href="#kontakt">Kontakt</a>
+      </div>
+
+      <a class="cta" href="#kontakt">Zatražite ponudu</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="hero" class="hero container" aria-labelledby="hero-title">
+      <div class="hero-left">
+        <span class="kicker">Pizza Catering • Prilagodljivo • Pristupačno</span>
+        <h1 id="hero-title">Kuća Pizze — pizza catering za događanja</h1>
+        <p class="lead">Pripremamo i poslužujemo svježe pizza opcije prilagođene veličini i tipu vašeg događaja. Fokus na jasnoj komunikaciji, dohvatljivom kontaktu i praktičnim rješenjima za grupne narudžbe.</p>
+
+        <div class="hero-ctas">
+          <a class="cta" href="#kontakt" aria-label="Zatražite ponudu putem kontakta">Zatražite ponudu</a>
+          <a class="secondary" href="#usluge" aria-label="Pogledajte usluge Kuće Pizze">Pogledaj ponudu</a>
+        </div>
+
+        <div class="hero-meta" aria-hidden="true">
+          <div><strong>Telefon:</strong>&nbsp;<a href="tel:+38517898675">+385 1 7898 675</a></div>
+          <div><strong>Email:</strong>&nbsp;<a href="mailto:karlatrsinski@gmail.com">karlatrsinski@gmail.com</a></div>
+        </div>
+      </div>
+
+      <div class="hero-right">
+        <div class="visual-card reveal" aria-hidden="false">
+          <div class="pizza-illustration" role="img" aria-label="Ilustracija pizze">
+            <!-- Inline SVG pizza slice decorative -->
+            <svg width="140" height="140" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <defs>
+                <linearGradient id="crust" x1="0" x2="1"><stop offset="0" stop-color="#F1C38A"/><stop offset="1" stop-color="#E2A665"/></linearGradient>
+                <linearGradient id="sauce" x1="0" x2="1"><stop offset="0" stop-color="#F25A3A"/><stop offset="1" stop-color="#D8472A"/></linearGradient>
+                <linearGradient id="cheese" x1="0" x2="1"><stop offset="0" stop-color="#FFE59C"/><stop offset="1" stop-color="#FFDA7A"/></linearGradient>
+              </defs>
+              <g transform="translate(10,10) scale(.9)">
+                <path d="M100 4C148 4 188 44 188 92c0 44-66 94-84 102-18-8-84-58-84-102C16 44 56 4 100 4z" fill="url(#crust)"></path>
+                <path d="M100 18c40 0 72 32 72 72 0 32-48 74-72 88-24-14-72-56-72-88 0-40 32-72 72-72z" fill="url(#cheese)"></path>
+                <path d="M100 36c30 0 54 24 54 54 0 24-36 58-54 68-18-10-54-44-54-68 0-30 24-54 54-54z" fill="url(#sauce)"></path>
+                <!-- toppings -->
+                <circle cx="86" cy="74" r="6" fill="#9B2B2B"></circle>
+                <circle cx="118" cy="92" r="6" fill="#9B2B2B"></circle>
+                <circle cx="96" cy="120" r="6" fill="#9B2B2B"></circle>
+                <circle cx="72" cy="102" r="5" fill="#6AA84F"></circle>
+                <circle cx="130" cy="74" r="5" fill="#6AA84F"></circle>
+              </g>
+            </svg>
+          </div>
+
+          <div class="visual-info">
+            <h3>Svježe pripremljene pizza opcije</h3>
+            <p>Fokusiramo se na sastojke i izvedbu za grupe — praktična rješenja za događanja svih veličina.</p>
+            <div style="margin-top:12px;">
+              <a class="btn-ghost" href="#kako-funkcionira">Kako surađujemo</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="usluge" class="container reveal" aria-labelledby="usluge-title">
+      <div class="section-head">
+        <div>
+          <h2 id="usluge-title">Što nudimo</h2>
+          <p>Pregled usluga usmjerenih na pizza catering i podršku događanjima.</p>
+        </div>
+      </div>
+
+      <div class="cards" role="list">
+        <article class="card" role="listitem" aria-labelledby="c1">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <rect width="24" height="24" rx="6" fill="#FFF7EF"/>
+            <path d="M6 8h12M6 12h12M8 16h8" stroke="#C94A28" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <div>
+            <h4 id="c1">Pizza catering za događanja</h4>
+            <p>Priprema pizza prilagođenih za posluživanje na događajima — fleksibilne opcije i praktična logistika.</p>
+          </div>
+        </article>
+
+        <article class="card" role="listitem" aria-labelledby="c2">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <rect width="24" height="24" rx="6" fill="#FFF7EF"/>
+            <path d="M12 7v10M7 12h10" stroke="#F2C94C" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <div>
+            <h4 id="c2">Prilagođeni jelovnici</h4>
+            <p>Sastavljamo ponude prema potrebama vaše grupe — fokus na jasnoći, jednostavnoj komunikaciji i realnim opcijama.</p>
+          </div>
+        </article>
+
+        <article class="card" role="listitem" aria-labelledby="c3">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <rect width="24" height="24" rx="6" fill="#FFF7EF"/>
+            <path d="M4 12h16M12 4v16" stroke="#142028" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <div>
+            <h4 id="c3">Dostupnost za različite lokacije</h4>
+            <p>Koordiniramo isporuku i posluživanje prema vašim zahtjevima; za detalje kontaktirajte nas izravno.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="o-nama" class="container reveal" aria-labelledby="onama-title">
+      <div>
+        <h2 id="onama-title">O nama</h2>
+        <p>Kuća Pizze je specijalizirana za pizza catering i rješenja za grupna događanja. Radimo fokusirano na jednostavnoj i jasnoj komunikaciji s naručiteljima kako bi logistika bila bez stresa.</p>
+      </div>
+    </section>
+
+    <section id="prednosti" class="container reveal" aria-labelledby="prednosti-title">
+      <div class="section-head">
+        <h2 id="prednosti-title">Naš pristup</h2>
+      </div>
+      <div class="cards" style="grid-template-columns:repeat(3,1fr);">
+        <article class="card" aria-labelledby="p1">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="6" fill="#fff4e6"/><path d="M6 12h12" stroke="#C94A28" stroke-width="1.6" stroke-linecap="round"/></svg>
+          <div>
+            <h4 id="p1">Jasan dogovor</h4>
+            <p>Precizna komunikacija o obujmu i vremenu — bez nejasnoća.</p>
+          </div>
+        </article>
+
+        <article class="card" aria-labelledby="p2">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="6" fill="#fff9e6"/><path d="M6 8l6 8 6-8" stroke="#F2C94C" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <div>
+            <h4 id="p2">Praktična izvedba</h4>
+            <p>Jednostavna rješenja za posluživanje i organizaciju na mjestu događanja.</p>
+          </div>
+        </article>
+
+        <article class="card" aria-labelledby="p3">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="6" fill="#f1f7f8"/><path d="M6 12h12M9 8v8M15 8v8" stroke="#142028" stroke-width="1.4" stroke-linecap="round"/></svg>
+          <div>
+            <h4 id="p3">Pristupačnost</h4>
+            <p>Pismena i brza potvrda dogovora te otvoreni kanali komunikacije.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="kako-funkcionira" class="container reveal" aria-labelledby="kako-title">
+      <div>
+        <h2 id="kako-title">Kako surađujemo</h2>
+        <p>Suradnja se temelji na nekoliko jasnih koraka — od upita do potvrde izvršenja.</p>
+      </div>
+
+      <div class="steps" style="margin-top:16px;">
+        <div class="step" aria-labelledby="s1">
+          <h4 id="s1">Pošaljite upit</h4>
+          <p>Kontaktirajte nas telefonom ili emailom i navedite osnovne informacije o događaju.</p>
+        </div>
+
+        <div class="step" aria-labelledby="s2">
+          <h4 id="s2">Potvrda detalja</h4>
+          <p>Razmjenjujemo detalje o količinama, vremenu i logistici kako bi sve bilo jasno.</p>
+        </div>
+
+        <div class="step" aria-labelledby="s3">
+          <h4 id="s3">Isporuka i posluživanje</h4>
+          <p>Na dan događaja koordiniramo isporuku i poslužujemo prema prethodnom dogovoru.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="kontakt" class="container reveal" aria-labelledby="kontakt-title">
+      <div>
+        <h2 id="kontakt-title">Kontakt</h2>
+        <p>Javite nam se kako bismo pripremili ponudu za vaše događanje. Odgovaramo na upite putem telefona i emaila.</p>
+      </div>
+
+      <div class="contact-grid" style="margin-top:18px;">
+        <div class="contact-card" aria-labelledby="contact-info">
+          <h3 id="contact-info">Podaci za kontakt</h3>
+          <p class="phone" aria-hidden="false">
+            <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5c1 5 5 9 10 10l3-3c.5-.5 1.2-.5 1.7 0l2 2c.5.5.5 1.2 0 1.7l-2 2c-1.8 1.8-5 3-8.4 3C6.3 21.7 2.3 17.7 1 12 1 9.5 1.8 7.2 3 5z" fill="#C94A28"></path></svg>
+            <a href="tel:+38517898675">+385 1 7898 675</a>
+          </p>
+
+          <p style="margin-top:8px;"><strong>Email:</strong> <a href="mailto:karlatrsinski@gmail.com">karlatrsinski@gmail.com</a></p>
+
+          <div class="contact-actions" aria-hidden="false">
+            <a class="cta" href="tel:+38517898675" aria-label="Pozovite Kuću Pizze">Pozovite nas</a>
+            <a class="btn-ghost" href="mailto:karlatrsinski@gmail.com?subject=Upit%20za%20pizza%20catering" aria-label="Pošaljite email">Pošaljite email</a>
+            <a class="btn-ghost" href="http://www.kucapizze.com/" target="_blank" rel="noopener">Službena stranica</a>
+          </div>
+        </div>
+
+        <aside class="contact-card" aria-labelledby="brzi-upit">
+          <h3 id="brzi-upit">Brzi upit</h3>
+          <p>Pošaljite osnovne informacije i odgovoriti ćemo s prijedlogom sljedećih koraka.</p>
+
+          <!-- Simple form that builds a mailto link via JS (no backend) -->
+          <form id="inquiry" onsubmit="return handleInquiry(event)" aria-label="Forma brzog upita">
+            <label for="name" style="display:block;margin-top:10px;font-weight:600;">Ime i prezime</label>
+            <input id="name" name="name" type="text" required placeholder="Vaše ime" style="width:100%;padding:10px;border-radius:8px;border:1px solid var(--neutral-200);font-size:0.95rem;" />
+
+            <label for="people" style="display:block;margin-top:10px;font-weight:600;">Broj osoba (procjena)</label>
+            <input id="people" name="people" type="text" inputmode="numeric" placeholder="npr. 30" style="width:100%;padding:10px;border-radius:8px;border:1px solid var(--neutral-200);font-size:0.95rem;" />
+
+            <label for="note" style="display:block;margin-top:10px;font-weight:600;">Kratka poruka</label>
+            <textarea id="note" name="note" rows="3" placeholder="Datum, lokacija, posebne napomene" style="width:100%;padding:10px;border-radius:8px;border:1px solid var(--neutral-200);font-size:0.95rem;"></textarea>
+
+            <div style="margin-top:12px;display:flex;gap:10px;align-items:center;">
+              <button type="submit" class="cta" style="font-size:0.95rem;">Pošalji upit</button>
+              <button type="button" class="btn-ghost" onclick="clearForm()" style="font-size:0.95rem;">Očisti</button>
+            </div>
+
+            <p style="margin-top:10px;font-size:0.86rem;color:var(--neutral-500);">Napomena: ova forma generira email u vašem klijentu za slanje — ne šaljemo podatke bez vašeg odobrenja.</p>
+          </form>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-grid">
+      <div style="display:flex;flex-direction:column;">
+        <div style="font-weight:700;color:var(--brand-secondary);">Kuća Pizze</div>
+        <small style="margin-top:6px;color:var(--neutral-500);">Pizza catering — kontakt: <a href="tel:+38517898675">+385 1 7898 675</a> • <a href="mailto:karlatrsinski@gmail.com">karlatrsinski@gmail.com</a></small>
+      </div>
+
+      <nav aria-label="Podnožje" style="display:flex;gap:14px;align-items:center;">
+        <a href="#usluge">Usluge</a>
+        <a href="#kako-funkcionira">Kako surađujemo</a>
+        <a href="#kontakt">Kontakt</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    (function(){
+      const btn = document.querySelector('.menu-toggle');
+      const nav = document.getElementById('primary-navigation');
+
+      btn.addEventListener('click', () => {
+        const expanded = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', String(!expanded));
+        nav.classList.toggle('show');
+      });
+
+      // Close menu on focusout or escape
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          btn.setAttribute('aria-expanded','false');
+          nav.classList.remove('show');
+        }
+      });
+
+      // Smooth scroll for internal links
+      document.querySelectorAll('a[href^="#"]').forEach(link => {
+        link.addEventListener('click', (e) => {
+          const targetId = link.getAttribute('href').slice(1);
+          const target = document.getElementById(targetId);
+          if (target) {
+            e.preventDefault();
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            // close mobile nav on selection
+            nav.classList.remove('show');
+            btn.setAttribute('aria-expanded','false');
+          }
+        });
+      });
+    })();
+
+    // Simple reveal on scroll, respecting reduced motion
+    (function(){
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        document.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
+        return;
+      }
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            e.target.classList.add('visible');
+            io.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.12 });
+
+      document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+    })();
+
+    // Contact form: build mailto and open user's email client
+    function handleInquiry(evt){
+      evt.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const people = document.getElementById('people').value.trim();
+      const note = document.getElementById('note').value.trim();
+
+      const subject = encodeURIComponent('Upit za pizza catering — Kuća Pizze');
+      let body = `Ime: ${name || '-'}%0D%0ABroj osoba: ${people || '-'}%0D%0A%0D%0ADetalji:%0D%0A${note || '-'}`;
+      const mailto = `mailto:karlatrsinski@gmail.com?subject=${subject}&body=${body}`;
+      // open mail client
+      window.location.href = mailto;
+      return false;
+    }
+
+    function clearForm(){
+      document.getElementById('inquiry').reset();
+    }
+
+    // Accessibility: ensure focusable order and skip links are not needed since layout is concise.
+  </script>
+</body>
+</html>
