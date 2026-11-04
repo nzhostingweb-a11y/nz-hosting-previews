@@ -1,0 +1,684 @@
+ <!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Mondo — Catering i pizza bar za događanja | Nazovite +385 49 223 836</title>
+  <meta name="description" content="Mondo — catering i pizza bar za događanja. Brza komunikacija za upite i narudžbe. Pozovite +385 49 223 836 ili pogledajte meni." />
+  <meta property="og:title" content="Mondo — Catering i pizza bar za događanja" />
+  <meta property="og:description" content="Kontaktirajte Mondo za catering i pizze za evente. Brzi upiti na +385 49 223 836." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      /* Boje i dizajn sustav */
+      --color-primary: #B84E35;      /* topao terracotta */
+      --color-secondary: #2E2E2E;    /* duboki ugljen */
+      --color-accent: #7AA06A;       /* sofisticirana maslinasta */
+      --neutral-100: #FFFFFF;
+      --neutral-200: #F6F6F5;
+      --neutral-500: #7A7A78;
+      --neutral-800: #111114;
+      --bg: var(--neutral-100);
+      --surface: #FFFFFF;
+      --glass: rgba(255,255,255,0.6);
+
+      /* Tipografija */
+      --font-heading: "Playfair Display", Georgia, serif;
+      --font-body: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+      /* Spacing */
+      --space-xxs: 6px;
+      --space-xs: 10px;
+      --space-sm: 16px;
+      --space-md: 24px;
+      --space-lg: 40px;
+      --space-xl: 64px;
+
+      /* Border radii */
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+
+      /* Sjene i obrubi */
+      --shadow-soft: 0 6px 20px rgba(17,17,20,0.08);
+      --outline: 2px solid rgba(184,78,53,0.08);
+
+      /* Tipografija fluid */
+      --h1: clamp(1.9rem, 3.6vw + 0.6rem, 3.6rem);
+      --h2: clamp(1.4rem, 2.2vw + 0.4rem, 2rem);
+      --body: clamp(0.95rem, 0.6vw + 0.8rem, 1.05rem);
+      --lead: clamp(1.05rem, 0.9vw + 0.9rem, 1.25rem);
+
+      --container-max: 1200px;
+    }
+
+    /* Reset i baza */
+    * {box-sizing: border-box;}
+    html,body{height:100%;}
+    body{
+      margin:0;
+      font-family:var(--font-body);
+      background: linear-gradient(180deg, var(--bg) 0%, #FBFBFA 100%);
+      color:var(--neutral-800);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+      text-rendering:optimizeLegibility;
+      overflow-x:hidden;
+      padding-bottom:40px;
+    }
+
+    a{color:inherit;text-decoration:none;}
+    img{max-width:100%;height:auto;display:block;}
+
+    /* Container */
+    .wrap{
+      max-width:var(--container-max);
+      margin:0 auto;
+      padding:0 24px;
+    }
+
+    /* NAV */
+    header{
+      position:sticky;
+      top:0;
+      z-index:60;
+      background:linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.7));
+      backdrop-filter: blur(6px);
+      border-bottom:1px solid rgba(17,17,20,0.04);
+    }
+    .nav{
+      display:flex;
+      align-items:center;
+      gap:16px;
+      justify-content:space-between;
+      padding:14px 0;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+    .wordmark{
+      font-family:var(--font-heading);
+      font-weight:700;
+      color:var(--color-secondary);
+      letter-spacing:0.6px;
+      font-size:1.05rem;
+    }
+    .tag{
+      font-size:0.8rem;
+      color:var(--neutral-500);
+      margin-top:2px;
+    }
+
+    nav .links{
+      display:flex;
+      gap:18px;
+      align-items:center;
+    }
+    nav a.link{
+      font-weight:600;
+      color:var(--neutral-800);
+      padding:8px 6px;
+      border-radius:8px;
+      transition:all .18s ease;
+      font-size:0.95rem;
+    }
+    nav a.link:focus, nav a.link:hover{
+      outline:none;
+      transform:translateY(-2px);
+      color:var(--color-primary);
+    }
+
+    .ctas{
+      display:flex;
+      gap:10px;
+      align-items:center;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:10px 16px;
+      border-radius:12px;
+      background:var(--color-primary);
+      color:var(--neutral-100);
+      font-weight:600;
+      box-shadow:var(--shadow-soft);
+      border:0;
+      cursor:pointer;
+      transition:transform .18s ease, box-shadow .18s ease, background .12s ease;
+      text-decoration:none;
+    }
+    .btn.secondary{
+      background:transparent;
+      color:var(--color-secondary);
+      border:1px solid rgba(17,17,20,0.06);
+    }
+    .btn:focus{outline:3px solid rgba(184,78,53,0.12);}
+
+    /* Mobile nav */
+    .menu-toggle{
+      display:none;
+      background:transparent;
+      border:0;
+      padding:8px;
+      border-radius:10px;
+      cursor:pointer;
+    }
+    .menu-toggle:focus{outline:3px solid rgba(17,17,20,0.06);}
+
+    /* HERO */
+    .hero{
+      display:grid;
+      grid-template-columns: 1fr 420px;
+      gap:40px;
+      align-items:center;
+      padding:64px 0 56px;
+    }
+    .hero-left{
+      max-width:720px;
+    }
+    h1{
+      font-family:var(--font-heading);
+      font-size:var(--h1);
+      line-height:1.02;
+      margin:0 0 12px 0;
+      color:var(--color-secondary);
+      letter-spacing:-0.6px;
+    }
+    p.lead{
+      margin:0 0 22px 0;
+      color:var(--neutral-500);
+      font-size:var(--lead);
+    }
+    .hero-ctas{display:flex;gap:12px;flex-wrap:wrap;}
+
+    .kicker{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:6px 10px;
+      border-radius:999px;
+      background:rgba(122,160,106,0.08);
+      color:var(--color-accent);
+      font-weight:600;
+      font-size:0.85rem;
+      margin-bottom:18px;
+    }
+
+    /* Hero visual card */
+    .hero-card{
+      background:linear-gradient(180deg, #FFF 0%, #FFF8F6 100%);
+      border-radius:18px;
+      padding:22px;
+      box-shadow: var(--shadow-soft);
+      display:flex;
+      gap:16px;
+      align-items:center;
+      border:1px solid rgba(184,78,53,0.06);
+    }
+    .visual{
+      width:120px;
+      height:120px;
+      border-radius:14px;
+      background:linear-gradient(135deg, rgba(184,78,53,0.08), rgba(122,160,106,0.06));
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      flex-shrink:0;
+      position:relative;
+    }
+    .visual svg{width:78px;height:78px;display:block;}
+    .card-content{flex:1;}
+    .card-title{font-weight:700;color:var(--color-secondary);margin-bottom:6px;}
+    .card-sub{font-size:0.95rem;color:var(--neutral-500);margin:0;}
+
+    /* Sections */
+    section{padding:60px 0;border-top:1px solid rgba(17,17,20,0.02);}
+    .section-head{
+      display:flex;
+      align-items:baseline;
+      gap:18px;
+      margin-bottom:22px;
+    }
+    .eyebrow{
+      color:var(--color-accent);
+      font-weight:700;
+      font-size:0.9rem;
+      background:rgba(122,160,106,0.06);
+      padding:6px 10px;border-radius:999px;
+    }
+
+    /* Usluge cards */
+    .grid{
+      display:grid;
+      gap:20px;
+      grid-template-columns:repeat(3,1fr);
+    }
+    .card{
+      background:var(--surface);
+      padding:20px;
+      border-radius:14px;
+      box-shadow:var(--shadow-soft);
+      border:1px solid rgba(17,17,20,0.03);
+      transition:transform .18s ease, box-shadow .18s ease;
+    }
+    .card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(17,17,20,0.06);}
+    .card h3{margin:0 0 8px 0;font-size:1.05rem;color:var(--color-secondary);}
+    .card p{margin:0;color:var(--neutral-500);font-size:0.96rem;}
+
+    /* Kako funkcionira */
+    .steps{
+      display:grid;
+      gap:18px;
+      grid-template-columns:repeat(3,1fr);
+      margin-top:12px;
+    }
+    .step{
+      background:linear-gradient(180deg, #FFF 0%, #FBFBFB 100%);
+      padding:18px;border-radius:12px;border:1px solid rgba(17,17,20,0.03);
+      display:flex;gap:12px;align-items:flex-start;
+    }
+    .step svg{flex-shrink:0;}
+    .step h4{margin:0 0 6px 0;font-size:1rem;color:var(--color-secondary);}
+    .step p{margin:0;color:var(--neutral-500);font-size:0.95rem;}
+
+    /* Kontakt */
+    .contact-card{
+      display:flex;
+      gap:20px;
+      align-items:center;
+      justify-content:space-between;
+      padding:20px;
+      border-radius:14px;
+      background:linear-gradient(180deg, #FFF 0%, #FFFDFB 100%);
+      box-shadow:var(--shadow-soft);
+      border:1px solid rgba(17,17,20,0.03);
+      flex-wrap:wrap;
+    }
+    .contact-left{display:flex;gap:16px;align-items:center;}
+    .phone{
+      display:flex;flex-direction:column;
+    }
+    .phone a{font-weight:700;color:var(--color-secondary);font-size:1.05rem;}
+    .contact-actions{display:flex;gap:10px;align-items:center;}
+
+    footer{
+      margin-top:28px;
+      padding:28px 0 60px;
+      color:var(--neutral-500);
+      font-size:0.95rem;
+    }
+    footer .foot-wrap{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;}
+    footer a{color:var(--neutral-500);}
+
+    /* Responsive */
+    @media (max-width:1024px){
+      .hero{grid-template-columns:1fr 360px;gap:28px;padding:48px 0;}
+      .grid{grid-template-columns:repeat(2,1fr);}
+      .steps{grid-template-columns:repeat(2,1fr);}
+    }
+    @media (max-width:720px){
+      .nav .links{display:none;}
+      .menu-toggle{display:inline-flex;}
+      .hero{grid-template-columns:1fr;gap:18px;padding:36px 0;}
+      .hero-card{order:2;}
+      .visual{width:96px;height:96px;}
+      .grid{grid-template-columns:1fr;}
+      .steps{grid-template-columns:1fr;}
+      .contact-card{flex-direction:column;align-items:flex-start;}
+    }
+
+    /* Mobile menu panel */
+    .mobile-nav{
+      display:none;
+      position:fixed;
+      inset:0;
+      background:linear-gradient(180deg, rgba(17,17,20,0.06), rgba(17,17,20,0.02));
+      z-index:70;
+      padding:28px;
+      backdrop-filter: blur(6px);
+    }
+    .mobile-panel{
+      max-width:340px;
+      background:var(--surface);
+      border-radius:16px;
+      padding:18px;
+      box-shadow:0 30px 60px rgba(17,17,20,0.12);
+      border:1px solid rgba(17,17,20,0.04);
+    }
+    .mobile-panel a{display:block;padding:12px 8px;border-radius:8px;color:var(--color-secondary);font-weight:600;}
+    .mobile-panel a:focus, .mobile-panel a:hover{background:rgba(184,78,53,0.06);color:var(--color-primary);}
+
+    /* Focus visible */
+    :focus{outline:none;}
+    :focus-visible{outline:3px solid rgba(122,160,106,0.14);border-radius:8px;}
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce){
+      *{transition:none!important;animation:none!important;}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap nav" role="navigation" aria-label="Glavna navigacija">
+      <div class="brand" aria-hidden="false">
+        <svg width="44" height="44" viewBox="0 0 48 48" fill="none" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+          <rect width="48" height="48" rx="10" fill="#FFF"/>
+          <path d="M14 30c4-6 10-6 14-2" stroke="#B84E35" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M18 22c2-3 6-3 9-1" stroke="#7AA06A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <div>
+          <div class="wordmark">Mondo</div>
+          <div class="tag">catering • pizza bar za događanja</div>
+        </div>
+      </div>
+
+      <nav aria-label="Sekcije">
+        <div class="links" role="menu">
+          <a class="link" href="#usluge">Usluge</a>
+          <a class="link" href="#kako">Kako radimo</a>
+          <a class="link" href="#o-nama">O nama</a>
+          <a class="link" href="#kontakt">Kontakt</a>
+        </div>
+      </nav>
+
+      <div class="ctas">
+        <a class="btn" href="tel:+38549223836" aria-label="Nazovite Mondo">Nazovite nas</a>
+        <a class="btn secondary" href="https://www.citypark-zabok.com/city-park/pizza-bar/18.html" target="_blank" rel="noopener">Pogledajte meni</a>
+
+        <button class="menu-toggle" aria-controls="mobile-nav" aria-expanded="false" aria-label="Otvorite izbornik" id="menuToggle">
+          <svg width="22" height="18" viewBox="0 0 22 18" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect y="1" width="22" height="2" rx="1" fill="#111114"/>
+            <rect y="8" width="22" height="2" rx="1" fill="#111114"/>
+            <rect y="15" width="22" height="2" rx="1" fill="#111114"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main role="main">
+    <div class="wrap hero" id="top">
+      <div class="hero-left">
+        <span class="kicker" aria-hidden="true">
+          Catering • Pizza • Događanja
+        </span>
+
+        <h1>Svježa pizza i pažljivo pripremljen catering za vaše događanje</h1>
+
+        <p class="lead">Mondo pruža praktična rješenja za male i srednje događaje — od brzih pizza narudžbi do cateringa prilagođenog situaciji. Brza komunikacija i jasni sljedeći koraci.</p>
+
+        <div class="hero-ctas" role="group" aria-label="Pozivi na akciju">
+          <a class="btn" href="tel:+38549223836">Nazovite: +385 49 223 836</a>
+          <a class="btn secondary" href="https://www.citypark-zabok.com/city-park/pizza-bar/18.html" target="_blank" rel="noopener">Pogledajte meni</a>
+        </div>
+
+        <div style="margin-top:28px;">
+          <div style="display:flex;gap:14px;align-items:center;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M3 7a1 1 0 011-1h16a1 1 0 011 1v10a1 1 0 01-1 1H4a1 1 0 01-1-1V7z" stroke="#7AA06A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M8 3v4" stroke="#B84E35" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <div style="color:var(--neutral-500)">Za brze upite nazovite — dogovor je korak dalje od telefonskog razgovora.</div>
+          </div>
+        </div>
+      </div>
+
+      <aside class="hero-card" aria-hidden="false" role="region" aria-label="Vizualna prezentacija">
+        <div class="visual" aria-hidden="true">
+          <!-- original decorative pizza slice SVG -->
+          <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="pizzaTitle">
+            <title id="pizzaTitle">Ilustracija pizze</title>
+            <path d="M6 58c12-10 30-12 52 0 0 0-6-24-26-42C29 6 10 36 6 58z" fill="#FCE9E5"/>
+            <path d="M33 15c12 11 20 24 21 39-10-9-26-13-39-8 4-10 10-29 18-31z" fill="#FFF4E9"/>
+            <circle cx="30" cy="34" r="3" fill="#B84E35"/>
+            <circle cx="42" cy="44" r="3" fill="#B84E35"/>
+            <circle cx="20" cy="46" r="2.5" fill="#B84E35"/>
+            <path d="M10 56c10-8 28-10 44 0" stroke="#E6BBAF" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+        </div>
+
+        <div class="card-content">
+          <div class="card-title">Brza koordinacija za događanja</div>
+          <p class="card-sub">Kontaktirajte nas telefonom za dostupnost i kratki pregled ponude. Ako želite, možemo vam uputiti link s detaljima menija.</p>
+        </div>
+      </aside>
+    </div>
+
+    <!-- USLUGE -->
+    <section id="usluge" aria-labelledby="usluge-heading">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">Ponuda</div>
+          <div>
+            <h2 id="usluge-heading" style="margin:0;font-size:var(--h2);">Što Mondo radi</h2>
+            <div style="color:var(--neutral-500);margin-top:6px;">Općeniti opis usluga temeljen na dostupnim podatcima</div>
+          </div>
+        </div>
+
+        <div class="grid" role="list">
+          <article class="card" role="listitem">
+            <h3>Catering za događanja</h3>
+            <p>Organizacija posluženja prilagođenog događaju — praktična izvedba i koordinacija. Kontaktirajte za procjenu potreba.</p>
+          </article>
+
+          <article class="card" role="listitem">
+            <h3>Pizza bar za evente</h3>
+            <p>Priprema svježih pizza s naglaskom na praktičnost posluživanja za učestala događanja i manje grupe.</p>
+          </article>
+
+          <article class="card" role="listitem">
+            <h3>Kratki upiti i dogovor</h3>
+            <p>Brza telefonska komunikacija radi potvrde termina i osnovnih zahtjeva — nazovite broj naveden na stranici.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Kako funkcionira suradnja -->
+    <section id="kako" aria-labelledby="kako-heading">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">Proces</div>
+          <div>
+            <h2 id="kako-heading" style="margin:0;font-size:var(--h2);">Kako obično surađujemo</h2>
+            <div style="color:var(--neutral-500);margin-top:6px;">Jasan i jednostavan tijek koji započinje kontaktnim razgovorom</div>
+          </div>
+        </div>
+
+        <div class="steps" role="list">
+          <div class="step" role="listitem">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M3 8.5A4.5 4.5 0 017.5 4h9A4.5 4.5 0 0121 8.5V14" stroke="#B84E35" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M7 20h10" stroke="#7AA06A" stroke-width="1.6" stroke-linecap="round"/>
+            </svg>
+            <div>
+              <h4>Kontakt</h4>
+              <p>Kratki telefonski razgovor radi provjere datuma i osnovnih potreba.</p>
+            </div>
+          </div>
+
+          <div class="step" role="listitem">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <rect x="3" y="6" width="18" height="12" rx="2" stroke="#B84E35" stroke-width="1.6"/>
+              <path d="M7 10h10" stroke="#7AA06A" stroke-width="1.6" stroke-linecap="round"/>
+            </svg>
+            <div>
+              <h4>Dogovor</h4>
+              <p>Razmjena ključnih informacija i potvrda osnovnih opcija putem telefona.</p>
+            </div>
+          </div>
+
+          <div class="step" role="listitem">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M12 3v7" stroke="#B84E35" stroke-width="1.6" stroke-linecap="round"/>
+              <path d="M6 14l6 6 6-6" stroke="#7AA06A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <div>
+              <h4>Izvedba</h4>
+              <p>Koordinacija na dan događanja prema dogovorenim okvirima i dostupnosti.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- O NAMA -->
+    <section id="o-nama" aria-labelledby="onama-heading">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">O tvrtki</div>
+          <div>
+            <h2 id="onama-heading" style="margin:0;font-size:var(--h2);">Mondo — kratko predstavljanje</h2>
+            <div style="color:var(--neutral-500);margin-top:6px;">Informacije temeljene na javno dostupnim podacima</div>
+          </div>
+        </div>
+
+        <div style="display:flex;gap:22px;align-items:flex-start;flex-wrap:wrap;">
+          <div style="flex:1;min-width:260px;">
+            <p style="color:var(--neutral-500);margin-top:0;">Mondo se oglašava kao pružatelj cateringa i pizza bara za događanja. Za točne informacije o ponudi i dostupnosti molimo kontaktirajte navedeni broj telefona ili pogledajte javno dostupnu stranicu s menijem.</p>
+          </div>
+
+          <div style="width:320px;">
+            <div class="card" style="padding:14px;">
+              <h3 style="margin-top:0;">Brzi kontakti</h3>
+              <p style="margin:6px 0;color:var(--neutral-500);">Telefon: <a href="tel:+38549223836">+385 49 223 836</a></p>
+              <p style="margin:6px 0;color:var(--neutral-500);">Javni izvor menija: <a href="https://www.citypark-zabok.com/city-park/pizza-bar/18.html" target="_blank" rel="noopener">City Park — Pizza Bar</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Kontakt -->
+    <section id="kontakt" aria-labelledby="kontakt-heading">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">Kontakt</div>
+          <div>
+            <h2 id="kontakt-heading" style="margin:0;font-size:var(--h2);">Kako stupiti u kontakt</h2>
+            <div style="color:var(--neutral-500);margin-top:6px;">Najbrži način je telefonom — iskoristite primarni poziv na akciju.</div>
+          </div>
+        </div>
+
+        <div class="contact-card" role="region" aria-label="Kontakt informacije">
+          <div class="contact-left">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M3 5a2 2 0 012-2h3.5a1 1 0 01.9.56l1.2 2.4a1 1 0 01-.2 1.08L8.5 9.9a14 14 0 006 6l2.86-1.17a1 1 0 011.08-.2l2.4 1.2a1 1 0 01.56.9V19a2 2 0 01-2 2h-1C9.163 21 3 14.837 3 7V5z" stroke="#B84E35" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+
+            <div class="phone">
+              <div style="font-size:0.85rem;color:var(--neutral-500);">Telefonski kontakt</div>
+              <a href="tel:+38549223836" aria-label="Nazovite Mondo">+385 49 223 836</a>
+            </div>
+          </div>
+
+          <div style="display:flex;gap:12px;align-items:center;" class="contact-actions">
+            <a class="btn" href="tel:+38549223836">Nazovite</a>
+            <a class="btn secondary" href="https://www.citypark-zabok.com/city-park/pizza-bar/18.html" target="_blank" rel="noopener">Pogledajte meni</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap foot-wrap" role="contentinfo">
+      <div>
+        <div style="font-weight:700;color:var(--color-secondary);">Mondo</div>
+        <div style="color:var(--neutral-500);margin-top:6px;">Catering i pizza bar — kontakt: <a href="tel:+38549223836">+385 49 223 836</a></div>
+      </div>
+
+      <div style="display:flex;gap:18px;align-items:center;">
+        <a href="#top">Na vrh</a>
+        <a href="https://www.citypark-zabok.com/city-park/pizza-bar/18.html" target="_blank" rel="noopener">Meni (City Park)</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Mobile nav panel -->
+  <div id="mobile-nav" class="mobile-nav" aria-hidden="true">
+    <div class="mobile-panel" role="dialog" aria-modal="true" aria-label="Mobilni izbornik">
+      <div style="display:flex;justify-content:space-between;align-items:center;">
+        <div style="font-weight:700;">Mondo</div>
+        <button id="mobileClose" aria-label="Zatvori izbornik" style="background:transparent;border:0;padding:6px;cursor:pointer;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M18 6L6 18M6 6l12 12" stroke="#111114" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+
+      <nav style="margin-top:12px;">
+        <a href="#usluge">Usluge</a>
+        <a href="#kako">Kako radimo</a>
+        <a href="#o-nama">O nama</a>
+        <a href="#kontakt">Kontakt</a>
+        <a href="tel:+38549223836">Nazovite: +385 49 223 836</a>
+      </nav>
+    </div>
+  </div>
+
+  <script>
+    // Mobile menu toggle
+    (function(){
+      const menuToggle = document.getElementById('menuToggle');
+      const mobileNav = document.getElementById('mobile-nav');
+      const mobileClose = document.getElementById('mobileClose');
+
+      function openMenu(){
+        mobileNav.style.display = 'block';
+        mobileNav.setAttribute('aria-hidden','false');
+        menuToggle.setAttribute('aria-expanded','true');
+        // trap focus lightly by focusing close button
+        mobileClose.focus();
+      }
+      function closeMenu(){
+        mobileNav.style.display = 'none';
+        mobileNav.setAttribute('aria-hidden','true');
+        menuToggle.setAttribute('aria-expanded','false');
+        menuToggle.focus();
+      }
+
+      menuToggle.addEventListener('click', function(){
+        const expanded = this.getAttribute('aria-expanded') === 'true';
+        if(expanded) closeMenu(); else openMenu();
+      });
+      mobileClose.addEventListener('click', closeMenu);
+
+      // close on backdrop click
+      mobileNav.addEventListener('click', function(e){
+        if(e.target === mobileNav) closeMenu();
+      });
+
+      // keyboard access
+      document.addEventListener('keydown', function(e){
+        if(e.key === 'Escape'){
+          if(mobileNav.getAttribute('aria-hidden') === 'false') closeMenu();
+        }
+      });
+
+      // smooth scrolling for internal links
+      document.querySelectorAll('a[href^="#"]').forEach(a=>{
+        a.addEventListener('click', function(e){
+          const href = this.getAttribute('href');
+          if(href.length > 1){
+            const el = document.querySelector(href);
+            if(el){
+              e.preventDefault();
+              el.scrollIntoView({behavior:'smooth', block:'start'});
+              // close mobile menu if open
+              if(mobileNav.getAttribute('aria-hidden') === 'false') closeMenu();
+            }
+          }
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
