@@ -1,0 +1,616 @@
+ <!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Policijska postaja Ogulin — Informacije i kontakt</title>
+  <meta name="description" content="Policijska postaja Ogulin — lokalna točka za sigurnost, prijave i informacije za građane. Kontakt: +385 47 664 939. Više informacija na službenoj stranici." />
+  <meta property="og:title" content="Policijska postaja Ogulin — Informacije i kontakt" />
+  <meta property="og:description" content="Lokalna točka za sigurnost i pomoć građanima. Kontakt: +385 47 664 939. Službena stranica: karlovacka.policija.hr" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="http://karlovacka.policija.hr/MainPu.aspx?id=14449" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Crimson+Text:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      /* Colors */
+      --color-primary: #0b3b5b; /* deep police blue */
+      --color-secondary: #f5a623; /* warm accent */
+      --color-accent: #00a3a3; /* fresh teal for small accents */
+      --neutral-900: #0b1215;
+      --neutral-800: #172027;
+      --neutral-700: #2a3a45;
+      --neutral-500: #7b8b95;
+      --neutral-300: #c9d6db;
+      --neutral-100: #f5f7f8;
+      --bg: linear-gradient(180deg, rgba(11,59,91,0.95) 0%, rgba(8,46,72,0.92) 40%, rgba(4,28,43,0.9) 100%);
+
+      /* Typography */
+      --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      --font-serif: "Crimson Text", Georgia, "Times New Roman", serif;
+
+      /* Sizing & spacing */
+      --space-xxs: 4px;
+      --space-xs: 8px;
+      --space-sm: 12px;
+      --space-md: 20px;
+      --space-lg: 36px;
+      --space-xl: 56px;
+      --container: 1200px;
+
+      /* Radii */
+      --radius-sm: 6px;
+      --radius-md: 12px;
+      --radius-lg: 18px;
+
+      /* Shadows */
+      --shadow-soft: 0 6px 18px rgba(4,20,29,0.28);
+      --shadow-card: 0 8px 30px rgba(2,16,24,0.28);
+
+      /* Transitions */
+      --ease: cubic-bezier(.2,.9,.3,1);
+    }
+
+    /* Base */
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:var(--font-sans);
+      color:var(--neutral-100);
+      background: #0b1215;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    a{color:inherit; text-decoration:none}
+    img{max-width:100%;height:auto;display:block}
+
+    header{
+      position:sticky; top:0; z-index:60;
+      backdrop-filter: blur(6px);
+      background: linear-gradient(180deg, rgba(11,18,21,0.6), rgba(11,18,21,0.35));
+      border-bottom: 1px solid rgba(255,255,255,0.03);
+    }
+
+    .nav-wrap{
+      max-width:var(--container);
+      margin:0 auto;
+      display:flex;
+      align-items:center;
+      gap:20px;
+      padding:14px 20px;
+    }
+
+    .wordmark{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      color:var(--neutral-100);
+      font-weight:700;
+      letter-spacing:0.4px;
+    }
+    .logo-mark{
+      width:44px;height:44px;
+      display:grid;place-items:center;
+      background:linear-gradient(135deg,var(--color-secondary),var(--color-accent));
+      border-radius:10px;
+      box-shadow: var(--shadow-soft);
+      flex:0 0 44px;
+    }
+    .wordmark h1{
+      margin:0;font-size:16px;font-family:var(--font-serif);
+      line-height:1;
+    }
+    .wordmark p{margin:0; font-size:12px; color:rgba(255,255,255,0.85); font-weight:400}
+
+    nav{margin-left:auto; display:flex; align-items:center; gap:18px}
+    .nav-links{display:flex; gap:14px; align-items:center}
+    .nav-links a{
+      color:var(--neutral-100);
+      font-weight:600; font-size:14px;
+      padding:8px 10px;
+      border-radius:8px;
+      transition:all .22s var(--ease);
+    }
+    .nav-links a:focus{outline:3px solid rgba(245,166,35,0.12); outline-offset:3px}
+    .nav-links a:hover{transform:translateY(-3px); color:var(--color-secondary)}
+
+    .cta{
+      display:inline-flex; align-items:center; gap:10px;
+      background: linear-gradient(90deg,var(--color-secondary),#ffb86b);
+      color:var(--neutral-900);
+      padding:10px 14px;
+      border-radius:12px;
+      font-weight:700;
+      box-shadow: var(--shadow-soft);
+      transition:transform .18s var(--ease), box-shadow .18s var(--ease);
+    }
+    .cta:active{transform:translateY(1px)}
+    .cta:focus{outline:3px solid rgba(0,163,163,0.14); outline-offset:3px}
+
+    /* Mobile menu */
+    .menu-btn{
+      display:none;
+      background:transparent;border:0;color:var(--neutral-100);
+      width:44px;height:44px;border-radius:10px;align-items:center;justify-content:center;
+    }
+    .menu-btn:focus{outline:3px solid rgba(255,255,255,0.06)}
+    .menu-panel{display:none}
+
+    /* HERO */
+    .hero{
+      min-height:68vh;
+      display:grid;
+      align-items:center;
+      position:relative;
+      padding: clamp(28px, 6vw, 80px) 20px;
+      background-image: var(--bg);
+      overflow:hidden;
+    }
+    .hero-inner{
+      max-width:var(--container);
+      margin:0 auto;
+      display:grid;
+      grid-template-columns: 1fr 460px;
+      gap:48px;
+      align-items:center;
+    }
+    .hero-kicker{
+      display:inline-flex;
+      gap:10px;
+      align-items:center;
+      background:rgba(255,255,255,0.04);
+      padding:8px 12px;border-radius:999px;
+      color:var(--neutral-100);
+      font-weight:600;font-size:13px;
+      width:max-content;
+      box-shadow: none;
+    }
+    .hero-title{
+      margin-top:18px;
+      font-family:var(--font-serif);
+      font-weight:700;
+      color: #fff;
+      font-size: clamp(28px, 4.8vw, 48px);
+      line-height:1.02;
+      letter-spacing:-0.02em;
+    }
+    .hero-lead{
+      margin-top:14px;
+      color:rgba(255,255,255,0.9);
+      max-width:62ch;
+      font-size: clamp(15px, 2vw, 18px);
+    }
+    .hero-actions{
+      margin-top:22px;
+      display:flex; gap:12px; align-items:center;
+    }
+    .btn-primary{
+      display:inline-flex; align-items:center; gap:10px;
+      padding:12px 18px; border-radius:12px;
+      background: linear-gradient(90deg,var(--color-secondary),#ffb86b);
+      color:var(--neutral-900); font-weight:700;
+      box-shadow: var(--shadow-card);
+      transition:transform .16s var(--ease);
+    }
+    .btn-primary:hover{transform:translateY(-3px)}
+    .btn-secondary{
+      padding:10px 14px; border-radius:10px;
+      background:rgba(255,255,255,0.04);
+      color:var(--neutral-100); font-weight:600;
+      border:1px solid rgba(255,255,255,0.03);
+    }
+
+    /* Hero visual card */
+    .hero-card{
+      background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+      border-radius:18px;
+      padding:22px;
+      box-shadow:var(--shadow-card);
+      display:flex;
+      gap:18px;
+      align-items:center;
+      border: 1px solid rgba(255,255,255,0.03);
+    }
+    .shield{
+      width:124px;height:124px;flex:0 0 124px;
+      display:grid;place-items:center;border-radius:14px;
+      background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+      position:relative; overflow:visible;
+    }
+    .shield svg{width:88px;height:88px;display:block}
+
+    .card-info h3{margin:0;font-size:18px;font-weight:700;color:#fff}
+    .card-info p{margin:6px 0 0;color:var(--neutral-300);font-size:14px}
+
+    /* Services */
+    .section{padding:64px 20px}
+    .container{max-width:var(--container);margin:0 auto}
+    .services-grid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:22px;
+      margin-top:28px;
+    }
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      padding:20px;border-radius:14px;
+      border:1px solid rgba(255,255,255,0.03);
+      box-shadow: 0 10px 30px rgba(2,16,24,0.22);
+      transition:transform .18s var(--ease), box-shadow .18s var(--ease);
+    }
+    .card:hover{transform:translateY(-8px)}
+    .card h4{margin:0 0 8px;font-size:16px;color:#fff}
+    .card p{margin:0;color:var(--neutral-300);font-size:14px}
+    .icon{
+      width:56px;height:56px;border-radius:10px;display:grid;place-items:center;
+      margin-bottom:10px;background:rgba(255,255,255,0.02);
+    }
+
+    /* About & Approach */
+    .about-grid{display:grid;grid-template-columns:1fr 360px;gap:28px;align-items:start}
+    .about p{color:var(--neutral-300);font-size:15px}
+    .approach{background:linear-gradient(90deg, rgba(0,163,163,0.06), rgba(245,166,35,0.04)); padding:18px;border-radius:12px}
+    .approach h4{margin:0 0 8px;color:#fff}
+    .approach p{margin:0;color:var(--neutral-300);font-size:14px}
+
+    /* Extra section: Kako postupiti */
+    .steps{display:flex;flex-direction:column;gap:12px;margin-top:18px}
+    .step{display:flex;gap:14px;align-items:flex-start;background:rgba(255,255,255,0.02);padding:14px;border-radius:10px}
+    .step strong{display:block;color:#fff;font-size:15px}
+    .step p{margin:0;color:var(--neutral-300);font-size:14px}
+
+    /* Contact & Footer */
+    .contact-card{display:flex;gap:18px;align-items:center;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:18px;border-radius:14px;border:1px solid rgba(255,255,255,0.03)}
+    footer{
+      margin-top:48px;
+      padding:36px 20px;
+      background:linear-gradient(180deg, rgba(4,12,18,0.5), rgba(2,6,9,0.9));
+      color:var(--neutral-300);
+    }
+    .footer-inner{max-width:var(--container);margin:0 auto;display:flex;justify-content:space-between;gap:24px;align-items:center}
+    .footer-nav a{display:inline-block;margin-right:14px;color:var(--neutral-300)}
+    .muted{color:var(--neutral-500)}
+
+    /* Responsive */
+    @media (max-width:1100px){
+      .hero-inner{grid-template-columns:1fr 1fr}
+      .services-grid{grid-template-columns: repeat(2,1fr)}
+      .about-grid{grid-template-columns:1fr}
+    }
+    @media (max-width:720px){
+      .nav-links{display:none}
+      .menu-btn{display:inline-flex}
+      .hero-inner{grid-template-columns:1fr; gap:20px}
+      .hero-card{order:2}
+      .hero{min-height:72vh;padding-top:20px;padding-bottom:40px}
+      .services-grid{grid-template-columns:1fr}
+    }
+
+    /* Menu panel for mobile */
+    .menu-panel{
+      position:fixed; inset:64px 18px auto 18px; z-index:80;
+      background: linear-gradient(180deg, rgba(11,18,21,0.96), rgba(11,18,21,0.94));
+      border-radius:12px;padding:12px;
+      display:none;box-shadow:var(--shadow-card); border:1px solid rgba(255,255,255,0.03);
+    }
+    .menu-panel a{display:block;padding:12px;border-radius:8px;color:var(--neutral-100);font-weight:600}
+    .menu-panel a:hover{background:rgba(255,255,255,0.02)}
+
+    /* Focus visible */
+    :focus{outline-offset:3px}
+    a:focus,button:focus{outline:3px solid rgba(255,255,255,0.06); border-radius:8px}
+
+    /* Respect reduced motion */
+    @media (prefers-reduced-motion: reduce){
+      *{transition:none !important}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav-wrap" role="navigation" aria-label="Glavna navigacija">
+      <div class="wordmark" aria-hidden="false">
+        <div class="logo-mark" aria-hidden="true">
+          <!-- simple shield mark -->
+          <svg viewBox="0 0 48 48" width="28" height="28" fill="none" aria-hidden="true">
+            <defs>
+              <linearGradient id="g1" x1="0" x2="1">
+                <stop offset="0" stop-color="#F5A623"/>
+                <stop offset="1" stop-color="#00A3A3"/>
+              </linearGradient>
+            </defs>
+            <path d="M24 3l11 5v8c0 9-6.5 16-11 18-4.5-2-11-9-11-18V8l11-5z" fill="url(#g1)"/>
+            <path d="M24 9v12" stroke="#fff" stroke-opacity="0.9" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div>
+          <h1>Policijska postaja Ogulin</h1>
+          <p>Javna sigurnost i pomoć građanima</p>
+        </div>
+      </div>
+
+      <nav aria-label="Sekcije stranice">
+        <div class="nav-links" role="menubar">
+          <a href="#usluge" role="menuitem">Usluge</a>
+          <a href="#o-nama" role="menuitem">O nama</a>
+          <a href="#kako" role="menuitem">Kako postupiti</a>
+          <a href="#kontakt" role="menuitem">Kontakt</a>
+        </div>
+        <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="menuPanel" aria-label="Otvorite izbornik">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M4 6h16M4 12h16M4 18h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+
+        <a class="cta" href="tel:+38547664939" aria-label="Nazovite Policijsku postaju Ogulin">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2 4.18 2 2 0 0 1 4 2h3a2 2 0 0 1 2 1.72c.12.78.34 1.53.63 2.24a2 2 0 0 1-.45 2.11l-1.27 1.27a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.71.29 1.46.51 2.24.63A2 2 0 0 1 22 16.92z" stroke="#061826" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Nazovite
+        </a>
+      </nav>
+    </div>
+
+    <div id="menuPanel" class="menu-panel" role="menu" aria-hidden="true">
+      <a href="#usluge" role="menuitem">Usluge</a>
+      <a href="#o-nama" role="menuitem">O nama</a>
+      <a href="#kako" role="menuitem">Kako postupiti</a>
+      <a href="#kontakt" role="menuitem">Kontakt</a>
+      <a href="tel:+38547664939" role="menuitem" style="margin-top:8px;font-weight:700;color:var(--neutral-100)">Nazovite: +385 47 664 939</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" aria-label="Hero">
+      <div class="hero-inner container">
+        <div>
+          <div class="hero-kicker" aria-hidden="true">
+            Lokalna policija
+          </div>
+          <h2 class="hero-title">Policijska postaja Ogulin — vaša lokalna točka sigurnosti</h2>
+          <p class="hero-lead">Pružamo informacije, zaprimamo prijave i surađujemo s građanima kako bi se unaprijedila sigurnost zajednice. Ako trebate pomoć ili informacije, kontaktirajte nas telefonom ili pogledajte službenu stranicu.</p>
+
+          <div class="hero-actions" role="group" aria-label="Glavni pozivi na akciju">
+            <a class="btn-primary" href="tel:+38547664939" aria-label="Nazovite Policijsku postaju Ogulin">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2 4.18 2 2 0 0 1 4 2h3a2 2 0 0 1 2 1.72c.12.78.34 1.53.63 2.24a2 2 0 0 1-.45 2.11l-1.27 1.27a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.71.29 1.46.51 2.24.63A2 2 0 0 1 22 16.92z" stroke="#061826" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              Nazovite odmah
+            </a>
+            <a class="btn-secondary" href="#usluge">Rad i usluge</a>
+            <a class="btn-secondary" href="http://karlovacka.policija.hr/MainPu.aspx?id=14449" target="_blank" rel="noopener noreferrer" style="margin-left:6px">Službena stranica</a>
+          </div>
+        </div>
+
+        <aside class="hero-card" aria-hidden="false" aria-label="Informativna kartica">
+          <div class="shield" aria-hidden="true">
+            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <defs>
+                <linearGradient id="sg1" x1="0" x2="1">
+                  <stop offset="0" stop-color="#ffffff" stop-opacity="0.95"/>
+                  <stop offset="1" stop-color="#ffffff" stop-opacity="0.6"/>
+                </linearGradient>
+              </defs>
+              <path d="M50 6 L78 20 V43 C78 66 63 82 50 88 C37 82 22 66 22 43 V20 Z" fill="url(#sg1)" opacity="0.08"/>
+              <path d="M50 18 L70 29 V46 C70 63 58 75 50 79 C42 75 30 63 30 46 V29 Z" fill="#fff" opacity="0.06"/>
+              <g transform="translate(22,22)">
+                <rect x="13" y="8" width="30" height="6" rx="3" fill="#fff" opacity="0.06"/>
+                <rect x="13" y="20" width="20" height="6" rx="3" fill="#fff" opacity="0.06"/>
+              </g>
+            </svg>
+          </div>
+          <div class="card-info">
+            <h3>Kontakt</h3>
+            <p>Telefon: <strong style="color:var(--color-secondary)">+385 47 664 939</strong></p>
+            <p style="margin-top:6px;color:var(--neutral-300);font-size:13px">Više informacija na službenoj stranici policije.</p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="usluge" class="section" aria-labelledby="usluge-heading">
+      <div class="container">
+        <h2 id="usluge-heading" style="margin:0;font-family:var(--font-serif);font-size:24px;color:#fff">Rad i zadaće</h2>
+        <p class="muted" style="margin-top:8px;max-width:70ch">Policijska postaja obavlja zadaće vezane uz provedbu javnog reda i sigurnosti, prijem obavijesti i suradnju s lokalnom zajednicom. Ispod su neke od ključnih područja rada.</p>
+
+        <div class="services-grid" role="list">
+          <article class="card" role="listitem" aria-labelledby="s1">
+            <div class="icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+                <path d="M3 7h18M7 7v11a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V7" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
+                <path d="M10 3h4v4h-4z" fill="#fff" opacity="0.08"/>
+              </svg>
+            </div>
+            <h4 id="s1">Zaprimanje prijava i izvještavanje</h4>
+            <p>Prijave o kaznenim djelima i narušavanju javnog reda zaprimaju se i evidentiraju u skladu sa zakonom. Ako imate informacije ili sumnje, obratite se telefonom ili osobno.</p>
+          </article>
+
+          <article class="card" role="listitem" aria-labelledby="s2">
+            <div class="icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+                <path d="M12 2v6M20 8l-8 8-4-4-6 6" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
+              </svg>
+            </div>
+            <h4 id="s2">Informiranje i pravne upute</h4>
+            <p>Građanima se pružaju osnovne informacije i upute o postupanju u različitim situacijama. Za pravne savjete obratite se službenim kanalima ili potražite stručnu pomoć.</p>
+          </article>
+
+          <article class="card" role="listitem" aria-labelledby="s3">
+            <div class="icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+                <path d="M3 12h4l3 8 4-16 3 6h4" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
+              </svg>
+            </div>
+            <h4 id="s3">Prevencija i suradnja u zajednici</h4>
+            <p>Radimo s lokalnim dionicima na sprječavanju nezakonitih ponašanja i unaprjeđenju sigurnosti javnih prostora kroz informacije i zajedničke inicijative.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="o-nama" class="section" aria-labelledby="o-nama-heading" style="padding-top:12px;padding-bottom:12px;">
+      <div class="container about-grid">
+        <div class="about">
+          <h2 id="o-nama-heading" style="font-family:var(--font-serif);font-size:22px;color:#fff;margin-bottom:6px">O Policijskoj postaji Ogulin</h2>
+          <p>Policijska postaja Ogulin djeluje kao lokalna ustanova zadužena za provedbu propisa i održavanje reda u zajednici. U fokusu je pružanje pomoći građanima, zaprimanje prijava te suradnja s drugim službama i institucijama radi sigurnosti i dobrobiti stanovništva.</p>
+
+          <div class="steps" aria-hidden="false">
+            <div class="step">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M12 2v20M5 7h14" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
+              </svg>
+              <div>
+                <strong>Jasni kanali komunikacije</strong>
+                <p>Za hitne i neposredne situacije obratite se odgovarajućim službama. Za informacije o radu postaje koristite telefonski kontakt ili službenu web stranicu.</p>
+              </div>
+            </div>
+
+            <div class="step">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M12 2l7 7-7 13-7-13 7-7z" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
+              </svg>
+              <div>
+                <strong>Suradnja s građanima</strong>
+                <p>Suradnja, prijave i razmjena informacija osnovni su elementi preventivnog i operativnog rada.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <aside class="approach" aria-labelledby="approach-heading">
+          <h4 id="approach-heading">Način rada</h4>
+          <p>Postaja radi u skladu s nadležnostima i zakonskim okvirima. Sve prijave i upiti obrađuju se kroz propisane postupke. Ako niste sigurni kako postupiti, obratite se telefonom ili posjetite službenu stranicu za dodatne upute.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section id="kako" class="section" aria-labelledby="kako-heading" style="padding-top:12px;padding-bottom:12px;">
+      <div class="container">
+        <h2 id="kako-heading" style="font-family:var(--font-serif);font-size:22px;color:#fff">Kako postupiti u važnim situacijama</h2>
+        <p class="muted" style="margin-top:8px">Ovdje su općenite smjernice koje mogu pomoći u mnogim situacijama. Za konkretnu pomoć obratite se službenim kanalima.</p>
+
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:18px">
+          <div class="card">
+            <h4>Prijavljivanje incidenta</h4>
+            <p>Ako ste svjedok kaznenog djela ili narušavanja javnog reda, zabilježite relevantne podatke (vrijeme, mjesto, opis) i obratite se postaji ili drugim nadležnim službama.</p>
+          </div>
+          <div class="card">
+            <h4>Sigurnost na javnim mjestima</h4>
+            <p>Budite svjesni svog okruženja i uočene sumnjive okolnosti prijavite nadležnima. Suradnja zajednice doprinosi prevenciji.</p>
+          </div>
+          <div class="card">
+            <h4>Traženje informacija</h4>
+            <p>Za informacije o postupcima ili potrebnim koracima obratite se telefonom ili posjetite službenu web stranicu policije.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="kontakt" class="section" aria-labelledby="kontakt-heading" style="padding-top:10px;padding-bottom:30px;">
+      <div class="container">
+        <h2 id="kontakt-heading" style="font-family:var(--font-serif);font-size:22px;color:#fff">Kontakt</h2>
+        <p class="muted" style="margin-top:8px">Dostupan telefonski kontakt i poveznica na službenu stranicu.</p>
+
+        <div style="display:flex;gap:18px;margin-top:18px;flex-wrap:wrap">
+          <div class="contact-card" role="region" aria-label="Kontakt informacije">
+            <div style="display:flex;align-items:center;gap:12px">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2 4.18 2 2 0 0 1 4 2h3a2 2 0 0 1 2 1.72c.12.78.34 1.53.63 2.24a2 2 0 0 1-.45 2.11l-1.27 1.27a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.71.29 1.46.51 2.24.63A2 2 0 0 1 22 16.92z" stroke="#fff" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" opacity="0.95"/>
+              </svg>
+            </div>
+            <div>
+              <div style="font-weight:700;color:#fff">Telefon</div>
+              <div><a href="tel:+38547664939" style="color:var(--color-secondary);font-weight:700">+385 47 664 939</a></div>
+            </div>
+          </div>
+
+          <div class="contact-card" role="region" aria-label="Poveznica na službenu stranicu">
+            <div style="display:flex;align-items:center;gap:12px">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z" stroke="#fff" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
+                <path d="M2 12h20M12 2v20" stroke="#fff" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" opacity="0.06"/>
+              </svg>
+            </div>
+            <div>
+              <div style="font-weight:700;color:#fff">Službena stranica</div>
+              <div><a href="http://karlovacka.policija.hr/MainPu.aspx?id=14449" target="_blank" rel="noopener noreferrer" style="color:var(--neutral-300)">karlovacka.policija.hr</a></div>
+            </div>
+          </div>
+        </div>
+
+        <p class="muted" style="margin-top:18px;max-width:70ch">Napomena: Ako se radi o neposrednoj opasnosti ili hitnom slučaju, molimo obratite se hitnim službama. Informacije na ovoj stranici služe za opću komunikaciju i kontakt s lokalnom policijskom postajom.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <div style="font-weight:700;color:#fff">Policijska postaja Ogulin</div>
+        <div style="margin-top:6px" class="muted">Telefon: <a href="tel:+38547664939" style="color:var(--neutral-300)">+385 47 664 939</a></div>
+      </div>
+
+      <nav class="footer-nav" aria-label="Footer navigacija">
+        <a href="#usluge">Usluge</a>
+        <a href="#o-nama">O nama</a>
+        <a href="#kontakt">Kontakt</a>
+        <a href="http://karlovacka.policija.hr/MainPu.aspx?id=14449" target="_blank" rel="noopener noreferrer">Službena stranica</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle and smooth scrolling
+    (function(){
+      const btn = document.getElementById('menuBtn');
+      const panel = document.getElementById('menuPanel');
+
+      btn.addEventListener('click', function(){
+        const expanded = this.getAttribute('aria-expanded') === 'true';
+        this.setAttribute('aria-expanded', String(!expanded));
+        panel.style.display = expanded ? 'none' : 'block';
+        panel.setAttribute('aria-hidden', String(expanded));
+      });
+
+      // Close menu when clicking outside (mobile)
+      document.addEventListener('click', function(e){
+        if (!btn.contains(e.target) && !panel.contains(e.target)){
+          btn.setAttribute('aria-expanded','false');
+          panel.style.display = 'none';
+          panel.setAttribute('aria-hidden','true');
+        }
+      });
+
+      // Smooth scroll for internal links
+      document.querySelectorAll('a[href^="#"]').forEach(a=>{
+        a.addEventListener('click', function(e){
+          const targetId = this.getAttribute('href').slice(1);
+          const target = document.getElementById(targetId);
+          if (target){
+            e.preventDefault();
+            const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            if (prefersReduced){
+              target.scrollIntoView();
+            } else {
+              target.scrollIntoView({behavior:'smooth',block:'start'});
+            }
+            // Close mobile menu if open
+            if (panel.style.display === 'block'){
+              panel.style.display = 'none';
+              btn.setAttribute('aria-expanded','false');
+              panel.setAttribute('aria-hidden','true');
+            }
+            target.setAttribute('tabindex','-1');
+            target.focus({preventScroll:true});
+            window.setTimeout(()=>target.removeAttribute('tabindex'),800);
+          }
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
