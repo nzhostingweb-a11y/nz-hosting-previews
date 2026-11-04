@@ -1,0 +1,634 @@
+ <!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Policijska postaja Petrinja — Informacije i kontakt</title>
+  <meta name="description" content="Policijska postaja Petrinja — kontakt i osnovne informacije. Telefon za hitne i nehitne dojave: 044/560-510. Službena web stranica županijske policije dostupna je na poveznici." />
+  <meta property="og:title" content="Policijska postaja Petrinja — Informacije i kontakt" />
+  <meta property="og:description" content="Kontaktirajte Policijsku postaju Petrinja za pitanja vezana uz javni red i sigurnost. Telefon: 044/560-510. Više informacija na službenoj stranici županijske policije." />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#0b1220" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Merriweather:wght@700;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      /* Boje i sustav */
+      --primarna: #07122a;          /* very dark navy */
+      --sekundarna: #0f3b5c;        /* deep police blue */
+      --accent: #f5a524;           /* warm amber accent */
+      --neutral-100: #ffffff;
+      --neutral-200: #f4f6f8;
+      --neutral-300: #d8e2ea;
+      --neutral-600: #7a8a96;
+      --bg: linear-gradient(180deg, rgba(7,18,42,1) 0%, rgba(6,28,48,1) 60%, rgba(8,22,36,1) 100%);
+      --glass: rgba(255,255,255,0.04);
+      --shadow-1: 0 6px 18px rgba(2,8,23,0.55);
+      --radius-base: 12px;
+      --radius-sm: 8px;
+      --focus: 3px solid rgba(245,165,36,0.18);
+
+      /* Tipografija */
+      --fs-base: 16px;
+      --ff-heading: "Merriweather", Georgia, serif;
+      --ff-body: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      --font-weight-regular: 400;
+      --font-weight-medium: 600;
+      --font-weight-bold: 700;
+
+      /* Spacing */
+      --container-max: 1200px;
+      --gutter: 24px;
+      --section-gap: 72px;
+      --card-gap: 20px;
+      --transition-fast: 180ms;
+      --transition-medium: 320ms;
+    }
+
+    /* Base reset and accessibility */
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:var(--ff-body);
+      font-size:var(--fs-base);
+      background:var(--bg);
+      color:var(--neutral-100);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    a{color:inherit; text-decoration:none}
+    img,svg{max-width:100%;height:auto;display:block}
+
+    .container{
+      width:calc(100% - (var(--gutter) * 2));
+      max-width:var(--container-max);
+      margin:0 auto;
+    }
+
+    /* Skip link */
+    .skip-link{
+      position:absolute;
+      left:12px;
+      top:12px;
+      background:#fff;
+      color:var(--primarna);
+      padding:8px 12px;
+      border-radius:8px;
+      font-weight:600;
+      transform:translateY(-120%);
+      transition:transform 180ms ease;
+      z-index:1500;
+    }
+    .skip-link:focus{transform:translateY(0%)}
+
+    /* NAV */
+    header{
+      position:sticky;
+      top:0;
+      z-index:1200;
+      backdrop-filter: blur(6px);
+      background: linear-gradient(180deg, rgba(7,18,42,0.72), rgba(7,18,42,0.48));
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      box-shadow: 0 6px 18px rgba(2,8,23,0.35);
+    }
+    .nav-row{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      padding:18px 0;
+    }
+    .wordmark{
+      display:flex;
+      align-items:center;
+      gap:14px;
+    }
+    .logo{
+      width:54px;height:54px;
+      display:grid;
+      place-items:center;
+      background:linear-gradient(180deg, rgba(15,59,92,0.95), rgba(7,18,42,0.95));
+      border-radius:12px;
+      box-shadow:var(--shadow-1);
+      flex:0 0 54px;
+    }
+    .wordmark h1{
+      margin:0;
+      font-family:var(--ff-heading);
+      font-size:18px;
+      letter-spacing:0.2px;
+      line-height:1;
+      color:var(--neutral-100);
+      font-weight:900;
+    }
+    .wordmark p{
+      margin:0;
+      color:var(--neutral-300);
+      font-size:12px;
+      margin-top:2px;
+    }
+
+    nav ul{display:flex;gap:18px;align-items:center;margin:0;padding:0;list-style:none}
+    nav a{
+      color:var(--neutral-200);
+      font-weight:600;
+      padding:8px 12px;
+      border-radius:8px;
+      transition:all var(--transition-fast);
+      font-size:14px;
+    }
+    nav a:hover, nav a:focus{background:rgba(255,255,255,0.03); color:var(--neutral-100); outline:none}
+    .cta-primary{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      background:linear-gradient(90deg,var(--accent), #ffb65b);
+      color:#07122a;
+      padding:10px 14px;
+      border-radius:10px;
+      font-weight:700;
+      box-shadow: 0 6px 18px rgba(245,165,36,0.12);
+    }
+    .cta-secondary{
+      padding:8px 12px;
+      border-radius:9px;
+      border:1px solid rgba(255,255,255,0.04);
+      font-weight:600;
+      color:var(--neutral-200);
+    }
+
+    /* Mobile menu */
+    .menu-toggle{
+      display:none;
+      background:transparent;
+      border:0;
+      color:var(--neutral-200);
+      padding:8px;
+      border-radius:8px;
+    }
+
+    /* HERO */
+    .hero{
+      min-height:calc(100vh - 92px);
+      display:grid;
+      align-items:center;
+      gap:40px;
+      padding:80px 0;
+      position:relative;
+      overflow:hidden;
+    }
+    .hero-grid{
+      display:grid;
+      gap:28px;
+      grid-template-columns: 1fr 460px;
+      align-items:center;
+      width:100%;
+    }
+
+    .hero-content{
+      max-width:760px;
+    }
+    .kicker{
+      display:inline-block;
+      padding:8px 12px;
+      background:var(--glass);
+      color:var(--neutral-200);
+      border-radius:999px;
+      font-weight:600;
+      font-size:13px;
+      margin-bottom:18px;
+      border:1px solid rgba(255,255,255,0.03);
+      backdrop-filter: blur(6px);
+    }
+    h2.hero-title{
+      margin:0 0 14px 0;
+      font-family:var(--ff-heading);
+      font-size:clamp(28px, 4.6vw, 44px);
+      line-height:1.02;
+      color:var(--neutral-100);
+      letter-spacing:-0.6px;
+      font-weight:900;
+    }
+    p.lead{
+      margin:0 0 22px 0;
+      color:var(--neutral-300);
+      font-size:clamp(15px, 1.8vw, 18px);
+      max-width:66ch;
+    }
+    .hero-ctas{display:flex;gap:14px;flex-wrap:wrap}
+    .hero-ctas a{display:inline-flex;align-items:center;gap:10px;padding:12px 16px;border-radius:12px;font-weight:700}
+    .btn-call{background:var(--accent); color:var(--primarna); box-shadow:0 8px 28px rgba(245,165,36,0.14)}
+    .btn-visit{background:transparent;border:1px solid rgba(255,255,255,0.06); color:var(--neutral-200)}
+
+    /* Decorative card on right */
+    .hero-card{
+      background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+      border-radius:16px;
+      padding:22px;
+      box-shadow:var(--shadow-1);
+      border:1px solid rgba(255,255,255,0.03);
+    }
+    .shield-wrap{display:flex;align-items:center;gap:16px}
+    .shield-title{font-size:16px;font-weight:700;color:var(--neutral-100);margin:0}
+    .shield-sub{font-size:13px;color:var(--neutral-300);margin:0}
+    .shield-svg{width:120px;height:120px;flex:0 0 120px}
+
+    /* Sections */
+    section{padding: calc(var(--section-gap) / 1.8) 0;}
+    .cards{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:var(--card-gap);
+    }
+    .card{
+      background:rgba(255,255,255,0.02);
+      border-radius:14px;
+      padding:20px;
+      border:1px solid rgba(255,255,255,0.03);
+      transition: transform var(--transition-medium), box-shadow var(--transition-medium);
+    }
+    .card:hover{transform:translateY(-6px); box-shadow: 0 14px 36px rgba(2,8,23,0.45)}
+    .card h3{margin:0 0 8px 0;font-size:16px;color:var(--neutral-100);font-weight:700}
+    .card p{margin:0;color:var(--neutral-300);font-size:14px}
+
+    .muted{color:var(--neutral-300);font-size:14px}
+
+    .two-col{
+      display:grid;
+      grid-template-columns: 1fr 380px;
+      gap:36px;
+      align-items:start;
+    }
+
+    .steps{
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+    }
+    .step{
+      display:flex;
+      gap:12px;
+      align-items:flex-start;
+      background:rgba(255,255,255,0.02);
+      padding:12px;
+      border-radius:10px;
+      border:1px solid rgba(255,255,255,0.03);
+    }
+    .step-number{
+      font-weight:900;
+      font-family:var(--ff-heading);
+      color:var(--accent);
+      min-width:44px;
+      height:44px;
+      display:grid;
+      place-items:center;
+      background:rgba(245,165,36,0.08);
+      border-radius:10px;
+    }
+    .step p{margin:0;color:var(--neutral-300)}
+
+    /* Contact block */
+    .contact-card{
+      padding:18px;
+      border-radius:12px;
+      background:linear-gradient(180deg, rgba(15,59,92,0.2), rgba(7,18,42,0.12));
+      border:1px solid rgba(255,255,255,0.03);
+    }
+    .phone{
+      font-size:22px;
+      font-weight:800;
+      color:var(--neutral-100);
+      margin:0 0 6px 0;
+    }
+    .small-note{font-size:13px;color:var(--neutral-300);margin:0}
+
+    footer{
+      border-top:1px solid rgba(255,255,255,0.03);
+      padding:28px 0;
+      color:var(--neutral-300);
+    }
+    .footer-grid{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+
+    /* Responsive */
+    @media (max-width:1024px){
+      .hero-grid{grid-template-columns:1fr 380px}
+      .two-col{grid-template-columns:1fr}
+      .cards{grid-template-columns:repeat(2,1fr)}
+    }
+    @media (max-width:720px){
+      .nav-row{padding:12px 0}
+      nav ul{display:none}
+      .menu-toggle{display:inline-flex}
+      .hero{padding:48px 0; min-height:calc(72vh - 72px)}
+      .hero-grid{grid-template-columns:1fr; align-items:start}
+      .hero-card{order:2}
+      .hero-content{order:1}
+      .cards{grid-template-columns:1fr}
+      .shield-svg{width:96px;height:96px}
+    }
+
+    /* Mobile menu panel */
+    .mobile-panel{
+      position:fixed;
+      inset:0;
+      background:linear-gradient(180deg, rgba(7,18,42,0.98), rgba(7,18,42,0.98));
+      transform:translateY(-100%);
+      transition:transform var(--transition-medium) ease;
+      z-index:1400;
+      padding:80px 24px 24px 24px;
+      display:flex;
+      flex-direction:column;
+      gap:18px;
+    }
+    .mobile-panel.open{transform:translateY(0%)}
+    .mobile-panel a{font-size:18px;color:var(--neutral-200); padding:10px 12px; border-radius:8px}
+    .mobile-panel .cta-row{display:flex;gap:12px}
+
+    /* Focus styles */
+    a:focus, button:focus, input:focus, textarea:focus{
+      outline-offset:3px;
+      outline:var(--focus);
+      border-radius:8px;
+    }
+
+    /* Reduced motion support */
+    @media (prefers-reduced-motion: reduce){
+      *{transition:none !important}
+    }
+
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skoči na sadržaj</a>
+
+  <header>
+    <div class="container nav-row" role="navigation" aria-label="Glavna navigacija">
+      <div class="wordmark">
+        <div class="logo" aria-hidden="true">
+          <!-- Decorative shield mark -->
+          <svg class="shield-svg" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Znak">
+            <defs>
+              <linearGradient id="g1" x1="0" x2="1">
+                <stop offset="0" stop-color="#0f3b5c"/>
+                <stop offset="1" stop-color="#07122a"/>
+              </linearGradient>
+            </defs>
+            <rect width="120" height="120" rx="18" fill="url(#g1)"/>
+            <path d="M60 20c12 0 26 6 34 18-8 28-34 40-34 40S34 66 26 38C34 26 48 20 60 20z" fill="#fff" opacity="0.08"/>
+            <path d="M60 28c9.5 0 20 5 25 15-6 22-25 32-25 32s-19-10-25-32c5-10 15.5-15 25-15z" fill="#fff" opacity="0.14"/>
+            <path d="M60 36c6.5 0 14 3.5 18 11-4.5 16-18 24-18 24s-13.5-8-18-24c4-7.5 11.5-11 18-11z" fill="#f5a524"/>
+            <circle cx="60" cy="64" r="3.2" fill="#07122a"/>
+          </svg>
+        </div>
+        <div>
+          <h1>Policijska postaja Petrinja</h1>
+          <p>Javna policijska služba — kontakt i informacije</p>
+        </div>
+      </div>
+
+      <nav>
+        <ul>
+          <li><a href="#usluge">Područja rada</a></li>
+          <li><a href="#o-nama">O nama</a></li>
+          <li><a href="#kako">Kako postupiti</a></li>
+          <li><a href="#kontakt">Kontakt</a></li>
+        </ul>
+      </nav>
+
+      <div style="display:flex;align-items:center;gap:12px">
+        <a class="cta-primary" href="tel:+38544560510" aria-label="Nazovite Policijsku postaju Petrinja">Nazovi: 044/560-510</a>
+        <button class="menu-toggle" id="menuToggle" aria-controls="mobilePanel" aria-expanded="false" aria-label="Otvori izbornik">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div id="mobilePanel" class="mobile-panel" aria-hidden="true">
+      <a href="#usluge">Područja rada</a>
+      <a href="#o-nama">O nama</a>
+      <a href="#kako">Kako postupiti</a>
+      <a href="#kontakt">Kontakt</a>
+      <div class="cta-row" style="margin-top:14px">
+        <a class="cta-primary" href="tel:+38544560510">Nazovi: 044/560-510</a>
+        <a class="cta-secondary" href="http://sisacko-moslavacka.policija.hr/MainPu.aspx?id=14509" target="_blank" rel="noopener">Službena stranica</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <div class="container hero-grid" aria-labelledby="hero-heading">
+        <div class="hero-content" role="region" aria-label="Uvod">
+          <div class="kicker">Službeni kontakt</div>
+          <h2 id="hero-heading" class="hero-title">Policijska postaja Petrinja — dostupni za sigurnost zajednice</h2>
+          <p class="lead">Kontaktirajte nas za dojave i informacije. Pružamo policijske usluge i djelujemo u skladu s nadležnostima kako bismo očuvali javni red i sigurnost građana.</p>
+
+          <div class="hero-ctas" role="group" aria-label="Glavni pozivi na akciju">
+            <a class="btn-call" href="tel:+38544560510" aria-label="Nazovite Policijsku postaju Petrinja">Nazovi odmah • 044/560-510</a>
+            <a class="btn-visit" href="http://sisacko-moslavacka.policija.hr/MainPu.aspx?id=14509" target="_blank" rel="noopener">Službena stranica županijske policije</a>
+          </div>
+        </div>
+
+        <aside class="hero-card" aria-labelledby="card-title" role="complementary">
+          <div class="shield-wrap">
+            <svg class="shield-svg" viewBox="0 0 120 120" role="img" aria-label="Znak postaje" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="g2" x1="0" x2="1">
+                  <stop offset="0" stop-color="#0f3b5c"/>
+                  <stop offset="1" stop-color="#07122a"/>
+                </linearGradient>
+              </defs>
+              <rect width="120" height="120" rx="18" fill="url(#g2)"/>
+              <path d="M60 25c10 0 22 5.5 28 16-6 22-24 32-28 34-3.6-2.1-22-12.2-28-34 6-10.5 18-16 28-16z" fill="#fff" opacity="0.08"/>
+              <path d="M60 36c6.5 0 14 3.5 18 11-4.5 16-18 24-18 24s-13.5-8-18-24c4-7.5 11.5-11 18-11z" fill="#f5a524" />
+            </svg>
+
+            <div>
+              <h3 id="card-title" class="shield-title">Policijska postaja Petrinja</h3>
+              <p class="shield-sub">Telefon za dojave i informiranje</p>
+            </div>
+          </div>
+
+          <div style="margin-top:18px">
+            <p class="phone" style="margin:0">044/560-510</p>
+            <p class="small-note" style="margin-top:6px">Za hitne slučajeve i sumnjive situacije nazovite broj iznad ili posjetite službenu web stranicu županijske policije.</p>
+          </div>
+
+          <div style="margin-top:16px; display:flex; gap:10px;">
+            <a class="cta-primary" href="tel:+38544560510">Nazovi</a>
+            <a class="cta-secondary" href="http://sisacko-moslavacka.policija.hr/MainPu.aspx?id=14509" target="_blank" rel="noopener">Posjetite web</a>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="usluge" class="container" aria-labelledby="usluge-heading">
+      <h2 id="usluge-heading" style="margin:0 0 18px 0; font-family:var(--ff-heading); font-size:20px;">Područja rada</h2>
+      <p class="muted" style="margin:0 0 18px 0; max-width:68ch;">Policijska postaja obavlja zadaće iz nadležnosti policijske službe. Ispod su opisi glavnih područja u kojima djeluje, izraženi općenito i bez navođenja pojedinačnih proceduralnih detalja.</p>
+
+      <div class="cards" style="margin-top:18px">
+        <article class="card" aria-labelledby="c1">
+          <h3 id="c1">Održavanje javnog reda i sigurnosti</h3>
+          <p>Djelatnici rade na očuvanju javnog reda, prevenciji i postupanju u situacijama koje ugrožavaju sigurnost građana.</p>
+        </article>
+
+        <article class="card" aria-labelledby="c2">
+          <h3 id="c2">Rad s građanima</h3>
+          <p>Prijem dojava, informiranje građana i suradnja s lokalnom zajednicom te pružanje uputa i obavijesti prema nadležnostima.</p>
+        </article>
+
+        <article class="card" aria-labelledby="c3">
+          <h3 id="c3">Postupanje u incidentima</h3>
+          <p>Postupci u skladu sa zakonskim nadležnostima u slučaju kaznenih djela, prekršaja i drugih događaja koji zahtijevaju policijsku intervenciju.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="o-nama" class="container" aria-labelledby="onama-heading">
+      <h2 id="onama-heading" style="font-family:var(--ff-heading); font-size:20px; margin:0 0 12px 0">O nama</h2>
+      <div class="two-col" style="margin-top:12px">
+        <div>
+          <p class="muted">Policijska postaja je dio sustava županijske policije. Ovdje ćete pronaći osnovne informacije o kontaktu i načinu pristupa za dojave ili upite. Za detaljnije informacije i službene objave posjetite službenu stranicu.</p>
+
+          <h3 style="margin-top:20px; font-size:16px; color:var(--neutral-100);">Transparentan pristup</h3>
+          <p class="muted">Djelujemo u skladu s propisima i procedurama nadležnih tijela. Javnost može kontaktirati postaju telefonski ili putem službene web stranice županijske policije.</p>
+        </div>
+
+        <aside class="contact-card" aria-label="Kontaktni podaci">
+          <p style="margin:0;font-size:13px;color:var(--neutral-300)">Naziv</p>
+          <p style="margin:6px 0 10px 0;font-weight:800;color:var(--neutral-100)">Policijska postaja Petrinja</p>
+
+          <p style="margin:0;font-size:13px;color:var(--neutral-300)">Telefon</p>
+          <p style="margin:6px 0 10px 0"><a href="tel:+38544560510" style="color:var(--neutral-100); font-weight:700; text-decoration:none">044/560-510</a></p>
+
+          <p style="margin:0;font-size:13px;color:var(--neutral-300)">Više informacija</p>
+          <p style="margin:6px 0 0 0"><a href="http://sisacko-moslavacka.policija.hr/MainPu.aspx?id=14509" target="_blank" rel="noopener" style="color:var(--neutral-200)">Službena stranica županijske policije</a></p>
+        </aside>
+      </div>
+    </section>
+
+    <section id="kako" class="container" aria-labelledby="kako-heading">
+      <h2 id="kako-heading" style="font-family:var(--ff-heading); font-size:20px; margin:0 0 12px 0">Kako postupiti — praktičan vodič</h2>
+      <p class="muted" style="margin:0 0 18px 0">U hitnim situacijama nazovite nadležne hitne službe. Slijede opći koraci za postupanje pri događajima koji zahtijevaju policijsku pažnju.</p>
+
+      <div class="steps" style="margin-top:12px">
+        <div class="step" aria-hidden="false">
+          <div class="step-number">1</div>
+          <div>
+            <p style="font-weight:700;color:var(--neutral-100);margin:0 0 6px 0">Procijenite hitnost</p>
+            <p class="muted">Ako je ugrožen život ili sigurnost, obratite se hitnim službama odmah.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-number">2</div>
+          <div>
+            <p style="font-weight:700;color:var(--neutral-100);margin:0 0 6px 0">Nazovite policiju</p>
+            <p class="muted">Kontaktirajte broj postaje 044/560-510 ili koristite opće hitne brojeve prema situaciji.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-number">3</div>
+          <div>
+            <p style="font-weight:700;color:var(--neutral-100);margin:0 0 6px 0">Pripremite osnovne informacije</p>
+            <p class="muted">Ako zovete, budite spremni navesti lokaciju, prirodu događaja i eventualne ozljede.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="kontakt" class="container" aria-labelledby="kontakt-heading">
+      <h2 id="kontakt-heading" style="font-family:var(--ff-heading); font-size:20px; margin:0 0 12px 0">Kontakt</h2>
+      <div style="display:flex;gap:28px;flex-wrap:wrap;margin-top:12px;align-items:flex-start">
+        <div style="flex:1 1 420px; min-width:260px">
+          <p class="muted" style="margin:0 0 10px 0">Ako trebate kontaktirati Policijsku postaju Petrinja, najbrže je nazvati telefonom. Kad kontaktirate postaju, dobit ćete informacije o daljnjim koracima i tamošnjim nadležnostima.</p>
+
+          <div style="margin-top:14px">
+            <p style="margin:0;font-size:13px;color:var(--neutral-300)">Telefon</p>
+            <p style="margin:6px 0 0 0;font-size:20px;font-weight:800"><a href="tel:+38544560510" style="color:var(--neutral-100); text-decoration:none">044/560-510</a></p>
+          </div>
+
+          <div style="margin-top:14px">
+            <p style="margin:0;font-size:13px;color:var(--neutral-300)">Službena web stranica</p>
+            <p style="margin:6px 0 0 0"><a href="http://sisacko-moslavacka.policija.hr/MainPu.aspx?id=14509" target="_blank" rel="noopener" style="color:var(--neutral-200)">sisacko-moslavacka.policija.hr</a></p>
+          </div>
+        </div>
+
+        <aside class="contact-card" style="flex:0 0 300px">
+          <p style="margin:0;font-size:13px;color:var(--neutral-300)">Brzi kontakti</p>
+          <p style="margin:8px 0 0 0;font-weight:800;font-size:18px"><a href="tel:+38544560510" style="color:var(--neutral-100); text-decoration:none">044/560-510</a></p>
+
+          <p style="margin-top:12px;font-size:13px;color:var(--neutral-300)">Napomena</p>
+          <p style="margin-top:6px;color:var(--neutral-300);font-size:13px">Ovdje su prikazani samo opći kontakt podaci koje ste dostavili. Za detaljne službene informacije obratite se putem službene stranice ili telefona.</p>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-grid">
+      <div>
+        <div style="font-weight:800;font-family:var(--ff-heading);color:var(--neutral-100)">Policijska postaja Petrinja</div>
+        <div style="margin-top:6px;color:var(--neutral-300);font-size:13px">Telefon: <a href="tel:+38544560510" style="color:var(--neutral-200);text-decoration:none">044/560-510</a></div>
+      </div>
+
+      <div style="display:flex;gap:18px;align-items:center">
+        <a href="#usluge">Područja rada</a>
+        <a href="#kontakt">Kontakt</a>
+        <a href="http://sisacko-moslavacka.policija.hr/MainPu.aspx?id=14509" target="_blank" rel="noopener">Službena stranica</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function(){
+      const menuToggle = document.getElementById('menuToggle');
+      const mobilePanel = document.getElementById('mobilePanel');
+
+      function openMenu(){
+        mobilePanel.classList.add('open');
+        mobilePanel.setAttribute('aria-hidden','false');
+        menuToggle.setAttribute('aria-expanded','true');
+      }
+      function closeMenu(){
+        mobilePanel.classList.remove('open');
+        mobilePanel.setAttribute('aria-hidden','true');
+        menuToggle.setAttribute('aria-expanded','false');
+      }
+
+      menuToggle.addEventListener('click', function(){
+        const expanded = this.getAttribute('aria-expanded') === 'true';
+        if(expanded) closeMenu(); else openMenu();
+      });
+
+      // Close on link click (mobile)
+      mobilePanel.querySelectorAll('a').forEach(a=>{
+        a.addEventListener('click', () => { closeMenu(); });
+      });
+
+      // Close on Escape
+      document.addEventListener('keydown', function(e){
+        if(e.key === 'Escape'){
+          closeMenu();
+          menuToggle.focus();
+        }
+      });
+
+      // Ensure phone link has correct tel format (no extra whitespace)
+      document.querySelectorAll('a[href^="tel:"]').forEach(a=>{
+        a.href = a.href.replace(/\s+/g, '');
+      });
+
+      // Respect reduced motion preference for initial animations (no heavy animations used)
+    })();
+  </script>
+</body>
+</html>
