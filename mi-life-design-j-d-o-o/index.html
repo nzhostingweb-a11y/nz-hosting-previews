@@ -1,0 +1,573 @@
+ <!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>MI Life Design — Dizajn i opremanje komercijalnih prostora</title>
+  <meta name="description" content="MI Life Design j.d.o.o. – dizajn i opremanje komercijalnih interijera. Pristup usmjeren funkciji, estetici i izvedivosti. Posjetite službenu stranicu za više informacija." />
+  <meta property="og:title" content="MI Life Design — Dizajn i opremanje komercijalnih prostora" />
+  <meta property="og:description" content="Specijalizirani pristup dizajnu komercijalnih interijera i opremanju prostora. Elegantan, funkcionalan i izvediv dizajn." />
+  <meta property="og:url" content="https://mi-life-design.com/" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet" />
+  <style>
+    :root{
+      /* Dizajnerski sustav */
+      --space-xxs: 6px;
+      --space-xs: 10px;
+      --space-sm: 16px;
+      --space-md: 24px;
+      --space-lg: 40px;
+      --space-xl: 64px;
+
+      --radius-sm: 8px;
+      --radius-md: 14px;
+
+      --shadow-soft: 0 6px 18px rgba(14,18,20,0.06);
+      --shadow-subtle: 0 2px 8px rgba(14,18,20,0.06);
+
+      --color-primary: #0f1720;       /* duboki ugljen */
+      --color-secondary: #f4efe9;     /* topao pijesak */
+      --color-accent: #0aa3a3;        /* suptilni tirkiz */
+      --color-muted: #6b7280;         /* neutralno sivo */
+      --bg-page: linear-gradient(180deg, #ffffff 0%, #fbfbfb 100%);
+
+      --text: #0b1220;
+      --link: var(--color-accent);
+
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      color-scheme: light;
+    }
+
+    /* Fluid typography */
+    :root{
+      --h1-clamp: clamp(28px, 3.6vw, 56px);
+      --h2-clamp: clamp(20px, 2.4vw, 32px);
+      --lead-clamp: clamp(15px, 1.8vw, 18px);
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background: var(--bg-page);
+      color:var(--text);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+      font-size:16px;
+    }
+
+    a{color:var(--link); text-decoration:none}
+    a:focus{outline:3px solid rgba(10,163,163,0.18); outline-offset:4px; border-radius:6px}
+
+    .container{
+      max-width:1200px;
+      margin:0 auto;
+      padding:0 20px;
+    }
+
+    /* NAV */
+    header{
+      position:sticky;
+      top:0;
+      z-index:60;
+      backdrop-filter: blur(6px);
+      background: linear-gradient(180deg, rgba(255,255,255,0.86), rgba(255,255,255,0.70));
+      border-bottom:1px solid rgba(11,18,32,0.04);
+    }
+    .nav-inner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      min-height:72px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      font-weight:600;
+      color:var(--color-primary);
+      text-decoration:none;
+    }
+    .brand-mark{
+      width:46px;
+      height:46px;
+      display:inline-grid;
+      place-items:center;
+      background:linear-gradient(135deg,var(--color-accent),#078f8f);
+      color:white;
+      border-radius:10px;
+      box-shadow:var(--shadow-subtle);
+      font-family:"Playfair Display", serif;
+      font-size:18px;
+      letter-spacing:0.6px;
+    }
+    .brand-title{
+      display:flex;
+      flex-direction:column;
+      line-height:1;
+    }
+    .brand-title .name{font-family:"Playfair Display", serif; font-size:16px;}
+    .brand-title .tag{font-size:12px; color:var(--color-muted); font-weight:500}
+
+    nav.main-nav{display:flex;align-items:center;gap:18px}
+    nav.main-nav a{font-weight:600;color:var(--color-primary); padding:8px 6px; border-radius:8px}
+    nav.main-nav a:hover{background:rgba(10,163,163,0.06)}
+    .cta-primary{
+      background:linear-gradient(90deg,var(--color-accent),#069999);
+      color:white;
+      padding:10px 14px;
+      border-radius:12px;
+      font-weight:700;
+      box-shadow:0 6px 18px rgba(10,163,163,0.12);
+    }
+    .cta-primary:focus{outline:3px solid rgba(10,163,163,0.22);outline-offset:4px}
+
+    /* Mobile nav */
+    .menu-btn{
+      display:none;
+      background:transparent;
+      border:0;
+      padding:8px;
+      border-radius:10px;
+    }
+    .menu-btn:focus{outline:3px solid rgba(11,18,32,0.06)}
+    .menu-icon{width:22px;height:16px;position:relative}
+    .menu-icon span{
+      display:block;
+      height:2px;
+      background:var(--color-primary);
+      margin:4px 0;
+      transition:transform .22s ease, opacity .18s ease;
+    }
+
+    /* HERO */
+    .hero{
+      padding:68px 0 60px;
+      position:relative;
+      overflow:hidden;
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1fr 480px;
+      gap:40px;
+      align-items:center;
+    }
+    .hero-copy h1{
+      margin:0 0 12px 0;
+      font-family:"Playfair Display", serif;
+      font-weight:700;
+      font-size:var(--h1-clamp);
+      color:var(--color-primary);
+      letter-spacing:-0.6px;
+    }
+    .lead{
+      font-size:var(--lead-clamp);
+      color:var(--color-muted);
+      margin-bottom:22px;
+      max-width:62ch;
+    }
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:12px 16px;
+      border-radius:12px;
+      font-weight:600;
+      cursor:pointer;
+      border:1px solid transparent;
+      text-decoration:none;
+    }
+    .btn-ghost{
+      background:transparent;
+      color:var(--color-primary);
+      border:1px solid rgba(11,18,32,0.06);
+    }
+    .visual-card{
+      background:linear-gradient(180deg,rgba(250,248,246,0.9),#fff);
+      border-radius:16px;
+      padding:18px;
+      box-shadow:var(--shadow-soft);
+      border:1px solid rgba(11,18,32,0.04);
+    }
+
+    /* Decorative interior illustration */
+    .illustration{
+      width:100%;
+      height:100%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:18px;
+    }
+    .illustration svg{width:100%;height:auto;display:block}
+
+    /* USLUGE */
+    section.services{padding:48px 0}
+    .services-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:20px;
+      margin-top:24px;
+    }
+    .service{
+      background:white;
+      padding:20px;
+      border-radius:12px;
+      box-shadow:var(--shadow-subtle);
+      border:1px solid rgba(11,18,32,0.03);
+      min-height:140px;
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+    }
+    .service h3{margin:0;font-size:18px;font-weight:700}
+    .service p{margin:0;color:var(--color-muted);font-size:15px;line-height:1.4}
+
+    /* O NAMA */
+    .about{
+      display:flex;
+      gap:28px;
+      align-items:center;
+      padding:48px 0;
+    }
+    .about .glass{
+      background:linear-gradient(180deg, rgba(15,23,32,0.03), rgba(15,23,32,0.02));
+      border-radius:14px;
+      padding:20px;
+      flex:1;
+      border:1px solid rgba(11,18,32,0.03);
+    }
+    .about .list{display:grid;gap:10px;margin-top:14px}
+    .pill{
+      display:inline-flex;
+      gap:10px;
+      align-items:center;
+      background:var(--color-secondary);
+      color:var(--color-primary);
+      padding:8px 12px;
+      border-radius:999px;
+      font-weight:600;
+      font-size:14px;
+    }
+
+    /* PROCESS */
+    .process{
+      padding:48px 0;
+      background:linear-gradient(180deg, rgba(10,163,163,0.03), rgba(10,163,163,0.01));
+      border-radius:16px;
+      margin-bottom:28px;
+      border:1px solid rgba(10,163,163,0.03);
+    }
+    .steps{display:flex;gap:18px;flex-wrap:wrap}
+    .step{
+      background:white;
+      padding:18px;
+      border-radius:12px;
+      box-shadow:var(--shadow-subtle);
+      flex:1 1 220px;
+      min-width:220px;
+    }
+    .step h4{margin:0 0 8px 0;font-size:15px}
+    .step p{margin:0;color:var(--color-muted);font-size:14px}
+
+    /* CONTACT */
+    .contact{
+      padding:48px 0;
+      display:grid;
+      grid-template-columns:1fr 360px;
+      gap:28px;
+      align-items:start;
+    }
+    .contact-card{
+      background:white;
+      border-radius:14px;
+      padding:20px;
+      border:1px solid rgba(11,18,32,0.04);
+      box-shadow:var(--shadow-soft);
+    }
+    .contact-note{color:var(--color-muted);font-size:15px;line-height:1.5}
+    .site-link{
+      display:inline-flex;
+      gap:10px;
+      align-items:center;
+      margin-top:14px;
+      font-weight:700;
+      color:var(--color-primary);
+      text-decoration:none;
+    }
+
+    footer{
+      padding:28px 0;
+      border-top:1px solid rgba(11,18,32,0.04);
+      margin-top:36px;
+    }
+    .footer-inner{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+    .legal{color:var(--color-muted);font-size:13px}
+
+    /* Responsive */
+    @media (max-width:1000px){
+      .hero-grid{grid-template-columns:1fr 380px}
+      .services-grid{grid-template-columns:repeat(2,1fr)}
+      .contact{grid-template-columns:1fr}
+      .about{flex-direction:column}
+    }
+    @media (max-width:720px){
+      .nav-inner{min-height:62px}
+      nav.main-nav{display:none}
+      .menu-btn{display:inline-flex}
+      .hero-grid{grid-template-columns:1fr; gap:20px}
+      .visual-card{order:2}
+      .hero{padding:40px 0}
+      .services-grid{grid-template-columns:1fr}
+      .brand-title{display:none}
+    }
+
+    /* Animations & motion preferences */
+    @media (prefers-reduced-motion: no-preference){
+      .hero-copy h1{transition:transform .6s cubic-bezier(.22,.9,.3,1),opacity .5s;}
+      .visual-card{transform:translateY(6px); transition:transform .6s cubic-bezier(.22,.9,.3,1); }
+      .service, .step{transform:translateY(8px);opacity:0;animation:enter .6s forwards;animation-delay:calc(var(--i,0) * 80ms);}
+      @keyframes enter{to{transform:none;opacity:1}}
+    }
+    @media (prefers-reduced-motion: reduce){
+      .service, .step, .hero-copy h1, .visual-card{transition:none;animation:none;transform:none;opacity:1}
+    }
+
+    /* focus visibility for keyboard users */
+    :focus{outline-offset:3px}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav-inner" role="navigation" aria-label="Glavna navigacija">
+      <a class="brand" href="#hero">
+        <span class="brand-mark" aria-hidden="true">MI</span>
+        <span class="brand-title">
+          <span class="name">MI Life Design</span>
+          <span class="tag">dizajn komercijalnih interijera</span>
+        </span>
+      </a>
+
+      <nav class="main-nav" aria-label="Linkovi stranice">
+        <a href="#usluge">Usluge</a>
+        <a href="#onama">O nama</a>
+        <a href="#proces">Proces</a>
+        <a href="#kontakt">Kontakt</a>
+      </nav>
+
+      <div style="display:flex;align-items:center;gap:12px">
+        <a class="cta-primary" href="#kontakt">Pošaljite upit</a>
+        <button class="menu-btn" aria-expanded="false" aria-controls="mobile-menu" aria-label="Otvori izbornik" id="menuBtn">
+          <span class="menu-icon" aria-hidden="true">
+            <span></span><span></span><span></span>
+          </span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobile-menu" style="display:none; padding:12px 20px; border-top:1px solid rgba(11,18,32,0.04); background:transparent;">
+      <div class="container" role="menu">
+        <a role="menuitem" href="#usluge" style="display:block;padding:12px 0">Usluge</a>
+        <a role="menuitem" href="#onama" style="display:block;padding:12px 0">O nama</a>
+        <a role="menuitem" href="#proces" style="display:block;padding:12px 0">Proces</a>
+        <a role="menuitem" href="#kontakt" style="display:block;padding:12px 0">Kontakt</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="hero" class="hero">
+      <div class="container hero-grid" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <h1 id="hero-title">Dizajn i opremanje komercijalnih prostora koji rade za poslovanje</h1>
+          <p class="lead">MI Life Design j.d.o.o. projektira i koordinira izvedbu komercijalnih interijera s fokusom na funkcionalnost, estetiku i izvedivost. Radimo strukturirano kako bi prostor podržao poslovne ciljeve i stvorio dosljedan doživljaj.</p>
+          <div class="hero-actions" role="group" aria-label="Akcije">
+            <a class="btn cta-primary" href="#kontakt">Zatražite konzultaciju</a>
+            <a class="btn btn-ghost" href="#usluge">Saznajte više</a>
+          </div>
+        </div>
+
+        <div class="visual-card" aria-hidden="false" title="Estetska ilustracija interijera">
+          <div class="illustration" role="img" aria-label="Stilizirana ilustracija interijera">
+            <!-- Original inline SVG, dekorativan i apstraktan prikaz interijera -->
+            <svg viewBox="0 0 600 420" xmlns="http://www.w3.org/2000/svg" role="presentation">
+              <defs>
+                <linearGradient id="g1" x1="0" x2="1" y1="0" y2="1">
+                  <stop offset="0" stop-color="#f7f4f2"/>
+                  <stop offset="1" stop-color="#ffffff"/>
+                </linearGradient>
+                <linearGradient id="g2" x1="0" x2="1">
+                  <stop offset="0" stop-color="#0aa3a3"/>
+                  <stop offset="1" stop-color="#078f8f"/>
+                </linearGradient>
+              </defs>
+              <rect x="12" y="12" width="576" height="396" rx="18" fill="url(#g1)" stroke="rgba(11,18,32,0.04)" />
+              <g transform="translate(46,42)">
+                <rect x="0" y="12" width="340" height="200" rx="10" fill="#fff" stroke="rgba(11,18,32,0.03)"/>
+                <rect x="16" y="28" width="120" height="88" rx="8" fill="#f2f2f2"/>
+                <rect x="148" y="28" width="160" height="40" rx="6" fill="#f8f8f8"/>
+                <rect x="148" y="80" width="160" height="80" rx="8" fill="#f7f7f7"/>
+                <rect x="360" y="0" width="120" height="220" rx="12" fill="url(#g2)"/>
+                <circle cx="420" cy="150" r="28" fill="#fff" opacity="0.12"/>
+                <rect x="0" y="230" width="480" height="24" rx="6" fill="#fff" opacity="0.6"/>
+                <g transform="translate(0,270)" fill="#e9e8e6">
+                  <rect x="0" y="0" width="120" height="96" rx="10"/>
+                  <rect x="140" y="0" width="120" height="96" rx="10"/>
+                  <rect x="280" y="0" width="120" height="96" rx="10"/>
+                </g>
+              </g>
+              <rect x="28" y="330" width="520" height="40" rx="10" fill="rgba(10,163,163,0.06)"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="usluge" class="services container" aria-labelledby="usluge-title">
+      <h2 id="usluge-title" style="font-size:var(--h2-clamp);margin:0">Što obuhvaća naša ponuda</h2>
+      <p class="lead" style="margin-top:10px">Radujemo se suradnji na projektima opremanja i oblikovanja komercijalnih prostora. Pristup je prilagođen zahtjevima investitora i prirodi prostora.</p>
+
+      <div class="services-grid" style="margin-top:18px">
+        <article class="service" style="--i:0" aria-labelledby="s1-title">
+          <h3 id="s1-title">Projektiranje interijera</h3>
+          <p>Koncepti i prostorna rješenja usklađena s funkcijom poslovnog prostora — fokus na učinkovit raspored, protok korisnika i izvedivost izvedbe.</p>
+        </article>
+
+        <article class="service" style="--i:1" aria-labelledby="s2-title">
+          <h3 id="s2-title">Namještaj i opremanje</h3>
+          <p>Odabir namještaja i opreme s pažnjom na estetiku, trajnost i ergonomiju kako bi prostor djelovao skladno i profesionalno.</p>
+        </article>
+
+        <article class="service" style="--i:2" aria-labelledby="s3-title">
+          <h3 id="s3-title">Koordinacija izvedbe</h3>
+          <p>Podrška u planiranju i koordinaciji radova te suradnji s izvođačima radi uspješne realizacije dizajna u praksi.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="onama" class="about container" aria-labelledby="onama-title">
+      <div class="glass" role="region" aria-labelledby="onama-title">
+        <h2 id="onama-title" style="font-size:var(--h2-clamp);margin:0">O nama</h2>
+        <p style="margin-top:10px; color:var(--color-muted)">MI Life Design j.d.o.o. djeluje u području komercijalnog dizajna interijera i opremanja. Na ovoj stranici nalaze se osnovne informacije i poveznica na službeni web gdje možete pronaći najnovije detalje.</p>
+
+        <div class="list" aria-hidden="false">
+          <span class="pill">Pristup usmjeren izvedivosti</span>
+          <span class="pill">Estetska i funkcionalna rješenja</span>
+        </div>
+      </div>
+
+      <aside style="min-width:260px">
+        <div style="background:white;border-radius:12px;padding:18px;border:1px solid rgba(11,18,32,0.04);box-shadow:var(--shadow-subtle)">
+          <h3 style="margin:0 0 8px 0">Službena web-stranica</h3>
+          <p style="margin:0;color:var(--color-muted)">Više informacija dostupno je na službenoj web-stranici.</p>
+          <a class="site-link" href="https://mi-life-design.com/" target="_blank" rel="noopener noreferrer">mi-life-design.com</a>
+        </div>
+      </aside>
+    </section>
+
+    <section id="proces" class="container process" aria-labelledby="proces-title">
+      <h2 id="proces-title" style="font-size:var(--h2-clamp);margin:0">Kako surađujemo</h2>
+      <p class="lead" style="margin-top:10px">Suradnja je strukturirana kroz jasne korake kako bi rezultat bio predvidiv i izvediv.</p>
+
+      <div class="steps" style="margin-top:18px">
+        <div class="step" style="--i:0" aria-labelledby="step1">
+          <h4 id="step1">Početna konzultacija</h4>
+          <p>Razgovor o zahtjevima, željama i ograničenjima prostora, uz mapiranje ciljeva projekta.</p>
+        </div>
+        <div class="step" style="--i:1" aria-labelledby="step2">
+          <h4 id="step2">Koncept i prostorno rješenje</h4>
+          <p>Izrada konceptualnih ideja i vizualnih smjernica za daljnju razradu.</p>
+        </div>
+        <div class="step" style="--i:2" aria-labelledby="step3">
+          <h4 id="step3">Dokumentacija i koordinacija</h4>
+          <p>Priprema izvedbene dokumentacije i koordinacija suradnika tijekom realizacije.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="kontakt" class="contact container" aria-labelledby="kontakt-title">
+      <div class="contact-card" role="region" aria-labelledby="kontakt-title">
+        <h2 id="kontakt-title" style="font-size:var(--h2-clamp);margin:0">Kontakt</h2>
+        <p class="contact-note" style="margin-top:10px">Na ovoj stranici nisu dostavljeni izravni kontakt podaci (telefonski broj, email ili fizička adresa). Za službene kontakt informacije i upite posjetite njihovu web-stranicu putem donje poveznice.</p>
+
+        <a class="site-link" href="https://mi-life-design.com/" target="_blank" rel="noopener noreferrer" aria-label="Posjetite službenu web stranicu MI Life Design">Posjetite mi-life-design.com</a>
+      </div>
+
+      <aside style="min-width:320px">
+        <div style="background:white;border-radius:12px;padding:18px;border:1px solid rgba(11,18,32,0.04);box-shadow:var(--shadow-subtle)">
+          <h3 style="margin:0 0 8px 0">Zatražite konzultaciju</h3>
+          <p style="margin:0 0 12px 0;color:var(--color-muted)">Ako želite zatražiti konzultaciju, kliknite donji gumb i posjetite službenu stranicu za daljnje upute.</p>
+          <a class="btn cta-primary" href="https://mi-life-design.com/" target="_blank" rel="noopener noreferrer">Posjetite web</a>
+        </div>
+      </aside>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <div>
+        <div style="display:flex;align-items:center;gap:12px">
+          <span class="brand-mark" aria-hidden="true" style="width:40px;height:40px;border-radius:10px;font-size:16px">MI</span>
+          <div>
+            <div style="font-weight:700">MI Life Design j.d.o.o.</div>
+            <div class="legal">Djelatnost: dizajn i opremanje komercijalnih interijera</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="display:flex;gap:18px;align-items:center">
+        <a href="#usluge">Usluge</a>
+        <a href="#onama">O nama</a>
+        <a href="#kontakt">Kontakt</a>
+        <a href="https://mi-life-design.com/" target="_blank" rel="noopener noreferrer">Službena stranica</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function(){
+      // Mobile menu toggle
+      var btn = document.getElementById('menuBtn');
+      var menu = document.getElementById('mobile-menu');
+      btn.addEventListener('click', function(){
+        var expanded = this.getAttribute('aria-expanded') === 'true';
+        this.setAttribute('aria-expanded', String(!expanded));
+        if(expanded){
+          menu.style.display = 'none';
+        } else {
+          menu.style.display = 'block';
+        }
+      });
+
+      // Close mobile menu on escape
+      document.addEventListener('keydown', function(e){
+        if(e.key === 'Escape'){
+          btn.setAttribute('aria-expanded','false');
+          menu.style.display = 'none';
+        }
+      });
+
+      // Ensure reduced motion preference respected for animated elements
+      var supportsReduced = window.matchMedia('(prefers-reduced-motion: reduce)');
+      if(supportsReduced.matches){
+        document.documentElement.classList.add('reduced-motion');
+      }
+
+      // Simple progressive enhancement: reveal hero text after load for subtle effect
+      window.addEventListener('load', function(){
+        var h = document.querySelector('.hero-copy h1');
+        var v = document.querySelector('.visual-card');
+        if(h) h.style.opacity = '1';
+        if(v) v.style.transform = 'none';
+      }, {passive:true});
+    })();
+  </script>
+</body>
+</html>
