@@ -1,0 +1,670 @@
+ <!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Caffe Bar Moreno — catering i caffe bar</title>
+  <meta name="description" content="Caffe Bar Moreno — profesionalni catering i caffe bar usluge. Elegantna izvedba i pažljivo posluživanje hrane i napitaka za događanja. Kontakt putem službene Facebook stranice." />
+  <meta property="og:title" content="Caffe Bar Moreno — catering i caffe bar" />
+  <meta property="og:description" content="Profesionalni catering i caffe bar usluge. Elegantna izvedba i pažljivo posluživanje hrane i napitaka za događanja. Kontakt putem Facebooka." />
+  <meta property="og:url" content="http://hr-hr.facebook.com/pages/caffe-bar-Moreno/323184195925" />
+  <meta name="theme-color" content="#EFE9E1" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --color-primary: #6b4f3a; /* toplija smeđa - brand */
+      --color-secondary: #efe9e1; /* topla pozadina */
+      --color-accent: #c78a5a; /* naglasak */
+      --neutral-900: #0f1112;
+      --neutral-700: #3b3f41;
+      --neutral-500: #7a7e80;
+      --neutral-200: #e7e5e3;
+      --bg: var(--color-secondary);
+      --text: var(--neutral-900);
+
+      --space-xs: 8px;
+      --space-sm: 16px;
+      --space-md: 24px;
+      --space-lg: 40px;
+      --space-xl: 80px;
+
+      --radius-sm: 8px;
+      --radius-md: 16px;
+
+      --shadow-soft: 0 6px 22px rgba(11,12,13,0.07);
+
+      --max-width: 1200px;
+
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+
+    /* Fluid typography */
+    h1 { font-family: "Playfair Display", serif; font-size: clamp(1.6rem, 2.6vw, 2.6rem); line-height:1.02; margin:0; color:var(--neutral-900); }
+    h2 { font-family: "Playfair Display", serif; font-size: clamp(1.1rem, 2.1vw, 1.6rem); margin:0; color:var(--neutral-900); }
+    p, a, li { font-size: clamp(0.95rem, 1.4vw, 1rem); color:var(--text); line-height:1.45; }
+
+    * { box-sizing: border-box; }
+    html,body { height:100%; margin:0; background:var(--bg); color:var(--text); }
+
+    .container{
+      max-width:var(--max-width);
+      margin:0 auto;
+      padding:0 var(--space-sm);
+    }
+
+    /* NAV */
+    header{
+      background:transparent;
+      position:sticky;
+      top:0;
+      z-index:60;
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+    }
+    .nav-inner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:var(--space-sm);
+      padding:calc(var(--space-sm)) 0;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      text-decoration:none;
+      color:var(--neutral-900);
+    }
+    .brand-mark{
+      width:56px;
+      height:56px;
+      flex:0 0 56px;
+      background:linear-gradient(180deg, rgba(107,79,58,0.12), rgba(199,138,90,0.06));
+      border-radius:12px;
+      display:grid;
+      place-items:center;
+      box-shadow:var(--shadow-soft);
+    }
+    .wordmark{
+      display:flex;
+      flex-direction:column;
+      line-height:1;
+    }
+    .wordmark .name{ font-family:"Playfair Display", serif; font-size:1.05rem; font-weight:700; color:var(--neutral-900); }
+    .wordmark .tag{ font-size:0.78rem; color:var(--neutral-700); letter-spacing:0.02em; }
+
+    nav{ display:flex; align-items:center; gap:16px; }
+    .nav-links{ display:flex; gap:14px; align-items:center; }
+    .nav-links a{
+      text-decoration:none;
+      color:var(--neutral-700);
+      padding:8px 12px;
+      border-radius:8px;
+      transition:all .18s ease;
+      font-weight:600;
+    }
+    .nav-links a:hover, .nav-links a:focus{ color:var(--neutral-900); transform:translateY(-2px); outline:none; box-shadow:0 6px 18px rgba(11,12,13,0.06); background:rgba(11,12,13,0.02); }
+
+    .cta-primary{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      background:linear-gradient(180deg,var(--color-primary), #573e31);
+      color:#fff;
+      padding:10px 18px;
+      border-radius:12px;
+      text-decoration:none;
+      font-weight:600;
+      box-shadow:0 8px 24px rgba(107,79,58,0.18);
+      transition:transform .16s ease, box-shadow .16s ease;
+    }
+    .cta-primary:focus, .cta-primary:hover{ transform:translateY(-3px); box-shadow:0 14px 36px rgba(107,79,58,0.22); outline:none; }
+
+    .hamburger{
+      display:none;
+      background:transparent;
+      border:0;
+      padding:8px;
+      border-radius:8px;
+    }
+    .hamburger:focus{ outline:2px solid var(--color-accent); outline-offset:3px; }
+
+    /* HERO */
+    .hero{
+      padding: var(--space-xl) 0;
+      display:grid;
+      grid-template-columns: 1fr 460px;
+      gap:40px;
+      align-items:center;
+    }
+    .hero-card{
+      background:linear-gradient(180deg, rgba(255,255,255,0.6), rgba(255,255,255,0.4));
+      padding:var(--space-lg);
+      border-radius:18px;
+      box-shadow:var(--shadow-soft);
+      border:1px solid rgba(11,12,13,0.04);
+      position:relative;
+    }
+    .hero-eyebrow{ color:var(--neutral-700); font-weight:600; margin-bottom:10px; letter-spacing:0.02em; }
+    .hero h1{ margin-bottom:12px; }
+    .hero p{ margin-bottom:20px; color:var(--neutral-700); }
+
+    .hero-ctas{ display:flex; gap:12px; flex-wrap:wrap; }
+    .btn-ghost{
+      background:transparent;
+      border:1px solid rgba(11,12,13,0.08);
+      padding:10px 16px;
+      border-radius:12px;
+      color:var(--neutral-900);
+      text-decoration:none;
+      transition:all .16s ease;
+    }
+    .btn-ghost:hover, .btn-ghost:focus{ transform:translateY(-2px); box-shadow:0 8px 18px rgba(11,12,13,0.06); outline:none; }
+
+    /* Visual card (SVG composition) */
+    .visual{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      gap:16px;
+    }
+    .visual-plate{
+      background:linear-gradient(180deg, #fff, rgba(255,255,255,0.9));
+      border-radius:22px;
+      padding:18px;
+      box-shadow:0 20px 50px rgba(11,12,13,0.08);
+      border:1px solid rgba(11,12,13,0.03);
+    }
+
+    .features{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+      margin-top:var(--space-md);
+    }
+    .feature{
+      background:transparent;
+      padding:14px;
+      border-radius:12px;
+      display:flex;
+      gap:12px;
+      align-items:flex-start;
+    }
+    .icon{
+      width:46px;
+      height:46px;
+      display:grid;
+      place-items:center;
+      border-radius:10px;
+      background:linear-gradient(180deg, rgba(199,138,90,0.14), rgba(107,79,58,0.06));
+      flex:0 0 46px;
+    }
+    .feature h3{ margin:0 0 4px 0; font-size:0.98rem; color:var(--neutral-900); font-family:"Playfair Display", serif; }
+    .feature p{ margin:0; color:var(--neutral-700); font-size:0.92rem; }
+
+    /* SECTIONS */
+    section{ padding:var(--space-lg) 0; }
+    .section-title{ display:flex; align-items:baseline; gap:14px; margin-bottom:18px; }
+    .section-title h2{ margin-right:8px; }
+
+    .offer-grid{
+      display:grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap:18px;
+    }
+    .card{
+      background:#fff;
+      padding:18px;
+      border-radius:12px;
+      box-shadow:var(--shadow-soft);
+      border:1px solid rgba(11,12,13,0.04);
+    }
+    .approach{
+      display:flex;
+      gap:18px;
+      align-items:flex-start;
+    }
+    .process-list{
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+    }
+    .process-step{
+      display:flex;
+      gap:12px;
+      align-items:flex-start;
+    }
+    .step-num{
+      width:38px;height:38px;border-radius:10px;background:var(--color-primary);color:white;display:grid;place-items:center;font-weight:700;
+      flex:0 0 38px;
+    }
+
+    /* Gallery - decorative SVG tiles */
+    .gallery{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:12px;
+    }
+    .tile{
+      background:linear-gradient(180deg, rgba(239,233,225,0.9), white);
+      border-radius:12px;
+      padding:18px;
+      display:grid;
+      gap:12px;
+      align-items:center;
+      justify-items:start;
+      min-height:120px;
+      border:1px solid rgba(11,12,13,0.03);
+    }
+    .tile svg{ width:100%; height:64px; }
+
+    /* Contact */
+    .contact-card{
+      background:linear-gradient(180deg, rgba(255,255,255,0.95), rgba(255,255,255,0.88));
+      padding:18px;
+      border-radius:14px;
+      box-shadow:var(--shadow-soft);
+      display:flex;
+      gap:18px;
+      align-items:center;
+      justify-content:space-between;
+      flex-wrap:wrap;
+    }
+    .contact-actions{ display:flex; gap:12px; align-items:center; }
+
+    /* Footer */
+    footer{
+      padding:28px 0;
+      border-top:1px solid rgba(11,12,13,0.04);
+      margin-top:var(--space-xl);
+    }
+    .footer-inner{ display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap; }
+
+    /* Responsive */
+    @media (max-width:1100px){
+      .hero{ grid-template-columns:1fr; }
+      .visual{ order:-1; }
+      nav{ display:none; }
+      .hamburger{ display:block; }
+    }
+    @media (max-width:700px){
+      .features{ grid-template-columns:1fr; }
+      .offer-grid{ grid-template-columns:1fr; }
+      .gallery{ grid-template-columns:repeat(2,1fr); }
+      .brand-mark{ width:46px;height:46px;flex:0 0 46px; border-radius:10px; }
+      .hero{ padding: var(--space-lg) 0; }
+    }
+
+    /* Accessibility & motion */
+    :focus{ outline: 3px solid rgba(199,138,90,0.18); outline-offset:3px; }
+    @media (prefers-reduced-motion: reduce){
+      * { transition:none !important; animation:none !important; scroll-behavior:auto !important; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav-inner" role="navigation" aria-label="Glavna navigacija">
+      <a class="brand" href="#hero">
+        <div class="brand-mark" aria-hidden="true">
+          <!-- simple cup+tray SVG mark -->
+          <svg width="34" height="34" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="6" y="30" width="52" height="6" rx="3" fill="#c78a5a" opacity="0.12"/>
+            <path d="M44 20c0 6-8 6-8 6s-8 0-8-6c0-4 3-8 8-8s8 4 8 8z" fill="#6b4f3a"/>
+            <path d="M22 34h20v4H22v-4z" fill="#6b4f3a" opacity="0.12"/>
+          </svg>
+        </div>
+        <div class="wordmark">
+          <div class="name">Caffe Bar Moreno</div>
+          <div class="tag">catering · caffe bar</div>
+        </div>
+      </a>
+
+      <nav>
+        <div class="nav-links" role="menubar" aria-label="Sekcije">
+          <a href="#usluge" role="menuitem">Ponuda</a>
+          <a href="#o-nama" role="menuitem">O nama</a>
+          <a href="#galerija" role="menuitem">Vizuali</a>
+          <a href="#kontakt" role="menuitem">Kontakt</a>
+        </div>
+      </nav>
+
+      <div style="display:flex;align-items:center;gap:12px;">
+        <a class="cta-primary" href="http://hr-hr.facebook.com/pages/caffe-bar-Moreno/323184195925" target="_blank" rel="noopener noreferrer" aria-label="Posjetite Facebook stranicu Caffe Bar Moreno">Kontakt putem Facebooka</a>
+
+        <button class="hamburger" id="menuToggle" aria-expanded="false" aria-label="Otvori izbornik">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4 6h16M4 12h16M4 18h16" stroke="#3b3f41" stroke-width="1.6" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- mobile menu -->
+    <div id="mobileMenu" style="display:none;padding:12px 16px;background:linear-gradient(180deg,rgba(255,255,255,0.98),rgba(255,255,255,0.95));border-top:1px solid rgba(11,12,13,0.04);">
+      <div class="container" style="display:flex;flex-direction:column;gap:8px;">
+        <a href="#usluge">Ponuda</a>
+        <a href="#o-nama">O nama</a>
+        <a href="#galerija">Vizuali</a>
+        <a href="#kontakt">Kontakt</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <section id="hero" class="hero" aria-labelledby="hero-title">
+        <div class="hero-card" role="region" aria-labelledby="hero-title">
+          <div class="hero-eyebrow">Caffe Bar Moreno</div>
+          <h1 id="hero-title">Catering i caffe bar — pažljivo posluživanje za vaše događanje</h1>
+          <p>Specijalizirani smo za profesionalnu izvedbu cateringa i caffe bar usluga. Fokus nam je na besprijekornom servisu, ugodnoj prezentaciji i prilagođenom pristupu svakoj prigodi.</p>
+
+          <div class="hero-ctas">
+            <a class="cta-primary" href="http://hr-hr.facebook.com/pages/caffe-bar-Moreno/323184195925" target="_blank" rel="noopener noreferrer">Pošaljite poruku na Facebook</a>
+            <a class="btn-ghost" href="#usluge">Pogledajte ponudu</a>
+          </div>
+
+          <div class="features" aria-hidden="false" style="margin-top:20px;">
+            <div class="feature">
+              <div class="icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M6 20h12v-2a4 4 0 00-4-4H10a4 4 0 00-4 4v2z" fill="#6b4f3a" opacity="0.12"/>
+                  <path d="M8 10h8v6H8z" fill="#6b4f3a"/>
+                </svg>
+              </div>
+              <div>
+                <h3>Catering</h3>
+                <p>Prilagodljiva usluga posluživanja hrane i pića za događanja.</p>
+              </div>
+            </div>
+
+            <div class="feature">
+              <div class="icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M4 7h16v10H4z" fill="#6b4f3a" opacity="0.12"/>
+                  <path d="M9 11h6v4H9z" fill="#6b4f3a"/>
+                </svg>
+              </div>
+              <div>
+                <h3>Caffe bar</h3>
+                <p>Bar usluge s naglaskom na kvalitetnu prezentaciju i servis.</p>
+              </div>
+            </div>
+
+            <div class="feature">
+              <div class="icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="3" y="3" width="18" height="4" rx="1" fill="#6b4f3a" opacity="0.12"/>
+                  <path d="M5 8h14v8H5z" fill="#6b4f3a"/>
+                </svg>
+              </div>
+              <div>
+                <h3>Prilagodba</h3>
+                <p>Fleksibilan pristup prema prostoru i zahtjevima naručitelja.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="visual" aria-hidden="true">
+          <div class="visual-plate" role="img" aria-label="Ilustracija catering seta">
+            <!-- decorative SVG composition -->
+            <svg width="420" height="320" viewBox="0 0 420 320" fill="none" xmlns="http://www.w3.org/2000/svg" role="presentation">
+              <defs>
+                <linearGradient id="g1" x1="0" x2="1">
+                  <stop offset="0" stop-color="#fff" stop-opacity="0.9"/>
+                  <stop offset="1" stop-color="#efe9e1"/>
+                </linearGradient>
+              </defs>
+              <rect x="6" y="6" width="408" height="308" rx="18" fill="url(#g1)"/>
+              <!-- stylized tray -->
+              <g transform="translate(36,50)">
+                <rect x="20" y="90" width="320" height="16" rx="8" fill="#e7e5e3"/>
+                <rect x="40" y="28" width="280" height="72" rx="12" fill="#fff" stroke="#e6d6c8"/>
+                <!-- cup -->
+                <g transform="translate(60,40)">
+                  <rect x="0" y="6" width="48" height="36" rx="8" fill="#6b4f3a"/>
+                  <rect x="8" y="12" width="32" height="20" rx="6" fill="#fff" opacity="0.06"/>
+                </g>
+                <!-- small plate shapes -->
+                <g transform="translate(180,40)">
+                  <circle cx="28" cy="24" r="22" fill="#c78a5a" opacity="0.14"/>
+                  <rect x="8" y="6" width="40" height="30" rx="6" fill="#fff" opacity="0.06"/>
+                </g>
+              </g>
+              <!-- decorative corner motif -->
+              <path d="M12 280c45-30 120-25 200-10 86 16 150 18 196 6" stroke="#f0e6df" stroke-width="6" stroke-linecap="round" opacity="0.6"/>
+            </svg>
+          </div>
+        </div>
+      </section>
+
+      <section id="usluge" aria-labelledby="usluge-title">
+        <div class="section-title">
+          <h2 id="usluge-title">Ponuda</h2>
+          <div style="color:var(--neutral-700);font-size:0.95rem;">Pregled glavnih usluga</div>
+        </div>
+
+        <div class="offer-grid" role="list">
+          <article class="card" role="listitem" aria-labelledby="o1">
+            <h3 id="o1" style="font-family:'Playfair Display',serif;margin-bottom:8px;">Catering</h3>
+            <p style="margin-bottom:10px;color:var(--neutral-700);">Usluge cateringa prilagođavamo vrsti i opsegu događanja. Fokus je na kvalitetnoj prezentaciji i koordinaciji posluživanja.</p>
+            <p style="margin:0;color:var(--neutral-700)">Za detalje i upite koristite gumb za kontakt na vrhu ili posjetite našu Facebook stranicu.</p>
+          </article>
+
+          <article class="card" role="listitem" aria-labelledby="o2">
+            <h3 id="o2" style="font-family:'Playfair Display',serif;margin-bottom:8px;">Caffe bar usluge</h3>
+            <p style="margin-bottom:10px;color:var(--neutral-700);">Mobilni caffe bar i priprema napitaka uz profesionalno posluživanje. Prilagodljivo prostoru i zahtjevima.</p>
+            <p style="margin:0;color:var(--neutral-700)">Pošaljite upit putem Facebook poruke kako bismo dogovorili sve detalje.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="o-nama" aria-labelledby="onama-title">
+        <div class="section-title">
+          <h2 id="onama-title">O nama</h2>
+        </div>
+
+        <div class="approach">
+          <div style="flex:1;">
+            <div class="card" style="background:transparent;box-shadow:none;padding:0;">
+              <p style="margin:0 0 12px 0;color:var(--neutral-700);">Caffe Bar Moreno pruža usluge cateringa i caffe bara. Naš pristup temelji se na jasnoj komunikaciji s naručiteljem i izvedbi koja poštuje prostor i atmosferu događanja.</p>
+              <p style="margin:0;color:var(--neutral-700);">Za konkretne termine i ponude kontaktirajte nas putem službene Facebook stranice.</p>
+            </div>
+          </div>
+
+          <div style="width:320px;">
+            <div class="card" aria-hidden="true">
+              <svg width="100%" height="120" viewBox="0 0 360 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <rect x="8" y="8" width="344" height="104" rx="12" fill="#fff"/>
+                <path d="M30 80c35-22 80-18 140-6 62 13 115 15 160 4" stroke="#efe0d3" stroke-width="12" stroke-linecap="round"/>
+              </svg>
+              <div style="margin-top:10px;color:var(--neutral-700);font-size:0.95rem;">Transparentan pristup i fleksibilna organizacija usluge.</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="prednosti" aria-labelledby="prednosti-title">
+        <div class="section-title">
+          <h2 id="prednosti-title">Naš pristup</h2>
+        </div>
+
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;">
+          <div class="card">
+            <h3 style="font-family:'Playfair Display',serif;margin-bottom:8px;">Prilagodljivost</h3>
+            <p style="margin:0;color:var(--neutral-700);">Radimo prema zahtjevima prostora i željama naručitelja, uz jasno definirane korake.</p>
+          </div>
+          <div class="card">
+            <h3 style="font-family:'Playfair Display',serif;margin-bottom:8px;">Estetika</h3>
+            <p style="margin:0;color:var(--neutral-700);">Pažnja na prezentaciju i detalje kako bi posluživanje upotpunilo događanje.</p>
+          </div>
+          <div class="card">
+            <h3 style="font-family:'Playfair Display',serif;margin-bottom:8px;">Koordinacija</h3>
+            <p style="margin:0;color:var(--neutral-700);">Jasna komunikacija i koordinacija tijekom pripreme i izvedbe.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="kako" aria-labelledby="kako-title">
+        <div class="section-title">
+          <h2 id="kako-title">Kako funkcionira suradnja</h2>
+        </div>
+
+        <div class="process-list" style="max-width:920px;">
+          <div class="process-step">
+            <div class="step-num">1</div>
+            <div>
+              <strong>Kontakt i dogovor</strong>
+              <div style="color:var(--neutral-700);">Pošaljite poruku putem Facebook stranice s osnovnim informacijama – mi ćemo odgovoriti i dogovoriti detalje.</div>
+            </div>
+          </div>
+
+          <div class="process-step">
+            <div class="step-num">2</div>
+            <div>
+              <strong>Prijedlog izvedbe</strong>
+              <div style="color:var(--neutral-700);">Predlažemo rješenje prilagođeno prostoru i tipu događanja.</div>
+            </div>
+          </div>
+
+          <div class="process-step">
+            <div class="step-num">3</div>
+            <div>
+              <strong>Izvedba</strong>
+              <div style="color:var(--neutral-700);">Na dan događanja izvodimo ugovorenu uslugu uz profesionalno posluživanje.</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="galerija" aria-labelledby="galerija-title">
+        <div class="section-title">
+          <h2 id="galerija-title">Vizuali (ilustrativno)</h2>
+          <div style="color:var(--neutral-700);font-size:0.95rem;">Dekorativne ilustracije i kompozicije koje dočaravaju stil izvedbe</div>
+        </div>
+
+        <div class="gallery" role="list">
+          <div class="tile" role="listitem" aria-label="Ilustracija postavke na stolu">
+            <svg viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect x="0" y="0" width="200" height="80" rx="10" fill="none"/>
+              <rect x="10" y="14" width="60" height="44" rx="6" fill="#fff" stroke="#e6d6c8"/>
+              <rect x="86" y="10" width="96" height="60" rx="8" fill="#fff" stroke="#e6d6c8"/>
+            </svg>
+            <div style="font-weight:600;">Stilizirana postavka</div>
+            <div style="color:var(--neutral-700);font-size:0.92rem;">Ilustracija atmosfere i estetske izvedbe.</div>
+          </div>
+
+          <div class="tile" role="listitem" aria-label="Ilustracija caffe bara">
+            <svg viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect x="8" y="8" width="184" height="64" rx="8" fill="none"/>
+              <path d="M20 44h40v12H20z" fill="#c78a5a" opacity="0.12"/>
+              <rect x="72" y="20" width="40" height="36" rx="6" fill="#fff" stroke="#e6d6c8"/>
+            </svg>
+            <div style="font-weight:600;">Caffe bar</div>
+            <div style="color:var(--neutral-700);font-size:0.92rem;">Vizualizacija mobilnog bar kioska i prezentacije napitaka.</div>
+          </div>
+
+          <div class="tile" role="listitem" aria-label="Ilustracija dekorativne kompozicije">
+            <svg viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect x="6" y="6" width="188" height="68" rx="10" fill="none"/>
+              <circle cx="46" cy="40" r="18" fill="#6b4f3a" opacity="0.08"/>
+              <rect x="86" y="26" width="88" height="28" rx="6" fill="#fff" stroke="#e6d6c8"/>
+            </svg>
+            <div style="font-weight:600;">Dekor</div>
+            <div style="color:var(--neutral-700);font-size:0.92rem;">Kombinacije boja i materijala za elegantnu prezentaciju.</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="kontakt" aria-labelledby="kontakt-title">
+        <div class="section-title">
+          <h2 id="kontakt-title">Kontakt</h2>
+        </div>
+
+        <div class="contact-card" role="region" aria-label="Kontakt informacije">
+          <div>
+            <div style="font-weight:700;font-size:1.05rem;">Caffe Bar Moreno</div>
+            <div style="color:var(--neutral-700);margin-top:6px;">Za upite i dogovore koristite službenu Facebook stranicu.</div>
+          </div>
+
+          <div class="contact-actions">
+            <a class="cta-primary" href="http://hr-hr.facebook.com/pages/caffe-bar-Moreno/323184195925" target="_blank" rel="noopener noreferrer">Pošaljite poruku na Facebook</a>
+            <a class="btn-ghost" href="#hero">Natrag na vrh</a>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <div style="display:flex;align-items:center;gap:12px;">
+        <div style="width:48px;height:48px;border-radius:10px;background:linear-gradient(180deg,#fff, #f7f3f0);display:grid;place-items:center;">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+            <path d="M9 2h6v4H9z" fill="#6b4f3a"/>
+            <path d="M3 10h18v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-9z" fill="#6b4f3a" opacity="0.08"/>
+          </svg>
+        </div>
+        <div>
+          <div style="font-weight:700;">Caffe Bar Moreno</div>
+          <div style="color:var(--neutral-700);font-size:0.95rem;">catering · caffe bar</div>
+        </div>
+      </div>
+
+      <nav aria-label="Footer navigacija">
+        <a href="#usluge" style="margin-right:12px;text-decoration:none;color:var(--neutral-700);">Ponuda</a>
+        <a href="#o-nama" style="margin-right:12px;text-decoration:none;color:var(--neutral-700);">O nama</a>
+        <a href="http://hr-hr.facebook.com/pages/caffe-bar-Moreno/323184195925" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:var(--neutral-700);">Facebook</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script>
+    (function(){
+      var menuToggle = document.getElementById('menuToggle');
+      var mobileMenu = document.getElementById('mobileMenu');
+
+      function setMenu(open){
+        if(open){
+          mobileMenu.style.display = 'block';
+          menuToggle.setAttribute('aria-expanded','true');
+        } else {
+          mobileMenu.style.display = 'none';
+          menuToggle.setAttribute('aria-expanded','false');
+        }
+      }
+
+      menuToggle.addEventListener('click', function(){
+        var expanded = menuToggle.getAttribute('aria-expanded') === 'true';
+        setMenu(!expanded);
+      });
+
+      // Close mobile menu on navigation (for better UX)
+      Array.prototype.slice.call(document.querySelectorAll('#mobileMenu a')).forEach(function(a){
+        a.addEventListener('click', function(){ setMenu(false); });
+      });
+
+      // Smooth scroll for internal anchors
+      document.documentElement.style.scrollBehavior = 'smooth';
+
+      // Keyboard accessibility: close menu with Escape
+      document.addEventListener('keydown', function(e){
+        if(e.key === 'Escape') setMenu(false);
+      });
+
+      // Respect reduced motion preference for scroll
+      try {
+        var mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+        if (mediaQuery && mediaQuery.matches) {
+          document.documentElement.style.scrollBehavior = 'auto';
+        }
+      } catch(e){ /* ignore */ }
+    })();
+  </script>
+</body>
+</html>
