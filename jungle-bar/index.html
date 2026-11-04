@@ -1,0 +1,605 @@
+ <!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Jungle bar — Profesionalni catering i cafe servis | Jungle-Mrežnica</title>
+  <meta name="description" content="Jungle bar — profesionalni catering i catering za kafiće. Elegantna i pouzdana ugostiteljska podrška. Kontakt: +385911650888, junglebarmreznica@gmail.com" />
+  <meta property="og:title" content="Jungle bar — Profesionalni catering i cafe servis" />
+  <meta property="og:description" content="Elegantan, prilagođen catering i cafe servis. Kontaktirajte nas za upit: +385911650888" />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      /* Design system */
+      --space-xs: 6px;
+      --space-sm: 12px;
+      --space-md: 20px;
+      --space-lg: 36px;
+      --space-xl: 64px;
+
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+
+      --shadow-soft: 0 6px 20px rgba(8,10,12,0.35);
+      --shadow-faint: 0 3px 10px rgba(8,10,12,0.18);
+
+      --color-primary: #0f3b2e;    /* deep jungle green */
+      --color-secondary: #0b1b1a;  /* near-black charcoal */
+      --color-accent: #c9a96b;     /* warm gold accent */
+      --neutral-100: #f6f6f5;
+      --neutral-200: #e9e9e7;
+      --neutral-500: #9a9a96;
+      --text: #0b0b0b;
+      --muted: #585853;
+      --bg: linear-gradient(180deg,#071212 0%, #08221c 50%, #081816 100%);
+
+      --glass: rgba(255,255,255,0.03);
+      --transition-fast: 180ms cubic-bezier(.2,.9,.3,1);
+      --focus-ring: 3px solid rgba(201,169,107,0.18);
+    }
+
+    /* Base */
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      color:var(--text);
+      background:var(--bg);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.4;
+      -webkit-tap-highlight-color: transparent;
+    }
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;height:auto;display:block}
+
+    /* Layout */
+    .container{
+      max-width:1200px;
+      margin:0 auto;
+      padding:0 20px;
+    }
+
+    header{
+      position:sticky;top:0;z-index:60;
+      backdrop-filter: blur(6px);
+      background: linear-gradient(180deg, rgba(8,12,10,0.42), rgba(8,12,10,0.12));
+      border-bottom: 1px solid rgba(255,255,255,0.03);
+    }
+    .nav-inner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      padding:14px 0;
+    }
+
+    /* Wordmark */
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      color:var(--neutral-100);
+      text-decoration:none;
+    }
+    .logo-mark{
+      width:44px;height:44px;
+      background:radial-gradient(60% 60% at 30% 30%, rgba(201,169,107,0.18), transparent 30%), linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+      border-radius:12px;
+      display:grid;
+      place-items:center;
+      box-shadow:var(--shadow-faint);
+      flex:0 0 44px;
+    }
+    .logo-mark svg{display:block}
+
+    .brand-title{
+      font-family: "Playfair Display", serif;
+      font-weight:600;
+      font-size:18px;
+      letter-spacing:0.6px;
+      color:var(--neutral-100);
+    }
+    .brand-sub{
+      font-size:12px;
+      color:var(--neutral-200);
+      margin-top:-2px;
+    }
+
+    /* Nav links */
+    nav ul{display:flex;gap:18px;align-items:center;margin:0;padding:0;list-style:none}
+    nav a{color:var(--neutral-200);font-weight:600;font-size:14px;padding:6px 10px;border-radius:8px}
+    nav a:hover, nav a:focus{color:var(--neutral-100);outline:none}
+
+    .cta-primary{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      background:linear-gradient(90deg,var(--color-accent), #d7b775);
+      color:var(--secondary-contrast, #0b0b0b);
+      padding:10px 16px;
+      border-radius:12px;
+      font-weight:700;
+      box-shadow: 0 6px 18px rgba(17,12,8,0.28);
+      transition:transform var(--transition-fast), box-shadow var(--transition-fast);
+      border: none;
+      cursor:pointer;
+    }
+    .cta-primary:active{transform:translateY(1px)}
+    .cta-primary:focus{box-shadow:var(--focus-ring)}
+
+    /* Mobile menu */
+    .menu-toggle{
+      display:none;
+      background:transparent;border:0;color:var(--neutral-100);
+      width:44px;height:44px;border-radius:10px;
+    }
+    .menu-toggle:focus{outline:none;box-shadow:var(--focus-ring)}
+
+    /* Hero */
+    .hero{
+      padding: clamp(48px, 8vw, 112px) 0;
+      min-height: 66vh;
+      display:flex;
+      align-items:center;
+      color:var(--neutral-100);
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1fr 420px;
+      gap:48px;
+      align-items:center;
+    }
+    .hero-copy h1{
+      margin:0 0 18px 0;
+      font-family: "Playfair Display", serif;
+      font-weight:700;
+      color:var(--neutral-100);
+      letter-spacing:-0.6px;
+      font-size: clamp(32px, 6.2vw, 56px);
+      line-height:1.02;
+      max-width:760px;
+      text-wrap:balance;
+      text-shadow: 0 8px 30px rgba(3,7,6,0.6);
+    }
+    .hero-copy p{
+      margin:0 0 26px 0;
+      font-size: clamp(15px, 1.6vw, 18px);
+      color:rgba(255,255,255,0.86);
+      max-width:680px;
+    }
+    .hero-actions{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+    .btn-ghost{
+      background:transparent;color:var(--neutral-100);
+      border:1px solid rgba(255,255,255,0.08);
+      padding:10px 14px;border-radius:12px;font-weight:600;
+      transition:transform var(--transition-fast), background var(--transition-fast);
+    }
+    .btn-ghost:hover{background:rgba(255,255,255,0.02);transform:translateY(-2px)}
+
+    /* Visual panel */
+    .visual-panel{
+      background: linear-gradient(180deg, rgba(8,30,24,0.45), rgba(3,8,6,0.4));
+      border-radius: var(--radius-lg);
+      padding:22px;
+      box-shadow:var(--shadow-soft);
+      display:flex;
+      flex-direction:column;
+      gap:14px;
+      align-items:stretch;
+      min-height:320px;
+    }
+    .visual-hero{
+      position:relative;
+      flex:1;
+      border-radius:12px;
+      overflow:hidden;
+      background: linear-gradient(135deg, rgba(10,38,32,0.7), rgba(4,12,11,0.5));
+      display:grid;
+      grid-template-rows: 1fr auto;
+      padding:18px;
+    }
+    .panel-decor{
+      display:flex;gap:12px;align-items:center;justify-content:space-between;color:var(--neutral-200);
+      font-size:13px;
+    }
+    .leaf-graphic{opacity:0.95;transform:translateY(0)}
+
+    .badge{
+      display:inline-flex;align-items:center;gap:10px;padding:8px 12px;border-radius:999px;background:rgba(255,255,255,0.03);
+      color:var(--neutral-100);
+    }
+
+    /* Services */
+    section.services{padding:40px 0 18px}
+    .services-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+    }
+    .card{
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      padding:18px;border-radius:12px;
+      box-shadow:var(--shadow-faint);
+      transition:transform var(--transition-fast), box-shadow var(--transition-fast);
+      border:1px solid rgba(255,255,255,0.02);
+    }
+    .card:hover{transform:translateY(-6px);box-shadow:var(--shadow-soft)}
+    .card h3{margin:0 0 8px 0;font-size:16px;color:var(--neutral-100);font-weight:700}
+    .card p{margin:0;color:var(--neutral-200);font-size:14px;line-height:1.45}
+
+    /* About / Approach */
+    .split{
+      display:grid;
+      grid-template-columns:1fr 420px;
+      gap:28px;
+      align-items:start;
+    }
+    .list-steps{display:flex;flex-direction:column;gap:12px}
+    .step{
+      display:flex;gap:12px;align-items:flex-start;
+      background:rgba(255,255,255,0.02);padding:12px;border-radius:10px;
+      border:1px solid rgba(255,255,255,0.015);
+    }
+    .step strong{display:block;color:var(--neutral-100);font-weight:700}
+    .step span{color:var(--neutral-200);font-size:14px}
+
+    /* Contact */
+    .contact{
+      padding:40px 0 70px;
+      display:flex;
+      gap:24px;
+      align-items:center;
+      justify-content:space-between;
+      flex-wrap:wrap;
+    }
+    .contact .contact-card{
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      padding:18px;border-radius:14px;box-shadow:var(--shadow-faint);
+      min-width:260px;
+    }
+    .contact a{color:var(--accent,#c9a96b);font-weight:700}
+
+    footer{
+      border-top:1px solid rgba(255,255,255,0.03);
+      padding:20px 0;color:var(--neutral-200);
+      background:linear-gradient(180deg, rgba(3,8,7,0.05), rgba(3,8,7,0.02));
+    }
+    .footer-inner{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+    .legal{font-size:13px;color:var(--neutral-200)}
+
+    /* Responsive */
+    @media (max-width:1000px){
+      .hero-grid, .split{grid-template-columns:1fr}
+      .visual-panel{order:2}
+      .brand-title{font-size:16px}
+      nav ul{display:none}
+      .menu-toggle{display:inline-flex}
+      .visual-panel{min-height:280px}
+      .services-grid{grid-template-columns:repeat(2,1fr)}
+    }
+    @media (max-width:620px){
+      .container{padding:0 16px}
+      .services-grid{grid-template-columns:1fr}
+      .hero{padding:40px 0}
+      .visual-panel{min-height:220px}
+    }
+
+    /* Focus visible */
+    :focus{outline:none}
+    :focus-visible{outline: none; box-shadow: var(--focus-ring)}
+
+    /* Small utilities */
+    .muted{color:var(--neutral-200);font-size:13px}
+    .accent{color:var(--color-accent)}
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+    /* Animations - respect reduced motion */
+    @media (prefers-reduced-motion: no-preference){
+      .hero-copy h1{transform:translateY(0);opacity:1;transition:transform 550ms cubic-bezier(.2,.9,.3,1),opacity 420ms}
+      .card{will-change:transform}
+      .leaf-graphic{transition:transform 700ms cubic-bezier(.2,.9,.3,1)}
+      .leaf-graphic:hover{transform:translateY(-6px) rotate(-4deg)}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav-inner" role="navigation" aria-label="Glavna navigacija">
+      <a class="brand" href="#hero">
+        <span class="logo-mark" aria-hidden="true">
+          <!-- decorative mark: stylized jungle leaf -->
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="g" x1="0" x2="1">
+                <stop offset="0" stop-color="#c9a96b" stop-opacity="0.95"/>
+                <stop offset="1" stop-color="#d6b981" stop-opacity="0.95"/>
+              </linearGradient>
+            </defs>
+            <path d="M4 20c4-6 12-8 16-16-6 4-10 12-16 16z" fill="url(#g)"/>
+            <path d="M3 21c5-4 12-9 18-17" stroke="rgba(255,255,255,0.08)" stroke-width="1.2" stroke-linecap="round"/>
+          </svg>
+        </span>
+        <div>
+          <div class="brand-title">Jungle bar</div>
+          <div class="brand-sub">catering • catering.cafe</div>
+        </div>
+      </a>
+
+      <nav aria-label="Sekcije">
+        <ul>
+          <li><a href="#usluge">Usluge</a></li>
+          <li><a href="#o-nama">O nama</a></li>
+          <li><a href="#kontakt">Kontakt</a></li>
+        </ul>
+      </nav>
+
+      <div style="display:flex;align-items:center;gap:12px">
+        <a class="cta-primary" href="tel:+385911650888" aria-label="Nazovite Jungle bar">Nazovite +385 91 165 0888</a>
+        <button class="menu-toggle" id="menuToggle" aria-controls="mobileMenu" aria-expanded="false" aria-label="Otvorite izbornik">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+            <path d="M3 7h18M3 12h18M3 17h18" stroke="white" stroke-width="1.6" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobileMenu" style="display:none;padding:12px 20px;border-top:1px solid rgba(255,255,255,0.02);">
+      <div class="container" style="display:flex;flex-direction:column;gap:8px">
+        <a href="#usluge">Usluge</a>
+        <a href="#o-nama">O nama</a>
+        <a href="#kontakt">Kontakt</a>
+        <a href="mailto:junglebarmreznica@gmail.com">Pošaljite e-mail</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="hero" class="hero container" tabindex="-1" role="region" aria-label="Hero">
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <h1>Elegantan catering i cafe servis inspiriran prirodom Mrežnice</h1>
+          <p>Jungle bar pruža profesionalne catering usluge i podršku za kafiće—jasna komunikacija, fleksibilne opcije i pažnja prema prezentaciji. Kontaktirajte nas za konkretan upit ili brzi telefonski razgovor.</p>
+          <div class="hero-actions">
+            <a class="cta-primary" href="tel:+385911650888" aria-label="Nazovite Jungle bar">Nazovite nas</a>
+            <a class="btn-ghost" href="mailto:junglebarmreznica@gmail.com" aria-label="Pošaljite e-mail Jungle bar">Pošaljite e-mail</a>
+            <a class="btn-ghost" href="https://www.jungle-mreznica.com" target="_blank" rel="noopener">Posjetite web</a>
+          </div>
+        </div>
+
+        <aside class="visual-panel" aria-hidden="false">
+          <div class="visual-hero" role="img" aria-label="Vizualni element - stilizirana izvedba lišća i teksture">
+            <!-- Decorative SVG composition, original and inline -->
+            <svg class="leaf-graphic" viewBox="0 0 320 220" width="100%" height="100%" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <defs>
+                <linearGradient id="lg1" x1="0" x2="1">
+                  <stop offset="0" stop-color="#154b3f"/>
+                  <stop offset="1" stop-color="#0f3126"/>
+                </linearGradient>
+                <linearGradient id="lg2" x1="0" x2="1">
+                  <stop offset="0" stop-color="#c9a96b"/>
+                  <stop offset="1" stop-color="#e1c88f"/>
+                </linearGradient>
+                <filter id="grain"><feTurbulence baseFrequency="0.9" numOctaves="1" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter>
+              </defs>
+              <rect width="320" height="220" fill="url(#lg1)"/>
+              <g transform="translate(10,12) scale(1.1)">
+                <path d="M260 40c-28 12-60 38-92 76-14 16-30 34-52 46-16 9-36 12-56 6 26-10 54-28 78-54 36-38 62-84 120-74z" fill="rgba(255,255,255,0.02)"/>
+                <path d="M40 180c22-18 48-46 90-72 34-22 68-28 110-18-38 6-78 26-118 54-44 31-80 58-82 36z" fill="url(#lg2)" opacity="0.08"/>
+                <g transform="translate(20,10)" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="1.2">
+                  <path d="M6 140c24-26 58-54 102-70"/>
+                  <path d="M18 150c28-20 62-48 110-56"/>
+                </g>
+              </g>
+            </svg>
+
+            <div style="padding:12px 0 0 0">
+              <div class="panel-decor">
+                <div>
+                  <div class="badge" aria-hidden="true">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M12 2v20" stroke="white" stroke-width="1.2" stroke-linecap="round"/>
+                      <path d="M5 7c3 6 7 8 14 10" stroke="rgba(255,255,255,0.08)" stroke-width="1.2" stroke-linecap="round"/>
+                    </svg>
+                    catering • cafe
+                  </div>
+                </div>
+                <div class="muted">Profesionalna prezentacija</div>
+              </div>
+            </div>
+          </div>
+
+          <div style="display:flex;gap:10px;align-items:center;justify-content:space-between;padding-top:8px">
+            <div class="muted" style="font-size:13px">Diskretna estetika • Precizan servis</div>
+            <a class="btn-ghost" href="#kontakt">Zatraži ponudu</a>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="usluge" class="services container" aria-labelledby="uslugeTitle">
+      <h2 id="uslugeTitle" style="font-family:Playfair Display, serif;color:var(--neutral-100);margin:0 0 18px;font-size:22px">Usluge</h2>
+      <p class="muted" style="margin:0 0 20px;max-width:840px">Pružamo usluge iz područja catering i catering.cafe. U nastavku su predstavljene glavne kategorije ponude; za detaljniji upit koristite kontakt.</p>
+
+      <div class="services-grid" role="list">
+        <article class="card" role="listitem" aria-labelledby="s1">
+          <h3 id="s1">Profesionalni catering</h3>
+          <p>Opskrba hrane i pića za događanja i okupljanja, s naglaskom na prezentaciju i logistiku. Kontaktirajte nas da dogovorimo detalje prema vašim zahtjevima.</p>
+        </article>
+
+        <article class="card" role="listitem" aria-labelledby="s2">
+          <h3 id="s2">Catering za kafiće (cafe service)</h3>
+          <p>Podrška kafićima i manjim ugostiteljskim objektima—opskrba i prilagodljiva rješenja za dnevne potrebe i posebne prilike.</p>
+        </article>
+
+        <article class="card" role="listitem" aria-labelledby="s3">
+          <h3 id="s3">Prezentacija i posluživanje</h3>
+          <p>Fokus na urednu i funkcionalnu prezentaciju hrane i napitaka, s opremom i osobljem prema dogovoru. Pišite za provjeru dostupnosti i opcija.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="o-nama" class="container" style="padding:34px 0 10px" aria-labelledby="aboutTitle">
+      <h2 id="aboutTitle" style="font-family:Playfair Display, serif;color:var(--neutral-100);margin:0 0 18px;font-size:22px">O nama i pristup</h2>
+      <div class="split">
+        <div>
+          <p class="muted" style="margin-bottom:18px;max-width:760px">Jungle bar djeluje kao tim koji se fokusira na jasnu komunikaciju i profesionalnu realizaciju. Nudimo koordinirane usluge povezane s cateringom i opskrbom za kafiće, s naglaskom na pouzdanost i estetiku posluživanja.</p>
+
+          <div class="list-steps" role="list" aria-label="Kako suradnja obično izgleda">
+            <div class="step" role="listitem">
+              <div style="width:36px;height:36px;border-radius:8px;background:rgba(201,169,107,0.12);display:grid;place-items:center;color:var(--color-accent);font-weight:700">1</div>
+              <div>
+                <strong>Upit i konzultacija</strong>
+                <span>Kontaktirajte nas telefonom ili e-mailom kako bismo razjasnili potrebe i raspoloživost.</span>
+              </div>
+            </div>
+
+            <div class="step" role="listitem">
+              <div style="width:36px;height:36px;border-radius:8px;background:rgba(201,169,107,0.12);display:grid;place-items:center;color:var(--color-accent);font-weight:700">2</div>
+              <div>
+                <strong>Prijedlog i dogovor</strong>
+                <span>Predlažemo prikladna rješenja i dogovaramo detalje dostave, opreme i posluživanja.</span>
+              </div>
+            </div>
+
+            <div class="step" role="listitem">
+              <div style="width:36px;height:36px;border-radius:8px;background:rgba(201,169,107,0.12);display:grid;place-items:center;color:var(--color-accent);font-weight:700">3</div>
+              <div>
+                <strong>Realizacija</strong>
+                <span>Izvedba dogovorenog servisa prema planu i komunikacija prije i tijekom događaja.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <aside style="align-self:start">
+          <div class="contact-card" style="padding:18px;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.02));border-radius:12px;">
+            <div style="margin-bottom:8px;font-weight:700;color:var(--neutral-100)">Kontakt</div>
+            <div class="muted" style="margin-bottom:8px">Telefon</div>
+            <div style="margin-bottom:14px"><a href="tel:+385911650888" style="color:var(--neutral-100);font-weight:700">+385 91 165 0888</a></div>
+
+            <div class="muted" style="margin-bottom:8px">E-mail</div>
+            <div style="margin-bottom:14px"><a href="mailto:junglebarmreznica@gmail.com">junglebarmreznica@gmail.com</a></div>
+
+            <div style="margin-top:6px"><a class="btn-ghost" href="#kontakt">Pošaljite upit</a></div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="kontakt" class="container contact" aria-labelledby="kontaktTitle">
+      <h2 id="kontaktTitle" style="font-family:Playfair Display, serif;color:var(--neutral-100);width:100%;margin:0 0 6px;font-size:22px">Kontakt</h2>
+      <p class="muted" style="width:100%;margin:0 0 12px">Za upite i narudžbe kontaktirajte nas telefonom ili putem e-maila. Rado ćemo odgovoriti na pitanja i dogovoriti daljnje korake.</p>
+
+      <div class="contact-card" style="min-width:320px;">
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <div class="muted">Telefon</div>
+          <a href="tel:+385911650888" style="font-weight:700;color:var(--neutral-100);font-size:16px">+385 91 165 0888</a>
+
+          <div class="muted">E-mail</div>
+          <a href="mailto:junglebarmreznica@gmail.com" style="font-weight:700;color:var(--neutral-100);font-size:16px">junglebarmreznica@gmail.com</a>
+
+          <div class="muted" style="margin-top:12px">Web</div>
+          <a href="https://www.jungle-mreznica.com" target="_blank" rel="noopener" style="font-weight:700;color:var(--neutral-100);font-size:14px">www.jungle-mreznica.com</a>
+        </div>
+      </div>
+
+      <div style="flex:1;min-width:260px">
+        <form action="mailto:junglebarmreznica@gmail.com" method="post" enctype="text/plain" style="display:flex;flex-direction:column;gap:10px;">
+          <label class="sr-only" for="name">Ime</label>
+          <input id="name" name="Ime" type="text" placeholder="Vaše ime" style="padding:12px;border-radius:12px;border:1px solid rgba(255,255,255,0.03);background:transparent;color:var(--neutral-100)" />
+
+          <label class="sr-only" for="phone">Telefon</label>
+          <input id="phone" name="Telefon" type="tel" placeholder="Telefon (opcionalno)" style="padding:12px;border-radius:12px;border:1px solid rgba(255,255,255,0.03);background:transparent;color:var(--neutral-100)" />
+
+          <label class="sr-only" for="message">Poruka</label>
+          <textarea id="message" name="Poruka" rows="4" placeholder="Kratki opis upita" style="padding:12px;border-radius:12px;border:1px solid rgba(255,255,255,0.03);background:transparent;color:var(--neutral-100)"></textarea>
+
+          <div style="display:flex;gap:10px">
+            <button type="submit" class="cta-primary" style="border-radius:12px">Pošalji upit</button>
+            <a class="btn-ghost" href="mailto:junglebarmreznica@gmail.com">Pošaljite e-mail iz poštanskog klijenta</a>
+          </div>
+          <div class="muted" style="font-size:13px">Obavijest: obrazac otvara vaš e-mail klijent. Ako želite, pošaljite direktno na e-mail.</div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <div>
+        <div style="font-weight:700;color:var(--neutral-100)">Jungle bar</div>
+        <div class="muted">catering • catering.cafe</div>
+      </div>
+
+      <div class="legal">
+        <div>Kontakt: <a href="tel:+385911650888">+385 91 165 0888</a> • <a href="mailto:junglebarmreznica@gmail.com">junglebarmreznica@gmail.com</a></div>
+        <div style="margin-top:6px;color:var(--neutral-200);font-size:13px">© Jungle bar — svi podaci prikazani su prema dostavljenim informacijama.</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function(){
+      const menuToggle = document.getElementById('menuToggle');
+      const mobileMenu = document.getElementById('mobileMenu');
+
+      function toggleMenu(){
+        const open = menuToggle.getAttribute('aria-expanded') === 'true';
+        menuToggle.setAttribute('aria-expanded', String(!open));
+        if(open){
+          mobileMenu.style.display = 'none';
+          menuToggle.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 7h18M3 12h18M3 17h18" stroke="white" stroke-width="1.6" stroke-linecap="round"/></svg>';
+        } else {
+          mobileMenu.style.display = 'block';
+          menuToggle.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 6l12 12M6 18L18 6" stroke="white" stroke-width="1.6" stroke-linecap="round"/></svg>';
+        }
+      }
+      menuToggle.addEventListener('click', toggleMenu);
+      menuToggle.addEventListener('keydown', function(e){
+        if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); toggleMenu(); }
+      });
+
+      // Reduce motion: simple reveal on load
+      if(window.matchMedia('(prefers-reduced-motion: reduce)').matches === false){
+        window.addEventListener('load', function(){
+          const h1 = document.querySelector('.hero-copy h1');
+          if(h1) h1.style.transform = 'translateY(0)';
+        });
+      }
+
+      // Smooth scrolling for same-page links
+      document.querySelectorAll('a[href^="#"]').forEach(function(anchor){
+        anchor.addEventListener('click', function(e){
+          const href = anchor.getAttribute('href');
+          if(href.length > 1){
+            const target = document.querySelector(href);
+            if(target){
+              e.preventDefault();
+              target.scrollIntoView({behavior: 'smooth', block: 'start'});
+              // close mobile menu if open
+              if(mobileMenu.style.display === 'block'){
+                toggleMenu();
+              }
+            }
+          }
+        });
+      });
+
+      // Keyboard accessibility: trap focus when mobile menu is open (simple)
+      document.addEventListener('keydown', function(e){
+        if(e.key === 'Escape' && mobileMenu.style.display === 'block'){
+          toggleMenu();
+          menuToggle.focus();
+        }
+      });
+
+    })();
+  </script>
+</body>
+</html>
