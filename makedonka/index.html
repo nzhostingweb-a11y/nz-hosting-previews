@@ -1,0 +1,559 @@
+ <!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Makedonka — catering i brza hrana | Profesionalan catering</title>
+  <meta name="description" content="Makedonka nudi catering i brzu hranu prilagođenu događanjima i poslovnim potrebama. Kontakt: +385 31 503 403. Posjetite www.makedonka.hr" />
+  <meta property="og:title" content="Makedonka — catering i brza hrana" />
+  <meta property="og:description" content="Catering i brza hrana za događanja i poslovne prilike. Kontakt: +385 31 503 403" />
+  <meta name="theme-color" content="#F7F4F0" />
+
+  <!-- Google Fonts (dva fonta: serif za logo/istaknuti naslovi, sans za tekst) -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      /* Boje i tonovi */
+      --color-primary: #8B3E2F;       /* topao tamnocrveni - brand */
+      --color-secondary: #F7F4F0;     /* svijetla pozadina */
+      --color-accent: #E4B77A;        /* topliji accent */
+      --neutral-900: #1C1B1A;
+      --neutral-700: #44403B;
+      --neutral-500: #7A756F;
+      --neutral-300: #CFC7BF;
+      --bg: var(--color-secondary);
+      --glass: rgba(255,255,255,0.6);
+
+      /* Tipografija */
+      --font-heading: "Playfair Display", Georgia, serif;
+      --font-body: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+      /* Fluid typography (clamp: min, preferred, max) */
+      --fs-h1: clamp(1.6rem, 1.3rem + 2.6vw, 3.2rem);
+      --fs-h2: clamp(1.25rem, 1rem + 1.2vw, 1.8rem);
+      --fs-lead: clamp(1rem, 0.9rem + 0.6vw, 1.125rem);
+      --fs-body: clamp(0.95rem, 0.8rem + 0.4vw, 1rem);
+
+      /* Spacing */
+      --space-xs: 6px;
+      --space-sm: 12px;
+      --space-md: 20px;
+      --space-lg: 36px;
+      --space-xl: 64px;
+      --container-max: 1200px;
+
+      /* UI */
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --shadow-1: 0 6px 18px rgba(27,24,22,0.08);
+      --shadow-2: 0 10px 30px rgba(27,24,22,0.06);
+
+      transition: 200ms cubic-bezier(.2,.9,.2,1);
+    }
+
+    /* Reset & base */
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:var(--font-body);
+      background:var(--bg);
+      color:var(--neutral-900);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+      font-size:16px;
+    }
+
+    a{color:inherit;text-decoration:none}
+    img,svg{max-width:100%;height:auto;display:block}
+
+    .container{
+      width:calc(100% - 40px);
+      max-width:var(--container-max);
+      margin:0 auto;
+    }
+
+    header{
+      position:sticky;
+      top:12px;
+      z-index:80;
+      display:flex;
+      justify-content:center;
+      pointer-events:none;
+    }
+    .nav-wrap{
+      width:100%;
+      max-width:var(--container-max);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      pointer-events:auto;
+    }
+
+    /* Wordmark */
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:14px;
+      padding:8px 12px;
+      background:linear-gradient(180deg, rgba(255,255,255,0.65), rgba(255,255,255,0.5));
+      border-radius:12px;
+      box-shadow:var(--shadow-1);
+      backdrop-filter: blur(6px);
+    }
+    .brand-logo{
+      width:48px;height:48px;border-radius:10px;
+      background:linear-gradient(120deg,var(--color-primary), #B85D46);
+      display:grid;place-items:center;color:white;font-weight:700;font-family:var(--font-heading);
+      box-shadow:0 4px 14px rgba(139,62,47,0.18);
+      flex:0 0 48px;
+    }
+    .brand-name{
+      font-family:var(--font-heading);
+      font-size:1.05rem;
+      color:var(--neutral-900);
+      letter-spacing:0.6px;
+    }
+    .brand-sub{
+      font-size:0.675rem;color:var(--neutral-500);margin-top:2px;font-family:var(--font-body)
+    }
+
+    nav.primary{
+      display:flex;
+      gap:14px;
+      align-items:center;
+    }
+    nav.primary a{
+      padding:8px 10px;
+      color:var(--neutral-700);
+      font-weight:600;
+      border-radius:8px;
+      transition:all 160ms ease;
+      font-size:0.95rem;
+    }
+    nav.primary a:hover, nav.primary a:focus{
+      color:var(--neutral-900);
+      transform:translateY(-2px);
+    }
+
+    .cta{
+      background:linear-gradient(90deg,var(--color-primary), #A24A3A);
+      color:white;
+      padding:10px 14px;border-radius:10px;font-weight:700;
+      box-shadow:var(--shadow-2);
+      display:inline-flex;gap:10px;align-items:center;
+      transition:transform 160ms ease, box-shadow 160ms ease, opacity 160ms ease;
+    }
+    .cta:active{transform:translateY(1px)}
+    .cta.secondary{
+      background:transparent;color:var(--color-primary);box-shadow:none;border:2px solid rgba(139,62,47,0.06);padding:8px 12px;font-weight:600;
+    }
+
+    /* Mobile menu button */
+    .menu-btn{
+      display:none;
+      background:transparent;border:0;padding:8px;border-radius:9px;
+    }
+
+    /* Hero */
+    .hero{
+      padding:calc(var(--space-xl) + 10px) 0 calc(var(--space-lg) + 10px);
+      display:flex;align-items:center;gap:32px;
+    }
+    .hero-grid{
+      display:grid;grid-template-columns:1fr 520px;align-items:center;gap:40px;width:100%;
+    }
+    .hero-copy{
+      max-width:680px;
+    }
+    h1{
+      margin:0 0 var(--space-sm) 0;
+      font-family:var(--font-heading);
+      font-size:var(--fs-h1);
+      color:var(--neutral-900);
+      letter-spacing:-0.02em;
+      line-height:1.03;
+    }
+    p.lead{
+      margin:0 0 var(--space-md) 0;font-size:var(--fs-lead);color:var(--neutral-700);
+    }
+    .hero-ctas{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+    .note{
+      font-size:0.875rem;color:var(--neutral-500);
+      margin-top:14px;
+    }
+
+    /* Decorative composition (right column) */
+    .composition{
+      width:100%;
+      max-width:520px;
+      height:360px;
+      background:linear-gradient(180deg, rgba(232,221,211,0.9), rgba(255,255,255,0.75));
+      border-radius:18px;
+      padding:22px;
+      box-shadow:var(--shadow-1);
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:12px;
+      align-items:center;
+      justify-items:center;
+      position:relative;overflow:hidden;
+    }
+    .plate{
+      width:220px;height:220px;border-radius:50%;
+      background:radial-gradient(circle at 30% 25%, #FFF, #F6EDE7);
+      box-shadow:0 12px 30px rgba(27,24,22,0.08);
+      display:grid;place-items:center;font-family:var(--font-heading);color:var(--color-primary);
+      font-size:1.05rem;font-weight:700;
+    }
+    .dish-card{
+      width:160px;height:100px;border-radius:12px;background:white;display:flex;align-items:center;gap:10px;padding:12px;
+      box-shadow:var(--shadow-1);transform:translateY(0);transition:transform 300ms cubic-bezier(.2,.9,.2,1);
+    }
+    .composition .dish-card:hover{transform:translateY(-6px)}
+
+    /* Services */
+    section.services{padding:var(--space-lg) 0}
+    .cards{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:20px;
+    }
+    .card{
+      background:white;padding:18px;border-radius:12px;box-shadow:var(--shadow-1);
+      transition:transform 220ms ease, box-shadow 220ms ease;
+    }
+    .card:hover{transform:translateY(-8px);box-shadow:var(--shadow-2)}
+    .card h3{margin:0 0 8px 0;font-size:var(--fs-h2);font-family:var(--font-heading)}
+    .card p{margin:0;color:var(--neutral-700);font-size:var(--fs-body)}
+    .icon{
+      width:48px;height:48px;border-radius:10px;background:linear-gradient(180deg, rgba(240,235,232,0.95), rgba(255,255,255,0.9));
+      display:grid;place-items:center;margin-bottom:12px;box-shadow:0 6px 14px rgba(139,62,47,0.06);
+    }
+
+    /* How it works */
+    .process{
+      display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:start;
+      margin-top:calc(var(--space-lg) - 8px);
+    }
+    .step{
+      background:linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.95));padding:16px;border-radius:12px;box-shadow:var(--shadow-1);
+    }
+    .step h4{margin:0 0 8px 0;font-size:1rem;color:var(--color-primary);font-weight:700}
+
+    /* Contact */
+    .contact{
+      background:linear-gradient(180deg, #FFF8F6, rgba(255,255,255,0.9));padding:var(--space-lg);border-radius:16px;box-shadow:var(--shadow-1);
+      display:flex;align-items:center;justify-content:space-between;gap:16px;
+    }
+    .contact .actions{display:flex;gap:12px;align-items:center}
+    .tel{
+      font-weight:700;color:var(--neutral-900);font-size:1.05rem;
+    }
+    .website{
+      color:var(--neutral-700);font-size:0.95rem;
+    }
+
+    footer{
+      margin-top:var(--space-lg);padding:var(--space-md) 0;color:var(--neutral-700);
+    }
+    .footer-grid{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+
+    /* Responsive */
+    @media (max-width:1100px){
+      .hero-grid{grid-template-columns:1fr 420px}
+      .composition{height:300px}
+    }
+    @media (max-width:880px){
+      .hero-grid{grid-template-columns:1fr;gap:18px}
+      .composition{order:2;width:100%;height:260px}
+      nav.primary{display:none}
+      .menu-btn{display:inline-flex}
+      .brand-sub{display:none}
+      .cards{grid-template-columns:repeat(2,1fr)}
+      .process{grid-template-columns:1fr}
+      .nav-wrap{align-items:center}
+    }
+    @media (max-width:520px){
+      .cards{grid-template-columns:1fr}
+      .composition{height:220px}
+      .brand-logo{width:44px;height:44px}
+      .brand-name{font-size:0.95rem}
+      h1{font-size:clamp(1.4rem, 1.1rem + 5vw, 2rem)}
+    }
+
+    /* Focus & accessibility */
+    a:focus, button:focus{outline:3px solid rgba(139,62,47,0.12);outline-offset:3px;border-radius:8px}
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce){
+      *{animation:none!important;transition:none!important}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav-wrap container" role="navigation" aria-label="Glavna navigacija">
+      <div style="display:flex;align-items:center;gap:16px">
+        <a class="brand" href="#hero">
+          <div class="brand-logo" aria-hidden="true">M</div>
+          <div>
+            <div class="brand-name">Makedonka</div>
+            <div class="brand-sub">catering · brza hrana</div>
+          </div>
+        </a>
+      </div>
+
+      <nav class="primary" aria-label="Sekcije">
+        <a href="#usluge">Ponuda</a>
+        <a href="#o-nama">O nama</a>
+        <a href="#kako">Kako radimo</a>
+        <a href="#kontakt" class="cta secondary">Kontakt</a>
+      </nav>
+
+      <div style="display:flex;align-items:center;gap:10px">
+        <a class="cta" href="tel:+38531503403" aria-label="Nazovite Makedonka +385 31 503 403">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.78 19.78 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.78 19.78 0 0 1 2.09 4.18 2 2 0 0 1 4 2h3a2 2 0 0 1 2 1.72c.12.91.38 1.8.76 2.63a2 2 0 0 1-.45 2.11L8.91 9.91a16 16 0 0 0 6 6l1.45-1.45a2 2 0 0 1 2.11-.45c.83.38 1.72.64 2.63.76A2 2 0 0 1 22 16.92z" fill="white"/></svg>
+          <span>+385 31 503 403</span>
+        </a>
+
+        <button class="menu-btn" id="menuBtn" aria-controls="mobileMenu" aria-expanded="false" aria-label="Otvorite izbornik">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16" stroke="#1C1B1A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile menu (visually hidden on desktop) -->
+    <div id="mobileMenu" style="display:none;position:fixed;right:16px;left:16px;top:76px;background:linear-gradient(180deg,rgba(255,255,255,0.98),rgba(255,255,255,0.96));box-shadow:var(--shadow-2);border-radius:14px;padding:14px;z-index:90" aria-hidden="true">
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <a href="#usluge">Ponuda</a>
+        <a href="#o-nama">O nama</a>
+        <a href="#kako">Kako radimo</a>
+        <a href="#kontakt" class="cta secondary" style="align-self:flex-start">Kontakt</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="hero" class="hero container" aria-labelledby="hero-title">
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <h1 id="hero-title">Catering kojem je bitan svaki detalj</h1>
+          <p class="lead">Makedonka pruža catering i brzu hranu prilagođenu događanjima, poslovnim okupljanjima i situacijama "za van". Fokusiramo se na jasnoću ponude, organizaciju i dosljednu prezentaciju jela.</p>
+
+          <div class="hero-ctas" role="group" aria-label="Hero pozivi na akciju">
+            <a class="cta" href="tel:+38531503403" aria-label="Nazovite +385 31 503 403">Nazovite: +385 31 503 403</a>
+            <a class="cta secondary" href="#usluge">Pogledajte ponudu</a>
+          </div>
+
+          <p class="note">Za brze upite nazovite broj iznad. Više informacija potražite na www.makedonka.hr</p>
+        </div>
+
+        <div class="composition" aria-hidden="false" role="img" aria-label="Dekorativna ilustracija jela i tanjura">
+          <!-- Decorative plate and cards built with SVG and simple shapes -->
+          <div style="grid-column:1 / span 2;display:flex;align-items:center;justify-content:center">
+            <div class="plate" aria-hidden="true">
+              Makedonka
+            </div>
+          </div>
+
+          <div style="align-self:end;justify-self:start">
+            <div class="dish-card" aria-hidden="true">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 21h10" stroke="#E4B77A" stroke-width="1.6" stroke-linecap="round"/><path d="M4 7h16" stroke="#8B3E2F" stroke-width="1.6" stroke-linecap="round"/><path d="M6 11h12" stroke="#B85D46" stroke-width="1.6" stroke-linecap="round"/></svg>
+              <div style="font-size:0.925rem;color:var(--neutral-700)">Brzi obrok</div>
+            </div>
+          </div>
+
+          <div style="align-self:start;justify-self:end">
+            <div class="dish-card" aria-hidden="true">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2v5" stroke="#8B3E2F" stroke-width="1.6" stroke-linecap="round"/><path d="M5 9h14" stroke="#E4B77A" stroke-width="1.6" stroke-linecap="round"/><path d="M4 20h16" stroke="#B85D46" stroke-width="1.6" stroke-linecap="round"/></svg>
+              <div style="font-size:0.925rem;color:var(--neutral-700)">Event catering</div>
+            </div>
+          </div>
+
+          <!-- subtle decorative shapes -->
+          <svg width="180" height="180" style="position:absolute;right:-20px;top:-10px;opacity:0.16" aria-hidden="true"><circle cx="60" cy="40" r="48" fill="#E4B77A"/></svg>
+          <svg width="120" height="120" style="position:absolute;left:-18px;bottom:-8px;opacity:0.12" aria-hidden="true"><rect width="120" height="120" rx="12" fill="#8B3E2F"/></svg>
+        </div>
+      </div>
+    </section>
+
+    <section id="usluge" class="services container" aria-labelledby="usluge-title">
+      <h2 id="usluge-title" style="font-family:var(--font-heading);font-size:var(--fs-h2);margin-bottom:12px">Naša ponuda</h2>
+      <p style="margin:0 0 var(--space-md) 0;color:var(--neutral-700);max-width:720px">Radimo u području cateringa i brzo pripremljene hrane. U sklopu suradnje dogovaramo prilagodbu menija i logistiku prema vašim zahtjevima.</p>
+
+      <div class="cards" style="margin-top:18px">
+        <article class="card" aria-labelledby="s1">
+          <div class="icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M3 7h18" stroke="#E4B77A" stroke-width="1.6" stroke-linecap="round"/><path d="M7 7v10" stroke="#8B3E2F" stroke-width="1.6" stroke-linecap="round"/></svg>
+          </div>
+          <h3 id="s1">Catering za događanja</h3>
+          <p>Prilagodljivi koncepti posluživanja za manja i veća događanja — fokus na organizaciji i prezentaciji hrane.</p>
+        </article>
+
+        <article class="card" aria-labelledby="s2">
+          <div class="icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M3 12h18" stroke="#B85D46" stroke-width="1.6" stroke-linecap="round"/><path d="M12 3v18" stroke="#8B3E2F" stroke-width="1.6" stroke-linecap="round"/></svg>
+          </div>
+          <h3 id="s2">Poslovni catering</h3>
+          <p>Opcije prilagođene sastancima, radionicama i korporativnim pratnjama – jasna logistika i uredno posluživanje.</p>
+        </article>
+
+        <article class="card" aria-labelledby="s3">
+          <div class="icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M3 5h18v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5z" stroke="#E4B77A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 10h8" stroke="#8B3E2F" stroke-width="1.6" stroke-linecap="round"/></svg>
+          </div>
+          <h3 id="s3">Brza hrana i pakiranje</h3>
+          <p>Rješenja za "take-away" i brzo posluživanje, organizirano i jasno prezentirano za ugodnu konzumaciju.</p>
+        </article>
+      </div>
+
+      <div class="process container" id="kako" style="margin-top:28px">
+        <div style="max-width:640px">
+          <h2 style="font-family:var(--font-heading);font-size:var(--fs-h2);margin-bottom:12px">Kako suradnja obično teče</h2>
+          <p style="margin:0 0 var(--space-md) 0;color:var(--neutral-700)">Surađujemo jasno i strukturirano — od inicijalnog upita do realizacije događaja. Svaki korak dogovaramo s vama kako bi logistika i ponuda bile prilagođene potrebama.</p>
+
+          <div style="display:grid;gap:12px;margin-top:16px">
+            <div class="step" aria-hidden="false">
+              <h4>1. Upit i dogovor</h4>
+              <p style="margin:0;color:var(--neutral-700)">Kontaktirajte nas telefonom: koristimo kratke razgovore za razumijevanje opsega i osnovnih želja.</p>
+            </div>
+            <div class="step">
+              <h4>2. Prijedlog i plan</h4>
+              <p style="margin:0;color:var(--neutral-700)">Predlažemo način posluživanja i osnovne opcije. Sve detalje finalizirate prije potvrde.</p>
+            </div>
+            <div class="step">
+              <h4>3. Realizacija</h4>
+              <p style="margin:0;color:var(--neutral-700)">Na dan događaja provodimo dogovoreni plan s pažnjom na prezentaciju i logistiku.</p>
+            </div>
+          </div>
+        </div>
+
+        <aside aria-labelledby="aside-title" style="display:flex;flex-direction:column;gap:12px">
+          <h3 id="aside-title" style="font-family:var(--font-heading);font-size:1.05rem;margin:0">Vrijednosti u radu</h3>
+          <div style="background:white;padding:14px;border-radius:12px;box-shadow:var(--shadow-1)">
+            <ul style="margin:0;padding:0 0 0 18px;color:var(--neutral-700)">
+              <li>Jasna komunikacija i dogovor</li>
+              <li>Praktična logistika</li>
+              <li>Pažljiva prezentacija obroka</li>
+            </ul>
+          </div>
+
+          <div style="background:linear-gradient(180deg,#FFF,#FFF8F6);padding:12px;border-radius:12px;box-shadow:var(--shadow-1)">
+            <strong style="display:block;margin-bottom:8px">Spremni za upit?</strong>
+            <div style="display:flex;gap:8px;align-items:center">
+              <a class="cta" href="tel:+38531503403">Nazovite +385 31 503 403</a>
+              <a class="cta secondary" href="#kontakt">Kontakt</a>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="o-nama" class="container" style="padding-bottom:var(--space-lg)">
+      <h2 style="font-family:var(--font-heading);font-size:var(--fs-h2);margin-bottom:12px">O Makedonka</h2>
+      <p style="margin:0 0 var(--space-md) 0;color:var(--neutral-700);max-width:720px">Makedonka djeluje u segmentu cateringa i brze hrane. Pristup je fokusiran na organizaciju, čistu prezentaciju i prilagodbu prema vrsti događaja ili prilike. Kontaktirajte nas za konkretan razgovor o potrebama.</p>
+    </section>
+
+    <section id="kontakt" class="container" aria-labelledby="kontakt-title" style="padding-bottom:var(--space-xl)">
+      <h2 id="kontakt-title" style="font-family:var(--font-heading);font-size:var(--fs-h2);margin-bottom:12px">Kontakt</h2>
+
+      <div class="contact" role="region" aria-label="Kontakt podaci">
+        <div>
+          <div style="font-size:0.95rem;color:var(--neutral-700);margin-bottom:8px">Za upite i rezervacije</div>
+          <div class="tel">+385 31 503 403</div>
+          <div class="website" style="margin-top:8px"><a href="https://www.makedonka.hr" rel="noopener noreferrer" target="_blank">www.makedonka.hr</a></div>
+        </div>
+
+        <div class="actions" style="align-items:flex-end">
+          <a class="cta" href="tel:+38531503403">Nazovite nas</a>
+          <a class="cta secondary" href="https://www.makedonka.hr" target="_blank" rel="noopener noreferrer">Posjetite web</a>
+        </div>
+      </div>
+
+      <p style="margin-top:12px;color:var(--neutral-500)">Napomena: Dostupni kontakti su telefonski broj i web stranica. Za detalje dogovora molimo nazovite.</p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-grid">
+      <div>
+        <div style="font-family:var(--font-heading);font-weight:700">Makedonka</div>
+        <div style="color:var(--neutral-700);margin-top:6px">catering · brza hrana</div>
+      </div>
+
+      <nav aria-label="Footer navigacija" style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
+        <a href="#usluge">Ponuda</a>
+        <a href="#o-nama">O nama</a>
+        <a href="#kontakt">Kontakt</a>
+        <a href="tel:+38531503403">+385 31 503 403</a>
+        <a href="https://www.makedonka.hr" target="_blank" rel="noopener noreferrer">www.makedonka.hr</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script>
+    (function(){
+      // Mobile menu toggle
+      const btn = document.getElementById('menuBtn');
+      const menu = document.getElementById('mobileMenu');
+
+      function setMenu(open){
+        btn.setAttribute('aria-expanded', String(!!open));
+        if(open){
+          menu.style.display = 'block';
+          menu.setAttribute('aria-hidden','false');
+        } else {
+          menu.style.display = 'none';
+          menu.setAttribute('aria-hidden','true');
+        }
+      }
+
+      btn.addEventListener('click', function(){
+        const expanded = btn.getAttribute('aria-expanded') === 'true';
+        setMenu(!expanded);
+      });
+
+      // Close mobile menu when clicking a link (improves UX)
+      menu.addEventListener('click', function(e){
+        if(e.target.tagName === 'A'){
+          setMenu(false);
+        }
+      });
+
+      // Close menu on Escape
+      document.addEventListener('keydown', function(e){
+        if(e.key === 'Escape'){
+          setMenu(false);
+          btn.focus();
+        }
+      });
+
+      // Simple smooth scroll for in-page anchors
+      document.querySelectorAll('a[href^="#"]').forEach(function(anchor){
+        anchor.addEventListener('click', function(e){
+          const targetId = this.getAttribute('href').slice(1);
+          const target = document.getElementById(targetId);
+          if(target){
+            e.preventDefault();
+            target.scrollIntoView({behavior:'smooth', block:'start'});
+            // Close mobile menu if open
+            setMenu(false);
+          }
+        });
+      });
+
+      // Respect prefers-reduced-motion: avoid smooth scroll if reduced
+      const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+      if(mediaQuery.matches){
+        // remove smooth behavior
+        window.scrollTo = window.scrollTo;
+      }
+    })();
+  </script>
+</body>
+</html>
