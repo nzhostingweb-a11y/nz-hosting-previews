@@ -1,0 +1,771 @@
+ <!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Spin d.o.o. — Servis i stolarski radovi | Pouzdan lokalni servis</title>
+  <meta name="description" content="Spin d.o.o. pruža servisne usluge i stolarske radove prilagođene vašim potrebama. Brz kontakt: +385 48 270 106, spin-iveta@inet.hr" />
+  <meta property="og:title" content="Spin d.o.o. — Servis i stolarski radovi" />
+  <meta property="og:description" content="Pouzdan lokalni servis i stolarski radovi. Kontaktirajte nas putem telefona ili e-maila." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      /* Design system */
+      --color-primary: #0b2b2f;        /* deep teal/charcoal */
+      --color-secondary: #e9e3db;     /* warm neutral */
+      --color-accent: #b57a38;        /* warm wood accent */
+      --neutral-900: #0b0b0b;
+      --neutral-700: #3b3b3b;
+      --neutral-500: #7a7a7a;
+      --neutral-300: #d0d0d0;
+      --bg: linear-gradient(180deg, #081014 0%, #0f1a1b 60%);
+      --card-bg: #0f1717;
+      --glass: rgba(255,255,255,0.03);
+      --radius: 12px;
+      --radius-sm: 8px;
+      --shadow-1: 0 6px 18px rgba(2,8,10,0.45);
+      --focus: 3px solid rgba(181,122,56,0.18);
+
+      /* typography scales (fluid) */
+      --h1: clamp(2.0rem, 1.6rem + 3.2vw, 4rem);
+      --h2: clamp(1.25rem, 1rem + 1.2vw, 1.75rem);
+      --lead: clamp(1rem, 0.9rem + 0.6vw, 1.125rem);
+      --base: 16px;
+
+      --container: 1200px;
+      --gutter: 28px;
+      --transition: 220ms cubic-bezier(.2,.9,.3,1);
+    }
+
+    /* Reset & base */
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background: var(--bg);
+      color: var(--secondary-color, var(--neutral-300));
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+      font-size:var(--base);
+      color: var(--neutral-300);
+    }
+    a{color:inherit; text-decoration:none}
+    img, svg{max-width:100%; height:auto; display:block}
+
+    /* Layout */
+    .site {
+      min-height:100vh;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+    }
+    header {
+      width:100%;
+      position:fixed;
+      top:18px;
+      left:0;
+      z-index:60;
+      display:flex;
+      justify-content:center;
+      pointer-events:none;
+    }
+    .nav-wrap {
+      width:calc(100% - 40px);
+      max-width:var(--container);
+      pointer-events:auto;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+    }
+
+    /* Wordmark */
+    .brand {
+      display:flex;
+      align-items:center;
+      gap:12px;
+      color:var(--secondary-900, var(--neutral-900));
+      background:linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      padding:10px 14px;
+      border-radius:10px;
+      backdrop-filter: blur(6px);
+      box-shadow: var(--shadow-1);
+    }
+    .brand svg{width:44px; height:44px; flex:0 0 44px}
+    .brand .name{
+      font-family:"Playfair Display", Georgia, serif;
+      font-weight:600;
+      font-size:1.05rem;
+      color:var(--neutral-300);
+      letter-spacing:0.4px;
+    }
+    .brand small{display:block; font-size:12px; color:var(--neutral-500); margin-top:2px}
+
+    nav[role="navigation"]{
+      display:flex;
+      align-items:center;
+      gap:18px;
+    }
+    .nav-links{display:flex; gap:16px; align-items:center}
+    .nav-links a{
+      color:var(--neutral-300);
+      padding:8px 10px;
+      border-radius:8px;
+      font-weight:600;
+      font-size:.95rem;
+      transition: all var(--transition);
+    }
+    .nav-links a:hover,
+    .nav-links a:focus{transform:translateY(-3px); color:var(--accent-color, var(--color-accent)); outline:none}
+    .cta {
+      background: linear-gradient(90deg, rgba(181,122,56,0.18), rgba(181,122,56,0.10));
+      color:var(--neutral-900);
+      padding:10px 14px;
+      border-radius:10px;
+      font-weight:700;
+      border: 1px solid rgba(181,122,56,0.14);
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+    .cta:hover, .cta:focus{transform:translateY(-4px); box-shadow:0 10px 30px rgba(11,43,47,0.35)}
+    .cta:active{transform:translateY(-1px)}
+
+    /* Mobile menu */
+    .menu-btn{
+      display:none;
+      background:var(--glass);
+      border:1px solid rgba(255,255,255,0.04);
+      padding:8px;
+      border-radius:9px;
+      cursor:pointer;
+    }
+
+    main{width:100%; margin-top:110px}
+
+    /* Hero */
+    .hero {
+      width:100%;
+      max-width:var(--container);
+      margin:60px auto 40px;
+      display:grid;
+      grid-template-columns: 1fr 480px;
+      gap:40px;
+      align-items:center;
+      padding:48px;
+      border-radius:20px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      box-shadow: 0 25px 60px rgba(3,10,12,0.55);
+      border: 1px solid rgba(255,255,255,0.03);
+    }
+    .hero .content{
+      color:var(--neutral-300);
+    }
+    .kicker{
+      display:inline-block;
+      background: rgba(181,122,56,0.14);
+      color:var(--accent-color);
+      padding:6px 10px;
+      border-radius:999px;
+      font-weight:700;
+      font-size:0.85rem;
+      letter-spacing:0.6px;
+      margin-bottom:18px;
+      border:1px solid rgba(181,122,56,0.06);
+    }
+    h1{
+      margin:0 0 18px 0;
+      font-family:"Playfair Display", serif;
+      font-size:var(--h1);
+      line-height:1;
+      color: #fff;
+      letter-spacing:-0.6px;
+    }
+    p.lead{
+      margin:0 0 28px 0;
+      font-size:var(--lead);
+      color: #dcd8d3;
+      max-width:62ch;
+    }
+    .hero-ctas{display:flex; gap:12px; align-items:center; flex-wrap:wrap}
+    .btn-primary{
+      background: linear-gradient(180deg, #b57a38, #906033);
+      color: #081014;
+      padding:14px 18px;
+      border-radius:12px;
+      font-weight:700;
+      border: none;
+      box-shadow: 0 8px 30px rgba(165,106,38,0.25);
+    }
+    .btn-outline{
+      background:transparent;
+      color:var(--neutral-300);
+      padding:12px 16px;
+      border-radius:10px;
+      border:1px solid rgba(255,255,255,0.06);
+      font-weight:600;
+    }
+
+    /* Hero visual */
+    .hero-visual{
+      background: linear-gradient(180deg, rgba(181,122,56,0.03), rgba(255,255,255,0.01));
+      border-radius:14px;
+      padding:26px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      position:relative;
+      min-height:300px;
+      box-shadow: inset 0 -30px 60px rgba(0,0,0,0.16);
+      overflow:hidden;
+    }
+    .wood-graphic{
+      width:100%;
+      height:100%;
+      display:grid;
+      grid-template-rows:1fr auto;
+      gap:12px;
+      align-items:center;
+      justify-items:center;
+    }
+    .wood-panel{
+      width:92%;
+      height:220px;
+      border-radius:10px;
+      background: linear-gradient(90deg, rgba(181,122,56,0.12), rgba(181,122,56,0.02));
+      border: 1px solid rgba(255,255,255,0.02);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      position:relative;
+      overflow:hidden;
+    }
+    .wood-pattern{
+      width:86%;
+      height:86%;
+      border-radius:8px;
+      background: repeating-linear-gradient(90deg, rgba(0,0,0,0.08) 0 4px, rgba(255,255,255,0.01) 4px 28px);
+      transform:rotate(-2deg) translateY(-6px);
+      box-shadow: 0 6px 22px rgba(2,8,10,0.5);
+    }
+    .visual-caption{
+      font-size:13px;
+      color:var(--neutral-300);
+      opacity:0.9;
+      text-align:center;
+      margin-top:6px;
+    }
+
+    /* Sections */
+    .container{
+      max-width:var(--container);
+      width:calc(100% - 40px);
+      margin:0 auto;
+    }
+    section{padding:48px 0}
+    .grid{
+      display:grid;
+      gap:20px;
+    }
+
+    /* Services */
+    .services .grid{
+      grid-template-columns: repeat(3, 1fr);
+    }
+    .service-card{
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:14px;
+      padding:20px;
+      border:1px solid rgba(255,255,255,0.02);
+      transition:transform var(--transition), box-shadow var(--transition);
+    }
+    .service-card:hover{transform:translateY(-8px); box-shadow: var(--shadow-1)}
+    .service-icon{
+      width:56px;
+      height:56px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      border-radius:12px;
+      background: rgba(255,255,255,0.02);
+      margin-bottom:12px;
+    }
+    .service-card h3{margin:0 0 8px 0; font-size:1.05rem; color:#fff}
+    .service-card p{margin:0; color:var(--neutral-300); font-size:0.95rem}
+
+    /* About & approach */
+    .about {
+      display:grid;
+      grid-template-columns: 1fr 420px;
+      gap:30px;
+      align-items:start;
+    }
+    .panel{
+      background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));
+      padding:22px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,0.02);
+    }
+    .approach-steps{
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+    }
+    .step{
+      display:flex;
+      gap:12px;
+      align-items:flex-start;
+    }
+    .step .num{
+      width:42px;
+      height:42px;
+      display:grid;
+      place-items:center;
+      border-radius:10px;
+      background: rgba(181,122,56,0.12);
+      color:var(--accent-color);
+      font-weight:700;
+    }
+
+    /* Contact */
+    .contact-grid{
+      display:grid;
+      grid-template-columns: 1fr 420px;
+      gap:30px;
+      align-items:start;
+    }
+    .contact-card{
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      padding:20px;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,0.02);
+    }
+    .contact-list{display:flex; flex-direction:column; gap:10px}
+    .contact-list a{display:inline-flex; gap:10px; align-items:center; color:var(--neutral-300); font-weight:600}
+    .contact-form label{display:block; font-size:0.85rem; margin-bottom:6px; color:var(--neutral-300)}
+    .contact-form input, .contact-form textarea {
+      width:100%;
+      padding:12px;
+      border-radius:10px;
+      border:1px solid rgba(255,255,255,0.04);
+      background: rgba(0,0,0,0.12);
+      color:var(--neutral-300);
+      resize:vertical;
+      font-size:0.95rem;
+    }
+    .contact-form textarea{min-height:120px}
+    .form-actions{display:flex; gap:10px; justify-content:flex-end; margin-top:12px}
+
+    /* Footer */
+    footer{
+      width:100%;
+      border-top:1px solid rgba(255,255,255,0.02);
+      padding:28px 0;
+      margin-top:40px;
+      color:var(--neutral-500);
+    }
+    .footer-inner{
+      max-width:var(--container);
+      width:calc(100% - 40px);
+      margin:0 auto;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:20px;
+      flex-wrap:wrap;
+    }
+
+    /* Responsive */
+    @media (max-width:1100px){
+      .hero{grid-template-columns:1fr 360px; padding:30px}
+      .about{grid-template-columns:1fr}
+      .contact-grid{grid-template-columns:1fr}
+      .services .grid{grid-template-columns: repeat(2,1fr)}
+    }
+    @media (max-width:720px){
+      .nav-links{display:none}
+      .menu-btn{display:block}
+      header{top:12px}
+      .hero{grid-template-columns:1fr; padding:22px; margin-top:40px}
+      .hero-visual{min-height:260px}
+      .brand .name{font-size:1rem}
+      .menu-panel{
+        position:fixed;
+        inset:0;
+        background:linear-gradient(180deg, rgba(2,6,7,0.78), rgba(2,6,7,0.92));
+        display:flex;
+        flex-direction:column;
+        padding:28px;
+        gap:14px;
+        z-index:80;
+        transform:translateY(-6%);
+        opacity:0;
+        pointer-events:none;
+        transition:var(--transition);
+      }
+      .menu-panel.open{transform:none; opacity:1; pointer-events:auto}
+      .menu-panel a{color:var(--neutral-300); padding:12px 0; font-size:1.1rem}
+      .menu-top{display:flex; justify-content:space-between; align-items:center}
+    }
+
+    /* Accessibility & focus */
+    :focus{outline:none}
+    a:focus, button:focus, input:focus, textarea:focus{
+      box-shadow: var(--focus);
+      border-radius:8px;
+    }
+    .visually-hidden{position:absolute !important; height:1px; width:1px; overflow:hidden; clip:rect(1px,1px,1px,1px); white-space:nowrap}
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce){
+      * {transition:none !important; animation:none !important}
+    }
+  </style>
+</head>
+<body>
+  <div class="site">
+    <header>
+      <div class="nav-wrap" role="navigation" aria-label="Glavna navigacija">
+        <a class="brand" href="#hero" aria-label="Spin d.o.o. početak">
+          <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+            <defs>
+              <linearGradient id="g1" x1="0" x2="1" y1="0" y2="1">
+                <stop offset="0" stop-color="#b57a38"/>
+                <stop offset="1" stop-color="#6b4a2b"/>
+              </linearGradient>
+            </defs>
+            <rect width="64" height="64" rx="12" fill="url(#g1)"/>
+            <path d="M18 40c6-6 12-12 24-10" stroke="#081014" stroke-width="3" fill="none" stroke-linecap="round"/>
+            <path d="M22 26c6 2 8 8 20 10" stroke="#081014" stroke-width="3" fill="none" stroke-linecap="round"/>
+          </svg>
+          <div>
+            <span class="name">Spin d.o.o.</span>
+            <small>Servis i stolarski radovi</small>
+          </div>
+        </a>
+
+        <nav aria-label="Sekcije">
+          <div class="nav-links" role="menubar">
+            <a href="#usluge" role="menuitem">Usluge</a>
+            <a href="#onama" role="menuitem">O nama</a>
+            <a href="#pristup" role="menuitem">Pristup</a>
+            <a href="#kontakt" role="menuitem">Kontakt</a>
+          </div>
+        </nav>
+
+        <div style="display:flex; align-items:center; gap:12px;">
+          <a class="cta" href="tel:+38548270106" aria-label="Pozovite Spin d.o.o.">Nazovite: +385 48 270 106</a>
+          <button class="menu-btn" aria-expanded="false" aria-controls="mobile-menu" id="menuToggle" aria-label="Otvorite izbornik">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#dcd8d3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M3 7h18M3 12h18M3 17h18"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Mobile menu panel -->
+    <div class="menu-panel" id="mobile-menu" aria-hidden="true" role="dialog" aria-label="Mobilni izbornik">
+      <div class="menu-top">
+        <div style="display:flex; align-items:center; gap:12px;">
+          <svg width="36" height="36" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect width="64" height="64" rx="12" fill="#b57a38"/>
+            <path d="M18 40c6-6 12-12 24-10" stroke="#081014" stroke-width="3" fill="none" stroke-linecap="round"/>
+          </svg>
+          <div style="color:#fff; font-weight:700">Spin d.o.o.</div>
+        </div>
+        <button id="menuClose" aria-label="Zatvori izbornik" style="background:none; border:none; color:#fff; font-size:20px">✕</button>
+      </div>
+      <nav style="margin-top:12px; display:flex; flex-direction:column; gap:12px;">
+        <a href="#usluge">Usluge</a>
+        <a href="#onama">O nama</a>
+        <a href="#pristup">Pristup</a>
+        <a href="#kontakt">Kontakt</a>
+        <a href="tel:+38548270106">Pozovite nas</a>
+        <a href="mailto:spin-iveta@inet.hr">Pošaljite e-mail</a>
+      </nav>
+    </div>
+
+    <main>
+      <section id="hero" class="hero" aria-labelledby="hero-title">
+        <div class="content">
+          <span class="kicker" aria-hidden="true">Lokalni servis</span>
+          <h1 id="hero-title">Spin d.o.o. — Pouzdan servis i stolarski radovi za vaš prostor</h1>
+          <p class="lead">Izrađujemo i održavamo stolarske elemente te pružamo servisne usluge prilagođene potrebama doma i poslovnih prostora. Brz kontakt i jasna komunikacija kao standard.</p>
+
+          <div class="hero-ctas" role="group" aria-label="Glavne radnje">
+            <a class="btn-primary" href="#kontakt">Zatražite kontakt</a>
+            <a class="btn-outline" href="mailto:spin-iveta@inet.hr">Pošaljite e-mail</a>
+            <a class="btn-outline" href="tel:+38548270106" aria-label="Nazovite">Pozovite +385 48 270 106</a>
+          </div>
+
+          <div style="margin-top:18px; color:var(--neutral-500); font-size:0.92rem;">
+            <strong>Rad s materijalima i održavanje:</strong> razgovaramo jasno, predlažemo praktična rješenja i koordiniramo rad s vama.
+          </div>
+        </div>
+
+        <div class="hero-visual" aria-hidden="false" role="img" aria-label="Dekorativni prikaz drvenih panela">
+          <div class="wood-graphic" aria-hidden="true">
+            <div class="wood-panel" role="presentation">
+              <div class="wood-pattern" aria-hidden="true"></div>
+            </div>
+            <div class="visual-caption">Estetski i funkcionalni pristup materijalima</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="usluge" class="services container" aria-labelledby="usluge-title">
+        <h2 id="usluge-title" style="font-size:var(--h2); color:#fff; margin:0 0 18px">Usluge</h2>
+        <div class="grid">
+          <div class="service-card" role="article" aria-labelledby="s1">
+            <div class="service-icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#dcd8d3" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 7h18M6 12h12M10 17h4"></path>
+              </svg>
+            </div>
+            <h3 id="s1">Opći servis</h3>
+            <p>Brze intervencije i popravci opreme i konstrukcija. Jasna procjena potreba i predložena rješenja prije rada.</p>
+          </div>
+
+          <div class="service-card" role="article" aria-labelledby="s2">
+            <div class="service-icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#dcd8d3" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 21v-6a4 4 0 014-4h10a4 4 0 014 4v6"></path>
+                <path d="M7 10l5-5 5 5"></path>
+              </svg>
+            </div>
+            <h3 id="s2">Stolarski radovi</h3>
+            <p>Izrada i prilagodba drvenih elemenata prema potrebi: preciznost u izvedbi i skladan vizualni rezultat.</p>
+          </div>
+
+          <div class="service-card" role="article" aria-labelledby="s3">
+            <div class="service-icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#dcd8d3" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="9"></circle>
+                <path d="M12 8v4l2 2"></path>
+              </svg>
+            </div>
+            <h3 id="s3">Savjetovanje i izmjere</h3>
+            <p>Praktični savjeti pri odabiru materijala i tehničkih rješenja te točne izmjere prije realizacije.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="onama" class="about container" aria-labelledby="onama-title">
+        <div>
+          <h2 id="onama-title" style="font-size:var(--h2); color:#fff; margin:0 0 18px">O nama</h2>
+          <div class="panel">
+            <p style="margin:0 0 12px; color:var(--neutral-300)">Spin d.o.o. pruža servisne i stolarske usluge. Radimo direktnu komunikaciju s klijentima za jasno definirane zadatke i realne rokove. Kontakt putem telefona ili e‑maila omogućuje brz nastavak procesa.</p>
+
+            <div style="display:flex; gap:12px; margin-top:14px; align-items:center;">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#b57a38" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M3 7h18M3 12h18M3 17h18"></path>
+              </svg>
+              <div>
+                <strong style="color:#fff">Jasan proces</strong>
+                <div style="color:var(--neutral-300); font-size:0.95rem">Sastanak, izmjere, ponuda i izvedba — koraci su jednostavni i transparentni.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <aside>
+          <div class="panel">
+            <h3 style="margin-top:0; color:#fff">Brzi kontakt</h3>
+            <div style="color:var(--neutral-300); margin-bottom:12px">Nazovite ili pošaljite e‑mail za procjenu i dogovor termina.</div>
+            <div style="display:flex; flex-direction:column; gap:8px;">
+              <a href="tel:+38548270106" style="font-weight:700; color:#fff">+385 48 270 106</a>
+              <a href="mailto:spin-iveta@inet.hr" style="color:var(--neutral-300)">spin-iveta@inet.hr</a>
+              <a href="https://www.spin.com.hr/" target="_blank" rel="noopener" style="color:var(--neutral-300)">spin.com.hr</a>
+            </div>
+          </div>
+        </aside>
+      </section>
+
+      <section id="pristup" class="container" aria-labelledby="pristup-title">
+        <h2 id="pristup-title" style="font-size:var(--h2); color:#fff; margin:0 0 18px">Naš pristup</h2>
+        <div class="panel">
+          <div class="approach-steps">
+            <div class="step">
+              <div class="num" aria-hidden="true">1</div>
+              <div>
+                <strong style="color:#fff">Procjena i dogovor</strong>
+                <div style="color:var(--neutral-300)">Razgovaramo o potrebi i predlažemo praktično rješenje bez pretjeranih opcija.</div>
+              </div>
+            </div>
+
+            <div class="step">
+              <div class="num" aria-hidden="true">2</div>
+              <div>
+                <strong style="color:#fff">Izvedba po dogovoru</strong>
+                <div style="color:var(--neutral-300)">Fokus na kvalitetu izvedbe i čiste završne radove.</div>
+              </div>
+            </div>
+
+            <div class="step">
+              <div class="num" aria-hidden="true">3</div>
+              <div>
+                <strong style="color:#fff">Podrška nakon rada</strong>
+                <div style="color:var(--neutral-300)">Razumljiva komunikacija vezana uz održavanje i eventualne prilagodbe.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="kontakt" class="container" aria-labelledby="kontakt-title">
+        <h2 id="kontakt-title" style="font-size:var(--h2); color:#fff; margin:0 0 18px">Kontakt</h2>
+        <div class="contact-grid">
+          <div class="contact-card">
+            <p style="margin-top:0; color:var(--neutral-300)">Za informacije i dogovor termina dostupni smo telefonom i e‑mailom. Odgovaramo jasno i brzo.</p>
+
+            <div class="contact-list" role="list">
+              <a href="tel:+38548270106" role="listitem" aria-label="Telefon">📞 +385 48 270 106</a>
+              <a href="mailto:spin-iveta@inet.hr" role="listitem" aria-label="E-mail">✉️ spin-iveta@inet.hr</a>
+              <a href="https://www.spin.com.hr/" target="_blank" rel="noopener" role="listitem" aria-label="Web">🔗 spin.com.hr</a>
+            </div>
+
+            <hr style="border:none; height:1px; background:rgba(255,255,255,0.02); margin:16px 0" />
+
+            <p style="color:var(--neutral-300); margin:0 0 12px">Pošaljite kratku poruku — otvorit će se vaš e‑mail klijent s popunjenim informacijama.</p>
+
+            <form class="contact-form" id="contactForm" aria-label="Kontakt formular">
+              <label for="name">Ime</label>
+              <input id="name" name="name" type="text" required placeholder="Vaše ime" />
+
+              <label for="phone">Telefon (opcionalno)</label>
+              <input id="phone" name="phone" type="tel" placeholder="+385 9x xxx xxxx" />
+
+              <label for="message">Poruka</label>
+              <textarea id="message" name="message" required placeholder="Kratko opišite što trebate"></textarea>
+
+              <div class="form-actions">
+                <button type="submit" class="btn-primary">Pošalji e‑mail</button>
+                <a href="tel:+38548270106" class="btn-outline" style="align-self:center">Nazovite</a>
+              </div>
+            </form>
+
+            <p style="color:var(--neutral-500); font-size:0.85rem; margin-top:10px">Podaci su kontaktni i služe za komunikaciju. Ne navodimo dodatne podatke bez vašeg pristanka.</p>
+          </div>
+
+          <aside>
+            <div class="panel" style="display:flex; flex-direction:column; gap:12px;">
+              <h3 style="margin:0; color:#fff">Brza uputa</h3>
+              <div style="color:var(--neutral-300)">
+                - Nazovite za hitne intervencije.<br/>
+                - Pošaljite e‑mail za detalje i dogovor termina.<br/>
+                - Na webu potražite dodatne informacije: <a href="https://www.spin.com.hr/" target="_blank" rel="noopener" style="color:var(--accent);">spin.com.hr</a>
+              </div>
+
+              <div style="margin-top:6px; display:flex; gap:8px;">
+                <a href="mailto:spin-iveta@inet.hr" class="btn-outline" style="flex:1">Pošaljite e‑mail</a>
+                <a href="tel:+38548270106" class="btn-primary" style="flex:1; text-align:center">Nazovite</a>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <footer>
+        <div class="footer-inner">
+          <div style="display:flex; gap:12px; align-items:center;">
+            <svg width="36" height="36" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect width="64" height="64" rx="12" fill="#0b2b2f"/>
+              <path d="M18 40c6-6 12-12 24-10" stroke="#b57a38" stroke-width="3" fill="none" stroke-linecap="round"/>
+            </svg>
+            <div>
+              <div style="color:#fff; font-weight:700">Spin d.o.o.</div>
+              <div style="color:var(--neutral-500); font-size:0.9rem">Servis i stolarski radovi</div>
+            </div>
+          </div>
+
+          <nav aria-label="Footer navigacija" style="display:flex; gap:18px; align-items:center;">
+            <a href="#usluge">Usluge</a>
+            <a href="#onama">O nama</a>
+            <a href="#kontakt">Kontakt</a>
+            <a href="tel:+38548270106">+385 48 270 106</a>
+            <a href="mailto:spin-iveta@inet.hr">spin-iveta@inet.hr</a>
+          </nav>
+        </div>
+      </footer>
+    </main>
+  </div>
+
+  <script>
+    // Mobile menu toggle
+    (function(){
+      const menuBtn = document.getElementById('menuToggle');
+      const menu = document.getElementById('mobile-menu');
+      const closeBtn = document.getElementById('menuClose');
+
+      function openMenu(){
+        menu.classList.add('open');
+        menu.setAttribute('aria-hidden','false');
+        menuBtn.setAttribute('aria-expanded','true');
+        document.body.style.overflow = 'hidden';
+      }
+      function closeMenu(){
+        menu.classList.remove('open');
+        menu.setAttribute('aria-hidden','true');
+        menuBtn.setAttribute('aria-expanded','false');
+        document.body.style.overflow = '';
+      }
+
+      menuBtn.addEventListener('click', function(){ openMenu() });
+      closeBtn.addEventListener('click', function(){ closeMenu() });
+
+      // close on outside click
+      menu.addEventListener('click', function(e){
+        if(e.target === menu) closeMenu();
+      });
+
+      // close on Escape
+      document.addEventListener('keydown', function(e){
+        if(e.key === 'Escape') closeMenu();
+      });
+
+      // Smooth scroll for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach(link=>{
+        link.addEventListener('click', function(e){
+          const targetId = this.getAttribute('href').slice(1);
+          const target = document.getElementById(targetId);
+          if(target){
+            e.preventDefault();
+            target.scrollIntoView({behavior:'smooth', block:'start'});
+            closeMenu();
+          }
+        });
+      });
+    })();
+
+    // Contact form: open mail client with filled subject/body (client-side)
+    (function(){
+      const form = document.getElementById('contactForm');
+      form.addEventListener('submit', function(e){
+        e.preventDefault();
+        const name = encodeURIComponent(form.name.value.trim());
+        const phone = encodeURIComponent(form.phone.value.trim());
+        const message = encodeURIComponent(form.message.value.trim());
+        const bodyParts = [];
+        if(name) bodyParts.push('Ime: ' + name);
+        if(phone) bodyParts.push('Telefon: ' + phone);
+        if(message) bodyParts.push('Poruka: ' + message);
+        const body = bodyParts.join('%0D%0A%0D%0A');
+        const subject = encodeURIComponent('Upit sa web stranice - Spin d.o.o.');
+        const mailto = 'mailto:spin-iveta@inet.hr' + '?subject=' + subject + '&body=' + body;
+        // Open mail client
+        window.location.href = mailto;
+      });
+    })();
+
+    // Respect reduced motion: disable scroll animations if user prefers reduced motion
+    (function(){
+      const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
+      if(mq && mq.matches){
+        // No action needed as CSS handles reduced motion via media query.
+      }
+    })();
+  </script>
+</body>
+</html>
