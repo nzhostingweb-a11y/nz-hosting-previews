@@ -1,0 +1,757 @@
+ <!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Interspar — hipermarket | Kontakt i osnovne informacije</title>
+  <meta name="description" content="Interspar — hipermarket. Informacije o lokaciji i kontakt telefon. Pregled ponude i praktični savjeti za brzu i udobnu kupovinu." />
+  <meta property="og:title" content="Interspar — hipermarket | Kontakt i informacije" />
+  <meta property="og:description" content="Interspar — pregled ponude, pristupačnost i kontakt. Nazovite ili pogledajte detalje lokacije." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Spectral:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      /* Dizajnerski sustav */
+      --color-primary: #0f6b5a; /* tamno tirkizno/zelena - profesionalno, premium */
+      --color-secondary: #f4f1ea; /* topla neutralna pozadina */
+      --color-accent: #d9a441; /* zlatni akcent */
+      --neutral-900: #0b0b0b;
+      --neutral-700: #323232;
+      --neutral-500: #6b6b6b;
+      --neutral-300: #d6d6d6;
+      --bg: #ffffff;
+      --card-bg: #ffffff;
+      --glass: rgba(15,107,90,0.06);
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+      --shadow-sm: 0 6px 18px rgba(11,11,11,0.06);
+      --shadow-md: 0 18px 40px rgba(11,11,11,0.08);
+      --focus: 3px solid rgba(217,164,65,0.18);
+      --max-width: 1200px;
+
+      /* spacing scale (fluid-friendly using clamp for some) */
+      --space-xxs: 6px;
+      --space-xs: 10px;
+      --space-sm: 16px;
+      --space-md: 24px;
+      --space-lg: 40px;
+      --space-xl: 64px;
+
+      /* typography */
+      --fs-hero: clamp(28px, 4.4vw, 52px);
+      --fs-h2: clamp(18px, 2.2vw, 28px);
+      --fs-body: clamp(14px, 1.6vw, 18px);
+      --fw-heading: 700;
+      --fw-regular: 400;
+    }
+
+    /* Reset & base */
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      font-size:16px;
+      color:var(--neutral-900);
+      background: linear-gradient(180deg,var(--secondary, var(--color-secondary)) 0%, var(--bg) 40%);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+    }
+
+    a{color:inherit;text-decoration:none}
+    img,svg{max-width:100%;height:auto;display:block}
+
+    .container{
+      width:calc(100% - 48px);
+      max-width:var(--max-width);
+      margin:0 auto;
+      padding:0;
+    }
+
+    header{
+      position:sticky;
+      top:0;
+      z-index:60;
+      backdrop-filter:saturate(1.05) blur(6px);
+      background:linear-gradient(180deg, rgba(255,255,255,0.72), rgba(255,255,255,0.5));
+      border-bottom:1px solid rgba(16,16,16,0.04);
+      box-shadow:var(--shadow-sm);
+    }
+
+    .nav-inner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:24px;
+      padding:14px 0;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+
+    .wordmark{
+      display:flex;
+      flex-direction:column;
+      line-height:1;
+    }
+
+    .wordmark .title{
+      font-family: Spectral, serif;
+      font-weight:700;
+      font-size:18px;
+      color:var(--color-primary);
+      letter-spacing:0.2px;
+    }
+
+    .wordmark .tag{
+      font-size:12px;
+      color:var(--neutral-500);
+    }
+
+    nav{
+      display:flex;
+      gap:16px;
+      align-items:center;
+    }
+
+    .nav-links{
+      display:flex;
+      gap:12px;
+    }
+
+    .nav-links a{
+      padding:8px 10px;
+      color:var(--neutral-700);
+      border-radius:10px;
+      font-weight:600;
+      font-size:14px;
+    }
+
+    .nav-links a:focus,
+    .nav-links a:hover{
+      outline:none;
+      color:var(--color-primary);
+      background:var(--glass);
+    }
+
+    .cta{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      background:linear-gradient(90deg,var(--color-primary), #0b5e4e);
+      color:white;
+      padding:10px 16px;
+      border-radius:12px;
+      font-weight:700;
+      box-shadow: 0 8px 22px rgba(15,107,90,0.12);
+    }
+
+    .cta.secondary{
+      background:transparent;
+      color:var(--neutral-700);
+      border:1px solid rgba(11,11,11,0.06);
+      padding:8px 12px;
+      font-weight:600;
+      box-shadow:none;
+    }
+
+    /* Mobile nav toggle */
+    .menu-toggle{
+      display:none;
+      background:transparent;
+      border:0;
+      padding:8px;
+      border-radius:10px;
+    }
+    .menu-toggle:focus{outline:var(--focus)}
+
+    /* Hero */
+    .hero{
+      padding: clamp(28px,5vw,72px) 0;
+    }
+
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1fr 460px;
+      gap:32px;
+      align-items:center;
+    }
+
+    .hero-title{
+      font-family: Spectral, serif;
+      font-size:var(--fs-hero);
+      font-weight:var(--fw-heading);
+      margin:0 0 16px 0;
+      color:var(--neutral-900);
+      letter-spacing:-0.6px;
+    }
+
+    .hero-lead{
+      font-size:var(--fs-body);
+      color:var(--neutral-700);
+      margin:0 0 22px 0;
+      max-width:60ch;
+    }
+
+    .hero-ctas{display:flex;gap:12px;align-items:center}
+
+    .visual-card{
+      background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(244,241,234,0.9));
+      border-radius:var(--radius-lg);
+      padding:22px;
+      box-shadow:var(--shadow-md);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      position:relative;
+      overflow:hidden;
+      min-height:320px;
+    }
+
+    .visual-illustration{
+      width:100%;
+      height:100%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:18px;
+    }
+
+    .visual-illustration svg{max-width:380px}
+
+    /* Services */
+    section.cards{
+      margin-top:var(--space-lg);
+      margin-bottom:var(--space-lg);
+    }
+
+    .cards-grid{
+      display:grid;
+      grid-template-columns: repeat(4,1fr);
+      gap:18px;
+    }
+
+    .card{
+      background:var(--card-bg);
+      padding:18px;
+      border-radius:var(--radius-md);
+      box-shadow:var(--shadow-sm);
+      display:flex;
+      gap:12px;
+      align-items:flex-start;
+      transition:transform .22s ease, box-shadow .22s ease;
+      border:1px solid rgba(11,11,11,0.03);
+    }
+
+    .card:hover{
+      transform:translateY(-6px);
+      box-shadow:0 30px 60px rgba(11,11,11,0.08);
+    }
+
+    .card .icon{
+      width:56px;
+      height:56px;
+      border-radius:12px;
+      background:linear-gradient(180deg, rgba(13,85,73,0.08), rgba(217,164,65,0.04));
+      display:grid;
+      place-items:center;
+      flex:0 0 56px;
+    }
+
+    .card h3{margin:0;font-size:16px;color:var(--neutral-900);font-weight:700}
+    .card p{margin:6px 0 0 0;color:var(--neutral-500);font-size:14px}
+
+    /* About & Benefits */
+    .two-col{
+      display:grid;
+      grid-template-columns: 1fr 320px;
+      gap:28px;
+      align-items:start;
+    }
+
+    .benefits{
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+      margin-top:12px;
+    }
+
+    .benefit{
+      display:flex;
+      gap:12px;
+      align-items:flex-start;
+      padding:12px;
+      background:linear-gradient(90deg, rgba(15,107,90,0.03), rgba(217,164,65,0.01));
+      border-radius:12px;
+    }
+
+    .benefit .b-icon{
+      width:44px;height:44px;border-radius:10px;background:white;display:grid;place-items:center;border:1px solid rgba(11,11,11,0.04)
+    }
+
+    /* Extra section - Savjeti */
+    .tips{
+      display:grid;
+      grid-template-columns: repeat(3,1fr);
+      gap:18px;
+      margin-top:20px;
+    }
+
+    .tip{
+      background:linear-gradient(180deg, #ffffff, rgba(244,241,234,0.7));
+      padding:16px;border-radius:12px;box-shadow:var(--shadow-sm);
+    }
+    .tip h4{margin:0 0 8px 0;font-size:15px;color:var(--neutral-900)}
+    .tip p{margin:0;color:var(--neutral-500);font-size:14px}
+
+    /* Contact */
+    .contact-card{
+      padding:20px;border-radius:14px;background:linear-gradient(180deg,#fff, #fcfcfc);box-shadow:var(--shadow-md);border:1px solid rgba(11,11,11,0.04)
+    }
+    .contact-list{display:flex;flex-direction:column;gap:12px}
+    .contact-item{display:flex;align-items:center;gap:12px}
+    .contact-item a{color:var(--neutral-900);font-weight:700}
+
+    footer{
+      margin-top:40px;
+      padding:28px 0;
+      border-top:1px solid rgba(11,11,11,0.04);
+      background:transparent;
+      color:var(--neutral-500);
+    }
+
+    /* Responsive */
+    @media (max-width:1100px){
+      .hero-grid{grid-template-columns:1fr 380px}
+      .cards-grid{grid-template-columns:repeat(2,1fr)}
+      .two-col{grid-template-columns:1fr}
+      .hero{padding:28px 0}
+    }
+    @media (max-width:760px){
+      .nav-links{display:none}
+      .menu-toggle{display:inline-flex}
+      .brand .wordmark .title{font-size:16px}
+      .hero-grid{grid-template-columns:1fr}
+      .visual-card{min-height:260px}
+      .cards-grid{grid-template-columns:1fr}
+      .tips{grid-template-columns:1fr}
+      .hero-title{font-size:calc(var(--fs-hero) - 6px)}
+    }
+
+    /* Mobile nav panel */
+    .mobile-panel{
+      display:none;
+      position:absolute;
+      inset:64px 16px auto 16px;
+      background:white;border-radius:12px;padding:12px;box-shadow:0 30px 70px rgba(0,0,0,0.08);
+    }
+    .mobile-panel a{display:block;padding:10px;border-radius:8px;color:var(--neutral-700);font-weight:600}
+    .mobile-panel a:focus, .mobile-panel a:hover{background:var(--glass);color:var(--color-primary)}
+    .mobile-panel.show{display:block}
+
+    /* Focus styles */
+    a:focus, button:focus, input:focus, textarea:focus {outline:var(--focus); outline-offset:3px}
+
+    /* Motion prefs */
+    @media (prefers-reduced-motion: reduce){
+      *{transition:none !important}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav-inner" role="navigation" aria-label="Glavna navigacija">
+      <div class="brand" aria-hidden="false">
+        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" aria-hidden="true" focusable="false">
+          <rect width="48" height="48" rx="10" fill="#0F6B5A"/>
+          <path d="M14 30c5-8 20-8 22-4" stroke="#F4F1EA" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="34" cy="32" r="1.8" fill="#D9A441"/>
+        </svg>
+        <div class="wordmark">
+          <div class="title">Interspar</div>
+          <div class="tag">hipermarket</div>
+        </div>
+      </div>
+
+      <nav>
+        <div class="nav-links" aria-hidden="false">
+          <a href="#usluge">Ponuda</a>
+          <a href="#o-nama">O nama</a>
+          <a href="#prednosti">Prednosti</a>
+          <a href="#savjeti">Savjeti</a>
+          <a href="#kontakt">Kontakt</a>
+        </div>
+
+        <a class="cta" href="tel:+385-31-495-200" aria-label="Nazovite Interspar">Nazovite: +385 31 495 200</a>
+
+        <button class="menu-toggle" aria-expanded="false" aria-controls="mobile-panel" aria-label="Otvorite izbornik" id="menuToggle">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+            <path d="M4 7h16M4 12h16M4 17h16" stroke="#323232" stroke-width="1.6" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </nav>
+    </div>
+
+    <div id="mobile-panel" class="mobile-panel" role="menu" aria-hidden="true">
+      <a href="#usluge" role="menuitem">Ponuda</a>
+      <a href="#o-nama" role="menuitem">O nama</a>
+      <a href="#prednosti" role="menuitem">Prednosti</a>
+      <a href="#savjeti" role="menuitem">Savjeti</a>
+      <a href="#kontakt" role="menuitem">Kontakt</a>
+      <a class="cta secondary" href="tel:+385-31-495-200">Nazovite</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="hero-heading">
+      <div class="container hero-grid">
+        <div>
+          <h1 id="hero-heading" class="hero-title">Interspar — praktičan hipermarket za svakodnevnu kupovinu</h1>
+          <p class="hero-lead">Brzi pregled osnovnih informacija: kontakt telefon i veza na detalje lokacije. Praktično organizirano za kupce koji traže širok asortiman prehrambenih i kućnih proizvoda, uz pažnju na pristupačnost i udobnost kupovine.</p>
+
+          <div class="hero-ctas" role="group" aria-label="Primarne akcije">
+            <a class="cta" href="tel:+385-31-495-200">Nazovite nas</a>
+            <a class="cta secondary" href="https://www.spar.hr/lokacije/interspar-hipermarket-osijek-31000-sv-leopolda-b-mandia-7" target="_blank" rel="noopener">Pogledajte lokaciju</a>
+          </div>
+        </div>
+
+        <aside class="visual-card" aria-hidden="true">
+          <div class="visual-illustration" role="img" aria-label="Ilustracija hipermarketa — stilizirane police i kolica">
+            <!-- Originalna SVG kompozicija -->
+            <svg viewBox="0 0 420 300" width="420" height="300" xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false">
+              <defs>
+                <linearGradient id="g1" x1="0" x2="1">
+                  <stop offset="0" stop-color="#f6f3ea"/>
+                  <stop offset="1" stop-color="#fff"/>
+                </linearGradient>
+              </defs>
+              <rect x="8" y="24" width="404" height="252" rx="18" fill="url(#g1)" stroke="#eee"/>
+              <!-- Aisles -->
+              <g transform="translate(30,40)">
+                <rect x="0" y="0" width="48" height="200" rx="8" fill="#f8faf9" stroke="#e9f0ec"/>
+                <rect x="64" y="0" width="48" height="200" rx="8" fill="#fbfbfb" stroke="#e9f0ec"/>
+                <rect x="128" y="0" width="48" height="200" rx="8" fill="#f8faf9" stroke="#e9f0ec"/>
+                <rect x="192" y="0" width="48" height="200" rx="8" fill="#fbfbfb" stroke="#e9f0ec"/>
+                <rect x="256" y="0" width="48" height="200" rx="8" fill="#f8faf9" stroke="#e9f0ec"/>
+                <rect x="320" y="0" width="48" height="200" rx="8" fill="#fbfbfb" stroke="#e9f0ec"/>
+                <!-- small product blocks -->
+                <g fill="#0F6B5A" opacity="0.08">
+                  <rect x="6" y="8" width="36" height="12" rx="2"/>
+                  <rect x="70" y="8" width="36" height="12" rx="2"/>
+                  <rect x="134" y="8" width="36" height="12" rx="2"/>
+                  <rect x="198" y="8" width="36" height="12" rx="2"/>
+                </g>
+              </g>
+
+              <!-- Shopping cart -->
+              <g transform="translate(260,180)">
+                <path d="M10 4h28l8 28H16z" fill="#0F6B5A" opacity="0.12"/>
+                <circle cx="12" cy="42" r="6" fill="#D9A441"/>
+                <circle cx="34" cy="42" r="6" fill="#D9A441"/>
+              </g>
+            </svg>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="usluge" class="cards container" aria-labelledby="usluge-heading">
+      <h2 id="usluge-heading" style="font-size:var(--fs-h2);margin:0 0 14px 0;font-weight:700">Ponuda — pregled tipičnih kategorija</h2>
+      <p style="margin:0 0 18px 0;color:var(--neutral-500)">Prikaz tipičnih kategorija koje možete očekivati u hipermarketu.</p>
+
+      <div class="cards-grid" role="list">
+        <article class="card" role="listitem" aria-labelledby="c1">
+          <div class="icon" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M3 6h18M7 6v12a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V6" stroke="#0F6B5A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M10 11h4" stroke="#D9A441" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div>
+            <h3 id="c1">Prehrana i svježe namirnice</h3>
+            <p>Širok izbor prehrambenih proizvoda i svježeg asortimana primjeren za svakodnevne potrebe.</p>
+          </div>
+        </article>
+
+        <article class="card" role="listitem" aria-labelledby="c2">
+          <div class="icon" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <rect x="3" y="5" width="18" height="14" rx="2" stroke="#0F6B5A" stroke-width="1.6"/>
+              <path d="M8 10h8M8 14h8" stroke="#D9A441" stroke-width="1.6" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div>
+            <h3 id="c2">Kućanstvo i svakodnevne potrepštine</h3>
+            <p>Osnovne potrepštine za domaćinstvo, organizirane za jednostavno snalaženje i brzu kupovinu.</p>
+          </div>
+        </article>
+
+        <article class="card" role="listitem" aria-labelledby="c3">
+          <div class="icon" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M6 3h12l-1.5 9h-9L6 3z" stroke="#0F6B5A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="9" cy="20" r="1.8" fill="#D9A441"/>
+              <circle cx="17" cy="20" r="1.8" fill="#D9A441"/>
+            </svg>
+          </div>
+          <div>
+            <h3 id="c3">Pristupačnost i praktičnost</h3>
+            <p>Uređeno za jednostavan pristup s kolica i ugodno kretanje kroz trgovinu.</p>
+          </div>
+        </article>
+
+        <article class="card" role="listitem" aria-labelledby="c4">
+          <div class="icon" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M3 12h18" stroke="#0F6B5A" stroke-width="1.6" stroke-linecap="round"/>
+              <path d="M6 8h.01M6 16h.01M18 8h.01M18 16h.01" stroke="#D9A441" stroke-width="1.8" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div>
+            <h3 id="c4">Praktična organizacija kupovine</h3>
+            <p>Jasan raspored odjela i vidljive oznake olakšavaju brzo pronalaženje proizvoda.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="o-nama" class="container" aria-labelledby="onama-heading" style="margin-top:36px">
+      <h2 id="onama-heading" style="font-size:var(--fs-h2);margin:0 0 12px 0;font-weight:700">O nama</h2>
+      <div class="two-col">
+        <div>
+          <p style="margin:0;color:var(--neutral-700)">Interspar je hipermarket usmjeren na pružanje praktične i pregledne kupovine. Ovdje su predstavljene osnovne informacije: kontakt telefon i poveznica na službenu stranicu lokacije za detalje o radnom vremenu i adresi.</p>
+
+          <div class="benefits" aria-hidden="false">
+            <div class="benefit">
+              <div class="b-icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M3 6h18M7 6v12a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V6" stroke="#0F6B5A" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <div>
+                <strong>Jasan raspored</strong>
+                <div style="color:var(--neutral-500);font-size:14px">Odjeli razvrstani radi jednostavnijeg snalaženja u trgovini.</div>
+              </div>
+            </div>
+
+            <div class="benefit">
+              <div class="b-icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 2v4M8 6h8" stroke="#0F6B5A" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <div>
+                <strong>Pristupačnost</strong>
+                <div style="color:var(--neutral-500);font-size:14px">Prostori prilagođeni lakšem pristupu i kretanju unutar trgovine.</div>
+              </div>
+            </div>
+
+            <div class="benefit">
+              <div class="b-icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M4 7h16M4 12h10M4 17h16" stroke="#0F6B5A" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <div>
+                <strong>Kontakt za brze upite</strong>
+                <div style="color:var(--neutral-500);font-size:14px">Nazovite izravno za informacije o ponudi i dostupnosti proizvoda.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <aside>
+          <div class="contact-card" aria-labelledby="kontakt-mini">
+            <h3 id="kontakt-mini" style="margin:0 0 8px 0;font-size:16px">Osnovni kontakt</h3>
+            <div class="contact-list">
+              <div class="contact-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M22 16.92V20a2 2 0 0 1-2 2 19.86 19.86 0 0 1-8.63-2.34 19.5 19.5 0 0 1-6-6A19.86 19.86 0 0 1 2 4a2 2 0 0 1 2-2h3.09a2 2 0 0 1 2 1.72c.12 1.21.4 2.39.83 3.5a2 2 0 0 1-.45 2.11l-1.27 1.27a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c1.11.43 2.29.71 3.5.83A2 2 0 0 1 22 16.92z" stroke="#0F6B5A" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <a href="tel:+385-31-495-200">+385 31 495 200</a>
+              </div>
+
+              <div class="contact-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M21 10v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-6" stroke="#0F6B5A" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M7 10V6a5 5 0 0 1 10 0v4" stroke="#D9A441" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <a href="https://www.spar.hr/lokacije/interspar-hipermarket-osijek-31000-sv-leopolda-b-mandia-7" target="_blank" rel="noopener">Detalji lokacije</a>
+              </div>
+
+              <div style="color:var(--neutral-500);font-size:13px">Napomena: za točne podatke o radnom vremenu i adresi pogledajte službenu stranicu lokacije.</div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="prednosti" class="container" aria-labelledby="prednosti-heading" style="margin-top:36px">
+      <h2 id="prednosti-heading" style="font-size:var(--fs-h2);margin:0 0 12px 0;font-weight:700">Prednosti posjeta</h2>
+      <p style="margin:0 0 18px 0;color:var(--neutral-500)">Kako iskoristiti posjet hipermarketu na najefikasniji način.</p>
+
+      <div class="tips" aria-hidden="false">
+        <div class="tip">
+          <h4>Planirajte popis</h4>
+          <p>Pripremite kratki popis prioritetnih artikala kako biste smanjili vrijeme provedeno u trgovini.</p>
+        </div>
+
+        <div class="tip">
+          <h4>Odaberite mirnije sate</h4>
+          <p>Rane jutarnje ili kasnije poslijepodnevne termine često su manje gužve i omogućuju bržu kupovinu.</p>
+        </div>
+
+        <div class="tip">
+          <h4>Iskoristite organizaciju odjela</h4>
+          <p>Slijedite logičan raspored odjela kako biste obavili kupovinu bez nepotrebnog vraćanja kroz trgovinu.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="savjeti" class="container" aria-labelledby="savjeti-heading" style="margin-top:40px">
+      <h2 id="savjeti-heading" style="font-size:var(--fs-h2);margin:0 0 12px 0;font-weight:700">Savjeti za udobnu kupovinu</h2>
+      <div style="display:flex;gap:22px;flex-wrap:wrap;margin-top:12px">
+        <div style="flex:1;min-width:260px">
+          <div class="card" style="align-items:center">
+            <div class="icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M3 6h18M7 6v12a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V6" stroke="#0F6B5A" stroke-width="1.4"/></svg>
+            </div>
+            <div>
+              <h3 style="margin:0;font-size:16px">Ponesite vlastitu vrećicu</h3>
+              <p style="margin:6px 0 0 0;color:var(--neutral-500)">Za brže pakiranje i manju potrošnju ambalaže.</p>
+            </div>
+          </div>
+        </div>
+
+        <div style="flex:1;min-width:260px">
+          <div class="card" style="align-items:center">
+            <div class="icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M4 4h16v10H4z" stroke="#0F6B5A" stroke-width="1.4"/><path d="M4 14l4-2 4 2 4-2 4 2" stroke="#D9A441" stroke-width="1.4"/></svg>
+            </div>
+            <div>
+              <h3 style="margin:0;font-size:16px">Provjerite svježe odjele</h3>
+              <p style="margin:6px 0 0 0;color:var(--neutral-500)">Ako tražite svježe proizvode, usmjerite se prema označenim odjelima.</p>
+            </div>
+          </div>
+        </div>
+
+        <div style="flex:1;min-width:260px">
+          <div class="card" style="align-items:center">
+            <div class="icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M12 2v4M8 6h8" stroke="#0F6B5A" stroke-width="1.4"/></svg>
+            </div>
+            <div>
+              <h3 style="margin:0;font-size:16px">Pitajte osoblje</h3>
+              <p style="margin:6px 0 0 0;color:var(--neutral-500)">Za precizne informacije o lokaciji artikala koristite pomoć osoblja u trgovini.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="kontakt" class="container" aria-labelledby="kontakt-heading" style="margin-top:44px;margin-bottom:28px">
+      <h2 id="kontakt-heading" style="font-size:var(--fs-h2);margin:0 0 12px 0;font-weight:700">Kontakt</h2>
+      <p style="margin:0 0 18px 0;color:var(--neutral-500)">Za dodatne informacije nazovite ili pogledajte službenu stranicu lokacije.</p>
+
+      <div style="display:grid;grid-template-columns:1fr 360px;gap:20px;align-items:start">
+        <div>
+          <div class="contact-card">
+            <h3 style="margin:0 0 10px 0">Nazovite za informaciju</h3>
+            <p style="margin:0 0 12px 0;color:var(--neutral-500)">Ako trebate provjeriti dostupnost artikala ili imate kratko pitanje, nazovite izravno.</p>
+
+            <div style="display:flex;gap:12px;flex-wrap:wrap">
+              <a class="cta" href="tel:+385-31-495-200">Nazovite: +385 31 495 200</a>
+              <a class="cta secondary" href="https://www.spar.hr/lokacije/interspar-hipermarket-osijek-31000-sv-leopolda-b-mandia-7" target="_blank" rel="noopener">Pogledajte lokaciju</a>
+            </div>
+          </div>
+        </div>
+
+        <aside>
+          <div class="contact-card">
+            <h4 style="margin:0 0 8px 0">Brzi linkovi</h4>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <a href="tel:+385-31-495-200">Nazovite: +385 31 495 200</a>
+              <a href="https://www.spar.hr/lokacije/interspar-hipermarket-osijek-31000-sv-leopolda-b-mandia-7" target="_blank" rel="noopener">Službena stranica lokacije</a>
+            </div>
+            <div style="margin-top:12px;color:var(--neutral-500);font-size:13px">Adresa i radno vrijeme: provjerite na stranici lokacije.</div>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container" style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap">
+      <div style="display:flex;align-items:center;gap:12px">
+        <svg width="36" height="36" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+          <rect width="48" height="48" rx="10" fill="#0F6B5A"/>
+          <path d="M14 30c5-8 20-8 22-4" stroke="#F4F1EA" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <div>
+          <div style="font-weight:700;color:var(--neutral-900)">Interspar</div>
+          <div style="font-size:13px;color:var(--neutral-500)">Hipermarket — osnovne informacije</div>
+        </div>
+      </div>
+
+      <nav aria-label="Podnožje">
+        <a href="#usluge" style="margin-right:12px;color:var(--neutral-700)">Ponuda</a>
+        <a href="#o-nama" style="margin-right:12px;color:var(--neutral-700)">O nama</a>
+        <a href="#kontakt" style="margin-right:12px;color:var(--neutral-700)">Kontakt</a>
+        <a href="https://www.spar.hr/lokacije/interspar-hipermarket-osijek-31000-sv-leopolda-b-mandia-7" target="_blank" rel="noopener" style="color:var(--neutral-700)">Detalji lokacije</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script>
+    (function(){
+      const menuToggle = document.getElementById('menuToggle');
+      const panel = document.getElementById('mobile-panel');
+
+      function closePanel(){
+        panel.classList.remove('show');
+        panel.setAttribute('aria-hidden','true');
+        menuToggle.setAttribute('aria-expanded','false');
+      }
+      function openPanel(){
+        panel.classList.add('show');
+        panel.setAttribute('aria-hidden','false');
+        menuToggle.setAttribute('aria-expanded','true');
+      }
+
+      menuToggle.addEventListener('click', function(){
+        if(panel.classList.contains('show')) closePanel(); else openPanel();
+      });
+
+      // Close mobile panel on outside click
+      document.addEventListener('click', function(e){
+        if(!panel.contains(e.target) && !menuToggle.contains(e.target)) {
+          closePanel();
+        }
+      });
+
+      // Smooth scroll for in-page links
+      document.querySelectorAll('a[href^="#"]').forEach(function(anchor){
+        anchor.addEventListener('click', function(e){
+          const targetId = this.getAttribute('href').slice(1);
+          const target = document.getElementById(targetId);
+          if(target){
+            e.preventDefault();
+            // Respect reduced motion
+            const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            const top = target.getBoundingClientRect().top + window.pageYOffset - 80;
+            if(prefersReduced) window.scrollTo(0, top);
+            else window.scrollTo({top, behavior:'smooth'});
+            // close mobile panel if open
+            if(panel.classList.contains('show')) closePanel();
+          }
+        });
+      });
+
+      // Keyboard accessibility: close panel on Escape
+      document.addEventListener('keydown', function(e){
+        if(e.key === 'Escape') closePanel();
+      });
+    })();
+  </script>
+</body>
+</html>
