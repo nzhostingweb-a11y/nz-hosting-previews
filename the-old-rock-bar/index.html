@@ -1,0 +1,654 @@
+ <!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>The Old Rock Bar — Catering i mobilni bar</title>
+  <meta name="description" content="The Old Rock Bar — catering i mobilni bar. Profesionalne usluge cateringa i bara za događanja. Pogledajte ponudu i zatražite ponudu putem stranice objekta." />
+  <meta property="og:title" content="The Old Rock Bar — Catering i mobilni bar" />
+  <meta property="og:description" content="Profesionalne usluge cateringa i bara. Pregled ponude i kontakt za upit." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      /* Boje i tonovi */
+      --color-bg: #0f1316;               /* duboka ploča */
+      --color-surface: #111417;          /* plitka razlika */
+      --color-primary: #c4883a;          /* bakrena / topao amber */
+      --color-secondary: #e7d6c8;        /* svijetli bež kontrast */
+      --color-accent: #8fb4ff;           /* hladni akcent za detalje */
+      --neutral-100: #ffffff;
+      --neutral-200: #dfe7ee;
+      --neutral-300: #a6b3bf;
+      --neutral-400: #6f7b86;
+      --shadow: rgba(2,8,23,0.6);
+
+      /* Tipografija */
+      --fs-xs: 0.75rem;
+      --fs-sm: clamp(0.9rem, 1.6vw, 1rem);
+      --fs-base: clamp(1rem, 1.8vw, 1.125rem);
+      --fs-lg: clamp(1.125rem, 2.6vw, 1.375rem);
+      --fs-xl: clamp(1.6rem, 4.6vw, 2.4rem);
+      --fs-xxl: clamp(2.2rem, 6.5vw, 3.6rem);
+
+      --ff-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      --ff-serif: "Playfair Display", Georgia, "Times New Roman", serif;
+
+      /* Spacing & radii */
+      --space-xxs: 6px;
+      --space-xs: 10px;
+      --space-sm: 16px;
+      --space-md: 24px;
+      --space-lg: 40px;
+      --space-xl: 64px;
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+
+      /* Shadows & borders */
+      --card-shadow: 0 6px 20px rgba(2,8,23,0.45);
+      --glass: rgba(255,255,255,0.02);
+
+      /* Layout */
+      --content-width: 1200px;
+    }
+
+    /* Global reset */
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:var(--ff-sans);
+      color:var(--neutral-200);
+      background: linear-gradient(180deg, var(--color-bg) 0%, #081018 100%);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;height:auto;display:block}
+
+    /* Container */
+    .wrap{
+      max-width:var(--content-width);
+      margin:0 auto;
+      padding:0 clamp(16px, 3.2vw, 40px);
+    }
+
+    /* Header / Nav */
+    header{
+      position:sticky;
+      top:0;
+      z-index:40;
+      backdrop-filter: blur(6px);
+      background: linear-gradient(180deg, rgba(8,10,12,0.6), rgba(8,10,12,0.35));
+      border-bottom: 1px solid rgba(255,255,255,0.03);
+    }
+    .nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:var(--space-md);
+      padding:18px 0;
+    }
+    .brand{
+      display:flex;
+      gap:12px;
+      align-items:center;
+      font-family:var(--ff-serif);
+      color:var(--neutral-100);
+      font-weight:700;
+      letter-spacing:0.4px;
+      font-size:var(--fs-lg);
+    }
+    .brand svg{height:44px;width:44px;flex-shrink:0}
+    nav ul{
+      display:flex;
+      gap:18px;
+      align-items:center;
+      margin:0;
+      padding:0;
+      list-style:none;
+    }
+    nav a{color:var(--neutral-200);font-weight:600;font-size:var(--fs-sm);opacity:0.95}
+    .cta-primary{
+      background:linear-gradient(90deg,var(--color-primary),#b36f2b);
+      color:var(--neutral-100);
+      padding:10px 18px;
+      border-radius:12px;
+      font-weight:700;
+      box-shadow: 0 8px 30px rgba(196,136,58,0.14);
+      transition:transform .18s ease, box-shadow .18s ease;
+    }
+    .cta-primary:focus{outline:3px solid rgba(196,136,58,0.18);outline-offset:2px}
+    .cta-primary:hover{transform:translateY(-3px);box-shadow:0 14px 40px rgba(196,136,58,0.18)}
+
+    .nav-actions{display:flex;gap:12px;align-items:center}
+
+    /* Mobile nav */
+    .menu-btn{
+      display:none;
+      background:transparent;
+      border:0;
+      color:var(--neutral-200);
+      padding:8px;
+      border-radius:8px;
+    }
+    .menu-btn:focus{outline:3px solid rgba(143,180,255,0.12)}
+
+    /* Hero */
+    .hero{
+      padding: clamp(48px, 8.5vw, 120px) 0;
+      display:grid;
+      grid-template-columns: 1fr 480px;
+      gap: clamp(24px, 4.6vw, 48px);
+      align-items:center;
+    }
+    .hero-left{
+      max-width:680px;
+    }
+    .eyebrow{
+      display:inline-flex;
+      gap:10px;
+      align-items:center;
+      color:var(--neutral-300);
+      font-weight:600;
+      font-size:var(--fs-sm);
+      margin-bottom:10px;
+    }
+    .eyebrow .dot{width:10px;height:10px;border-radius:50%;background:var(--color-primary);box-shadow:0 4px 14px rgba(196,136,58,0.16)}
+    h1{
+      margin:0 0 14px 0;
+      font-family:var(--ff-serif);
+      font-weight:700;
+      color:var(--neutral-100);
+      font-size:var(--fs-xxl);
+      line-height:1.02;
+      letter-spacing:-0.6px;
+    }
+    .lead{
+      color:var(--neutral-300);
+      font-size:var(--fs-lg);
+      margin-bottom:20px;
+      max-width:62ch;
+    }
+    .hero-ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px}
+    .secondary{
+      background:transparent;
+      border:1px solid rgba(255,255,255,0.06);
+      padding:10px 14px;
+      border-radius:12px;
+      color:var(--neutral-200);
+      font-weight:600;
+    }
+    .meta{
+      margin-top:18px;
+      color:var(--neutral-400);
+      font-size:var(--fs-sm);
+      display:flex;
+      gap:16px;
+      align-items:center;
+    }
+
+    /* Hero visual card */
+    .hero-right{
+      position:relative;
+      min-height:360px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .visual-card{
+      width:100%;
+      border-radius:var(--radius-lg);
+      background:
+        radial-gradient(800px 300px at 10% 10%, rgba(143,180,255,0.06), transparent 8%),
+        linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      padding:28px;
+      box-shadow:var(--card-shadow);
+      border: 1px solid rgba(255,255,255,0.03);
+      display:flex;
+      gap:18px;
+      align-items:center;
+      overflow:hidden;
+    }
+    .visual-left{
+      width:64%;
+      padding:12px;
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+    }
+    .visual-rock{
+      height:120px;
+      border-radius:12px;
+      background:linear-gradient(140deg,#0b0f13 0%, #152029 100%);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:var(--neutral-200);
+      box-shadow: inset 0 -6px 20px rgba(0,0,0,0.5);
+      font-weight:700;
+      font-family:var(--ff-serif);
+      font-size:1.05rem;
+      letter-spacing:0.6px;
+    }
+    .visual-meta{font-size:0.88rem;color:var(--neutral-300)}
+    .visual-right{
+      width:36%;
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+      align-items:flex-end;
+    }
+    .pill{
+      background:linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      padding:8px 12px;border-radius:999px;border:1px solid rgba(255,255,255,0.03);font-weight:700;color:var(--neutral-200)
+    }
+
+    /* Sections */
+    section{
+      padding: clamp(28px, 6vw, 68px) 0;
+    }
+    .section-title{
+      display:flex;
+      align-items:baseline;
+      gap:16px;
+      margin-bottom:18px;
+    }
+    .section-title h2{
+      margin:0;
+      font-family:var(--ff-serif);
+      font-size:var(--fs-xl);
+      color:var(--neutral-100);
+    }
+    .section-title p{margin:0;color:var(--neutral-300);font-size:var(--fs-sm)}
+
+    /* Services grid */
+    .grid{
+      display:grid;
+      gap:18px;
+    }
+    .services .grid{grid-template-columns:repeat(3,1fr)}
+    .card{
+      background:linear-gradient(180deg, rgba(255,255,255,0.015), transparent);
+      border-radius:var(--radius-md);
+      padding:20px;
+      border: 1px solid rgba(255,255,255,0.03);
+      box-shadow:0 10px 30px rgba(2,8,23,0.45);
+      transition:transform .18s ease, box-shadow .18s ease;
+    }
+    .card:focus-within,.card:hover{transform:translateY(-6px);box-shadow:0 20px 40px rgba(2,8,23,0.5)}
+    .card h3{margin:0 0 8px 0;font-size:var(--fs-lg);color:var(--neutral-100);font-family:var(--ff-serif)}
+    .card p{margin:0;color:var(--neutral-300);font-size:var(--fs-sm)}
+    .icon{
+      width:56px;height:56px;border-radius:12px;
+      background:linear-gradient(180deg, rgba(143,180,255,0.06), rgba(196,136,58,0.03));
+      display:flex;align-items:center;justify-content:center;margin-bottom:10px;color:var(--neutral-100)
+    }
+
+    /* About & advantages */
+    .about-grid{display:grid;grid-template-columns:1fr 360px;gap:24px;align-items:start}
+    .advantages{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+    .adv{
+      background:var(--glass);
+      padding:14px;border-radius:12px;border:1px solid rgba(255,255,255,0.02);
+      color:var(--neutral-200);
+    }
+
+    /* Steps */
+    .steps{display:flex;flex-direction:column;gap:12px}
+    .step{
+      display:flex;gap:14px;align-items:flex-start;background:linear-gradient(180deg, rgba(255,255,255,0.012), transparent);padding:14px;border-radius:12px;border:1px solid rgba(255,255,255,0.02)
+    }
+    .step .idx{width:36px;height:36px;border-radius:9px;background:rgba(255,255,255,0.03);display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--neutral-200)}
+    .step p{margin:0;color:var(--neutral-300);font-size:var(--fs-sm)}
+
+    /* Contact */
+    .contact-card{
+      display:flex;flex-direction:column;gap:14px;padding:22px;border-radius:14px;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.005));border:1px solid rgba(255,255,255,0.03)
+    }
+    .contact-cta{
+      display:flex;gap:12px;flex-wrap:wrap;align-items:center;
+    }
+    .contact-note{font-size:0.95rem;color:var(--neutral-300)}
+
+    /* Footer */
+    footer{
+      padding:28px 0;border-top:1px solid rgba(255,255,255,0.02);
+      color:var(--neutral-300);
+    }
+    .footer-grid{display:flex;justify-content:space-between;gap:20px;align-items:center;flex-wrap:wrap}
+
+    /* Accessibility focus */
+    a:focus,button:focus,input:focus{outline:3px solid rgba(143,180,255,0.12);outline-offset:3px}
+
+    /* Responsive */
+    @media (max-width:1100px){
+      .hero{grid-template-columns:1fr 360px}
+      .visual-right{align-items:flex-start}
+      .services .grid{grid-template-columns:repeat(2,1fr)}
+      .about-grid{grid-template-columns:1fr}
+    }
+    @media (max-width:780px){
+      .nav ul{display:none}
+      .menu-btn{display:inline-flex}
+      .hero{grid-template-columns:1fr;gap:20px;padding-top:36px;padding-bottom:36px}
+      .hero-right{order:2}
+      .brand{font-size:1.05rem}
+      .services .grid{grid-template-columns:1fr}
+      .visual-card{padding:18px}
+    }
+
+    /* Mobile nav panel */
+    .mobile-nav{
+      position:fixed;inset:0;top:72px;background:linear-gradient(180deg, rgba(2,6,10,0.9), rgba(2,6,10,0.95));
+      padding:28px;display:none;flex-direction:column;gap:16px;z-index:60
+    }
+    .mobile-nav a{font-size:1.05rem;color:var(--neutral-200)}
+    .mobile-nav.show{display:flex}
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce){
+      *{transition:none!important}
+    }
+
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap nav" role="navigation" aria-label="Glavna navigacija">
+      <a class="brand" href="#hero">
+        <svg viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+          <defs>
+            <linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
+              <stop offset="0" stop-color="#c4883a"/>
+              <stop offset="1" stop-color="#8fb4ff"/>
+            </linearGradient>
+          </defs>
+          <rect width="64" height="64" rx="12" fill="#0b0f13"/>
+          <path d="M16 44c6-12 32-12 40-24-8 0-18 12-32 12S16 44 16 44z" fill="url(#g)" opacity="0.95"/>
+        </svg>
+        <span>The Old Rock Bar</span>
+      </a>
+
+      <nav aria-label="Glavni izbornik">
+        <ul>
+          <li><a href="#usluge">Ponuda</a></li>
+          <li><a href="#o-nama">O nama</a></li>
+          <li><a href="#prednosti">Prednosti</a></li>
+          <li><a href="#kontakt">Kontakt</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <a class="cta-primary" href="https://www.uzagorju.com/objekt-zagorje-the-old-rock-bar-zabok" target="_blank" rel="noopener">Zatražite ponudu</a>
+        <button class="menu-btn" aria-expanded="false" aria-controls="mobile-nav" aria-label="Otvori izbornik" id="menuBtn">
+          <svg width="22" height="14" viewBox="0 0 22 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect width="22" height="2" rx="1" fill="#DDE8F5"/>
+            <rect y="6" width="22" height="2" rx="1" fill="#DDE8F5"/>
+            <rect y="12" width="22" height="2" rx="1" fill="#DDE8F5"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <div id="mobile-nav" class="mobile-nav" aria-hidden="true">
+      <a href="#usluge">Ponuda</a>
+      <a href="#o-nama">O nama</a>
+      <a href="#prednosti">Prednosti</a>
+      <a href="#kontakt">Kontakt</a>
+      <a class="cta-primary" href="https://www.uzagorju.com/objekt-zagorje-the-old-rock-bar-zabok" target="_blank" rel="noopener">Zatražite ponudu</a>
+    </div>
+  </header>
+
+  <main>
+    <section id="hero" class="hero wrap" aria-labelledby="hero-title">
+      <div class="hero-left">
+        <div class="eyebrow" aria-hidden="true"><span class="dot" aria-hidden="true"></span> Catering & mobilni bar</div>
+        <h1 id="hero-title">The Old Rock Bar — catering i mobilni bar</h1>
+        <p class="lead">Profesionalne usluge cateringa i bara za događanja. Prilagodljivi jelovnici i bar rješenja, modularno postavljanje i posluživanje — dizajnirano da uklopi atmosferu vašeg eventa.</p>
+
+        <div class="hero-ctas" role="group" aria-label="Pozivi na akciju">
+          <a class="cta-primary" href="https://www.uzagorju.com/objekt-zagorje-the-old-rock-bar-zabok" target="_blank" rel="noopener">Zatražite ponudu</a>
+          <a class="secondary" href="#usluge">Pogledajte ponudu</a>
+        </div>
+
+        <div class="meta" aria-hidden="false">
+          <div><strong>Upute:</strong> Kliknite "Zatražite ponudu" za direktan kontakt putem stranice objekta.</div>
+        </div>
+      </div>
+
+      <div class="hero-right" aria-hidden="false">
+        <div class="visual-card" role="img" aria-label="Vizualna prezentacija The Old Rock Bar">
+          <div class="visual-left">
+            <div class="visual-rock" aria-hidden="true">THE OLD ROCK</div>
+            <div class="visual-meta">Fokus na ambijentu, izvedbi i profesionalnoj posluzi bara. Modularna oprema za svaku veličinu događaja.</div>
+          </div>
+          <div class="visual-right">
+            <div class="pill">Catering • Bar</div>
+            <div class="pill" style="background:linear-gradient(90deg, rgba(143,180,255,0.06), rgba(255,255,255,0.01)); color:var(--neutral-200)">Mobilni setup</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="usluge" class="services wrap" aria-labelledby="usluge-title">
+      <div class="section-title">
+        <h2 id="usluge-title">Ponuda</h2>
+        <p>Pregled osnovnih usluga. Za detalje i konkretnu ponudu posjetite stranicu objekta.</p>
+      </div>
+
+      <div class="grid">
+        <article class="card" aria-labelledby="s1">
+          <div class="icon" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 7h18" stroke="#E7D6C8" stroke-width="1.6" stroke-linecap="round"/><path d="M7 7v12" stroke="#C4883A" stroke-width="1.6" stroke-linecap="round"/></svg>
+          </div>
+          <h3 id="s1">Catering prilagođen događaju</h3>
+          <p>Priprema i posluživanje jela prilagođenih tipu događanja i očekivanjima klijenta. Mogućnosti za sjedenja, finger food i modularne bistro opcije.</p>
+        </article>
+
+        <article class="card" aria-labelledby="s2">
+          <div class="icon" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 18c2-4 10-4 14 0" stroke="#8FB4FF" stroke-width="1.6" stroke-linecap="round"/><path d="M12 6v8" stroke="#C4883A" stroke-width="1.6" stroke-linecap="round"/></svg>
+          </div>
+          <h3 id="s2">Mobilni bar i kokteli</h3>
+          <p>Profesionalno vođeni bar za vaša događanja — brz setup, standardizirana oprema i stručna usluga pri posluživanju pića i koktela.</p>
+        </article>
+
+        <article class="card" aria-labelledby="s3">
+          <div class="icon" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="14" rx="2" stroke="#DDE8F5" stroke-width="1.4"/><path d="M8 9h8" stroke="#C4883A" stroke-width="1.6" stroke-linecap="round"/></svg>
+          </div>
+          <h3 id="s3">Logistika i bar oprema</h3>
+          <p>Rješenja za opremanje bara na lokaciji: modularna oprema, posuđe i organizacija toka posluživanja prilagođenog događaju.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="o-nama" class="wrap" aria-labelledby="o-title">
+      <div class="section-title">
+        <h2 id="o-title">O nama</h2>
+        <p>Kratak i jasni opis djelatnosti.</p>
+      </div>
+
+      <div class="about-grid">
+        <div>
+          <p style="color:var(--neutral-300);font-size:var(--fs-base);margin-bottom:12px">The Old Rock Bar pruža usluge cateringa i bara. Ovaj prikaz temelji se na dostavljenim poslovnim podacima. Za detalje o raspoloživosti usluga i točnim kontakt podacima posjetite službenu stranicu objekta.</p>
+          <p style="color:var(--neutral-300);font-size:var(--fs-sm);">Ne navodimo internu kontakt informaciju jer u dostavljenim podacima nije bila dostupna. Sve upite i rezervacije obradite putem linka na stranicu objekta.</p>
+        </div>
+
+        <aside class="contact-card" aria-label="Kratki kontakt">
+          <div style="font-weight:700;color:var(--neutral-100)">The Old Rock Bar</div>
+          <div class="contact-note">Izvor informacija: objavljeni profil objekta.</div>
+          <div class="contact-cta">
+            <a class="cta-primary" href="https://www.uzagorju.com/objekt-zagorje-the-old-rock-bar-zabok" target="_blank" rel="noopener">Posjetite profil objekta</a>
+            <a class="secondary" href="#kontakt">Kontakt informacije</a>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="prednosti" class="wrap" aria-labelledby="pred-title">
+      <div class="section-title">
+        <h2 id="pred-title">Zašto odabrati</h2>
+        <p>Ključne vrijednosti ponude i pristupa</p>
+      </div>
+
+      <div class="advantages">
+        <div class="adv">
+          <strong>Fleksibilnost</strong>
+          <p style="margin-top:8px;color:var(--neutral-300)">Rješenja se prilagođavaju prostoru i tipu događanja.</p>
+        </div>
+
+        <div class="adv">
+          <strong>Profesionalna izvedba</strong>
+          <p style="margin-top:8px;color:var(--neutral-300)">Organizacija toka posluživanja i opremanje bara za sigurno posluživanje.</p>
+        </div>
+
+        <div class="adv">
+          <strong>Jasna komunikacija</strong>
+          <p style="margin-top:8px;color:var(--neutral-300)">Transparentan dogovor o opsegu usluge i logistici.</p>
+        </div>
+
+        <div class="adv">
+          <strong>Modularna oprema</strong>
+          <p style="margin-top:8px;color:var(--neutral-300)">Konfiguracije koje se lako uklapaju u različite prostore.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="suradnja" class="wrap" aria-labelledby="surad-title">
+      <div class="section-title">
+        <h2 id="surad-title">Kako izgleda suradnja</h2>
+        <p>Jednostavan pregled tipičnih koraka</p>
+      </div>
+
+      <div class="steps" role="list">
+        <div class="step" role="listitem">
+          <div class="idx" aria-hidden="true">1</div>
+          <div>
+            <strong>Kontakt</strong>
+            <p>Pošaljite upit putem profila objekta ili dogovorite termin za razgovor o potrebama eventa.</p>
+          </div>
+        </div>
+
+        <div class="step" role="listitem">
+          <div class="idx" aria-hidden="true">2</div>
+          <div>
+            <strong>Ponuda</strong>
+            <p>Priprema prijedloga opsega usluge i logistike, prilagođenog tipu događaja.</p>
+          </div>
+        </div>
+
+        <div class="step" role="listitem">
+          <div class="idx" aria-hidden="true">3</div>
+          <div>
+            <strong>Izvedba</strong>
+            <p>Postavljanje opreme i provedba usluge u dogovorenom terminu.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="kontakt" class="wrap" aria-labelledby="kontakt-title">
+      <div class="section-title">
+        <h2 id="kontakt-title">Kontakt</h2>
+        <p>Za konkretne upite i rezervacije koristite stranicu objekta.</p>
+      </div>
+
+      <div style="display:grid;grid-template-columns:1fr 400px;gap:24px;align-items:start">
+        <div>
+          <p style="color:var(--neutral-300);font-size:var(--fs-base)">Podaci o adresi, telefonskom broju i e-mailu nisu bili dostupni u dostavljenim podacima. Za izravan kontakt i rezervacije kliknite na link ispod:</p>
+
+          <p style="margin-top:18px">
+            <a class="cta-primary" href="https://www.uzagorju.com/objekt-zagorje-the-old-rock-bar-zabok" target="_blank" rel="noopener">Posjetite profil objekta</a>
+            <a class="secondary" href="#usluge" style="margin-left:10px">Pogledajte ponudu</a>
+          </p>
+        </div>
+
+        <aside class="contact-card" aria-label="Kontakt - linkovi">
+          <div style="font-weight:700;color:var(--neutral-100)">The Old Rock Bar</div>
+          <div class="contact-note">Službeni profil objekta:</div>
+          <div><a href="https://www.uzagorju.com/objekt-zagorje-the-old-rock-bar-zabok" target="_blank" rel="noopener">https://www.uzagorju.com/objekt-zagorje-the-old-rock-bar-zabok</a></div>
+          <div style="font-size:0.92rem;color:var(--neutral-300)">Ako dobijete dodatne kontakt podatke, rado ću ih integrirati u dizajn i strukturu stranice.</div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-grid" aria-label="Podnožje stranice">
+      <div style="display:flex;gap:12px;align-items:center">
+        <svg width="38" height="38" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+          <rect width="64" height="64" rx="12" fill="#0b0f13"/>
+          <path d="M16 44c6-12 32-12 40-24-8 0-18 12-32 12S16 44 16 44z" fill="#c4883a" opacity="0.95"/>
+        </svg>
+        <div>
+          <div style="font-weight:700;color:var(--neutral-100)">The Old Rock Bar</div>
+          <div style="font-size:0.9rem;color:var(--neutral-300)">Catering i mobilni bar</div>
+        </div>
+      </div>
+
+      <div style="display:flex;gap:18px;align-items:center;flex-wrap:wrap">
+        <a href="#usluge">Ponuda</a>
+        <a href="#o-nama">O nama</a>
+        <a href="#kontakt">Kontakt</a>
+        <a href="https://www.uzagorju.com/objekt-zagorje-the-old-rock-bar-zabok" target="_blank" rel="noopener" class="cta-primary">Posjetite profil objekta</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function(){
+      const menuBtn = document.getElementById('menuBtn');
+      const mobileNav = document.getElementById('mobile-nav');
+
+      menuBtn.addEventListener('click', function(){
+        const expanded = this.getAttribute('aria-expanded') === 'true';
+        this.setAttribute('aria-expanded', String(!expanded));
+        mobileNav.classList.toggle('show');
+        mobileNav.setAttribute('aria-hidden', String(expanded));
+      });
+
+      // Smooth scrolling for in-page anchors
+      document.querySelectorAll('a[href^="#"]').forEach(a=>{
+        a.addEventListener('click', function(e){
+          const href = this.getAttribute('href');
+          if(!href || href === '#') return;
+          const target = document.querySelector(href);
+          if(target){
+            e.preventDefault();
+            const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            const top = target.getBoundingClientRect().top + window.scrollY - 80;
+            if(prefersReduced){
+              window.scrollTo(0, top);
+            }else{
+              window.scrollTo({ top, behavior: 'smooth' });
+            }
+            // close mobile nav on selection
+            if(mobileNav.classList.contains('show')){
+              mobileNav.classList.remove('show');
+              menuBtn.setAttribute('aria-expanded','false');
+              mobileNav.setAttribute('aria-hidden','true');
+            }
+          }
+        });
+      });
+
+      // Keyboard accessible close for mobile nav
+      document.addEventListener('keydown', function(e){
+        if(e.key === 'Escape' && mobileNav.classList.contains('show')){
+          mobileNav.classList.remove('show');
+          menuBtn.setAttribute('aria-expanded','false');
+          mobileNav.setAttribute('aria-hidden','true');
+          menuBtn.focus();
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
