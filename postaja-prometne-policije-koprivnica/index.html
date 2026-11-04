@@ -1,0 +1,741 @@
+ <!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Postaja prometne policije Koprivnica — informacije i kontakti</title>
+  <meta name="description" content="Postaja prometne policije Koprivnica — kontakti, osnovne informacije i kratke upute vezane uz sigurnost u prometu. Nazovite: +385 48 656 539" />
+  <meta property="og:title" content="Postaja prometne policije Koprivnica — informacije i kontakti" />
+  <meta property="og:description" content="Kontaktirajte Postaju prometne policije Koprivnica za informacije i prijave vezane uz prometnu sigurnost. Telefon i e‑mail na stranici." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --gap-xs: 8px;
+      --gap-sm: 12px;
+      --gap-md: 20px;
+      --gap-lg: 40px;
+      --gap-xl: 72px;
+
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 18px;
+
+      --shadow-sm: 0 6px 18px rgba(18,38,63,0.08);
+      --shadow-lg: 0 18px 48px rgba(18,38,63,0.12);
+
+      --primary: #0b4a73;       /* deep police blue */
+      --secondary: #e7b600;     /* signaling yellow */
+      --accent: #0fb5a6;        /* cool accent for small highlights */
+      --bg: #f6f8fb;
+      --card: #ffffff;
+      --muted: #6b7280;
+      --text: #0f1724;
+
+      --max-width: 1200px;
+      --fluid-scale: 1.18;
+      --nav-height: 72px;
+    }
+
+    /* Basic reset */
+    *{box-sizing: border-box;}
+    html,body{height:100%;}
+    body{
+      margin:0;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      color:var(--text);
+      background:linear-gradient(180deg, var(--bg) 0%, #f3f6f9 100%);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+      text-rendering:optimizeLegibility;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    /* Fluid typography */
+    h1{font-family:Merriweather, Georgia, serif; font-weight:700; margin:0;
+       font-size: clamp(1.6rem, 1.32rem + 2.2vw, 3.2rem); letter-spacing:-0.02em; color:var(--primary);}
+    h2{font-family:Merriweather, Georgia, serif; margin:0; font-size: clamp(1.05rem, .92rem + 1.2vw, 1.8rem); color:var(--text);}
+    h3{font-size:1.05rem; margin:0; color:var(--text); font-weight:600;}
+    p{margin:0 0 var(--gap-md) 0; color:var(--muted); font-size:clamp(.95rem, .85rem + .4vw, 1rem);}
+    a{color:inherit; text-decoration:none; outline: none;}
+
+    .container{
+      max-width:var(--max-width);
+      margin:0 auto;
+      padding: 0 20px;
+    }
+
+    /* Header / Nav */
+    header{
+      height:var(--nav-height);
+      display:flex;
+      align-items:center;
+      position:sticky;
+      top:0;
+      z-index:60;
+      backdrop-filter: blur(6px);
+      background: rgba(255,255,255,0.6);
+      border-bottom: 1px solid rgba(11,74,115,0.06);
+      box-shadow: var(--shadow-sm);
+    }
+    .nav-inner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      width:100%;
+      gap:var(--gap-md);
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+    .logo{
+      width:48px;
+      height:48px;
+      background:linear-gradient(135deg,var(--primary), #0a6aa0);
+      border-radius:10px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:white;
+      font-weight:700;
+      box-shadow: 0 6px 18px rgba(11,74,115,0.12);
+      flex:0 0 48px;
+    }
+    .wordmark{
+      display:flex;
+      flex-direction:column;
+      line-height:1;
+    }
+    .wordmark .title{font-weight:700; font-size:0.95rem; color:var(--primary); font-family:Merriweather, serif;}
+    .wordmark .sub{font-size:0.825rem; color:var(--muted);}
+
+    nav[aria-label="Glavna navigacija"]{
+      display:flex;
+      align-items:center;
+      gap:22px;
+    }
+    .nav-links{display:flex; gap:18px; align-items:center;}
+    .nav-links a{color:var(--muted); font-weight:600; font-size:0.95rem; padding:8px; border-radius:8px;}
+    .nav-links a:focus, .nav-links a:hover{color:var(--primary); background:rgba(11,74,115,0.03);}
+
+    .cta{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      background:var(--primary);
+      color:white;
+      padding:10px 14px;
+      border-radius:12px;
+      font-weight:700;
+      box-shadow: 0 8px 24px rgba(11,74,115,0.12);
+    }
+    .cta.secondary{
+      background:transparent;
+      color:var(--primary);
+      border:1px solid rgba(11,74,115,0.08);
+      box-shadow:none;
+      padding:8px 12px;
+    }
+
+    /* Mobile menu */
+    .menu-toggle{
+      display:none;
+      background:transparent;
+      border:0;
+      padding:8px;
+      border-radius:10px;
+      cursor:pointer;
+    }
+    .menu-toggle:focus{outline:2px solid var(--secondary);}
+
+    /* Hero */
+    .hero{
+      padding: calc(var(--nav-height) + var(--gap-lg)) 0 var(--gap-xl);
+      display:grid;
+      grid-template-columns: 1fr 420px;
+      gap:40px;
+      align-items:center;
+      position:relative;
+    }
+    .hero .kicker{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      background:linear-gradient(90deg, rgba(11,74,115,0.08), rgba(15,181,166,0.04));
+      color:var(--primary);
+      padding:8px 12px;
+      border-radius:999px;
+      font-weight:700;
+      font-size:0.9rem;
+      width:max-content;
+    }
+    .hero h1{margin-top:14px; margin-bottom:12px; line-height:1.02;}
+    .hero p{margin-bottom:22px; max-width:54ch;}
+    .hero .actions{display:flex; gap:12px; align-items:center;}
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:14px 18px;
+      border-radius:12px;
+      font-weight:700;
+      cursor:pointer;
+      transition: transform .14s ease, box-shadow .14s ease;
+      text-decoration:none;
+    }
+    .btn.primary{
+      background:linear-gradient(90deg,var(--primary), #0a6aa0);
+      color:white;
+      box-shadow: 0 12px 36px rgba(11,74,115,0.14);
+    }
+    .btn.secondary{
+      background:transparent;
+      border:1px solid rgba(11,74,115,0.08);
+      color:var(--primary);
+    }
+    .btn:active{transform:translateY(1px);}
+    .hero-visual{
+      background:linear-gradient(180deg, rgba(11,74,115,0.04), rgba(15,181,166,0.02));
+      border-radius:18px;
+      padding:26px;
+      box-shadow:var(--shadow-lg);
+      display:flex;
+      gap:16px;
+      align-items:center;
+      justify-content:center;
+      min-height:320px;
+      position:relative;
+      overflow:hidden;
+    }
+    .geom{
+      position:absolute;
+      right:-60px;
+      top:-60px;
+      width:320px;
+      height:320px;
+      opacity:0.12;
+      transform:rotate(18deg);
+    }
+    .visual-card{
+      background:var(--card);
+      border-radius:12px;
+      padding:18px;
+      width:100%;
+      max-width:320px;
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+      align-items:flex-start;
+      box-shadow: var(--shadow-sm);
+    }
+    .visual-card .meta{font-size:0.92rem; color:var(--muted);}
+    .visual-card .stat{display:flex; gap:10px; align-items:center;}
+    .chip{
+      background:linear-gradient(90deg,var(--secondary), #f2d27e);
+      color:#08364a;
+      padding:6px 10px;
+      border-radius:999px;
+      font-weight:700;
+      font-size:0.85rem;
+      box-shadow: 0 8px 20px rgba(231,182,0,0.08);
+    }
+
+    /* Sections */
+    section{padding: var(--gap-lg) 0; }
+    .grid{display:grid; gap:20px;}
+    .services{
+      grid-template-columns: repeat(3,1fr);
+    }
+    .card{
+      background:var(--card);
+      padding:18px;
+      border-radius:14px;
+      box-shadow:var(--shadow-sm);
+      border:1px solid rgba(11,74,115,0.04);
+      display:flex;
+      gap:12px;
+      align-items:flex-start;
+    }
+    .icon{
+      width:56px;
+      height:56px;
+      border-radius:12px;
+      background:linear-gradient(180deg, rgba(11,74,115,0.06), rgba(15,181,166,0.03));
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      flex:0 0 56px;
+    }
+    .card h3{margin-bottom:6px;}
+    .muted-small{color:var(--muted); font-size:0.95rem;}
+
+    /* Two-column layout for about */
+    .two{
+      display:grid;
+      grid-template-columns: 1fr 360px;
+      gap:28px;
+      align-items:start;
+    }
+    .info-box{
+      background: linear-gradient(180deg, rgba(15,181,166,0.02), rgba(11,74,115,0.02));
+      padding:16px;
+      border-radius:12px;
+      border:1px solid rgba(11,74,115,0.04);
+    }
+
+    /* Contact */
+    .contact-grid{
+      display:grid;
+      grid-template-columns: 1fr 360px;
+      gap:28px;
+      align-items:start;
+    }
+    .contact-card{
+      background:var(--card);
+      padding:18px;
+      border-radius:14px;
+      box-shadow:var(--shadow-sm);
+      display:flex;
+      flex-direction:column;
+      gap:14px;
+    }
+    .contact-row{display:flex; gap:12px; align-items:center;}
+    .contact-row a{font-weight:700; color:var(--primary);}
+    .micro{
+      font-size:0.92rem;
+      color:var(--muted);
+    }
+
+    footer{
+      padding:28px 0;
+      border-top:1px solid rgba(11,74,115,0.04);
+      margin-top:40px;
+    }
+
+    /* Responsive */
+    @media (max-width:1100px){
+      .hero{grid-template-columns:1fr 360px;}
+      .two{grid-template-columns:1fr;}
+      .contact-grid{grid-template-columns:1fr;}
+      .services{grid-template-columns:repeat(2,1fr);}
+    }
+    @media (max-width:720px){
+      header{height:64px;}
+      .nav-links{display:none;}
+      .menu-toggle{display:inline-flex;}
+      .hero{grid-template-columns:1fr; padding-top:32px; padding-bottom:36px; gap:22px;}
+      .hero-visual{min-height:220px;}
+      .wordmark{display:none;}
+      .brand .logo{width:44px;height:44px;}
+      .services{grid-template-columns:1fr;}
+      .hero p{font-size:0.98rem;}
+      .container{padding:0 16px;}
+    }
+
+    /* Mobile menu panel */
+    .mobile-panel{
+      position:fixed;
+      left:0;
+      right:0;
+      top:var(--nav-height);
+      background:linear-gradient(180deg, #fff, #fbfdff);
+      box-shadow: 0 24px 60px rgba(8,20,40,0.12);
+      padding:18px;
+      border-bottom-left-radius:14px;
+      border-bottom-right-radius:14px;
+      display:none;
+      z-index:70;
+    }
+    .mobile-panel.open{display:block;}
+    .mobile-nav{display:flex; flex-direction:column; gap:12px;}
+    .mobile-nav a{padding:12px; border-radius:10px; color:var(--primary); font-weight:700;}
+
+    /* focus styles */
+    a:focus, button:focus{box-shadow: 0 0 0 4px rgba(15,181,166,0.12); border-radius:8px;}
+    .skip{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;}
+    .skip:focus{left:12px;top:12px;width:auto;height:auto;padding:6px 10px;background:#fff;border-radius:6px;box-shadow:var(--shadow-sm);}
+    /* reduced motion */
+    @media (prefers-reduced-motion: reduce){
+      *{transition:none !important; animation:none !important;}
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Prijeđi na sadržaj</a>
+
+  <header>
+    <div class="container nav-inner" role="navigation" aria-label="Header">
+      <div class="brand" aria-hidden="false">
+        <div class="logo" aria-hidden="true">PP</div>
+        <div class="wordmark" aria-hidden="true">
+          <div class="title">Postaja prometne policije</div>
+          <div class="sub">Koprivnica</div>
+        </div>
+      </div>
+
+      <nav aria-label="Glavna navigacija">
+        <div class="nav-links" role="menu">
+          <a href="#usluge" role="menuitem">Što radimo</a>
+          <a href="#o-nama" role="menuitem">O postaji</a>
+          <a href="#upute" role="menuitem">Upute</a>
+          <a href="#kontakt" role="menuitem">Kontakt</a>
+        </div>
+      </nav>
+
+      <div style="display:flex;align-items:center;gap:12px;">
+        <a class="cta" href="tel:+38548656539" aria-label="Nazovite Postaju prometne policije Koprivnica">Nazovite: +385 48 656 539</a>
+        <button class="menu-toggle" aria-controls="mobile-panel" aria-expanded="false" aria-label="Otvori izbornik" id="menuToggle">
+          <svg width="22" height="14" viewBox="0 0 22 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect width="22" height="2" rx="1" fill="#0B4A73"/>
+            <rect y="6" width="22" height="2" rx="1" fill="#0B4A73"/>
+            <rect y="12" width="22" height="2" rx="1" fill="#0B4A73"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="mobile-panel" id="mobile-panel" aria-hidden="true">
+      <nav class="mobile-nav" aria-label="Mobilna navigacija">
+        <a href="#usluge">Što radimo</a>
+        <a href="#o-nama">O postaji</a>
+        <a href="#upute">Upute</a>
+        <a href="#kontakt">Kontakt</a>
+        <a href="mailto:pprp.koprivnica@mup.hr">Pošaljite e‑mail</a>
+        <a href="tel:+38548656539">Nazovite</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="container" tabindex="-1">
+    <section class="hero" aria-labelledby="hero-title">
+      <div>
+        <div class="kicker" aria-hidden="true">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+            <path d="M12 2l2.9 6.02L21 10l-5 3.8L17 21l-5-3.2L7 21l1-7.2L3 10l6.1-1.98L12 2z" fill="white" opacity="0.12"/>
+            <path d="M12 2l2.9 6.02L21 10l-5 3.8L17 21l-5-3.2L7 21l1-7.2L3 10l6.1-1.98L12 2z" stroke="white" stroke-opacity="0.18" stroke-width="0.4"/>
+          </svg>
+          Informacije i kontakti
+        </div>
+
+        <h1 id="hero-title">Postaja prometne policije Koprivnica</h1>
+        <p>Kontaktne informacije i osnovne upute vezane uz prometnu sigurnost. Ako trebate hitnu intervenciju u prometu nazovite telefonom ili pošaljite e‑mail za nehitne upite.</p>
+
+        <div class="actions" role="group" aria-label="Glavni pozivi na akciju">
+          <a class="btn primary" href="tel:+38548656539" aria-label="Nazovite postaju">Nazovite odmah <span aria-hidden="true">→</span></a>
+          <a class="btn secondary" href="mailto:pprp.koprivnica@mup.hr" aria-label="Pošaljite email">Pošaljite e‑mail</a>
+        </div>
+
+        <div style="margin-top:22px; display:flex; gap:12px; align-items:center;">
+          <span class="micro">Službena stranica:</span>
+          <a class="micro" href="http://koprivnicko-krizevacka.policija.hr/MainPu.aspx?id=15448" target="_blank" rel="noopener">koprivnicko-krizevacka.policija.hr</a>
+        </div>
+      </div>
+
+      <aside class="hero-visual" aria-hidden="true">
+        <svg class="geom" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Dekorativni motiv">
+          <defs>
+            <linearGradient id="g1" x1="0" x2="1">
+              <stop offset="0" stop-color="#0b4a73"/>
+              <stop offset="1" stop-color="#0fb5a6"/>
+            </linearGradient>
+          </defs>
+          <rect x="10" y="10" width="180" height="180" rx="20" fill="url(#g1)" />
+        </svg>
+
+        <div class="visual-card" role="img" aria-label="Vizualna kartica">
+          <div style="display:flex; justify-content:space-between; width:100%; align-items:center;">
+            <div>
+              <div class="meta">Brzi kontakt</div>
+              <div style="font-weight:700; font-size:1.05rem; color:var(--primary);">+385 48 656 539</div>
+            </div>
+            <div class="chip">Hitno</div>
+          </div>
+
+          <div style="width:100%; height:1px; background:linear-gradient(90deg, rgba(11,74,115,0.04), rgba(15,181,166,0.02)); margin:6px 0;"></div>
+
+          <div class="stat">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M12 2v20M2 12h20" stroke="#0B4A73" stroke-width="1.4" stroke-linecap="round"/>
+            </svg>
+            <div class="meta">Informacije o nadzoru prometa i prijavama.</div>
+          </div>
+
+          <div style="width:100%; display:flex; gap:10px; margin-top:6px;">
+            <a class="btn secondary" href="mailto:pprp.koprivnica@mup.hr">E‑mail</a>
+            <a class="btn primary" href="tel:+38548656539">Nazovite</a>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <section id="usluge" aria-labelledby="usluge-title">
+      <div class="container">
+        <h2 id="usluge-title">Što radimo</h2>
+        <p class="micro">Postaja obavlja zadaće vezane uz sigurnost i red u cestovnom prometu. Donosimo pregled glavnih tipova poslova koje građani mogu očekivati.</p>
+
+        <div class="grid services" style="margin-top:18px;">
+          <article class="card" aria-labelledby="srv-1">
+            <div class="icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+                <path d="M3 12h18" stroke="#0B4A73" stroke-width="1.6" stroke-linecap="round"/>
+                <path d="M6 19l2-7 3-3 3 3 2 7" stroke="#0B4A73" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div>
+              <h3 id="srv-1">Nadzor i kontrola prometa</h3>
+              <p class="muted-small">Redovite aktivnosti usmjerene na sigurnost cesta, uključujući kontrole pridržavanja prometnih propisa i postupke na mjestu prometnih prekršaja.</p>
+            </div>
+          </article>
+
+          <article class="card" aria-labelledby="srv-2">
+            <div class="icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+                <path d="M12 2v6" stroke="#0B4A73" stroke-width="1.6" stroke-linecap="round"/>
+                <path d="M6 22h12" stroke="#0B4A73" stroke-width="1.6" stroke-linecap="round"/>
+                <path d="M9 12h6" stroke="#0B4A73" stroke-width="1.6" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div>
+              <h3 id="srv-2">Postupanje na mjestu događaja u prometu</h3>
+              <p class="muted-small">Svaka intervencija usmjerena je na sigurnost sudionika i tehničko dokumentiranje događaja radi daljnjeg postupanja.</p>
+            </div>
+          </article>
+
+          <article class="card" aria-labelledby="srv-3">
+            <div class="icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+                <path d="M4 6h16v12H4z" stroke="#0B4A73" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M8 10h8" stroke="#0B4A73" stroke-width="1.6" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div>
+              <h3 id="srv-3">Informiranje i suradnja s građanima</h3>
+              <p class="muted-small">Pružamo informacije o postupcima, mogućnostima kontakta i osnovne upute za građane u vezi sigurnosti u prometu.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="o-nama" aria-labelledby="o-title">
+      <div class="container two">
+        <div>
+          <h2 id="o-title">O postaji</h2>
+          <p class="micro">Postaja prometne policije Koprivnica djeluje u okviru nadležnosti za sigurnost prometa na cestama. Ovdje možete pronaći kontaktne informacije i praktične upute kada je riječ o prometnim događajima.</p>
+
+          <div style="margin-top:18px; display:grid; gap:12px;">
+            <div class="card" style="align-items:stretch;">
+              <div style="display:flex; gap:12px;">
+                <div class="icon" aria-hidden="true">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path d="M3 12h18" stroke="#0B4A73" stroke-width="1.6" stroke-linecap="round"/>
+                    <path d="M12 3v18" stroke="#0B4A73" stroke-width="1.6" stroke-linecap="round"/>
+                  </svg>
+                </div>
+                <div>
+                  <h3>Transparentan kontakt</h3>
+                  <p class="muted-small">Za sve upite koristite navedeni telefon ili e‑mail. Za hitne intervencije nazovite telefonskim putem.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="card" style="align-items:stretch;">
+              <div style="display:flex; gap:12px;">
+                <div class="icon" aria-hidden="true">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path d="M4 20h16" stroke="#0B4A73" stroke-width="1.6" stroke-linecap="round"/>
+                    <path d="M12 3v14" stroke="#0B4A73" stroke-width="1.6" stroke-linecap="round"/>
+                  </svg>
+                </div>
+                <div>
+                  <h3>Suradnja s lokalnom zajednicom</h3>
+                  <p class="muted-small">Rad s građanima i lokalnim dionicima radi povećanja sigurnosti u prometu temelji se na razmjeni informacija i zajedničkim aktivnostima.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <aside class="info-box" aria-labelledby="info-title">
+          <h3 id="info-title">Brzi podaci</h3>
+          <p class="micro" style="margin-top:8px;">Kontaktne veze i osnovne upute su ovdje radi lakše komunikacije. Ne navodimo adresu jer nije dostupna u dostavljenim podacima.</p>
+
+          <div style="margin-top:12px; display:flex; flex-direction:column; gap:10px;">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+              <div style="font-weight:700;">Telefon</div>
+              <div><a href="tel:+38548656539">+385 48 656 539</a></div>
+            </div>
+
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+              <div style="font-weight:700;">E‑mail</div>
+              <div><a href="mailto:pprp.koprivnica@mup.hr">pprp.koprivnica@mup.hr</a></div>
+            </div>
+
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+              <div style="font-weight:700;">Više informacija</div>
+              <div><a href="http://koprivnicko-krizevacka.policija.hr/MainPu.aspx?id=15448" target="_blank" rel="noopener">službena stranica</a></div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="upute" aria-labelledby="upute-title">
+      <div class="container">
+        <h2 id="upute-title">Krátke upute — kako postupiti</h2>
+        <p class="micro">U nastavku su sažete praktične smjernice koje pomažu u sigurnom i ispravnom postupanju u slučajevima prometnih događaja. To su opće preporuke, za konkretne pravne ili administrativne savjete obratite se službenim kanalima.</p>
+
+        <div style="display:grid; grid-template-columns: repeat(3,1fr); gap:16px; margin-top:18px;">
+          <div class="card" aria-labelledby="step-1">
+            <h3 id="step-1">1. Osigurajte sigurnost</h3>
+            <p class="muted-small">Prvo se pobrinite za sigurnost svih sudionika: označite mjesto događaja, upalite sva četiri žmigavca i pomaknite vozila ako je moguće i sigurno.</p>
+          </div>
+
+          <div class="card" aria-labelledby="step-2">
+            <h3 id="step-2">2. Kontaktirajte policiju</h3>
+            <p class="muted-small">Ako je potrebno obratite se policiji putem navedenog telefona. U hitnim slučajevima prvo pozovite hitne službe.</p>
+          </div>
+
+          <div class="card" aria-labelledby="step-3">
+            <h3 id="step-3">3. Zabilježite podatke</h3>
+            <p class="muted-small">Zapišite osnovne podatke o sudionicima, vozilima i svjedocima te, ako je moguće, fotografirajte mjesto događaja radi dokumentacije.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="kontakt" aria-labelledby="kontakt-title">
+      <div class="container contact-grid">
+        <div>
+          <h2 id="kontakt-title">Kontakt</h2>
+          <p class="micro">Za hitne situacije nazovite telefonom. Za nehitne upite koristite e‑mail ili posjetite službenu web stranicu.</p>
+
+          <div style="margin-top:16px; display:grid; gap:12px;">
+            <div class="contact-card" role="region" aria-label="Kontaktna kartica">
+              <div style="display:flex; justify-content:space-between; align-items:center;">
+                <div>
+                  <div class="muted-small">Telefon</div>
+                  <div style="font-weight:700; margin-top:6px;"><a href="tel:+38548656539">+385 48 656 539</a></div>
+                </div>
+                <div style="display:flex; flex-direction:column; gap:8px;">
+                  <a class="btn primary" href="tel:+38548656539">Nazovite</a>
+                </div>
+              </div>
+
+              <div style="width:100%; height:1px; background:linear-gradient(90deg, rgba(11,74,115,0.04), rgba(15,181,166,0.02)); margin:8px 0;"></div>
+
+              <div>
+                <div class="muted-small">E‑mail</div>
+                <div style="margin-top:6px;"><a href="mailto:pprp.koprivnica@mup.hr">pprp.koprivnica@mup.hr</a></div>
+              </div>
+
+              <div style="margin-top:8px;">
+                <div class="muted-small">Službeni izvor</div>
+                <div style="margin-top:6px;"><a href="http://koprivnicko-krizevacka.policija.hr/MainPu.aspx?id=15448" target="_blank" rel="noopener">koprivnicko-krizevacka.policija.hr</a></div>
+              </div>
+            </div>
+
+            <div class="card" style="align-items:flex-start;">
+              <div style="display:flex; gap:12px;">
+                <div class="icon" aria-hidden="true">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path d="M3 12h18" stroke="#0B4A73" stroke-width="1.6" stroke-linecap="round"/>
+                    <path d="M12 3v18" stroke="#0B4A73" stroke-width="1.6" stroke-linecap="round"/>
+                  </svg>
+                </div>
+                <div>
+                  <h3>Rad s građanima</h3>
+                  <p class="muted-small">Za detaljne upite ili službene zahtjeve molimo koristite službene komunikacijske kanale navedene gore.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <aside class="info-box" aria-labelledby="aside-kontakt">
+          <h3 id="aside-kontakt">Napomena o adresi</h3>
+          <p class="micro" style="margin-top:8px;">Adresa postaje nije dostupna u dostavljenim podacima. Ako trebate lokaciju, provjerite službenu web stranicu ili kontaktirajte telefonijom.</p>
+
+          <div style="margin-top:12px;">
+            <h3>Sigurnosni savjet</h3>
+            <p class="micro" style="margin-top:6px;">U hitnim slučajevima koristite hitne telefonske linije. Ova stranica sadrži opće informacije i ne zamjenjuje službenu policijsku proceduru.</p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <footer class="container" role="contentinfo">
+      <div style="display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap;">
+        <div style="display:flex; gap:12px; align-items:center;">
+          <div class="logo" style="width:40px;height:40px;font-size:15px;">PP</div>
+          <div>
+            <div style="font-weight:700;">Postaja prometne policije Koprivnica</div>
+            <div class="micro">Telefon: <a href="tel:+38548656539">+385 48 656 539</a> • <a href="mailto:pprp.koprivnica@mup.hr">pprp.koprivnica@mup.hr</a></div>
+          </div>
+        </div>
+
+        <nav aria-label="Footer navigacija" style="display:flex; gap:12px;">
+          <a href="#usluge">Što radimo</a>
+          <a href="#upute">Upute</a>
+          <a href="http://koprivnicko-krizevacka.policija.hr/MainPu.aspx?id=15448" target="_blank" rel="noopener">Službena stranica</a>
+        </nav>
+      </div>
+
+      <div style="margin-top:14px; color:var(--muted); font-size:0.92rem;">
+        Ove informacije su sažete i služe informativnim svrhama. Kontakt podatke prenosimo onako kako su dostavljeni; adresu postaje nemamo potvrđenu.
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    (function(){
+      const menuToggle = document.getElementById('menuToggle');
+      const panel = document.getElementById('mobile-panel');
+
+      menuToggle.addEventListener('click', function(){
+        const open = panel.classList.toggle('open');
+        menuToggle.setAttribute('aria-expanded', String(open));
+        panel.setAttribute('aria-hidden', String(!open));
+      });
+
+      // Smooth scrolling for internal links
+      document.querySelectorAll('a[href^="#"]').forEach(a=>{
+        a.addEventListener('click', function(e){
+          const targetId = this.getAttribute('href').slice(1);
+          const target = document.getElementById(targetId);
+          if(target){
+            e.preventDefault();
+            const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            const top = target.getBoundingClientRect().top + window.pageYOffset - 22;
+            if(prefersReduced){
+              window.scrollTo(0, top);
+            } else {
+              window.scrollTo({top, behavior:'smooth'});
+            }
+            // close mobile panel if open
+            if(panel.classList.contains('open')){
+              panel.classList.remove('open');
+              menuToggle.setAttribute('aria-expanded','false');
+              panel.setAttribute('aria-hidden','true');
+            }
+          }
+        });
+      });
+
+      // keyboard accessibility for mobile panel: close on Escape
+      document.addEventListener('keydown', function(e){
+        if(e.key === 'Escape' && panel.classList.contains('open')){
+          panel.classList.remove('open');
+          menuToggle.setAttribute('aria-expanded','false');
+          panel.setAttribute('aria-hidden','true');
+          menuToggle.focus();
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
