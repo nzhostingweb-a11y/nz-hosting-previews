@@ -1,0 +1,512 @@
+ <!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>SIS IT d.o.o. — Trgovina elektroničkom opremom i zaslonima</title>
+  <meta name="description" content="SIS IT d.o.o. nudi komercijalna rješenja u trgovini elektronikom i profesionalnim prikazima. Posjetite screens4you.eu za detalje i upite." />
+  <meta property="og:title" content="SIS IT d.o.o. — Trgovina elektroničkom opremom i zaslonima" />
+  <meta property="og:description" content="Komercijalna rješenja za zaslone i elektroniku. Saznajte više na screens4you.eu" />
+  <meta property="og:url" content="https://www.screens4you.eu/" />
+  <meta name="theme-color" content="#0b2545" />
+
+  <!-- Fonts (Google Fonts - pouzdan izvor) -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Merriweather:wght@300;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      /* Boje i tonovi */
+      --color-primary: #0b2545;        /* tamno plava - profesionalno */
+      --color-secondary: #e3a200;      /* topla zlatna - premium accent */
+      --color-accent: #00a7a0;         /* naglasak teal */
+      --neutral-900: #071027;
+      --neutral-800: #13243a;
+      --neutral-700: #2a3f57;
+      --neutral-500: #6b7f95;
+      --neutral-300: #c9d5e3;
+      --white: #ffffff;
+      --glass: rgba(255,255,255,0.06);
+
+      /* Tipografija */
+      --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      --font-serif: "Merriweather", Georgia, "Times New Roman", serif;
+
+      /* Spacing scale */
+      --space-xxs: 6px;
+      --space-xs: 10px;
+      --space-s: 16px;
+      --space-m: 24px;
+      --space-l: 40px;
+      --space-xl: 64px;
+
+      /* Border radius */
+      --radius-sm: 6px;
+      --radius-md: 12px;
+      --radius-lg: 18px;
+
+      /* Sjene i obrubi */
+      --shadow-soft: 0 8px 24px rgba(11,37,69,0.12);
+      --shadow-card: 0 6px 18px rgba(11,37,69,0.08);
+
+      /* Transition */
+      --ease: cubic-bezier(.2,.9,.3,1);
+
+      /* Layout */
+      --container-max: 1200px;
+    }
+
+    /* Fluid tipografija */
+    html { font-family: var(--font-sans); color: var(--neutral-900); -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; }
+    :root { font-size: 16px; }
+    h1 { font-family: var(--font-serif); font-weight:700; line-height:1.02; color:var(--neutral-900);
+         font-size: clamp(1.6rem, 2.6vw + 0.6rem, 3.25rem); margin:0;}
+    h2 { font-family: var(--font-serif); font-weight:700; margin:0 0 var(--space-s) 0; font-size: clamp(1.05rem, 1.8vw + 0.2rem, 1.6rem); color:var(--neutral-900);}
+    p { margin:0 0 var(--space-m) 0; color:var(--neutral-700); font-size:clamp(.95rem, .8vw + .6rem, 1.05rem); }
+    small { font-size: .9rem; color:var(--neutral-500); }
+
+    /* Page layout */
+    * { box-sizing: border-box; }
+    body { margin:0; background: linear-gradient(180deg, #f7fbff 0%, #ffffff 100%); }
+    .site { max-width: var(--container-max); margin:0 auto; padding: 0 var(--space-m); }
+
+    /* Header / nav */
+    header { background: linear-gradient(90deg, rgba(11,37,69,0.02), rgba(0,167,160,0.01)); position:sticky; top:0; z-index:60; backdrop-filter: blur(4px); border-bottom: 1px solid rgba(13,34,62,0.04); }
+    .nav-inner { display:flex; align-items:center; justify-content:space-between; gap:var(--space-m); padding: calc(var(--space-s) * 0.9) var(--space-m); max-width:var(--container-max); margin:0 auto; }
+    .brand { display:flex; align-items:center; gap:12px; text-decoration:none; color:var(--neutral-900); }
+    .wordmark { font-family:var(--font-sans); font-weight:800; letter-spacing:0.4px; color:var(--color-primary); font-size:1rem; }
+    .subtle { font-size:.85rem; color:var(--neutral-500); margin-left:2px; }
+
+    nav { display:flex; gap:18px; align-items:center; }
+    .nav-links { display:flex; gap:18px; align-items:center; }
+    .nav-links a { color:var(--neutral-700); text-decoration:none; font-weight:600; padding:8px 10px; border-radius:8px; transition: all 180ms var(--ease); }
+    .nav-links a:hover, .nav-links a:focus { background:var(--glass); outline:none; color:var(--color-primary); }
+    .cta-primary { background: linear-gradient(90deg,var(--color-secondary), #f0b33b); color:var(--neutral-900); padding:10px 14px; border-radius:10px; font-weight:700; text-decoration:none; box-shadow: var(--shadow-soft); }
+    .cta-primary:focus { outline:3px solid rgba(227,162,0,0.18); }
+
+    /* Mobile menu */
+    .menu-btn { display:none; background:transparent; border:0; color:var(--neutral-700); padding:8px; border-radius:8px; }
+    .menu-btn:focus { outline:2px solid var(--color-accent); }
+
+    /* Hero */
+    .hero { padding: var(--space-xl) 0; display:grid; grid-template-columns: 1fr 540px; gap:var(--space-l); align-items:center; }
+    .hero-content { max-width:680px; }
+    .kicker { display:inline-flex; align-items:center; gap:10px; background:rgba(0,167,160,0.08); color:var(--color-accent); padding:6px 10px; border-radius:999px; font-weight:600; font-size:.95rem; margin-bottom:var(--space-s); }
+    .lead { margin-bottom:var(--space-m); color:var(--neutral-700); font-size:clamp(1rem, 1.6vw + .2rem, 1.08rem); }
+    .hero-ctas { display:flex; gap:12px; margin-top:var(--space-m); align-items:center; }
+    .btn-ghost { background:transparent; border:1px solid rgba(11,37,69,0.06); padding:10px 14px; border-radius:10px; color:var(--neutral-700); text-decoration:none; font-weight:600; }
+    .btn-ghost:hover { transform:translateY(-3px); box-shadow:var(--shadow-card); }
+
+    /* Hero visual */
+    .hero-visual { width:100%; display:flex; justify-content:center; align-items:center; position:relative; }
+    .device-stack { width:100%; max-width:520px; transform:translateZ(0); }
+    .device-card { background: linear-gradient(180deg, rgba(11,37,69,0.02), rgba(255,255,255,0.7)); border-radius:16px; padding:22px; box-shadow: var(--shadow-soft); border:1px solid rgba(11,37,69,0.04); }
+
+    /* Services */
+    .services { padding: calc(var(--space-l) - 8px) 0; display:grid; gap:var(--space-l); }
+    .cards { display:grid; grid-template-columns: repeat(3,1fr); gap:20px; }
+    .card { background:var(--white); border-radius:var(--radius-md); padding:20px; box-shadow:var(--shadow-card); border:1px solid rgba(11,37,69,0.04); transition: transform 220ms var(--ease), box-shadow 220ms var(--ease); }
+    .card:hover { transform: translateY(-8px); box-shadow:0 18px 40px rgba(11,37,69,0.08); }
+    .card svg { width:46px; height:46px; margin-bottom:12px; display:block; }
+    .card h3 { margin:0 0 8px 0; font-size:1.05rem; color:var(--neutral-900); }
+    .card p { margin:0; color:var(--neutral-700); font-size:.97rem; }
+
+    /* About / approach */
+    .split { display:grid; grid-template-columns: 1fr 420px; gap:var(--space-l); align-items:center; padding: var(--space-l) 0; }
+    .approach { background: linear-gradient(180deg, rgba(0,167,160,0.03), rgba(11,37,69,0.01)); padding:22px; border-radius:14px; border:1px solid rgba(11,37,69,0.03); }
+
+    .process { display:flex; gap:12px; align-items:flex-start; }
+    .step { background:var(--white); padding:14px; border-radius:12px; box-shadow:var(--shadow-card); display:flex; gap:12px; align-items:center; }
+    .step strong { display:block; font-size:.98rem; color:var(--neutral-900); }
+    .step small { color:var(--neutral-500); display:block; }
+
+    /* Contact */
+    .contact { padding: var(--space-l) 0; display:flex; justify-content:space-between; gap:var(--space-l); align-items:center; flex-wrap:wrap; }
+    .contact-card { background:var(--white); padding:18px; border-radius:14px; box-shadow:var(--shadow-card); min-width:260px; flex:1; }
+    .external { display:inline-flex; gap:10px; align-items:center; text-decoration:none; color:var(--color-primary); font-weight:700; padding:10px 14px; border-radius:10px; border:1px solid rgba(11,37,69,0.04); background:transparent; }
+
+    /* Footer */
+    footer { padding: var(--space-m) 0; border-top:1px solid rgba(11,37,69,0.04); background:transparent; }
+    .footer-inner { display:flex; justify-content:space-between; align-items:center; gap:var(--space-m); flex-wrap:wrap; padding: var(--space-s) 0; }
+
+    /* Responsive */
+    @media (max-width: 1060px){
+      .hero { grid-template-columns: 1fr; padding: var(--space-l) 0; }
+      .hero-visual { order:-1; margin-bottom: var(--space-m); }
+      .split { grid-template-columns:1fr; }
+      .cards { grid-template-columns: repeat(2,1fr); }
+    }
+    @media (max-width: 640px){
+      .cards { grid-template-columns:1fr; }
+      .nav-links { display:none; }
+      .menu-btn { display:inline-flex; }
+      .brand .wordmark { font-size:.98rem; }
+      .hero { padding: var(--space-l) 0; }
+      .hero-content { padding: 0; }
+      .hero-visual { max-width:420px; }
+      .site { padding: 0 var(--space-s); }
+    }
+
+    /* Mobile menu panel */
+    .mobile-panel { display:none; position:fixed; inset:56px 12px auto 12px; background:var(--white); border-radius:12px; box-shadow:0 30px 80px rgba(11,37,69,0.12); padding:12px; z-index:80; }
+    .mobile-panel[data-open="true"] { display:block; }
+    .mobile-panel a { display:block; padding:10px 12px; border-radius:8px; color:var(--neutral-700); text-decoration:none; }
+    .mobile-panel a:hover, .mobile-panel a:focus { background:var(--glass); color:var(--color-primary); }
+
+    /* Accessibility focus */
+    a:focus, button:focus, input:focus { outline: none; box-shadow: 0 0 0 3px rgba(0,167,160,0.12); border-radius:8px; }
+    :focus-visible { outline: 2px solid var(--color-accent); outline-offset:2px; }
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce){
+      * { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+    }
+
+    /* Utility */
+    .muted { color:var(--neutral-500); font-size:.95rem; }
+    .center { text-align:center; }
+    .visually-hidden { position:absolute !important; height:1px; width:1px; overflow:hidden; clip:rect(1px,1px,1px,1px); white-space:nowrap; }
+  </style>
+</head>
+<body>
+  <header role="banner" aria-label="Glavna navigacija">
+    <div class="nav-inner">
+      <a class="brand" href="https://www.screens4you.eu/" target="_blank" rel="noopener">
+        <!-- simple mark -->
+        <svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+          <rect x="1" y="1" width="36" height="36" rx="8" fill="url(#g)"/>
+          <defs>
+            <linearGradient id="g" x1="0" x2="1">
+              <stop offset="0" stop-color="#00A7A0"/>
+              <stop offset="1" stop-color="#0B2545"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        <div>
+          <div class="wordmark">SIS IT d.o.o.</div>
+          <div class="subtle">Trgovina • Elektronika</div>
+        </div>
+      </a>
+
+      <nav role="navigation" aria-label="Glavni izbornik">
+        <div class="nav-links" role="menubar" aria-hidden="false">
+          <a href="#usluge" role="menuitem">Ponuda</a>
+          <a href="#o-nama" role="menuitem">O nama</a>
+          <a href="#kako-radimo" role="menuitem">Suradnja</a>
+          <a href="#contact" role="menuitem">Kontakt</a>
+        </div>
+
+        <div style="display:flex; align-items:center; gap:12px;">
+          <a class="cta-primary" href="#usluge">Pogledajte ponudu</a>
+
+          <button class="menu-btn" id="menuBtn" aria-controls="mobilePanel" aria-expanded="false" aria-label="Otvorite izbornik">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </div>
+      </nav>
+    </div>
+
+    <div id="mobilePanel" class="mobile-panel" data-open="false" role="menu" aria-label="Mobilni izbornik">
+      <a href="#usluge">Ponuda</a>
+      <a href="#o-nama">O nama</a>
+      <a href="#kako-radimo">Suradnja</a>
+      <a href="#contact">Kontakt</a>
+      <a href="https://www.screens4you.eu/" target="_blank" rel="noopener">Službena stranica</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero site" aria-labelledby="hero-heading">
+      <div class="hero-content">
+        <div class="kicker" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false" style="opacity:.95;">
+            <path d="M3 12h18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+          Komercijalna elektronika
+        </div>
+
+        <h1 id="hero-heading">Komercijalna rješenja u elektronici i prikazima za trgovinu i poslovne prostore</h1>
+
+        <p class="lead">SIS IT d.o.o. pruža usluge opskrbe komercijalnom elektroničkom opremom i prikaznim rješenjima prilagođenim potrebama trgovina, izloga i javnih prostora. Fokus je na jasnoći ponude i kvalitetnoj isporuci.</p>
+
+        <div class="hero-ctas" role="group" aria-label="Pozivi na akciju">
+          <a class="cta-primary" href="#usluge">Pogledajte ponudu</a>
+          <a class="btn-ghost" href="https://www.screens4you.eu/" target="_blank" rel="noopener">Posjetite screens4you.eu</a>
+        </div>
+
+        <div style="margin-top:var(--space-l); display:flex; gap:14px; flex-wrap:wrap;">
+          <div style="display:flex; gap:10px; align-items:center;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+              <path d="M3 7h18M6 12h12M10 17h4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" stroke="#0b2545"/>
+            </svg>
+            <small class="muted">Prilagodljiva nabava</small>
+          </div>
+          <div style="display:flex; gap:10px; align-items:center;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+              <rect x="3" y="4" width="18" height="12" rx="2" stroke="#0b2545" stroke-width="1.6" fill="none"/>
+              <path d="M8 20h8" stroke="#0b2545" stroke-width="1.6" stroke-linecap="round"/>
+            </svg>
+            <small class="muted">Profesionalni prikazi</small>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual" aria-hidden="true">
+        <!-- Custom SVG composition representing zasloni/prikaze -->
+        <div class="device-stack device-card" role="img" aria-label="Ilustracija profesionalnih prikaza i zaslona">
+          <svg viewBox="0 0 520 340" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+            <defs>
+              <linearGradient id="lg1" x1="0" x2="1">
+                <stop offset="0" stop-color="#f7f9fc"/>
+                <stop offset="1" stop-color="#ffffff"/>
+              </linearGradient>
+              <linearGradient id="lg2" x1="0" x2="1">
+                <stop offset="0" stop-color="#00A7A0" stop-opacity="0.95"/>
+                <stop offset="1" stop-color="#0B2545" stop-opacity="0.95"/>
+              </linearGradient>
+              <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+                <feDropShadow dx="0" dy="10" stdDeviation="22" flood-color="#0b2545" flood-opacity="0.06"/>
+              </filter>
+            </defs>
+
+            <!-- Background card -->
+            <rect x="12" y="12" width="496" height="316" rx="14" fill="url(#lg1)"/>
+            <!-- Large monitor -->
+            <g transform="translate(28,20)">
+              <rect x="0" y="0" width="320" height="200" rx="10" fill="#071a33" filter="url(#soft)"/>
+              <rect x="12" y="14" width="296" height="172" rx="6" fill="url(#lg2)"/>
+              <rect x="26" y="28" width="264" height="140" rx="4" fill="#ffffff" opacity="0.06"/>
+              <rect x="26" y="28" width="264" height="40" rx="4" fill="rgba(255,255,255,0.06)"/>
+            </g>
+
+            <!-- Smaller portrait display -->
+            <g transform="translate(360,40)">
+              <rect x="0" y="0" width="120" height="170" rx="12" fill="#0b2545" />
+              <rect x="10" y="10" width="100" height="150" rx="8" fill="#ffffff" opacity="0.04"/>
+              <rect x="10" y="10" width="100" height="36" rx="6" fill="#00A7A0" opacity="0.12"/>
+            </g>
+
+            <!-- Decorative stripes -->
+            <g opacity="0.12" transform="translate(30,230)">
+              <rect x="0" y="0" width="460" height="8" rx="4" fill="#0b2545"/>
+              <rect x="0" y="18" width="380" height="8" rx="4" fill="#00A7A0"/>
+            </g>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <section id="usluge" class="services site" aria-labelledby="usluge-heading">
+      <h2 id="usluge-heading">Ponuda</h2>
+      <p class="muted">Pregled kategorija ponude. Za detalje i konkretne upite posjetite službenu stranicu ili nas kontaktirajte putem navedenog weba.</p>
+
+      <div class="cards" role="list">
+        <article class="card" role="listitem" aria-labelledby="c1">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <rect x="2" y="4" width="20" height="12" rx="2" stroke="#0b2545" stroke-width="1.4" fill="none"/>
+            <path d="M8 20h8" stroke="#0b2545" stroke-width="1.4" stroke-linecap="round"/>
+          </svg>
+          <h3 id="c1">Zasloni i prikazi</h3>
+          <p>Komercijalni zasloni, digitalni prikazi i interaktivna rješenja za izloge i prodajne prostore. Prikazujemo mogućnosti i tehničke specifikacije na zahtjev.</p>
+        </article>
+
+        <article class="card" role="listitem" aria-labelledby="c2">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <rect x="3" y="3" width="18" height="9" rx="1.5" stroke="#0b2545" stroke-width="1.4" fill="none"/>
+            <path d="M6 14h12v4H6z" stroke="#0b2545" stroke-width="1.4" fill="none"/>
+            <circle cx="9.5" cy="7.5" r="1" fill="#0b2545"/>
+          </svg>
+          <h3 id="c2">Komercijalna elektronika</h3>
+          <p>Distribucija opreme i komponenti za trgovinu i poslovne instalacije. Kategoriziramo ponudu jasno i prilagodljivo prema potrebi projekta.</p>
+        </article>
+
+        <article class="card" role="listitem" aria-labelledby="c3">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M3 7h18" stroke="#0b2545" stroke-width="1.4" stroke-linecap="round"/>
+            <rect x="4" y="10" width="16" height="8" rx="2" stroke="#0b2545" stroke-width="1.4" fill="none"/>
+            <path d="M8 18v2" stroke="#0b2545" stroke-width="1.4" stroke-linecap="round"/>
+          </svg>
+          <h3 id="c3">Logistika i koordinacija</h3>
+          <p>Koordinacija isporuke i osnovna logistička podrška povezana s nabavom opreme. Individualni dogovor o isporuci i rokovima definira se prema projektu.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="o-nama" class="site split" aria-labelledby="about-heading">
+      <div>
+        <h2 id="about-heading">O nama</h2>
+        <p class="muted">SIS IT d.o.o. posluje u području trgovine i elektroničke opreme. Struktura ponude usmjerena je na komercijalne kupce i poslovne primjene kojima je potreban kvalitetan izbor opreme i prikaza.</p>
+
+        <div class="approach" aria-hidden="false">
+          <h3 style="margin-top:0; margin-bottom:10px;">Pristup</h3>
+          <p style="margin:0 0 var(--space-s) 0;">Radimo transparentno: jasno kategoriziramo ponudu, pomažemo pri izboru izvedivih opcija i nudimo informacije potrebne za donošenje odluke.</p>
+
+          <div style="display:flex; gap:10px; margin-top:12px; flex-wrap:wrap;">
+            <div class="step" style="min-width:160px;">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M12 2v10l3-3" stroke="#0b2545" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="12" cy="12" r="9" stroke="#0b2545" stroke-width="1.2" fill="none"/>
+              </svg>
+              <div>
+                <strong>Konzultacija</strong>
+                <small>Razumijevanje zahtjeva i mogućnosti</small>
+              </div>
+            </div>
+
+            <div class="step" style="min-width:160px;">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M4 7h16M7 11h10" stroke="#0b2545" stroke-width="1.4" stroke-linecap="round"/>
+                <rect x="5" y="13" width="14" height="6" rx="2" stroke="#0b2545" stroke-width="1.2" fill="none"/>
+              </svg>
+              <div>
+                <strong>Ponuda</strong>
+                <small>Jasan prikaz opcija i specifikacija</small>
+              </div>
+            </div>
+
+            <div class="step" style="min-width:160px;">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M3 12h18" stroke="#0b2545" stroke-width="1.4" stroke-linecap="round"/>
+                <path d="M6 16h12" stroke="#0b2545" stroke-width="1.4" stroke-linecap="round"/>
+              </svg>
+              <div>
+                <strong>Isporuka</strong>
+                <small>Koordinacija isporuke i osnovna logistika</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <aside aria-labelledby="why-heading" style="align-self:start;">
+        <h2 id="why-heading">Prednosti</h2>
+        <p class="muted">Izbor artikala i prikaza predstavljen jednostavno, bez nejasnih tvrdnji. Cilj je olakšati procjenu rješenja za komercijalne projekte.</p>
+        <ul style="padding-left:18px; color:var(--neutral-700); margin-top:8px;">
+          <li style="margin-bottom:8px;">Kategorizirana ponuda za brzu procjenu</li>
+          <li style="margin-bottom:8px;">Fokus na poslovnu primjenjivost</li>
+          <li style="margin-bottom:8px;">Transparentne informacije o proizvodima</li>
+        </ul>
+      </aside>
+    </section>
+
+    <section id="kako-radimo" class="site" aria-labelledby="proc-heading" style="padding-bottom: var(--space-l);">
+      <h2 id="proc-heading">Kako funkcionira suradnja</h2>
+      <p class="muted">Predlažemo jasan i jednostavan proces koji pomaže u usklađivanju tehničkih zahtjeva i dostupnosti opreme.</p>
+
+      <div style="display:grid; grid-template-columns: repeat(3,1fr); gap:20px; margin-top:18px;">
+        <div class="card" aria-hidden="false">
+          <h3>1. Analiza potreba</h3>
+          <p>Razgovor o specifikacijama, prostoru i namjeni kako bismo predstavili relevantne opcije.</p>
+        </div>
+        <div class="card">
+          <h3>2. Preporuka i ponuda</h3>
+          <p>Predstavljamo jasno strukturirane opcije s naglaskom na tehničku prikladnost.</p>
+        </div>
+        <div class="card">
+          <h3>3. Isporuka</h3>
+          <p>Koordinacija isporuke i osnovna logistička usluga povezana s narudžbom.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="site contact" aria-labelledby="contact-heading">
+      <div class="contact-card" aria-labelledby="contact-heading">
+        <h2 id="contact-heading">Kontakt</h2>
+        <p class="muted">Za konkretne upite, tehničke liste i narudžbe posjetite službenu stranicu tvrtke.</p>
+
+        <p style="margin-top:12px;">
+          <a class="external" href="https://www.screens4you.eu/" target="_blank" rel="noopener">
+            Posjetite screens4you.eu
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false" style="margin-left:6px;">
+              <path d="M14 3h7v7" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M10 14L21 3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M21 21H3V3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </p>
+
+        <p class="muted" style="margin-top:12px;">Napomena: Ovaj prikaz koristi javno dostupne podatke o web adresi. Ako imate dodatne kontakt-podatke koje želite prikazati, dostavite ih kako bismo ih ažurirali na stranici.</p>
+      </div>
+
+      <div style="flex:0 0 320px; min-width:260px;">
+        <div class="contact-card center" aria-hidden="true">
+          <h3 style="margin-top:0;">Brzi pregled</h3>
+          <p class="muted">Kategorije ponude, tehničke liste i dostupnost artikala dostupni su na službenoj web-stranici.</p>
+          <a class="btn-ghost" href="https://www.screens4you.eu/" target="_blank" rel="noopener">Otiđi na službenu stranicu</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer role="contentinfo">
+    <div class="site footer-inner">
+      <div style="display:flex; align-items:center; gap:12px;">
+        <svg width="30" height="30" viewBox="0 0 38 38" fill="none" aria-hidden="true">
+          <rect x="1" y="1" width="36" height="36" rx="8" fill="#00A7A0"/>
+        </svg>
+        <div>
+          <div style="font-weight:700; color:var(--neutral-900);">SIS IT d.o.o.</div>
+          <div class="muted">Trgovina • Elektronika</div>
+        </div>
+      </div>
+
+      <div style="display:flex; gap:14px; align-items:center;">
+        <a href="https://www.screens4you.eu/" target="_blank" rel="noopener" class="muted">screens4you.eu</a>
+        <small class="muted">© Informativni prikaz</small>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function(){
+      // Mobile menu toggle with accessibility attributes
+      const btn = document.getElementById('menuBtn');
+      const panel = document.getElementById('mobilePanel');
+
+      btn.addEventListener('click', function(){
+        const open = panel.getAttribute('data-open') === 'true';
+        panel.setAttribute('data-open', String(!open));
+        btn.setAttribute('aria-expanded', String(!open));
+      });
+
+      // Close mobile panel on outside click
+      document.addEventListener('click', function(e){
+        if(!panel.contains(e.target) && !btn.contains(e.target)){
+          panel.setAttribute('data-open','false');
+          btn.setAttribute('aria-expanded','false');
+        }
+      });
+
+      // Smooth scroll for internal anchors (respect reduced motion)
+      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if(!prefersReduced){
+        document.querySelectorAll('a[href^="#"]').forEach(a=>{
+          a.addEventListener('click', function(e){
+            const id = this.getAttribute('href');
+            if(id.length > 1){
+              const el = document.querySelector(id);
+              if(el){
+                e.preventDefault();
+                el.scrollIntoView({behavior:'smooth', block:'start'});
+                // close mobile panel if open
+                panel.setAttribute('data-open','false');
+                btn.setAttribute('aria-expanded','false');
+              }
+            }
+          });
+        });
+      }
+
+      // Keyboard accessibility: close panel with Escape
+      document.addEventListener('keydown', function(e){
+        if(e.key === 'Escape'){
+          panel.setAttribute('data-open','false');
+          btn.setAttribute('aria-expanded','false');
+          btn.focus();
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
