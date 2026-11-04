@@ -1,0 +1,675 @@
+ <!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Verglec — Catering, pizza i regionalna jela za događanja</title>
+  <meta name="description" content="Verglec nudi catering za događanja, pizzu iz krušne peći i autentične regionalne okuse. Kontaktirajte nas za ponudu: +385 42 211131." />
+  <meta property="og:title" content="Verglec — Catering, pizza i regionalna jela za događanja" />
+  <meta property="og:description" content="Verglec nudi catering za događanja, pizzu iz krušne peći i autentične regionalne okuse. Kontaktirajte nas za ponudu: +385 42 211131." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      /* Boje */
+      --color-primary: #8C3F2E;    /* terracotta */
+      --color-secondary: #6B7C4A;  /* olive-green */
+      --color-accent: #D9A24A;     /* warm gold */
+      --bg: #FBFBFA;
+      --surface: #FFFFFF;
+      --muted: #6B6B6B;
+      --text: #121212;
+
+      /* Tipografija */
+      --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      --font-serif: "Playfair Display", Georgia, "Times New Roman", serif;
+
+      /* Spacing */
+      --space-xxs: 6px;
+      --space-xs: 10px;
+      --space-sm: 16px;
+      --space-md: 24px;
+      --space-lg: 40px;
+      --space-xl: 64px;
+
+      /* Border radius */
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 22px;
+
+      /* Sjene */
+      --shadow-soft: 0 6px 20px rgba(18,18,18,0.06);
+      --shadow-tight: 0 4px 12px rgba(18,18,18,0.06);
+
+      transition: 200ms ease;
+    }
+
+    /* Reset & base */
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:var(--font-sans);
+      color:var(--text);
+      background:linear-gradient(180deg,var(--bg) 0%, #F7F6F5 100%);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+      -webkit-text-size-adjust:100%;
+      text-rendering:optimizeLegibility;
+      padding-bottom:48px;
+    }
+
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;height:auto;display:block}
+
+    /* Layout wrapper */
+    .container{
+      width:min(1180px,calc(100% - 48px));
+      margin:0 auto;
+    }
+
+    header{
+      position:sticky;
+      top:18px;
+      z-index:60;
+      background:transparent;
+      margin-bottom:var(--space-lg);
+      pointer-events:auto;
+    }
+
+    .nav-inner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:var(--space-md);
+      padding:12px 0;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+    .wordmark{
+      font-family:var(--font-serif);
+      font-weight:700;
+      font-size:1.125rem;
+      color:var(--color-primary);
+      letter-spacing:0.6px;
+      display:inline-block;
+    }
+    .subline{
+      font-size:0.825rem;
+      color:var(--muted);
+      margin-left:6px;
+    }
+
+    nav.primary{
+      display:flex;
+      align-items:center;
+      gap:18px;
+    }
+    nav.primary a{
+      color:var(--muted);
+      font-weight:600;
+      font-size:0.95rem;
+      padding:8px 10px;
+      border-radius:10px;
+    }
+    nav.primary a:focus,
+    nav.primary a:hover{
+      color:var(--text);
+      background:rgba(140,63,46,0.06);
+      outline:none;
+    }
+
+    .cta-row{
+      display:flex;
+      gap:12px;
+      align-items:center;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:10px 16px;
+      font-weight:600;
+      border-radius:12px;
+      cursor:pointer;
+      border:0;
+      text-decoration:none;
+    }
+    .btn-primary{
+      background:linear-gradient(180deg,var(--color-primary), #7a3627);
+      color:white;
+      box-shadow:var(--shadow-tight);
+      transition:transform 160ms ease, box-shadow 160ms ease;
+    }
+    .btn-primary:hover{transform:translateY(-3px)}
+    .btn-ghost{
+      background:transparent;
+      color:var(--color-primary);
+      border:1px solid rgba(140,63,46,0.08);
+    }
+
+    /* Mobile nav */
+    .menu-toggle{
+      display:none;
+      background:var(--surface);
+      border-radius:10px;
+      padding:8px;
+      border:0;
+      box-shadow:var(--shadow-tight);
+    }
+
+    /* Hero */
+    .hero{
+      display:grid;
+      grid-template-columns:1fr 460px;
+      gap:32px;
+      align-items:center;
+      align-content:center;
+      margin-bottom:var(--space-lg);
+    }
+    .hero-card{
+      background:linear-gradient(180deg, rgba(255,255,255,0.75), rgba(255,255,255,0.9));
+      border-radius:var(--radius-lg);
+      padding:28px;
+      box-shadow:var(--shadow-soft);
+      display:flex;
+      flex-direction:column;
+      gap:18px;
+    }
+    h1{
+      font-family:var(--font-serif);
+      margin:0;
+      line-height:1.02;
+      color:var(--color-primary);
+      font-size:clamp(1.8rem, 3.6vw, 3.6rem);
+      letter-spacing:-0.02em;
+    }
+    .lead{
+      color:var(--muted);
+      font-size:1.05rem;
+      margin-top:6px;
+    }
+    .hero-actions{
+      display:flex;
+      gap:12px;
+      margin-top:6px;
+      align-items:center;
+    }
+    .hero-visual{
+      position:relative;
+      min-height:320px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    /* Decorative platter */
+    .platter{
+      width:420px;
+      height:280px;
+      border-radius:18px;
+      background:linear-gradient(135deg, rgba(217,162,74,0.08), rgba(107,124,74,0.04));
+      display:grid;
+      place-items:center;
+      box-shadow:var(--shadow-soft);
+      position:relative;
+      overflow:visible;
+    }
+    .platter-graphic{
+      width:84%;
+      height:84%;
+      display:block;
+    }
+
+    /* Services */
+    .cards{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+      margin-top:12px;
+    }
+    .card{
+      background:var(--surface);
+      border-radius:var(--radius-md);
+      padding:18px;
+      box-shadow:var(--shadow-tight);
+      display:flex;
+      gap:12px;
+      align-items:flex-start;
+      transition:transform 200ms ease, box-shadow 200ms ease;
+    }
+    .card:hover{transform:translateY(-6px);box-shadow:0 10px 30px rgba(18,18,18,0.08)}
+    .icon-wrap{
+      min-width:54px;
+      min-height:54px;
+      background:linear-gradient(180deg, rgba(140,63,46,0.06), rgba(107,124,74,0.04));
+      border-radius:12px;
+      display:grid;
+      place-items:center;
+    }
+    .card h3{margin:0;font-size:1.05rem;color:var(--color-primary);font-weight:700}
+    .card p{margin:6px 0 0;color:var(--muted);font-size:0.96rem}
+
+    /* About & Approach */
+    .two-col{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:24px;
+      align-items:start;
+    }
+    .feature-list{
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+      margin-top:12px;
+    }
+    .feature{
+      background:var(--surface);
+      padding:12px;
+      border-radius:12px;
+      display:flex;
+      gap:12px;
+      align-items:center;
+      box-shadow:var(--shadow-tight);
+    }
+    .feature p{margin:0;color:var(--muted)}
+
+    /* Steps */
+    .steps{
+      display:flex;
+      gap:12px;
+      margin-top:12px;
+    }
+    .step{
+      flex:1;
+      background:linear-gradient(180deg, #fff, rgba(255,255,255,0.98));
+      padding:14px;
+      border-radius:12px;
+      text-align:center;
+      box-shadow:var(--shadow-tight);
+    }
+    .step strong{display:block;color:var(--color-primary);font-size:1rem;margin-bottom:6px}
+
+    /* Contact */
+    .contact-card{
+      background:linear-gradient(180deg, rgba(217,162,74,0.03), rgba(140,63,46,0.02));
+      padding:20px;
+      border-radius:16px;
+      display:flex;
+      gap:16px;
+      align-items:center;
+      justify-content:space-between;
+      box-shadow:var(--shadow-soft);
+      margin-top:18px;
+    }
+
+    footer{
+      margin-top:48px;
+      padding-top:24px;
+      border-top:1px solid rgba(18,18,18,0.04);
+      color:var(--muted);
+      font-size:0.95rem;
+    }
+    .footer-inner{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;padding:18px 0}
+
+    /* Responsive */
+    @media (max-width:1100px){
+      .hero{grid-template-columns:1fr 380px}
+      .cards{grid-template-columns:repeat(2,1fr)}
+      .two-col{grid-template-columns:1fr}
+      .hero-visual{min-height:260px}
+    }
+    @media (max-width:820px){
+      .container{width:calc(100% - 32px)}
+      nav.primary{display:none}
+      .menu-toggle{display:inline-flex}
+      .hero{grid-template-columns:1fr;gap:18px}
+      .platter{width:100%;height:240px;border-radius:16px}
+      .cards{grid-template-columns:1fr}
+      header{top:12px}
+      .brand .subline{display:none}
+      .hero-card{padding:20px}
+    }
+
+    /* Mobile menu panel */
+    .mobile-menu{
+      position:fixed;
+      inset:0;
+      background:linear-gradient(180deg, rgba(18,18,18,0.45), rgba(18,18,18,0.55));
+      display:none;
+      align-items:center;
+      justify-content:center;
+      z-index:120;
+    }
+    .mobile-menu.open{display:flex}
+    .mobile-panel{
+      width:min(420px,94%);
+      background:var(--surface);
+      border-radius:16px;
+      padding:20px;
+      box-shadow:0 30px 60px rgba(18,18,18,0.5);
+    }
+    .mobile-panel a{display:block;padding:12px 0;border-bottom:1px solid rgba(18,18,18,0.04);color:var(--muted)}
+    .mobile-panel .mobile-cta{margin-top:12px;display:flex;gap:8px;justify-content:center}
+
+    /* Focus & accessibility */
+    :focus{outline:none}
+    a:focus-visible, button:focus-visible{
+      outline:3px solid rgba(217,162,74,0.2);
+      outline-offset:3px;
+      border-radius:10px;
+    }
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion:reduce){
+      .card,.step,.hero-card,.platter{transition:none}
+    }
+  </style>
+</head>
+<body>
+  <header class="container" role="banner">
+    <div class="nav-inner" aria-label="Glavna navigacija">
+      <div class="brand" aria-hidden="false">
+        <div aria-hidden="true" style="width:48px;height:48px;border-radius:12px;display:grid;place-items:center;background:linear-gradient(135deg,var(--color-primary),var(--color-secondary));box-shadow:var(--shadow-tight);color:white;font-weight:700;font-family:var(--font-serif)">V</div>
+        <div>
+          <div class="wordmark">Verglec</div>
+          <div class="subline">Catering · Pizza · Regionalna jela</div>
+        </div>
+      </div>
+
+      <nav class="primary" role="navigation" aria-label="Sekcije">
+        <a href="#usluge">Usluge</a>
+        <a href="#o-nama">O nama</a>
+        <a href="#prednosti">Prednosti</a>
+        <a href="#kako-radimo">Kako radimo</a>
+        <a href="#kontakt">Kontakt</a>
+      </nav>
+
+      <div class="cta-row">
+        <a class="btn btn-ghost" href="https://www.verglec.com/" target="_blank" rel="noopener">Web stranica</a>
+        <a class="btn btn-primary" href="tel:+38542211131" aria-label="Nazovite Verglec na broj +385 42 211131">Nazovite <span style="font-weight:700;margin-left:6px">+385 42 211131</span></a>
+        <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="mobileMenu" aria-label="Otvori izbornik">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="#182" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" role="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-card" role="region" aria-labelledby="hero-title">
+        <h1 id="hero-title">Catering i pizza za događanja — autentično, jasno i kvalitetno</h1>
+        <p class="lead">Verglec priprema svježe pizze iz krušne peći i izbor regionalnih specijaliteta za privatne i poslovne evente. Fokus je na pažljivoj izvedbi jelovnika i jasnoj komunikaciji od prvog poziva do završetka događaja.</p>
+
+        <div class="hero-actions" role="group" aria-label="Izbornik akcija">
+          <a class="btn btn-primary" href="tel:+38542211131" aria-label="Pozovite Verglec">Nazovite za ponudu — +385 42 211131</a>
+          <a class="btn btn-ghost" href="#usluge">Pogledajte ponudu</a>
+        </div>
+
+        <div style="margin-top:6px;color:var(--muted);font-size:0.92rem">Radne informacije i lokacija dostupne su na zahtjev. Za brzi dogovor nazovite.</div>
+      </div>
+
+      <div class="hero-visual" aria-hidden="true">
+        <div class="platter" role="img" aria-hidden="true">
+          <!-- Decorative SVG composition: stylized pizza slice + serving platter -->
+          <svg class="platter-graphic" viewBox="0 0 900 600" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <defs>
+              <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#F7E6D9" stop-opacity="0.95"/>
+                <stop offset="1" stop-color="#FFF8F4" stop-opacity="0.95"/>
+              </linearGradient>
+              <linearGradient id="g2" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#D9A24A"/>
+                <stop offset="1" stop-color="#C07A2F"/>
+              </linearGradient>
+            </defs>
+
+            <rect x="16" y="16" width="868" height="568" rx="28" fill="url(#g1)" opacity="0.98"/>
+            <!-- Platter circle -->
+            <circle cx="470" cy="300" r="200" fill="#FFF" stroke="rgba(140,63,46,0.06)" stroke-width="6"/>
+            <!-- Pizza slice -->
+            <g transform="translate(330,160) rotate(-12)">
+              <path d="M180 12c-16 6-92 36-148 120-34 52 28 115 116 146 88 31 170 10 196-32 26-42-6-118-98-192-36-31-54-37-66-42z" fill="#F4B48B"/>
+              <ellipse cx="132" cy="130" rx="20" ry="10" fill="#D96A3A"/>
+              <ellipse cx="170" cy="160" rx="18" ry="9" fill="#D96A3A"/>
+              <ellipse cx="140" cy="190" rx="14" ry="7" fill="#C2482B"/>
+              <path d="M130 40c12 4 54 18 98 44" stroke="#B2472A" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" opacity="0.85"/>
+              <path d="M120 12c-8 3-28 12-62 44" stroke="rgba(140,63,46,0.08)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+            </g>
+
+            <!-- Serving tray silhouette -->
+            <g transform="translate(100,400)">
+              <ellipse cx="380" cy="-20" rx="200" ry="28" fill="rgba(140,63,46,0.06)"/>
+              <rect x="160" y="-60" width="440" height="70" rx="16" fill="url(#g2)" opacity="0.95" transform="skewX(-6)"/>
+            </g>
+
+            <!-- Decorative dots -->
+            <g opacity="0.12" fill="#8C3F2E">
+              <circle cx="80" cy="80" r="6"/>
+              <circle cx="820" cy="520" r="5"/>
+              <circle cx="760" cy="80" r="4"/>
+              <circle cx="110" cy="520" r="5"/>
+            </g>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <section id="usluge" aria-labelledby="usluge-title">
+      <h2 id="usluge-title" style="font-family:var(--font-serif);color:var(--color-primary);margin:0 0 6px;font-size:1.4rem">Usluge</h2>
+      <p style="margin:0 0 12px;color:var(--muted)">Jasna podjela ponude prema tipu događanja i stilu hrane. Ispod su glavne kategorije koje pružamo.</p>
+
+      <div class="cards" role="list">
+        <article class="card" role="listitem" aria-labelledby="s1">
+          <div class="icon-wrap" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M3 12h18" stroke="#8C3F2E" stroke-width="1.6" stroke-linecap="round"/><path d="M7 8l2-3h6l2 3" stroke="#6B7C4A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div>
+            <h3 id="s1">Catering za događanja</h3>
+            <p>Priprema jelovnika prilagođenog tipu događaja — od serviranja do buffet rješenja. Jasna komunikacija i koordinacija s organizatorom.</p>
+          </div>
+        </article>
+
+        <article class="card" role="listitem" aria-labelledby="s2">
+          <div class="icon-wrap" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M3 12c2-4 6-8 12-8s10 4 12 8c-2 4-6 8-12 8S5 16 3 12z" stroke="#D96A3A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="2.2" fill="#C2482B"/></svg>
+          </div>
+          <div>
+            <h3 id="s2">Pizza iz krušne peći</h3>
+            <p>Svježe pečene pizze s pažljivo odabranim sastojcima. Prikladno za evente kojima odgovara interaktivno posluživanje i topla jela na licu mjesta.</p>
+          </div>
+        </article>
+
+        <article class="card" role="listitem" aria-labelledby="s3">
+          <div class="icon-wrap" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M4 6h16v12H4z" stroke="#6B7C4A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 10h6" stroke="#8C3F2E" stroke-width="1.6" stroke-linecap="round"/></svg>
+          </div>
+          <div>
+            <h3 id="s3">Regionalna kuhinja</h3>
+            <p>Autentični okusi i pažnja prema lokalnim namirnicama. Pristup koji poštuje tradiciju uz suvremenu izvedbu posluživanja.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="o-nama" aria-labelledby="about-title" style="margin-top:var(--space-lg)">
+      <h2 id="about-title" style="font-family:var(--font-serif);color:var(--color-primary);margin:0 0 6px;font-size:1.25rem">O nama</h2>
+      <div class="two-col" style="margin-top:10px">
+        <div>
+          <p style="color:var(--muted);margin:0 0 12px">Verglec je usmjeren na jasnu izvedbu catering usluga usklađenih s potrebama događanja. Radimo s pažnjom prema sastojcima i komunikaciji tijekom organizacije, kako bi izvedba bila predvidiva i uredna.</p>
+
+          <div class="feature-list" aria-hidden="false">
+            <div class="feature">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2v6" stroke="#8C3F2E" stroke-width="1.6" stroke-linecap="round"/><path d="M6 10h12" stroke="#6B7C4A" stroke-width="1.6" stroke-linecap="round"/><path d="M4 20h16" stroke="#8C3F2E" stroke-width="1.6" stroke-linecap="round"/></svg>
+              <p><strong style="color:var(--color-primary);display:block">Jasan dogovor</strong>Transparentni koraci suradnje i očekivanja od početka.</p>
+            </div>
+
+            <div class="feature">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 7h18" stroke="#6B7C4A" stroke-width="1.6" stroke-linecap="round"/><path d="M6 11h12" stroke="#8C3F2E" stroke-width="1.6" stroke-linecap="round"/></svg>
+              <p><strong style="color:var(--color-primary);display:block">Prilagodljiv jelovnik</strong>Mogućnosti da meni odgovara vrsti događanja i preferencijama gostiju.</p>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h3 style="margin:0;color:var(--color-primary);font-size:1.05rem">Naš pristup</h3>
+          <p style="margin-top:8px;color:var(--muted)">Svaki događaj sagledavamo praktično: što gost očekuje, kakav prostor je na raspolaganju i koji oblik posluživanja najbolje odgovara. Cilj je jednostavna suradnja i uredna izvedba.</p>
+
+          <div class="steps" role="list" aria-label="Koraci suradnje">
+            <div class="step" role="listitem">
+              <strong>1. Konzultacija</strong>
+              <span style="color:var(--muted);font-size:0.94rem">Razgovor o događaju i željama</span>
+            </div>
+            <div class="step" role="listitem">
+              <strong>2. Ponuda</strong>
+              <span style="color:var(--muted);font-size:0.94rem">Jasan prijedlog jelovnika i uvjeta</span>
+            </div>
+            <div class="step" role="listitem">
+              <strong>3. Realizacija</strong>
+              <span style="color:var(--muted);font-size:0.94rem">Izvedba prema dogovoru</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="prednosti" aria-labelledby="prednosti-title" style="margin-top:var(--space-lg)">
+      <h2 id="prednosti-title" style="font-family:var(--font-serif);color:var(--color-primary);margin:0 0 6px;font-size:1.25rem">Prednosti suradnje</h2>
+      <p style="color:var(--muted);margin:0 0 12px">Pristup koji stavlja naglasak na izvedbu, komunikaciju i prilagodbu.</p>
+
+      <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:12px">
+        <div class="feature">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 12h18" stroke="#8C3F2E" stroke-width="1.6" stroke-linecap="round"/></svg>
+          <div>
+            <strong style="color:var(--color-primary);display:block">Transparentnost</strong>
+            <p style="margin:4px 0 0;color:var(--muted)">Jasni elementi ponude i uvjeti suradnje.</p>
+          </div>
+        </div>
+
+        <div class="feature">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2l3 7h7l-5.5 4L20 22l-8-5-8 5 2.5-9L3 9h7z" stroke="#6B7C4A" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <div>
+            <strong style="color:var(--color-primary);display:block">Fleksibilnost</strong>
+            <p style="margin:4px 0 0;color:var(--muted)">Ponude prilagođavamo prema prostoru i broju gostiju.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="kako-radimo" aria-labelledby="kako-title" style="margin-top:var(--space-lg)">
+      <h2 id="kako-title" style="font-family:var(--font-serif);color:var(--color-primary);margin:0 0 6px;font-size:1.25rem">Kako izgleda suradnja</h2>
+      <p style="color:var(--muted);margin:0 0 12px">Proces je jednostavan i prilagođen projektu — od razgovora do realizacije.</p>
+
+      <ol style="margin:0;padding-left:20px;color:var(--muted);line-height:1.6">
+        <li><strong style="color:var(--color-primary)">Kontakt:</strong> Poziv na broj +385 42 211131 radi dogovora osnovnih parametara.</li>
+        <li><strong style="color:var(--color-primary)">Prijedlog:</strong> Predlažemo opcije jelovnika i oblik posluživanja.</li>
+        <li><strong style="color:var(--color-primary)">Potvrda:</strong> Dogovor termina i logistike izvedbe.</li>
+        <li><strong style="color:var(--color-primary)">Realizacija:</strong> Izvršenje prema dogovorenim stavkama.</li>
+      </ol>
+    </section>
+
+    <section id="kontakt" aria-labelledby="kontakt-title" style="margin-top:var(--space-lg);margin-bottom:12px">
+      <h2 id="kontakt-title" style="font-family:var(--font-serif);color:var(--color-primary);margin:0 0 6px;font-size:1.25rem">Kontakt</h2>
+
+      <div class="contact-card" role="region" aria-label="Kontakt informacije">
+        <div>
+          <div style="font-weight:700;color:var(--color-primary);font-size:1rem">Verglec</div>
+          <div style="margin-top:6px;color:var(--muted)">Za upite i brze dogovore nazovite:</div>
+          <div style="margin-top:8px">
+            <a href="tel:+38542211131" class="btn btn-primary" style="padding:10px 14px;font-size:0.98rem" aria-label="Nazovite Verglec">+385 42 211131</a>
+            <a href="https://www.verglec.com/" target="_blank" rel="noopener" class="btn btn-ghost" style="margin-left:8px">Web stranica</a>
+          </div>
+        </div>
+
+        <div style="text-align:right;color:var(--muted);font-size:0.95rem">
+          <div><strong style="color:var(--color-primary);display:block">Lokacija</strong>
+            <div style="margin-top:6px;color:var(--muted)">Informacije o lokaciji i dostavi dostupne su na upit putem telefona ili službene web stranice.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer role="contentinfo" class="container" aria-label="Podnožje">
+      <div class="footer-inner">
+        <div style="display:flex;flex-direction:column">
+          <div style="font-family:var(--font-serif);color:var(--color-primary);font-weight:700">Verglec</div>
+          <div style="margin-top:6px;color:var(--muted)"><a href="tel:+38542211131">+385 42 211131</a> · <a href="https://www.verglec.com/" target="_blank" rel="noopener">verglec.com</a></div>
+        </div>
+
+        <nav aria-label="Brza navigacija">
+          <a href="#usluge" style="margin-right:12px;color:var(--muted)">Usluge</a>
+          <a href="#o-nama" style="margin-right:12px;color:var(--muted)">O nama</a>
+          <a href="#kontakt" style="color:var(--muted)">Kontakt</a>
+        </nav>
+      </div>
+    </footer>
+  </main>
+
+  <!-- Mobile menu panel -->
+  <div id="mobileMenu" class="mobile-menu" aria-hidden="true">
+    <div class="mobile-panel" role="dialog" aria-modal="true" aria-label="Mobilni izbornik">
+      <a href="#usluge" onclick="closeMenu()">Usluge</a>
+      <a href="#o-nama" onclick="closeMenu()">O nama</a>
+      <a href="#prednosti" onclick="closeMenu()">Prednosti</a>
+      <a href="#kako-radimo" onclick="closeMenu()">Kako radimo</a>
+      <a href="#kontakt" onclick="closeMenu()">Kontakt</a>
+      <div class="mobile-cta">
+        <a class="btn btn-primary" href="tel:+38542211131">Nazovite</a>
+        <a class="btn btn-ghost" href="https://www.verglec.com/" target="_blank" rel="noopener">Web</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function(){
+      const btn = document.getElementById('menuToggle');
+      const panel = document.getElementById('mobileMenu');
+
+      function openMenu(){
+        panel.classList.add('open');
+        panel.setAttribute('aria-hidden', 'false');
+        btn.setAttribute('aria-expanded','true');
+        // set focus to first link for keyboard users
+        const firstLink = panel.querySelector('a');
+        if(firstLink) firstLink.focus();
+        document.body.style.overflow = 'hidden';
+      }
+      function closeMenu(){
+        panel.classList.remove('open');
+        panel.setAttribute('aria-hidden', 'true');
+        btn.setAttribute('aria-expanded','false');
+        btn.focus();
+        document.body.style.overflow = '';
+      }
+
+      btn.addEventListener('click', function(){
+        const expanded = btn.getAttribute('aria-expanded') === 'true';
+        if(expanded) closeMenu(); else openMenu();
+      });
+
+      // close on ESC
+      document.addEventListener('keydown', function(e){
+        if(e.key === 'Escape' && panel.classList.contains('open')) closeMenu();
+      });
+
+      // expose close for inline onclick links
+      window.closeMenu = closeMenu;
+
+      // Smooth scroll for in-page anchors
+      if('scrollBehavior' in document.documentElement.style){
+        document.documentElement.style.scrollBehavior = 'smooth';
+      }
+
+      // Ensure focus outlines visible for keyboard users
+      document.addEventListener('mousedown', function(){ document.documentElement.style.setProperty('--outline', 'none'); });
+      document.addEventListener('keydown', function(){ document.documentElement.style.setProperty('--outline', 'auto'); });
+    })();
+  </script>
+</body>
+</html>
