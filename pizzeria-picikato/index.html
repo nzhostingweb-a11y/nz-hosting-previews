@@ -1,0 +1,425 @@
+ <!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Pizzeria Picikato — Catering i pizza za događanja</title>
+  <meta name="description" content="Pizzeria Picikato — catering i pizza za događanja i restoranske narudžbe. Kontakt: +385 49 370 795. Pogledajte jelovnik i nazovite nas za upit." />
+  <meta property="og:title" content="Pizzeria Picikato — Catering i pizza za događanja" />
+  <meta property="og:description" content="Pizzeria Picikato — catering i pizza za događanja i restoranske narudžbe. Kontakt: +385 49 370 795." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      /* Design system */
+      --color-primary: #0f1314;        /* deep charcoal */
+      --color-secondary: #b23f2b;      /* brick red */
+      --color-accent: #d7a85a;         /* warm gold */
+      --neutral-100: #f7f6f4;
+      --neutral-200: #efede9;
+      --neutral-500: #bdb8b2;
+      --neutral-800: #2b2b2b;
+      --bg: linear-gradient(180deg,#0f1314 0%, #151718 60%);
+      --glass: rgba(255,255,255,0.03);
+      --radius: 12px;
+      --radius-sm: 8px;
+      --ring: 3px;
+      --shadow-1: 0 6px 24px rgba(2,6,8,0.6);
+      --shadow-2: 0 10px 30px rgba(11,12,12,0.45);
+      --max-width: 1280px;
+      --ease: cubic-bezier(.2,.9,.2,1);
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      color-scheme: dark;
+    }
+
+    /* Fluid typography */
+    h1{ font-family: "Playfair Display", serif; font-weight:700; font-size:clamp(1.6rem, 1.6rem + 1.2vw, 3.2rem); line-height:1.02; color:var(--neutral-100); margin:0; }
+    h2{ font-family: "Playfair Display", serif; font-weight:600; font-size:clamp(1.05rem, 1rem + 0.8vw, 1.6rem); color:var(--neutral-100); margin:0; }
+    p, a, li { font-size: clamp(0.95rem, 0.9rem + 0.2vw, 1.05rem); color: #e9e7e5; line-height:1.55; }
+
+    html,body{ height:100%; margin:0; background: var(--bg); -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; }
+    .site{ max-width:var(--max-width); margin:0 auto; padding:32px; }
+
+    /* NAV */
+    header { position:fixed; left:0; right:0; top:20px; display:flex; align-items:center; justify-content:center; z-index:60; pointer-events:none; }
+    .nav-wrap{ width:100%; max-width:var(--max-width); pointer-events:auto; display:flex; align-items:center; justify-content:space-between; gap:16px; padding:10px 18px; background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border-radius:14px; backdrop-filter: blur(6px); box-shadow:var(--shadow-1); }
+    .brand{ display:flex; align-items:center; gap:12px; text-decoration:none; color:var(--neutral-100); }
+    .brand-mark{ width:44px; height:44px; display:grid; place-items:center; background:linear-gradient(180deg, var(--color-secondary), #8b311f); border-radius:10px; box-shadow: 0 6px 18px rgba(178,63,43,0.18), inset 0 -6px 18px rgba(0,0,0,0.25); }
+    .brand-mark svg{ width:26px; height:26px; display:block; }
+    .brand-name{ font-family: "Playfair Display", serif; font-size:1.1rem; letter-spacing:0.4px; }
+    nav{ display:flex; gap:18px; align-items:center; }
+    .nav-links{ display:flex; gap:14px; }
+    .nav-links a{ color:var(--neutral-200); text-decoration:none; padding:8px 10px; border-radius:10px; transition:all 200ms var(--ease); }
+    .nav-links a:hover, .nav-links a:focus{ transform:translateY(-2px); color:var(--neutral-100); background:rgba(255,255,255,0.02); outline:none; }
+    .cta-phone{ background: linear-gradient(90deg, var(--color-secondary), #8b301b); color:white; padding:10px 14px; border-radius:10px; text-decoration:none; box-shadow:var(--shadow-2); transition:transform 160ms var(--ease), box-shadow 160ms var(--ease); }
+    .cta-phone:hover, .cta-phone:focus{ transform:translateY(-3px) scale(1.01); box-shadow: 0 18px 40px rgba(178,63,43,0.18); outline:none; }
+
+    /* Mobile menu */
+    .menu-btn{ display:none; background:transparent; border:0; color:var(--neutral-200); padding:8px; border-radius:8px; }
+    .menu-panel{ display:none; position:fixed; inset:80px 20px auto 20px; background:linear-gradient(180deg, rgba(15,19,20,0.98), rgba(18,20,21,0.98)); border-radius:14px; padding:18px; box-shadow: var(--shadow-1); }
+
+    /* HERO */
+    .hero{ display:grid; grid-template-columns: 1fr 420px; gap:32px; align-items:center; margin-top:84px; padding:56px; border-radius:20px; background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); box-shadow: 0 20px 60px rgba(0,0,0,0.6); overflow:hidden; position:relative; }
+    .hero-left{ max-width:720px; position:relative; z-index:2; }
+    .kicker{ display:inline-block; padding:8px 12px; background:rgba(215,168,90,0.12); color:var(--accent-color, var(--accent)); border-radius:999px; font-weight:600; letter-spacing:0.4px; margin-bottom:18px; color:var(--accent); font-family:Inter, sans-serif; }
+    .hero p.lead{ color: #e6ded7; margin-top:18px; margin-bottom:26px; font-size:1.02rem; max-width:60ch; }
+    .hero-cta{ display:flex; gap:12px; align-items:center; flex-wrap:wrap; }
+    .btn-primary{ display:inline-flex; align-items:center; gap:10px; background:linear-gradient(90deg,var(--color-secondary), #8b311f); color:white; padding:14px 18px; border-radius:12px; text-decoration:none; font-weight:600; box-shadow: 0 14px 36px rgba(178,63,43,0.18); transition: transform 160ms var(--ease), box-shadow 160ms var(--ease); }
+    .btn-primary:focus, .btn-primary:hover{ transform:translateY(-3px); outline:none; }
+    .btn-ghost{ background:transparent; color:var(--neutral-200); padding:12px 14px; border-radius:12px; border:1px solid rgba(255,255,255,0.04); text-decoration:none; }
+    .hero-right{ position:relative; display:flex; align-items:center; justify-content:center; min-height:300px; }
+    .hero-art{ width:100%; height:100%; display:grid; place-items:center; padding:14px; border-radius:14px; background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); box-shadow: 0 8px 30px rgba(0,0,0,0.6); }
+
+    /* decorative pizza composition */
+    .pizza-compo{ width:100%; max-width:360px; aspect-ratio:1/1; position:relative; display:block; }
+    .pizza-shadow{ position:absolute; inset:auto 12% 6% 12%; filter:blur(20px); opacity:0.45; height:24%; border-radius:50%; background: radial-gradient(closest-side, rgba(0,0,0,0.6), transparent); z-index:0; }
+
+    /* Sections */
+    section{ margin:58px 0; padding:38px; border-radius:16px; background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.005)); box-shadow: 0 14px 40px rgba(0,0,0,0.55); }
+    .grid{ display:grid; gap:20px; grid-template-columns: repeat(3, 1fr); }
+    .card{ padding:18px; border-radius:12px; background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.005)); border:1px solid rgba(255,255,255,0.02); min-height:140px; display:flex; flex-direction:column; gap:12px; transition:transform 200ms var(--ease), box-shadow 200ms var(--ease); }
+    .card:hover{ transform:translateY(-8px); box-shadow: 0 20px 40px rgba(0,0,0,0.45); }
+    .card-ico{ width:48px; height:48px; display:grid; place-items:center; border-radius:10px; background:rgba(255,255,255,0.02); }
+
+    .how-step{ display:flex; gap:16px; align-items:flex-start; }
+    .how-step .num{ font-family: "Playfair Display", serif; font-size:1.4rem; color:var(--accent); width:44px; height:44px; display:grid; place-items:center; border-radius:10px; background:rgba(215,168,90,0.07); }
+
+    /* contact */
+    .contact-grid{ display:grid; grid-template-columns: 1fr 360px; gap:22px; align-items:center; }
+    .contact-card{ padding:20px; border-radius:12px; background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); }
+    .tel{ font-weight:700; color:var(--neutral-100); font-size:1.15rem; text-decoration:none; display:inline-block; margin-top:6px; }
+
+    footer{ margin-top:34px; color:var(--neutral-500); display:flex; justify-content:space-between; align-items:center; gap:16px; flex-wrap:wrap; font-size:0.92rem; }
+    .footer-links a{ color:var(--neutral-500); text-decoration:none; margin-left:12px; }
+    .visually-hidden{ position:absolute !important; height:1px; width:1px; overflow:hidden; clip:rect(1px,1px,1px,1px); white-space:nowrap; }
+
+    /* Responsive */
+    @media (max-width: 980px){
+      .site{ padding:20px; }
+      .hero{ grid-template-columns: 1fr; padding:28px; margin-top:100px; gap:20px; }
+      .hero-right{ min-height:260px; order:2; }
+      .hero-left{ order:1; }
+      .grid{ grid-template-columns: repeat(2, 1fr); }
+      .contact-grid{ grid-template-columns: 1fr; }
+      header{ top:12px; }
+      .nav-links{ display:none; }
+      .menu-btn{ display:inline-flex; pointer-events:auto; }
+      .menu-panel{ display:none; }
+      .nav-wrap{ padding:12px; }
+    }
+    @media (max-width: 540px){
+      .site{ padding:14px; }
+      .grid{ grid-template-columns: 1fr; }
+      h1{ font-size:clamp(1.4rem, 1.6rem + 0.8vw, 2.2rem); }
+      .brand-name{ font-size:1rem; }
+    }
+
+    /* Accessibility & motion */
+    @media (prefers-reduced-motion: reduce){
+      * { transition:none !important; animation:none !important; }
+    }
+
+    /* Focus styles */
+    a:focus, button:focus { outline: none; box-shadow: 0 0 0 var(--ring) rgba(215,168,90,0.18), 0 0 0 1px rgba(215,168,90,0.18); border-radius:8px; }
+
+  </style>
+</head>
+<body>
+  <header role="banner">
+    <div class="nav-wrap" aria-label="Glavna navigacija">
+      <a class="brand" href="#hero">
+        <span class="brand-mark" aria-hidden="true">
+          <!-- pizza slice mark -->
+          <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Picikato logo">
+            <circle cx="32" cy="32" r="30" fill="rgba(0,0,0,0.18)"/>
+            <path d="M20 36c8 10 24 10 32 0L32 60 20 36z" fill="#d7a85a" opacity="0.95"/>
+            <path d="M34 20c-6 4-2 14 6 14 8 0 10-10 6-14-4-4-10-4-12 0z" fill="#fff" opacity="0.12"/>
+          </svg>
+        </span>
+        <span class="brand-name">Pizzeria Picikato</span>
+      </a>
+
+      <nav role="navigation" aria-label="Glavni izbornik">
+        <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="mobilePanel" aria-label="Otvorite izbornik">
+          <!-- simple hamburger -->
+          <svg width="22" height="14" viewBox="0 0 22 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect y="1" width="22" height="2" rx="1" fill="#e9e7e5"></rect>
+            <rect y="6" width="22" height="2" rx="1" fill="#e9e7e5"></rect>
+            <rect y="11" width="22" height="2" rx="1" fill="#e9e7e5"></rect>
+          </svg>
+        </button>
+
+        <div class="nav-links" role="menubar" aria-hidden="false">
+          <a href="#usluge" role="menuitem">Ponuda</a>
+          <a href="#o-nama" role="menuitem">O nama</a>
+          <a href="#rad" role="menuitem">Kako</a>
+          <a href="#kontakt" role="menuitem">Kontakt</a>
+        </div>
+      </nav>
+
+      <div style="display:flex; gap:12px; align-items:center;">
+        <a class="cta-phone" href="tel:+38549370795" aria-label="Nazovite Pizzeriju Picikato">Nazovite: +385 49 370 795</a>
+      </div>
+    </div>
+
+    <!-- mobile panel -->
+    <div class="menu-panel" id="mobilePanel" role="dialog" aria-modal="false" aria-hidden="true">
+      <nav style="display:flex; flex-direction:column; gap:12px;">
+        <a href="#usluge">Ponuda</a>
+        <a href="#o-nama">O nama</a>
+        <a href="#rad">Kako</a>
+        <a href="#kontakt">Kontakt</a>
+        <a href="https://pizzeriapicikato.eatbu.hr/" target="_blank" rel="noopener">Jelovnik</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="site" id="top">
+    <section class="hero" id="hero" aria-labelledby="hero-title">
+      <div class="hero-left">
+        <span class="kicker" aria-hidden="true">Catering • Pizza • Eventi</span>
+        <h1 id="hero-title">Catering i pizza za događanja koja klijentima ostaju u sjećanju</h1>
+        <p class="lead">Pizzeria Picikato nudi prilagodljive catering usluge i dostavu pizza za raznovrsna događanja i restoransku podršku. Jasna komunikacija i prilagodba jelovnika cilj su naše suradnje — nazovite nas za konkretan upit.</p>
+
+        <div class="hero-cta" role="group" aria-label="Glavne radnje">
+          <a class="btn-primary" href="tel:+38549370795">Nazovite nas</a>
+          <a class="btn-ghost" href="https://pizzeriapicikato.eatbu.hr/" target="_blank" rel="noopener">Pogledajte jelovnik</a>
+        </div>
+      </div>
+
+      <div class="hero-right" aria-hidden="false">
+        <div class="hero-art" role="img" aria-label="Ilustracija pizze i cateringa">
+          <div class="pizza-compo" aria-hidden="true">
+            <svg viewBox="0 0 420 420" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" role="img">
+              <defs>
+                <radialGradient id="g1" cx="50%" cy="30%" r="60%">
+                  <stop offset="0%" stop-color="#ffdca8"/>
+                  <stop offset="50%" stop-color="#ffb36a"/>
+                  <stop offset="100%" stop-color="#b23f2b"/>
+                </radialGradient>
+                <filter id="f1" x="-20%" y="-20%" width="140%" height="140%">
+                  <feDropShadow dx="0" dy="12" stdDeviation="22" flood-color="#000" flood-opacity="0.45"/>
+                </filter>
+              </defs>
+
+              <!-- crust -->
+              <circle cx="210" cy="210" r="170" fill="#cda06f" />
+              <!-- sauce layer -->
+              <circle cx="210" cy="210" r="150" fill="url(#g1)" />
+              <!-- toppings (stylized) -->
+              <g filter="url(#f1)">
+                <ellipse cx="150" cy="145" rx="20" ry="14" fill="#6c2c23"/>
+                <ellipse cx="232" cy="120" rx="18" ry="12" fill="#6c2c23"/>
+                <ellipse cx="280" cy="200" rx="20" ry="14" fill="#6c2c23"/>
+                <ellipse cx="200" cy="250" rx="22" ry="16" fill="#6c2c23"/>
+                <ellipse cx="140" cy="260" rx="16" ry="12" fill="#6c2c23"/>
+                <circle cx="210" cy="210" r="48" fill="rgba(255,255,255,0.04)"/>
+              </g>
+
+              <!-- decorative rim -->
+              <circle cx="210" cy="210" r="172" fill="none" stroke="rgba(255,255,255,0.02)" stroke-width="8" />
+            </svg>
+            <div class="pizza-shadow" aria-hidden="true"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="usluge" aria-labelledby="usluge-title">
+      <h2 id="usluge-title">Ponuda</h2>
+      <p style="margin-top:12px; color:var(--neutral-200)">Pregled usluga prilagođen za evente, skupove i restoranske potrebe. Za točne opcije i dostupnost kontaktirajte nas telefonom ili putem stranice s jelovnikom.</p>
+
+      <div class="grid" style="margin-top:18px;">
+        <article class="card" aria-labelledby="c1">
+          <div style="display:flex; justify-content:space-between; align-items:start;">
+            <div>
+              <h3 id="c1" style="margin:0; font-size:1.05rem;">Catering za događanja</h3>
+              <p style="margin:8px 0 0;">Rješenja prilagođena veličini događaja: serviranje pizze i pratećih jela u dogovorenim formatima. Kontaktirajte nas za prijedlog jelovnika.</p>
+            </div>
+            <div class="card-ico" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M4 10h16v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-8z" fill="#b23f2b"/><path d="M2 7h20v2H2z" fill="#d7a85a"/></svg>
+            </div>
+          </div>
+        </article>
+
+        <article class="card" aria-labelledby="c2">
+          <div style="display:flex; justify-content:space-between; align-items:start;">
+            <div>
+              <h3 id="c2" style="margin:0; font-size:1.05rem;">Dostava pizza</h3>
+              <p style="margin:8px 0 0;">Organiziramo dostavu na lokaciju prema vašim potrebama. Za narudžbe i raspoloživost provjerite jelovnik ili nas nazovite.</p>
+            </div>
+            <div class="card-ico" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M3 13h14v6H3z" fill="#d7a85a"/><path d="M21 8h-6l-1-3H6" stroke="#b23f2b" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+          </div>
+        </article>
+
+        <article class="card" aria-labelledby="c3">
+          <div style="display:flex; justify-content:space-between; align-items:start;">
+            <div>
+              <h3 id="c3" style="margin:0; font-size:1.05rem;">Prilagodba jelovnika</h3>
+              <p style="margin:8px 0 0;">Mogućnost slaganja izbornika prema tipu događaja i broju gostiju. Raspravite opcije izravno s našim timom.</p>
+            </div>
+            <div class="card-ico" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M4 7h16v2H4z" fill="#b23f2b"/><path d="M6 11h12v8H6z" fill="#d7a85a"/></svg>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="o-nama" aria-labelledby="o-title">
+      <h2 id="o-title">O nama</h2>
+      <p style="margin-top:12px; color:var(--neutral-200)">Pizzeria Picikato radi u području cateringa i restoranske dostave pizza. Radimo na tome da komunikacija i logistika budu jasni i jednostavni — za konkretne zahtjeve nazovite broj naveden na stranici.</p>
+      <div style="margin-top:18px; display:flex; gap:18px; flex-wrap:wrap;">
+        <div class="card" style="flex:1 1 320px;">
+          <h3 style="margin:0 0 8px 0;">Naš pristup</h3>
+          <p style="margin:0;">Praktičan, prilagodljiv i transparentan pristup organizaciji: jasno definirani koraci suradnje i fokus na izvršenje prema dogovoru.</p>
+        </div>
+        <div class="card" style="flex:1 1 320px;">
+          <h3 style="margin:0 0 8px 0;">Suradnja</h3>
+          <p style="margin:0;">Suradnju započinjemo razgovorom o događaju i željama, potom predlažemo raspored i opcije, te potvrđujemo logistiku prije izvršenja.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="rad" aria-labelledby="rad-title">
+      <h2 id="rad-title">Kako funkcionira suradnja</h2>
+      <p style="margin-top:12px; color:var(--neutral-200)">U nekoliko jasnih koraka uskladimo očekivanja i izvedbu.</p>
+
+      <div style="display:grid; gap:14px; margin-top:18px;">
+        <div class="how-step card">
+          <div style="display:flex; gap:12px; align-items:flex-start;">
+            <div class="num" aria-hidden="true">1</div>
+            <div>
+              <h3 style="margin:0 0 6px 0;">Kontakt i upit</h3>
+              <p style="margin:0;">Nazovite nas na +385 49 370 795 ili pogledajte jelovnik na poveznici. Razgovaramo o datumu, broju gostiju i osnovnim zahtjevima.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="how-step card">
+          <div style="display:flex; gap:12px; align-items:flex-start;">
+            <div class="num" aria-hidden="true">2</div>
+            <div>
+              <h3 style="margin:0 0 6px 0;">Dogovor jelovnika i logistike</h3>
+              <p style="margin:0;">Sastavimo prijedlog jelovnika i usuglasimo vrijeme dostave ili posluživanja te potrebne detalje za izvedbu.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="how-step card">
+          <div style="display:flex; gap:12px; align-items:flex-start;">
+            <div class="num" aria-hidden="true">3</div>
+            <div>
+              <h3 style="margin:0 0 6px 0;">Izvedba</h3>
+              <p style="margin:0;">Na dogovoreni datum izvršavamo dostavu i/ili posluživanje sukladno dogovoru. Za dodatne upite koristite telefonski kontakt.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="kontakt" aria-labelledby="kontakt-title">
+      <h2 id="kontakt-title">Kontakt</h2>
+      <p style="margin-top:12px; color:var(--neutral-200)">Za sve upite vezane uz catering i narudžbe pizza koristite telefon ili posjetite naš jelovnik.</p>
+
+      <div class="contact-grid" style="margin-top:18px;">
+        <div class="contact-card">
+          <h3 style="margin:0 0 8px 0;">Razgovarajte s nama</h3>
+          <p style="margin:0 0 6px 0;">Najbrža komunikacija je telefonom. Rado pregledamo vaše potrebe i ponudimo opcije.</p>
+          <a class="tel" href="tel:+38549370795" aria-label="Nazovite Pizzeriju Picikato">+385 49 370 795</a>
+          <div style="margin-top:12px;">
+            <a class="btn-primary" href="tel:+38549370795">Nazovite odmah</a>
+            <a class="btn-ghost" href="https://pizzeriapicikato.eatbu.hr/" target="_blank" rel="noopener" style="margin-left:10px;">Otvorite jelovnik</a>
+          </div>
+        </div>
+
+        <aside class="contact-card" aria-labelledby="info">
+          <h3 id="info" style="margin:0 0 8px 0;">Dodatne informacije</h3>
+          <p style="margin:0 0 6px 0;">Web: <a href="https://pizzeriapicikato.eatbu.hr/" target="_blank" rel="noopener">pizzeriapicikato.eatbu.hr</a></p>
+          <p style="margin:0 0 6px 0;">Adresa i email nisu dostupni na ovoj stranici. Za precizne podatke kontaktirajte telefon.</p>
+        </aside>
+      </div>
+    </section>
+
+    <footer role="contentinfo">
+      <div>
+        <strong style="color:var(--neutral-100);">Pizzeria Picikato</strong>
+        <div style="margin-top:6px; color:var(--neutral-500);">Catering | Pizza | Restoran</div>
+      </div>
+      <div class="footer-links" aria-hidden="false">
+        <a href="#hero">Početna</a>
+        <a href="#usluge">Ponuda</a>
+        <a href="#kontakt">Kontakt</a>
+        <a href="https://pizzeriapicikato.eatbu.hr/" target="_blank" rel="noopener">Jelovnik</a>
+      </div>
+    </footer>
+
+  </main>
+
+  <script>
+    (function(){
+      const menuBtn = document.getElementById('menuBtn');
+      const panel = document.getElementById('mobilePanel');
+
+      function toggleMenu(open){
+        const isOpen = open === undefined ? (menuBtn.getAttribute('aria-expanded') === 'true') : !open;
+        if(!isOpen){
+          // open
+          menuBtn.setAttribute('aria-expanded','true');
+          panel.setAttribute('aria-hidden','false');
+          panel.style.display = 'block';
+          panel.style.opacity = '0';
+          panel.style.transform = 'translateY(-6px)';
+          requestAnimationFrame(()=> {
+            panel.style.transition = 'opacity 220ms ease, transform 220ms ease';
+            panel.style.opacity = '1';
+            panel.style.transform = 'translateY(0)';
+            panel.setAttribute('aria-modal','true');
+          });
+        } else {
+          menuBtn.setAttribute('aria-expanded','false');
+          panel.setAttribute('aria-hidden','true');
+          panel.style.transition = 'opacity 180ms ease, transform 180ms ease';
+          panel.style.opacity = '0';
+          panel.style.transform = 'translateY(-6px)';
+          panel.setAttribute('aria-modal','false');
+          setTimeout(()=> { panel.style.display = 'none'; }, 200);
+        }
+      }
+
+      menuBtn.addEventListener('click', function(){
+        toggleMenu();
+      });
+
+      // close on escape
+      document.addEventListener('keydown', function(e){
+        if(e.key === 'Escape'){
+          if(menuBtn.getAttribute('aria-expanded') === 'true'){
+            toggleMenu(true);
+            menuBtn.focus();
+          }
+        }
+      });
+
+      // ensure links in panel close it
+      panel.querySelectorAll('a').forEach(a => {
+        a.addEventListener('click', () => {
+          toggleMenu(true);
+        });
+      });
+
+      // improve focus handling for keyboard users
+      menuBtn.addEventListener('keydown', function(e){
+        if(e.key === 'Enter' || e.key === ' '){
+          e.preventDefault();
+          toggleMenu();
+        }
+      });
+
+    })();
+  </script>
+</body>
+</html>
