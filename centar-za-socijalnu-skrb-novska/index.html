@@ -1,0 +1,495 @@
+ <!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Centar za socijalnu skrb Novska — socijalne usluge i podrška zajednici</title>
+  <meta name="description" content="Centar za socijalnu skrb Novska — informacije, savjetovanje i administrativna podrška vezana uz socijalnu skrb. Posjetite službenu stranicu za detalje i kontakte." />
+  <meta property="og:title" content="Centar za socijalnu skrb Novska — socijalne usluge i podrška zajednici" />
+  <meta property="og:description" content="Informacije, savjetovanje i upravne usluge vezane uz socijalnu skrb. Posjetite službenu stranicu za detalje i kontakte." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --color-primary: #0b5f6b;      /* deep teal */
+      --color-secondary: #f5f7f9;    /* soft off-white background */
+      --color-accent: #ffb238;       /* warm accent */
+      --neutral-900: #0f1720;
+      --neutral-700: #334155;
+      --neutral-500: #64748b;
+      --neutral-300: #cbd5e1;
+      --bg: #ffffff;
+      --card-bg: #ffffff;
+      --radius: 12px;
+      --radius-sm: 8px;
+      --shadow-1: 0 6px 18px rgba(15,23,32,0.08);
+      --shadow-2: 0 10px 30px rgba(11,95,107,0.06);
+      --gap: 24px;
+      --container: 1200px;
+      --focus: 3px solid rgba(11,95,107,0.18);
+      --transition: 220ms cubic-bezier(.2,.9,.3,1);
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      color-scheme: light;
+    }
+
+    /* Fluid typography */
+    h1{ font-family: "Merriweather", serif; font-weight:700;
+      font-size: clamp(1.6rem, 1.3rem + 2.6vw, 3rem);
+      line-height: 1.03; color:var(--neutral-900);
+      margin:0;
+    }
+    h2{ font-family: "Merriweather", serif; font-weight:600;
+      font-size: clamp(1.05rem, 0.9rem + 1.2vw, 1.6rem); margin:0;
+      color:var(--neutral-900);
+    }
+    p, li, a, button { font-size: clamp(.95rem, .85rem + .2vw, 1rem); color:var(--neutral-700); line-height:1.45; }
+
+    *{ box-sizing: border-box; }
+    html,body{ height:100%; margin:0; background:var(--color-secondary); -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; }
+    a{ color:inherit; text-decoration:none; }
+    img,svg{ max-width:100%; display:block; }
+
+    .wrap{ max-width:var(--container); margin:0 auto; padding:0 28px; }
+
+    header{
+      position:sticky; top:18px; z-index:30; backdrop-filter: blur(6px);
+      display:flex; align-items:center; justify-content:center; pointer-events:none;
+    }
+    .nav-inner{
+      pointer-events:auto;
+      display:flex; align-items:center; gap:16px; width:100%; max-width:var(--container);
+      background:linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.75));
+      padding:10px 18px; border-radius:14px; box-shadow:var(--shadow-1);
+      align-items:center;
+    }
+    .brand{
+      display:flex; gap:12px; align-items:center;
+      margin-right:auto;
+    }
+    .brand-mark{
+      width:46px; height:46px; border-radius:10px; background:linear-gradient(180deg,var(--color-primary), #076568); display:flex; align-items:center; justify-content:center;
+      box-shadow:var(--shadow-2);
+      flex:0 0 46px;
+    }
+    .brand-mark svg{ width:26px; height:26px; color:#fff; }
+    .brand-word{ display:flex; flex-direction:column; line-height:1; }
+    .brand-word .title{ font-weight:700; font-size:0.95rem; color:var(--neutral-900); font-family:"Merriweather", serif; }
+    .brand-word .sub{ font-size:0.78rem; color:var(--neutral-500); margin-top:2px; }
+
+    nav.desktop{ display:flex; gap:22px; align-items:center; margin-left:12px; }
+    nav.desktop a{ color:var(--neutral-700); padding:8px 10px; border-radius:8px; transition:var(--transition); }
+    nav.desktop a:hover, nav.desktop a:focus{ background:rgba(11,95,107,0.06); color:var(--neutral-900); outline:none; }
+    .cta-primary{ background: linear-gradient(90deg,var(--color-primary), #09757a); color:#fff; padding:10px 16px; border-radius:10px; font-weight:600; box-shadow: 0 6px 20px rgba(9,117,122,0.12); transition: transform 180ms ease, box-shadow 180ms ease; }
+    .cta-primary:hover, .cta-primary:focus{ transform:translateY(-3px); box-shadow: 0 12px 30px rgba(9,117,122,0.14); outline:none; }
+    .cta-ghost{ padding:8px 12px; border-radius:10px; border:1px solid rgba(15,23,32,0.06); background:transparent; }
+
+    /* Mobile nav */
+    .mobile-toggle{ display:none; background:transparent; border:0; padding:8px; margin-left:8px; border-radius:8px; }
+    .mobile-panel{ display:none; position:fixed; inset:72px 18px auto 18px; background:var(--bg); border-radius:12px; box-shadow:var(--shadow-2); padding:14px; z-index:40; }
+
+    main{ margin-top:36px; }
+
+    /* HERO */
+    .hero{
+      display:grid; grid-template-columns: 1fr 520px; gap:40px; align-items:center; padding:56px 0;
+    }
+    .hero-card{
+      background: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(255,255,255,0.9));
+      padding:34px; border-radius:18px; box-shadow:var(--shadow-2);
+    }
+    .hero-kicker{ display:inline-flex; gap:10px; align-items:center; background:rgba(11,95,107,0.06); color:var(--color-primary); padding:8px 12px; border-radius:999px; font-weight:600; font-size:.9rem; width:max-content; margin-bottom:18px;}
+    .hero-lead{ margin-bottom:18px; color:var(--neutral-700); }
+    .hero-actions{ display:flex; gap:12px; margin-top:14px; align-items:center; }
+
+    /* Visual panel */
+    .visual{
+      position:relative; min-height:360px; border-radius:18px; overflow:hidden; background:
+      linear-gradient(180deg, rgba(11,95,107,0.06), rgba(255,255,255,0.02));
+      display:flex; align-items:center; justify-content:center; padding:28px;
+    }
+    .visual .svg-ill{
+      width:100%; max-width:420px; transform:translateY(0);
+      transition: transform 700ms cubic-bezier(.2,.9,.3,1);
+    }
+    .card-mini{
+      position:absolute; right:28px; bottom:28px; background:var(--card-bg); padding:14px; border-radius:12px; box-shadow:var(--shadow-1);
+      display:flex; gap:12px; align-items:center; min-width:220px;
+    }
+    .card-mini svg{ width:36px; height:36px; flex:0 0 36px; border-radius:8px; background: linear-gradient(180deg,var(--color-accent), #ff9e10); display:flex; align-items:center; justify-content:center; padding:6px; color:#fff; }
+
+    /* Sections */
+    section{ padding:46px 0; }
+    .grid-3{ display:grid; grid-template-columns: repeat(3,1fr); gap:var(--gap); }
+    .card{
+      background:var(--card-bg); border-radius:14px; padding:20px; box-shadow:var(--shadow-1);
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+    .card:hover, .card:focus-within{ transform: translateY(-6px); box-shadow: 0 18px 40px rgba(15,23,32,0.08); }
+    .icon-wrap{ width:56px; height:56px; border-radius:10px; display:flex; align-items:center; justify-content:center; background:linear-gradient(180deg,#ffffff, rgba(11,95,107,0.03)); margin-bottom:12px; }
+
+    .meta-list{ display:flex; gap:18px; flex-wrap:wrap; margin-top:12px; color:var(--neutral-500); }
+
+    .how-steps{ display:flex; gap:18px; flex-direction:column; }
+    .step{ display:flex; gap:16px; align-items:flex-start; background:linear-gradient(180deg, rgba(255,255,255,0.98), rgba(255,255,255,0.96)); padding:14px; border-radius:12px; box-shadow:var(--shadow-1); }
+    .step-num{ min-width:40px; height:40px; display:grid; place-items:center; border-radius:10px; background:var(--color-primary); color:#fff; font-weight:700; }
+    .muted{ color:var(--neutral-500); }
+
+    /* Footer */
+    footer{ padding:34px 0; border-top:1px solid rgba(15,23,32,0.04); background:transparent; }
+    .footer-grid{ display:flex; align-items:flex-start; justify-content:space-between; gap:24px; flex-wrap:wrap; }
+
+    /* Responsive */
+    @media (max-width:1100px){
+      .hero{ grid-template-columns:1fr; }
+      .visual{ order:-1; min-height:260px; }
+      nav.desktop{ display:none; }
+      .mobile-toggle{ display:inline-flex; pointer-events:auto; }
+    }
+    @media (max-width:720px){
+      .grid-3{ grid-template-columns:1fr; }
+      .hero-card{ padding:20px; border-radius:12px; }
+      .card-mini{ display:none; }
+      .brand-word .title{ font-size:.92rem; }
+    }
+
+    /* Accessibility & focus */
+    a:focus, button:focus, input:focus, textarea:focus{ outline: none; box-shadow: var(--focus); border-radius:8px; }
+    .sr-only{ position:absolute; left:-10000px; top:auto; width:1px; height:1px; overflow:hidden; }
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce){
+      .visual .svg-ill, .card, .card:hover{ transition:none !important; transform:none !important; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav-inner wrap" role="navigation" aria-label="Glavna navigacija">
+      <div class="brand" aria-hidden="false">
+        <div class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+            <rect x="3" y="3" width="18" height="18" rx="5" fill="currentColor"/>
+            <path d="M8 8h8v1.6A4.4 4.4 0 0 1 11.6 14H8V8z" fill="rgba(255,255,255,0.18)"/>
+          </svg>
+        </div>
+        <div class="brand-word">
+          <div class="title">Centar za socijalnu skrb Novska</div>
+          <div class="sub">Socijalne usluge i podrška zajednici</div>
+        </div>
+      </div>
+
+      <nav class="desktop" aria-label="Sekcije">
+        <a href="#usluge">Usluge</a>
+        <a href="#o-nama">O nama</a>
+        <a href="#pristup">Pristup</a>
+        <a href="#kako">Kako funkcionira</a>
+        <a href="#kontakt">Kontakt</a>
+      </nav>
+
+      <a class="cta-primary" href="http://www.czssn.hr/" target="_blank" rel="noopener">Službena stranica</a>
+
+      <button class="mobile-toggle" id="mobileToggle" aria-expanded="false" aria-controls="mobilePanel" aria-label="Otvorite izbornik">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+          <path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+        </svg>
+      </button>
+
+      <div class="mobile-panel" id="mobilePanel" role="menu" aria-labelledby="mobileToggle">
+        <a href="#usluge" role="menuitem">Usluge</a><br/>
+        <a href="#o-nama" role="menuitem">O nama</a><br/>
+        <a href="#pristup" role="menuitem">Pristup</a><br/>
+        <a href="#kako" role="menuitem">Kako funkcionira</a><br/>
+        <a href="#kontakt" role="menuitem">Kontakt</a><br/>
+        <div style="margin-top:12px;">
+          <a class="cta-ghost" href="http://www.czssn.hr/" target="_blank" rel="noopener">Službena stranica</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap" id="top">
+    <section class="hero" aria-labelledby="hero-heading">
+      <div class="hero-card" role="region" aria-label="Predstavljanje">
+        <div class="hero-kicker" aria-hidden="true">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" style="flex:0 0 16px;">
+            <path d="M12 2v20M2 12h20" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Javne socijalne usluge
+        </div>
+
+        <h1 id="hero-heading">Podrška i usluge za građane Novske</h1>
+        <p class="hero-lead">Centar za socijalnu skrb Novska pruža informacije, savjetovanje i administrativnu podršku u području socijalne skrbi. Na ovoj stranici možete brzo pronaći osnovne smjernice i pristupiti službenim kontaktima.</p>
+
+        <div class="hero-actions" role="group" aria-label="Glavni pozivi na akciju">
+          <a class="cta-primary" href="http://www.czssn.hr/" target="_blank" rel="noopener">Posjetite službenu stranicu</a>
+          <a class="cta-ghost" href="#usluge">Saznajte više</a>
+        </div>
+
+        <div class="meta-list" aria-hidden="false" style="margin-top:18px;">
+          <div class="muted">Vrsta djelatnosti: <strong style="color:var(--neutral-900); margin-left:6px;">ustanovna socijalna služba</strong></div>
+        </div>
+      </div>
+
+      <div class="visual" aria-hidden="false" role="img" aria-label="Ilustracija socijalne podrške">
+        <!-- Original SVG composition as visual, not a photo -->
+        <svg class="svg-ill" viewBox="0 0 800 520" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true" focusable="false">
+          <defs>
+            <linearGradient id="g1" x1="0" x2="1">
+              <stop offset="0" stop-color="#e9f6f6"/>
+              <stop offset="1" stop-color="#ffffff"/>
+            </linearGradient>
+          </defs>
+          <rect width="800" height="520" rx="20" fill="url(#g1)"/>
+          <g transform="translate(50,50)" fill="none" stroke="rgba(11,95,107,0.14)" stroke-width="2" stroke-linecap="round">
+            <path d="M40 300 C120 200 220 200 300 300" />
+            <path d="M80 260 C160 160 260 160 340 260" />
+          </g>
+
+          <g transform="translate(420,70)">
+            <rect x="0" y="0" width="260" height="160" rx="12" fill="#fff" stroke="rgba(11,95,107,0.06)"/>
+            <circle cx="42" cy="42" r="28" fill="var(--color-primary)"/>
+            <rect x="86" y="28" width="150" height="12" rx="6" fill="#eef6f6"/>
+            <rect x="86" y="52" width="110" height="10" rx="6" fill="#f7fafb"/>
+          </g>
+
+          <g transform="translate(72,70)">
+            <rect x="0" y="0" width="300" height="340" rx="18" fill="#fff" stroke="rgba(11,95,107,0.04)"/>
+            <g transform="translate(28,28)">
+              <rect width="96" height="96" rx="12" fill="#f7fafb" stroke="rgba(11,95,107,0.03)"/>
+              <rect x="120" y="10" width="140" height="18" rx="8" fill="#eef6f6"/>
+              <rect x="120" y="40" width="92" height="12" rx="6" fill="#f7fafb"/>
+              <rect x="0" y="120" width="250" height="12" rx="6" fill="#f3f8f8"/>
+              <rect x="0" y="150" width="200" height="12" rx="6" fill="#f3f8f8"/>
+            </g>
+          </g>
+        </svg>
+
+        <div class="card-mini" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M12 2a5 5 0 0 1 5 5v1h-1.6A4.4 4.4 0 0 0 11 14H8V7a5 5 0 0 1 4-5z" fill="currentColor"/>
+            <path d="M3 21v-2a5 5 0 0 1 5-5h6" stroke="rgba(255,255,255,0.22)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <div style="line-height:1">
+            <div style="font-weight:700; color:var(--neutral-900)">Informacije i upute</div>
+            <div style="font-size:.86rem; color:var(--neutral-500)">Smjernice za postupke</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="usluge" aria-labelledby="usluge-heading">
+      <div style="display:flex; align-items:center; justify-content:space-between; gap:18px; margin-bottom:18px;">
+        <div>
+          <h2 id="usluge-heading">Kako možemo pomoći</h2>
+          <p class="muted">Pregled glavnih područja kroz koja Centar pruža podršku i informacije. Za specifične upite posjetite službenu stranicu.</p>
+        </div>
+        <div style="text-align:right;">
+          <a class="cta-ghost" href="http://www.czssn.hr/" target="_blank" rel="noopener">Službena stranica</a>
+        </div>
+      </div>
+
+      <div class="grid-3" role="list">
+        <article class="card" role="listitem" tabindex="0" aria-labelledby="c1">
+          <div class="icon-wrap" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+              <path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8z" fill="var(--color-primary)"/>
+              <path d="M21 21a8 8 0 0 0-14 0" stroke="rgba(11,95,107,0.08)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3 id="c1" style="margin-top:4px; margin-bottom:8px; color:var(--neutral-900); font-size:1.05rem;">Informiranje i usmjeravanje</h3>
+          <p class="muted">Osnovne informacije o pravima, postupcima i dokumentaciji. Detalji i upute dostupni su na službenoj stranici centra.</p>
+        </article>
+
+        <article class="card" role="listitem" tabindex="0" aria-labelledby="c2">
+          <div class="icon-wrap" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+              <rect x="3" y="3" width="18" height="18" rx="4" fill="var(--color-accent)"/>
+              <path d="M7 12h10M7 16h6" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3 id="c2" style="margin-top:4px; margin-bottom:8px; color:var(--neutral-900); font-size:1.05rem;">Savjetodavna podrška</h3>
+          <p class="muted">Savjeti i upute vezano uz postupke socijalne zaštite te dostupne oblike podrške. Za konkretne informacije posjetite službenu stranicu.</p>
+        </article>
+
+        <article class="card" role="listitem" tabindex="0" aria-labelledby="c3">
+          <div class="icon-wrap" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+              <path d="M12 2v20" stroke="var(--color-primary)" stroke-width="1.8" stroke-linecap="round"/>
+              <path d="M7 8h10M7 12h10M7 16h6" stroke="rgba(11,95,107,0.12)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3 id="c3" style="margin-top:4px; margin-bottom:8px; color:var(--neutral-900); font-size:1.05rem;">Upute za postupke</h3>
+          <p class="muted">Opći koraci i popis potrebne dokumentacije za različite upravne i socijalne postupke. Provjerite službenu stranicu za ažurirane informacije.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="o-nama" aria-labelledby="o-heading">
+      <div style="display:flex; gap:18px; align-items:flex-start; flex-wrap:wrap;">
+        <div style="flex:1; min-width:280px;">
+          <h2 id="o-heading">O Centru</h2>
+          <p class="muted">Centar za socijalnu skrb Novska djeluje u okviru javnih socijalnih funkcija, pružajući informacije i administrativnu podršku građanima. Ovdje predstavljamo sažet i jasan pregled uloge centra te načina na koji doći do relevantnih informacija.</p>
+          <p style="margin-top:12px;" class="muted">Za konkretne upite i kontakte molimo posjetite službenu stranicu: <a href="http://www.czssn.hr/" target="_blank" rel="noopener">http://www.czssn.hr/</a></p>
+        </div>
+
+        <div style="flex:0 0 380px;">
+          <div style="background:linear-gradient(180deg,#fff,#fbffff); padding:18px; border-radius:12px; box-shadow:var(--shadow-1);">
+            <h3 style="margin:0 0 8px 0; color:var(--neutral-900);">Transparentnost i dostupnost</h3>
+            <p class="muted" style="margin:0;">Sve službene informacije i kontakt podaci objavljeni su na službenoj web-stranici Centra. Preporučujemo provjeru službenih izvora za najnovije obavijesti.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="pristup" aria-labelledby="pristup-heading">
+      <h2 id="pristup-heading">Naš pristup</h2>
+      <p class="muted">Pristup centra usmjeren je prema jasnoj komunikaciji i dostupnim informacijama. U nastavku je sažetak osnovnih vrijednosti koje upravljaju radom i kontaktom s javnošću.</p>
+
+      <div style="display:flex; gap:18px; margin-top:18px; flex-wrap:wrap;">
+        <div class="card" style="flex:1; min-width:220px;" tabindex="0">
+          <h3 style="margin-top:0; color:var(--neutral-900)">Jasne upute</h3>
+          <p class="muted">Smjernice i obavijesti oblikovane su kako bi bile razumljive i praktične za građane.</p>
+        </div>
+
+        <div class="card" style="flex:1; min-width:220px;" tabindex="0">
+          <h3 style="margin-top:0; color:var(--neutral-900)">Suradnja s institucijama</h3>
+          <p class="muted">Centar djeluje u skladu s nadležnim institucijama te usmjerava prema odgovarajućim službama i resursima.</p>
+        </div>
+
+        <div class="card" style="flex:1; min-width:220px;" tabindex="0">
+          <h3 style="margin-top:0; color:var(--neutral-900)">Dostupne informacije</h3>
+          <p class="muted">Ažurirane informacije o postupcima i dokumentaciji objavljuju se na službenim kanalima.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="kako" aria-labelledby="kako-heading">
+      <h2 id="kako-heading">Kako funkcionira suradnja</h2>
+      <p class="muted">Kratki pregled praktičnog korisničkog puta — opći koraci i preporuke.</p>
+
+      <div class="how-steps" style="margin-top:16px;">
+        <div class="step" tabindex="0">
+          <div class="step-num">1</div>
+          <div>
+            <div style="font-weight:700; color:var(--neutral-900)">Provjerite službene informacije</div>
+            <div class="muted" style="margin-top:6px;">Prvo se informirajte na službenoj web-stranici Centra za ažurirane upute i objave.</div>
+          </div>
+        </div>
+
+        <div class="step" tabindex="0">
+          <div class="step-num">2</div>
+          <div>
+            <div style="font-weight:700; color:var(--neutral-900)">Pripremite potrebnu dokumentaciju</div>
+            <div class="muted" style="margin-top:6px;">Popis potrebnih dokumenata obično je naveden uz pojedini postupak na službenoj stranici.</div>
+          </div>
+        </div>
+
+        <div class="step" tabindex="0">
+          <div class="step-num">3</div>
+          <div>
+            <div style="font-weight:700; color:var(--neutral-900)">Kontakt i daljnji koraci</div>
+            <div class="muted" style="margin-top:6px;">Za osobni ili administrativni kontakt posjetite službenu stranicu i pronađite odgovarajući kanal komunikacije.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="kontakt" aria-labelledby="kontakt-heading">
+      <h2 id="kontakt-heading">Kontakt</h2>
+      <p class="muted">Detaljni kontakt-podaci i radno vrijeme nalaze se na službenoj stranici Centra za socijalnu skrb Novska. U nastavku su sigurni i provjerljivi smjerovi za daljnju komunikaciju.</p>
+
+      <div style="display:flex; gap:18px; margin-top:18px; flex-wrap:wrap; align-items:center;">
+        <div style="flex:1; min-width:240px;">
+          <div class="card" style="display:flex; gap:12px; align-items:center;">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M3 8.5v7A2.5 2.5 0 0 0 5.5 18h13A2.5 2.5 0 0 0 21 15.5v-7" stroke="var(--color-primary)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M21 7.5l-9 6-9-6" stroke="rgba(11,95,107,0.12)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <div>
+              <div style="font-weight:700; color:var(--neutral-900)">Službena web-stranica</div>
+              <div class="muted" style="margin-top:6px;"><a href="http://www.czssn.hr/" target="_blank" rel="noopener">http://www.czssn.hr/</a></div>
+            </div>
+          </div>
+        </div>
+
+        <div style="flex:0 0 220px;">
+          <div class="card" style="text-align:center;">
+            <div style="font-weight:700; color:var(--neutral-900); margin-bottom:6px;">Hitne informacije</div>
+            <div class="muted">Za aktualne i službene kontakte koristite link prema službenoj stranici.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-grid" role="contentinfo">
+      <div>
+        <div style="display:flex; gap:12px; align-items:center;">
+          <div class="brand-mark" style="width:44px;height:44px;border-radius:10px;">
+            <svg viewBox="0 0 24 24" fill="none" width="24" height="24" aria-hidden="true">
+              <rect x="3" y="3" width="18" height="18" rx="5" fill="currentColor"/>
+            </svg>
+          </div>
+          <div>
+            <div style="font-weight:700; color:var(--neutral-900); font-family:Merriweather, serif;">Centar za socijalnu skrb Novska</div>
+            <div class="muted" style="font-size:.92rem;">Servisna i informativna stranica</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="display:flex; gap:18px; align-items:center;">
+        <a href="#top" class="cta-ghost">Povratak gore</a>
+        <a href="http://www.czssn.hr/" target="_blank" rel="noopener" class="cta-primary" style="padding:8px 12px;">Službena stranica</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle with accessibility
+    (function(){
+      const btn = document.getElementById('mobileToggle');
+      const panel = document.getElementById('mobilePanel');
+      if(!btn || !panel) return;
+      btn.addEventListener('click', function(){
+        const expanded = this.getAttribute('aria-expanded') === 'true';
+        this.setAttribute('aria-expanded', String(!expanded));
+        if(expanded){
+          panel.style.display = 'none';
+          this.setAttribute('aria-label','Otvorite izbornik');
+        } else {
+          panel.style.display = 'block';
+          this.setAttribute('aria-label','Zatvorite izbornik');
+        }
+      });
+
+      // Close panel on ESC and trap focus basic
+      document.addEventListener('keydown', function(e){
+        if(e.key === 'Escape'){
+          btn.setAttribute('aria-expanded','false');
+          panel.style.display = 'none';
+          btn.focus();
+        }
+      });
+
+      // Smooth scroll for internal anchors
+      document.querySelectorAll('a[href^="#"]').forEach(function(anchor){
+        anchor.addEventListener('click', function(e){
+          const href = this.getAttribute('href');
+          if(href.length === 1) return;
+          const target = document.querySelector(href);
+          if(target){
+            e.preventDefault();
+            target.scrollIntoView({behavior: 'smooth', block: 'start'});
+            // close mobile panel if open
+            if(panel.style.display === 'block'){
+              panel.style.display = 'none';
+              btn.setAttribute('aria-expanded','false');
+            }
+          }
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
