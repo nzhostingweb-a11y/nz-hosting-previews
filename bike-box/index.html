@@ -1,0 +1,514 @@
+ <!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Bike Box — Trgovina i usluge za bicikle</title>
+  <meta name="description" content="Bike Box — prodaja i oprema za bicikle te stručne usluge održavanja i savjetovanja. Kontakt: +385 42 200 616, bikebox1@matis.com.hr" />
+  <meta property="og:title" content="Bike Box — Trgovina i usluge za bicikle" />
+  <meta property="og:description" content="Prodaja i oprema za bicikle te stručne usluge održavanja i savjetovanja. Kontakt: +385 42 200 616" />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      /* Boje */
+      --color-primary: #0f4c4c;      /* tamni teal */
+      --color-secondary: #f5a623;    /* topao jantar */
+      --color-accent: #e8f6f6;       /* svijetli akcent */
+      --neutral-900: #0b0b0b;
+      --neutral-700: #2f2f2f;
+      --neutral-500: #6b6b6b;
+      --neutral-200: #e9eceb;
+      --neutral-100: #f7f9f8;
+      --bg: #ffffff;
+
+      /* Tipografija */
+      --fs-hero: clamp(1.8rem, 3.8vw, 3.6rem);
+      --fs-h2: clamp(1.25rem, 2.5vw, 1.6rem);
+      --fs-base: clamp(0.98rem, 1.6vw, 1.05rem);
+      --ff-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      --ff-serif: "Playfair Display", Georgia, serif;
+
+      /* Spacing */
+      --container: 1120px;
+      --gap: 1.25rem;
+      --radius-sm: 8px;
+      --radius-lg: 14px;
+
+      /* Sjene i obrubi */
+      --card-shadow: 0 8px 24px rgba(16,24,32,0.06);
+      --focus-ring: 3px solid rgba(15,76,76,0.14);
+
+      /* Transition */
+      --trans: 180ms cubic-bezier(.2,.9,.3,1);
+
+      /* Layout */
+      --nav-height: 72px;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:var(--ff-sans);
+      font-size:16px;
+      color:var(--neutral-900);
+      background:var(--bg);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+    }
+
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;height:auto;display:block}
+
+    /* Container */
+    .wrap{max-width:var(--container);margin:0 auto;padding:0 1.25rem}
+
+    /* NAV */
+    header{
+      position:sticky;top:0;z-index:60;
+      backdrop-filter:saturate(1.05) blur(6px);
+      background: linear-gradient(180deg, rgba(255,255,255,0.7), rgba(255,255,255,0.55));
+      border-bottom:1px solid var(--neutral-200);
+    }
+    .nav-inner{height:var(--nav-height);display:flex;align-items:center;justify-content:space-between}
+    .brand{
+      display:flex;align-items:center;gap:.75rem;font-weight:700;
+      color:var(--color-primary)
+    }
+    .brand-mark{
+      width:44px;height:44px;border-radius:10px;
+      display:grid;place-items:center;
+      background:linear-gradient(180deg,var(--color-accent),var(--neutral-100));
+      box-shadow: var(--card-shadow);
+      flex-shrink:0;
+    }
+    .brand-mark svg{width:28px;height:20px;display:block}
+    .brand .name{font-family:var(--ff-serif);font-size:1.05rem;letter-spacing:.2px}
+
+    nav.primary{display:flex;align-items:center;gap:1.25rem}
+    .nav-links{display:flex;gap:1rem;align-items:center}
+    .nav-links a{color:var(--neutral-700);padding:.5rem .6rem;border-radius:8px;font-weight:600;font-size:.95rem}
+    .nav-links a:focus{outline:var(--focus-ring);outline-offset:3px}
+    .cta{
+      background:var(--color-secondary);color:#111;padding:.6rem .9rem;border-radius:10px;font-weight:700;
+      box-shadow:0 6px 18px rgba(245,166,35,0.12);transition:transform var(--trans),box-shadow var(--trans);
+    }
+    .cta:hover{transform:translateY(-3px);box-shadow:0 10px 28px rgba(245,166,35,0.16)}
+    .menu-button{display:none;background:transparent;border:0;padding:.5rem;border-radius:9px}
+    .menu-button:focus{outline:var(--focus-ring)}
+
+    /* HERO */
+    .hero{
+      padding:3.25rem 0;
+      display:grid;
+      grid-template-columns: 1fr 480px;
+      gap:2.5rem;
+      align-items:center;
+    }
+    .hero-content{padding-right:1rem}
+    h1{
+      margin:0 0 .6rem 0;
+      font-family:var(--ff-serif);
+      font-size:var(--fs-hero);
+      line-height:1.02;
+      color:var(--color-primary);
+      letter-spacing:-0.5px;
+    }
+    .lead{
+      font-size:var(--fs-base);color:var(--neutral-700);margin:0 0 1.25rem 0;
+      max-width:56ch;
+    }
+    .hero-ctas{display:flex;gap:.9rem;align-items:center}
+    .btn{
+      display:inline-flex;align-items:center;gap:.6rem;padding:.7rem 1rem;border-radius:12px;font-weight:700;border:0;cursor:pointer;
+      transition:transform var(--trans),box-shadow var(--trans),background-color var(--trans);
+    }
+    .btn-primary{background:var(--color-secondary);color:#0b0b0b;box-shadow:0 10px 30px rgba(15,76,76,0.06)}
+    .btn-secondary{background:transparent;border:1px solid var(--neutral-200);color:var(--neutral-700)}
+    .hero-meta{display:flex;gap:1.1rem;margin-top:1.4rem;color:var(--neutral-500);font-weight:600}
+
+    /* Hero visual */
+    .hero-visual{
+      width:100%;height:100%;display:grid;place-items:center;
+      background: linear-gradient(180deg,var(--neutral-100),transparent);
+      border-radius:var(--radius-lg);
+      padding:1.2rem;
+      box-shadow: var(--card-shadow);
+      align-self:stretch;
+    }
+    .bike-art{
+      width:100%;max-width:420px;height:260px;display:block;position:relative;
+    }
+    .bike-art svg{width:100%;height:100%;display:block}
+
+    /* Services */
+    section.services{padding:3rem 0}
+    .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
+    .card{
+      background:linear-gradient(180deg,#fff, var(--color-accent));
+      border-radius:12px;padding:1.2rem;box-shadow:var(--card-shadow);border:1px solid var(--neutral-200);
+      transition:transform var(--trans),box-shadow var(--trans);
+    }
+    .card:hover{transform:translateY(-6px)}
+    .icon{
+      width:56px;height:56px;border-radius:10px;display:grid;place-items:center;background:rgba(15,76,76,0.06);
+      margin-bottom:.9rem;
+    }
+    .card h3{margin:0 0 .45rem 0;font-size:1.05rem;color:var(--color-primary)}
+    .card p{margin:0;color:var(--neutral-600);font-size:.98rem}
+
+    /* About & Approach */
+    .about{
+      padding:3rem 0;border-top:1px dashed var(--neutral-200);
+      display:grid;grid-template-columns:1fr 380px;gap:2rem;align-items:start
+    }
+    .about p{color:var(--neutral-700);margin:0 0 1rem 0}
+    .approach{background:var(--neutral-100);padding:1.25rem;border-radius:12px;border:1px solid var(--neutral-200)}
+    .approach li{margin-bottom:.6rem}
+
+    /* How it works */
+    .steps{display:flex;gap:1rem;margin-top:1rem}
+    .step{
+      background:#fff;padding:1rem;border-radius:12px;box-shadow:var(--card-shadow);flex:1;border:1px solid var(--neutral-200);
+      display:flex;gap:.8rem;align-items:flex-start;
+    }
+    .step .num{width:36px;height:36px;border-radius:8px;background:var(--color-primary);color:#fff;display:grid;place-items:center;font-weight:700}
+
+    /* Contact */
+    .contact{
+      margin:3rem 0;padding:1.6rem;border-radius:12px;background:linear-gradient(180deg,#fff,var(--neutral-100));
+      display:flex;gap:1.4rem;align-items:center;justify-content:space-between;border:1px solid var(--neutral-200);
+      box-shadow:var(--card-shadow)
+    }
+    .contact .info{display:flex;flex-direction:column;gap:.35rem}
+    .contact .big{font-weight:800;font-size:1.05rem;color:var(--color-primary)}
+    .contact .muted{color:var(--neutral-700)}
+
+    /* Footer */
+    footer{border-top:1px solid var(--neutral-200);padding:2rem 0;background:var(--bg)}
+    .footer-grid{display:flex;justify-content:space-between;align-items:center;gap:2rem;flex-wrap:wrap}
+    .footer-nav{display:flex;gap:1rem;align-items:center}
+
+    /* Responsive */
+    @media (max-width:1100px){
+      .hero{grid-template-columns:1fr 360px}
+      .services-grid{grid-template-columns:repeat(2,1fr)}
+      .about{grid-template-columns:1fr}
+    }
+    @media (max-width:760px){
+      .wrap{padding:0 1rem}
+      .nav-links{display:none}
+      .menu-button{display:inline-flex}
+      .hero{grid-template-columns:1fr;gap:1rem;padding:2rem 0}
+      .hero-visual{order:-1;margin-bottom:-.2rem}
+      .hero-ctas{flex-direction:column;align-items:stretch}
+      .services-grid{grid-template-columns:1fr}
+      .about{grid-template-columns:1fr}
+      .contact{flex-direction:column;align-items:stretch}
+    }
+
+    /* Accessibility & motion preferences */
+    @media (prefers-reduced-motion: reduce){
+      *{transition:none!important;animation:none!important}
+    }
+
+    /* Focus visible */
+    :focus{outline-offset:3px}
+    a:focus,button:focus{outline:var(--focus-ring);border-radius:10px}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap nav-inner" role="banner">
+      <div class="brand" aria-label="Bike Box">
+        <div class="brand-mark" aria-hidden="true">
+          <!-- stylized box + wheel mark -->
+          <svg viewBox="0 0 56 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="1" y="1" width="54" height="38" rx="8" fill="#E8F6F6"/>
+            <circle cx="16" cy="22" r="8" stroke="#0F4C4C" stroke-width="2.5" fill="none"/>
+            <path d="M28 14h18" stroke="#0F4C4C" stroke-width="2.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="name">Bike Box</div>
+      </div>
+
+      <nav class="primary" role="navigation" aria-label="Glavna navigacija">
+        <div class="nav-links" role="menu">
+          <a href="#usluge" role="menuitem">Ponuda</a>
+          <a href="#o-nama" role="menuitem">O nama</a>
+          <a href="#kako" role="menuitem">Kako radimo</a>
+          <a href="#kontakt" role="menuitem">Kontakt</a>
+        </div>
+
+        <div style="display:flex;align-items:center;gap:.8rem">
+          <a class="cta" href="tel:+38542200616" aria-label="Nazovite Bike Box">Nazovite: +385 42 200 616</a>
+          <button class="menu-button" id="menuBtn" aria-expanded="false" aria-controls="mobileMenu" aria-label="Otvori izbornik">
+            <svg width="22" height="14" viewBox="0 0 22 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect y="1" width="22" height="2" rx="1" fill="#2f2f2f"/>
+              <rect y="6" width="22" height="2" rx="1" fill="#2f2f2f"/>
+              <rect y="11" width="22" height="2" rx="1" fill="#2f2f2f"/>
+            </svg>
+          </button>
+        </div>
+      </nav>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobileMenu" style="display:none;padding:0 1rem 1rem 1rem">
+      <div class="wrap" role="menu" aria-hidden="true">
+        <a href="#usluge" role="menuitem" style="display:block;padding:.9rem 0;border-bottom:1px solid var(--neutral-200)">Ponuda</a>
+        <a href="#o-nama" role="menuitem" style="display:block;padding:.9rem 0;border-bottom:1px solid var(--neutral-200)">O nama</a>
+        <a href="#kako" role="menuitem" style="display:block;padding:.9rem 0;border-bottom:1px solid var(--neutral-200)">Kako radimo</a>
+        <a href="#kontakt" role="menuitem" style="display:block;padding:.9rem 0">Kontakt</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="wrap hero" aria-labelledby="hero-title">
+      <div class="hero-content">
+        <h1 id="hero-title">Bike Box — trgovina i stručna podrška za bicikle</h1>
+        <p class="lead">Prodaja opreme i bicikala te praktične usluge održavanja i savjetovanja. Fokusiramo se na jasnoću, kvalitetu i brzu komunikaciju — kako biste se što prije vratili na stazu ili ulicu.</p>
+
+        <div class="hero-ctas" role="region" aria-label="Pozivi na akciju">
+          <a class="btn btn-primary" href="tel:+38542200616">Nazovite odmah</a>
+          <a class="btn btn-secondary" href="mailto:bikebox1@matis.com.hr">Pošaljite upit</a>
+        </div>
+
+        <div class="hero-meta" aria-hidden="true">
+          <div><strong>Telefon:</strong> +385 42 200 616</div>
+          <div><strong>Email:</strong> bikebox1@matis.com.hr</div>
+        </div>
+      </div>
+
+      <div class="hero-visual" aria-hidden="false" role="img" aria-label="Ilustracija bicikla">
+        <div class="bike-art" aria-hidden="true">
+          <!-- Original inline SVG composition, decorative -->
+          <svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
+            <defs>
+              <linearGradient id="g1" x1="0" x2="1" y1="0" y2="1">
+                <stop offset="0" stop-color="#F7F9F8"/>
+                <stop offset="1" stop-color="#E8F6F6"/>
+              </linearGradient>
+            </defs>
+            <rect x="0" y="0" width="640" height="400" rx="16" fill="url(#g1)"/>
+            <!-- wheels -->
+            <g transform="translate(60,60)">
+              <circle cx="120" cy="160" r="80" fill="#fff" stroke="#0f4c4c" stroke-width="6"/>
+              <circle cx="420" cy="160" r="80" fill="#fff" stroke="#0f4c4c" stroke-width="6"/>
+              <!-- spokes -->
+              <g stroke="#0f4c4c" stroke-opacity="0.18" stroke-width="3">
+                <g transform="translate(120,160)">
+                  <line x1="0" y1="0" x2="70" y2="0"/>
+                  <line x1="0" y1="0" x2="-50" y2="40"/>
+                  <line x1="0" y1="0" x2="-50" y2="-40"/>
+                  <line x1="0" y1="0" x2="0" y2="-70"/>
+                </g>
+                <g transform="translate(420,160)">
+                  <line x1="0" y1="0" x2="70" y2="0"/>
+                  <line x1="0" y1="0" x2="-50" y2="40"/>
+                  <line x1="0" y1="0" x2="-50" y2="-40"/>
+                  <line x1="0" y1="0" x2="0" y2="-70"/>
+                </g>
+              </g>
+              <!-- frame -->
+              <path d="M200 120 L300 80 L360 140 L240 170 Z" fill="none" stroke="#0f4c4c" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M300 80 L360 140 L420 160" fill="none" stroke="#0f4c4c" stroke-width="6" stroke-linecap="round"/>
+              <!-- seat and handle -->
+              <rect x="280" y="58" width="56" height="12" rx="6" fill="#0f4c4c"/>
+              <path d="M200 120 L160 86" stroke="#0f4c4c" stroke-width="6" stroke-linecap="round"/>
+              <rect x="142" y="70" width="12" height="48" rx="6" fill="#0f4c4c"/>
+              <!-- subtle decorative lines -->
+              <path d="M30 32 C120 6, 420 8, 560 36" stroke="#f5a623" stroke-opacity="0.08" stroke-width="24" stroke-linecap="round" fill="none"/>
+            </g>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <section id="usluge" class="wrap services" aria-labelledby="usluge-title">
+      <h2 id="usluge-title" style="font-size:var(--fs-h2);margin:0 0 1rem 0;font-weight:700;color:var(--neutral-700)">Što nudimo</h2>
+      <p style="margin:0 0 1.25rem 0;color:var(--neutral-600)">U skladu s profilom Bike Boxa, fokus nam je na proizvodima i podršci vezanoj uz bicikle i opremu. Ispod su osnovne kategorije usluga koje uobičajeno pružamo i za koje možete zatražiti dodatne informacije.</p>
+
+      <div class="services-grid" role="list">
+        <article class="card" role="listitem" aria-labelledby="s1">
+          <div class="icon" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M3 6h18" stroke="#0F4C4C" stroke-width="1.8" stroke-linecap="round"/>
+              <path d="M5 10h14v6H5z" stroke="#0F4C4C" stroke-width="1.8" stroke-linejoin="round" fill="none"/>
+              <circle cx="8" cy="17" r="1" fill="#0F4C4C"/>
+            </svg>
+          </div>
+          <h3 id="s1">Proizvodi i oprema</h3>
+          <p>Pregledna ponuda bicikala i opreme te podroban prikaz mogućnosti — od komponenata do dodatne opreme. Ako želite, pošaljite upit za specifične artikle ili savjet pri odabiru.</p>
+        </article>
+
+        <article class="card" role="listitem" aria-labelledby="s2">
+          <div class="icon" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4 20h16" stroke="#0F4C4C" stroke-width="1.8" stroke-linecap="round"/>
+              <path d="M7 20v-8l5-4 5 4v8" stroke="#0F4C4C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3 id="s2">Održavanje i podešavanje</h3>
+          <p>Osnovne i napredne intervencije na biciklima: dijagnostika, podešavanje i rutinska skrb kako bi bicikl bio siguran i udoban za vožnju.</p>
+        </article>
+
+        <article class="card" role="listitem" aria-labelledby="s3">
+          <div class="icon" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 2v6" stroke="#0F4C4C" stroke-width="1.8" stroke-linecap="round"/>
+              <path d="M5 20c2-2 4-3 7-3s5 1 7 3" stroke="#0F4C4C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3 id="s3">Savjetovanje pri odabiru</h3>
+          <p>Praktični savjeti pri kupnji i usmjeravanje prema najboljem rješenju za vaše potrebe i stil vožnje — kontaktirajte nas za individualni razgovor.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="o-nama" class="wrap about" aria-labelledby="o-nama-title">
+      <div>
+        <h2 id="o-nama-title" style="font-size:var(--fs-h2);margin:0 0 .6rem 0">O Bike Boxu</h2>
+        <p>Bike Box se bavi trgovinom i uslugama u području biciklizma i opreme. Ovdje ćete pronaći jasne informacije o proizvodima i podršci te brz način komunikacije za pitanja i zahtjeve.</p>
+        <p>Na ovoj stranici nalaze se kontakt informacije i osnovne smjernice o procesu suradnje. Ako želite preciznije podatke o dostupnosti ili tehničkim specifikacijama, zatražite ih putem telefona ili e‑maila. </p>
+      </div>
+
+      <aside class="approach" aria-labelledby="pristup-title">
+        <h3 id="pristup-title" style="margin-top:0;font-size:1rem;color:var(--color-primary)">Naš pristup</h3>
+        <ul style="margin:0;padding-left:1.05rem">
+          <li>Jasan i brz razgovor o vašim potrebama.</li>
+          <li>Transparentne informacije o opcijama i raspoloživosti.</li>
+          <li>Fokus na praktične i funkcionalne solucije bez pretpostavki.</li>
+        </ul>
+      </aside>
+    </section>
+
+    <section id="kako" class="wrap" aria-labelledby="kako-title" style="padding-bottom:0">
+      <h2 id="kako-title" style="font-size:var(--fs-h2);margin:0 0 1rem 0">Kako surađujemo</h2>
+      <p style="margin:0 0 1rem 0;color:var(--neutral-600)">Proces je jednostavan i usmjeren na rezultat — brzo komuniciramo opcije i dogovaramo sljedeće korake.</p>
+
+      <div class="steps" role="list">
+        <div class="step" role="listitem" aria-labelledby="step1">
+          <div class="num" aria-hidden="true">1</div>
+          <div>
+            <h4 id="step1" style="margin:0;font-size:1rem;color:var(--color-primary)">Kontakt i zahtjev</h4>
+            <p style="margin:.45rem 0 0;color:var(--neutral-700)">Nazovite ili pošaljite kratki upit s osnovnim informacijama o onome što trebate.</p>
+          </div>
+        </div>
+
+        <div class="step" role="listitem" aria-labelledby="step2">
+          <div class="num" aria-hidden="true">2</div>
+          <div>
+            <h4 id="step2" style="margin:0;font-size:1rem;color:var(--color-primary)">Procjena i prijedlog</h4>
+            <p style="margin:.45rem 0 0;color:var(--neutral-700)">Dobit ćete jasne opcije i preporuke bez nejasnih obećanja.</p>
+          </div>
+        </div>
+
+        <div class="step" role="listitem" aria-labelledby="step3">
+          <div class="num" aria-hidden="true">3</div>
+          <div>
+            <h4 id="step3" style="margin:0;font-size:1rem;color:var(--color-primary)">Realizacija i podrška</h4>
+            <p style="margin:.45rem 0 0;color:var(--neutral-700)">Dogovaramo termin, izvršavamo uslugu ili isporuku te ostajemo dostupni za dodatna pitanja.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="kontakt" class="wrap" aria-labelledby="kontakt-title">
+      <h2 id="kontakt-title" style="font-size:var(--fs-h2);margin:1.4rem 0 .6rem 0">Kontakt</h2>
+
+      <div class="contact" role="region" aria-label="Kontakt informacije">
+        <div class="info">
+          <div class="big">Bike Box</div>
+          <div class="muted">Za upite koristite telefon ili e‑mail; odgovaramo što je brže moguće.</div>
+          <div style="display:flex;gap:1rem;margin-top:.7rem">
+            <a class="btn btn-primary" href="tel:+38542200616" aria-label="Pozovite Bike Box">Pozovite: +385 42 200 616</a>
+            <a class="btn btn-secondary" href="mailto:bikebox1@matis.com.hr" aria-label="Pošaljite e-mail Bike Box">Pošaljite e‑mail</a>
+          </div>
+        </div>
+
+        <div style="text-align:right">
+          <div style="font-weight:700;color:var(--neutral-700)">Pitanja i zahtjevi</div>
+          <div style="color:var(--neutral-600);margin-top:.6rem">Web: <a href="https://matis.com.hr/" target="_blank" rel="noopener">matis.com.hr</a></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-grid" role="contentinfo">
+      <div style="display:flex;flex-direction:column">
+        <div style="font-weight:800;color:var(--color-primary);margin-bottom:.4rem">Bike Box</div>
+        <div style="color:var(--neutral-700)">Telefon: <a href="tel:+38542200616">+385 42 200 616</a> · Email: <a href="mailto:bikebox1@matis.com.hr">bikebox1@matis.com.hr</a></div>
+      </div>
+
+      <nav class="footer-nav" aria-label="Footer navigacija">
+        <a href="#usluge">Ponuda</a>
+        <a href="#o-nama">O nama</a>
+        <a href="#kako">Kako radimo</a>
+        <a href="#kontakt">Kontakt</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script>
+    (function(){
+      const menuBtn = document.getElementById('menuBtn');
+      const mobileMenu = document.getElementById('mobileMenu');
+
+      function setMenu(open){
+        if(open){
+          mobileMenu.style.display = 'block';
+          mobileMenu.setAttribute('aria-hidden','false');
+          menuBtn.setAttribute('aria-expanded','true');
+        } else {
+          mobileMenu.style.display = 'none';
+          mobileMenu.setAttribute('aria-hidden','true');
+          menuBtn.setAttribute('aria-expanded','false');
+        }
+      }
+
+      // initial
+      setMenu(false);
+
+      menuBtn.addEventListener('click', function(){
+        const expanded = menuBtn.getAttribute('aria-expanded') === 'true';
+        setMenu(!expanded);
+      });
+
+      // close on ESC
+      document.addEventListener('keydown', function(e){
+        if(e.key === 'Escape'){
+          setMenu(false);
+          menuBtn.focus();
+        }
+      });
+
+      // Smooth in-page scrolling for anchors
+      document.querySelectorAll('a[href^="#"]').forEach(a=>{
+        a.addEventListener('click', function(e){
+          const targetId = this.getAttribute('href').slice(1);
+          const el = document.getElementById(targetId);
+          if(el){
+            e.preventDefault();
+            el.scrollIntoView({behavior: 'smooth', block: 'start'});
+            // close mobile menu if open
+            setMenu(false);
+          }
+        });
+      });
+
+      // Respect reduced motion: disable smooth scroll if user prefers reduced motion
+      const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
+      if(mq.matches){
+        // override smooth behavior
+        Element.prototype.scrollIntoView = Element.prototype.scrollIntoView || function(){};
+      }
+    })();
+  </script>
+</body>
+</html>
