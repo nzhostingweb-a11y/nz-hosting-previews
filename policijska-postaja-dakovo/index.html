@@ -1,0 +1,483 @@
+ <!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Policijska postaja Đakovo — Kontakt i informacije</title>
+  <meta name="description" content="Policijska postaja Đakovo — kontakt za građane, informacije i suradnja s lokalnom zajednicom. Telefon: +385 31 813 255" />
+  <meta property="og:title" content="Policijska postaja Đakovo — Kontakt i informacije" />
+  <meta property="og:description" content="Kontakt za građane i informacije. Saznajte kako se obratiti postaji i gdje pronaći službene informacije." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Merriweather:wght@700;900&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --color-primary: #0b3b72; /* duboka policijska plava */
+      --color-secondary: #f5f7fb; /* svijetli neutral */
+      --color-accent: #f2b400; /* suptilan žuti akcent */
+      --color-muted: #6b7280;
+      --text-on-primary: #ffffff;
+      --bg: #ffffff;
+      --card-bg: #ffffff;
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --shadow-soft: 0 6px 20px rgba(11,59,114,0.12);
+      --shadow-subtle: 0 3px 10px rgba(11,59,114,0.06);
+      --gap: 24px;
+      --container-width: 1200px;
+      --focus-ring: 3px solid rgba(242,180,0,0.18);
+      --fs-base: 1rem;
+      --line-height: 1.45;
+      --brand-font: "Merriweather", Georgia, serif;
+      --ui-font: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+
+    /* Reset & basics */
+    *,*::before,*::after{box-sizing:border-box}
+    html{font-family:var(--ui-font);font-size:16px;line-height:var(--line-height);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+    body{margin:0;background:var(--color-secondary);color:#111;min-height:100vh}
+    a{color:inherit;text-decoration:none}
+    img,svg{max-width:100%;height:auto;display:block}
+
+    /* Utility */
+    .container{max-width:var(--container-width);margin:0 auto;padding:0 20px}
+    .stack{display:flex;flex-direction:column;gap:var(--gap)}
+    .row{display:flex;gap:var(--gap);align-items:center}
+    .card{background:var(--card-bg);border-radius:var(--radius-md);box-shadow:var(--shadow-soft);padding:20px}
+    .muted{color:var(--color-muted)}
+
+    /* Skip link */
+    .skip-link{position:fixed;left:12px;top:12px;background:#000;color:#fff;padding:8px 12px;border-radius:6px;z-index:120;transform:translateY(-120%);transition:transform .18s ease}
+    .skip-link:focus{transform:translateY(0);outline:none}
+
+    /* Header / Nav */
+    header{background:linear-gradient(180deg,var(--color-primary), rgba(11,59,114,0.9));color:var(--text-on-primary);position:relative;z-index:50}
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:22px 0}
+    .wordmark{display:flex;align-items:center;gap:14px;font-family:var(--brand-font);font-weight:900;letter-spacing:0.02em}
+    .wordmark .mark{width:46px;height:46px;border-radius:10px;background:linear-gradient(135deg,var(--color-accent), rgba(242,180,0,0.12));display:grid;place-items:center;box-shadow:var(--shadow-subtle)}
+    .wordmark .mark svg{width:26px;height:26px;}
+    nav ul{display:flex;gap:18px;align-items:center;margin:0;padding:0;list-style:none}
+    nav a{color:var(--text-on-primary);font-weight:600;padding:8px 10px;border-radius:8px}
+    nav a:focus{outline:none;box-shadow:var(--focus-ring);border-radius:8px}
+    .cta-group{display:flex;gap:12px;align-items:center}
+    .btn{display:inline-flex;align-items:center;gap:10px;border:0;cursor:pointer;font-weight:600;padding:10px 16px;border-radius:10px}
+    .btn-primary{background:var(--color-accent);color:#07122a}
+    .btn-ghost{background:transparent;color:rgba(255,255,255,0.95);border:1px solid rgba(255,255,255,0.06)}
+    .mobile-toggle{display:none;background:transparent;border:0;color:var(--text-on-primary);padding:8px;border-radius:8px}
+
+    /* Hero */
+    .hero{padding:56px 0;position:relative;overflow:visible}
+    .hero-grid{display:grid;grid-template-columns:1fr 460px;gap:36px;align-items:center}
+    .hero-left{color:var(--text-on-primary)}
+    h1{font-family:var(--brand-font);margin:0;color:var(--text-on-primary);line-height:1;letter-spacing:-0.02em;
+        font-size:clamp(1.8rem, 2.6vw + 1.2rem, 3.6rem)}
+    .lead{margin-top:14px;color:rgba(255,255,255,0.92);font-size:clamp(.98rem, .6vw + .8rem, 1.05rem);max-width:56ch}
+    .hero-ctas{margin-top:26px;display:flex;gap:12px;flex-wrap:wrap}
+    .hero-meta{margin-top:18px;color:rgba(255,255,255,0.85);font-size:.95rem}
+
+    /* Hero visual */
+    .hero-card{background:linear-gradient(180deg, rgba(255,255,255,0.98), #fff);border-radius:18px;padding:22px;box-shadow:var(--shadow-soft);display:flex;flex-direction:column;gap:14px;align-items:stretch}
+    .hero-art{display:grid;grid-template-columns:1fr;gap:12px;align-items:center}
+    .shield-wrap{display:flex;align-items:center;justify-content:center;padding:20px;border-radius:12px;background:linear-gradient(180deg, rgba(11,59,114,0.06), rgba(11,59,114,0.02));box-shadow:var(--shadow-subtle)}
+    .small-stats{display:flex;gap:10px;justify-content:space-between;color:var(--color-muted);font-weight:600}
+
+    /* Services */
+    section{padding:56px 0}
+    .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .service{background:linear-gradient(180deg,#fff,#fbfdff);border-radius:12px;padding:20px;box-shadow:var(--shadow-subtle);display:flex;gap:14px;align-items:flex-start}
+    .icon-box{width:56px;height:56px;border-radius:10px;background:linear-gradient(135deg,var(--color-primary), rgba(11,59,114,0.06));display:grid;place-items:center;color:var(--text-on-primary);flex-shrink:0}
+    .service h3{margin:0;font-size:1.05rem;font-weight:700}
+    .service p{margin:6px 0 0;color:var(--color-muted);font-size:.96rem}
+
+    /* About / Approach */
+    .split{display:grid;grid-template-columns:1fr 360px;gap:28px;align-items:start}
+    .benefits{display:flex;flex-direction:column;gap:12px}
+    .benefit{display:flex;gap:12px;align-items:flex-start;background:#fff;padding:14px;border-radius:10px;box-shadow:var(--shadow-subtle)}
+    .benefit strong{display:block;font-weight:700}
+    .timeline{background:linear-gradient(180deg,#fff,#fbfdff);padding:18px;border-radius:12px;box-shadow:var(--shadow-subtle)}
+
+    /* Contact */
+    .contact-card{display:flex;flex-direction:column;gap:12px;padding:20px;border-radius:12px;background:#fff;box-shadow:var(--shadow-soft)}
+    .contact-row{display:flex;gap:12px;align-items:center}
+    .tel{font-weight:700;color:var(--color-primary);font-size:1.05rem}
+    .link-out{display:inline-flex;align-items:center;gap:8px;color:var(--color-primary);font-weight:600}
+
+    /* Footer */
+    footer{background:#07122a;color:#fff;padding:28px 0;margin-top:36px}
+    footer .row{align-items:flex-start}
+    footer a{color:rgba(255,255,255,0.9)}
+
+    /* Responsive */
+    @media (max-width:1024px){
+      .hero-grid{grid-template-columns:1fr 380px}
+      .split{grid-template-columns:1fr 320px}
+      .services-grid{grid-template-columns:repeat(2,1fr)}
+    }
+    @media (max-width:720px){
+      .nav-inner{padding:14px 0}
+      nav ul{display:none}
+      .mobile-toggle{display:inline-flex}
+      .hero-grid{grid-template-columns:1fr;gap:22px}
+      header{padding-bottom:12px}
+      .split{grid-template-columns:1fr}
+      .services-grid{grid-template-columns:1fr}
+      .hero{padding:36px 0}
+      .wordmark .text{display:none}
+    }
+
+    /* Mobile menu */
+    .mobile-menu{position:fixed;inset:0;background:linear-gradient(180deg, rgba(7,18,42,0.96), rgba(7,18,42,0.98));padding:40px 20px;display:none;flex-direction:column;gap:18px;z-index:120}
+    .mobile-menu.open{display:flex}
+    .mobile-menu a{color:#fff;font-size:1.05rem;padding:10px;border-radius:8px}
+    .mobile-menu .cta{margin-top:8px}
+
+    /* Focus and reduced motion */
+    :focus{outline:none}
+    :focus-visible{box-shadow:var(--focus-ring);border-radius:8px}
+    @media (prefers-reduced-motion: reduce){
+      *{transition:none !important;animation:none !important}
+    }
+
+    /* Small helpers */
+    .muted-box{background:#fff;border-radius:10px;padding:12px;color:var(--color-muted);box-shadow:var(--shadow-subtle)}
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Preskoči na sadržaj</a>
+
+  <header>
+    <div class="container nav-inner" role="banner">
+      <div class="wordmark" aria-hidden="false">
+        <div class="mark" aria-hidden="true">
+          <!-- stylized shield -->
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M12 2l7 3v6c0 5-3.5 9.2-7 11-3.5-1.8-7-6-7-11V5l7-3z" fill="#07122a"/>
+            <path d="M12 4.2L6 6v4.4c0 3.6 2.5 6.7 6 8.4 3.5-1.7 6-4.8 6-8.4V6l-6-1.8z" fill="#f2b400" opacity="0.12"/>
+          </svg>
+        </div>
+        <div class="text">
+          <div style="font-size:1rem;">Policijska postaja</div>
+          <div style="font-size:1.05rem;letter-spacing:0.02em">Đakovo</div>
+        </div>
+      </div>
+
+      <nav aria-label="Glavna navigacija">
+        <ul>
+          <li><a href="#usluge">Što radimo</a></li>
+          <li><a href="#o-nama">O postaji</a></li>
+          <li><a href="#kontakt">Kontakt</a></li>
+          <li><a href="#info">Savjeti</a></li>
+        </ul>
+      </nav>
+
+      <div class="cta-group">
+        <a class="btn btn-ghost" href="http://osjecko-baranjska.policija.hr/MainPu.aspx?id=14520" target="_blank" rel="noopener">Službena stranica</a>
+        <a class="btn btn-primary" href="tel:+38531813255">Nazovi: +385 31 813 255</a>
+        <button class="mobile-toggle" id="mobileToggle" aria-controls="mobileMenu" aria-expanded="false" aria-label="Otvori izbornik">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <div id="mobileMenu" class="mobile-menu" aria-hidden="true">
+      <a href="#usluge">Što radimo</a>
+      <a href="#o-nama">O postaji</a>
+      <a href="#info">Savjeti</a>
+      <a href="#kontakt">Kontakt</a>
+      <div class="cta">
+        <a class="btn btn-primary" href="tel:+38531813255">Nazovi: +385 31 813 255</a>
+      </div>
+      <div style="margin-top:auto">
+        <a href="http://osjecko-baranjska.policija.hr/MainPu.aspx?id=14520" target="_blank" rel="noopener" class="link-out">Službena stranica</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-left">
+          <p style="margin:0;color:rgba(255,255,255,0.9);font-weight:600">Javna sigurnost — lokalna prisutnost</p>
+          <h1>Policijska postaja Đakovo — kontakt i informacije za građane</h1>
+          <p class="lead">Dostupni za informacije, dojave i suradnju s lokalnom zajednicom. Ako trebate kontakt s postajom, nazovite lokalni broj ili posjetite službenu stranicu.</p>
+
+          <div class="hero-ctas">
+            <a class="btn btn-primary" href="tel:+38531813255" aria-label="Nazovi policijsku postaju Đakovo">Nazovi sada</a>
+            <a class="btn btn-ghost" href="#kontakt" aria-label="Prikaži kontakt">Kontakt informacije</a>
+            <a class="btn" style="background:transparent;color:var(--text-on-primary);border:1px solid rgba(255,255,255,0.12);" href="http://osjecko-baranjska.policija.hr/MainPu.aspx?id=14520" target="_blank" rel="noopener">Službena stranica</a>
+          </div>
+
+          <div class="hero-meta" aria-hidden="false">
+            Telefon: <strong>+385 31 813 255</strong> • Službene informacije na mrežnoj stranici policije
+          </div>
+        </div>
+
+        <aside class="hero-card" aria-label="Vizualni prikaz">
+          <div class="hero-art">
+            <div style="display:flex;gap:12px;align-items:center;justify-content:space-between">
+              <div style="flex:1">
+                <div style="font-weight:700;color:var(--color-primary)">Rad s građanima</div>
+                <div style="color:var(--color-muted);margin-top:6px">Informacije, upute i suradnja u zajednici</div>
+              </div>
+              <div class="shield-wrap" aria-hidden="true">
+                <!-- decorative SVG composition -->
+                <svg viewBox="0 0 120 120" width="86" height="86" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
+                  <defs>
+                    <linearGradient id="g1" x1="0" x2="1" y1="0" y2="1">
+                      <stop offset="0" stop-color="#0b3b72"/>
+                      <stop offset="1" stop-color="#063156"/>
+                    </linearGradient>
+                    <filter id="f1" x="-20%" y="-20%" width="140%" height="140%">
+                      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#07122a" flood-opacity="0.12"/>
+                    </filter>
+                  </defs>
+                  <g filter="url(#f1)">
+                    <path d="M60 6c12 0 28 6 36 10 5 3 10 11 10 18v26c0 13-9 26-22 33-11 6-24 9-34 9s-23-3-34-9C13 92 4 79 4 66V40c0-7 5-15 10-18C32 12 48 6 60 6z" fill="url(#g1)"/>
+                    <path d="M60 20c8 0 18 3 24 6 4 2 8 8 8 12v18c0 9-6 18-16 24-9 5-19 7-26 7s-17-2-26-7C34 74 28 65 28 56V38c0-4 4-10 8-12 6-3 16-6 24-6z" fill="#fff" opacity="0.06"/>
+                    <circle cx="60" cy="56" r="18" fill="#fff" opacity="0.06"/>
+                    <path d="M60 44c6 0 11 4 11 10s-5 10-11 10-11-4-11-10 5-10 11-10z" fill="#f2b400" opacity="0.12"/>
+                  </g>
+                </svg>
+              </div>
+            </div>
+
+            <div class="small-stats" aria-hidden="true">
+              <div>
+                <div style="font-weight:700;color:#07122a">Lokalna prisutnost</div>
+                <div style="font-size:.95rem;color:var(--color-muted)">Podrška građanima</div>
+              </div>
+              <div style="text-align:right">
+                <div style="font-weight:700;color:#07122a">Službeni izvor</div>
+                <div style="font-size:.95rem;color:var(--color-muted)">Policijska uprava</div>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="usluge" aria-labelledby="usluge-title" class="container">
+      <h2 id="usluge-title" style="font-family:var(--brand-font);font-size:1.25rem;margin:0 0 18px 0;color:var(--color-primary)">Što radimo</h2>
+      <p class="muted" style="margin:0 0 18px 0">Opći okvir djelovanja postaje — informacije i kontakt za potrebe građana i lokalne zajednice.</p>
+
+      <div class="services-grid" role="list">
+        <article class="service" role="listitem" aria-labelledby="s1">
+          <div class="icon-box" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M12 2l7 3v6c0 5-3.5 9.2-7 11-3.5-1.8-7-6-7-11V5l7-3z" fill="#fff" opacity="0.95"/></svg>
+          </div>
+          <div>
+            <h3 id="s1">Pristup za građane</h3>
+            <p>Kontaktni kanal za informacije, upute i dojave važnih događaja relevantnih za sigurnost i red u lokalnoj zajednici.</p>
+          </div>
+        </article>
+
+        <article class="service" role="listitem" aria-labelledby="s2">
+          <div class="icon-box" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M3 13h18M6 6h12" stroke="#fff" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div>
+            <h3 id="s2">Informiranje i upute</h3>
+            <p>Praktične informacije za građane o postupcima i osnovnim uputama te smjernice za suradnju s policijom.</p>
+          </div>
+        </article>
+
+        <article class="service" role="listitem" aria-labelledby="s3">
+          <div class="icon-box" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M12 8v6M9 11h6" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/></svg>
+          </div>
+          <div>
+            <h3 id="s3">Prevencija i suradnja</h3>
+            <p>Suradnja s lokalnom zajednicom na pitanjima prevencije i sigurnosti te koordinacija aktivnosti s drugim službama.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="o-nama" class="container" aria-labelledby="onama-title">
+      <h2 id="onama-title" style="font-family:var(--brand-font);font-size:1.25rem;margin:0 0 18px 0;color:var(--color-primary)">O postaji</h2>
+      <div class="split" role="region" aria-label="O postaji i pristup">
+        <div>
+          <p class="muted" style="margin:0 0 12px 0">Policijska postaja Đakovo je lokalna organizacijska jedinica s odgovornošću za pružanje informacija i suradnje s građanima te za djelovanje u okviru nadležnosti policijske uprave. Ovdje su istaknute osnovne smjernice i način rada.</p>
+
+          <div class="benefits" style="margin-top:12px">
+            <div class="benefit">
+              <div style="width:36px;height:36px;background:linear-gradient(135deg,var(--color-primary),#083656);border-radius:8px;display:grid;place-items:center;color:#fff">1</div>
+              <div>
+                <strong>Dostupnost</strong>
+                <div class="muted">Lokalni kanal za informacije i kontakt s građanima.</div>
+              </div>
+            </div>
+
+            <div class="benefit">
+              <div style="width:36px;height:36px;background:linear-gradient(135deg,var(--color-accent),#f2b400);border-radius:8px;display:grid;place-items:center;color:#07122a">2</div>
+              <div>
+                <strong>Transparentnost</strong>
+                <div class="muted">Jasne upute i smjernice za postupanje u različitim situacijama.</div>
+              </div>
+            </div>
+
+            <div class="benefit">
+              <div style="width:36px;height:36px;background:#e9eef8;border-radius:8px;display:grid;place-items:center;color:var(--color-primary)">3</div>
+              <div>
+                <strong>Suradnja</strong>
+                <div class="muted">Rad s lokalnim dionicima radi poboljšanja sigurnosti zajednice.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <aside>
+          <div class="timeline">
+            <div style="font-weight:700;color:var(--color-primary)">Način rada</div>
+            <p class="muted" style="margin-top:8px">Postaja pruža informacije i prihvaća dojave te koordinira postupke u skladu s nadležnostima policijske uprave. Za službene informacije i obavijesti koristite dostupne kanale i službenu mrežnu stranicu.</p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="info" class="container" aria-labelledby="info-title">
+      <h2 id="info-title" style="font-family:var(--brand-font);font-size:1.25rem;margin:0 0 18px 0;color:var(--color-primary)">Savjeti i upute</h2>
+      <p class="muted" style="margin:0 0 12px 0">Kratke preporuke za postupanje u situacijama kada trebate kontakt s postajom.</p>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:12px">
+        <div class="muted-box">
+          <strong>Kad zatražiti kontakt</strong>
+          <div style="margin-top:8px">Ako imate informaciju koja može pomoći sigurnosti ili trebate upute, obratite se postaji putem navedenog telefona ili službene stranice.</div>
+        </div>
+
+        <div class="muted-box">
+          <strong>Priprema pri pozivu</strong>
+          <div style="margin-top:8px">Pripremite osnovne podatke: lokaciju, prirodu događaja i eventualne kontakte. To pomaže bržem usmjeravanju postupka.</div>
+        </div>
+
+        <div class="muted-box">
+          <strong>Suradnja i dokumentacija</strong>
+          <div style="margin-top:8px">Ako su potrebni službeni podaci ili obrasci, upute su dostupne na službenoj stranici policije.</div>
+        </div>
+
+        <div class="muted-box">
+          <strong>Hitne situacije</strong>
+          <div style="margin-top:8px">U slučaju neposredne opasnosti obratite se hitnim službama. Za kontakt s ovom postajom koristite gore naveden telefon.</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="kontakt" class="container" aria-labelledby="kontakt-title">
+      <h2 id="kontakt-title" style="font-family:var(--brand-font);font-size:1.25rem;margin:0 0 12px 0;color:var(--color-primary)">Kontakt</h2>
+      <div style="display:grid;grid-template-columns:1fr 360px;gap:20px;align-items:start">
+        <div>
+          <div class="contact-card">
+            <div style="display:flex;justify-content:space-between;align-items:center">
+              <div>
+                <div class="muted">Naziv</div>
+                <div style="font-weight:700">Policijska postaja Đakovo</div>
+              </div>
+            </div>
+
+            <div class="contact-row" style="margin-top:6px">
+              <div>
+                <div class="muted">Telefon</div>
+                <a class="tel" href="tel:+38531813255">+385 31 813 255</a>
+              </div>
+            </div>
+
+            <div style="margin-top:8px">
+              <div class="muted">Službena stranica</div>
+              <a class="link-out" href="http://osjecko-baranjska.policija.hr/MainPu.aspx?id=14520" target="_blank" rel="noopener">osjecko-baranjska.policija.hr</a>
+            </div>
+
+            <div style="margin-top:12px;color:var(--color-muted);font-size:.95rem">Napomena: Za adresu i dodatne kontaktne točke provjerite službenu stranicu ili nadležnu policijsku upravu.</div>
+          </div>
+        </div>
+
+        <aside>
+          <div class="card">
+            <div style="font-weight:700;color:var(--color-primary)">Brzi linkovi</div>
+            <nav style="margin-top:10px;display:flex;flex-direction:column;gap:8px">
+              <a href="#usluge">Što radimo</a>
+              <a href="#info">Savjeti</a>
+              <a href="#o-nama">O postaji</a>
+              <a href="http://osjecko-baranjska.policija.hr/MainPu.aspx?id=14520" target="_blank" rel="noopener">Službena stranica (vanjska)</a>
+            </nav>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="row" style="justify-content:space-between;align-items:flex-start">
+        <div style="max-width:520px">
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:8px">
+            <div style="width:44px;height:44px;border-radius:8px;background:#0b3b72;display:grid;place-items:center;color:#fff;font-weight:700">PP</div>
+            <div>
+              <div style="font-weight:700">Policijska postaja Đakovo</div>
+              <div style="color:rgba(255,255,255,0.8);font-size:.95rem">Kontakt: <a href="tel:+38531813255" style="color:#fff;font-weight:600">+385 31 813 255</a></div>
+            </div>
+          </div>
+
+          <div style="color:rgba(255,255,255,0.8);font-size:.93rem">Službene informacije i obavijesti dostupne su na mrežnoj stranici policijske uprave. Ova stranica služi kao sažetek kontaktnih informacija.</div>
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:10px;align-items:flex-end">
+          <nav aria-label="Podnožje - navigacija">
+            <a href="#usluge" style="margin-right:14px">Što radimo</a>
+            <a href="#o-nama" style="margin-right:14px">O postaji</a>
+            <a href="#kontakt">Kontakt</a>
+          </nav>
+          <div style="color:rgba(255,255,255,0.6);font-size:.85rem">© Policijska postaja Đakovo</div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function(){
+      const mobileToggle = document.getElementById('mobileToggle');
+      const mobileMenu = document.getElementById('mobileMenu');
+
+      function openMenu(){
+        mobileMenu.classList.add('open');
+        mobileMenu.setAttribute('aria-hidden','false');
+        mobileToggle.setAttribute('aria-expanded','true');
+        document.body.style.overflow = 'hidden';
+      }
+      function closeMenu(){
+        mobileMenu.classList.remove('open');
+        mobileMenu.setAttribute('aria-hidden','true');
+        mobileToggle.setAttribute('aria-expanded','false');
+        document.body.style.overflow = '';
+      }
+
+      mobileToggle.addEventListener('click', function(){
+        if(mobileMenu.classList.contains('open')) closeMenu(); else openMenu();
+      });
+
+      // close on escape
+      document.addEventListener('keydown', function(e){
+        if(e.key === 'Escape' && mobileMenu.classList.contains('open')) closeMenu();
+      });
+
+      // smooth scroll for internal links
+      document.querySelectorAll('a[href^="#"]').forEach(function(link){
+        link.addEventListener('click', function(e){
+          const target = document.querySelector(this.getAttribute('href'));
+          if(target){
+            e.preventDefault();
+            closeMenu();
+            target.scrollIntoView({behavior:'smooth',block:'start'});
+            // set focus for accessibility
+            setTimeout(()=>{ target.setAttribute('tabindex','-1'); target.focus({preventScroll:true}); }, 400);
+          }
+        });
+      });
+
+      // ensure mobile menu links are keyboard accessible
+      mobileMenu.querySelectorAll('a').forEach(a => a.setAttribute('tabindex','0'));
+    })();
+  </script>
+</body>
+</html>
