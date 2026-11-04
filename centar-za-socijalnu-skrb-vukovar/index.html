@@ -1,0 +1,423 @@
+ <!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Centar za socijalnu skrb Vukovar — Socijalne usluge i upravljanje objektima</title>
+  <meta name="description" content="Centar za socijalnu skrb Vukovar — podrška zajednici i upravljanje objektima. Kontaktirajte nas putem telefona ili e-maila za informacije i suradnju." />
+  <meta property="og:title" content="Centar za socijalnu skrb Vukovar" />
+  <meta property="og:description" content="Podrška zajednici i upravljanje objektima. Kontaktirajte nas za informacije i suradnju." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://czss-vukovar.hr" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      /* Design system */
+      --color-primary: #0b5a68; /* deep teal */
+      --color-secondary: #f2efe9; /* warm neutral */
+      --color-accent: #e07a5f; /* warm accent */
+      --muted: #6b7280;
+      --bg: #ffffff;
+      --card-bg: #ffffff;
+      --text: #0f1722;
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --shadow-elev: 0 6px 24px rgba(15,23,34,0.08);
+      --glass-border: rgba(11,90,104,0.08);
+      --gap: 24px;
+      --site-width: 1200px;
+      --fluid-type-min: 14;
+      --fluid-type-max: 20;
+      --fw-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      --fw-serif: "Playfair Display", Georgia, "Times New Roman", serif;
+      --transition-fast: 180ms;
+      --transition-medium: 320ms;
+      --focus-ring: 3px solid rgba(14,101,115,0.12);
+    }
+
+    /* Fluid typography utility */
+    html { font-family: var(--fw-sans); font-size: 16px; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; color:var(--text); background:linear-gradient(180deg,var(--secondary-bg, #fbfcfd) 0%, var(--bg) 60%); }
+    :root { --clamped-base: clamp(0.875rem, 0.75rem + 0.6vw, 1.125rem); }
+
+    * { box-sizing: border-box; }
+    img, svg { display: block; max-width:100%; height:auto; }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; }
+
+    /* Layout */
+    .wrap { max-width:var(--site-width); margin:0 auto; padding: 40px 24px; }
+    header { background: linear-gradient(180deg, rgba(11,90,104,0.04), transparent); position: sticky; top:0; z-index:60; backdrop-filter: blur(4px); border-bottom:1px solid var(--glass-border); }
+    .nav-inner { display:flex; align-items:center; justify-content:space-between; gap:16px; padding:14px 24px; max-width:var(--site-width); margin:0 auto; }
+    .brand { display:flex; align-items:center; gap:12px; }
+    .logo-mark { width:48px; height:48px; display:grid; place-items:center; border-radius:12px; background:linear-gradient(135deg,var(--color-primary), #0f7a83); box-shadow: var(--shadow-elev); color: #fff; font-weight:700; font-family:var(--fw-serif); }
+    .wordmark { font-family:var(--fw-serif); font-size:clamp(1rem, 1rem + 0.3vw, 1.25rem); color:var(--color-primary); }
+    nav ul { display:flex; gap:20px; list-style:none; margin:0; padding:0; align-items:center; }
+    nav a { color:var(--muted); padding:8px 10px; border-radius:8px; transition: all var(--transition-fast) ease; }
+    nav a:hover, nav a:focus { color:var(--color-primary); outline: none; box-shadow: var(--focus-ring); background: rgba(11,90,104,0.03); }
+    .cta-primary { background:var(--color-primary); color:#fff; padding:10px 14px; border-radius:10px; box-shadow: 0 6px 18px rgba(11,90,104,0.12); transition: transform var(--transition-fast) ease, box-shadow var(--transition-fast); }
+    .cta-primary:hover, .cta-primary:focus { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(11,90,104,0.14); }
+
+    .hamburger { display:none; background:transparent; border:1px solid transparent; padding:8px; border-radius:8px; }
+    .hamburger:focus { box-shadow: var(--focus-ring); outline: none; }
+
+    main { padding-top:28px; }
+
+    /* Hero */
+    .hero { display:grid; grid-template-columns: 1fr 460px; gap:40px; align-items:center; padding:48px 24px; position:relative; overflow:visible; }
+    .hero-left h1 { font-family:var(--fw-serif); font-size:clamp(2rem, 1.6rem + 2.4vw, 3rem); line-height:1.02; margin:0 0 12px; color:var(--text); letter-spacing:-0.02em; }
+    .hero-sub { font-size:var(--clamped-base); color:var(--muted); margin-bottom:20px; max-width:68ch; }
+    .hero-actions { display:flex; gap:12px; align-items:center; flex-wrap:wrap; }
+    .btn { display:inline-flex; align-items:center; gap:10px; padding:12px 16px; border-radius:12px; cursor:pointer; border: none; }
+    .btn-secondary { background:transparent; color:var(--color-primary); border:1px solid rgba(11,90,104,0.12); }
+    .visual { position:relative; border-radius:var(--radius-md); padding:22px; background:linear-gradient(180deg,var(--secondary) 0%, rgba(240,122,95,0.03) 100%); box-shadow:var(--shadow-elev); min-height:320px; display:flex; align-items:center; justify-content:center; }
+    .visual svg.bg-pattern { position:absolute; inset:0; width:100%; height:100%; opacity:0.06; border-radius:var(--radius-md); }
+
+    /* Services */
+    .section { padding:64px 24px; }
+    .grid { display:grid; gap:20px; grid-template-columns: repeat(3, 1fr); }
+    .card { background:var(--card-bg); border-radius:var(--radius-md); padding:20px; box-shadow:var(--shadow-elev); border:1px solid var(--glass-border); transition: transform var(--transition-fast) ease, box-shadow var(--transition-fast); }
+    .card:hover, .card:focus-within { transform: translateY(-6px); box-shadow: 0 18px 40px rgba(15,23,34,0.08); }
+    .card h3 { margin:0 0 8px; font-size:1.125rem; color:var(--color-primary); font-family:var(--fw-serif); }
+    .card p { margin:0; color:var(--muted); font-size:0.98rem; line-height:1.5; }
+
+    /* Process */
+    .process { display:flex; gap:18px; align-items:stretch; flex-wrap:wrap; }
+    .step { flex:1 1 220px; background:linear-gradient(180deg,#fff, #fbfdff); border-radius:12px; padding:18px; border:1px solid var(--glass-border); box-shadow: 0 8px 30px rgba(11,90,104,0.04); }
+    .step h4 { margin:0 0 8px; font-size:1rem; color:var(--color-primary); }
+    .step p { margin:0; color:var(--muted); font-size:0.95rem; }
+
+    /* Contact */
+    .contact-card { display:flex; gap:16px; align-items:center; background:linear-gradient(180deg,#fff,#fbfdfd); padding:18px; border-radius:14px; border:1px solid var(--glass-border); box-shadow: var(--shadow-elev); }
+    .contact-card svg { width:56px; height:56px; flex:0 0 56px; border-radius:10px; padding:8px; background:linear-gradient(180deg,var(--color-primary), #0f7a83); color:#fff; }
+
+    footer { padding:28px 24px; border-top:1px solid var(--glass-border); background: linear-gradient(180deg, transparent, rgba(11,90,104,0.02)); }
+    .footer-inner { max-width:var(--site-width); margin:0 auto; display:flex; align-items:center; justify-content:space-between; gap:16px; padding:8px 0; flex-wrap:wrap; color:var(--muted); font-size:0.95rem; }
+
+    /* Responsive */
+    @media (max-width:1060px){
+      .hero { grid-template-columns: 1fr; text-align:left; }
+      .visual { order:-1; margin-bottom:10px; }
+      .grid { grid-template-columns: repeat(2,1fr); }
+      nav ul { display:none; }
+      .hamburger { display:inline-flex; }
+    }
+    @media (max-width:720px){
+      .wrap{ padding:28px 18px; }
+      .grid { grid-template-columns: 1fr; }
+      .hero-left h1 { font-size:clamp(1.6rem, 1.2rem + 3.2vw, 2.2rem); }
+      .hero { padding:28px 18px; gap:18px; }
+    }
+
+    /* Accessibility & focus */
+    :focus { outline: none; }
+    a:focus, button:focus { box-shadow: var(--focus-ring); border-radius:8px; }
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce){
+      * { transition: none !important; animation: none !important; }
+    }
+
+    /* Mobile nav panel */
+    .mobile-panel { position:fixed; inset:0; background:rgba(4,8,12,0.4); display:none; align-items:flex-start; justify-content:flex-end; z-index:80; }
+    .mobile-panel[aria-hidden="false"] { display:flex; }
+    .mobile-menu { width:320px; max-width:92%; height:100%; background:var(--bg); padding:20px; box-shadow: -12px 0 40px rgba(2,6,10,0.12); display:flex; flex-direction:column; gap:18px; }
+    .mobile-menu nav ul { display:flex; flex-direction:column; gap:12px; }
+    .mobile-close { margin-left:auto; }
+
+    .note { font-size:0.88rem; color:var(--muted); margin-top:8px; }
+
+    /* Small utilities */
+    .muted { color:var(--muted); }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;">Preskoči na sadržaj</a>
+  <header role="banner" aria-label="Glavna navigacija">
+    <div class="nav-inner">
+      <div class="brand">
+        <div class="logo-mark" aria-hidden="true">CZ</div>
+        <div>
+          <div class="wordmark">Centar za socijalnu skrb Vukovar</div>
+          <div class="muted" style="font-size:0.85rem;">Podrška zajednici • Upravljanje objektima</div>
+        </div>
+      </div>
+
+      <nav aria-label="Glavni izbornik">
+        <ul>
+          <li><a href="#o-nama">O nama</a></li>
+          <li><a href="#usluge">Djelatnosti</a></li>
+          <li><a href="#kako">Kako surađujemo</a></li>
+          <li><a href="#kontakt">Kontakt</a></li>
+        </ul>
+      </nav>
+
+      <div style="display:flex;gap:12px;align-items:center;">
+        <a class="cta-primary" href="tel:+38532450920" aria-label="Pozovite Centar za socijalnu skrb Vukovar">Pozovite nas</a>
+        <button class="hamburger" aria-controls="mobile-panel" aria-expanded="false" id="hamburger" aria-label="Otvori izbornik">
+          <svg width="20" height="14" viewBox="0 0 20 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="20" height="2" rx="1" fill="currentColor"/><rect y="6" width="20" height="2" rx="1" fill="currentColor"/><rect y="12" width="20" height="2" rx="1" fill="currentColor"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div id="mobile-panel" class="mobile-panel" aria-hidden="true">
+    <div class="mobile-menu" role="dialog" aria-label="Meni">
+      <div style="display:flex;align-items:center;gap:12px;">
+        <div class="logo-mark" style="width:40px;height:40px;">CZ</div>
+        <div>
+          <div style="font-weight:700;">Centar za socijalnu skrb Vukovar</div>
+          <div class="muted" style="font-size:0.9rem;">Podrška zajednici</div>
+        </div>
+        <button id="mobile-close" class="mobile-close" aria-label="Zatvori izbornik" style="margin-left:auto;background:transparent;border:none;padding:6px;border-radius:8px;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+
+      <nav aria-label="Mobilni izbornik">
+        <ul>
+          <li><a href="#o-nama" class="muted">O nama</a></li>
+          <li><a href="#usluge" class="muted">Djelatnosti</a></li>
+          <li><a href="#kako" class="muted">Kako surađujemo</a></li>
+          <li><a href="#kontakt" class="muted">Kontakt</a></li>
+        </ul>
+      </nav>
+
+      <div style="margin-top:auto;">
+        <a href="tel:+38532450920" class="cta-primary" style="display:inline-flex; width:100%; justify-content:center;">Pozovite</a>
+        <a href="mailto:korisnik096@mdomsp.hr" class="btn btn-secondary" style="display:inline-flex;width:100%;justify-content:center;margin-top:10px;">Pošaljite e-mail</a>
+      </div>
+    </div>
+  </div>
+
+  <main id="main">
+    <section class="wrap hero" aria-labelledby="hero-title">
+      <div class="hero-left">
+        <h1 id="hero-title">Centar za socijalnu skrb Vukovar</h1>
+        <p class="hero-sub">Podrška zajednici i upravljanje objektima s fokusom na transparentnu komunikaciju i jednostavan pristup informacijama. Kontaktirajte nas za upite i suradnju.</p>
+
+        <div class="hero-actions" role="group" aria-label="Glavni pozivi na akciju">
+          <a class="btn cta-primary" href="tel:+38532450920" aria-label="Pozovite centar">Pozovite sada</a>
+          <a class="btn btn-secondary" href="#usluge" aria-label="Saznajte više o djelatnostima">Saznajte više</a>
+        </div>
+
+        <p class="note">Napomena: prikazani poslovni podaci su neprovjereni. Koristite službene kanale za potvrdu informacija.</p>
+      </div>
+
+      <aside class="visual" aria-hidden="false">
+        <svg class="bg-pattern" viewBox="0 0 800 600" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
+          <defs>
+            <linearGradient id="g1" x1="0" x2="1" y1="0" y2="1">
+              <stop offset="0" stop-color="#0b5a68"/>
+              <stop offset="1" stop-color="#0f7a83"/>
+            </linearGradient>
+          </defs>
+          <rect width="800" height="600" fill="url(#g1)" opacity="0.06"/>
+          <g fill="#fff" opacity="0.06">
+            <circle cx="120" cy="80" r="120"/>
+            <circle cx="560" cy="420" r="160"/>
+            <rect x="320" y="140" width="260" height="260" rx="34"/>
+          </g>
+        </svg>
+
+        <div style="position:relative; z-index:2; max-width:340px; text-align:left;">
+          <svg width="80" height="80" viewBox="0 0 48 48" aria-hidden="true" style="margin-bottom:12px;">
+            <rect width="48" height="48" rx="8" fill="#fff" opacity="0.06"/>
+            <path d="M12 34v-12a6 6 0 016-6h8a6 6 0 016 6v12" stroke="#0b5a68" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            <path d="M24 20v8" stroke="#e07a5f" stroke-width="2.4" stroke-linecap="round"/>
+          </svg>
+          <h3 style="font-family:var(--fw-serif); margin:0 0 6px;">Transparentno. Dostupno. Organizirano.</h3>
+          <p class="muted" style="margin:0 0 14px;">Jasne informacije i pristup kontaktima — bez komplikacija.</p>
+          <div style="display:flex;gap:8px;">
+            <a class="btn cta-primary" href="tel:+38532450920">Pozovite</a>
+            <a class="btn btn-secondary" href="mailto:korisnik096@mdomsp.hr">Pošaljite e-mail</a>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <section id="o-nama" class="section wrap" aria-labelledby="o-nama-title">
+      <h2 id="o-nama-title" style="font-family:var(--fw-serif); margin:0 0 12px; font-size:1.25rem; color:var(--color-primary);">O nama</h2>
+      <p class="muted" style="max-width:70ch; margin:0 0 20px;">Centar za socijalnu skrb Vukovar djeluje kao organizacijska jedinica koja pruža podršku građanima i upravlja objektima namijenjenim socijalnim potrebama. Stranica služi kao primarni kanal informiranja i kontakta. Za detaljne i službene informacije koristite navedene kontakte.</p>
+
+      <div class="contact-card" style="max-width:820px;">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false" style="width:56px;height:56px;">
+          <rect x="2" y="3" width="20" height="18" rx="4" fill="currentColor"/>
+          <path d="M8 11c1.3-1.5 3.7-1.5 5 0" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M9 15h6" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/>
+        </svg>
+
+        <div>
+          <div style="font-weight:700;">Kontakt</div>
+          <div style="margin-top:6px;">
+            <div>Telefon: <a href="tel:+38532450920">+385 32 450 920</a></div>
+            <div>Email: <a href="mailto:korisnik096@mdomsp.hr">korisnik096@mdomsp.hr</a></div>
+            <div>Web: <a href="https://czss-vukovar.hr" target="_blank" rel="noopener">czss-vukovar.hr</a></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="usluge" class="section" aria-labelledby="usluge-title" style="background:linear-gradient(180deg, rgba(240,122,95,0.03), transparent);">
+      <div class="wrap">
+        <h2 id="usluge-title" style="font-family:var(--fw-serif); margin:0 0 12px; font-size:1.25rem; color:var(--color-primary);">Djelatnosti</h2>
+        <p class="muted" style="max-width:68ch; margin:0 0 22px;">Opis djelatnosti temeljen na dostupnim kategorijama: upravljanje objektima i pružanje socijalnih usluga. Podaci su sažeti radi jasnog pregleda — za detalje kontaktirajte nas.</p>
+
+        <div class="grid" role="list">
+          <article class="card" role="listitem" tabindex="0" aria-labelledby="s1-title">
+            <div aria-hidden="true" style="margin-bottom:10px;">
+              <svg width="48" height="48" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l9-6 9 6v6a2 2 0 0 1-2 2h-2v-6H7v6H5a2 2 0 0 1-2-2v-6z" fill="#0b5a68" /></svg>
+            </div>
+            <h3 id="s1-title">Upravljanje objektima</h3>
+            <p>Organizacijska koordinacija i praćenje objekata s ciljem osiguranja funkcionalnog prostora za pružanje socijalnih usluga. Informacije o dostupnosti i kontaktima objavljujemo kroz službene kanale.</p>
+          </article>
+
+          <article class="card" role="listitem" tabindex="0" aria-labelledby="s2-title">
+            <div aria-hidden="true" style="margin-bottom:10px;">
+              <svg width="48" height="48" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a5 5 0 015 5v2h.5A1.5 1.5 0 0119 10.5v7A1.5 1.5 0 0117.5 19h-11A1.5 1.5 0 015 17.5v-7A1.5 1.5 0 016.5 9H7V7a5 5 0 015-5z" fill="#0f7a83"/></svg>
+            </div>
+            <h3 id="s2-title">Socijalne usluge</h3>
+            <p>Podrška građanima kroz programe i aktivnosti usmjerene na dobrobit zajednice. Za konkretne programe i uvjete koristite službene kontakte kako biste dobili ažurirane informacije.</p>
+          </article>
+
+          <article class="card" role="listitem" tabindex="0" aria-labelledby="s3-title">
+            <div aria-hidden="true" style="margin-bottom:10px;">
+              <svg width="48" height="48" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 12a5 5 0 100-10 5 5 0 000 10zM3 21a9 9 0 0118 0" fill="#e07a5f"/></svg>
+            </div>
+            <h3 id="s3-title">Organizacijska podrška</h3>
+            <p>Administrativna i koordinacijska podrška potrebna za funkcioniranje usluga i objekata. Za postupke, obrasce i termine obratite se direktno putem telefona ili e-maila.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="kako" class="section wrap" aria-labelledby="kako-title">
+      <h2 id="kako-title" style="font-family:var(--fw-serif); margin:0 0 12px; font-size:1.25rem; color:var(--color-primary);">Kako funkcionira suradnja</h2>
+      <p class="muted" style="max-width:68ch; margin:0 0 20px;">Pregled tipičnog tijeka suradnje i komunikacije. Ovaj opis služi kao informativni vodič — konkretni koraci dogovaraju se prema potrebama korisnika i raspoloživim resursima.</p>
+
+      <div class="process" role="list">
+        <div class="step" role="listitem" tabindex="0" aria-labelledby="step1">
+          <h4 id="step1">1. Kontakt</h4>
+          <p>Javite nam se telefonom ili e-mailom kako biste iznijeli upit ili zatražili informacije.</p>
+        </div>
+
+        <div class="step" role="listitem" tabindex="0" aria-labelledby="step2">
+          <h4 id="step2">2. Procjena potreba</h4>
+          <p>Zajedno identificiramo potrebne informacije i korake, te vas uputimo na relevantne kontakte i dokumente.</p>
+        </div>
+
+        <div class="step" role="listitem" tabindex="0" aria-labelledby="step3">
+          <h4 id="step3">3. Daljnji koraci</h4>
+          <p>Dogovaraju se termini, potrebna dokumentacija i način daljnje komunikacije. Sve službene informacije potvrđuju se putem navedenih kontakata.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="kontakt" class="section wrap" aria-labelledby="kontakt-title">
+      <h2 id="kontakt-title" style="font-family:var(--fw-serif); margin:0 0 12px; font-size:1.25rem; color:var(--color-primary);">Kontakt</h2>
+      <p class="muted" style="max-width:68ch; margin:0 0 20px;">Za sve upite koristite dostupne kontakte. Ako trebate službene potvrde ili dokumente, zatražite ih direktno putem telefona ili e-maila.</p>
+
+      <div style="display:grid; grid-template-columns: 1fr 320px; gap:22px;">
+        <div>
+          <h3 style="margin:0 0 8px;">Kontakt informacije</h3>
+          <ul style="list-style:none;padding:0;margin:0;color:var(--muted);">
+            <li style="margin-bottom:8px;"><strong>Telefon:</strong> <a href="tel:+38532450920">+385 32 450 920</a></li>
+            <li style="margin-bottom:8px;"><strong>Email:</strong> <a href="mailto:korisnik096@mdomsp.hr">korisnik096@mdomsp.hr</a></li>
+            <li style="margin-bottom:8px;"><strong>Web:</strong> <a href="https://czss-vukovar.hr" target="_blank" rel="noopener">czss-vukovar.hr</a></li>
+          </ul>
+
+          <p class="note" style="margin-top:16px;">Napomena: adresa i grad nisu dostavljeni u izvoru podataka te nisu prikazani ovdje.</p>
+        </div>
+
+        <aside style="align-self:start;">
+          <div class="card" style="padding:16px;">
+            <h4 style="margin:0 0 8px;">Brzi kontakt</h4>
+            <p class="muted" style="margin:0 0 12px;">Pozovite nas ili pošaljite e-mail i odgovoriti ćemo putem dostupnih kanala.</p>
+            <div style="display:flex;gap:8px;">
+              <a class="btn cta-primary" href="tel:+38532450920">Pozovite</a>
+              <a class="btn btn-secondary" href="mailto:korisnik096@mdomsp.hr">E-mail</a>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer role="contentinfo">
+    <div class="footer-inner">
+      <div>
+        <div style="font-weight:700;">Centar za socijalnu skrb Vukovar</div>
+        <div class="muted">Telefon: <a href="tel:+38532450920">+385 32 450 920</a> • Email: <a href="mailto:korisnik096@mdomsp.hr">korisnik096@mdomsp.hr</a></div>
+      </div>
+
+      <div class="muted" style="text-align:right;">
+        <div><a href="https://czss-vukovar.hr" target="_blank" rel="noopener">czss-vukovar.hr</a></div>
+        <div style="font-size:0.85rem; margin-top:6px;">Podaci objavljeni na ovoj stranici nisu službeno verifikovani.</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function(){
+      const hamburger = document.getElementById('hamburger');
+      const panel = document.getElementById('mobile-panel');
+      const closeBtn = document.getElementById('mobile-close');
+
+      function openPanel(){
+        panel.setAttribute('aria-hidden', 'false');
+        hamburger.setAttribute('aria-expanded', 'true');
+        document.body.style.overflow = 'hidden';
+        closeBtn && closeBtn.focus();
+      }
+      function closePanel(){
+        panel.setAttribute('aria-hidden', 'true');
+        hamburger.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+        hamburger.focus();
+      }
+
+      hamburger.addEventListener('click', function(){ openPanel(); });
+      closeBtn && closeBtn.addEventListener('click', function(){ closePanel(); });
+      panel.addEventListener('click', function(e){
+        if(e.target === panel) closePanel();
+      });
+
+      // Keyboard accessibility
+      document.addEventListener('keydown', function(e){
+        if(e.key === 'Escape'){
+          if(panel.getAttribute('aria-hidden') === 'false') closePanel();
+        }
+      });
+
+      // Smooth in-view reveal for cards (prefers-reduced-motion respected)
+      if(window.matchMedia('(prefers-reduced-motion: no-preference)').matches){
+        const cards = document.querySelectorAll('.card, .step, .contact-card');
+        const io = new IntersectionObserver((entries)=>{
+          entries.forEach(entry=>{
+            if(entry.isIntersecting){
+              entry.target.style.transition = 'opacity 420ms ease, transform 420ms ease';
+              entry.target.style.opacity = '1';
+              entry.target.style.transform = 'translateY(0)';
+              io.unobserve(entry.target);
+            }
+          });
+        }, {threshold:0.12});
+        cards.forEach(c=>{
+          c.style.opacity = '0';
+          c.style.transform = 'translateY(10px)';
+          io.observe(c);
+        });
+      }
+
+      // Ensure all intra-page links are keyboard-friendly and focusable
+      document.querySelectorAll('a[href^="#"]').forEach(a=>{
+        a.addEventListener('click', function(){
+          const id = this.getAttribute('href').slice(1);
+          const el = document.getElementById(id);
+          if(el) el.setAttribute('tabindex','-1');
+        });
+      });
+
+    })();
+  </script>
+</body>
+</html>
