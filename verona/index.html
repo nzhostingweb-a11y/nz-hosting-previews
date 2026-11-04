@@ -1,0 +1,533 @@
+ <!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Verona — Catering i regionalna kuhinja za događanja</title>
+  <meta name="description" content="Verona | Profesionalni catering i restoranske usluge s fokusom na regionalne okuse. Javite nam se za ponudu putem telefona ili e-maila." />
+  <meta property="og:title" content="Verona — Catering i regionalna kuhinja za događanja" />
+  <meta property="og:description" content="Profesionalni catering i restoranske usluge s fokusom na regionalne okuse. Kontakt: +385 31 812 313, Babic.grupa@gmail.com" />
+  <meta name="theme-color" content="#F7F3EE" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      /* Boje */
+      --color-primary: #8C3B2E;      /* terracotta */
+      --color-secondary: #2F5E46;    /* deep green */
+      --color-accent: #D4A14A;       /* warm gold */
+      --bg: #F7F3EE;
+      --card-bg: #ffffff;
+      --muted: #6B6B6B;
+      --text: #111111;
+      --glass: rgba(255,255,255,0.6);
+
+      /* Tipografija */
+      --fs-root: 16px;
+      --ff-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      --ff-serif: "Playfair Display", Georgia, serif;
+
+      /* Spacing */
+      --space-xxs: 6px;
+      --space-xs: 10px;
+      --space-sm: 16px;
+      --space-md: 24px;
+      --space-lg: 40px;
+      --space-xl: 64px;
+
+      /* Border radius */
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 24px;
+
+      /* Shadow */
+      --shadow-soft: 0 6px 18px rgba(17,17,17,0.06);
+      --shadow-focus: 0 0 0 4px rgba(140,59,46,0.12);
+
+      /* Other */
+      --nav-height: 76px;
+    }
+
+    /* Fluid typography helpers */
+    html{font-size:var(--fs-root);}
+    h1{font-family:var(--ff-serif); font-weight:700; color:var(--text); margin:0;
+       font-size:clamp(28px, calc(22px + 3.2vw), 56px); line-height:1.02; letter-spacing:-0.02em;}
+    h2{font-family:var(--ff-serif); margin:0; font-size:clamp(18px, calc(14px + 1.8vw), 28px); color:var(--text);}
+    p, a, li, button{font-family:var(--ff-sans); color:var(--muted); font-size:clamp(14px, calc(12px + .6vw), 18px); line-height:1.5;}
+    body{background:var(--bg); color:var(--text); margin:0; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;}
+
+    /* Layout */
+    .container{max-width:1200px; margin:0 auto; padding:0 20px;}
+    header{
+      position:sticky; top:0; z-index:60;
+      backdrop-filter:blur(6px);
+      background:linear-gradient(180deg, rgba(247,243,238,0.9), rgba(247,243,238,0.75));
+      border-bottom:1px solid rgba(17,17,17,0.04);
+    }
+    .nav-wrap{height:var(--nav-height); display:flex; align-items:center; justify-content:space-between;}
+    .brand{display:flex; align-items:center; gap:14px; text-decoration:none; color:var(--text);}
+    .logo-mark{
+      width:48px; height:48px; display:grid; place-items:center;
+      background:linear-gradient(135deg,var(--color-primary), #B85B48);
+      border-radius:12px; box-shadow:var(--shadow-soft);
+      flex:0 0 48px;
+    }
+    .brand h3{font-family:var(--ff-serif); font-size:18px; margin:0; color:var(--color-secondary); letter-spacing:0.02em;}
+    nav ul{list-style:none; margin:0; padding:0; display:flex; gap:22px; align-items:center;}
+    nav a{color:var(--muted); text-decoration:none; padding:8px 6px; border-radius:8px; font-weight:600;}
+    nav a:hover, nav a:focus{color:var(--text); outline:none; box-shadow:var(--shadow-focus); background:rgba(255,255,255,0.6);}
+    .nav-cta{background:var(--color-primary); color:white; padding:10px 16px; border-radius:10px; box-shadow:var(--shadow-soft); text-decoration:none;}
+    .nav-cta:focus{box-shadow:0 0 0 4px rgba(217,142,125,0.18); outline:none;}
+    .mobile-toggle{display:none; background:none; border:0; padding:10px; border-radius:10px; cursor:pointer;}
+
+    /* Hero */
+    .hero{
+      display:grid;
+      grid-template-columns: 1fr 520px;
+      gap:40px;
+      align-items:center;
+      padding:calc(var(--space-lg) + 10px) 0;
+    }
+    .hero-intro{max-width:720px;}
+    .eyebrow{display:inline-block; background:transparent; color:var(--color-secondary); font-weight:700; letter-spacing:0.08em; margin-bottom:12px;}
+    .hero h1{color:var(--color-primary); margin-bottom:14px;}
+    .lead{color:var(--muted); margin-bottom:22px; font-size:clamp(15px, calc(13px + .6vw), 18px);}
+    .hero-ctas{display:flex; gap:12px; align-items:center; margin-top:18px;}
+    .btn{display:inline-flex; align-items:center; gap:10px; padding:12px 18px; border-radius:12px; text-decoration:none; font-weight:700; font-size:15px; cursor:pointer;}
+    .btn-primary{background:var(--color-primary); color:white; box-shadow:var(--shadow-soft);}
+    .btn-secondary{background:transparent; color:var(--color-secondary); border:1.5px solid rgba(47,94,70,0.12);}
+
+    /* Hero visual card */
+    .visual{
+      background:linear-gradient(180deg, rgba(255,255,255,0.85), rgba(255,255,255,0.6));
+      border-radius:18px; padding:28px; box-shadow:var(--shadow-soft); display:flex; align-items:center; justify-content:center;
+      position:relative; overflow:hidden;
+    }
+    .plate{
+      width:420px; max-width:100%; height:auto; display:block;
+    }
+    .decor-top{
+      position:absolute; top:-40px; right:-60px; opacity:0.12; transform:rotate(12deg);
+    }
+    .decor-bottom{
+      position:absolute; bottom:-30px; left:-40px; opacity:0.08; transform:rotate(-8deg);
+    }
+
+    /* Services */
+    .section{padding:var(--space-lg) 0; position:relative;}
+    .grid-3{display:grid; grid-template-columns:repeat(3,1fr); gap:20px;}
+    .card{background:var(--card-bg); border-radius:var(--radius-md); padding:18px; box-shadow:var(--shadow-soft); display:flex; gap:12px; align-items:flex-start;}
+    .icon{
+      width:64px; height:64px; flex:0 0 64px; border-radius:12px; display:grid; place-items:center; background:linear-gradient(135deg, var(--color-secondary), #3E6E56); color:white;
+    }
+    .card h3{margin:0; font-size:18px; color:var(--text); font-family:var(--ff-serif);}
+    .card p{margin:6px 0 0 0; color:var(--muted); font-size:15px;}
+
+    /* How it works / steps */
+    .steps{display:flex; gap:18px; align-items:flex-start; flex-wrap:wrap;}
+    .step{background:transparent; padding:12px; border-radius:12px; min-width:200px;}
+    .step .num{width:44px; height:44px; border-radius:10px; display:grid; place-items:center; color:white; background:var(--color-primary); font-weight:700;}
+
+    /* Gallery / visual motifs */
+    .visual-strip{display:grid; grid-template-columns:repeat(4,1fr); gap:12px;}
+    .tile{border-radius:12px; background:linear-gradient(135deg, rgba(140,59,46,0.06), rgba(47,94,70,0.03)); padding:20px; min-height:120px; display:flex; align-items:flex-end; justify-content:flex-start;}
+
+    /* Kontakt */
+    .contact-card{background:var(--card-bg); border-radius:16px; padding:20px; box-shadow:var(--shadow-soft); display:flex; flex-direction:column; gap:12px;}
+    .contact-list{display:flex; gap:12px; flex-direction:column;}
+    .contact-list a{color:var(--color-secondary); text-decoration:none; font-weight:600;}
+    footer{padding:28px 0; border-top:1px solid rgba(17,17,17,0.04);}
+    .footer-grid{display:flex; justify-content:space-between; gap:20px; align-items:center; flex-wrap:wrap;}
+
+    /* Responsive */
+    @media (max-width:1024px){
+      .hero{grid-template-columns:1fr; gap:22px; padding-top:28px;}
+      .nav-wrap{padding:0 14px;}
+      nav ul{display:none;}
+      .mobile-toggle{display:inline-flex;}
+      .visual{padding:20px;}
+      .grid-3{grid-template-columns:repeat(2,1fr);}
+      .visual-strip{grid-template-columns:repeat(2,1fr);}
+    }
+    @media (max-width:480px){
+      :root{--nav-height:64px;}
+      .brand h3{font-size:16px;}
+      .hero h1{font-size:clamp(24px, 6vw, 34px);}
+      .grid-3{grid-template-columns:1fr;}
+      .visual-strip{grid-template-columns:1fr;}
+      .btn{padding:12px 14px;}
+    }
+
+    /* Accessibility & interactions */
+    a:focus, button:focus{outline:none; box-shadow:var(--shadow-focus);}
+    .hidden{display:none;}
+    .mobile-menu{
+      position:fixed; inset:0; background:linear-gradient(180deg, rgba(17,17,17,0.45), rgba(17,17,17,0.6)); display:none; z-index:80;
+      align-items:center; justify-content:center; padding:40px;
+    }
+    .mobile-menu.open{display:flex;}
+    .mobile-menu nav{background:var(--card-bg); border-radius:14px; padding:24px; width:100%; max-width:420px; box-shadow:var(--shadow-soft);}
+    .mobile-menu nav ul{display:flex; flex-direction:column; gap:14px;}
+    .sr-only{position:absolute; left:-10000px; top:auto; width:1px; height:1px; overflow:hidden;}
+    /* Reduced motion */
+    @media (prefers-reduced-motion:reduce){
+      *{transition:none !important; animation:none !important;}
+    }
+  </style>
+</head>
+<body>
+  <a class="sr-only" href="#main">Preskoči na sadržaj</a>
+
+  <header role="banner" aria-label="Glavna navigacija">
+    <div class="container nav-wrap">
+      <a href="#hero" class="brand" aria-label="Verona — početna">
+        <span class="logo-mark" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+            <rect x="2" y="2" width="20" height="20" rx="5" fill="#FFFBF9"/>
+            <path d="M7 14c1.2-2 4-4 7-4" stroke="#8C3B2E" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="16" cy="9.5" r="1.4" fill="#D4A14A"/>
+          </svg>
+        </span>
+        <h3>Verona</h3>
+      </a>
+
+      <nav aria-label="Glavni izbornik">
+        <ul>
+          <li><a href="#usluge">Usluge</a></li>
+          <li><a href="#pristup">Pristup</a></li>
+          <li><a href="#galerija">Vizual</a></li>
+          <li><a href="#kontakt">Kontakt</a></li>
+        </ul>
+      </nav>
+
+      <div style="display:flex;align-items:center;gap:12px;">
+        <a class="nav-cta" href="#kontakt">Zatražite ponudu</a>
+        <button class="mobile-toggle" aria-controls="mobile-menu" aria-expanded="false" aria-label="Otvori izbornik" id="mobileToggle">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+            <path d="M3 6h18M3 12h18M3 18h18" stroke="#111" stroke-width="1.6" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div id="mobile-menu" class="mobile-menu" aria-hidden="true">
+    <nav aria-label="Mobilni izbornik">
+      <ul>
+        <li><a href="#usluge" onclick="closeMobile()">Usluge</a></li>
+        <li><a href="#pristup" onclick="closeMobile()">Pristup</a></li>
+        <li><a href="#galerija" onclick="closeMobile()">Vizual</a></li>
+        <li><a href="#kontakt" onclick="closeMobile()">Kontakt</a></li>
+        <li><a class="nav-cta" href="#kontakt" onclick="closeMobile()">Zatražite ponudu</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <main id="main">
+    <section id="hero" class="container hero" aria-labelledby="hero-heading">
+      <div class="hero-intro">
+        <div class="eyebrow">CATERING • RESTORANSKE USLUGE • REGIONALNO</div>
+        <h1 id="hero-heading">Verona — catering i regionalna kuhinja za svako događanje</h1>
+        <p class="lead">Komponiramo ukusne i promišljene obroke za poslovne i privatne događaje, uz profesionalan pristup organizaciji hrane i posluživanja. Javite nam se za jasne opcije i ponudu prilagođenu vašem događanju.</p>
+
+        <div class="hero-ctas" role="group" aria-label="Glavni pozivi na akciju">
+          <a class="btn btn-primary" href="#kontakt">Zatražite ponudu</a>
+          <a class="btn btn-secondary" href="tel:+38531812313">Nazovite nas: +385 31 812 313</a>
+        </div>
+
+        <div style="margin-top:22px; color:var(--muted); font-size:14px;">
+          <strong>Kontakt:</strong>
+          <a href="mailto:Babic.grupa@gmail.com" style="color:var(--color-secondary); text-decoration:none; margin-left:8px;">Babic.grupa@gmail.com</a>
+          <span style="margin-left:12px; color:rgba(17,17,17,0.35);">•</span>
+          <a href="http://www.verona.hr/" target="_blank" rel="noopener" style="margin-left:12px; color:var(--muted); text-decoration:underline;">verona.hr</a>
+        </div>
+      </div>
+
+      <figure class="visual" aria-hidden="false" role="img" aria-label="Ilustracija prezentacije jela i stila">
+        <!-- Decorative plate SVG composition -->
+        <svg class="plate" viewBox="0 0 720 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="plateTitle plateDesc">
+          <title id="plateTitle">Vizualni motiv - tanjur i kuhinjski detalji</title>
+          <desc id="plateDesc">Stilizirana ilustracija tanjura i dekorativnih elemenata u uredničkom stilu.</desc>
+          <defs>
+            <linearGradient id="g1" x1="0" x2="1" y1="0" y2="1">
+              <stop offset="0" stop-color="#FFF8F6"/>
+              <stop offset="1" stop-color="#FFFBF9"/>
+            </linearGradient>
+            <linearGradient id="g2" x1="0" x2="1">
+              <stop offset="0" stop-color="#8C3B2E"/>
+              <stop offset="1" stop-color="#B85B48"/>
+            </linearGradient>
+            <filter id="f1" x="-20%" y="-20%" width="140%" height="140%">
+              <feDropShadow dx="0" dy="12" stdDeviation="18" flood-color="#000" flood-opacity="0.06"/>
+            </filter>
+          </defs>
+
+          <rect x="12" y="12" width="696" height="456" rx="28" fill="url(#g1)"/>
+          <g transform="translate(40,40)">
+            <g transform="translate(360,160) scale(1)">
+              <circle cx="0" cy="0" r="148" fill="#FFF" stroke="#F2E9E6" stroke-width="8" filter="url(#f1)"/>
+              <circle cx="0" cy="0" r="116" fill="transparent" stroke="#ECE4E0" stroke-width="4" stroke-dasharray="6 12"/>
+              <!-- Stylized garnish -->
+              <path d="M-20-30 C10 -60, 70 -40, 60 0 C50 40, 0 50, -40 30 C-70 10, -60 -10, -20 -30 Z" fill="#D4A14A" opacity="0.95"/>
+              <path d="M18 -22 C40 -2, 70 12, 54 34" stroke="#2F5E46" stroke-width="6" stroke-linecap="round" fill="none"/>
+            </g>
+
+            <!-- Utensils/graphics -->
+            <g transform="translate(120,280) rotate(-12)">
+              <rect x="0" y="0" width="140" height="18" rx="6" fill="#EFE6E2"/>
+              <rect x="6" y="-30" width="12" height="60" rx="6" fill="#C9B5AF"/>
+              <rect x="122" y="-18" width="10" height="46" rx="5" fill="#C9B5AF"/>
+            </g>
+
+            <g transform="translate(20,60) scale(0.9)">
+              <rect x="0" y="0" width="220" height="120" rx="16" fill="url(#g2)" opacity="0.08"/>
+              <text x="18" y="56" fill="#8C3B2E" font-family="Playfair Display, serif" font-size="28" font-weight="700">Regionalni okusi</text>
+            </g>
+          </g>
+        </svg>
+
+        <svg class="decor-top" width="160" height="160" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <circle cx="40" cy="30" r="36" fill="#D4A14A"/>
+        </svg>
+
+        <svg class="decor-bottom" width="220" height="120" viewBox="0 0 220 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect x="10" y="10" width="180" height="90" rx="20" fill="#2F5E46" opacity="0.06"/>
+        </svg>
+      </figure>
+    </section>
+
+    <section id="usluge" class="container section" aria-labelledby="usluge-heading">
+      <h2 id="usluge-heading">Što nudimo</h2>
+      <p style="margin-top:8px; margin-bottom:22px;">Pokrivamo ključne oblikе usluga u području cateringa i restoranskih usluga. Ispod su opisane opće kategorije koje nudimo; za konkretne prijedloge i ponude javite nam se putem kontakta.</p>
+
+      <div class="grid-3" role="list">
+        <article class="card" role="listitem" aria-labelledby="s1">
+          <div class="icon" aria-hidden="true">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M3 7h18" stroke="white" stroke-width="1.6" stroke-linecap="round"/>
+              <path d="M6 21v-10" stroke="white" stroke-width="1.6" stroke-linecap="round"/>
+              <path d="M18 21v-6" stroke="white" stroke-width="1.6" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div>
+            <h3 id="s1">Catering za događanja</h3>
+            <p>Organizacija posluživanja hrane za poslovna događanja, domjenke i privatne svečanosti uz profesionalnu koordinaciju usluge.</p>
+          </div>
+        </article>
+
+        <article class="card" role="listitem" aria-labelledby="s2">
+          <div class="icon" aria-hidden="true">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="3" y="4" width="18" height="14" rx="2" stroke="white" stroke-width="1.6"/>
+              <path d="M7 20h10" stroke="white" stroke-width="1.6" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div>
+            <h3 id="s2">Restoranske usluge</h3>
+            <p>Restoranski pristup u pripremi i prezentaciji jela, prilagođen suradnjama koje zahtijevaju profesionalnu izvedbu i estetiku posluživanja.</p>
+          </div>
+        </article>
+
+        <article class="card" role="listitem" aria-labelledby="s3">
+          <div class="icon" aria-hidden="true">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 2v8" stroke="white" stroke-width="1.6" stroke-linecap="round"/>
+              <path d="M5 22c2-4 6-6 12-6" stroke="white" stroke-width="1.6" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div>
+            <h3 id="s3">Regionalna kuhinja</h3>
+            <p>Fokus na lokalnim i regionalnim okusima te autentičnim pristupima u pripremi koje naglašavaju tradicionalne metode i namirnice.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="pristup" class="container section" aria-labelledby="pristup-heading">
+      <h2 id="pristup-heading">Naš pristup</h2>
+      <p style="margin-top:8px; margin-bottom:18px;">Jasan i prilagodljiv proces koji omogućuje transparentnu komunikaciju i pravovremenu pripremu usluge. Suradnja obično slijedi tri jednostavna koraka:</p>
+
+      <div class="steps" role="list">
+        <div class="step" role="listitem" aria-labelledby="step1">
+          <div style="display:flex;gap:12px;align-items:center;">
+            <div class="num" aria-hidden="true">1</div>
+            <div>
+              <div id="step1" style="font-weight:700; color:var(--text); font-family:var(--ff-serif);">Kontakt</div>
+              <div style="color:var(--muted); margin-top:6px;">Razgovaramo o vašim potrebama i zahtjevima događanja.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="step" role="listitem" aria-labelledby="step2">
+          <div style="display:flex;gap:12px;align-items:center;">
+            <div class="num" aria-hidden="true">2</div>
+            <div>
+              <div id="step2" style="font-weight:700; color:var(--text); font-family:var(--ff-serif);">Ponuda i dogovor</div>
+              <div style="color:var(--muted); margin-top:6px;">Predlažemo opcije i usklađujemo detalje izvedbe i logistike.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="step" role="listitem" aria-labelledby="step3">
+          <div style="display:flex;gap:12px;align-items:center;">
+            <div class="num" aria-hidden="true">3</div>
+            <div>
+              <div id="step3" style="font-weight:700; color:var(--text); font-family:var(--ff-serif);">Izvedba</div>
+              <div style="color:var(--muted); margin-top:6px;">Koordinirana priprema i posluživanje u skladu s dogovorom.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="galerija" class="container section" aria-labelledby="galerija-heading">
+      <h2 id="galerija-heading">Vizual i stil</h2>
+      <p style="margin-top:8px; margin-bottom:18px;">Primjer vizualnog izraza i kompozicije koji naglašavaju urednički, premium pristup. Za stvarne fotografije i reference pošaljite upit.</p>
+
+      <div class="visual-strip" role="list" aria-label="Vizualne plohe">
+        <div class="tile" role="listitem">
+          <svg width="56" height="56" viewBox="0 0 24 24" aria-hidden="true" style="margin-right:12px;">
+            <circle cx="12" cy="12" r="10" fill="#8C3B2E"/>
+            <path d="M8 12h8" stroke="#FFF" stroke-width="1.6" stroke-linecap="round"/>
+          </svg>
+        </div>
+
+        <div class="tile" role="listitem">
+          <svg width="56" height="56" viewBox="0 0 24 24" aria-hidden="true" style="margin-right:12px;">
+            <rect x="3" y="3" width="18" height="18" rx="4" fill="#2F5E46"/>
+            <path d="M7 12h10" stroke="#FFF" stroke-width="1.6" stroke-linecap="round"/>
+          </svg>
+        </div>
+
+        <div class="tile" role="listitem">
+          <svg width="56" height="56" viewBox="0 0 24 24" aria-hidden="true" style="margin-right:12px;">
+            <path d="M12 3c4.5 0 8 3 8 8s-3.5 8-8 8-8-3.5-8-8 3.5-8 8-8z" fill="#D4A14A"/>
+          </svg>
+        </div>
+
+        <div class="tile" role="listitem">
+          <svg width="56" height="56" viewBox="0 0 24 24" aria-hidden="true" style="margin-right:12px;">
+            <rect x="4" y="4" width="16" height="16" rx="3" fill="#F4EDEB"/>
+            <path d="M6 8h12M6 12h12M6 16h8" stroke="#8C3B2E" stroke-width="1.4" stroke-linecap="round"/>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <section id="kontakt" class="container section" aria-labelledby="kontakt-heading">
+      <h2 id="kontakt-heading">Kontakt</h2>
+      <p style="margin-top:8px; margin-bottom:18px;">Za upite i zahtjeve za ponudu dostupni smo telefonom i e-mailom. Rado ćemo pripremiti ponudu temeljem vaših potreba.</p>
+
+      <div style="display:grid; grid-template-columns:1fr 360px; gap:22px; align-items:start;">
+        <div>
+          <div style="display:grid; gap:12px;">
+            <div style="background:var(--card-bg); padding:18px; border-radius:14px; box-shadow:var(--shadow-soft);">
+              <h3 style="margin:0 0 8px 0; font-family:var(--ff-serif); color:var(--text);">Pošaljite upit</h3>
+              <p style="margin:0 0 12px 0; color:var(--muted);">Najbrži način je putem e-maila ili telefona. Ako želite, nazovite nas na broj ispod.</p>
+              <div style="display:flex; gap:12px; flex-wrap:wrap;">
+                <a class="btn btn-primary" href="mailto:Babic.grupa@gmail.com">Pošaljite e-mail</a>
+                <a class="btn btn-secondary" href="tel:+38531812313">Nazovite: +385 31 812 313</a>
+              </div>
+            </div>
+
+            <div style="background:transparent; padding:12px;">
+              <h4 style="margin:0 0 8px 0; font-family:var(--ff-serif); color:var(--text);">Napomena</h4>
+              <p style="margin:0; color:var(--muted);">Ne šaljemo automatizirane forme. Nakon inicijalnog kontakta dogovaramo detalje i po potrebi šaljemo detaljnu ponudu.</p>
+            </div>
+          </div>
+        </div>
+
+        <aside class="contact-card" aria-label="Kontakt informacije">
+          <div style="display:flex;flex-direction:column;">
+            <strong style="font-family:var(--ff-serif); color:var(--text);">Verona</strong>
+            <span style="color:var(--muted); margin-top:6px;">Catering i restoranske usluge</span>
+          </div>
+
+          <div class="contact-list">
+            <a href="tel:+38531812313" aria-label="Pozovite">Telefon: +385 31 812 313</a>
+            <a href="mailto:Babic.grupa@gmail.com" aria-label="Pošaljite email">E-mail: Babic.grupa@gmail.com</a>
+            <a href="http://www.verona.hr/" target="_blank" rel="noopener">Web: verona.hr</a>
+          </div>
+
+          <div style="margin-top:8px; font-size:13px; color:var(--muted);">
+            Napomena: Podaci su pruženi od klijenta i tretiraju se kao neprovjereni.
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer role="contentinfo">
+    <div class="container footer-grid" aria-label="Podnožje">
+      <div>
+        <div style="font-family:var(--ff-serif); font-weight:700; color:var(--color-secondary);">Verona</div>
+        <div style="color:var(--muted); margin-top:6px;">Catering • Restoranske usluge • Regionalna kuhinja</div>
+      </div>
+
+      <div style="display:flex; gap:18px; align-items:center; flex-wrap:wrap;">
+        <a href="tel:+38531812313" style="text-decoration:none; color:var(--muted);">+385 31 812 313</a>
+        <a href="mailto:Babic.grupa@gmail.com" style="text-decoration:none; color:var(--muted);">Babic.grupa@gmail.com</a>
+        <a href="http://www.verona.hr/" target="_blank" rel="noopener" style="text-decoration:none; color:var(--muted);">verona.hr</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function(){
+      const mobileToggle = document.getElementById('mobileToggle');
+      const mobileMenu = document.getElementById('mobile-menu');
+
+      function openMobile(){
+        mobileMenu.classList.add('open');
+        mobileMenu.setAttribute('aria-hidden','false');
+        mobileToggle.setAttribute('aria-expanded','true');
+        document.body.style.overflow = 'hidden';
+      }
+      function closeMobile(){
+        mobileMenu.classList.remove('open');
+        mobileMenu.setAttribute('aria-hidden','true');
+        mobileToggle.setAttribute('aria-expanded','false');
+        document.body.style.overflow = '';
+      }
+      mobileToggle.addEventListener('click', function(){
+        const open = mobileMenu.classList.contains('open');
+        if(open) closeMobile(); else openMobile();
+      });
+      window.closeMobile = closeMobile;
+
+      // Smooth scroll for internal links
+      document.querySelectorAll('a[href^="#"]').forEach(a=>{
+        a.addEventListener('click', function(e){
+          const href = a.getAttribute('href');
+          if(href.length>1){
+            const el = document.querySelector(href);
+            if(el){
+              e.preventDefault();
+              closeMobile();
+              el.scrollIntoView({behavior:'smooth', block:'start'});
+              el.setAttribute('tabindex','-1');
+              el.focus({preventScroll:true});
+              window.setTimeout(()=>el.removeAttribute('tabindex'),800);
+            }
+          }
+        });
+      });
+
+      // Keyboard accessibility for mobile menu (Esc to close)
+      document.addEventListener('keydown', (e)=>{
+        if(e.key === 'Escape' && mobileMenu.classList.contains('open')){
+          closeMobile();
+        }
+      });
+
+      // Ensure reduced-motion respects
+      const prefersReduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if(prefersReduce){
+        document.documentElement.style.scrollBehavior = 'auto';
+      } else {
+        document.documentElement.style.scrollBehavior = 'smooth';
+      }
+    })();
+  </script>
+</body>
+</html>
