@@ -1,0 +1,707 @@
+ <!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dvorac Gjalski — catering i gastronomska podrška za događanja</title>
+  <meta name="description" content="Dvorac Gjalski | Profesionalni catering za privatna i korporativna događanja. Nazovite +385 49 201 100 ili posjetite službenu web stranicu." />
+  <meta property="og:title" content="Dvorac Gjalski — catering i gastronomska podrška za događanja" />
+  <meta property="og:description" content="Profesionalni catering za privatna i korporativna događanja. Kontakt: +385 49 201 100" />
+  <meta name="theme-color" content="#F6F2EE" />
+
+  <!-- Google Fonts: elegant serif for headings + clean sans for body -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      /* Design system */
+      --color-primary: #6A3E2B;         /* warm brown - premium */
+      --color-secondary: #EBDCCF;       /* soft parchment */
+      --color-accent: #C98F3B;          /* gold accent */
+      --neutral-900: #111111;
+      --neutral-700: #333333;
+      --neutral-500: #6b6b6b;
+      --neutral-200: #e9e6e3;
+      --bg: #FBF7F3;
+      --glass: rgba(255,255,255,0.6);
+
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+
+      --shadow-soft: 0 6px 20px rgba(16,16,16,0.08);
+      --shadow-elev: 0 12px 36px rgba(16,16,16,0.12);
+
+      --space-xxs: 6px;
+      --space-xs: 10px;
+      --space-sm: 16px;
+      --space-md: 24px;
+      --space-lg: 40px;
+      --space-xl: 64px;
+
+      --fw-heading: 700;
+      --fw-regular: 400;
+
+      --max-content-width: 1200px;
+    }
+
+    /* Reset & base */
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background: linear-gradient(180deg,var(--bg),#FFF);
+      color:var(--neutral-900);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+      -webkit-text-size-adjust:100%;
+    }
+
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+
+    /* Container */
+    .container{
+      width:100%;
+      max-width:var(--max-content-width);
+      margin:0 auto;
+      padding-inline:calc(16px + 2vw);
+    }
+
+    /* Header / Navigation */
+    header{
+      position:sticky;
+      top:16px;
+      z-index:60;
+      display:flex;
+      justify-content:center;
+      pointer-events:none;
+    }
+    .nav-wrap{
+      pointer-events:auto;
+      width:100%;
+      max-width:var(--max-content-width);
+      display:flex;
+      align-items:center;
+      gap:24px;
+      padding:12px;
+      background:linear-gradient(180deg, rgba(255,255,255,0.7), rgba(255,255,255,0.45));
+      border-radius:14px;
+      box-shadow:var(--shadow-soft);
+      backdrop-filter: blur(6px);
+    }
+
+    .brand{
+      display:flex;
+      gap:12px;
+      align-items:center;
+      flex:0 0 auto;
+    }
+    .brand .logo{
+      width:52px;
+      height:52px;
+      display:grid;
+      place-items:center;
+      background:linear-gradient(180deg,var(--color-secondary),#fff);
+      border-radius:12px;
+      box-shadow:var(--shadow-soft);
+      flex-shrink:0;
+    }
+    .brand h1{
+      font-family:"Playfair Display", serif;
+      font-weight:600;
+      font-size:clamp(1rem, 1.1vw, 1.15rem);
+      margin:0;
+      color:var(--color-primary);
+      letter-spacing:0.4px;
+    }
+    .brand .sub{
+      display:block;
+      font-size:0.72rem;
+      color:var(--neutral-500);
+      margin-top:2px;
+      line-height:1;
+    }
+
+    nav{
+      margin-left:auto;
+      display:flex;
+      gap:22px;
+      align-items:center;
+    }
+    .nav-links{
+      display:flex;
+      gap:18px;
+      align-items:center;
+    }
+    .nav-links a{
+      font-weight:600;
+      color:var(--neutral-700);
+      padding:8px 6px;
+      border-radius:8px;
+      transition:all .18s ease;
+    }
+    .nav-links a:focus, .nav-links a:hover{
+      color:var(--color-primary);
+      transform:translateY(-2px);
+      outline:none;
+    }
+
+    .cta-btn{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:10px 16px;
+      background:linear-gradient(90deg,var(--color-primary), #4f2f22);
+      color:white;
+      border-radius:12px;
+      box-shadow:var(--shadow-elev);
+      font-weight:700;
+      font-size:0.95rem;
+      transition:transform .14s ease, box-shadow .14s ease;
+    }
+    .cta-btn:hover{transform:translateY(-3px);box-shadow:0 20px 40px rgba(79,47,34,0.15)}
+    .cta-phone{display:inline-flex;align-items:center;gap:8px}
+
+    /* Mobile menu */
+    .menu-toggle{
+      display:none;
+      background:none;
+      border:0;
+      padding:8px;
+      border-radius:10px;
+    }
+
+    /* Hero */
+    .hero{
+      margin-top:36px;
+      display:grid;
+      grid-template-columns: 1fr 460px;
+      gap:32px;
+      align-items:center;
+    }
+    .hero-card{
+      background:linear-gradient(180deg, rgba(255,255,255,0.85), rgba(255,255,255,0.9));
+      border-radius:20px;
+      padding:32px;
+      box-shadow:var(--shadow-elev);
+      position:relative;
+      overflow:hidden;
+    }
+    .eyebrow{
+      display:inline-block;
+      background:var(--color-secondary);
+      color:var(--neutral-700);
+      padding:6px 10px;
+      border-radius:999px;
+      font-size:0.78rem;
+      margin-bottom:14px;
+      font-weight:600;
+    }
+    .hero-title{
+      font-family:"Playfair Display", serif;
+      font-weight:700;
+      color:var(--neutral-900);
+      font-size:clamp(1.6rem, 3.6vw, 2.8rem);
+      margin:0 0 12px 0;
+      line-height:1.02;
+    }
+    .hero-sub{
+      color:var(--neutral-700);
+      font-size:clamp(0.98rem, 1.6vw, 1.07rem);
+      margin-bottom:20px;
+    }
+    .hero-actions{
+      display:flex;
+      gap:12px;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+    .btn-ghost{
+      padding:10px 14px;
+      border-radius:12px;
+      border:1px solid var(--neutral-200);
+      background:white;
+      color:var(--neutral-700);
+      font-weight:600;
+    }
+
+    /* Visual panel on right */
+    .hero-visual{
+      position:relative;
+      min-height:320px;
+      border-radius:18px;
+      overflow:hidden;
+      display:grid;
+      align-items:center;
+      justify-items:center;
+      background:
+        radial-gradient(600px 180px at 10% 10%, rgba(201,143,59,0.06), transparent 10%),
+        linear-gradient(180deg,#fff,#FBF7F3);
+      padding:28px;
+      box-shadow:var(--shadow-soft);
+    }
+    .visual-card{
+      width:100%;
+      max-width:380px;
+      background:linear-gradient(180deg, rgba(255,255,255,0.95), #fff);
+      border-radius:14px;
+      padding:18px;
+      display:flex;
+      gap:14px;
+      align-items:center;
+      box-shadow:0 10px 30px rgba(16,16,16,0.06);
+      transform:translateY(0);
+      transition:transform .28s cubic-bezier(.2,.9,.26,1);
+    }
+    .visual-card:hover{transform:translateY(-8px)}
+    .visual-art{
+      width:88px;height:72px;border-radius:10px;background:linear-gradient(135deg,var(--color-secondary),#fff);
+      display:grid;place-items:center;
+      box-shadow:var(--shadow-soft);
+      flex-shrink:0;
+    }
+    .visual-title{font-weight:700;color:var(--neutral-900);font-size:0.98rem}
+    .visual-sub{font-size:0.86rem;color:var(--neutral-500)}
+
+    /* Services */
+    .services{
+      margin-top:var(--space-xl);
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:22px;
+    }
+    .service{
+      background:white;
+      border-radius:14px;
+      padding:20px;
+      box-shadow:var(--shadow-soft);
+      transition:transform .16s ease, box-shadow .16s ease;
+      border:1px solid rgba(16,16,16,0.03);
+    }
+    .service:hover{transform:translateY(-8px);box-shadow:0 22px 44px rgba(16,16,16,0.07)}
+    .icon-wrap{
+      width:56px;height:56px;border-radius:12px;background:linear-gradient(180deg,var(--color-secondary),#fff);
+      display:grid;place-items:center;margin-bottom:12px;
+    }
+    .service h3{margin:0 0 8px 0;font-family:"Playfair Display", serif;font-size:1.05rem}
+    .service p{margin:0;color:var(--neutral-700);font-size:0.95rem}
+
+    /* About & Approach */
+    .split{
+      margin-top:var(--space-xl);
+      display:grid;
+      grid-template-columns: 1fr 420px;
+      gap:28px;
+      align-items:start;
+    }
+    .about{
+      background:linear-gradient(180deg,#fff, rgba(250,249,247,0.9));
+      padding:22px;border-radius:14px;box-shadow:var(--shadow-soft);
+    }
+    .approach{
+      background:linear-gradient(180deg, rgba(250,249,247,0.9), #fff);
+      padding:22px;border-radius:14px;box-shadow:var(--shadow-soft);
+    }
+    .approach ul{padding-left:18px;margin:8px 0 0 0;color:var(--neutral-700)}
+    .approach li{margin-bottom:8px;font-weight:600}
+
+    /* Decorative pattern */
+    .pattern{
+      margin-top:var(--space-xl);
+      border-radius:16px;
+      padding:20px;
+      background:
+        linear-gradient(180deg, rgba(106,62,43,0.03), rgba(201,143,59,0.02));
+      display:flex;
+      gap:12px;
+      align-items:center;
+      justify-content:center;
+    }
+
+    /* Contact */
+    .contact{
+      margin-top:var(--space-xl);
+      padding:22px;
+      border-radius:14px;
+      background:linear-gradient(180deg, #fff, rgba(250,249,247,0.9));
+      box-shadow:var(--shadow-elev);
+      display:flex;
+      gap:20px;
+      align-items:center;
+      justify-content:space-between;
+      flex-wrap:wrap;
+    }
+    .contact .left{min-width:220px}
+    .contact h4{margin:0 0 6px 0;font-family:"Playfair Display",serif}
+    .contact p{margin:0;color:var(--neutral-700)}
+    .contact .actions{display:flex;gap:12px;align-items:center}
+
+    /* Footer */
+    footer{
+      margin-top:var(--space-xl);
+      padding:28px 0;
+      color:var(--neutral-700);
+      font-size:0.95rem;
+    }
+    .footer-inner{
+      display:flex;
+      justify-content:space-between;
+      gap:20px;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+    .small{
+      font-size:0.9rem;color:var(--neutral-500)
+    }
+
+    /* Responsive */
+    @media (max-width:1024px){
+      .hero{grid-template-columns:1fr; gap:18px}
+      .split{grid-template-columns:1fr}
+      .services{grid-template-columns:repeat(2,1fr)}
+      header{top:12px}
+    }
+    @media (max-width:680px){
+      .nav-links{display:none}
+      .menu-toggle{display:inline-flex;margin-left:auto}
+      .nav-wrap{padding:10px}
+      .brand h1{font-size:1rem}
+      .hero-visual{min-height:220px}
+      .services{grid-template-columns:1fr}
+    }
+
+    /* Mobile menu panel */
+    .mobile-panel{
+      position:fixed;
+      inset:0;
+      background:linear-gradient(180deg, rgba(16,16,16,0.35), rgba(16,16,16,0.5));
+      display:none;
+      align-items:flex-start;
+      justify-content:flex-end;
+      z-index:120;
+      padding:24px;
+    }
+    .mobile-panel.open{display:flex}
+    .mobile-sheet{
+      width:min(320px, calc(100% - 48px));
+      background:white;
+      border-radius:16px;
+      padding:18px;
+      box-shadow:var(--shadow-elev);
+    }
+    .mobile-sheet nav{display:flex;flex-direction:column;gap:12px}
+    .mobile-sheet a{padding:12px;border-radius:10px}
+
+    /* Focus styles */
+    a:focus,button:focus{outline:3px solid rgba(201,143,59,0.18);outline-offset:3px}
+
+    /* Micro interactions */
+    .fade-in{opacity:0;transform:translateY(8px);transition:opacity .6s ease, transform .6s ease}
+    .fade-in.visible{opacity:1;transform:translateY(0)}
+
+    /* Respect prefers-reduced-motion */
+    @media (prefers-reduced-motion: reduce){
+      *{transition:none!important;animation:none!important}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav-wrap container" role="banner">
+      <div class="brand" aria-hidden="false">
+        <div class="logo" aria-hidden="true">
+          <!-- decorative castle monogram svg -->
+          <svg width="36" height="36" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="8" y="26" width="48" height="30" rx="6" fill="#fff"/>
+            <path d="M12 26v-8h8v8" stroke="#6A3E2B" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M44 26v-10h8v10" stroke="#6A3E2B" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M24 18v8" stroke="#6A3E2B" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M40 18v8" stroke="#6A3E2B" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M8 40h48" stroke="#EBDCCF" stroke-width="4" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div>
+          <h1>Dvorac Gjalski</h1>
+          <span class="sub">catering & gastronomske usluge</span>
+        </div>
+      </div>
+
+      <nav aria-label="Glavna navigacija">
+        <div class="nav-links" role="navigation" aria-hidden="false">
+          <a href="#ponuda">Ponuda</a>
+          <a href="#o-nama">O nama</a>
+          <a href="#prednosti">Prednosti</a>
+          <a href="#kontakt">Kontakt</a>
+        </div>
+
+        <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="mobilePanel" aria-label="Otvorite izbornik">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+            <path d="M3 6h18M3 12h18M3 18h18" stroke="#333" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+
+        <a class="cta-btn" href="tel:+38549201100" aria-label="Nazovite Dvorac Gjalski">
+          <span class="cta-phone">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.09 4.18 2 2 0 0 1 4 2h3a2 2 0 0 1 2 1.72c.12 1.05.36 2.08.72 3.06a2 2 0 0 1-.45 2.11L9.91 10.09a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.11-.45c.98.36 2.01.6 3.06.72A2 2 0 0 1 22 16.92z" stroke="#fff" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <strong>+385 49 201 100</strong>
+          </span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="container hero" aria-label="Hero">
+      <div class="hero-card fade-in" id="heroCard">
+        <span class="eyebrow">Dvorac Gjalski</span>
+        <h2 class="hero-title">Catering i gastronomska podrška za događanja</h2>
+        <p class="hero-sub">Koordinacija usluge hrane i pića prilagođena vašem događaju — jasna komunikacija, profesionalna izvedba i estetski predstavljeni obroci.</p>
+
+        <div class="hero-actions">
+          <a class="cta-btn" href="tel:+38549201100" aria-label="Nazovite za ponudu">
+            Nazovite za informaciju
+          </a>
+          <a class="btn-ghost" href="#ponuda">Pogledajte ponudu</a>
+        </div>
+
+        <div style="margin-top:18px;color:var(--neutral-500);font-size:0.92rem">
+          <strong>Web:</strong>
+          <a href="http://www.dvorac-gjalski.hr" target="_blank" rel="noopener">www.dvorac-gjalski.hr</a>
+        </div>
+      </div>
+
+      <aside class="hero-visual" aria-hidden="false">
+        <div style="display:grid;gap:12px;align-items:center;justify-items:center">
+          <div class="visual-card" role="image" aria-label="Ilustracija usluge cateringa">
+            <div class="visual-art" aria-hidden="true">
+              <!-- decorative plate svg -->
+              <svg width="56" height="56" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <circle cx="32" cy="32" r="22" fill="#fff" stroke="#C98F3B" stroke-width="2"/>
+                <path d="M22 34c2-6 6-8 12-8s10 2 12 8" stroke="#6A3E2B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <rect x="28" y="18" width="8" height="4" rx="2" fill="#EBDCCF"/>
+              </svg>
+            </div>
+            <div>
+              <div class="visual-title">Personalizirana usluga</div>
+              <div class="visual-sub">Suradnja u skladu s vašim formatom događaja</div>
+            </div>
+          </div>
+
+          <div style="display:flex;gap:12px;align-items:center">
+            <div style="background:linear-gradient(90deg,var(--color-accent), rgba(201,143,59,0.1));padding:10px;border-radius:12px;box-shadow:var(--shadow-soft)">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+                <path d="M3 7h18" stroke="#6A3E2B" stroke-width="1.5" stroke-linecap="round"/>
+                <path d="M7 7v10a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V7" stroke="#6A3E2B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div style="text-align:left">
+              <div style="font-weight:700;color:var(--neutral-900)">Diskretno i organizirano</div>
+              <div style="font-size:0.9rem;color:var(--neutral-500)">Jasne upute, koordinacija na dan događaja</div>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <section id="ponuda" class="container services fade-in" aria-labelledby="ponuda-heading">
+      <h2 id="ponuda-heading" style="grid-column:1/-1;font-family:'Playfair Display',serif;margin:0 0 12px 0;font-size:1.4rem">Ponuda</h2>
+
+      <article class="service" aria-labelledby="s1">
+        <div class="icon-wrap" aria-hidden="true">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2v20" stroke="#6A3E2B" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M3 10h18" stroke="#C98F3B" stroke-width="1.6" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h3 id="s1">Catering za događanja</h3>
+        <p>Prilagođena opskrba hrane i pića za različite vrste okupljanja — od manjeg privatnog slavlja do većih formalnih događaja.</p>
+      </article>
+
+      <article class="service" aria-labelledby="s2">
+        <div class="icon-wrap" aria-hidden="true">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="3" y="7" width="18" height="12" rx="2" stroke="#6A3E2B" stroke-width="1.6" fill="#fff"/>
+            <path d="M7 7v-2a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2" stroke="#C98F3B" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <h3 id="s2">Coordinacija na dan događaja</h3>
+        <p>Diskretna podrška i logistika usluge hrane i pića kako bi dan protekao bez nepotrebnih zastoja.</p>
+      </article>
+
+      <article class="service" aria-labelledby="s3">
+        <div class="icon-wrap" aria-hidden="true">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4 20h16" stroke="#6A3E2B" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M12 3v14" stroke="#C98F3B" stroke-width="1.6" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h3 id="s3">Fleksibilni pristup</h3>
+        <p>Rješenja se oblikuju prema prostoru i potrebama klijenta. Transparentna komunikacija u pripremi događaja.</p>
+      </article>
+    </section>
+
+    <section id="o-nama" class="container split fade-in" aria-labelledby="o-nama-heading">
+      <div class="about" aria-hidden="false">
+        <h2 id="o-nama-heading" style="font-family:'Playfair Display',serif;margin-top:0">O nama</h2>
+        <p>Dvorac Gjalski nudi usluge cateringa temeljene na profesionalnoj organizaciji i estetskom predstavljanju. Radimo izravno s klijentima i koordinatorima lokacija kako bismo osigurali jasnu komunikaciju i besprijekornu izvedbu usluge hrane i pića.</p>
+        <p style="margin-top:12px;color:var(--neutral-700)">Ne predstavljamo gotove pakete — svaku suradnju oblikujemo prema specifičnostima događaja i vašim željama.</p>
+      </div>
+
+      <aside class="approach" aria-hidden="false">
+        <h3 style="margin-top:0;font-family:'Playfair Display',serif">Naš pristup</h3>
+        <ul>
+          <li>Jasna komunikacija i koordinacija</li>
+          <li>Prilagodba kapaciteta i rasporeda</li>
+          <li>Diskretno izvođenje na dan događaja</li>
+        </ul>
+
+        <div style="margin-top:14px;color:var(--neutral-700)">
+          <strong>Kako započeti</strong>
+          <p style="margin:8px 0 0 0">Kontaktirajte nas telefonom i dogovorite kratak razgovor o zahtjevima i logistici događaja — to je prvi korak prema ponudi.</p>
+        </div>
+      </aside>
+    </section>
+
+    <div class="container pattern fade-in" role="img" aria-label="Dekorativni uzorak">
+      <!-- decorative ribbon with SVG motif -->
+      <svg width="92%" height="56" viewBox="0 0 1200 80" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="max-width:1200px">
+        <defs>
+          <linearGradient id="g1" x1="0" x2="1">
+            <stop offset="0" stop-color="#C98F3B" stop-opacity="0.08"/>
+            <stop offset="1" stop-color="#6A3E2B" stop-opacity="0.02"/>
+          </linearGradient>
+        </defs>
+        <rect width="1200" height="80" rx="14" fill="url(#g1)"/>
+        <g fill="#DCC9B8" opacity="0.18">
+          <circle cx="80" cy="40" r="10"/><circle cx="180" cy="28" r="6"/><circle cx="300" cy="52" r="8"/>
+          <circle cx="460" cy="22" r="7"/><circle cx="680" cy="36" r="12"/><circle cx="950" cy="26" r="6"/>
+        </g>
+      </svg>
+    </div>
+
+    <section id="prednosti" class="container fade-in" aria-labelledby="prednosti-heading" style="margin-top:28px">
+      <h2 id="prednosti-heading" style="font-family:'Playfair Display',serif;margin:0 0 12px 0">Prednosti suradnje</h2>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:18px">
+        <div style="background:white;padding:16px;border-radius:12px;box-shadow:var(--shadow-soft)">
+          <strong>Jednostavna komunikacija</strong>
+          <p style="margin:8px 0 0 0;color:var(--neutral-700)">Centralizirani kontakt i dogovor ključnih detalja.</p>
+        </div>
+        <div style="background:white;padding:16px;border-radius:12px;box-shadow:var(--shadow-soft)">
+          <strong>Praktična logistika</strong>
+          <p style="margin:8px 0 0 0;color:var(--neutral-700)">Koordinacija sa lokacijama i suradnicima po potrebi.</p>
+        </div>
+        <div style="background:white;padding:16px;border-radius:12px;box-shadow:var(--shadow-soft)">
+          <strong>Estetsko predstavljanje</strong>
+          <p style="margin:8px 0 0 0;color:var(--neutral-700)">Predstavljanje jela i postava prilagođeno konceptu događaja.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="kontakt" class="container contact fade-in" aria-labelledby="kontakt-heading">
+      <div class="left">
+        <h4 id="kontakt-heading" style="margin:0;font-family:'Playfair Display',serif">Kontakt</h4>
+        <p style="margin:6px 0 0 0;color:var(--neutral-700)">Za upite i rezervacije nazovite ili posjetite službenu web stranicu.</p>
+      </div>
+
+      <div class="actions">
+        <a class="cta-btn" href="tel:+38549201100" aria-label="Nazovite Dvorac Gjalski">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.09 4.18 2 2 0 0 1 4 2h3a2 2 0 0 1 2 1.72" stroke="#fff" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          +385 49 201 100
+        </a>
+
+        <a class="btn-ghost" href="http://www.dvorac-gjalski.hr" target="_blank" rel="noopener">Posjetite web</a>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container footer-inner">
+        <div>
+          <div style="font-weight:700;color:var(--color-primary)">Dvorac Gjalski</div>
+          <div class="small" style="margin-top:6px">catering • gastronomske usluge</div>
+        </div>
+
+        <div class="small">
+          <div>Telefon: <a href="tel:+38549201100">+385 49 201 100</a></div>
+          <div style="margin-top:6px">Web: <a href="http://www.dvorac-gjalski.hr" target="_blank" rel="noopener">www.dvorac-gjalski.hr</a></div>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <!-- Mobile menu panel -->
+  <div id="mobilePanel" class="mobile-panel" aria-hidden="true">
+    <div class="mobile-sheet" role="dialog" aria-modal="true" aria-label="Mobilni izbornik">
+      <nav>
+        <a href="#ponuda" onclick="closeMenu()">Ponuda</a>
+        <a href="#o-nama" onclick="closeMenu()">O nama</a>
+        <a href="#prednosti" onclick="closeMenu()">Prednosti</a>
+        <a href="#kontakt" onclick="closeMenu()">Kontakt</a>
+        <a href="tel:+38549201100" style="margin-top:8px;font-weight:700">Nazovite: +385 49 201 100</a>
+      </nav>
+    </div>
+  </div>
+
+  <script>
+    (function(){
+      const menuToggle = document.getElementById('menuToggle');
+      const mobilePanel = document.getElementById('mobilePanel');
+
+      function openMenu(){
+        mobilePanel.classList.add('open');
+        mobilePanel.setAttribute('aria-hidden','false');
+        menuToggle.setAttribute('aria-expanded','true');
+        // focus first link for accessibility
+        const firstLink = mobilePanel.querySelector('a');
+        if(firstLink) firstLink.focus();
+        document.body.style.overflow = 'hidden';
+      }
+      function closeMenu(){
+        mobilePanel.classList.remove('open');
+        mobilePanel.setAttribute('aria-hidden','true');
+        menuToggle.setAttribute('aria-expanded','false');
+        menuToggle.focus();
+        document.body.style.overflow = '';
+      }
+
+      menuToggle.addEventListener('click', function(){
+        const open = mobilePanel.classList.contains('open');
+        if(open) closeMenu(); else openMenu();
+      });
+
+      // close when clicking outside sheet
+      mobilePanel.addEventListener('click', function(e){
+        if(e.target === mobilePanel) closeMenu();
+      });
+
+      // close on Esc
+      window.addEventListener('keydown', function(e){
+        if(e.key === 'Escape' && mobilePanel.classList.contains('open')) closeMenu();
+      });
+
+      // Expose closeMenu to inline onclick links
+      window.closeMenu = closeMenu;
+
+      // Simple reveal animations on load/scroll
+      function reveal(){
+        document.querySelectorAll('.fade-in').forEach((el, i) => {
+          const rect = el.getBoundingClientRect();
+          if(rect.top < window.innerHeight - 60){
+            el.classList.add('visible');
+          }
+        });
+      }
+      window.addEventListener('scroll', reveal, {passive:true});
+      window.addEventListener('load', reveal);
+      reveal();
+    })();
+  </script>
+</body>
+</html>
