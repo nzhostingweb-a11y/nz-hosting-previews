@@ -1,0 +1,584 @@
+ <!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Galena obrt — Biljni pripravci i savjetovanje</title>
+  <meta name="description" content="Galena obrt — prirodni biljni pripravci i stručno savjetovanje iz područja biljnih pripravaka i njege. Kontakt: +385 91 788 3035, galenaobrt@gmail.com.">
+  <meta property="og:title" content="Galena obrt — Biljni pripravci i savjetovanje">
+  <meta property="og:description" content="Prirodni biljni pripravci i profesionalno savjetovanje prilagođeno vašim potrebama. Kontaktirajte nas za konzultaciju.">
+  <meta property="og:type" content="website">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      /* Design system */
+      --primary: #2f6b3f;            /* herbal green */
+      --secondary: #f5efe6;          /* warm paper */
+      --accent: #b07a2b;            /* ochre accent */
+      --muted: #7a7a7a;
+      --bg: #ffffff;
+      --card-bg: #fcfbf9;
+      --text: #1b1b1b;
+      --radius: 12px;
+      --radius-sm: 8px;
+      --glass: rgba(255,255,255,0.6);
+      --shadow-1: 0 6px 20px rgba(17,17,17,0.06);
+      --shadow-2: 0 10px 30px rgba(17,17,17,0.08);
+
+      /* typography */
+      --font-heading: "Playfair Display", Georgia, serif;
+      --font-body: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+      --fs-hero: clamp(1.6rem, 2.8vw + 0.8rem, 3.6rem);
+      --fs-h2: clamp(1.1rem, 1.6vw + 0.6rem, 1.6rem);
+      --container: 1200px;
+      --gap: 28px;
+    }
+
+    /* Reset & base */
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:var(--font-body);
+      color:var(--text);
+      background: linear-gradient(180deg,var(--secondary) 0%, #fff 60%);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+    }
+
+    a{color:inherit; text-decoration:none}
+    img{max-width:100%; height:auto; display:block}
+
+    .container{
+      width:calc(100% - 48px);
+      max-width:var(--container);
+      margin:0 auto;
+      padding:0 24px;
+    }
+
+    /* Navigation */
+    header{
+      position:sticky;
+      top:0;
+      z-index:40;
+      backdrop-filter: blur(6px);
+      background:linear-gradient(180deg, rgba(255,255,255,0.6), rgba(255,255,255,0.4));
+      border-bottom: 1px solid rgba(16,16,16,0.04);
+    }
+    .nav-inner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      padding:14px 0;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+    .logo-mark{
+      width:44px;
+      height:44px;
+      display:inline-grid;
+      place-items:center;
+      background:linear-gradient(135deg,var(--primary), #4b8d58);
+      border-radius:10px;
+      box-shadow: var(--shadow-1);
+      flex:0 0 44px;
+    }
+    .logo-mark svg{width:26px; height:26px; transform:translateY(-1px)}
+    .wordmark{
+      font-family:var(--font-heading);
+      font-weight:700;
+      font-size:1.05rem;
+      letter-spacing:0.2px;
+      color:var(--text);
+    }
+
+    nav.desktop{
+      display:flex;
+      gap:20px;
+      align-items:center;
+    }
+    nav.desktop a{
+      color:var(--muted);
+      padding:8px 10px;
+      border-radius:8px;
+      font-weight:500;
+      transition:all .18s ease;
+    }
+    nav.desktop a:hover, nav.desktop a:focus{color:var(--text); background:rgba(47,107,63,0.06); outline:none}
+    .cta-primary{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      background:linear-gradient(180deg,var(--primary), #2a5f35);
+      color:#fff;
+      padding:10px 14px;
+      border-radius:10px;
+      box-shadow:var(--shadow-2);
+      font-weight:600;
+      transition:transform .14s ease;
+    }
+    .cta-primary:active{transform:translateY(1px)}
+
+    /* mobile nav */
+    .mobile-toggle{
+      display:none;
+      background:transparent;
+      border:0;
+      padding:8px;
+      border-radius:8px;
+      color:var(--text);
+    }
+
+    /* Hero */
+    .hero{
+      display:grid;
+      grid-template-columns:1fr 460px;
+      gap:36px;
+      align-items:center;
+      padding:60px 0 48px;
+    }
+    .hero-content{
+      max-width:720px;
+    }
+    h1{
+      margin:0 0 12px;
+      font-family:var(--font-heading);
+      font-weight:700;
+      font-size:var(--fs-hero);
+      line-height:1.02;
+      color:var(--text);
+      letter-spacing:-0.02em;
+    }
+    .lead{
+      margin:0 0 22px;
+      color:var(--muted);
+      font-size:1.05rem;
+    }
+    .hero-actions{display:flex; gap:14px; align-items:center; flex-wrap:wrap}
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:12px 16px;
+      border-radius:10px;
+      font-weight:600;
+      cursor:pointer;
+      border:0;
+      text-decoration:none;
+    }
+    .btn-ghost{
+      background:transparent;
+      color:var(--primary);
+      border:1px solid rgba(47,107,63,0.12);
+    }
+    .card-visual{
+      background:var(--card-bg);
+      border-radius:18px;
+      padding:26px;
+      box-shadow:var(--shadow-1);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      position:relative;
+      overflow:visible;
+      min-height:320px;
+    }
+    .leaf-illustration{width:280px; height:280px; display:block}
+
+    /* Services */
+    .services{
+      margin-top:30px;
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:20px;
+    }
+    .service{
+      background:linear-gradient(180deg, #fff, var(--card-bg));
+      border-radius:14px;
+      padding:18px;
+      box-shadow:var(--shadow-1);
+      display:flex;
+      gap:14px;
+      align-items:flex-start;
+      transition:transform .16s ease, box-shadow .16s ease;
+      border:1px solid rgba(11,11,11,0.03);
+    }
+    .service:hover{transform:translateY(-6px); box-shadow:var(--shadow-2)}
+    .service svg{flex:0 0 48px; height:48px}
+    .service h3{margin:0; font-size:1rem; font-weight:600}
+    .service p{margin:6px 0 0; color:var(--muted); font-size:0.95rem}
+
+    /* About & approach */
+    .split{
+      display:grid;
+      grid-template-columns:1fr 420px;
+      gap:28px;
+      align-items:start;
+      margin-top:44px;
+    }
+    .about-card{
+      background:linear-gradient(180deg,#fff,#fbfbfb);
+      border-radius:14px;
+      padding:22px;
+      box-shadow:var(--shadow-1);
+      border:1px solid rgba(11,11,11,0.03);
+    }
+    .how-steps{
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+    }
+    .step{
+      display:flex;
+      gap:12px;
+      align-items:flex-start;
+      background:var(--secondary);
+      padding:12px;
+      border-radius:10px;
+    }
+    .step .num{
+      background:var(--primary);
+      color:#fff;
+      width:36px;
+      height:36px;
+      display:grid;
+      place-items:center;
+      border-radius:8px;
+      font-weight:700;
+    }
+
+    /* Contact */
+    .contact{
+      margin-top:46px;
+      display:grid;
+      grid-template-columns:1fr 360px;
+      gap:28px;
+      align-items:start;
+      padding-bottom:46px;
+    }
+    .contact-card{
+      background:linear-gradient(180deg,#fff,#fcfcfc);
+      border-radius:14px;
+      padding:20px;
+      box-shadow:var(--shadow-1);
+      border:1px solid rgba(11,11,11,0.03);
+    }
+    .contact-list{display:flex; flex-direction:column; gap:10px}
+    .contact-list a{display:inline-flex; gap:10px; align-items:center; color:var(--text); background:transparent; padding:8px; border-radius:8px}
+    .contact-list a:hover{background:rgba(47,107,63,0.05)}
+
+    footer{
+      border-top:1px solid rgba(17,17,17,0.04);
+      padding:24px 0;
+      font-size:0.95rem;
+      color:var(--muted);
+    }
+    .footer-grid{display:flex; justify-content:space-between; align-items:center; gap:20px; flex-wrap:wrap}
+
+    /* Responsive */
+    @media (max-width:1100px){
+      .hero{grid-template-columns:1fr; padding-top:44px}
+      .card-visual{order:1}
+      .split{grid-template-columns:1fr}
+      .contact{grid-template-columns:1fr}
+      .services{grid-template-columns:repeat(2, 1fr)}
+    }
+    @media (max-width:700px){
+      nav.desktop{display:none}
+      .mobile-toggle{display:inline-flex}
+      .logo-mark{width:40px; height:40px}
+      .wordmark{font-size:0.98rem}
+      .services{grid-template-columns:1fr}
+      .hero{padding:28px 0}
+      .card-visual{min-height:220px; padding:18px}
+      h1{font-size:clamp(1.4rem, 6vw, 2.2rem)}
+    }
+
+    /* Mobile menu (overlay) */
+    .mobile-menu{
+      position:fixed;
+      inset:60px 16px auto 16px;
+      background:rgba(255,255,255,0.98);
+      border-radius:12px;
+      box-shadow:0 12px 40px rgba(10,10,10,0.12);
+      padding:12px;
+      display:none;
+      flex-direction:column;
+      gap:8px;
+      z-index:60;
+    }
+    .mobile-menu a{padding:12px; border-radius:10px; color:var(--text)}
+    .mobile-menu a:focus{outline:2px solid rgba(47,107,63,0.12)}
+
+    /* focus styles */
+    a:focus, button:focus {outline:3px solid rgba(47,107,63,0.12); outline-offset:2px}
+    :focus{box-shadow:none}
+
+    /* Decorative animation */
+    @media (prefers-reduced-motion: no-preference){
+      .leaf-illustration{animation:float 6s ease-in-out infinite}
+    }
+    @keyframes float{
+      0%{transform:translateY(0) rotate(-3deg)}
+      50%{transform:translateY(-8px) rotate(2deg)}
+      100%{transform:translateY(0) rotate(-3deg)}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav-inner" role="navigation" aria-label="Glavna navigacija">
+      <div class="brand">
+        <a href="#hero" class="logo" aria-label="Galena obrt - početak">
+          <span class="logo-mark" aria-hidden="true">
+            <!-- simple leaf mark -->
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M3 21s6-2 9-7 6-11 11-13c0 0-12 1-20 13z" fill="#fff" opacity="0.08"/>
+              <path d="M6 18c4-5 9-10 17-13" stroke="#fff" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" opacity="0.16"/>
+              <path d="M5 19c4-5 9-10 15-12" stroke="rgba(255,255,255,0.25)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </a>
+        <div>
+          <div class="wordmark">Galena obrt</div>
+          <div style="font-size:0.85rem; color:var(--muted); margin-top:2px">Biljni pripravci i savjetovanje</div>
+        </div>
+      </div>
+
+      <nav class="desktop" aria-label="Sekcije">
+        <a href="#usluge">Ponuda</a>
+        <a href="#o-nama">O nama</a>
+        <a href="#kako">Kako radimo</a>
+        <a href="#kontakt">Kontakt</a>
+        <a href="http://galenaobrt.blogspot.com" target="_blank" rel="noopener" aria-label="Galena blog" title="Blog">Blog</a>
+        <a class="cta-primary" href="mailto:galenaobrt@gmail.com">Zatražite konzultaciju</a>
+      </nav>
+
+      <button class="mobile-toggle" aria-expanded="false" aria-controls="mobile-menu" aria-label="Otvori izbornik">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+
+    <div id="mobile-menu" class="mobile-menu" role="menu" aria-hidden="true">
+      <a href="#usluge" role="menuitem">Ponuda</a>
+      <a href="#o-nama" role="menuitem">O nama</a>
+      <a href="#kako" role="menuitem">Kako radimo</a>
+      <a href="#kontakt" role="menuitem">Kontakt</a>
+      <a href="http://galenaobrt.blogspot.com" target="_blank" rel="noopener" role="menuitem">Blog</a>
+      <a href="mailto:galenaobrt@gmail.com" class="cta-primary" role="menuitem">Zatražite konzultaciju</a>
+    </div>
+  </header>
+
+  <main>
+    <section id="hero" class="container hero" aria-labelledby="hero-title">
+      <div class="hero-content">
+        <h1 id="hero-title">Prirodni biljni pripravci i stručno savjetovanje</h1>
+        <p class="lead">Galena obrt nudi postupno i promišljeno pristupanje prirodnim pripravcima te praktične savjete o primjeni biljnih proizvoda i njezi. Radimo transparentno, s fokusom na kvalitetne sastojke i individualan pristup.</p>
+
+        <div class="hero-actions" role="group" aria-label="Hero pozivi na akciju">
+          <a class="btn cta-primary" href="mailto:galenaobrt@gmail.com">Zatražite konzultaciju</a>
+          <a class="btn btn-ghost" href="tel:+385917883035">Nazovite nas: +385 91 788 3035</a>
+          <a class="btn" href="#usluge" aria-label="Pogledajte ponudu">Pogledajte ponudu</a>
+        </div>
+      </div>
+
+      <aside class="card-visual" aria-hidden="true">
+        <!-- decorative SVG composition -->
+        <svg class="leaf-illustration" viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
+          <defs>
+            <linearGradient id="g1" x1="0" x2="1">
+              <stop offset="0" stop-color="#effaf1"/>
+              <stop offset="1" stop-color="#e6f6e8"/>
+            </linearGradient>
+            <linearGradient id="g2" x1="0" x2="1">
+              <stop offset="0" stop-color="#2f6b3f"/>
+              <stop offset="1" stop-color="#4b8d58"/>
+            </linearGradient>
+          </defs>
+          <rect width="320" height="320" rx="20" fill="url(#g1)"/>
+          <g transform="translate(30,20)" fill="none" stroke="#ffffff20" stroke-width="6">
+            <path d="M40 220c40-80 160-140 230-120"/>
+            <path d="M60 200c30-50 120-100 190-90"/>
+          </g>
+          <g transform="translate(28,28)" fill="url(#g2)" stroke="#fff5" stroke-width="1.2" stroke-linejoin="round">
+            <path d="M120 12c30 8 48 36 60 70 12 34 10 64-8 92-18 28-40 34-68 26-28-8-46-36-60-70-14-34-12-64 6-92 18-28 40-34 68-26z" opacity="0.96"/>
+            <path d="M70 205c20-12 40-18 66-14 24 4 44 16 64 36" fill="none" stroke="#ffffff22" stroke-width="2.6" stroke-linecap="round"/>
+          </g>
+          <g transform="translate(200,70)" fill="#fff" opacity="0.9">
+            <circle cx="0" cy="0" r="4"/>
+          </g>
+        </svg>
+      </aside>
+    </section>
+
+    <section id="usluge" class="container" aria-labelledby="usluge-title">
+      <h2 id="usluge-title" style="margin-top:10px; font-size:var(--fs-h2);">Ponuda</h2>
+      <p style="color:var(--muted); margin-top:8px; max-width:720px;">Odabirom Galene dobivate personaliziran pristup: preporuke zasnovane na biljnim znanjima, pažljivo pripremljene sastojke i jasne upute za primjenu. Ispod su kategorije s opisom onoga što klijenti obično traže.</p>
+
+      <div class="services" aria-hidden="false">
+        <article class="service" aria-labelledby="s1">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2C8 5 4 6 2 12c2 8 8 8 10 8s8 0 10-8c-2-6-6-7-10-10z" fill="var(--primary)"/></svg>
+          <div>
+            <h3 id="s1">Prirodni pripravci</h3>
+            <p>Pripravci na bazi biljnih sastojaka, formulirani tako da budu jasni za upotrebu i prikladni za svakodnevnu njegu.</p>
+          </div>
+        </article>
+
+        <article class="service" aria-labelledby="s2">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="2" y="3" width="20" height="18" rx="3" fill="var(--accent)"/></svg>
+          <div>
+            <h3 id="s2">Savjetovanje</h3>
+            <p>Praktični razgovor o primjeni biljnih sredstava i prilagodbi upotrebe prema individualnim potrebama korisnika.</p>
+          </div>
+        </article>
+
+        <article class="service" aria-labelledby="s3">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 12c0 5 4 9 9 9s9-4 9-9-4-9-9-9S3 7 3 12z" fill="#f2efe6"/></svg>
+          <div>
+            <h3 id="s3">Transparentnost sastojaka</h3>
+            <p>Jasan popis sastojaka i preporuke za sigurno korištenje. Fokus na prirodnim i prepoznatljivim komponentama.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="o-nama" class="container split" aria-labelledby="o-nama-title">
+      <div class="about-card">
+        <h2 id="o-nama-title" style="font-size:var(--fs-h2); margin-top:0">O nama</h2>
+        <p style="color:var(--muted)">Galena obrt djeluje u području biljne pripreme i savjetovanja. Pristupamo svakom upitu pažljivo: slušamo vaše potrebe i nudimo praktične, razumljive preporuke. Ne predstavljamo medicinske dijagnoze — cilj nam je informirati i ponuditi prirodne opcije za njegu i podršku.</p>
+
+        <h3 style="margin-top:18px; font-size:1rem">Naš pristup</h3>
+        <p style="color:var(--muted)">Radimo transparentno: objašnjavamo odabir sastojaka, način pripreme i preporučenu primjenu. Ako trebate dodatne informacije ili imate posebne zahtjeve, kontaktirajte nas kako bismo prilagodili savjet.</p>
+      </div>
+
+      <div>
+        <div class="about-card" aria-hidden="false">
+          <h3 style="margin-top:0">Prednosti suradnje</h3>
+          <ul style="margin:10px 0 0; padding-left:18px; color:var(--muted); line-height:1.6">
+            <li>Individualan pristup i jasne preporuke</li>
+            <li>Jasan popis sastojaka i upute za upotrebu</li>
+            <li>Fokus na prirodne i dostupne komponente</li>
+          </ul>
+        </div>
+
+        <div style="height:18px"></div>
+
+        <div class="about-card how-steps" aria-labelledby="kako">
+          <h3 id="kako" style="margin-top:0">Kako suradnja obično izgleda</h3>
+          <div class="step"><div class="num" aria-hidden="true">1</div><div><strong>Kontakt</strong><div style="color:var(--muted)">Pošaljite upit mailom ili pozivom. Dogovorimo osnovne informacije.</div></div></div>
+          <div class="step"><div class="num" aria-hidden="true">2</div><div><strong>Konzultacija</strong><div style="color:var(--muted)">Razgovaramo o potrebama i mogućnostima primjene biljnih pripravaka.</div></div></div>
+          <div class="step"><div class="num" aria-hidden="true">3</div><div><strong>Priprema i upute</strong><div style="color:var(--muted)">Ako je potrebno, pripremimo preporuke i jasno navedemo upute za upotrebu.</div></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="kontakt" class="container contact" aria-labelledby="kontakt-title">
+      <div class="contact-card" aria-labelledby="kontakt-title">
+        <h2 id="kontakt-title" style="font-size:var(--fs-h2); margin-top:0">Kontakt</h2>
+        <p style="color:var(--muted); margin-bottom:12px">Rado ćemo odgovoriti na upit. Odaberite način kontakta koji vam najviše odgovara.</p>
+
+        <div class="contact-list">
+          <a href="tel:+385917883035" aria-label="Nazovite Galena obrt">Telefon: <strong style="margin-left:6px; color:var(--text)">+385 91 788 3035</strong></a>
+          <a href="mailto:galenaobrt@gmail.com" aria-label="Pošaljite email Galeni">Email: <strong style="margin-left:6px; color:var(--text)">galenaobrt@gmail.com</strong></a>
+          <a href="http://galenaobrt.blogspot.com" target="_blank" rel="noopener" aria-label="Posjetite blog Galene">Blog: galenaobrt.blogspot.com</a>
+        </div>
+
+        <p style="color:var(--muted); margin-top:18px; font-size:0.95rem">Nemamo javno objavljenu adresu na ovoj stranici. Za dogovor o preuzimanju ili dostavi kontaktirajte nas telefonom ili e‑mailom.</p>
+      </div>
+
+      <aside class="contact-card" aria-hidden="true" style="display:flex; flex-direction:column; justify-content:center; align-items:flex-start; gap:12px">
+        <h3 style="margin:0">Brzi poziv</h3>
+        <p style="margin:0; color:var(--muted)">Ako želite brzu provjeru, nazovite nas odmah.</p>
+        <a class="cta-primary" href="tel:+385917883035" style="margin-top:8px">Pozovite +385 91 788 3035</a>
+      </aside>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-grid">
+      <div>
+        <div style="font-weight:700">Galena obrt</div>
+        <div style="color:var(--muted); margin-top:6px">Biljni pripravci i savjetovanje</div>
+      </div>
+
+      <nav aria-label="Podnožje">
+        <a href="#usluge" style="margin-right:12px; color:var(--muted)">Ponuda</a>
+        <a href="#o-nama" style="margin-right:12px; color:var(--muted)">O nama</a>
+        <a href="#kontakt" style="color:var(--muted)">Kontakt</a>
+      </nav>
+
+      <div style="color:var(--muted)"><a href="mailto:galenaobrt@gmail.com">galenaobrt@gmail.com</a> · <a href="tel:+385917883035">+385 91 788 3035</a></div>
+    </div>
+  </footer>
+
+  <script>
+    (function(){
+      const toggle = document.querySelector('.mobile-toggle');
+      const menu = document.getElementById('mobile-menu');
+
+      function openMenu(){
+        menu.style.display = 'flex';
+        toggle.setAttribute('aria-expanded','true');
+        menu.setAttribute('aria-hidden','false');
+        // focus first link
+        const first = menu.querySelector('a');
+        if(first) first.focus();
+      }
+      function closeMenu(){
+        menu.style.display = 'none';
+        toggle.setAttribute('aria-expanded','false');
+        menu.setAttribute('aria-hidden','true');
+        toggle.focus();
+      }
+
+      toggle.addEventListener('click', function(){
+        const expanded = this.getAttribute('aria-expanded') === 'true';
+        if(expanded) closeMenu(); else openMenu();
+      });
+
+      // close menu on outside click or navigation
+      document.addEventListener('click', function(e){
+        if(menu.style.display !== 'flex') return;
+        if(!menu.contains(e.target) && e.target !== toggle) closeMenu();
+      });
+
+      // handle escape key
+      document.addEventListener('keydown', function(e){
+        if(e.key === 'Escape' && menu.style.display === 'flex') closeMenu();
+      });
+
+      // smooth scroll for internal anchors
+      document.querySelectorAll('a[href^="#"]').forEach(a=>{
+        a.addEventListener('click', function(e){
+          const href = this.getAttribute('href');
+          if(href.length > 1){
+            const el = document.querySelector(href);
+            if(el){
+              e.preventDefault();
+              el.scrollIntoView({behavior:'smooth', block:'start'});
+              // close mobile menu if open
+              if(menu.style.display === 'flex') closeMenu();
+            }
+          }
+        });
+      });
+
+      // Respect prefers-reduced-motion
+      const media = window.matchMedia('(prefers-reduced-motion: reduce)');
+      if(media.matches){
+        document.documentElement.style.scrollBehavior = 'auto';
+      }
+    })();
+  </script>
+</body>
+</html>
