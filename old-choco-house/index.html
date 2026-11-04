@@ -1,0 +1,582 @@
+ <!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Old choco house — Premium catering i deserti</title>
+  <meta name="description" content="Old choco house — catering i deserti s naglaskom na čokoladu. Prilagodljive catering usluge za privatne i poslovne događaje. Pogledajte ponudu i zatražite detalje." />
+  <meta property="og:title" content="Old choco house — Premium catering i deserti" />
+  <meta property="og:description" content="Old choco house pruža prilagodljive catering usluge i desertne koncepte s fokusom na čokoladu. Kontaktirajte nas za ponudu." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://oldchocohouse.business.site/" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      /* Boje */
+      --color-primary: #3b2215; /* tamna čokoladna */
+      --color-secondary: #f6efe8; /* topla krem */
+      --color-accent: #b88645; /* zlatni akcent */
+      --muted: #7b6a60;
+      --bg: linear-gradient(180deg, #fffdfa 0%, #f8f3ef 100%);
+      --card-bg: #fff;
+      --text: #231815;
+      --radius: 14px;
+      --radius-sm: 8px;
+      --glass: rgba(255,255,255,0.6);
+
+      /* Tipografija */
+      --ff-heading: "Playfair Display", Georgia, serif;
+      --ff-body: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+      /* Spacing */
+      --space-xs: 8px;
+      --space-sm: 16px;
+      --space-md: 28px;
+      --space-lg: 48px;
+      --container: 1200px;
+
+      /* Sjene */
+      --shadow-soft: 0 8px 30px rgba(36,28,22,0.08);
+      --shadow-strong: 0 12px 50px rgba(36,28,22,0.12);
+
+      /* tranzicije */
+      --ease: cubic-bezier(.2,.9,.3,1);
+    }
+
+    /* Reset i osnovno */
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:var(--ff-body);
+      color:var(--text);
+      background:var(--bg);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+      font-size:clamp(15px, 1.4vw, 18px);
+      padding-bottom:80px;
+    }
+
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;height:auto;display:block}
+
+    .container{
+      width:min(var(--container),calc(100% - 48px));
+      margin:0 auto;
+    }
+
+    /* Navigacija */
+    header{
+      position:sticky;
+      top:16px;
+      z-index:40;
+      display:flex;
+      justify-content:center;
+      pointer-events:auto;
+    }
+    .nav-wrap{
+      width:min(var(--container),calc(100% - 32px));
+      background:transparent;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      padding:12px 18px;
+      border-radius:12px;
+      backdrop-filter: blur(6px) saturate(1.05);
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      color:var(--color-primary);
+    }
+    .logo-mark{
+      width:48px;
+      height:48px;
+      border-radius:12px;
+      background:linear-gradient(135deg,var(--color-primary),#5a3526);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      box-shadow:var(--shadow-soft);
+      flex-shrink:0;
+    }
+    .logo-mark svg{filter:drop-shadow(0 6px 18px rgba(36,28,22,0.12))}
+    .wordmark{
+      font-family:var(--ff-heading);
+      font-weight:700;
+      font-size:clamp(18px,1.6vw,22px);
+      letter-spacing:0.02em;
+    }
+    nav.desktop{
+      display:flex;
+      gap:22px;
+      align-items:center;
+    }
+    nav.desktop a{
+      color:var(--muted);
+      font-weight:600;
+      padding:8px 10px;
+      border-radius:8px;
+      transition:transform .25s var(--ease), color .18s var(--ease);
+    }
+    nav.desktop a:focus, nav.desktop a:hover{
+      color:var(--color-primary);
+      transform:translateY(-2px);
+      outline:none;
+    }
+
+    .primary-cta{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      background:linear-gradient(90deg,var(--color-primary),#562f22);
+      color:var(--color-secondary);
+      padding:10px 16px;
+      border-radius:10px;
+      box-shadow:var(--shadow-strong);
+      font-weight:600;
+      transition:transform .18s var(--ease), box-shadow .18s var(--ease);
+    }
+    .primary-cta:focus, .primary-cta:hover{transform:translateY(-3px); box-shadow:0 18px 50px rgba(59,34,21,0.18)}
+
+    /* Mobile nav */
+    .mobile-toggle{
+      display:none;
+      background:transparent;
+      border:0;
+      padding:8px;
+      border-radius:10px;
+      color:var(--color-primary);
+    }
+
+    /* Hero */
+    .hero{
+      margin:36px auto 28px;
+      width:min(var(--container),calc(100% - 32px));
+      display:grid;
+      grid-template-columns: 1fr 420px;
+      gap:36px;
+      align-items:center;
+    }
+    .hero-content{
+      background:linear-gradient(180deg, rgba(255,255,255,0.7), rgba(255,255,255,0.55));
+      padding:32px;
+      border-radius:var(--radius);
+      box-shadow:var(--shadow-soft);
+    }
+    h1{
+      margin:0 0 12px;
+      font-family:var(--ff-heading);
+      font-weight:700;
+      font-size:clamp(28px,4.2vw,44px);
+      line-height:1.02;
+      color:var(--color-primary);
+      letter-spacing:-0.02em;
+    }
+    p.lead{
+      margin:0 0 22px;
+      color:var(--muted);
+      font-size:clamp(15px,1.4vw,17px);
+    }
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+    .secondary-cta{
+      padding:10px 14px;
+      border-radius:10px;
+      background:transparent;
+      border:1px solid rgba(35,24,21,0.06);
+      color:var(--color-primary);
+      font-weight:600;
+      transition:transform .18s var(--ease), background .18s var(--ease);
+    }
+    .secondary-cta:hover{transform:translateY(-2px); background:var(--glass)}
+
+    /* Visual card */
+    .visual{
+      background:linear-gradient(160deg, #fdf7f3, #fffdfb);
+      border-radius:var(--radius);
+      padding:22px;
+      box-shadow:var(--shadow-strong);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .visual-plate{
+      width:100%;
+      max-width:340px;
+      aspect-ratio:1/0.9;
+      background:
+        radial-gradient(120px 60px at 20% 20%, rgba(184,134,69,0.08), transparent 10%),
+        linear-gradient(180deg,#fff 0%, #fbf6f3 100%);
+      border-radius:18px;
+      position:relative;
+      padding:18px;
+    }
+    /* Decorative SVG "chocolate swirl" */
+    .swirl{
+      width:100%;
+      height:100%;
+      display:block;
+    }
+
+    /* Ponuda / Usluge */
+    section.cards{
+      margin-top:28px;
+      display:grid;
+      grid-template-columns: repeat(3,1fr);
+      gap:20px;
+      align-items:start;
+    }
+    .card{
+      background:var(--card-bg);
+      border-radius:12px;
+      padding:20px;
+      box-shadow:var(--shadow-soft);
+      border:1px solid rgba(36,28,22,0.04);
+      transition:transform .22s var(--ease), box-shadow .22s var(--ease);
+    }
+    .card:hover{transform:translateY(-8px); box-shadow:0 24px 60px rgba(36,28,22,0.09)}
+    .card h3{
+      margin:0 0 8px;
+      font-family:var(--ff-heading);
+      font-size:18px;
+      color:var(--color-primary);
+    }
+    .card p{margin:0;color:var(--muted);font-size:15px}
+
+    /* About */
+    .about{
+      margin-top:36px;
+      display:grid;
+      grid-template-columns: 1fr 360px;
+      gap:28px;
+      align-items:center;
+    }
+    .about-text{
+      background:transparent;
+      padding:20px;
+      border-radius:12px;
+    }
+    .about-quote{
+      background:linear-gradient(90deg, rgba(184,134,69,0.06), rgba(59,34,21,0.03));
+      padding:16px;
+      border-radius:10px;
+    }
+
+    /* Process */
+    .process{
+      margin-top:36px;
+      display:flex;
+      gap:16px;
+      flex-wrap:wrap;
+    }
+    .step{
+      background:var(--card-bg);
+      padding:16px;
+      border-radius:12px;
+      min-width:200px;
+      box-shadow:var(--shadow-soft);
+      border-left:4px solid var(--color-accent);
+    }
+    .step h4{margin:0 0 8px;font-size:15px;color:var(--color-primary);font-weight:700}
+    .step p{margin:0;color:var(--muted);font-size:14px}
+
+    /* Kontakt */
+    .contact{
+      margin-top:44px;
+      display:flex;
+      gap:20px;
+      align-items:center;
+      justify-content:space-between;
+      background:linear-gradient(180deg,#fffdfa, #fffbf7);
+      padding:20px;
+      border-radius:14px;
+      box-shadow:var(--shadow-soft);
+    }
+    .contact .meta p{margin:0;color:var(--muted)}
+    .contact .actions{display:flex;gap:12px;align-items:center}
+
+    footer{
+      margin-top:48px;
+      padding:28px 0;
+      color:var(--muted);
+      border-top:1px solid rgba(36,28,22,0.04);
+    }
+    footer .foot-inner{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+
+    /* Responsive */
+    @media (max-width:1024px){
+      .hero{grid-template-columns:1fr 360px}
+      .about{grid-template-columns:1fr 320px}
+      .cards{grid-template-columns:repeat(2,1fr)}
+    }
+    @media (max-width:720px){
+      .nav-wrap{padding:10px}
+      nav.desktop{display:none}
+      .mobile-toggle{display:inline-flex}
+      .hero{grid-template-columns:1fr; gap:18px; padding:0 14px}
+      .visual{order:-1}
+      .about{grid-template-columns:1fr}
+      .cards{grid-template-columns:1fr}
+      .contact{flex-direction:column;align-items:flex-start}
+    }
+
+    /* Focus states */
+    a:focus, button:focus, .primary-cta:focus{
+      outline:3px solid rgba(184,134,69,0.16);
+      outline-offset:3px;
+    }
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce){
+      *{transition:none!important; animation:none!important}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav-wrap container" role="banner">
+      <div class="brand" aria-label="Old choco house - brand">
+        <div class="logo-mark" aria-hidden="true">
+          <!-- stylized cocoa bean SVG -->
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2c2.6 0 4.8 1.7 6 4-1.2 2.3-3.4 4-6 4s-4.8-1.7-6-4C7.2 3.7 9.4 2 12 2z" fill="#ffefea"/>
+            <path d="M4.2 14.2c1.9 3.8 5.9 6.1 11.8 6.1 0 0-1-6.1-6.2-9.6-5.2-3.4-5.6 3.5-5.6 3.5z" fill="#5a3526"/>
+            <path d="M3 9c2.5 0 4.5 1.6 5.6 3.5C12.2 18.2 3 16 3 9z" fill="#7b5a49"/>
+          </svg>
+        </div>
+        <div>
+          <div class="wordmark">Old choco house</div>
+          <div style="font-size:12px;color:var(--muted);margin-top:2px">catering · deserti</div>
+        </div>
+      </div>
+
+      <nav class="desktop" role="navigation" aria-label="Glavna navigacija">
+        <a href="#ponuda">Ponuda</a>
+        <a href="#onama">O nama</a>
+        <a href="#proces">Suradnja</a>
+        <a href="#kontakt">Kontakt</a>
+        <a class="primary-cta" href="https://oldchocohouse.business.site/" target="_blank" rel="noopener noreferrer">Pogledajte profil</a>
+      </nav>
+
+      <button class="mobile-toggle" aria-controls="mobile-menu" aria-expanded="false" aria-label="Otvorite izbornik">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+          <path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </div>
+
+    <div id="mobile-menu" style="display:none" aria-hidden="true">
+      <div class="container" style="margin-top:8px">
+        <div style="background:rgba(255,255,255,0.9);padding:12px;border-radius:12px;box-shadow:var(--shadow-soft)">
+          <a href="#ponuda" style="display:block;padding:10px 6px;border-radius:8px">Ponuda</a>
+          <a href="#onama" style="display:block;padding:10px 6px;border-radius:8px">O nama</a>
+          <a href="#proces" style="display:block;padding:10px 6px;border-radius:8px">Suradnja</a>
+          <a href="#kontakt" style="display:block;padding:10px 6px;border-radius:8px">Kontakt</a>
+          <a class="primary-cta" href="https://oldchocohouse.business.site/" target="_blank" rel="noopener noreferrer" style="display:inline-block;margin-top:8px">Pogledajte profil</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero container" aria-labelledby="hero-heading">
+      <div class="hero-content">
+        <h1 id="hero-heading">Old choco house — catering i deserti posvećeni čokoladi</h1>
+        <p class="lead">Prilagodljive catering usluge i desertni koncepti s naglaskom na čokoladu. Radimo s pažnjom prema detalju i jasnoćom ponude — za privatne i poslovne događaje.</p>
+        <div class="hero-actions" role="group" aria-label="Akcije hero sekcije">
+          <a class="primary-cta" href="#ponuda">Pogledajte ponudu</a>
+          <a class="secondary-cta" href="#kontakt">Zatražite informacije</a>
+        </div>
+      </div>
+
+      <div class="visual" aria-hidden="false" aria-label="Dekorativna ilustracija">
+        <div class="visual-plate" role="img" aria-label="Ilustracija čokoladnog motiva">
+          <!-- Decorative SVG composition (original) -->
+          <svg class="swirl" viewBox="0 0 600 520" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+            <defs>
+              <linearGradient id="g1" x1="0" x2="1">
+                <stop offset="0" stop-color="#6b3f2b" stop-opacity="0.98"/>
+                <stop offset="1" stop-color="#3b2215" stop-opacity="0.95"/>
+              </linearGradient>
+              <radialGradient id="r1" cx="30%" cy="30%">
+                <stop offset="0" stop-color="#ffefea" stop-opacity="0.9"/>
+                <stop offset="1" stop-color="#fff" stop-opacity="0.0"/>
+              </radialGradient>
+            </defs>
+
+            <rect x="0" y="0" width="600" height="520" rx="28" fill="url(#r1)"/>
+            <g transform="translate(80,60) scale(0.9)">
+              <path d="M180 20c80 20 140 80 130 150-10 70-70 120-150 120S60 250 40 180C20 110 95 0 180 20z" fill="url(#g1)" opacity="0.98"/>
+              <path d="M220 60c40 14 76 48 68 86-8 38-44 66-92 66s-80-28-88-66c-8-38 22-92 92-86z" fill="#7b543f" opacity="0.85"/>
+              <ellipse cx="155" cy="160" rx="82" ry="32" fill="#2b160f" opacity="0.12"/>
+              <!-- thin geometric accents -->
+              <g stroke="#b88645" stroke-width="2" opacity="0.9" stroke-linecap="round">
+                <path d="M20 220 q120 -60 240 -10" fill="none"/>
+                <path d="M50 240 q100 -40 200 -10" fill="none" stroke-opacity="0.35"/>
+              </g>
+            </g>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <section id="ponuda" class="container" aria-labelledby="ponuda-heading" style="margin-top:18px">
+      <h2 id="ponuda-heading" style="font-family:var(--ff-heading);font-size:20px;margin-bottom:12px;color:var(--color-primary)">Ponuda</h2>
+
+      <p style="color:var(--muted);margin-bottom:18px">Old choco house nudi prilagodljive mogućnosti cateringa i slastičarskih koncepata s fokusom na čokoladu i desertne prezentacije. Ispod su istaknuti tipovi ponude koji se često dogovaraju — svaki angažman prilagođavamo prema potrebama klijenta.</p>
+
+      <div class="cards" role="list">
+        <article class="card" role="listitem" aria-labelledby="c1">
+          <h3 id="c1">Event catering</h3>
+          <p>Opskrba hrane i posluživanje za događaje različitih vrsta i veličina, s opcijama za slastice i čokoladne dodatke prema dogovoru.</p>
+        </article>
+
+        <article class="card" role="listitem" aria-labelledby="c2">
+          <h3 id="c2">Desertni koncepti</h3>
+          <p>Priprema i aranžiranje desertnih stolova i slastica s naglaskom na čokoladu i estetiku prezentacije.</p>
+        </article>
+
+        <article class="card" role="listitem" aria-labelledby="c3">
+          <h3 id="c3">Prilagođene ponude</h3>
+          <p>Mogućnost dizajna menija i usluge prema zahtjevima događaja — svaki projekt razrađujemo u razgovoru s naručiteljem.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="onama" class="container about" aria-labelledby="about-heading">
+      <div class="about-text">
+        <h2 id="about-heading" style="font-family:var(--ff-heading);font-size:20px;margin-bottom:10px;color:var(--color-primary)">O nama</h2>
+        <p style="color:var(--muted);margin-bottom:12px">Old choco house djeluje u području cateringa i slastičarstva. Fokus je na pažljivoj izvedbi i profesionalnom pristupu prema svakom događaju. Radimo transparentno i jasno — u svakom koraku pojašnjavamo što uključuje ponuda i koje su opcije prilagodbe.</p>
+
+        <div class="about-quote" aria-hidden="false">
+          <p style="margin:0;color:var(--color-primary);font-weight:600">Jasan pristup. Elegantna prezentacija. Pažnja prema detalju.</p>
+        </div>
+      </div>
+
+      <aside style="padding:18px;border-radius:12px;background:linear-gradient(180deg,#fff,#fffbf8);box-shadow:var(--shadow-soft)">
+        <h3 style="margin:0 0 10px;font-family:var(--ff-heading);color:var(--color-primary)">Za koga radimo</h3>
+        <p style="margin:0;color:var(--muted)">Old choco house potiče suradnje s organizatorima privatnih proslava, tvrtkama i event agencijama. Svaki angažman započinje razgovorom kako bismo jasno definirali očekivanja.</p>
+      </aside>
+    </section>
+
+    <section id="proces" class="container" aria-labelledby="proc-heading">
+      <h2 id="proc-heading" style="font-family:var(--ff-heading);font-size:20px;margin-top:36px;color:var(--color-primary)">Kako funkcionira suradnja</h2>
+      <p style="color:var(--muted);margin-bottom:16px">Jasan i predvidiv proces osigurava da klijent zna što dobiva — bez nejasnoća.</p>
+
+      <div class="process" role="list">
+        <div class="step" role="listitem" aria-labelledby="s1">
+          <h4 id="s1">1. Upit i razgovor</h4>
+          <p>Kontaktirajte nas s osnovnim informacijama o događaju — datum, okvirna veličina i željeni koncept.</p>
+        </div>
+
+        <div class="step" role="listitem" aria-labelledby="s2">
+          <h4 id="s2">2. Ponuda</h4>
+          <p>Predlažemo rješenje i detalje izvedbe. Sve opcije jasno su razrađene prije konačne potvrde.</p>
+        </div>
+
+        <div class="step" role="listitem" aria-labelledby="s3">
+          <h4 id="s3">3. Realizacija</h4>
+          <p>Izvedba na lokaciji, postav i posluživanje prema dogovoru. Nakon događaja brinemo se o urednom završetku.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="kontakt" class="container" aria-labelledby="kontakt-heading">
+      <h2 id="kontakt-heading" style="font-family:var(--ff-heading);font-size:20px;margin-top:36px;color:var(--color-primary)">Kontakt</h2>
+
+      <div class="contact" role="region" aria-label="Kontakt informacije">
+        <div class="meta">
+          <p style="margin:0 0 8px;color:var(--muted)"><strong>Old choco house</strong></p>
+          <p style="margin:0;color:var(--muted)">Profil poslovanja i detalji dostupni su na:</p>
+          <p style="margin:6px 0 0"><a href="https://oldchocohouse.business.site/" target="_blank" rel="noopener noreferrer" style="color:var(--color-primary);font-weight:700">oldchocohouse.business.site</a></p>
+        </div>
+
+        <div class="actions">
+          <a class="primary-cta" href="https://oldchocohouse.business.site/" target="_blank" rel="noopener noreferrer">Posjetite profil</a>
+          <a class="secondary-cta" href="#ponuda">Pogledajte ponudu</a>
+        </div>
+      </div>
+
+      <p style="margin-top:12px;color:var(--muted);font-size:14px">Napomena: Prikazani podaci temeljeni su na javno dostupnom poslovnom profilu. Nisu uključeni telefonski brojevi, adrese ili e-mail adrese jer nisu dostavljeni.</p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container foot-inner" role="contentinfo">
+      <div>
+        <div style="font-weight:700;color:var(--color-primary);font-family:var(--ff-heading)">Old choco house</div>
+        <div style="font-size:13px;color:var(--muted)">catering · deserti</div>
+      </div>
+
+      <div style="text-align:right">
+        <div style="font-size:13px"><a href="https://oldchocohouse.business.site/" target="_blank" rel="noopener noreferrer" style="color:var(--muted)">Profil poslovanja</a></div>
+        <div style="font-size:12px;color:var(--muted);margin-top:6px">Svi dodatni kontaktni podaci nalaze se na poslovnom profilu.</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function(){
+      // Mobile menu toggle
+      const btn = document.querySelector('.mobile-toggle');
+      const menu = document.getElementById('mobile-menu');
+      btn.addEventListener('click', function(){
+        const expanded = this.getAttribute('aria-expanded') === 'true';
+        this.setAttribute('aria-expanded', String(!expanded));
+        if(!expanded){
+          menu.style.display = 'block';
+          menu.setAttribute('aria-hidden','false');
+        } else {
+          menu.style.display = 'none';
+          menu.setAttribute('aria-hidden','true');
+        }
+      });
+
+      // Smooth in-page scroll for internal links
+      const internalLinks = document.querySelectorAll('a[href^="#"]');
+      internalLinks.forEach(link=>{
+        link.addEventListener('click', function(e){
+          const targetId = this.getAttribute('href').slice(1);
+          if(!targetId) return;
+          const target = document.getElementById(targetId);
+          if(target){
+            e.preventDefault();
+            const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            const top = target.getBoundingClientRect().top + window.scrollY - 24;
+            if(prefersReduced){
+              window.scrollTo(0, top);
+            } else {
+              window.scrollTo({top, behavior:'smooth'});
+            }
+            // close mobile menu if open
+            if(window.innerWidth < 720 && menu.style.display === 'block'){
+              menu.style.display = 'none';
+              menu.setAttribute('aria-hidden','true');
+              btn.setAttribute('aria-expanded','false');
+            }
+          }
+        });
+      });
+
+      // keyboard accessibility for mobile menu toggle
+      btn.addEventListener('keypress', function(e){
+        if(e.key === 'Enter' || e.key === ' '){
+          e.preventDefault();
+          this.click();
+        }
+      });
+
+      // Ensure focus outlines visible on keyboard navigation
+      document.addEventListener('keydown', function(e){
+        if(e.key === 'Tab'){
+          document.body.classList.add('show-focus');
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
