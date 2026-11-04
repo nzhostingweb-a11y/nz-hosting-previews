@@ -1,0 +1,631 @@
+ <!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Stihl — Komercijalna oprema za rad na otvorenom</title>
+  <meta name="description" content="Stihl — rješenja i oprema za komercijalne radove na otvorenom. Pregled ponude, pristup suradnji i način kontakta. Za točne podatke posjetite službenu web stranicu." />
+  <meta property="og:title" content="Stihl — Komercijalna oprema za rad na otvorenom" />
+  <meta property="og:description" content="Rješenja i oprema za komercijalne radove na otvorenom. Pogledajte ponudu i način suradnje." />
+  <meta name="theme-color" content="#0f1724" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Merriweather:wght@300;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      /* Boje */
+      --color-primary: #d35400;        /* toplica / elegantna naranča */
+      --color-secondary: #0f1724;      /* tamno plavo-siva za tekst i pozadine */
+      --color-accent: #f6c85f;         /* diskretan akcent */
+      --neutral-100: #ffffff;
+      --neutral-90: #f7f7f8;
+      --neutral-70: #e6e9ee;
+      --neutral-50: #c8ced8;
+      --neutral-30: #6b7280;
+      --text: #0f1724;
+
+      /* Tipografija */
+      --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      --font-serif: "Merriweather", Georgia, "Times New Roman", serif;
+
+      /* Spacing */
+      --space-xxs: 6px;
+      --space-xs: 12px;
+      --space-s: 18px;
+      --space-m: 28px;
+      --space-l: 44px;
+      --space-xl: 72px;
+
+      /* Border radius */
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+
+      /* Shadow */
+      --shadow-soft: 0 6px 20px rgba(15,23,36,0.08);
+      --shadow-elev: 0 10px 30px rgba(15,23,36,0.10);
+
+      /* Transitions */
+      --ease: cubic-bezier(.2,.9,.2,1);
+      --nav-height: 76px;
+    }
+
+    /* Fluid typography helpers */
+    :root{
+      --h1-clamp: clamp(1.8rem, 2.6vw + 0.8rem, 3.6rem);
+      --h2-clamp: clamp(1.2rem, 1.6vw + 0.6rem, 1.8rem);
+      --lead-clamp: clamp(0.95rem, 1.3vw + 0.2rem, 1.125rem);
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:var(--font-sans);
+      color:var(--text);
+      background:linear-gradient(180deg,var(--neutral-100) 0%,var(--neutral-90) 100%);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;height:auto;display:block}
+
+    /* Layout container */
+    .wrap{
+      max-width:1200px;
+      margin:0 auto;
+      padding:0 24px;
+    }
+
+    /* NAV */
+    header{
+      position:sticky;
+      top:0;
+      z-index:60;
+      backdrop-filter: blur(6px);
+      background:linear-gradient(180deg, rgba(255,255,255,0.72), rgba(255,255,255,0.5));
+      box-shadow: 0 1px 0 rgba(15,23,36,0.04);
+      border-bottom:1px solid rgba(15,23,36,0.02);
+    }
+    .nav {
+      height:var(--nav-height);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+    }
+    .wordmark{
+      display:flex;
+      gap:14px;
+      align-items:center;
+      font-weight:700;
+      letter-spacing:0.3px;
+      color:var(--color-secondary);
+    }
+    .wordmark svg{width:46px;height:46px;flex:0 0 46px}
+    .nav-links{
+      display:flex;
+      gap:18px;
+      align-items:center;
+    }
+    nav a{
+      color:var(--color-secondary);
+      font-weight:600;
+      padding:8px 12px;
+      border-radius:10px;
+    }
+    nav a:focus{outline:3px solid rgba(211,84,0,0.14); outline-offset:3px}
+    .cta-primary{
+      background:linear-gradient(180deg,var(--color-primary), #b44400);
+      color:var(--neutral-100);
+      padding:10px 16px;
+      border-radius:12px;
+      box-shadow:var(--shadow-soft);
+      font-weight:700;
+      transition:transform .18s var(--ease), box-shadow .18s var(--ease);
+    }
+    .cta-primary:hover{transform:translateY(-3px); box-shadow:var(--shadow-elev)}
+    .menu-toggle{
+      display:none;
+      background:transparent;
+      border:0;
+      padding:8px;
+      border-radius:10px;
+    }
+    .menu-toggle:focus{outline:3px solid rgba(15,23,36,0.08)}
+
+    /* HERO */
+    .hero{
+      display:grid;
+      grid-template-columns: 1fr 460px;
+      gap:40px;
+      align-items:center;
+      padding:var(--space-xl) 0;
+    }
+    .hero-inner{
+      padding-right:12px;
+    }
+    h1{
+      margin:0 0 14px 0;
+      font-family:var(--font-serif);
+      font-size:var(--h1-clamp);
+      line-height:1.02;
+      letter-spacing:-0.6px;
+      color:var(--color-secondary);
+      font-weight:700;
+    }
+    .lead{
+      margin:0 0 22px 0;
+      color:var(--neutral-30);
+      font-size:var(--lead-clamp);
+      max-width:60ch;
+    }
+    .hero-ctas{
+      display:flex;
+      gap:12px;
+      align-items:center;
+      margin-top:6px;
+    }
+    .secondary{
+      background:transparent;
+      border:1px solid rgba(15,23,36,0.08);
+      padding:10px 14px;
+      border-radius:12px;
+      color:var(--color-secondary);
+      font-weight:600;
+    }
+
+    /* Visual card */
+    .visual{
+      background:linear-gradient(180deg, #fff 0%, #fcfcfd 100%);
+      border-radius:var(--radius-lg);
+      padding:28px;
+      box-shadow:var(--shadow-elev);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      min-height:320px;
+      position:relative;
+      overflow:hidden;
+    }
+    .visual svg{max-width:100%;height:auto;display:block}
+
+    /* USLUGE */
+    section{padding:var(--space-l) 0}
+    .section-head{
+      display:flex;
+      align-items:center;
+      gap:16px;
+      margin-bottom:18px;
+    }
+    .kicker{
+      background:linear-gradient(90deg, rgba(243,179,57,0.12), rgba(211,84,0,0.06));
+      color:var(--color-primary);
+      padding:6px 10px;
+      border-radius:999px;
+      font-weight:700;
+      font-size:0.85rem;
+    }
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+      margin-top:12px;
+    }
+    .card{
+      background:var(--neutral-100);
+      border-radius:var(--radius-md);
+      padding:18px;
+      box-shadow:var(--shadow-soft);
+      transition:transform .16s var(--ease), box-shadow .16s var(--ease);
+      border:1px solid rgba(15,23,36,0.03);
+    }
+    .card:hover{transform:translateY(-6px); box-shadow:var(--shadow-elev)}
+    .card h3{margin:0 0 8px 0;font-size:1rem;color:var(--color-secondary)}
+    .card p{margin:0;color:var(--neutral-30);font-size:0.95rem}
+
+    /* About & approach */
+    .two-col{
+      display:grid;
+      gap:18px;
+      grid-template-columns: 1fr 1fr;
+      align-items:start;
+    }
+    .process{
+      display:flex;
+      gap:12px;
+      flex-direction:column;
+    }
+    .step{
+      background:linear-gradient(180deg, rgba(15,23,36,0.02), rgba(15,23,36,0.01));
+      padding:12px;
+      border-radius:12px;
+      display:flex;
+      gap:12px;
+      align-items:flex-start;
+    }
+    .step .num{
+      background:var(--neutral-90);
+      color:var(--color-secondary);
+      min-width:38px;
+      height:38px;
+      border-radius:10px;
+      display:grid;
+      place-items:center;
+      font-weight:700;
+      box-shadow: 0 6px 18px rgba(15,23,36,0.03);
+    }
+
+    /* Kontakt */
+    .contact-card{
+      background:linear-gradient(180deg,#fff,#fcfcfd);
+      border-radius:var(--radius-lg);
+      padding:20px;
+      box-shadow:var(--shadow-soft);
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+    }
+    .contact-links{display:flex;gap:10px;flex-wrap:wrap}
+    .contact-links a{padding:10px 12px;border-radius:10px;background:var(--neutral-90);font-weight:600;color:var(--color-secondary)}
+
+    /* Footer */
+    footer{
+      padding:var(--space-l) 0;
+      border-top:1px solid rgba(15,23,36,0.04);
+      margin-top:var(--space-l);
+    }
+    .footer-inner{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+    .small{font-size:0.88rem;color:var(--neutral-30)}
+
+    /* Responsive */
+    @media (max-width:1000px){
+      .hero{grid-template-columns:1fr 360px}
+      .grid{grid-template-columns:repeat(2,1fr)}
+      .two-col{grid-template-columns:1fr}
+    }
+    @media (max-width:720px){
+      .nav-links{display:none}
+      .menu-toggle{display:inline-flex}
+      .hero{grid-template-columns:1fr;gap:20px;padding:36px 0}
+      .visual{min-height:240px}
+      .grid{grid-template-columns:1fr}
+      .wrap{padding:0 18px}
+    }
+
+    /* Mobile menu */
+    .mobile-menu{
+      position:fixed;
+      inset:var(--nav-height) 12px auto 12px;
+      background:var(--neutral-100);
+      border-radius:14px;
+      box-shadow:0 20px 50px rgba(15,23,36,0.18);
+      padding:12px;
+      display:none;
+      flex-direction:column;
+      gap:8px;
+      z-index:70;
+    }
+    .mobile-menu a{padding:10px;border-radius:10px}
+    .mobile-menu.show{display:flex}
+
+    /* Focus visible */
+    :focus{outline-offset:3px}
+    :focus:not(:focus-visible){outline:0}
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce){
+      .card, .visual, .hero-ctas *{transition:none}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap nav" role="banner">
+      <div class="wordmark" aria-hidden="false">
+        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Logotip">
+          <rect width="64" height="64" rx="12" fill="url(#g)"/>
+          <path d="M18 38c6-6 14-8 22-6" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="42" cy="26" r="4" fill="#fff"/>
+          <defs>
+            <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#fff" stop-opacity="0.12"/>
+              <stop offset="1" stop-color="#d35400" stop-opacity="0.95"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        <div>
+          <div style="font-size:1rem;line-height:1">Stihl</div>
+          <div style="font-size:0.78rem;color:var(--neutral-30)">Komercijalna oprema</div>
+        </div>
+      </div>
+
+      <nav role="navigation" aria-label="Glavna navigacija">
+        <div class="nav-links" id="navlinks">
+          <a href="#usluge">Ponuda</a>
+          <a href="#o-nama">O nama</a>
+          <a href="#pristup">Pristup</a>
+          <a href="#kontakt" class="cta-primary" target="_blank" rel="noopener">Posjetite web</a>
+        </div>
+      </nav>
+
+      <button class="menu-toggle" id="menuToggle" aria-controls="mobileMenu" aria-expanded="false" aria-label="Otvorite izbornik">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M4 7h16M4 12h16M4 17h16" stroke="#0f1724" stroke-width="1.6" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </div>
+
+    <div id="mobileMenu" class="mobile-menu" role="menu" aria-hidden="true">
+      <a href="#usluge" role="menuitem">Ponuda</a>
+      <a href="#o-nama" role="menuitem">O nama</a>
+      <a href="#pristup" role="menuitem">Pristup</a>
+      <a href="#kontakt" role="menuitem">Kontakt</a>
+      <a href="https://sever-sdl.hr/" target="_blank" rel="noopener" class="cta-primary" role="menuitem">Posjetite web</a>
+    </div>
+  </header>
+
+  <main>
+    <div class="wrap">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-inner">
+          <div class="section-head">
+            <div class="kicker">Komercijalno</div>
+            <div style="font-size:0.95rem;color:var(--neutral-30)">Rješenja za profesionalne timove</div>
+          </div>
+
+          <h1 id="hero-title">Stihl — oprema i rješenja za rad na otvorenom</h1>
+          <p class="lead">Pruža informativan pregled komercijalne opreme i rješenja za rad na otvorenom. Pregledajte ponudu i saznajte kako započeti suradnju s nama.</p>
+
+          <div class="hero-ctas" role="group" aria-label="Glavni pozivi na akciju">
+            <a href="https://sever-sdl.hr/" target="_blank" rel="noopener" class="cta-primary">Posjetite službenu stranicu</a>
+            <a href="#usluge" class="secondary">Pogledajte ponudu</a>
+          </div>
+
+          <div style="margin-top:22px;color:var(--neutral-50);font-size:0.92rem">
+            Napomena: Dostavljeni podaci nisu provjereni. Za točne kontakt informacije posjetite službenu web stranicu.
+          </div>
+        </div>
+
+        <div class="visual" aria-hidden="false">
+          <!-- Originalna SVG kompozicija (dekorativno, nije fotografija proizvoda) -->
+          <svg viewBox="0 0 640 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Ilustracija opreme">
+            <defs>
+              <linearGradient id="a" x1="0" x2="1">
+                <stop offset="0" stop-color="#fff" stop-opacity="0.6"/>
+                <stop offset="1" stop-color="#fefefe" stop-opacity="1"/>
+              </linearGradient>
+              <linearGradient id="b" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#f6c85f"/>
+                <stop offset="1" stop-color="#d35400"/>
+              </linearGradient>
+              <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+                <feDropShadow dx="0" dy="10" stdDeviation="24" flood-color="#0f1724" flood-opacity="0.08"/>
+              </filter>
+            </defs>
+
+            <rect x="18" y="18" rx="20" width="604" height="384" fill="url(#a)"/>
+
+            <g transform="translate(40,40)" filter="url(#soft)">
+              <rect x="0" y="0" rx="18" width="420" height="240" fill="#fff"/>
+              <g transform="translate(28,22)">
+                <rect x="0" y="0" rx="10" width="160" height="80" fill="#f3f4f6"/>
+                <rect x="0" y="98" rx="10" width="260" height="120" fill="#f8fafc"/>
+                <circle cx="340" cy="60" r="48" fill="url(#b)"/>
+                <path d="M300 140c20-12 44-18 68-14" stroke="#d35400" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" opacity="0.95"/>
+                <rect x="172" y="14" rx="8" width="20" height="60" fill="#e6e9ee"/>
+                <rect x="196" y="14" rx="8" width="20" height="60" fill="#e6e9ee"/>
+                <g transform="translate(12,8)">
+                  <rect x="0" y="0" width="70" height="16" rx="8" fill="#fff"/>
+                  <rect x="0" y="30" width="120" height="26" rx="10" fill="#fff"/>
+                </g>
+              </g>
+            </g>
+
+            <g transform="translate(490,40)">
+              <rect x="0" y="0" rx="14" width="120" height="240" fill="#fff" opacity="0.96"/>
+              <path d="M26 40c10-18 46-34 66-12 12 12 8 34-10 46-18 12-54 2-56-34z" fill="#fff5eb" stroke="#f4b66a" stroke-width="1.2"/>
+              <path d="M24 130c18 10 44 8 62-6" stroke="#d35400" stroke-width="8" stroke-linecap="round" opacity="0.9"/>
+            </g>
+          </svg>
+        </div>
+      </section>
+
+      <section id="usluge" aria-labelledby="usluge-title">
+        <div class="section-head">
+          <div class="kicker">Ponuda</div>
+          <h2 id="usluge-title" style="margin:0;font-size:var(--h2-clamp);color:var(--color-secondary)">Kategorije i fokus</h2>
+        </div>
+
+        <div class="grid" role="list">
+          <article class="card" role="listitem" aria-labelledby="g1">
+            <h3 id="g1">Oprema za uređenje zelenih površina</h3>
+            <p>Rješenja i alati namijenjeni profesionalnim timovima za održavanje i uređenje parkova, vrtova i javnih površina.</p>
+          </article>
+
+          <article class="card" role="listitem" aria-labelledby="g2">
+            <h3 id="g2">Alati za komercijalnu upotrebu</h3>
+            <p>Robustni aparati i pribor koji se koriste u intenzivnim, svakodnevnim zadacima na terenu.</p>
+          </article>
+
+          <article class="card" role="listitem" aria-labelledby="g3">
+            <h3 id="g3">Rješenja za profesionalne timove</h3>
+            <p>Kombinacija opreme i pristupa za timove koji trebaju pouzdana i efikasna radna rješenja.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="o-nama" aria-labelledby="about-title">
+        <div class="section-head">
+          <div class="kicker">O tvrtki</div>
+          <h2 id="about-title" style="margin:0;font-size:var(--h2-clamp);color:var(--color-secondary)">Sažet, jasan prikaz</h2>
+        </div>
+
+        <div class="two-col" style="margin-top:12px;">
+          <div>
+            <p style="margin-top:0;color:var(--neutral-30);font-size:1rem">
+              Stihl (dostavljeni podaci) djeluje u komercijalnoj sferi opreme za vanjske radove. Ova stranica služi kao pregled ponude i informacija o pristupu suradnji. Za detaljne i potvrđene informacije koristite poveznice na službenu web stranicu.
+            </p>
+
+            <div style="margin-top:18px">
+              <a href="#pristup" class="secondary" style="font-weight:700">Saznajte naš pristup</a>
+            </div>
+          </div>
+
+          <aside>
+            <div style="background:linear-gradient(180deg,#fff,#fbf9f6);border-radius:14px;padding:16px;box-shadow:var(--shadow-soft)">
+              <h3 style="margin:0 0 8px 0">Transparentan prikaz</h3>
+              <p style="margin:0;color:var(--neutral-30)">Ne navodimo nijednu lažnu tvrdnju o certifikatima, servisnim lokacijama ili kontaktima. Za potvrdu podataka posjetite službenu web stranicu putem gumba "Posjetite web".</p>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section id="pristup" aria-labelledby="approach-title">
+        <div class="section-head">
+          <div class="kicker">Pristup</div>
+          <h2 id="approach-title" style="margin:0;font-size:var(--h2-clamp);color:var(--color-secondary)">Kako suradnja obično izgleda</h2>
+        </div>
+
+        <div class="process" style="margin-top:10px">
+          <div class="step" aria-hidden="false">
+            <div class="num">1</div>
+            <div>
+              <strong>Kontakt</strong>
+              <div style="color:var(--neutral-30)">Započnite upit putem službene web stranice ili kontakt kanala navedenih tamo. Ovdje nisu prikazani izmišljeni kontakti.</div>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="num">2</div>
+            <div>
+              <strong>Procjena zahtjeva</strong>
+              <div style="color:var(--neutral-30)">Analiza potreba i preporuka prikladnih rješenja i opreme, bez pretpostavki o dostupnosti.</div>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="num">3</div>
+            <div>
+              <strong>Ponuda</strong>
+              <div style="color:var(--neutral-30)">Jasan opis predloženog rješenja i sljedećih koraka. Detalji i uvjeti definiraju se kroz službene kanale.</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="kontakt" aria-labelledby="kontakt-title">
+        <div class="section-head">
+          <div class="kicker">Kontakt</div>
+          <h2 id="kontakt-title" style="margin:0;font-size:var(--h2-clamp);color:var(--color-secondary)">Kako nas kontaktirati</h2>
+        </div>
+
+        <div style="display:grid;grid-template-columns:1fr 360px;gap:18px;margin-top:14px;">
+          <div>
+            <p style="color:var(--neutral-30)">Nemamo verificirane kontaktne podatke u dostavljenim podacima. Za službene informacije i detaljne upite koristite poveznicu na web:</p>
+            <p style="margin-top:12px">
+              <a href="https://sever-sdl.hr/" target="_blank" rel="noopener" class="cta-primary" style="display:inline-block">Posjetite službenu web stranicu</a>
+            </p>
+            <p style="margin-top:18px;color:var(--neutral-50)">Ako imate materijale, fotografije ili tehničke upite, preporučujemo da ih pripremite prije slanja upita kroz službene kanale.</p>
+          </div>
+
+          <aside>
+            <div class="contact-card" role="region" aria-label="Kontakt">
+              <div style="font-weight:700">Brzi pristup</div>
+              <div style="color:var(--neutral-30)">Službena web stranica:</div>
+              <div class="contact-links">
+                <a href="https://sever-sdl.hr/" target="_blank" rel="noopener">sever-sdl.hr</a>
+              </div>
+
+              <div style="font-size:0.9rem;color:var(--neutral-50);margin-top:6px">
+                Napomena: Ovdje ne prikazujemo telefonske ili e-mail kontakte jer nisu dostavljeni kao potvrđeni podaci.
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap footer-inner">
+      <div>
+        <div style="font-weight:700">Stihl</div>
+        <div class="small" style="margin-top:6px">Stranica prikazuje pregled komercijalne ponude. Podaci nisu provjereni.</div>
+      </div>
+
+      <div style="display:flex;gap:18px;align-items:center">
+        <nav aria-label="Footer navigacija">
+          <a href="#usluge" class="small">Ponuda</a>
+          <a href="#o-nama" class="small">O nama</a>
+          <a href="#kontakt" class="small">Kontakt</a>
+        </nav>
+        <div class="small">© 2026</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function(){
+      const btn = document.getElementById('menuToggle');
+      const menu = document.getElementById('mobileMenu');
+
+      function toggleMenu(){
+        const expanded = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', String(!expanded));
+        menu.classList.toggle('show');
+        menu.setAttribute('aria-hidden', String(expanded));
+      }
+
+      btn.addEventListener('click', toggleMenu);
+      // Close on outside click
+      document.addEventListener('click', (e)=>{
+        if (!menu.classList.contains('show')) return;
+        if (e.target === btn || btn.contains(e.target)) return;
+        if (menu.contains(e.target)) return;
+        btn.setAttribute('aria-expanded','false');
+        menu.classList.remove('show');
+        menu.setAttribute('aria-hidden','true');
+      });
+
+      // Keyboard support
+      document.addEventListener('keydown', (e)=>{
+        if (e.key === 'Escape' && menu.classList.contains('show')){
+          btn.setAttribute('aria-expanded','false');
+          menu.classList.remove('show');
+          menu.setAttribute('aria-hidden','true');
+          btn.focus();
+        }
+      });
+
+      // Smooth scroll for internal links
+      document.querySelectorAll('a[href^="#"]').forEach(a=>{
+        a.addEventListener('click', (e)=>{
+          const targetId = a.getAttribute('href').slice(1);
+          const target = document.getElementById(targetId);
+          if (target){
+            e.preventDefault();
+            target.scrollIntoView({behavior:'smooth',block:'start'});
+            // close mobile menu if open
+            if (menu.classList.contains('show')){
+              btn.setAttribute('aria-expanded','false');
+              menu.classList.remove('show');
+              menu.setAttribute('aria-hidden','true');
+            }
+          }
+        });
+      });
+
+      // Respect prefers-reduced-motion for smooth scroll fallback
+      try {
+        const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (reduce) {
+          document.documentElement.style.scrollBehavior = 'auto';
+        }
+      } catch (e) {}
+    })();
+  </script>
+</body>
+</html>
