@@ -1,0 +1,701 @@
+ <!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Trattoria Rossa — Restoran i catering | +385 40 295 704</title>
+  <meta name="description" content="Trattoria Rossa — restoran i catering. Kontakt: +385 40 295 704. Profesionalan pristup posluživanja u restoranu i cateringu. Posjetite web za više informacija." />
+  <meta property="og:title" content="Trattoria Rossa — Restoran i catering" />
+  <meta property="og:description" content="Trattoria Rossa pruža usluge restorana i cateringa. Kontakt: +385 40 295 704." />
+  <meta property="og:url" content="https://www.trattoriarossa.com" />
+  <meta name="keywords" content="Trattoria Rossa, restoran, catering, ugostiteljstvo" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      /* Design system */
+      --color-primary: #7A1F2C; /* duboka vino crvena */
+      --color-secondary: #F6EDE7; /* topla krema */
+      --color-accent: #C99A5B; /* zlatni akcent */
+      --neutral-900: #0f1112;
+      --neutral-700: #34393b;
+      --neutral-500: #7d8486;
+      --neutral-200: #e9eceb;
+      --bg: var(--color-secondary);
+      --text: var(--neutral-900);
+
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-full: 999px;
+
+      --shadow-soft: 0 6px 20px rgba(11,12,12,0.08);
+      --shadow-elev: 0 10px 30px rgba(11,12,12,0.10);
+
+      --space-xxs: 6px;
+      --space-xs: 12px;
+      --space-sm: 18px;
+      --space-md: 28px;
+      --space-lg: 48px;
+      --space-xl: 84px;
+
+      --fluid-type-scale: 1.1;
+      --max-content-width: 1200px;
+    }
+
+    /* Typography */
+    :root{
+      --fs-xs: clamp(0.85rem, 0.9vw, 0.95rem);
+      --fs-sm: clamp(0.95rem, 1.1vw, 1.05rem);
+      --fs-base: clamp(1rem, 1.25vw, 1.125rem);
+      --fs-lg: clamp(1.15rem, 1.6vw, 1.4rem);
+      --fs-h3: clamp(1.2rem, 2vw, 1.6rem);
+      --fs-h2: clamp(1.5rem, 3vw, 2.1rem);
+      --fs-h1: clamp(2rem, 5vw, 3.2rem);
+    }
+
+    /* Base */
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background:linear-gradient(180deg, var(--bg) 0%, #FFF 100%);
+      color:var(--text);
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+      -webkit-tap-highlight-color:transparent;
+    }
+
+    a{color:inherit; text-decoration:none}
+    img{max-width:100%;height:auto;display:block}
+
+    .container{
+      width:100%;
+      max-width:var(--max-content-width);
+      margin:0 auto;
+      padding:0 24px;
+    }
+
+    header{
+      position:sticky;
+      top:0;
+      z-index:60;
+      backdrop-filter: blur(6px);
+      background:linear-gradient(180deg, rgba(255,255,255,0.72), rgba(255,255,255,0.55));
+      border-bottom:1px solid rgba(11,12,12,0.04);
+    }
+
+    .nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      padding:14px 0;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+
+    .wordmark{
+      display:flex;
+      flex-direction:column;
+      line-height:1;
+    }
+    .wordmark .name{
+      font-family:"Libre Baskerville", Georgia, serif;
+      font-weight:700;
+      font-size:var(--fs-lg);
+      color:var(--color-primary);
+      letter-spacing:0.6px;
+    }
+    .wordmark .tag{
+      font-size:var(--fs-xs);
+      color:var(--neutral-700);
+    }
+
+    nav[aria-label="Glavna navigacija"]{
+      display:flex;
+      align-items:center;
+      gap:20px;
+    }
+    .nav-links{
+      display:flex;
+      gap:18px;
+      align-items:center;
+    }
+    .nav-links a{
+      color:var(--neutral-700);
+      font-size:var(--fs-sm);
+      padding:8px 6px;
+      border-radius:8px;
+    }
+    .nav-links a:focus,
+    .nav-links a:hover{
+      outline:none;
+      color:var(--color-primary);
+      background:rgba(122,31,44,0.04);
+    }
+
+    .cta-call{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      background:var(--color-primary);
+      color:var(--color-secondary);
+      padding:10px 14px;
+      border-radius:var(--radius-full);
+      box-shadow:var(--shadow-soft);
+      font-weight:600;
+      font-size:var(--fs-sm);
+    }
+    .cta-call:focus{outline:3px solid color-mix(in srgb, var(--color-primary) 20%, transparent)}
+
+    /* Mobile menu */
+    .menu-toggle{
+      display:none;
+      background:transparent;
+      border:1px solid rgba(11,12,12,0.06);
+      padding:8px;
+      border-radius:10px;
+    }
+    .menu-toggle svg{display:block}
+
+    /* Hero */
+    .hero{
+      padding:calc(var(--space-lg)) 0;
+      display:grid;
+      grid-template-columns: 1fr 480px;
+      gap:40px;
+      align-items:center;
+    }
+    .hero-inner{
+      max-width:720px;
+    }
+    .kicker{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      font-size:var(--fs-xs);
+      color:var(--neutral-700);
+      margin-bottom:var(--space-xs);
+    }
+    .hero h1{
+      margin:0 0 18px 0;
+      font-family:"Libre Baskerville", Georgia, serif;
+      font-size:var(--fs-h1);
+      line-height:1.02;
+      color:var(--neutral-900);
+      font-weight:700;
+      letter-spacing:0.2px;
+    }
+    .hero p.lead{
+      margin:0 0 22px 0;
+      font-size:var(--fs-base);
+      color:var(--neutral-700);
+      max-width:60ch;
+    }
+    .hero .hero-ctas{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      align-items:center;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:12px 16px;
+      border-radius:12px;
+      font-weight:600;
+      font-size:var(--fs-sm);
+      cursor:pointer;
+      transition:transform .18s ease, box-shadow .18s ease;
+    }
+    .btn:active{transform:translateY(1px)}
+    .btn-primary{
+      background:linear-gradient(180deg,var(--color-primary), #5e1520);
+      color:var(--color-secondary);
+      box-shadow:var(--shadow-elev);
+      border:none;
+    }
+    .btn-primary:hover{transform:translateY(-3px)}
+    .btn-ghost{
+      background:transparent;
+      border:1px solid rgba(11,12,12,0.06);
+      color:var(--neutral-700);
+    }
+    .hero-art{
+      position:relative;
+      min-height:360px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .card-visual{
+      width:100%;
+      max-width:470px;
+      border-radius:18px;
+      padding:26px;
+      background:linear-gradient(180deg,rgba(255,255,255,0.65), rgba(255,255,255,0.88));
+      box-shadow:var(--shadow-elev);
+      border:1px solid rgba(122,31,44,0.06);
+      position:relative;
+      overflow:hidden;
+    }
+    .visual-deco{
+      position:absolute;
+      right:-40px;
+      top:-30px;
+      width:220px;
+      height:220px;
+      transform:rotate(12deg);
+      opacity:.12;
+      filter:blur(0.6px);
+    }
+    .visual-content{
+      display:flex;
+      gap:18px;
+      align-items:center;
+    }
+    .visual-plate{
+      width:92px;
+      height:92px;
+      border-radius:14px;
+      background:linear-gradient(135deg,#fff, #f7f3f2);
+      border:1px solid rgba(11,12,12,0.04);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      box-shadow:0 8px 18px rgba(11,12,12,0.06);
+      flex-shrink:0;
+    }
+    .visual-text h4{
+      margin:0;
+      font-size:var(--fs-h3);
+      color:var(--neutral-900);
+      font-family:"Libre Baskerville", serif;
+    }
+    .visual-text p{
+      margin:6px 0 0 0;
+      color:var(--neutral-500);
+      font-size:var(--fs-sm);
+    }
+
+    /* Sections */
+    section{
+      padding:calc(var(--space-md)) 0;
+    }
+    .grid-3{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:20px;
+    }
+    .card{
+      background:#fff;
+      border-radius:14px;
+      padding:18px;
+      box-shadow:var(--shadow-soft);
+      border:1px solid rgba(11,12,12,0.04);
+    }
+    .card h3{margin:0 0 8px 0;font-size:var(--fs-h3);font-family:"Libre Baskerville",serif}
+    .card p{margin:0;color:var(--neutral-700);font-size:var(--fs-sm)}
+
+    .about{
+      display:grid;
+      grid-template-columns: 1fr 360px;
+      gap:28px;
+      align-items:start;
+    }
+    .about .values{
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+    }
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:8px 12px;
+      border-radius:999px;
+      background:linear-gradient(90deg, rgba(201,154,91,0.12), rgba(122,31,44,0.03));
+      color:var(--neutral-700);
+      font-size:var(--fs-xs);
+    }
+
+    .process{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+    }
+    .step{
+      background:linear-gradient(180deg,#fff, #fbfbfb);
+      border-radius:12px;
+      padding:16px;
+      text-align:center;
+      border:1px solid rgba(11,12,12,0.04);
+    }
+    .step .num{
+      width:44px;height:44px;border-radius:10px;background:var(--color-primary);color:var(--color-secondary);display:inline-grid;place-items:center;font-weight:700;margin-bottom:12px;
+    }
+    .step h4{margin:0 0 6px 0;font-size:var(--fs-sm)}
+    .step p{margin:0;font-size:var(--fs-xs);color:var(--neutral-700)}
+
+    /* Contact */
+    .contact-card{
+      display:flex;
+      gap:18px;
+      align-items:center;
+      justify-content:space-between;
+      background:linear-gradient(90deg, rgba(122,31,44,0.03), rgba(201,154,91,0.02));
+      padding:18px;
+      border-radius:14px;
+      border:1px solid rgba(11,12,12,0.04);
+    }
+    .contact-left{display:flex;gap:14px;align-items:center}
+    .phone-pill{
+      background:var(--color-primary);
+      color:var(--color-secondary);
+      padding:12px 16px;
+      border-radius:12px;
+      font-weight:700;
+    }
+
+    footer{
+      padding:24px 0;
+      border-top:1px solid rgba(11,12,12,0.04);
+      margin-top:var(--space-xl);
+    }
+    .footer-grid{display:flex;justify-content:space-between;gap:20px;align-items:center;flex-wrap:wrap}
+    .legal{color:var(--neutral-500);font-size:var(--fs-xs)}
+
+    /* Responsive */
+    @media (max-width:1100px){
+      .hero{grid-template-columns:1fr 380px}
+      .about{grid-template-columns:1fr}
+      .hero-art{order:2}
+    }
+    @media (max-width:820px){
+      nav[aria-label="Glavna navigacija"]{display:none}
+      .menu-toggle{display:inline-flex}
+      .hero{grid-template-columns:1fr; gap:24px}
+      .card-visual{max-width:100%}
+      .grid-3{grid-template-columns:1fr}
+      .process{grid-template-columns:1fr}
+      .hero-inner{order:2}
+      .hero-art{order:1}
+    }
+
+    /* Focus and accessibility */
+    a:focus, button:focus {outline:3px solid rgba(201,154,91,0.18); outline-offset:2px}
+    :focus{scroll-margin-top:80px}
+
+    /* Animations and reduced motion */
+    @media (prefers-reduced-motion: no-preference){
+      .hero-art .card-visual{transform:translateY(0); transition:transform .7s cubic-bezier(.2,.9,.2,1)}
+      .card-visual:hover{transform:translateY(-6px)}
+      .step{transition:transform .18s ease, box-shadow .18s ease}
+      .step:hover{transform:translateY(-6px);box-shadow:var(--shadow-soft)}
+    }
+    @media (prefers-reduced-motion: reduce){
+      *{transition:none!important; animation:none!important}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav" role="banner">
+      <div class="brand">
+        <svg width="46" height="46" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+          <defs>
+            <linearGradient id="g1" x1="0" x2="1">
+              <stop offset="0" stop-color="#fff"/>
+              <stop offset="1" stop-color="#f6eae8"/>
+            </linearGradient>
+          </defs>
+          <rect width="64" height="64" rx="12" fill="url(#g1)"></rect>
+          <path d="M20 38c4-6 18-6 22 0-4 6-18 6-22 0z" fill="#C99A5B" opacity="0.9"></path>
+          <path d="M32 18c3 0 6 3 6 6v2H26v-2c0-3 3-6 6-6z" fill="#7A1F2C"></path>
+        </svg>
+        <div class="wordmark">
+          <div class="name">Trattoria Rossa</div>
+          <div class="tag">Restoran • Catering</div>
+        </div>
+      </div>
+
+      <nav aria-label="Glavna navigacija">
+        <div class="nav-links" role="navigation">
+          <a href="#usluge">Usluge</a>
+          <a href="#o-nama">O nama</a>
+          <a href="#suradnja">Suradnja</a>
+          <a href="#kontakt">Kontakt</a>
+        </div>
+      </nav>
+
+      <div style="display:flex;gap:12px;align-items:center">
+        <a class="cta-call" href="tel:+38540295704" aria-label="Nazovite Trattoria Rossa +385 40 295 704">
+          <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="currentColor"><path d="M6.62 10.79a15.053 15.053 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.05-.24 11.72 11.72 0 0 0 3.7.59 1 1 0 0 1 1 1v3.5a1 1 0 0 1-.91 1A19 19 0 0 1 3 5.91 1 1 0 0 1 4 5h3.5a1 1 0 0 1 1 1 11.72 11.72 0 0 0 .59 3.7 1 1 0 0 1-.24 1.05l-2.23 2.04z"/></svg>
+          +385 40 295 704
+        </a>
+
+        <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="mobileMenu" aria-label="Otvorite izbornik">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3 7h18M3 12h18M3 17h18"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <div id="mobileMenu" style="display:none" aria-hidden="true">
+      <div class="container" style="padding-bottom:14px;">
+        <nav aria-label="Mobilna navigacija">
+          <div style="display:flex;flex-direction:column;gap:8px;">
+            <a href="#usluge">Usluge</a>
+            <a href="#o-nama">O nama</a>
+            <a href="#suradnja">Suradnja</a>
+            <a href="#kontakt">Kontakt</a>
+            <a class="cta-call" href="tel:+38540295704" style="margin-top:8px;">Nazovite +385 40 295 704</a>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="container hero" aria-labelledby="hero-heading">
+      <div class="hero-inner">
+        <div class="kicker" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="color:var(--color-accent)"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.6"/></svg>
+          Restoran i catering — jasan i praktičan pristup
+        </div>
+
+        <h1 id="hero-heading">Trattoria Rossa — restoran i catering za vaš događaj i svakodnevni užitak</h1>
+
+        <p class="lead">Praktičan izbor za goste i organizatore: profesionalna usluga u restoranu te catering kao podrška privatnim i poslovnim događajima. Kontaktirajte nas telefonom ili posjetite službenu web-stranicu za inicijalne informacije.</p>
+
+        <div class="hero-ctas">
+          <a class="btn btn-primary" href="tel:+38540295704" aria-label="Nazovite Trattoria Rossa">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" style="color:currentColor"><path d="M6.62 10.79a15.053 15.053 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.05-.24 11.72 11.72 0 0 0 3.7.59 1 1 0 0 1 1 1v3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Nazovite +385 40 295 704
+          </a>
+
+          <a class="btn btn-ghost" href="https://www.trattoriarossa.com" target="_blank" rel="noopener">Posjetite web</a>
+        </div>
+      </div>
+
+      <div class="hero-art" aria-hidden="false">
+        <div class="card-visual" role="img" aria-label="Dekorativna kompozicija — Trattoria Rossa">
+          <svg class="visual-deco" viewBox="0 0 200 200" aria-hidden="true" focusable="false">
+            <defs>
+              <linearGradient id="ld" x1="0" x2="1">
+                <stop offset="0" stop-color="#7A1F2C" />
+                <stop offset="1" stop-color="#C99A5B" />
+              </linearGradient>
+            </defs>
+            <rect x="10" y="20" width="140" height="140" rx="20" fill="url(#ld)" opacity="0.12"></rect>
+          </svg>
+
+          <div class="visual-content">
+            <div class="visual-plate" aria-hidden="true">
+              <svg width="58" height="58" viewBox="0 0 24 24" fill="none">
+                <circle cx="12" cy="12" r="10" fill="#fff"></circle>
+                <path d="M7 12c2-3 8-3 10 0" stroke="#7A1F2C" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M9.5 8v-2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5v2" stroke="#C99A5B" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+
+            <div class="visual-text">
+              <h4>Praktično. Profesionalno. Pristupačno.</h4>
+              <p class="muted">Jasan kontakt i direktna komunikacija za dogovor usluge.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="usluge" class="container" aria-labelledby="usluge-heading">
+      <h2 id="usluge-heading" style="font-family:Libre Baskerville, serif; font-size:var(--fs-h2); margin:0 0 18px 0;">Usluge</h2>
+      <p style="margin:0 0 22px 0;color:var(--neutral-700);font-size:var(--fs-sm)">Trattoria Rossa djeluje u okviru restoranske usluge i cateringa. Donosimo jasan pristup i praktična rješenja prilagođena vašim potrebama.</p>
+
+      <div class="grid-3" style="margin-top:18px;">
+        <article class="card" aria-labelledby="s1">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" style="margin-bottom:12px"><path d="M12 2v20" stroke="#C99A5B" stroke-width="1.8" stroke-linecap="round"/><path d="M5 7h14" stroke="#7A1F2C" stroke-width="1.6" stroke-linecap="round"/></svg>
+          <h3 id="s1">Restoran</h3>
+          <p>Posluživanje u restoranu — prostor za obroke i druženja. Detalji o radnom vremenu i jelovnicima dostupni su na službenoj web-stranici.</p>
+        </article>
+
+        <article class="card" aria-labelledby="s2">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" style="margin-bottom:12px"><path d="M3 7h18M7 21h10" stroke="#C99A5B" stroke-width="1.6" stroke-linecap="round"/></svg>
+          <h3 id="s2">Catering</h3>
+          <p>Catering usluge za privatne i poslovne potrebe. Za konkretne upite i dogovor kontaktirajte nas telefonom ili putem web-stranice.</p>
+        </article>
+
+        <article class="card" aria-labelledby="s3">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" style="margin-bottom:12px"><path d="M4 6h16M6 10h12M8 14h8" stroke="#7A1F2C" stroke-width="1.6" stroke-linecap="round"/></svg>
+          <h3 id="s3">Informacije i dogovor</h3>
+          <p>Prvi kontakt realizira se putem telefona ili službene web-stranice. Tamo možete zatražiti dodatne informacije i dogovoriti sljedeće korake.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="o-nama" class="container" aria-labelledby="about-heading">
+      <h2 id="about-heading" style="font-family:Libre Baskerville, serif; font-size:var(--fs-h2); margin:0 0 18px 0;">O nama</h2>
+      <div class="about" style="margin-top:16px;">
+        <div>
+          <p style="margin-top:0;color:var(--neutral-700);font-size:var(--fs-sm)">Trattoria Rossa je poslovni subjekt koji pruža usluge restorana te cateringa. U središtu našeg pristupa su jasna komunikacija i uredna realizacija dogovorenih usluga.</p>
+
+          <div class="values" style="margin-top:16px;">
+            <div class="pill">Jasan kontakt</div>
+            <div class="pill">Profesionalna koordinacija</div>
+            <div class="pill">Prava transparentnost ponude</div>
+          </div>
+        </div>
+
+        <aside aria-label="Vizualna ilustracija pristupa" style="padding-left:8px;">
+          <div style="background:#fff;border-radius:12px;padding:14px;box-shadow:var(--shadow-soft);border:1px solid rgba(11,12,12,0.04)">
+            <svg width="100%" height="160" viewBox="0 0 320 160" aria-hidden="true" focusable="false">
+              <defs>
+                <linearGradient id="g2" x1="0" x2="1"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#f7f4f3"/></linearGradient>
+              </defs>
+              <rect x="0" y="0" width="320" height="160" rx="10" fill="url(#g2)"></rect>
+              <g fill="none" stroke="#C99A5B" stroke-width="2" stroke-linecap="round">
+                <path d="M28 120c40-28 88-28 128 0"/>
+                <path d="M28 90c40-28 88-28 128 0" opacity="0.6"/>
+              </g>
+            </svg>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="suradnja" class="container" aria-labelledby="process-heading">
+      <h2 id="process-heading" style="font-family:Libre Baskerville, serif; font-size:var(--fs-h2); margin:0 0 18px 0;">Kako izgleda suradnja</h2>
+      <p style="margin:0 0 20px 0;color:var(--neutral-700);font-size:var(--fs-sm)">Jednostavan i pregledan tijek suradnje kako biste brzo dobili potrebne informacije i nastavili s realizacijom.</p>
+
+      <div class="process" style="margin-top:18px;">
+        <div class="step" aria-labelledby="step1">
+          <div class="num">1</div>
+          <h4 id="step1">Kontakt</h4>
+          <p>Prvi poziv ili poruka za osnovne informacije.</p>
+        </div>
+
+        <div class="step" aria-labelledby="step2">
+          <div class="num">2</div>
+          <h4 id="step2">Dogovor</h4>
+          <p>Razjašnjenje zahtjeva i termini za pružanje usluge.</p>
+        </div>
+
+        <div class="step" aria-labelledby="step3">
+          <div class="num">3</div>
+          <h4 id="step3">Realizacija</h4>
+          <p>Koordinacija provedbe usluge prema dogovoru.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="kontakt" class="container" aria-labelledby="contact-heading">
+      <h2 id="contact-heading" style="font-family:Libre Baskerville, serif; font-size:var(--fs-h2); margin:0 0 18px 0;">Kontakt</h2>
+      <p style="margin:0 0 18px 0;color:var(--neutral-700);font-size:var(--fs-sm)">Za sve upite i konkretne informacije nazovite ili posjetite web-stranicu.</p>
+
+      <div class="contact-card" role="region" aria-label="Kontakt informacije">
+        <div class="contact-left">
+          <div class="phone-pill" aria-hidden="true">+385 40 295 704</div>
+          <div>
+            <div style="font-weight:600;font-size:var(--fs-sm)">Nazovite</div>
+            <div style="color:var(--neutral-500);font-size:var(--fs-xs)">Dostupno za dogovore i informacije</div>
+          </div>
+        </div>
+
+        <div style="display:flex;gap:10px;align-items:center">
+          <a class="btn btn-primary" href="tel:+38540295704">Nazovite sada</a>
+          <a class="btn btn-ghost" href="https://www.trattoriarossa.com" target="_blank" rel="noopener">Službena web-stranica</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-grid" role="contentinfo">
+      <div>
+        <div style="display:flex;align-items:center;gap:12px;">
+          <svg width="36" height="36" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+            <rect width="64" height="64" rx="12" fill="#fff"></rect>
+            <path d="M12 36c6-9 32-9 40 0-8 9-34 9-40 0z" fill="#C99A5B"></path>
+            <path d="M32 14c4 0 8 4 8 8v2H24v-2c0-4 4-8 8-8z" fill="#7A1F2C"></path>
+          </svg>
+          <div>
+            <div style="font-weight:700">Trattoria Rossa</div>
+            <div style="color:var(--neutral-500);font-size:var(--fs-xs)">Restoran • Catering</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="display:flex;gap:18px;align-items:center;flex-wrap:wrap">
+        <nav aria-label="Footer navigacija">
+          <a href="#usluge">Usluge</a> ·
+          <a href="#o-nama">O nama</a> ·
+          <a href="#kontakt">Kontakt</a>
+        </nav>
+
+        <div class="legal">
+          <div>Telefon: <a href="tel:+38540295704">+385 40 295 704</a></div>
+          <div style="margin-top:6px">Web: <a href="https://www.trattoriarossa.com" target="_blank" rel="noopener">trattoriarossa.com</a></div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function(){
+      // Mobile menu toggle
+      const btn = document.getElementById('menuToggle');
+      const menu = document.getElementById('mobileMenu');
+      btn.addEventListener('click', function(){
+        const expanded = this.getAttribute('aria-expanded') === 'true';
+        this.setAttribute('aria-expanded', String(!expanded));
+        if(!expanded){
+          menu.style.display = 'block';
+          menu.setAttribute('aria-hidden','false');
+        } else {
+          menu.style.display = 'none';
+          menu.setAttribute('aria-hidden','true');
+        }
+      });
+
+      // Smooth scrolling for in-page links
+      document.querySelectorAll('a[href^="#"]').forEach(function(anchor){
+        anchor.addEventListener('click', function(e){
+          const targetId = this.getAttribute('href').slice(1);
+          const target = document.getElementById(targetId);
+          if(target){
+            e.preventDefault();
+            const prefers = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            if(prefers){
+              target.scrollIntoView();
+            } else {
+              target.scrollIntoView({behavior:'smooth', block:'start'});
+            }
+            // Close mobile menu if open
+            if(window.innerWidth <= 820 && menu.style.display === 'block'){
+              menu.style.display = 'none';
+              menu.setAttribute('aria-hidden','true');
+              btn.setAttribute('aria-expanded','false');
+            }
+          }
+        });
+      });
+
+      // Ensure keyboard accessibility for menu toggle
+      btn.addEventListener('keydown', function(e){
+        if(e.key === 'Enter' || e.key === ' '){
+          e.preventDefault();
+          this.click();
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
