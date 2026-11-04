@@ -1,0 +1,559 @@
+ <!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>A1 — Komercijalna elektronika za poslovne prostore</title>
+  <meta name="description" content="A1 nudi rješenja komercijalne elektronike: oprema, integracija i podrška za poslovne prostore. Posjetite službenu web stranicu za detaljne informacije i kontakt." />
+  <meta property="og:title" content="A1 — Komercijalna elektronika za poslovne prostore" />
+  <meta property="og:description" content="A1 nudi rješenja komercijalne elektronike: oprema, integracija i podrška za poslovne prostore." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Merriweather:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    :root{
+      /* Design system */
+      --color-primary: #0b4a6f;        /* deep teal-blue */
+      --color-secondary: #f5f7fb;      /* soft neutral background */
+      --color-accent: #ffb547;         /* warm accent */
+      --neutral-900: #0b0f14;
+      --neutral-700: #384047;
+      --neutral-500: #6b7378;
+      --neutral-300: #cdd6dc;
+      --bg: var(--color-secondary);
+      --card-bg: #ffffff;
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --shadow-1: 0 6px 18px rgba(11,74,111,0.08);
+      --shadow-2: 0 10px 30px rgba(11,74,111,0.06);
+      --gap: 24px;
+      --max-width: 1280px;
+
+      /* Typography fluid scale */
+      --fs-hero: clamp(2.1rem, 3.6vw + 1rem, 3.6rem);
+      --fs-h2: clamp(1.25rem, 1.6vw + 0.8rem, 1.6rem);
+      --fs-copy: clamp(0.95rem, 0.6vw + 0.8rem, 1.05rem);
+
+      --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      --font-serif: "Merriweather", Georgia, serif;
+      color-scheme: light;
+    }
+
+    /* Basic reset */
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background:linear-gradient(180deg, var(--bg), #f8fafc);
+      font-family:var(--font-sans);
+      color:var(--neutral-900);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+      -webkit-text-size-adjust:100%;
+      padding:32px 20px;
+    }
+
+    a{color:inherit;text-decoration:none}
+    img,svg{max-width:100%;height:auto;display:block}
+
+    .container{
+      width:100%;
+      max-width:var(--max-width);
+      margin:0 auto;
+    }
+
+    /* Navigation */
+    header{
+      position:sticky;
+      top:18px;
+      z-index:60;
+      display:flex;
+      justify-content:center;
+      pointer-events:auto;
+    }
+    .nav-wrap{
+      width:100%;
+      background:rgba(255,255,255,0.86);
+      backdrop-filter: blur(6px);
+      border-radius:12px;
+      padding:12px 18px;
+      box-shadow:var(--shadow-1);
+    }
+    nav{
+      display:flex;
+      align-items:center;
+      gap:16px;
+      justify-content:space-between;
+    }
+    .brand{
+      display:flex;
+      gap:12px;
+      align-items:center;
+    }
+    .brand .mark{
+      width:46px;height:46px;flex:0 0 46px;border-radius:10px;
+      background:linear-gradient(135deg,var(--color-primary), #0e6a96);
+      display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-family:var(--font-serif);
+      box-shadow:var(--shadow-1);
+    }
+    .brand .wordmark{
+      display:flex;flex-direction:column;line-height:1;
+    }
+    .brand .wordmark .name{font-weight:700;font-family:var(--font-sans);letter-spacing:0.2px}
+    .brand .wordmark .sub{font-size:0.78rem;color:var(--neutral-500);margin-top:2px}
+
+    .nav-links{
+      display:flex;
+      align-items:center;
+      gap:18px;
+    }
+    .nav-links a{color:var(--neutral-700);font-weight:600;padding:8px 10px;border-radius:8px}
+    .nav-links a:focus,.nav-links a:hover{background:rgba(11,74,111,0.06);outline:none}
+
+    .cta-primary{
+      background:linear-gradient(90deg,var(--color-accent), #ff9b2b);
+      color:var(--neutral-900);
+      padding:10px 14px;border-radius:10px;font-weight:700;
+      box-shadow:0 6px 20px rgba(255,181,71,0.18);
+      transition:transform .18s ease, box-shadow .18s ease;
+    }
+    .cta-primary:hover{transform:translateY(-3px);box-shadow:var(--shadow-2)}
+    .cta-secondary{
+      background:transparent;border:1px solid rgba(11,74,111,0.08);padding:8px 12px;border-radius:10px;font-weight:600;color:var(--color-primary)
+    }
+
+    /* Mobile menu */
+    .menu-toggle{display:none;background:transparent;border:0;padding:8px;border-radius:8px}
+    .menu-toggle:focus{outline:2px solid var(--color-primary);}
+
+    /* Hero */
+    .hero{
+      display:grid;
+      grid-template-columns:1fr 460px;
+      gap:40px;
+      align-items:center;
+      margin-top:28px;
+      margin-bottom:36px;
+    }
+    .hero-left{
+      background:linear-gradient(180deg, rgba(255,255,255,0.5), transparent);
+      padding:34px;border-radius:16px;
+      box-shadow:var(--shadow-1);
+    }
+    h1{
+      font-family:var(--font-serif);
+      font-size:var(--fs-hero);
+      margin:0 0 12px 0;
+      color:var(--neutral-900);
+      letter-spacing:-0.6px;
+    }
+    .lead{
+      font-size:var(--fs-copy);
+      color:var(--neutral-700);
+      margin-bottom:18px;
+    }
+    .hero-ctas{display:flex;gap:12px;flex-wrap:wrap}
+    .meta-row{display:flex;gap:12px;align-items:center;margin-top:18px;color:var(--neutral-500);font-size:0.95rem}
+    .tag{
+      display:inline-flex;align-items:center;gap:8px;background:#fff;padding:8px 10px;border-radius:10px;border:1px solid var(--neutral-300)
+    }
+
+    /* Hero right visual */
+    .hero-right{
+      position:relative;min-height:260px;border-radius:16px;overflow:hidden;
+      display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg, #eaf6fb, #ffffff);
+      border:1px solid rgba(11,74,111,0.04);
+    }
+    .device-graphic{
+      width:86%;height:86%;border-radius:12px;background:linear-gradient(180deg,#ffffff,#f6fcff);
+      display:grid;place-items:center;box-shadow:var(--shadow-2);padding:22px;
+    }
+    .circuit{
+      width:100%;height:100%;display:grid;place-items:center;position:relative;
+    }
+    .circuit svg{max-width:92%;height:auto;opacity:0.95}
+
+    /* Services */
+    section{margin-bottom:48px}
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:var(--gap);
+      align-items:start;
+    }
+    .card{
+      background:var(--card-bg);padding:20px;border-radius:var(--radius-md);
+      box-shadow:var(--shadow-1);border:1px solid rgba(11,74,111,0.03);
+    }
+    .card h3{font-size:1.05rem;margin:0 0 8px 0;color:var(--neutral-900)}
+    .card p{margin:0;color:var(--neutral-500);font-size:0.98rem}
+
+    /* About & Advantages */
+    .two-col{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:start}
+    .adv-list{display:flex;flex-direction:column;gap:12px}
+    .adv-item{display:flex;gap:12px;align-items:flex-start;background:linear-gradient(180deg,#fff, #fbfdff);padding:12px;border-radius:12px;border:1px solid rgba(11,74,111,0.035)}
+    .adv-icon{width:44px;height:44px;border-radius:10px;background:linear-gradient(180deg,var(--color-primary),#0e6a96);display:grid;place-items:center;color:white;font-weight:700}
+
+    /* How it works */
+    .steps{display:flex;flex-direction:column;gap:14px}
+    .step{display:flex;gap:14px;align-items:flex-start}
+    .step .num{font-weight:700;color:var(--color-primary);width:40px;height:40px;border-radius:10px;background:rgba(11,74,111,0.06);display:grid;place-items:center}
+
+    /* Contact */
+    .contact-card{background:linear-gradient(180deg,#ffffff,#fbfdff);padding:22px;border-radius:16px;box-shadow:var(--shadow-1);display:grid;gap:12px}
+    .contact-actions{display:flex;gap:12px;flex-wrap:wrap}
+
+    footer{margin-top:36px;padding:18px 0;color:var(--neutral-500);font-size:0.95rem}
+    .footer-inner{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+
+    /* Responsive */
+    @media (max-width:1100px){
+      .hero{grid-template-columns:1fr;align-items:stretch}
+      .hero-right{order: -1}
+      .grid{grid-template-columns:repeat(2,1fr)}
+      .two-col{grid-template-columns:1fr}
+    }
+    @media (max-width:680px){
+      body{padding:18px 14px}
+      header{top:12px}
+      .nav-links{display:none}
+      .menu-toggle{display:inline-flex}
+      .nav-wrap{padding:10px}
+      .grid{grid-template-columns:1fr}
+      .hero-right{min-height:180px}
+      .brand .wordmark .sub{display:none}
+      .container{padding:0}
+      .hero-left{padding:20px}
+    }
+
+    /* Focus & accessibility */
+    a:focus,button:focus,input:focus,textarea:focus{outline:3px solid rgba(11,74,111,0.12);outline-offset:3px}
+    .visually-hidden{position:absolute!important;height:1px;width:1px;overflow:hidden;clip:rect(1px,1px,1px,1px);white-space:nowrap}
+    /* Motion */
+    @media (prefers-reduced-motion: reduce){
+      *{animation:none!important;transition:none!important}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav-wrap" role="navigation" aria-label="Glavna navigacija">
+      <nav>
+        <div class="brand" aria-hidden="false">
+          <div class="mark" aria-hidden="true">A1</div>
+          <div class="wordmark">
+            <div class="name">A1</div>
+            <div class="sub">Komercijalna elektronika</div>
+          </div>
+        </div>
+
+        <div class="nav-links" id="nav-links">
+          <a href="#usluge">Ponuda</a>
+          <a href="#o-nama">O nama</a>
+          <a href="#prednosti">Prednosti</a>
+          <a href="#kontakt" class="cta-secondary">Kontakt</a>
+          <a href="#kontakt" class="cta-primary">Zatražite informaciju</a>
+        </div>
+
+        <div style="display:flex;align-items:center;gap:10px">
+          <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="mobileMenu" aria-label="Otvorite izbornik">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M4 6h16M4 12h12M4 18h8" stroke="#0b4a6f" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </div>
+      </nav>
+
+      <div id="mobileMenu" hidden>
+        <div style="padding-top:12px;display:flex;flex-direction:column;gap:8px">
+          <a href="#usluge">Ponuda</a>
+          <a href="#o-nama">O nama</a>
+          <a href="#prednosti">Prednosti</a>
+          <a href="#kontakt">Kontakt</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" id="main">
+    <section class="hero" aria-label="Hero - A1 komercijalna elektronika">
+      <div class="hero-left" role="region" aria-labelledby="hero-heading">
+        <h1 id="hero-heading">Komercijalna elektronika koja podržava poslovne prostore</h1>
+        <p class="lead">A1 pruža općenita rješenja iz područja komercijalne elektronike: oprema, integracija i tehnička podrška prilagođena potrebama poslovnih prostora. Pregledajte ponudu i kontaktirajte nas za dodatne informacije.</p>
+
+        <div class="hero-ctas" role="group" aria-label="Pozivi na akciju">
+          <a class="cta-primary" href="#kontakt">Zatražite informaciju</a>
+          <a class="cta-secondary" href="https://www.a1.hr/" target="_blank" rel="noopener">Posjetite službenu stranicu</a>
+        </div>
+
+        <div class="meta-row" aria-hidden="false">
+          <div class="tag" title="Djelatnost">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M3 12h18" stroke="#0b4a6f" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M6 6h.01M18 6h.01M6 18h.01M18 18h.01" stroke="#0b4a6f" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>Komercijalna elektronika</span>
+          </div>
+
+          <div style="color:var(--neutral-500);font-size:0.95rem">Detalji i kontakt dostupni na službenoj web stranici</div>
+        </div>
+      </div>
+
+      <div class="hero-right" aria-hidden="false" role="img" aria-label="Ilustracija komercijalne elektronike">
+        <div class="device-graphic" aria-hidden="true">
+          <div class="circuit">
+            <!-- Decorative SVG illustrating circuits and nodes (original, non-photographic) -->
+            <svg viewBox="0 0 600 420" xmlns="http://www.w3.org/2000/svg" role="presentation" aria-hidden="true">
+              <defs>
+                <linearGradient id="g1" x1="0" x2="1" y1="0" y2="1">
+                  <stop offset="0" stop-color="#e6f7ff"/>
+                  <stop offset="1" stop-color="#fef7ee"/>
+                </linearGradient>
+                <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+                  <feDropShadow dx="0" dy="6" stdDeviation="10" flood-color="#0b4a6f" flood-opacity="0.06"/>
+                </filter>
+              </defs>
+              <rect x="18" y="18" width="564" height="384" rx="18" fill="url(#g1)" stroke="rgba(11,74,111,0.06)" />
+              <g transform="translate(40,40)" stroke-linecap="round" stroke-linejoin="round" stroke-width="6" filter="url(#soft)">
+                <path d="M20 40h120v20H220v40h80v20h120" stroke="#0e6a96" fill="none" opacity="0.95" />
+                <circle cx="20" cy="40" r="8" fill="#ffb547" />
+                <circle cx="140" cy="60" r="8" fill="#0b4a6f" />
+                <circle cx="220" cy="120" r="10" fill="#ffb547" />
+                <circle cx="300" cy="140" r="8" fill="#0b4a6f" />
+                <path d="M60 160h180v40" stroke="#57a6d1" opacity="0.9" />
+                <circle cx="420" cy="200" r="10" fill="#0b4a6f" />
+                <rect x="320" y="20" width="120" height="70" rx="8" fill="#fff" stroke="rgba(11,74,111,0.06)"/>
+                <text x="350" y="60" font-family="Inter, sans-serif" font-size="18" fill="#0b4a6f">Sustavi</text>
+              </g>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="usluge" aria-labelledby="usluge-heading">
+      <h2 id="usluge-heading" style="font-size:var(--fs-h2);margin:0 0 18px 0;font-family:var(--font-sans)">Ponuda</h2>
+      <p style="color:var(--neutral-700);margin:0 0 18px 0;max-width:780px">Ovdje su sažete kategorije u kojima se obično nalaze rješenja komercijalne elektronike. Za konkretne proizvode, tehničke specifikacije ili projektne zahtjeve koristite službenu web stranicu i kontakt forme.</p>
+
+      <div class="grid" style="margin-top:18px">
+        <article class="card" aria-labelledby="card-1">
+          <h3 id="card-1">Rješenja i oprema</h3>
+          <p>Opći pregled opreme i sustava koji se koriste u komercijalnim prostorima: uređaji i moduli koji podržavaju funkcionalne potrebe poslovanja.</p>
+        </article>
+
+        <article class="card" aria-labelledby="card-2">
+          <h3 id="card-2">Integracija sustava</h3>
+          <p>Integracija elektroničkih komponenti u postojeće ili nove instalacije radi postizanja pouzdanog rada i upravljanja sustavima.</p>
+        </article>
+
+        <article class="card" aria-labelledby="card-3">
+          <h3 id="card-3">Podrška i održavanje</h3>
+          <p>Opcije tehničke podrške i održavanja kako bi sustavi funkcionirali stabilno tijekom korištenja.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="o-nama" aria-labelledby="about-heading">
+      <h2 id="about-heading" style="font-size:var(--fs-h2);margin:0 0 18px 0">O nama</h2>
+      <div class="two-col">
+        <div>
+          <p style="color:var(--neutral-700);margin:0 0 14px 0">A1 je navedena tvrtka u podacima koje ste dali. Ova stranica pruža jasne i neutralne informacije o području djelovanja: komercijalnoj elektronici. Za službene podatke o uslugama, kontakt informacijama i detaljnim opisima proizvoda posjetite službenu web stranicu.</p>
+
+          <div class="adv-list" style="margin-top:8px">
+            <div class="adv-item">
+              <div class="adv-icon" aria-hidden="true">✓</div>
+              <div>
+                <div style="font-weight:700;color:var(--neutral-900)">Transparentne informacije</div>
+                <div style="color:var(--neutral-500)">Ovdje se nalaze sažeti opisi; sve konkretne upite usmjerite na službenu komunikaciju.</div>
+              </div>
+            </div>
+
+            <div class="adv-item">
+              <div class="adv-icon" aria-hidden="true">⚙</div>
+              <div>
+                <div style="font-weight:700;color:var(--neutral-900)">Pristup prilagođen projektu</div>
+                <div style="color:var(--neutral-500)">Rješenja se određuju prema tehničkim zahtjevima i lokaciji primjene.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <aside aria-labelledby="contact-cta" class="contact-card">
+          <h3 id="contact-cta" style="margin:0;font-size:1rem">Kontakt i informacije</h3>
+          <p style="margin:0;color:var(--neutral-700)">Za detaljne informacije, tehničke upite ili suradnju posjetite službeni izvor. Na službenoj web stranici dostupni su kontakt podaci i forme.</p>
+
+          <div class="contact-actions" style="margin-top:12px">
+            <a class="cta-primary" href="#kontakt">Zatražite informaciju</a>
+            <a class="cta-secondary" href="https://www.a1.hr/" target="_blank" rel="noopener">Službena stranica</a>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="prednosti" aria-labelledby="prednosti-heading">
+      <h2 id="prednosti-heading" style="font-size:var(--fs-h2);margin:0 0 18px 0">Prednosti</h2>
+      <p style="color:var(--neutral-700);margin:0 0 16px 0">Sažetak ključnih vrijednosti koje korisnici često traže kod rješenja komercijalne elektronike.</p>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:18px">
+        <div class="card">
+          <h3>Prilagodljivost</h3>
+          <p>Rješenja se mogu oblikovati prema funkcionalnim i prostorim zahtjevima.</p>
+        </div>
+        <div class="card">
+          <h3>Pouzdanost</h3>
+          <p>Fokus na stabilnost rada sustava u poslovnim uvjetima.</p>
+        </div>
+        <div class="card">
+          <h3>Podrška</h3>
+          <p>Mogućnosti tehničke pomoći i održavanja za kontinuirani rad.</p>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="how-heading">
+      <h2 id="how-heading" style="font-size:var(--fs-h2);margin:0 0 18px 0">Kako obično teče suradnja</h2>
+      <p style="color:var(--neutral-700);margin:0 0 18px 0">Slijed je općenit i služi kao orijentacija pri inicijalnom kontaktu. Za konkretne korake prikladne za vaš projekt posjetite službenu stranicu ili kontaktirajte predstavnike.</p>
+
+      <div class="steps">
+        <div class="step">
+          <div class="num">1</div>
+          <div>
+            <div style="font-weight:700">Inicijalni kontakt</div>
+            <div style="color:var(--neutral-500)">Razmjena osnovnih informacija i zahtjeva.</div>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="num">2</div>
+          <div>
+            <div style="font-weight:700">Procjena i prijedlog</div>
+            <div style="color:var(--neutral-500)">Tehnička procjena i prijedlog mogućih rješenja.</div>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="num">3</div>
+          <div>
+            <div style="font-weight:700">Implementacija</div>
+            <div style="color:var(--neutral-500)">Isporuka i integracija opreme prema dogovoru.</div>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="num">4</div>
+          <div>
+            <div style="font-weight:700">Podrška</div>
+            <div style="color:var(--neutral-500)">Opskrba informacijama za podršku i održavanje.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="kontakt" aria-labelledby="kontakt-heading">
+      <h2 id="kontakt-heading" style="font-size:var(--fs-h2);margin:0 0 18px 0">Kontakt</h2>
+      <p style="color:var(--neutral-700);margin:0 0 12px 0">Kontaktne informacije nisu dostavljene u izvoru podataka. Za službene kontakt podatke i obrasce koristite službenu web stranicu.</p>
+
+      <div style="display:grid;grid-template-columns:1fr 360px;gap:18px;align-items:start">
+        <div class="card" style="background:linear-gradient(180deg,#fff,#f9fbff)">
+          <h3 style="margin-top:0">Kako stupiti u kontakt</h3>
+          <p style="color:var(--neutral-700)">Najbrži način za specifične upite je posjet službenoj stranici A1 gdje su dostupne službene kontakt opcije i obrasci:</p>
+          <p style="margin-top:12px"><a href="https://www.a1.hr/" target="_blank" rel="noopener" class="cta-secondary">Otvorite službenu stranicu A1</a></p>
+        </div>
+
+        <aside class="contact-card">
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <div>
+              <div style="font-weight:700">Zatražite informaciju</div>
+              <div style="color:var(--neutral-500);font-size:0.95rem">Koristite službeni obrazac za upit</div>
+            </div>
+            <div style="font-size:0.95rem;color:var(--neutral-500)">A1</div>
+          </div>
+
+          <div style="display:flex;gap:8px;flex-wrap:wrap">
+            <a class="cta-primary" href="https://www.a1.hr/" target="_blank" rel="noopener">Posjetite web</a>
+            <a class="cta-secondary" href="#usluge">Pogledajte ponudu</a>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner" role="contentinfo">
+      <div>
+        <div style="font-weight:700">A1</div>
+        <div style="color:var(--neutral-500)">Komercijalna elektronika</div>
+      </div>
+
+      <nav aria-label="Podnožje">
+        <a href="#usluge" style="margin-right:12px;color:var(--neutral-500)">Ponuda</a>
+        <a href="#o-nama" style="margin-right:12px;color:var(--neutral-500)">O nama</a>
+        <a href="https://www.a1.hr/" target="_blank" rel="noopener" style="color:var(--neutral-500)">Službena stranica</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script>
+    (function(){
+      const toggle = document.getElementById('menuToggle');
+      const mobileMenu = document.getElementById('mobileMenu');
+      const navLinks = document.getElementById('nav-links');
+
+      toggle.addEventListener('click', function(){
+        const expanded = this.getAttribute('aria-expanded') === 'true';
+        this.setAttribute('aria-expanded', String(!expanded));
+        if(mobileMenu.hasAttribute('hidden')){
+          mobileMenu.removeAttribute('hidden');
+        }else{
+          mobileMenu.setAttribute('hidden','');
+        }
+      });
+
+      // Smooth scroll for same-page links, respect reduced motion
+      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if(!prefersReduced){
+        document.querySelectorAll('a[href^="#"]').forEach(a=>{
+          a.addEventListener('click', function(e){
+            const targetId = this.getAttribute('href').slice(1);
+            const el = document.getElementById(targetId);
+            if(el){
+              e.preventDefault();
+              const top = el.getBoundingClientRect().top + window.pageYOffset - 20;
+              window.scrollTo({top,behavior:'smooth'});
+              // close mobile menu if open
+              if(!mobileMenu.hasAttribute('hidden')){
+                mobileMenu.setAttribute('hidden','');
+                toggle.setAttribute('aria-expanded','false');
+              }
+            }
+          });
+        });
+      }
+
+      // Keyboard support for mobile menu: close on Escape
+      document.addEventListener('keydown', function(e){
+        if(e.key === 'Escape' && !mobileMenu.hasAttribute('hidden')){
+          mobileMenu.setAttribute('hidden','');
+          toggle.setAttribute('aria-expanded','false');
+          toggle.focus();
+        }
+      });
+
+      // Ensure focusable nav links for keyboard users on small screens
+      function updateNavVisibility(){
+        if(window.innerWidth <= 680){
+          navLinks.setAttribute('aria-hidden','true');
+        }else{
+          navLinks.removeAttribute('aria-hidden');
+          if(!mobileMenu.hasAttribute('hidden')){
+            mobileMenu.setAttribute('hidden','');
+            toggle.setAttribute('aria-expanded','false');
+          }
+        }
+      }
+      window.addEventListener('resize', updateNavVisibility);
+      updateNavVisibility();
+    })();
+  </script>
+</body>
+</html>
