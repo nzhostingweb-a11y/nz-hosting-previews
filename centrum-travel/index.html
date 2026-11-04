@@ -1,0 +1,705 @@
+ <!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Centrum Travel — putnička agencija za poslovna i agencijska putovanja</title>
+  <meta name="description" content="Centrum Travel — stručna podrška za poslovna i agencijska putovanja. Informacije i kontakt na službenoj web-stranici." />
+  <meta property="og:title" content="Centrum Travel — putnička agencija za poslovna i agencijska putovanja" />
+  <meta property="og:description" content="Centrum Travel pruža usluge vezane uz putovanja za poslovne korisnike i agencijske potrebe. Posjetite službenu web-stranicu za više informacija." />
+  <meta property="og:url" content="http://centrum-travel.hr/" />
+  <meta name="theme-color" content="#071428" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      /* Colors */
+      --color-bg:#071428;              /* very dark navy */
+      --color-surface:#0b2a44;         /* deep blue surface */
+      --color-primary:#caa15a;         /* warm gold */
+      --color-accent:#70c1b3;          /* soft teal */
+      --color-muted:#98a4b2;           /* muted text */
+      --color-white:#f7fafc;
+      --color-card:#0f344e;
+      --shadow-1: 0 6px 20px rgba(3,10,18,0.55);
+      --glass: rgba(255,255,255,0.03);
+
+      /* Typography scale */
+      --fs-base:16px;
+      --step-0: clamp(0.9rem, 0.9rem + 0.1vw, 1rem);
+      --step-1: clamp(1rem, 0.98rem + 0.3vw, 1.125rem);
+      --step-2: clamp(1.125rem, 1.05rem + 0.6vw, 1.25rem);
+      --h3: clamp(1.15rem, 1.08rem + 0.9vw, 1.375rem);
+      --h2: clamp(1.5rem, 1.2rem + 1.6vw, 2.2rem);
+      --h1: clamp(2rem, 1.6rem + 3.2vw, 3.6rem);
+
+      /* Spacing scale */
+      --space-xxs:6px;
+      --space-xs:10px;
+      --space-sm:16px;
+      --space-md:24px;
+      --space-lg:40px;
+      --space-xl:64px;
+
+      /* Radius */
+      --radius-sm:8px;
+      --radius-md:14px;
+      --radius-lg:18px;
+
+      /* Borders & transitions */
+      --focus-ring: 3px solid rgba(202,161,90,0.18);
+      --transition: 220ms cubic-bezier(.2,.9,.2,1);
+    }
+
+    /* Reset & base */
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background:linear-gradient(180deg,var(--color-bg), #05111b 80%);
+      color:var(--color-white);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+      font-size:var(--fs-base);
+      -webkit-text-size-adjust:100%;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    a{color:inherit; text-decoration:none}
+
+    .container{
+      width: min(1200px, 92%);
+      margin: 0 auto;
+    }
+
+    header{
+      position:sticky;
+      top:0;
+      z-index:60;
+      backdrop-filter: blur(6px);
+      background: linear-gradient(180deg, rgba(7,20,40,0.55), rgba(7,20,40,0.18));
+      border-bottom: 1px solid rgba(255,255,255,0.03);
+      padding: calc(var(--space-xs) + 4px) 0;
+    }
+
+    .nav {
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:var(--space-md);
+    }
+
+    .brand{
+      display:flex;
+      gap:12px;
+      align-items:center;
+      font-weight:600;
+      letter-spacing:0.6px;
+    }
+
+    .mark{
+      width:44px;
+      height:44px;
+      display:inline-grid;
+      place-items:center;
+      border-radius:12px;
+      background: linear-gradient(135deg, rgba(202,161,90,0.15), rgba(112,193,179,0.06));
+      box-shadow: var(--shadow-1);
+    }
+
+    .wordmark{
+      font-family: "Playfair Display", Georgia, serif;
+      font-size:var(--step-1);
+      color:var(--color-white);
+    }
+
+    nav ul{
+      display:flex;
+      gap:var(--space-lg);
+      list-style:none;
+      margin:0;
+      padding:0;
+      align-items:center;
+    }
+
+    nav a{
+      color:var(--color-muted);
+      font-weight:600;
+      font-size:var(--step-0);
+      padding:8px;
+      border-radius:8px;
+    }
+    nav a:hover, nav a:focus{
+      color:var(--color-white);
+      outline:none;
+    }
+
+    .cta-primary{
+      background: linear-gradient(90deg, var(--color-primary), #e0b873);
+      color:#071428;
+      font-weight:700;
+      padding:10px 16px;
+      border-radius:12px;
+      box-shadow: 0 6px 18px rgba(202,161,90,0.14);
+      transition: transform var(--transition), box-shadow var(--transition);
+      display:inline-flex;
+      gap:10px;
+      align-items:center;
+      font-size:var(--step-0);
+    }
+    .cta-primary:hover{ transform: translateY(-4px); box-shadow: 0 18px 40px rgba(202,161,90,0.16) }
+
+    .menu-toggle{
+      display:none;
+      background:transparent;
+      border:0;
+      color:var(--color-white);
+      padding:8px;
+      border-radius:8px;
+    }
+    .menu-toggle:focus{ outline:var(--focus-ring) }
+
+    main{padding: var(--space-lg) 0 80px 0}
+
+    /* HERO */
+    .hero{
+      display:grid;
+      grid-template-columns: 1fr 480px;
+      gap:var(--space-lg);
+      align-items:center;
+      padding: calc(var(--space-lg) + 8px) 0;
+    }
+
+    .hero-copy{
+      max-width:740px;
+    }
+
+    h1{
+      margin:0 0 var(--space-sm) 0;
+      font-family:"Playfair Display", Georgia, serif;
+      font-size:var(--h1);
+      line-height:1.02;
+      letter-spacing:-0.02em;
+      color:var(--color-white);
+      text-wrap:balance;
+      text-shadow: 0 10px 30px rgba(2,8,18,0.6);
+    }
+
+    .lead{
+      font-size:var(--h3);
+      color:var(--color-muted);
+      margin:0 0 var(--space-md) 0;
+      max-width:58ch;
+    }
+
+    .hero-actions{
+      display:flex;
+      gap:12px;
+      align-items:center;
+      margin-top:14px;
+    }
+
+    /* Hero visual card */
+    .hero-viz{
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:18px;
+      padding:18px;
+      box-shadow: var(--shadow-1);
+      border: 1px solid rgba(255,255,255,0.03);
+    }
+
+    .viz-stage{
+      width:100%;
+      height:380px;
+      border-radius:12px;
+      overflow:hidden;
+      position:relative;
+      background:
+        radial-gradient(ellipse at 20% 10%, rgba(112,193,179,0.06), transparent 20%),
+        linear-gradient(180deg, rgba(255,255,255,0.01), rgba(0,0,0,0.03)),
+        linear-gradient(120deg, #071428, #082536 60%);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:28px;
+    }
+
+    .viz-grid{
+      width:100%;
+      height:100%;
+      position:relative;
+      display:grid;
+      place-items:center;
+    }
+
+    .viz-card{
+      width:95%;
+      height:85%;
+      border-radius:12px;
+      background: linear-gradient(180deg, rgba(11,42,68,0.55), rgba(6,18,30,0.45));
+      border: 1px solid rgba(255,255,255,0.03);
+      display:flex;
+      gap:18px;
+      padding:20px;
+      align-items:flex-start;
+      justify-content:space-between;
+      box-shadow: 0 10px 30px rgba(2,8,18,0.6);
+    }
+
+    .viz-left{
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      max-width:60%;
+    }
+    .viz-left .kicker{
+      color:var(--color-accent);
+      font-size:var(--step-0);
+      font-weight:600;
+    }
+    .viz-left h3{ margin:0; font-size:var(--h2); color:var(--color-white); font-family:"Playfair Display", serif;}
+    .viz-left p{ margin:0; color:var(--color-muted); font-size:var(--step-1)}
+
+    .viz-right{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      width:36%;
+    }
+
+    .svg-decor{ width:140px; height:140px; display:block }
+
+    /* Sections */
+    section{ margin-top:var(--space-xl) }
+    .section-head{
+      display:flex;
+      justify-content:space-between;
+      align-items:baseline;
+      gap:20px;
+    }
+    .section-head h2{ margin:0; font-size:var(--h2); color:var(--color-white); font-family:"Playfair Display", serif }
+    .section-sub{ color:var(--color-muted); font-size:var(--step-1) }
+
+    .cards{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:var(--space-lg);
+      margin-top:var(--space-md);
+    }
+
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:12px;
+      padding:18px;
+      border:1px solid rgba(255,255,255,0.03);
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+    .card:hover{ transform: translateY(-8px); box-shadow: 0 20px 40px rgba(2,8,18,0.5) }
+    .card h3{ margin:0 0 8px 0; font-size:var(--h3); color:var(--color-white) }
+    .card p{ margin:0; color:var(--color-muted); font-size:var(--step-0) }
+
+    .two-col{
+      display:grid;
+      grid-template-columns: 1fr 420px;
+      gap:var(--space-lg);
+      align-items:start;
+      margin-top:var(--space-md);
+    }
+
+    .list{
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+      margin-top:12px;
+    }
+
+    .pill{
+      display:inline-flex;
+      gap:10px;
+      align-items:center;
+      background:var(--glass);
+      color:var(--color-muted);
+      padding:10px 12px;
+      border-radius:12px;
+      font-weight:600;
+      font-size:var(--step-0);
+    }
+
+    footer{
+      margin-top:var(--space-xl);
+      padding: var(--space-lg) 0;
+      border-top:1px solid rgba(255,255,255,0.03);
+      color:var(--color-muted);
+    }
+
+    .footer-grid{
+      display:flex;
+      justify-content:space-between;
+      gap:20px;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+
+    .logo-mini{
+      display:flex;
+      gap:12px;
+      align-items:center;
+      color:var(--color-white);
+      font-weight:600;
+    }
+
+    .small{ font-size:0.95rem; color:var(--color-muted) }
+
+    /* Responsive */
+    @media (max-width:1100px){
+      .hero{ grid-template-columns: 1fr; }
+      .hero-viz{ order: -1 }
+      .two-col{ grid-template-columns: 1fr; }
+      .cards{ grid-template-columns: 1fr 1fr; }
+      nav ul{ display:none }
+      .menu-toggle{ display:inline-block }
+    }
+
+    @media (max-width:560px){
+      .cards{ grid-template-columns: 1fr; }
+      .mark{ width:40px; height:40px; border-radius:10px }
+      .hero-copy{ padding-right:0 }
+      .viz-stage{ height:260px }
+      .viz-right .svg-decor{ width:110px; height:110px }
+    }
+
+    /* Focus and accessibility */
+    a:focus, button:focus, input:focus, textarea:focus { outline: none; box-shadow: var(--focus-ring) }
+    .sr-only{ position:absolute; left:-10000px; top:auto; width:1px; height:1px; overflow:hidden }
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce){
+      *{ transition: none !important; animation: none !important }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav" role="navigation" aria-label="Glavna navigacija">
+      <div class="brand">
+        <div class="mark" aria-hidden="true">
+          <!-- simple abstract emblem -->
+          <svg width="36" height="36" viewBox="0 0 24 24" class="svg-emblem" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="1.5" y="1.5" width="21" height="21" rx="5" fill="url(#g)" />
+            <defs>
+              <linearGradient id="g" x1="0" x2="1">
+                <stop offset="0" stop-color="#caa15a" stop-opacity="0.18"/>
+                <stop offset="1" stop-color="#70c1b3" stop-opacity="0.06"/>
+              </linearGradient>
+            </defs>
+            <path d="M6 16c2-4 6-7 10-8" stroke="#f7fafc" stroke-opacity="0.85" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="wordmark">centrum travel</div>
+      </div>
+
+      <nav>
+        <ul>
+          <li><a href="#usluge">Usluge</a></li>
+          <li><a href="#o-nama">O nama</a></li>
+          <li><a href="#prednosti">Pristup</a></li>
+          <li><a href="#kontakt">Kontakt</a></li>
+        </ul>
+      </nav>
+
+      <div style="display:flex; gap:12px; align-items:center;">
+        <a class="cta-primary" href="http://centrum-travel.hr/" target="_blank" rel="noopener">Posjetite web</a>
+        <button class="menu-toggle" aria-expanded="false" aria-controls="mobile-menu" id="menuToggle" aria-label="Otvorite meni">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobile-menu" aria-hidden="true" style="display:none; padding:12px 0; border-top:1px solid rgba(255,255,255,0.02); background: linear-gradient(180deg, rgba(7,20,40,0.35), transparent);">
+      <div class="container">
+        <nav aria-label="Mobilna navigacija">
+          <ul style="display:flex; flex-direction:column; gap:10px; list-style:none; margin:0; padding:0;">
+            <li><a href="#usluge">Usluge</a></li>
+            <li><a href="#o-nama">O nama</a></li>
+            <li><a href="#prednosti">Pristup</a></li>
+            <li><a href="#kontakt">Kontakt</a></li>
+            <li><a class="pill" href="http://centrum-travel.hr/" target="_blank" rel="noopener">Posjetite web</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" id="top">
+    <section class="hero" aria-label="Hero">
+      <div class="hero-copy">
+        <h1>Centrum Travel — putnička agencija za poslovna i agencijska putovanja</h1>
+        <p class="lead">Podrška pri planiranju i koordinaciji putovanja za poslovne korisnike i agencije. Fokus na profesionalnom pristupu, jasnoj komunikaciji i smanjenju operativne složenosti.</p>
+
+        <div class="hero-actions" role="group" aria-label="Glavni pozivi na akciju">
+          <a class="cta-primary" href="http://centrum-travel.hr/" target="_blank" rel="noopener">Posjetite službenu web-stranicu</a>
+          <a href="#kontakt" class="pill" style="background:transparent; color:var(--color-white);">Kontakt</a>
+        </div>
+      </div>
+
+      <div class="hero-viz" aria-hidden="false" aria-label="Vizualno predstavljanje djelatnosti">
+        <div class="viz-stage" role="img" aria-label="Apstraktna ilustracija putovanja">
+          <div class="viz-grid">
+            <div class="viz-card">
+              <div class="viz-left">
+                <div class="kicker">Centrum Travel</div>
+                <h3>Diskretan i strukturiran pristup</h3>
+                <p>Riječi kao smjernica: jasnoća, odgovornost i koordinacija. Naš vizualni prikaz prikazuje fokus na detalje i jednostavnost upravljanja procesom.</p>
+              </div>
+              <div class="viz-right">
+                <!-- Abstract globe / route SVG -->
+                <svg class="svg-decor" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Apstraktni motiv globusa">
+                  <defs>
+                    <linearGradient id="lg1" x1="0" x2="1">
+                      <stop offset="0" stop-color="#caa15a"/>
+                      <stop offset="1" stop-color="#70c1b3"/>
+                    </linearGradient>
+                  </defs>
+                  <circle cx="60" cy="60" r="46" fill="url(#lg1)" fill-opacity="0.07"/>
+                  <path d="M18 72c10-18 30-30 54-30" stroke="#f7fafc" stroke-opacity="0.9" stroke-width="1.4" stroke-linecap="round"/>
+                  <path d="M36 38c6 10 20 16 36 16" stroke="#f7fafc" stroke-opacity="0.6" stroke-width="0.9" stroke-linecap="round"/>
+                  <circle cx="88" cy="35" r="3.2" fill="#f7fafc"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section id="usluge" aria-labelledby="usluge-heading">
+      <div class="section-head">
+        <div>
+          <h2 id="usluge-heading">Usluge — pregled djelatnosti</h2>
+          <div class="section-sub">Opći prikaz djelatnosti prema dostupnim podacima.</div>
+        </div>
+      </div>
+
+      <div class="cards" role="list">
+        <article class="card" role="listitem" aria-labelledby="srv-1">
+          <h3 id="srv-1">Poslovna putovanja</h3>
+          <p>Podrška u pripremi i koordinaciji putovanja za korporativne korisnike — fokus na logističkoj jasnoći i učinkovitosti procesa.</p>
+        </article>
+
+        <article class="card" role="listitem" aria-labelledby="srv-2">
+          <h3 id="srv-2">Uredske putničke usluge</h3>
+          <p>Usluge usmjerene prema uredskim i administrativnim potrebama vezanim uz putovanja i putničku dokumentaciju.</p>
+        </article>
+
+        <article class="card" role="listitem" aria-labelledby="srv-3">
+          <h3 id="srv-3">Agencijske usluge</h3>
+          <p>Podrška za agencijske aktivnosti vezane uz organizaciju i koordinaciju putovanja prema poslovnim zahtjevima.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="o-nama" aria-labelledby="about-heading">
+      <div class="section-head" style="margin-top:18px">
+        <div>
+          <h2 id="about-heading">O nama</h2>
+          <div class="section-sub">Kratka i jasna prezentacija</div>
+        </div>
+      </div>
+
+      <div class="two-col">
+        <div>
+          <p style="color:var(--color-muted); margin-top:8px;">
+            Centrum Travel naveden je kao putnička agencija s dostupnom web-stranicom. Ova stranica predstavlja strukturirani pregled djelatnosti bez iznošenja nepregledanih tvrdnji o poslovanju. Za točne i detaljne podatke, molimo posjetite službenu web-stranicu.
+          </p>
+
+          <div class="list" aria-hidden="false">
+            <div class="pill" role="status">Kategorije: komercijalne usluge, uredske usluge, putnička agencija</div>
+            <div style="color:var(--color-muted); font-size:var(--step-0);">Podaci o kontaktima i lokaciji nisu dostavljeni u izvoru; ovdje nisu izmišljeni.</div>
+          </div>
+        </div>
+
+        <aside style="background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent); padding:18px; border-radius:12px; border:1px solid rgba(255,255,255,0.03);">
+          <h3 style="margin:0 0 8px 0; font-size:var(--h3);">Vizualan pristup</h3>
+          <p style="margin:0; color:var(--color-muted); font-size:var(--step-0)">Dizajn usmjeren da brzo prikaže stručnost i urednost procesa bez preopterećenja informacijama.</p>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Approach / Advantages -->
+    <section id="prednosti" aria-labelledby="prednosti-heading">
+      <div class="section-head">
+        <div>
+          <h2 id="prednosti-heading">Naš pristup</h2>
+          <div class="section-sub">Kako pristupamo suradnji i što to znači za korisnika</div>
+        </div>
+      </div>
+
+      <div style="display:grid; grid-template-columns: 1fr 1fr; gap:var(--space-md); margin-top:var(--space-md);">
+        <div>
+          <div class="card" style="margin-bottom:var(--space-md);">
+            <h3>Jasna komunikacija</h3>
+            <p>Transparentan tijek informacija i koordinacija aktivnosti kako bi se izbjegla nesigurnost u procesu planiranja putovanja.</p>
+          </div>
+
+          <div class="card">
+            <h3>Strukturirani radni tok</h3>
+            <p>Proces prilagođavamo potrebama klijenata i agencija, s fokusom na praktičnost i smanjenje administrativnog opterećenja.</p>
+          </div>
+        </div>
+
+        <div>
+          <div class="card" style="background:linear-gradient(180deg, rgba(112,193,179,0.03), rgba(202,161,90,0.02)); border:1px solid rgba(112,193,179,0.06);">
+            <h3>Pristup orijentiran na rezultate</h3>
+            <p>Usmjerenost na realizaciju dogovorenih aktivnosti i podršku kroz cijeli proces suradnje.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How we work -->
+    <section id="kako" aria-labelledby="kako-heading">
+      <div class="section-head" style="margin-top:var(--space-md)">
+        <div>
+          <h2 id="kako-heading">Kako funkcionira suradnja</h2>
+          <div class="section-sub">Opći koraci suradnje</div>
+        </div>
+      </div>
+
+      <div style="margin-top:var(--space-md); display:grid; grid-template-columns: repeat(4,1fr); gap:12px;">
+        <div class="card" style="text-align:center;">
+          <strong>1. Kontakt</strong>
+          <p style="color:var(--color-muted); margin:8px 0 0 0;">Inicijalni kontakt i razmjena osnovnih informacija.</p>
+        </div>
+        <div class="card" style="text-align:center;">
+          <strong>2. Konzultacija</strong>
+          <p style="color:var(--color-muted); margin:8px 0 0 0;">Razgovor o potrebama i mogućim opcijama.</p>
+        </div>
+        <div class="card" style="text-align:center;">
+          <strong>3. Prijedlog</strong>
+          <p style="color:var(--color-muted); margin:8px 0 0 0;">Predložena rješenja i dogovor o daljnjim koracima.</p>
+        </div>
+        <div class="card" style="text-align:center;">
+          <strong>4. Realizacija</strong>
+          <p style="color:var(--color-muted); margin:8px 0 0 0;">Koordinacija i podrška kroz realizaciju dogovorenih aktivnosti.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="kontakt" aria-labelledby="kontakt-heading" style="margin-top:var(--space-xl)">
+      <div class="section-head">
+        <div>
+          <h2 id="kontakt-heading">Kontakt</h2>
+          <div class="section-sub">Dostupne javne informacije</div>
+        </div>
+      </div>
+
+      <div style="margin-top:var(--space-md); display:flex; gap:20px; align-items:center; justify-content:space-between; flex-wrap:wrap;">
+        <div style="max-width:64ch;">
+          <p style="color:var(--color-muted); margin:0;">
+            Tvrtka: <strong style="color:var(--color-white)">centrum travel</strong>
+          </p>
+          <p style="color:var(--color-muted); margin:8px 0 0 0;">
+            Web: <a href="http://centrum-travel.hr/" target="_blank" rel="noopener" style="color:var(--color-primary); font-weight:700;">centrum-travel.hr</a>
+          </p>
+          <p style="color:var(--color-muted); margin:12px 0 0 0;">
+            Napomena: Ostali kontakt podaci i adresa nisu dostavljeni izvorom te nisu izmišljeni na ovoj stranici. Za detalje posjetite službenu web-stranicu.
+          </p>
+        </div>
+
+        <div style="display:flex; gap:12px; align-items:center;">
+          <a class="cta-primary" href="http://centrum-travel.hr/" target="_blank" rel="noopener">Posjetite web</a>
+          <a class="pill" href="#top">Natrag na vrh</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-grid" role="contentinfo">
+      <div class="logo-mini">
+        <div class="mark" aria-hidden="true" style="width:40px;height:40px;border-radius:10px">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="1.5" y="1.5" width="21" height="21" rx="5" fill="url(#g2)"/>
+            <defs><linearGradient id="g2"><stop offset="0" stop-color="#caa15a" stop-opacity="0.18"/><stop offset="1" stop-color="#70c1b3" stop-opacity="0.06"/></linearGradient></defs>
+            <path d="M6 16c2-4 6-7 10-8" stroke="#f7fafc" stroke-opacity="0.85" stroke-width="1.1" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div style="font-family:'Playfair Display', serif;">centrum travel</div>
+      </div>
+
+      <div class="small">© Naziv stranice: Centrum Travel — javno dostupne informacije. Posjetite službenu web-stranicu za potpune podatke.</div>
+
+      <div style="display:flex; gap:14px; align-items:center;">
+        <a href="http://centrum-travel.hr/" target="_blank" rel="noopener" class="pill">Službeni web</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function(){
+      // Mobile menu toggle
+      const btn = document.getElementById('menuToggle');
+      const menu = document.getElementById('mobile-menu');
+      btn.addEventListener('click', function(){
+        const expanded = this.getAttribute('aria-expanded') === 'true';
+        this.setAttribute('aria-expanded', String(!expanded));
+        if(!expanded){
+          menu.style.display = 'block';
+          menu.setAttribute('aria-hidden', 'false');
+        } else {
+          menu.style.display = 'none';
+          menu.setAttribute('aria-hidden', 'true');
+        }
+      });
+
+      // Smooth internal scrolling (prefers-reduced-motion respected)
+      const supportsSmooth = 'scrollBehavior' in document.documentElement.style;
+      document.querySelectorAll('a[href^="#"]').forEach(a=>{
+        a.addEventListener('click', function(e){
+          const targetId = this.getAttribute('href').slice(1);
+          if(!targetId) return;
+          const el = document.getElementById(targetId);
+          if(el){
+            e.preventDefault();
+            const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            if(supportsSmooth && !prefersReduced){
+              el.scrollIntoView({behavior:'smooth', block:'start'});
+            } else {
+              el.scrollIntoView();
+            }
+            // close mobile menu if open
+            if(menu && menu.style.display === 'block'){
+              menu.style.display = 'none';
+              btn.setAttribute('aria-expanded','false');
+              menu.setAttribute('aria-hidden','true');
+            }
+            // focus the target for keyboard users
+            el.setAttribute('tabindex','-1');
+            el.focus({preventScroll:true});
+            setTimeout(()=> el.removeAttribute('tabindex'), 1000);
+          }
+        });
+      });
+
+      // Keyboard accessibility: close mobile menu with Esc
+      document.addEventListener('keydown', function(e){
+        if(e.key === 'Escape' && menu.style.display === 'block'){
+          menu.style.display = 'none';
+          btn.setAttribute('aria-expanded','false');
+          menu.setAttribute('aria-hidden','true');
+          btn.focus();
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
