@@ -1,0 +1,492 @@
+ <!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Samoborska klet — Profesionalni catering za proslave i poslovne evente</title>
+  <meta name="description" content="Samoborska klet — diskretan i profesionalan catering za privatne i poslovne događaje. Pregled ponude, način suradnje i kontakt za upite putem službene web-stranice." />
+  <meta property="og:title" content="Samoborska klet — Profesionalni catering" />
+  <meta property="og:description" content="Catering za privatne i poslovne prilike. Pogledajte ponudu i saznajte kako započeti suradnju." />
+  <meta property="og:url" content="http://www.samoborska-klet.hr/" />
+  <meta name="theme-color" content="#072b1f" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      /* Boje i tonovi */
+      --color-primary: #0b3c2f;     /* tamno smaragdna */
+      --color-secondary:#d9b66a;    /* topao zlato-bež */
+      --color-accent: #ef6f3c;      /* naglasak - amber/crvena */
+      --neutral-900: #071012;
+      --neutral-800: #122a2a;
+      --neutral-700: #244343;
+      --neutral-500: #7a8b86;
+      --neutral-300: #cfd8d5;
+      --bg: #fbfaf8;
+      --card-bg: #ffffff;
+      --glass: rgba(11,60,47,0.06);
+
+      /* Tipografija */
+      --font-heading: "Playfair Display", serif;
+      --font-body: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+
+      /* Spacing */
+      --space-xs: 8px;
+      --space-sm: 12px;
+      --space-md: 20px;
+      --space-lg: 36px;
+      --space-xl: 64px;
+
+      /* Radius / shadow */
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --shadow-1: 0 6px 18px rgba(7,16,18,0.08);
+      --shadow-2: 0 12px 30px rgba(7,16,18,0.10);
+
+      /* Border */
+      --border-1: 1px solid rgba(7,16,18,0.06);
+
+      /* Focus */
+      --focus: 3px solid rgba(217,182,106,0.18);
+    }
+
+    /* Global reset */
+    *,*::before,*::after{box-sizing:border-box}
+    html{font-family:var(--font-body);background:var(--bg);color:var(--neutral-900);-webkit-text-size-adjust:100%}
+    body{margin:0;line-height:1.45;font-size:clamp(15px,1.6vw,18px);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;height:auto;display:block}
+
+    /* Layout container */
+    .container{max-width:1200px;margin:0 auto;padding:0 var(--space-md)}
+
+    /* Header / nav */
+    header{background:linear-gradient(180deg, rgba(11,60,47,0.03), transparent);backdrop-filter:blur(3px);position:sticky;top:0;z-index:60;border-bottom:var(--border-1)}
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:var(--space-md);height:72px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand-mark{width:48px;height:48px;border-radius:10px;display:grid;place-items:center;background:linear-gradient(135deg,var(--color-primary),#0e2e28);box-shadow:var(--shadow-1)}
+    .brand-mark svg{width:28px;height:28px;fill:var(--neutral-50, #fff)}
+    .brand-word{font-family:var(--font-heading);font-weight:700;font-size:18px;letter-spacing:0.2px;color:var(--neutral-900)}
+    nav{display:flex;align-items:center;gap:18px}
+    .nav-links{display:flex;gap:18px;align-items:center}
+    .nav-links a{color:var(--neutral-700);padding:8px 10px;border-radius:8px;font-weight:600}
+    .nav-links a:hover{color:var(--color-primary);background:var(--glass)}
+    .cta-btn{background:linear-gradient(90deg,var(--color-secondary),#e7c57a);padding:10px 16px;border-radius:12px;color:var(--neutral-900);font-weight:600;box-shadow:0 6px 20px rgba(217,182,106,0.14)}
+    .ghost-btn{background:transparent;border:1px solid transparent;padding:8px 12px;border-radius:10px}
+
+    .hamburger{display:none;align-items:center;justify-content:center;width:44px;height:44px;border-radius:10px;background:transparent;border:1px solid transparent}
+    .hamburger:focus{outline:var(--focus)}
+
+    /* Hero */
+    .hero{padding:var(--space-xl) 0;display:grid;grid-template-columns:1fr 520px;gap:48px;align-items:center}
+    .hero-left{max-width:720px}
+    .kicker{display:inline-block;background:var(--color-secondary);color:var(--neutral-900);padding:6px 10px;border-radius:999px;font-weight:600;font-size:13px;margin-bottom:14px}
+    h1{font-family:var(--font-heading);font-weight:700;font-size:clamp(28px,4.6vw,44px);line-height:1.02;margin:0 0 18px;color:var(--neutral-900)}
+    p.lead{margin:0 0 24px;color:var(--neutral-700);font-size:clamp(15px,1.8vw,17px)}
+    .hero-ctas{display:flex;gap:14px;align-items:center}
+    .secondary-cta{background:transparent;border:1px solid rgba(7,16,18,0.06);padding:10px 14px;border-radius:10px;color:var(--neutral-700);font-weight:600}
+    .hero-visual{background:linear-gradient(180deg, rgba(11,60,47,0.03), transparent);padding:28px;border-radius:18px;box-shadow:var(--shadow-2);display:flex;align-items:center;justify-content:center}
+
+    /* Services */
+    section{padding:64px 0}
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .card{background:var(--card-bg);padding:22px;border-radius:14px;box-shadow:var(--shadow-1);border:var(--border-1);display:flex;gap:16px;align-items:flex-start}
+    .card-icon{width:58px;height:58px;border-radius:10px;background:linear-gradient(135deg,var(--color-primary),#09372b);display:grid;place-items:center;color:#fff;flex:0 0 58px}
+    .card h3{margin:0 0 8px;font-size:18px;font-family:var(--font-heading)}
+    .card p{margin:0;color:var(--neutral-700);font-size:15px}
+
+    /* How it works */
+    .steps{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center}
+    .step-list{display:flex;flex-direction:column;gap:12px}
+    .step{display:flex;gap:12px;align-items:flex-start;background:var(--card-bg);padding:12px;border-radius:12px;border:var(--border-1);box-shadow:var(--shadow-1)}
+    .step-badge{width:44px;height:44px;border-radius:10px;background:var(--neutral-300);display:grid;place-items:center;font-weight:700;color:var(--neutral-900)}
+    .step-content p{margin:0;color:var(--neutral-700)}
+
+    /* Gallery-ish decorative */
+    .visual-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+    .tile{height:86px;border-radius:12px;background:linear-gradient(135deg, rgba(11,60,47,0.06), rgba(217,182,106,0.06));display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--neutral-700)}
+
+    /* Contact */
+    #kontakt .contact-wrap{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:start}
+    .contact-card{background:var(--card-bg);padding:22px;border-radius:14px;border:var(--border-1);box-shadow:var(--shadow-1)}
+    .contact-card h3{margin-top:0;font-family:var(--font-heading)}
+    .site-link{display:inline-flex;gap:10px;align-items:center;padding:10px 12px;border-radius:10px;background:linear-gradient(90deg,var(--neutral-300),#e9efec);color:var(--neutral-900);font-weight:600}
+
+    form .field{display:flex;flex-direction:column;margin-bottom:12px}
+    label{font-weight:600;font-size:13px;margin-bottom:6px;color:var(--neutral-800)}
+    input[type="text"],input[type="email"],textarea{padding:10px 12px;border-radius:10px;border:1px solid rgba(7,16,18,0.06);background:transparent;font-size:15px;color:var(--neutral-900)}
+    textarea{min-height:120px;resize:vertical}
+    .submit-row{display:flex;gap:12px;align-items:center}
+    .submit{background:var(--color-primary);color:#fff;padding:10px 14px;border-radius:12px;border:none;font-weight:700;cursor:not-allowed;opacity:0.6}
+    .note{font-size:14px;color:var(--neutral-700)}
+
+    /* Footer */
+    footer{padding:28px 0;border-top:var(--border-1);background:transparent}
+    .footer-inner{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+
+    /* Responsive */
+    @media (max-width:1024px){
+      .hero{grid-template-columns:1fr 1fr}
+      .cards{grid-template-columns:repeat(2,1fr)}
+      .steps{grid-template-columns:1fr}
+      #kontakt .contact-wrap{grid-template-columns:1fr}
+    }
+    @media (max-width:720px){
+      .container{padding:0 18px}
+      .nav-links{display:none}
+      .hamburger{display:flex}
+      .hero{grid-template-columns:1fr;gap:24px;padding:32px 0}
+      .hero-visual{order:-1}
+      .cards{grid-template-columns:1fr}
+      .brand-word{font-size:16px}
+    }
+
+    /* Micro interactions and accessibility */
+    a:focus{outline:none;box-shadow:var(--focus);border-radius:8px}
+    button:focus{outline:var(--focus);border-radius:8px}
+    .card, .step{transition:transform .28s cubic-bezier(.2,.9,.3,1), box-shadow .28s}
+    .card:hover{transform:translateY(-6px)}
+    .hero-visual svg{transform-origin:center;transition:transform .6s ease}
+    .hero-visual:hover svg{transform:translateY(-6px) rotate(-2deg)}
+    @media (prefers-reduced-motion: reduce){
+      .card, .step, .hero-visual svg{transition:none}
+    }
+
+    /* Mobile nav panel */
+    .mobile-panel{position:fixed;inset:0;background:rgba(7,16,18,0.45);display:none;align-items:flex-start;justify-content:flex-end;padding:20px;z-index:70}
+    .mobile-panel.open{display:flex}
+    .mobile-menu{width:300px;background:var(--card-bg);border-radius:14px;padding:18px;box-shadow:var(--shadow-2)}
+    .mobile-menu a{display:block;padding:12px;border-radius:10px;color:var(--neutral-700)}
+    .mobile-menu a + a{margin-top:6px}
+  </style>
+</head>
+<body>
+  <header role="banner">
+    <div class="container nav-inner">
+      <div class="brand" aria-label="Samoborska klet">
+        <div class="brand-mark" aria-hidden="true">
+          <!-- simple cloche icon -->
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M2 17c0 .55.45 1 1 1h18c.55 0 1-.45 1-1s-.45-1-1-1H3c-.55 0-1 .45-1 1Zm10-12c-2.5 0-4 2-4 4H6c0-3.31 2.69-6 6-6s6 2.69 6 6h-2c0-2-1.5-4-4-4Z"/>
+          </svg>
+        </div>
+        <div>
+          <div class="brand-word">Samoborska klet</div>
+          <div style="font-size:12px;color:var(--neutral-500);margin-top:2px">Catering i ugostiteljska podrška</div>
+        </div>
+      </div>
+
+      <nav role="navigation" aria-label="Glavni izbornik">
+        <div class="nav-links" role="menubar">
+          <a href="#usluge" role="menuitem">Ponuda</a>
+          <a href="#o-nama" role="menuitem">O nama</a>
+          <a href="#suradnja" role="menuitem">Kako radimo</a>
+          <a href="#kontakt" role="menuitem">Kontakt</a>
+        </div>
+        <a class="cta-btn" href="#kontakt">Zatražite ponudu</a>
+        <button class="hamburger" id="hamburger" aria-label="Otvori izbornik" aria-controls="mobilePanel" aria-expanded="false">
+          <svg width="18" height="12" viewBox="0 0 18 12" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect width="18" height="2" rx="1" fill="#0B3C2F"/>
+            <rect y="5" width="18" height="2" rx="1" fill="#0B3C2F"/>
+            <rect y="10" width="18" height="2" rx="1" fill="#0B3C2F"/>
+          </svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="container hero" id="top">
+      <div class="hero-left">
+        <div class="kicker">Profesionalni catering</div>
+        <h1>Samoborska klet — vrhunska usluga cateringa za sve prilike</h1>
+        <p class="lead">Prilagođavamo se formatu vaše priredbe—od intimnih obiteljskih slavlja do poslovnih eventa. Diskretan pristup, profesionalna izvedba i fokus na iskustvo gostiju.</p>
+        <div class="hero-ctas">
+          <a class="cta-btn" href="#kontakt">Zatražite ponudu</a>
+          <a class="secondary-cta" href="#usluge">Pogledajte ponudu</a>
+        </div>
+      </div>
+
+      <aside class="hero-visual" aria-hidden="true">
+        <!-- custom decorative SVG composition (stylized serving tray + geometric pattern) -->
+        <svg width="420" height="260" viewBox="0 0 420 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
+          <defs>
+            <linearGradient id="g1" x1="0" x2="1">
+              <stop offset="0" stop-color="#0b3c2f" stop-opacity="0.9"/>
+              <stop offset="1" stop-color="#0e2e28" stop-opacity="0.8"/>
+            </linearGradient>
+            <linearGradient id="g2" x1="0" x2="1">
+              <stop offset="0" stop-color="#d9b66a" stop-opacity="0.95"/>
+              <stop offset="1" stop-color="#e7c57a" stop-opacity="0.95"/>
+            </linearGradient>
+          </defs>
+
+          <rect x="0" y="0" width="420" height="260" rx="14" fill="url(#g1)" opacity="0.06"/>
+          <g transform="translate(30,28)">
+            <ellipse cx="180" cy="130" rx="160" ry="60" fill="#fff" opacity="0.06"/>
+            <!-- tray -->
+            <rect x="20" y="78" width="320" height="84" rx="42" fill="url(#g2)" />
+            <!-- cloche -->
+            <g transform="translate(130, -8)">
+              <path d="M110 88c-40-64-152-40-160 10h320c-8-50-120-74-160-10Z" fill="#fff" opacity="0.12"/>
+              <path d="M105 74c-34-50-132-30-140 8h280c-8-38-106-58-140-8Z" fill="#fff" opacity="0.18"/>
+              <circle cx="160" cy="86" r="6" fill="#fff" opacity="0.9"/>
+              <circle cx="138" cy="76" r="4" fill="#fff" opacity="0.6"/>
+            </g>
+
+            <!-- decorative motifs -->
+            <g fill="none" stroke="#fff" stroke-opacity="0.06" stroke-width="2">
+              <path d="M10 10c40 10 70 30 120 16"/>
+              <path d="M300 30c-30 8-50 28-84 22"/>
+              <path d="M40 210c70-22 120-6 200-6 64 0 92-4 120 8"/>
+            </g>
+          </g>
+        </svg>
+      </aside>
+    </section>
+
+    <section id="usluge" class="container" aria-labelledby="usluge-heading">
+      <h2 id="usluge-heading" style="font-family:var(--font-heading);font-size:22px;margin-bottom:18px">Ponuda</h2>
+      <p style="margin:0 0 18px;color:var(--neutral-700)">Fokusiramo se na organiziranje i izvedbu catering usluge koja prati format događaja. Ponuda se prilagođava veličini događaja, prostoru i željenom stilu posluživanja.</p>
+
+      <div class="cards" style="margin-top:18px">
+        <article class="card" aria-labelledby="card-1">
+          <div class="card-icon" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 2L15 8H9L12 2Z" fill="currentColor"/>
+              <path d="M3 12h18v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-7z" fill="currentColor" opacity="0.9"/>
+            </svg>
+          </div>
+          <div>
+            <h3 id="card-1">Usluge posluživanja</h3>
+            <p>Priprema prostora za posluživanje, koordinacija osoblja i prezentacija hrane i pića u skladu s prirodom događaja.</p>
+          </div>
+        </article>
+
+        <article class="card" aria-labelledby="card-2">
+          <div class="card-icon" style="background:linear-gradient(135deg,var(--color-primary),var(--color-accent))" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4 6h16v2H4z" fill="currentColor"/>
+              <path d="M4 10h16v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-8z" fill="currentColor" opacity="0.95"/>
+            </svg>
+          </div>
+          <div>
+            <h3 id="card-2">Logistika i koordinacija</h3>
+            <p>Rukovođenje vremenom događaja, priprema na lokaciji i koordinacija s vanjskim partnerima prema zahtjevu klijenta.</p>
+          </div>
+        </article>
+
+        <article class="card" aria-labelledby="card-3">
+          <div class="card-icon" style="background:linear-gradient(135deg,#a7d9bf,#cfe7d7)" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 2a7 7 0 0 1 7 7v2H5V9a7 7 0 0 1 7-7z" fill="currentColor"/>
+              <path d="M5 13h14v6a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-6z" fill="currentColor" opacity="0.9"/>
+            </svg>
+          </div>
+          <div>
+            <h3 id="card-3">Prilagodljiva rješenja</h3>
+            <p>Pristupamo svakom događaju kao posebnom: željeni format posluživanja, broj gostiju i tip prostora definiraju konačni plan.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="o-nama" class="container" aria-labelledby="o-nama-heading" style="padding-top:36px">
+      <h2 id="o-nama-heading" style="font-family:var(--font-heading);font-size:22px;margin-bottom:8px">O nama</h2>
+      <p style="margin:0 0 18px;color:var(--neutral-700)">Samoborska klet bavi se pružanjem cateringa s profesionalnim pristupom. Rad fokusiramo na pouzdanu organizaciju usluge i kvalitetnu izvedbu koja omogućava domaćinima da se posvete gostima.</p>
+
+      <div class="steps" style="margin-top:18px">
+        <div class="step-list">
+          <div class="step" aria-hidden="false">
+            <div class="step-badge">1</div>
+            <div class="step-content">
+              <p style="margin:0;font-weight:700">Kratki upit</p>
+              <p style="margin:6px 0 0;color:var(--neutral-700)">Pošaljite osnovne informacije o događaju putem obrasca u kontakt sekciji ili posjetite službenu web-stranicu za više detalja.</p>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="step-badge">2</div>
+            <div class="step-content">
+              <p style="margin:0;font-weight:700">Prilagodba</p>
+              <p style="margin:6px 0 0;color:var(--neutral-700)">Na temelju zahtjeva definiramo okvirnu izvedbu i logistiku — pristup je individualan i prilagođen prostoru.</p>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="step-badge">3</div>
+            <div class="step-content">
+              <p style="margin:0;font-weight:700">Izvedba</p>
+              <p style="margin:6px 0 0;color:var(--neutral-700)">Na dan događaja provodimo dogovoreni plan s naglaskom na urednu i profesionalnu uslugu.</p>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div style="font-weight:700;margin-bottom:12px">Vizualna prezentacija</div>
+          <div class="visual-grid" aria-hidden="true">
+            <div class="tile">Postavljanje stolova</div>
+            <div class="tile">Posluživanje</div>
+            <div class="tile">Dekoracije</div>
+            <div class="tile">Priprema prostora</div>
+            <div class="tile">Koordinacija</div>
+            <div class="tile">Diskretno osoblje</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="suradnja" class="container" aria-labelledby="suradnja-heading" style="padding-top:36px">
+      <h2 id="suradnja-heading" style="font-family:var(--font-heading);font-size:22px;margin-bottom:12px">Kako funkcionira suradnja</h2>
+      <p style="margin:0 0 18px;color:var(--neutral-700)">Suradnja se odvija kroz nekoliko jasnih koraka koji omogućavaju jednostavnu komunikaciju i kvalitetnu izvedbu eventa.</p>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px">
+        <div class="contact-card">
+          <h3 style="margin-top:0">Planiranje</h3>
+          <p style="margin:0 0 8px;color:var(--neutral-700)">Razgovaramo o osnovnim potrebama događaja i prostoru kako bismo preporučili optimalno rješenje izvedbe.</p>
+        </div>
+        <div class="contact-card">
+          <h3 style="margin-top:0">Izvedba i podrška</h3>
+          <p style="margin:0;color:var(--neutral-700)">Na dan događaja koordiniramo dolazak i rad osoblja te upravljamo izvedbom prema dogovoru.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="kontakt" class="container" aria-labelledby="kontakt-heading" style="padding-top:36px">
+      <h2 id="kontakt-heading" style="font-family:var(--font-heading);font-size:22px;margin-bottom:12px">Kontakt</h2>
+      <p style="margin:0 0 18px;color:var(--neutral-700)">Trenutni javno dostupni kontakt putem službene web-stranice. Ako želite zatražiti ponudu ili postaviti dodatna pitanja, koristite poveznicu dolje.</p>
+
+      <div class="contact-wrap">
+        <div class="contact-card" aria-label="Poveznica na službenu web stranicu">
+          <h3 style="margin-top:0">Službena web-stranica</h3>
+          <p class="note" style="margin-bottom:12px">Za detalje, upite i rezervacije posjetite službenu stranicu:</p>
+          <a class="site-link" href="http://www.samoborska-klet.hr/" target="_blank" rel="noopener noreferrer">Posjetite samoborska-klet.hr</a>
+
+          <div style="margin-top:18px">
+            <p class="note">Napomena: u ovom prikazu nisu dostupni izravni telefonski ili e‑mail kontakti. Molimo koristite službenu web-stranicu za sve detalje i kontakt obrasce koji su tamo navedeni.</p>
+          </div>
+        </div>
+
+        <div class="contact-card" aria-hidden="false">
+          <h3 style="margin-top:0">Brzi upit</h3>
+          <p class="note" style="margin-bottom:12px">Ako želite posložiti osnovne informacije, ispunite obrazac. Pošaljite upit putem službene web-stranice za konačan kontakt i potvrdu.</p>
+
+          <form id="quick-inquiry" onsubmit="return false;" aria-label="Brzi upit">
+            <div class="field">
+              <label for="name">Ime i prezime</label>
+              <input id="name" name="name" type="text" autocomplete="name" required>
+            </div>
+            <div class="field">
+              <label for="email">E-mail (opcionalno)</label>
+              <input id="email" name="email" type="email" autocomplete="email">
+            </div>
+            <div class="field">
+              <label for="details">Kratki opis događaja</label>
+              <textarea id="details" name="details" placeholder="Npr. okvirna brojka gostiju, datum ili tip događaja"></textarea>
+            </div>
+
+            <div class="submit-row">
+              <!-- submit intentionally disabled because direktni kontakt nije dostavljen -->
+              <button class="submit" type="submit" disabled title="Kontakt podaci nisu dostupni u ovom prikazu">Pošalji upit</button>
+              <div style="flex:1">
+                <p class="note" style="margin:0">U ovom prikazu obrazac nije povezan s izravnim kontaktom. Za slanje upita koristite službenu web-stranicu na poveznici lijevo.</p>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container footer-inner" role="contentinfo">
+      <div style="display:flex;align-items:center;gap:12px">
+        <div class="brand-mark" style="width:36px;height:36px;border-radius:8px">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M2 17c0 .55.45 1 1 1h18c.55 0 1-.45 1-1s-.45-1-1-1H3c-.55 0-1 .45-1 1Zm10-12c-2.5 0-4 2-4 4H6c0-3.31 2.69-6 6-6s6 2.69 6 6h-2c0-2-1.5-4-4-4Z" fill="#fff"/>
+          </svg>
+        </div>
+        <div style="font-weight:700">Samoborska klet</div>
+      </div>
+
+      <div style="color:var(--neutral-700);font-size:14px">Službena stranica: <a href="http://www.samoborska-klet.hr/" target="_blank" rel="noopener noreferrer">samoborska-klet.hr</a></div>
+    </div>
+  </footer>
+
+  <!-- Mobile panel -->
+  <div id="mobilePanel" class="mobile-panel" aria-hidden="true">
+    <nav class="mobile-menu" role="menu" aria-label="Mobilni izbornik">
+      <a href="#usluge" role="menuitem">Ponuda</a>
+      <a href="#o-nama" role="menuitem">O nama</a>
+      <a href="#suradnja" role="menuitem">Kako radimo</a>
+      <a href="#kontakt" role="menuitem">Kontakt</a>
+      <a href="http://www.samoborska-klet.hr/" target="_blank" rel="noopener noreferrer" role="menuitem" style="margin-top:8px;font-weight:700">Posjetite web</a>
+    </nav>
+  </div>
+
+  <script>
+    (function(){
+      // Mobile menu toggle
+      const hamburger = document.getElementById('hamburger');
+      const mobilePanel = document.getElementById('mobilePanel');
+
+      function openMenu(){
+        mobilePanel.classList.add('open');
+        mobilePanel.setAttribute('aria-hidden','false');
+        hamburger.setAttribute('aria-expanded','true');
+      }
+      function closeMenu(){
+        mobilePanel.classList.remove('open');
+        mobilePanel.setAttribute('aria-hidden','true');
+        hamburger.setAttribute('aria-expanded','false');
+      }
+
+      hamburger.addEventListener('click', () => {
+        const expanded = hamburger.getAttribute('aria-expanded') === 'true';
+        if(expanded) closeMenu(); else openMenu();
+      });
+
+      // Close on outside click or Escape
+      mobilePanel.addEventListener('click', (e) => {
+        if(e.target === mobilePanel) closeMenu();
+      });
+      document.addEventListener('keydown', (e) => {
+        if(e.key === 'Escape') closeMenu();
+      });
+
+      // Smooth scroll for internal links
+      document.querySelectorAll('a[href^="#"]').forEach(a=>{
+        a.addEventListener('click', function(e){
+          const target = document.querySelector(this.getAttribute('href'));
+          if(target){
+            e.preventDefault();
+            target.scrollIntoView({behavior: 'smooth', block: 'start'});
+            closeMenu();
+          }
+        });
+      });
+
+      // Accessibility: focus trap minimal for mobile menu when opened
+      mobilePanel.addEventListener('keydown', (e) => {
+        if(e.key === 'Tab' && mobilePanel.classList.contains('open')){
+          const focusable = mobilePanel.querySelectorAll('a, button');
+          if(focusable.length === 0) return;
+          const first = focusable[0];
+          const last = focusable[focusable.length-1];
+          if(e.shiftKey && document.activeElement === first){ last.focus(); e.preventDefault(); }
+          else if(!e.shiftKey && document.activeElement === last){ first.focus(); e.preventDefault(); }
+        }
+      });
+
+      // Prevent form submit (as there is no direct contact info in this mock)
+      const quickForm = document.getElementById('quick-inquiry');
+      if(quickForm){
+        quickForm.addEventListener('submit', function(e){
+          e.preventDefault();
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
