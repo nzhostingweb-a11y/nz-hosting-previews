@@ -1,0 +1,747 @@
+ <!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Bicikli Jakovčević — Bicikli, oprema i servis</title>
+  <meta name="description" content="Bicikli Jakovčević — trgovina biciklima, opremom i servisnim uslugama. Pregledajte ponudu i saznajte više na službenoj web stranici." />
+  <meta property="og:title" content="Bicikli Jakovčević — Bicikli, oprema i servis" />
+  <meta property="og:description" content="Trgovina biciklima i opremom. Posjetite službenu stranicu za ponudu i kontakt." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      /* Design system */
+      --color-bg: #0f1113;
+      --color-panel: #151617;
+      --primary: #c9a45a; /* gold accent */
+      --secondary: #1fa3a3; /* muted teal */
+      --accent: #ffffff;
+      --muted: #98a0a6;
+      --glass: rgba(255,255,255,0.04);
+      --radius-sm: 8px;
+      --radius-md: 16px;
+      --radius-lg: 28px;
+      --shadow-1: 0 6px 20px rgba(0,0,0,0.6);
+      --shadow-2: 0 10px 30px rgba(0,0,0,0.65);
+      --max-width: 1200px;
+
+      /* Typography */
+      --font-heading: "Playfair Display", Georgia, serif;
+      --font-body: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      --h1-size: clamp(2rem, 3.6vw, 3.6rem);
+      --h2-size: clamp(1.25rem, 2.2vw, 1.8rem);
+      --body-size: 1rem;
+      --spacing: 24px;
+      --easing: cubic-bezier(.2,.9,.3,1);
+    }
+
+    /* Reset */
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background: linear-gradient(180deg, rgba(15,17,19,1) 0%, rgba(10,11,12,1) 100%);
+      color:var(--accent);
+      font-family:var(--font-body);
+      font-size:var(--body-size);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+      -webkit-text-size-adjust:100%;
+      padding-bottom:80px;
+    }
+
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;height:auto;display:block}
+
+    /* Container */
+    .wrap{
+      max-width:var(--max-width);
+      margin:0 auto;
+      padding:0 20px;
+    }
+
+    /* Header / Nav */
+    header{
+      position:fixed;
+      top:18px;
+      left:0;
+      right:0;
+      z-index:60;
+      display:flex;
+      justify-content:center;
+      pointer-events:none;
+    }
+    .nav{
+      width:100%;
+      max-width:var(--max-width);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      pointer-events:auto;
+      padding:10px 16px;
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:14px;
+      box-shadow:var(--shadow-1);
+      backdrop-filter: blur(6px);
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+    .logo-mark{
+      width:48px;height:48px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:linear-gradient(135deg, rgba(201,164,90,0.14), rgba(31,163,163,0.04));
+      border-radius:10px;
+      border:1px solid rgba(255,255,255,0.04);
+      box-shadow:0 3px 10px rgba(0,0,0,0.6);
+    }
+    .wordmark{
+      font-family:var(--font-heading);
+      font-weight:600;
+      font-size:1.05rem;
+      letter-spacing:0.02em;
+      color:var(--accent);
+    }
+    nav ul{
+      display:flex;
+      gap:18px;
+      list-style:none;
+      margin:0;
+      padding:0;
+      align-items:center;
+    }
+    nav a{
+      color:var(--muted);
+      font-weight:500;
+      padding:8px 10px;
+      border-radius:8px;
+      transition:all 180ms var(--easing);
+      font-size:0.95rem;
+    }
+    nav a:focus{outline:3px solid rgba(201,164,90,0.18);outline-offset:3px}
+    nav a:hover{color:var(--accent);transform:translateY(-2px)}
+    .cta-primary{
+      background:linear-gradient(90deg,var(--primary), #d3b36b);
+      color:#081015;
+      padding:10px 16px;
+      border-radius:10px;
+      font-weight:600;
+      box-shadow:0 6px 18px rgba(201,164,90,0.12);
+      transition:transform 150ms var(--easing), box-shadow 150ms var(--easing);
+    }
+    .cta-primary:hover{transform:translateY(-3px);box-shadow:0 14px 40px rgba(201,164,90,0.14)}
+    .menu-toggle{
+      display:none;
+      background:transparent;
+      border:0;
+      color:var(--accent);
+      padding:8px;
+      border-radius:8px;
+      cursor:pointer;
+    }
+    .menu-toggle:focus{outline:3px solid rgba(255,255,255,0.08);outline-offset:3px}
+
+    /* Hero */
+    .hero{
+      margin-top:110px;
+      min-height:72vh;
+      display:grid;
+      grid-template-columns:1fr 520px;
+      gap:40px;
+      align-items:center;
+      position:relative;
+      padding:80px 20px 60px;
+    }
+    .hero-panel{
+      max-width:780px;
+    }
+    .eyebrow{
+      color:var(--primary);
+      font-weight:600;
+      letter-spacing:0.08em;
+      font-size:0.85rem;
+      margin-bottom:12px;
+    }
+    h1{
+      margin:0 0 18px 0;
+      font-family:var(--font-heading);
+      font-weight:700;
+      font-size:var(--h1-size);
+      line-height:1.02;
+      color:var(--accent);
+      letter-spacing:-0.01em;
+    }
+    .lead{
+      color:var(--muted);
+      font-size:1.05rem;
+      margin-bottom:22px;
+      max-width:54ch;
+    }
+    .hero-ctas{display:flex;gap:12px;align-items:center;margin-bottom:28px}
+    .secondary{
+      background:transparent;
+      border:1px solid rgba(255,255,255,0.06);
+      padding:10px 14px;
+      border-radius:10px;
+      color:var(--muted);
+      transition:all 150ms var(--easing);
+    }
+    .secondary:hover{color:var(--accent);transform:translateY(-2px);border-color:rgba(255,255,255,0.08)}
+
+    /* Visual composition (SVG bicycle + elegant panel) */
+    .hero-visual{
+      position:relative;
+      width:100%;
+      height:420px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:
+        radial-gradient(60% 40% at 10% 20%, rgba(31,163,163,0.06), transparent 8%),
+        radial-gradient(40% 30% at 90% 80%, rgba(201,164,90,0.04), transparent 6%),
+        linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:20px;
+      overflow:visible;
+      box-shadow:var(--shadow-2);
+      padding:28px;
+      border:1px solid rgba(255,255,255,0.03);
+    }
+    .visual-card{
+      width:100%;
+      height:100%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      position:relative;
+    }
+    .bike-illustration{
+      width:88%;
+      height:auto;
+      max-width:620px;
+      filter:drop-shadow(0 12px 30px rgba(0,0,0,0.65));
+      transform:translateY(0);
+      transition:transform 450ms var(--easing);
+    }
+    .hero-visual:hover .bike-illustration{transform:translateY(-6px) rotate(-0.5deg)}
+    .visual-overlay{
+      position:absolute;
+      inset:auto 30px 30px auto;
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+      align-items:flex-end;
+      color:var(--muted);
+      font-size:0.9rem;
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      padding:12px 14px;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,0.03);
+      backdrop-filter: blur(6px);
+    }
+
+    /* Ponuda / Services */
+    .section{
+      padding:72px 20px;
+    }
+    .section .title{
+      display:flex;
+      align-items:end;
+      gap:18px;
+      margin-bottom:28px;
+    }
+    .section h2{
+      margin:0;
+      font-size:var(--h2-size);
+      color:var(--accent);
+      font-family:var(--font-heading);
+    }
+    .cards{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+    }
+    .card{
+      background:linear-gradient(180deg, rgba(255,255,255,0.016), rgba(255,255,255,0.01));
+      padding:20px;
+      border-radius:14px;
+      min-height:140px;
+      box-shadow:var(--shadow-1);
+      border:1px solid rgba(255,255,255,0.03);
+      transition:transform 200ms var(--easing), box-shadow 200ms var(--easing);
+    }
+    .card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(0,0,0,0.65)}
+    .card .icon{
+      width:56px;height:56px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      border-radius:12px;
+      background:linear-gradient(135deg, rgba(201,164,90,0.12), rgba(31,163,163,0.06));
+      margin-bottom:12px;
+    }
+    .card h3{margin:0 0 8px 0;font-size:1.05rem;color:var(--accent);font-weight:600}
+    .card p{margin:0;color:var(--muted);font-size:0.96rem}
+
+    /* About */
+    .about{
+      display:flex;
+      gap:24px;
+      align-items:center;
+      margin-top:10px;
+    }
+    .about .text{flex:1}
+    .about .meta{
+      width:320px;
+      text-align:center;
+      padding:18px;
+      border-radius:14px;
+      background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.005));
+      border:1px solid rgba(255,255,255,0.03);
+    }
+    .muted-small{color:var(--muted);font-size:0.95rem}
+
+    /* Prednosti / Approach */
+    .grid-2{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:20px;
+    }
+    .feature{
+      padding:18px;
+      border-radius:12px;
+      background:var(--glass);
+      border:1px solid rgba(255,255,255,0.03);
+    }
+    .feature h4{margin:0 0 8px 0;font-family:var(--font-heading);font-size:1.05rem}
+    .feature p{margin:0;color:var(--muted)}
+
+    /* Kako funkcionira */
+    .process{
+      display:flex;
+      gap:16px;
+      flex-wrap:wrap;
+    }
+    .step{
+      flex:1 1 220px;
+      padding:16px;
+      border-radius:12px;
+      background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.004));
+      border:1px solid rgba(255,255,255,0.03);
+    }
+    .step .num{
+      width:44px;height:44px;
+      border-radius:10px;
+      background:rgba(201,164,90,0.12);
+      display:flex;align-items:center;justify-content:center;
+      color:var(--primary);
+      font-weight:700;
+      margin-bottom:8px;
+    }
+
+    /* Kontakt */
+    #kontakt{
+      margin-top:24px;
+      padding:22px;
+      border-radius:14px;
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border:1px solid rgba(255,255,255,0.03);
+      display:flex;
+      gap:18px;
+      align-items:center;
+      justify-content:space-between;
+      flex-wrap:wrap;
+    }
+    .contact-left{flex:1;min-width:260px}
+    .contact-right{min-width:220px;text-align:right}
+    .website-link{
+      display:inline-block;
+      padding:10px 14px;
+      border-radius:10px;
+      background:transparent;
+      border:1px solid rgba(255,255,255,0.06);
+      color:var(--accent);
+      transition:transform 160ms var(--easing);
+    }
+    .website-link:hover{transform:translateY(-3px)}
+
+    /* Footer */
+    footer{
+      margin-top:56px;
+      padding:32px 20px;
+      color:var(--muted);
+      font-size:0.95rem;
+    }
+    .footer-inner{
+      display:flex;
+      justify-content:space-between;
+      gap:16px;
+      align-items:center;
+      max-width:var(--max-width);
+      margin:0 auto;
+    }
+
+    /* Responsive */
+    @media (max-width:1100px){
+      .hero{grid-template-columns:1fr 420px;gap:24px;padding:60px 20px}
+      .hero-visual{height:360px}
+      .cards{grid-template-columns:repeat(2,1fr)}
+      .about{flex-direction:column}
+      .contact-right{text-align:left}
+    }
+    @media (max-width:760px){
+      header{top:12px}
+      .nav{padding:8px}
+      .menu-toggle{display:inline-flex}
+      nav ul{display:none}
+      .nav.open nav ul{display:flex;position:absolute;top:64px;right:20px;background:linear-gradient(180deg, rgba(15,17,19,0.98), rgba(12,13,14,0.98));flex-direction:column;padding:12px;border-radius:12px;box-shadow:var(--shadow-2)}
+      .hero{grid-template-columns:1fr;padding:36px 16px 60px;margin-top:90px}
+      .hero-visual{order:-1;margin-bottom:14px;height:320px}
+      .cards{grid-template-columns:1fr}
+      .grid-2{grid-template-columns:1fr}
+      .wrap{padding:0 14px}
+    }
+
+    /* Motion & prefers-reduced-motion */
+    @media (prefers-reduced-motion: no-preference){
+      .bike-path{animation:ride 6s linear infinite}
+      @keyframes ride{
+        0%{transform:translateX(0)}
+        50%{transform:translateX(-4px)}
+        100%{transform:translateX(0)}
+      }
+    }
+
+    /* Focus visible */
+    :focus{outline: none}
+    :focus-visible{outline:3px solid rgba(31,163,163,0.14);outline-offset:3px;border-radius:8px}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav" role="navigation" aria-label="Glavna navigacija">
+      <div class="brand">
+        <div class="logo-mark" aria-hidden="true">
+          <!-- Simple bicycle wheel emblem -->
+          <svg width="34" height="34" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="12" cy="12" r="9" stroke="rgba(201,164,90,0.9)" stroke-width="1.6" fill="none"/>
+            <circle cx="12" cy="12" r="3.2" fill="rgba(201,164,90,0.95)"/>
+            <path d="M12 2v4M12 18v4M2 12h4M18 12h4M4.2 4.2l2.8 2.8M17 17l2.8 2.8M4.2 19.8l2.8-2.8M17 7l2.8-2.8" stroke="rgba(255,255,255,0.9)" stroke-width="0.9" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="wordmark">Bicikli Jakovčević</div>
+      </div>
+
+      <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="primaryNav" aria-label="Otvori izbornik">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+      </button>
+
+      <nav id="primaryNav">
+        <ul>
+          <li><a href="#hero">Početna</a></li>
+          <li><a href="#ponuda">Ponuda</a></li>
+          <li><a href="#o-nama">O nama</a></li>
+          <li><a href="#prednosti">Zašto mi</a></li>
+          <li><a href="#kako">Kako</a></li>
+          <li><a href="#kontakt">Kontakt</a></li>
+        </ul>
+      </nav>
+
+      <div style="display:flex;gap:10px;align-items:center">
+        <a class="cta-primary" href="#ponuda">Pogledajte ponudu</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="hero" class="hero wrap" aria-labelledby="hero-heading">
+      <div class="hero-panel">
+        <div class="eyebrow">Specijalizirano za bicikle i opremu</div>
+        <h1 id="hero-heading">Bicikli i oprema s pažnjom na detalj</h1>
+        <p class="lead">Bicikli Jakovčević nudi preglednu ponudu bicikala i prateće opreme te podršku pri odabiru i održavanju. Posjetite ponudu i pronađite opremu koja odgovara vašem stilu vožnje.</p>
+        <div class="hero-ctas">
+          <a class="cta-primary" href="#ponuda">Pregled ponude</a>
+          <a class="secondary" href="#kontakt">Posjetite web</a>
+        </div>
+
+        <div class="meta muted-small" style="display:flex;gap:12px;flex-wrap:wrap">
+          <div style="display:flex;align-items:center;gap:10px">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="3.2" stroke="currentColor" stroke-width="1.2"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+            <div>Prodaja bicikala i opreme</div>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><path d="M3 7h18M6 11h.01M18 11h.01M4 19h16" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+            <div>Podrška pri odabiru i održavanju</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual" aria-hidden="true">
+        <div class="visual-card">
+          <!-- Large decorative bicycle SVG (original composition) -->
+          <svg class="bike-illustration bike-path" viewBox="0 0 900 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
+            <defs>
+              <linearGradient id="g1" x1="0" x2="1">
+                <stop offset="0" stop-color="#c9a45a" stop-opacity="0.95"/>
+                <stop offset="1" stop-color="#d9bb75" stop-opacity="0.95"/>
+              </linearGradient>
+              <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+                <feDropShadow dx="0" dy="20" stdDeviation="26" flood-color="#000" flood-opacity="0.6"/>
+              </filter>
+            </defs>
+            <!-- subtle background arcs -->
+            <g opacity="0.08" transform="translate(0,20)">
+              <ellipse cx="150" cy="330" rx="160" ry="30" fill="#000"/>
+              <ellipse cx="740" cy="330" rx="180" ry="36" fill="#000"/>
+            </g>
+
+            <!-- rear wheel -->
+            <g transform="translate(200,240)">
+              <circle cx="0" cy="0" r="88" stroke="rgba(255,255,255,0.06)" stroke-width="6" fill="none"/>
+              <circle cx="0" cy="0" r="58" fill="rgba(201,164,90,0.12)"/>
+              <g stroke="rgba(255,255,255,0.07)" stroke-width="2">
+                <path d="M0 -58 L0 58"/>
+                <path d="M-55 -30 L55 30"/>
+                <path d="M-55 30 L55 -30"/>
+                <path d="M-30 -55 L30 55"/>
+                <path d="M-30 55 L30 -55"/>
+              </g>
+            </g>
+
+            <!-- front wheel -->
+            <g transform="translate(620,240)">
+              <circle cx="0" cy="0" r="88" stroke="rgba(255,255,255,0.06)" stroke-width="6" fill="none"/>
+              <circle cx="0" cy="0" r="58" fill="rgba(31,163,163,0.06)"/>
+              <g stroke="rgba(255,255,255,0.07)" stroke-width="2">
+                <path d="M0 -58 L0 58"/>
+                <path d="M-55 -30 L55 30"/>
+                <path d="M-55 30 L55 -30"/>
+                <path d="M-30 -55 L30 55"/>
+                <path d="M-30 55 L30 -55"/>
+              </g>
+            </g>
+
+            <!-- frame -->
+            <path d="M230 230 C320 140 470 140 540 230" fill="none" stroke="url(#g1)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" filter="url(#shadow)"/>
+            <path d="M420 220 L480 160" stroke="#fff" stroke-opacity="0.06" stroke-width="3" stroke-linecap="round"/>
+            <path d="M360 230 L420 210" stroke="#fff" stroke-opacity="0.06" stroke-width="3" stroke-linecap="round"/>
+
+            <!-- handlebar -->
+            <path d="M540 230 L580 200" stroke="rgba(255,255,255,0.07)" stroke-width="6" stroke-linecap="round"/>
+            <path d="M580 200 L610 208" stroke="rgba(255,255,255,0.04)" stroke-width="4" stroke-linecap="round"/>
+
+            <!-- saddle -->
+            <path d="M420 210 L395 185" stroke="rgba(255,255,255,0.06)" stroke-width="6" stroke-linecap="round"/>
+            <rect x="385" y="170" width="36" height="8" rx="4" fill="#fff" opacity="0.04"/>
+
+            <!-- chain and pedals -->
+            <g transform="translate(420,240)">
+              <circle cx="0" cy="0" r="18" fill="rgba(255,255,255,0.06)"/>
+              <path d="M0 0 L-24 8" stroke="rgba(255,255,255,0.05)" stroke-width="6" stroke-linecap="round"/>
+              <path d="M0 0 L24 -8" stroke="rgba(255,255,255,0.05)" stroke-width="6" stroke-linecap="round"/>
+            </g>
+
+            <!-- decorative text mark -->
+            <g transform="translate(60,50)" fill="#fff" opacity="0.06">
+              <text x="0" y="0" font-family="Playfair Display, serif" font-size="48">Bicikli</text>
+              <text x="0" y="38" font-family="Inter, sans-serif" font-size="14">Jakovčević</text>
+            </g>
+          </svg>
+
+          <div class="visual-overlay">
+            <div style="font-weight:600">Promišljena ponuda</div>
+            <div style="font-size:0.86rem;color:var(--muted)">Kvalitetna oprema i stručan pristup pri odabiru</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="ponuda" class="section wrap" aria-labelledby="ponuda-heading">
+      <div class="title">
+        <h2 id="ponuda-heading">Ponuda</h2>
+      </div>
+
+      <div class="cards" role="list">
+        <article class="card" role="listitem" aria-labelledby="c1">
+          <div class="icon" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><path d="M3 12h18" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><path d="M6 7l3-3 3 3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 17l3 3 3-3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h3 id="c1">Prodaja bicikala</h3>
+          <p>Izbor različitih modela bicikala i osnovne prateće opreme. Pregledno prikazano da biste lakše pronašli odgovarajuće rješenje za svoju vožnju.</p>
+        </article>
+
+        <article class="card" role="listitem" aria-labelledby="c2">
+          <div class="icon" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><path d="M6 7v10l5-3 5 3V7" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 7h12" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+          </div>
+          <h3 id="c2">Servis i održavanje</h3>
+          <p>Osnovne usluge održavanja i podrška pri tehničkim pitanjima kako bi bicikl bio pouzdan i siguran za upotrebu.</p>
+        </article>
+
+        <article class="card" role="listitem" aria-labelledby="c3">
+          <div class="icon" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><path d="M12 2v20M2 12h20" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+          </div>
+          <h3 id="c3">Dijelovi i oprema</h3>
+          <p>Pristupačna ponuda rezervnih dijelova i dodatne opreme za personalizaciju i unapređenje vožnje.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="o-nama" class="section wrap" aria-labelledby="o-heading">
+      <div class="title">
+        <h2 id="o-heading">O nama</h2>
+      </div>
+
+      <div class="about">
+        <div class="text">
+          <p class="muted-small">Bicikli Jakovčević je specijalizirana trgovina usmjerena na ponudu bicikala i prateće opreme te pružanje stručnog savjeta. Ovdje ćete pronaći jasno predstavljene proizvode i podršku pri odabiru, bez kompliciranih obećanja — samo fokus na kvalitetu i korisnički pristup.</p>
+        </div>
+        <aside class="meta" aria-labelledby="meta-title">
+          <div id="meta-title" style="font-weight:700;font-size:1.05rem">Posjetite službenu stranicu</div>
+          <div style="margin-top:8px" class="muted-small">Za detaljniju ponudu i ažurirane informacije posjetite izvor.</div>
+          <div style="margin-top:14px">
+            <a class="website-link" href="http://www.jakovcevic.hr/" target="_blank" rel="noopener noreferrer">www.jakovcevic.hr</a>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="prednosti" class="section wrap" aria-labelledby="prednosti-heading">
+      <div class="title">
+        <h2 id="prednosti-heading">Zašto odabrati nas</h2>
+      </div>
+
+      <div class="grid-2">
+        <div class="feature">
+          <h4>Individualan pristup</h4>
+          <p>Pristup temeljen na vašim potrebama i preferencijama, s jasnim objašnjenjima opcija i kompatibilnosti opreme.</p>
+        </div>
+        <div class="feature">
+          <h4>Transparentna prezentacija</h4>
+          <p>Pregledna ponuda bez nepotrebnih informacija — fokusirani smo na korisne detalje koji pomažu pri odabiru.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="kako" class="section wrap" aria-labelledby="kako-heading">
+      <div class="title">
+        <h2 id="kako-heading">Kako surađujemo</h2>
+      </div>
+
+      <div class="process" role="list">
+        <div class="step" role="listitem" aria-labelledby="s1">
+          <div class="num" aria-hidden="true">1</div>
+          <h4 id="s1" style="margin:0 0 8px 0;font-family:var(--font-heading);font-size:1rem">Pregled ponude</h4>
+          <p class="muted-small">Pregledajte dostupne modele i opremu te odaberite što vam odgovara.</p>
+        </div>
+
+        <div class="step" role="listitem" aria-labelledby="s2">
+          <div class="num" aria-hidden="true">2</div>
+          <h4 id="s2" style="margin:0 0 8px 0;font-family:var(--font-heading);font-size:1rem">Konzultacija</h4>
+          <p class="muted-small">Stručan razgovor radi boljeg razumijevanja vaših potreba i savjetovanja prilikom odabira.</p>
+        </div>
+
+        <div class="step" role="listitem" aria-labelledby="s3">
+          <div class="num" aria-hidden="true">3</div>
+          <h4 id="s3" style="margin:0 0 8px 0;font-family:var(--font-heading);font-size:1rem">Nabava i podrška</h4>
+          <p class="muted-small">Opskrba opremom i podrška pri osnovnom održavanju kako biste bili spremni za vožnju.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section wrap" aria-labelledby="kontakt-heading">
+      <div class="title">
+        <h2 id="kontakt-heading">Kontakt</h2>
+      </div>
+
+      <div id="kontakt" aria-labelledby="kontakt-heading">
+        <div class="contact-left">
+          <p style="margin:0 0 8px 0">Kontaktni podaci za Bicikli Jakovčević nisu u potpunosti dostavljeni. Za najtočnije informacije i detalje o ponudi posjetite službenu web stranicu ili nas kontaktirajte putem dostupnih kanala na toj stranici.</p>
+          <p class="muted-small" style="margin-top:8px">Ako želite, ovdje možete brzo otvoriti službenu stranicu:</p>
+          <div style="margin-top:12px">
+            <a class="cta-primary" href="http://www.jakovcevic.hr/" target="_blank" rel="noopener noreferrer">Posjetite web</a>
+            <a class="secondary" href="#ponuda" style="margin-left:10px">Pogledajte ponudu</a>
+          </div>
+        </div>
+
+        <div class="contact-right">
+          <div style="font-weight:600">Bicikli Jakovčević</div>
+          <div class="muted-small" style="margin-top:6px">Službena stranica:</div>
+          <div style="margin-top:8px"><a class="website-link" href="http://www.jakovcevic.hr/" target="_blank" rel="noopener noreferrer">www.jakovcevic.hr</a></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner wrap" role="contentinfo">
+      <div>
+        <div style="font-weight:600">Bicikli Jakovčević</div>
+        <div class="muted-small" style="margin-top:6px">Trgovina biciklima i opremom</div>
+      </div>
+      <div style="display:flex;gap:12px;align-items:center">
+        <a href="#ponuda">Ponuda</a>
+        <a href="#kontakt">Kontakt</a>
+        <a href="http://www.jakovcevic.hr/" target="_blank" rel="noopener noreferrer">Službena stranica</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function(){
+      const root = document.documentElement;
+      const menuToggle = document.getElementById('menuToggle');
+      const navParent = menuToggle && menuToggle.parentElement;
+      menuToggle && menuToggle.addEventListener('click', function(){
+        const expanded = this.getAttribute('aria-expanded') === 'true';
+        this.setAttribute('aria-expanded', String(!expanded));
+        if(navParent){
+          navParent.classList.toggle('open', !expanded);
+        }
+      });
+
+      // Smooth scroll for in-page links
+      document.addEventListener('click', function(e){
+        const a = e.target.closest('a[href^="#"]');
+        if(!a) return;
+        const href = a.getAttribute('href');
+        if(href === '#' || href === '#0') return;
+        const target = document.querySelector(href);
+        if(target){
+          e.preventDefault();
+          const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+          const top = target.getBoundingClientRect().top + window.scrollY - 84;
+          if(prefersReduced){
+            window.scrollTo(0, top);
+            target.focus({preventScroll:true});
+          } else {
+            window.scrollTo({top, behavior:'smooth'});
+            setTimeout(()=>{ try{ target.focus({preventScroll:true}); }catch(e){} }, 600);
+          }
+          // close mobile nav if open
+          if(navParent && navParent.classList.contains('open')){
+            navParent.classList.remove('open');
+            menuToggle.setAttribute('aria-expanded','false');
+          }
+        }
+      });
+
+      // Ensure keyboard accessibility for menu toggle
+      menuToggle && menuToggle.addEventListener('keydown', function(e){
+        if(e.key === 'Enter' || e.key === ' '){
+          e.preventDefault();
+          this.click();
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
