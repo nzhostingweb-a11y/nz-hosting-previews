@@ -1,0 +1,708 @@
+ <!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>METRO — Veleprodajni centar za profesionalne kupce</title>
+  <meta name="description" content="METRO | Veleprodajni centar. Profesionalna opskrba i veleprodajna ponuda za trgovinu i komercijalne objekte. Kontakt: +385 31 253 200" />
+  <meta property="og:title" content="METRO — Veleprodajni centar za profesionalne kupce" />
+  <meta property="og:description" content="METRO | Veleprodajni centar. Profesionalna opskrba i veleprodajna ponuda za trgovinu i komercijalne objekte. Kontakt: +385 31 253 200" />
+  <meta name="theme-color" content="#0A6B6B" />
+
+  <!-- Google Fonts: Inter (sans) + Playfair Display (serif) -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      /* Colors */
+      --color-primary: #0A6B6B;       /* deep teal */
+      --color-secondary: #F5F5F4;     /* warm light neutral */
+      --color-accent: #FFB300;        /* amber accent */
+      --neutral-900: #0b0b0b;
+      --neutral-700: #2b2b2b;
+      --neutral-500: #6b6b6b;
+      --neutral-300: #d6d6d6;
+      --neutral-100: #f8f8f8;
+
+      /* Backgrounds and text */
+      --bg: var(--color-secondary);
+      --card-bg: #ffffff;
+      --text: var(--neutral-900);
+      --muted: var(--neutral-500);
+
+      /* Typography */
+      --font-sans: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      --font-serif: 'Playfair Display', Georgia, serif;
+      --base-size: 16px;
+
+      /* Spacing scale */
+      --sp-xxs: 4px;
+      --sp-xs: 8px;
+      --sp-sm: 12px;
+      --sp-md: 20px;
+      --sp-lg: 32px;
+      --sp-xl: 48px;
+      --sp-xxl: 88px;
+
+      /* Border radius */
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+
+      /* Elevation */
+      --shadow-soft: 0 6px 18px rgba(10, 20, 25, 0.06);
+      --shadow-strong: 0 18px 40px rgba(10, 20, 25, 0.08);
+
+      /* Transitions */
+      --ease-fast: cubic-bezier(.2,.9,.3,1);
+      --ease-medium: cubic-bezier(.22,.9,.3,1);
+    }
+
+    /* Fluid typography */
+    html { font-family: var(--font-sans); font-size: 16px; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; }
+    h1 { font-family: var(--font-serif); font-weight:600; line-height:1.02; font-size: clamp(1.75rem, 2.8vw + 0.8rem, 3.6rem); color:var(--text); margin:0; }
+    h2 { font-family: var(--font-serif); font-size: clamp(1.15rem, 1.4vw + .4rem, 1.6rem); margin:0 0 var(--sp-sm) 0; color:var(--neutral-700); }
+    p, a, li { font-size: clamp(0.95rem, 0.6vw + 0.8rem, 1rem); color:var(--muted); margin:0; line-height:1.45; }
+
+    body {
+      margin:0;
+      background: linear-gradient(180deg, var(--bg) 0%, #ffffff 60%);
+      color:var(--text);
+      -webkit-font-smoothing:antialiased;
+      min-height:100vh;
+    }
+
+    /* Layout */
+    .container {
+      max-width:1200px;
+      margin:0 auto;
+      padding: calc(var(--sp-lg)) var(--sp-md);
+    }
+
+    /* Header / Nav */
+    header {
+      position:sticky;
+      top:0;
+      z-index:50;
+      backdrop-filter: blur(6px);
+      background: rgba(255,255,255,0.65);
+      border-bottom: 1px solid rgba(10,10,10,0.04);
+      box-shadow: var(--shadow-soft);
+    }
+    .nav-inner {
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: var(--sp-md);
+      padding: calc(var(--sp-sm)) 0;
+      max-width:1200px;
+      margin:0 auto;
+      padding-left:var(--sp-md);
+      padding-right:var(--sp-md);
+    }
+    .brand {
+      display:flex;
+      align-items:center;
+      gap:12px;
+      text-decoration:none;
+      color:var(--text);
+    }
+    .brand-mark {
+      width:48px;
+      height:48px;
+      border-radius:10px;
+      display:grid;
+      place-items:center;
+      background: linear-gradient(135deg, rgba(10,107,107,0.12), rgba(255,179,0,0.06));
+      box-shadow: 0 6px 18px rgba(10,107,107,0.06);
+      flex-shrink:0;
+    }
+    .brand-mark svg { width:30px; height:30px; display:block; }
+    .brand-title { font-weight:700; font-size:1rem; letter-spacing:0.2px; }
+
+    nav.desktop {
+      display:flex;
+      gap:22px;
+      align-items:center;
+    }
+    nav a {
+      color:var(--neutral-700);
+      text-decoration:none;
+      padding:10px 6px;
+      border-radius:8px;
+      transition: all 180ms var(--ease-fast);
+      font-weight:600;
+    }
+    nav a:focus { outline:2px solid var(--color-accent); outline-offset:3px; }
+    nav a:hover { color:var(--color-primary); transform:translateY(-3px); }
+
+    .cta {
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:10px 16px;
+      background:var(--color-primary);
+      color:white;
+      border-radius:12px;
+      text-decoration:none;
+      font-weight:700;
+      box-shadow: var(--shadow-soft);
+      transition: transform 180ms var(--ease-fast), box-shadow 180ms var(--ease-fast);
+    }
+    .cta.secondary {
+      background:transparent;
+      color:var(--neutral-700);
+      border:1px solid rgba(10,10,10,0.06);
+      box-shadow:none;
+    }
+    .cta:hover { transform:translateY(-3px); box-shadow: var(--shadow-strong); }
+
+    /* Mobile nav */
+    .mobile-toggle {
+      display:none;
+      background:transparent;
+      border:0;
+      padding:8px;
+      border-radius:10px;
+    }
+    .mobile-toggle:focus { outline:2px solid var(--color-accent); outline-offset:3px; }
+    .mobile-menu {
+      display:none;
+      position:fixed;
+      inset:0;
+      background:linear-gradient(180deg, rgba(10,107,107,0.03), rgba(255,255,255,0.9));
+      backdrop-filter: blur(6px);
+      padding:calc(var(--sp-lg));
+      z-index:60;
+    }
+    .mobile-menu nav { display:flex; flex-direction:column; gap:14px; margin-top:14px; }
+    .mobile-menu .cta { width:100%; justify-content:center; padding:14px; font-size:1.05rem; }
+    .mobile-close { position:absolute; right:18px; top:18px; background:transparent; border:0; font-size:18px; }
+
+    /* Hero */
+    .hero {
+      display:flex;
+      align-items:stretch;
+      gap: var(--sp-lg);
+      padding: calc(var(--sp-xxl)) 0;
+      position:relative;
+    }
+    .hero-left {
+      flex:1 1 560px;
+      display:flex;
+      flex-direction:column;
+      gap:var(--sp-md);
+      justify-content:center;
+    }
+    .kicker {
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      background: rgba(10,107,107,0.06);
+      color:var(--color-primary);
+      padding:6px 12px;
+      border-radius:999px;
+      font-weight:700;
+      width:max-content;
+    }
+    .hero-copy p { color:var(--neutral-700); font-size:1.05rem; max-width:60ch; }
+
+    .hero-actions { display:flex; gap:12px; margin-top:calc(var(--sp-md)); align-items:center; flex-wrap:wrap; }
+    .hero-visual {
+      flex:0 0 420px;
+      min-height:320px;
+      align-self:center;
+      display:grid;
+      place-items:center;
+      border-radius:var(--radius-lg);
+      background: linear-gradient(180deg, rgba(10,107,107,0.06), rgba(255,255,255,0.02));
+      box-shadow: var(--shadow-strong);
+      position:relative;
+      overflow:hidden;
+    }
+    .hero-visual .geom {
+      width:120%;
+      height:120%;
+      position:absolute;
+      right:-8%;
+      top:-10%;
+      transform: rotate(-12deg);
+      opacity:0.95;
+      pointer-events:none;
+    }
+    .hero-visual .card {
+      position:relative;
+      z-index:2;
+      width:86%;
+      max-width:320px;
+      background:linear-gradient(180deg,#ffffff, #fbfbfb);
+      border-radius:16px;
+      padding:18px;
+      box-shadow:0 12px 30px rgba(10,20,25,0.08);
+      transform: translateY(0);
+      transition: transform 260ms var(--ease-medium), box-shadow 260ms var(--ease-medium);
+    }
+    .hero-visual .card:hover { transform: translateY(-6px); box-shadow:0 28px 60px rgba(10,20,25,0.12); }
+    .card h3 { font-family:var(--font-serif); margin-bottom:8px; color:var(--neutral-700); font-size:1.1rem; }
+    .card p { color:var(--muted); font-size:0.95rem; }
+
+    /* Services */
+    .grid {
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:20px;
+    }
+    .card-service {
+      background:var(--card-bg);
+      padding:20px;
+      border-radius:var(--radius-md);
+      box-shadow: var(--shadow-soft);
+      transition: transform 200ms var(--ease-fast), box-shadow 200ms var(--ease-fast);
+      display:flex;
+      gap:14px;
+      align-items:flex-start;
+    }
+    .card-service:hover { transform: translateY(-6px); box-shadow: var(--shadow-strong); }
+    .icon {
+      width:54px;
+      height:54px;
+      border-radius:12px;
+      display:grid;
+      place-items:center;
+      background:linear-gradient(135deg, rgba(10,107,107,0.06), rgba(255,179,0,0.06));
+      flex-shrink:0;
+    }
+    .card-service h4 { margin:0; font-size:1.02rem; color:var(--neutral-700); font-weight:700; }
+    .card-service p { margin-top:6px; color:var(--muted); }
+
+    /* About / advantages */
+    .split {
+      display:grid;
+      grid-template-columns: 1fr 420px;
+      gap:28px;
+      align-items:center;
+      margin-top:var(--sp-lg);
+    }
+    .panel {
+      background:linear-gradient(180deg,#fff,#fcfcfc);
+      padding:22px;
+      border-radius:var(--radius-md);
+      box-shadow: var(--shadow-soft);
+    }
+
+    /* Contact */
+    .contact {
+      display:flex;
+      gap:20px;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+    .contact .chip {
+      display:inline-flex;
+      gap:12px;
+      align-items:center;
+      background:var(--card-bg);
+      padding:12px 16px;
+      border-radius:999px;
+      box-shadow:var(--shadow-soft);
+      text-decoration:none;
+      color:var(--neutral-700);
+      font-weight:600;
+    }
+    .contact .chip svg { opacity:0.9; }
+
+    /* Footer */
+    footer {
+      margin-top:var(--sp-xxl);
+      background:transparent;
+      padding:40px 0;
+      color:var(--neutral-700);
+    }
+    .footer-grid { display:flex; justify-content:space-between; gap:20px; align-items:center; flex-wrap:wrap; }
+
+    /* Responsive */
+    @media (max-width: 980px) {
+      .grid { grid-template-columns: repeat(2, 1fr); }
+      .split { grid-template-columns: 1fr; }
+      .hero { padding-top:60px; padding-bottom:40px; gap:var(--sp-md); }
+      .hero-visual { display:none; }
+    }
+    @media (max-width: 640px) {
+      .nav-inner { padding-left:14px; padding-right:14px; }
+      nav.desktop { display:none; }
+      .mobile-toggle { display:inline-flex; }
+      .container { padding-left:14px; padding-right:14px; }
+      .grid { grid-template-columns: 1fr; }
+      .brand-mark { width:42px; height:42px; }
+    }
+
+    /* Accessibility / reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      * { transition: none !important; animation: none !important; }
+    }
+
+    /* Focus outlines */
+    a:focus, button:focus { box-shadow: 0 0 0 3px rgba(255,179,0,0.16); border-radius:8px; }
+
+  </style>
+</head>
+<body>
+  <header role="banner">
+    <div class="nav-inner" aria-label="Glavna navigacija">
+      <a class="brand" href="#hero">
+        <span class="brand-mark" aria-hidden="true">
+          <!-- Custom geometric mark -->
+          <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="6" y="6" width="52" height="52" rx="10" fill="#0A6B6B"/>
+            <path d="M18 42 L28 26 L36 46 L46 22" stroke="#FFB300" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          </svg>
+        </span>
+        <span class="brand-title">METRO</span>
+      </a>
+
+      <nav class="desktop" role="navigation" aria-label="Sekundarna navigacija">
+        <a href="#usluge">Ponuda</a>
+        <a href="#o-nama">O nama</a>
+        <a href="#prednosti">Prednosti</a>
+        <a href="#kontakt">Kontakt</a>
+        <a class="cta" href="tel:+38531253200" aria-label="Pozovite METRO">Pozovite nas</a>
+      </nav>
+
+      <button class="mobile-toggle" id="mobileToggle" aria-controls="mobileMenu" aria-expanded="false" aria-label="Otvori izbornik">
+        <!-- hamburger -->
+        <svg width="22" height="14" viewBox="0 0 22 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect y="0" width="22" height="2" rx="1" fill="#0b0b0b"/>
+          <rect y="6" width="22" height="2" rx="1" fill="#0b0b0b"/>
+          <rect y="12" width="22" height="2" rx="1" fill="#0b0b0b"/>
+        </svg>
+      </button>
+    </div>
+
+    <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+      <button class="mobile-close" id="mobileClose" aria-label="Zatvori izbornik">✕</button>
+      <nav role="navigation" aria-label="Mobilna navigacija">
+        <a href="#usluge" class="mobile-link">Ponuda</a>
+        <a href="#o-nama" class="mobile-link">O nama</a>
+        <a href="#prednosti" class="mobile-link">Prednosti</a>
+        <a href="#kontakt" class="mobile-link">Kontakt</a>
+        <a href="tel:+38531253200" class="cta" style="margin-top:18px;">Pozovite nas</a>
+        <a href="https://www.metro-cc.hr/veleprodajni-centri/osijek" class="cta secondary" style="margin-top:12px;">Posjetite web</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="hero" class="hero container" aria-labelledby="hero-title">
+      <div class="hero-left">
+        <div class="kicker" aria-hidden="true">Veleprodaja • Profesionalno</div>
+        <h1 id="hero-title">METRO — Veleprodajni centar za profesionalne kupce</h1>
+        <div class="hero-copy">
+          <p>METRO je veleprodajni centar usmjeren na profesionalne kupce iz komercijalne i trgovinske djelatnosti. Pružamo pristup širokom asortimanu i praktičnim opcijama kontakta za narudžbe i upite.</p>
+        </div>
+
+        <div class="hero-actions" role="group" aria-label="Glavni pozivi na akciju">
+          <a class="cta" href="tel:+38531253200" aria-label="Pozovite METRO na +385 31 253 200">
+            <!-- phone icon -->
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.86 19.86 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.86 19.86 0 0 1 2.09 4.18 2 2 0 0 1 4 2h3a2 2 0 0 1 2 1.72c.12 1.05.37 2.07.72 3.03a2 2 0 0 1-.45 2.11L9.91 10.09a16 16 0 0 0 6 6l1.23-1.23a2 2 0 0 1 2.11-.45c.96.35 1.98.6 3.03.72A2 2 0 0 1 22 16.92z" fill="white"/>
+            </svg>
+            Pozovite nas
+          </a>
+
+          <a class="cta secondary" href="https://www.metro-cc.hr/veleprodajni-centri/osijek" target="_blank" rel="noopener">Posjetite službeni web</a>
+        </div>
+      </div>
+
+      <aside class="hero-visual" aria-hidden="true">
+        <!-- Decorative geometric composition -->
+        <svg class="geom" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="g1" x1="0" x2="1">
+              <stop offset="0" stop-color="#0A6B6B" stop-opacity="0.12" />
+              <stop offset="1" stop-color="#FFB300" stop-opacity="0.06" />
+            </linearGradient>
+            <linearGradient id="g2" x1="0" x2="1">
+              <stop offset="0" stop-color="#0A6B6B" stop-opacity="0.06" />
+              <stop offset="1" stop-color="#0A6B6B" stop-opacity="0.02" />
+            </linearGradient>
+          </defs>
+          <rect x="0" y="0" width="800" height="600" fill="url(#g2)"/>
+          <g transform="translate(120,40) rotate(-12)">
+            <rect x="0" y="0" width="420" height="240" rx="20" fill="url(#g1)"/>
+            <rect x="36" y="30" width="350" height="180" rx="12" fill="#fff" opacity="0.98"/>
+            <circle cx="80" cy="90" r="22" fill="#0A6B6B" opacity="0.95"/>
+            <rect x="120" y="60" width="160" height="24" rx="8" fill="#F5F5F4"/>
+            <rect x="120" y="98" width="220" height="12" rx="6" fill="#F5F5F4"/>
+          </g>
+        </svg>
+
+        <div class="card" style="transform-origin:center;">
+          <h3>Asortiman i profesionalna podrška</h3>
+          <p>Pregledni pristup kategorijama i jednostavan kontakt za upite i narudžbe. Informacije i komunikacija dostupne na navedenom broju i e‑mailu.</p>
+        </div>
+      </aside>
+    </section>
+
+    <section id="usluge" class="container" aria-labelledby="usluge-title" style="padding-top:10px; padding-bottom:10px;">
+      <h2 id="usluge-title">Ponuda — pregled kategorija</h2>
+      <p style="margin-top:10px; margin-bottom:18px;">Kategorije predstavljene niže odražavaju tipične segmentacije djelatnosti: komercijalna trgovina, supermarket i građevinski / komercijalni proizvodi. Za detaljne upite koristite navedene kontakt‑kanale.</p>
+
+      <div class="grid" role="list">
+        <article class="card-service" role="listitem" aria-labelledby="s1">
+          <div class="icon" aria-hidden="true">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M3 3h18v4H3z" fill="#0A6B6B"/>
+              <path d="M5 9h14v10H5z" fill="#FFB300"/>
+            </svg>
+          </div>
+          <div>
+            <h4 id="s1">Trgovina i supermarket</h4>
+            <p>Asortiman prilagođen komercijalnim potrebama i opskrbi većih prometnih mjesta.</p>
+          </div>
+        </article>
+
+        <article class="card-service" role="listitem" aria-labelledby="s2">
+          <div class="icon" aria-hidden="true">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="3" y="4" width="18" height="12" rx="2" fill="#0A6B6B"/>
+              <path d="M7 16v3h10v-3" stroke="#FFB300" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div>
+            <h4 id="s2">Komercijalna opskrba</h4>
+            <p>Rješenja za profesionalne kupce i komercijalne objekte u širokom rasponu kategorija.</p>
+          </div>
+        </article>
+
+        <article class="card-service" role="listitem" aria-labelledby="s3">
+          <div class="icon" aria-hidden="true">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+              <path d="M3 12h18" stroke="#0A6B6B" stroke-width="2" stroke-linecap="round"/>
+              <path d="M6 8v8" stroke="#FFB300" stroke-width="2" stroke-linecap="round"/>
+              <path d="M18 8v8" stroke="#FFB300" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div>
+            <h4 id="s3">Građevinski i komercijalni proizvodi</h4>
+            <p>Kategorije povezane s komercijalnom i građevinskom infrastrukturom i opremom.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="o-nama" class="container" style="padding-top:30px; padding-bottom:10px;" aria-labelledby="about-title">
+      <h2 id="about-title">O nama</h2>
+      <div class="split" style="margin-top:12px;">
+        <div class="panel">
+          <p>METRO je predstavljen kao veleprodajni centar s fokusom na profesionalne kupce i komercijalnu opskrbu. Na ovoj stranici pružamo jasne kontakt informacije i pregled tematskih kategorija kako bi poslovnim korisnicima olakšali pronalazak relevantnih informacija.</p>
+          <p style="margin-top:12px;">Ako želite detaljnije informacije o asortimanu ili raspoloživosti, slobodno nas kontaktirajte telefonom ili e‑mailom navedenim u donjem dijelu stranice.</p>
+        </div>
+
+        <aside>
+          <div class="panel" style="display:flex;flex-direction:column;gap:12px;">
+            <h3 style="font-family:var(--font-serif); font-size:1.05rem; margin:0;">Brzi kontakt</h3>
+            <div class="contact" aria-label="Kontakt podaci">
+              <a class="chip" href="tel:+38531253200" aria-label="Pozovite METRO na +385 31 253 200">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.86 19.86 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.86 19.86 0 0 1 2.09 4.18 2 2 0 0 1 4 2h3a2 2 0 0 1 2 1.72c.12 1.05.37 2.07.72 3.03a2 2 0 0 1-.45 2.11L9.91 10.09a16 16 0 0 0 6 6l1.23-1.23a2 2 0 0 1 2.11-.45c.96.35 1.98.6 3.03.72A2 2 0 0 1 22 16.92z" fill="#0A6B6B"/>
+                </svg>
+                +385 31 253 200
+              </a>
+
+              <a class="chip" href="mailto:metro.osijek@metro-cc.hr" aria-label="Pošaljite e-mail na metro.osijek@metro-cc.hr">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M3 7v10a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V7" stroke="#0A6B6B" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M21 7l-9 6L3 7" stroke="#FFB300" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                metro.osijek@metro-cc.hr
+              </a>
+            </div>
+
+            <a class="cta secondary" href="https://www.metro-cc.hr/veleprodajni-centri/osijek" target="_blank" rel="noopener" style="margin-top:6px;">Službena stranica centra</a>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="prednosti" class="container" style="padding-top:30px; padding-bottom:10px;" aria-labelledby="prednosti-title">
+      <h2 id="prednosti-title">Prednosti suradnje</h2>
+      <p style="margin-top:10px; margin-bottom:18px;">U sljedećim točkama opisano je što kupci mogu očekivati pri kontaktu i pregledu ponude na osnovnoj razini.</p>
+
+      <div class="grid" role="list" style="margin-bottom:24px;">
+        <article class="card-service" role="listitem" aria-labelledby="p1">
+          <div class="icon" aria-hidden="true">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+              <path d="M3 12h18" stroke="#0A6B6B" stroke-width="2" stroke-linecap="round"/>
+              <path d="M12 3v18" stroke="#FFB300" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div>
+            <h4 id="p1">Jasna kategorizacija</h4>
+            <p>Pregledna struktura asortimana olakšava pronalazak relevantnih kategorija.</p>
+          </div>
+        </article>
+
+        <article class="card-service" role="listitem" aria-labelledby="p2">
+          <div class="icon" aria-hidden="true">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+              <rect x="3" y="3" width="18" height="14" rx="2" fill="#0A6B6B"/>
+              <path d="M7 21h10" stroke="#FFB300" stroke-width="1.6" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div>
+            <h4 id="p2">Direktan kontakt</h4>
+            <p>Kontakt podatci su jasno istaknuti za brzu komunikaciju i upite.</p>
+          </div>
+        </article>
+
+        <article class="card-service" role="listitem" aria-labelledby="p3">
+          <div class="icon" aria-hidden="true">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+              <circle cx="12" cy="12" r="9" fill="#0A6B6B"/>
+              <path d="M8 12h8" stroke="#FFB300" stroke-width="1.6" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div>
+            <h4 id="p3">Transparentne informacije</h4>
+            <p>Na ovoj stranici nalaze se kontakt podaci i poveznica na službeni web centar.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="kontakt" class="container" style="padding-top:20px; padding-bottom:60px;" aria-labelledby="kontakt-title">
+      <h2 id="kontakt-title">Kontakt</h2>
+      <p style="margin-top:10px;">Za upite i dodatne informacije koristite telefonski broj ili e‑mail. Posjetite i službenu stranicu centra za detalje o asortimanu i praktičnim informacijama.</p>
+
+      <div style="display:flex;gap:16px;align-items:center;margin-top:18px;flex-wrap:wrap;">
+        <a class="cta" href="tel:+38531253200" aria-label="Pozovite METRO">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true" style="margin-right:8px;">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.86 19.86 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.86 19.86 0 0 1 2.09 4.18 2 2 0 0 1 4 2h3a2 2 0 0 1 2 1.72c.12 1.05.37 2.07.72 3.03a2 2 0 0 1-.45 2.11L9.91 10.09a16 16 0 0 0 6 6l1.23-1.23a2 2 0 0 1 2.11-.45c.96.35 1.98.6 3.03.72A2 2 0 0 1 22 16.92z" fill="white"/>
+          </svg>
+          +385 31 253 200
+        </a>
+
+        <a class="cta secondary" href="mailto:metro.osijek@metro-cc.hr" aria-label="Pošaljite e-mail">
+          Pošaljite e‑mail
+        </a>
+
+        <a class="cta secondary" href="https://www.metro-cc.hr/veleprodajni-centri/osijek" target="_blank" rel="noopener">Službena stranica centra</a>
+      </div>
+    </section>
+  </main>
+
+  <footer role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div style="display:flex;align-items:center;gap:12px;">
+            <div class="brand-mark" aria-hidden="true" style="width:44px;height:44px;border-radius:10px;">
+              <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <rect x="6" y="6" width="52" height="52" rx="10" fill="#0A6B6B"/>
+                <path d="M18 42 L28 26 L36 46 L46 22" stroke="#FFB300" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+              </svg>
+            </div>
+            <div>
+              <div style="font-weight:700;">METRO</div>
+              <div style="color:var(--muted);font-size:0.95rem;">Veleprodajni centar</div>
+            </div>
+          </div>
+        </div>
+
+        <div style="color:var(--muted); font-size:0.95rem;">
+          <div style="margin-bottom:6px;">Kontakt</div>
+          <div><a href="tel:+38531253200" style="color:inherit; text-decoration:none;">+385 31 253 200</a></div>
+          <div><a href="mailto:metro.osijek@metro-cc.hr" style="color:inherit; text-decoration:none;">metro.osijek@metro-cc.hr</a></div>
+        </div>
+
+        <nav aria-label="Footer navigacija" style="display:flex;gap:16px;align-items:center;">
+          <a href="#usluge" style="color:var(--neutral-700); text-decoration:none;">Ponuda</a>
+          <a href="#o-nama" style="color:var(--neutral-700); text-decoration:none;">O nama</a>
+          <a href="#kontakt" style="color:var(--neutral-700); text-decoration:none;">Kontakt</a>
+          <a href="https://www.metro-cc.hr/veleprodajni-centri/osijek" target="_blank" rel="noopener" style="color:var(--neutral-700); text-decoration:none;">Službeni web</a>
+        </nav>
+      </div>
+
+      <div style="border-top:1px solid rgba(10,10,10,0.04); margin-top:18px; padding-top:18px; display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap;">
+        <div style="color:var(--muted); font-size:0.89rem;">© METRO — Veleprodajni centar</div>
+        <div style="color:var(--muted); font-size:0.89rem;">Informacije prikazane su na temelju javno dostupnih podataka.</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function(){
+      const toggle = document.getElementById('mobileToggle');
+      const menu = document.getElementById('mobileMenu');
+      const closeBtn = document.getElementById('mobileClose');
+      const links = menu.querySelectorAll('a.mobile-link');
+
+      function openMenu(){
+        menu.style.display = 'block';
+        menu.setAttribute('aria-hidden','false');
+        toggle.setAttribute('aria-expanded','true');
+        // trap focus to close button
+        closeBtn.focus();
+      }
+      function closeMenu(){
+        menu.style.display = 'none';
+        menu.setAttribute('aria-hidden','true');
+        toggle.setAttribute('aria-expanded','false');
+        toggle.focus();
+      }
+
+      toggle.addEventListener('click', function(){
+        const expanded = toggle.getAttribute('aria-expanded') === 'true';
+        if(expanded) closeMenu(); else openMenu();
+      });
+
+      closeBtn.addEventListener('click', closeMenu);
+      // close when clicking a link
+      links.forEach(a => a.addEventListener('click', closeMenu));
+
+      // close on Escape
+      document.addEventListener('keydown', function(e){
+        if(e.key === 'Escape') {
+          if(menu.getAttribute('aria-hidden') === 'false') closeMenu();
+        }
+      });
+
+      // ensure menu hidden on resize to desktop
+      window.addEventListener('resize', function(){
+        if(window.innerWidth > 980) {
+          menu.style.display = 'none';
+          menu.setAttribute('aria-hidden','true');
+          toggle.setAttribute('aria-expanded','false');
+        }
+      });
+
+      // smooth scroll for internal links with accessible focus handling
+      const internalLinks = document.querySelectorAll('a[href^="#"]');
+      internalLinks.forEach(a => {
+        a.addEventListener('click', function(e){
+          const target = document.querySelector(this.getAttribute('href'));
+          if(target){
+            e.preventDefault();
+            const prev = document.activeElement;
+            target.scrollIntoView({behavior: 'smooth', block: 'start'});
+            // set focus for screen readers
+            target.setAttribute('tabindex','-1');
+            target.focus({preventScroll:true});
+            target.addEventListener('blur', function tmp(){ target.removeAttribute('tabindex'); target.removeEventListener('blur', tmp); });
+          }
+        });
+      });
+
+      // Respect prefers-reduced-motion for scroll behavior fallback
+      try {
+        const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+        if(mediaQuery && mediaQuery.matches){
+          // Remove smooth behavior if reduced motion
+          internalLinks.forEach(a => a.removeEventListener('click', ()=>{}));
+        }
+      } catch(e){ /* ignore */ }
+    })();
+  </script>
+</body>
+</html>
