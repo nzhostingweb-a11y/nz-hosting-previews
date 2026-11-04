@@ -1,0 +1,674 @@
+ <!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Bio Dona — Delikatesa i prirodni izbori</title>
+  <meta name="description" content="Bio Dona nudi pažljivo odabrane delikatese i prirodne namirnice. Kontaktirajte nas za informacije i narudžbe: 097 7205190." />
+  <meta property="og:title" content="Bio Dona — Delikatesa i prirodni izbori" />
+  <meta property="og:description" content="Pažljivo odabrani proizvodi i delikatese za svjesne kupce. Nazovite 097 7205190 ili pišite biodona0@gmail.com." />
+  <meta property="og:url" content="https://www.bio-dona.com" />
+  <meta name="theme-color" content="#0f1312" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      /* Design system */
+      --color-primary: #0f1312;         /* duboka grafitna pozadina */
+      --color-secondary: #e0cfa6;       /* topla krem-zlatna */
+      --color-accent: #9bbf6a;          /* suptilna maslinasta */
+      --neutral-100: #ffffff;
+      --neutral-90: #f7f6f4;
+      --neutral-70: #dedbd6;
+      --neutral-40: #77726b;
+      --neutral-20: #2a2a28;
+      --bg: linear-gradient(180deg, rgba(15,19,18,1) 0%, rgba(22,23,22,1) 40%, rgba(245,243,240,0.02) 100%);
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --shadow-soft: 0 8px 30px rgba(5,6,6,0.45);
+      --shadow-elev: 0 18px 60px rgba(5,6,6,0.55);
+      --glass: rgba(255,255,255,0.04);
+      --spacing-unit: 16px;
+      --focus-ring: 3px solid rgba(158,176,106,0.18);
+      --max-width: 1200px;
+
+      /* Typography */
+      --font-heading: "Playfair Display", Georgia, serif;
+      --font-body: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    }
+
+    /* Reset & base */
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:var(--font-body);
+      background:var(--bg);
+      color:var(--neutral-100);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    a{color:inherit; text-decoration:none}
+    img{max-width:100%;height:auto;display:block}
+
+    main{max-width:var(--max-width);margin:0 auto;padding:calc(var(--spacing-unit) * 1.5)}
+    .container{padding:0 calc(var(--spacing-unit) * 0.75)}
+
+    /* NAV */
+    header{
+      position:sticky;
+      top:0;
+      z-index:60;
+      backdrop-filter: blur(6px);
+      background:linear-gradient(180deg, rgba(15,19,18,0.9), rgba(15,19,18,0.6));
+      border-bottom: 1px solid rgba(255,255,255,0.03);
+    }
+    .nav-inner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      max-width:var(--max-width);
+      margin:0 auto;
+      padding:14px calc(var(--spacing-unit) * 0.75);
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      text-decoration:none;
+      color:var(--neutral-100);
+    }
+    .wordmark{
+      font-family:var(--font-heading);
+      font-weight:700;
+      letter-spacing:0.6px;
+      font-size:20px;
+    }
+    .submark{
+      font-size:12px;
+      color:var(--neutral-70);
+      margin-top:2px;
+    }
+    nav.primary{
+      display:flex;
+      align-items:center;
+      gap:18px;
+    }
+    nav.primary a{
+      color:var(--neutral-90);
+      font-weight:600;
+      padding:8px 10px;
+      border-radius:8px;
+    }
+    nav.primary a:hover, nav.primary a:focus{
+      background:rgba(255,255,255,0.02);
+      outline:none;
+      box-shadow:none;
+    }
+
+    .cta{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      background:linear-gradient(90deg,var(--color-secondary), #d9caa2);
+      color:var(--color-primary);
+      padding:10px 14px;
+      border-radius:12px;
+      font-weight:700;
+      box-shadow:var(--shadow-soft);
+      border:0;
+      cursor:pointer;
+    }
+    .cta:focus{outline:var(--focus-ring);outline-offset:4px}
+
+    .menu-toggle{
+      display:none;
+      background:transparent;
+      border:0;
+      color:var(--neutral-90);
+      padding:8px;
+      border-radius:8px;
+    }
+    .menu-toggle:focus{outline:var(--focus-ring)}
+
+    /* HERO */
+    .hero{
+      display:grid;
+      grid-template-columns: 1fr 420px;
+      gap:36px;
+      align-items:center;
+      padding:64px 0 72px;
+      position:relative;
+    }
+    .hero-left{
+      max-width:720px;
+    }
+    h1{
+      margin:0 0 16px 0;
+      font-family:var(--font-heading);
+      font-weight:700;
+      color:var(--neutral-100);
+      font-size: clamp(28px, 4.2vw, 48px);
+      line-height:1.02;
+      letter-spacing:-0.5px;
+    }
+    .eyebrow{
+      display:inline-block;
+      color:var(--neutral-70);
+      font-weight:600;
+      font-size:13px;
+      padding:6px 10px;
+      border-radius:999px;
+      background:rgba(255,255,255,0.02);
+      margin-bottom:14px;
+    }
+    .lead{
+      color:var(--neutral-90);
+      font-size:16px;
+      margin-bottom:22px;
+      max-width:48ch;
+    }
+    .hero-actions{display:flex;gap:12px;align-items:center;margin-bottom:8px}
+    .btn-secondary{
+      background:transparent;
+      border:1px solid rgba(255,255,255,0.06);
+      color:var(--neutral-90);
+      padding:10px 12px;
+      border-radius:12px;
+      font-weight:600;
+    }
+    .btn-secondary:focus{outline:var(--focus-ring)}
+
+    /* Visual card on right */
+    .hero-right{
+      position:relative;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:28px;
+      border-radius:var(--radius-md);
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      box-shadow:var(--shadow-elev);
+      min-height:320px;
+      overflow:hidden;
+    }
+    .decorative-svg{
+      position:absolute;
+      inset:0;
+      opacity:0.28;
+      filter:blur(8px);
+    }
+    .composition{
+      position:relative;
+      width:100%;
+      max-width:340px;
+      display:grid;
+      gap:12px;
+      grid-template-columns:1fr 1fr;
+      transform:translateY(-6px);
+    }
+    .tile{
+      background:linear-gradient(180deg, rgba(255,255,255,0.015), rgba(255,255,255,0.01));
+      border-radius:12px;
+      padding:14px;
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      align-items:flex-start;
+      justify-content:center;
+      min-height:120px;
+      border:1px solid rgba(255,255,255,0.03);
+    }
+    .tile h4{margin:0;font-family:var(--font-heading);font-size:16px;color:var(--neutral-100)}
+    .tile p{margin:0;color:var(--neutral-70);font-size:13px}
+
+    /* sections */
+    section{
+      padding:48px 0;
+    }
+    .grid{
+      display:grid;
+      gap:18px;
+    }
+    .usluge-grid{
+      grid-template-columns: repeat(3, 1fr);
+    }
+    .card{
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:12px;
+      padding:18px;
+      border:1px solid rgba(255,255,255,0.03);
+      box-shadow:0 8px 30px rgba(3,4,3,0.35);
+      transition:transform .28s cubic-bezier(.2,.9,.2,1), box-shadow .28s;
+    }
+    .card:hover, .card:focus-within{transform:translateY(-6px); box-shadow:0 26px 60px rgba(3,4,3,0.45)}
+    .card h3{margin:0 0 8px 0;font-family:var(--font-heading);font-size:18px}
+    .card p{margin:0;color:var(--neutral-70);font-size:14px}
+
+    /* About & benefits */
+    .split{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:28px;
+      align-items:center;
+    }
+    .benefits{
+      display:grid;
+      gap:12px;
+    }
+    .benefit{
+      display:flex;
+      gap:12px;
+      align-items:flex-start;
+    }
+    .icon{
+      width:44px;height:44px;border-radius:10px;
+      background:var(--glass);
+      display:grid;place-items:center;
+      color:var(--color-secondary);
+      flex:0 0 44px;
+      border:1px solid rgba(255,255,255,0.03);
+    }
+
+    /* Kontakt */
+    .contact-card{
+      background:linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      padding:20px;border-radius:14px;border:1px solid rgba(255,255,255,0.03);
+      display:flex;flex-direction:column;gap:10px;max-width:480px;
+    }
+    .contact-row{display:flex;gap:12px;align-items:center}
+    .contact-link{
+      color:var(--neutral-90);
+      font-weight:600;
+      text-decoration:none;
+    }
+    .contact-link:hover{text-decoration:underline}
+
+    footer{
+      padding:28px 0 60px;
+      border-top:1px solid rgba(255,255,255,0.02);
+      color:var(--neutral-70);
+    }
+    .footer-inner{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:18px;
+      max-width:var(--max-width);
+      margin:0 auto;
+      padding:0 calc(var(--spacing-unit) * 0.75);
+    }
+
+    /* Responsive */
+    @media (max-width:1024px){
+      .hero{grid-template-columns:1fr 360px; padding:48px 0}
+      .composition{max-width:300px}
+    }
+    @media (max-width:820px){
+      .nav-inner{padding:12px}
+      nav.primary{display:none}
+      .menu-toggle{display:inline-flex}
+      .hero{grid-template-columns:1fr; gap:22px; padding:40px 0}
+      .hero-right{order:2}
+      main{padding:0 18px}
+      .split{grid-template-columns:1fr}
+      .usluge-grid{grid-template-columns:1fr}
+    }
+
+    /* Mobile menu */
+    .mobile-menu{
+      display:none;
+      position:absolute;
+      inset:64px 12px auto 12px;
+      background:linear-gradient(180deg, rgba(15,19,18,0.98), rgba(18,20,19,0.98));
+      border-radius:12px;
+      padding:12px;
+      border:1px solid rgba(255,255,255,0.03);
+      box-shadow:var(--shadow-elev);
+    }
+    .mobile-menu a{display:block;padding:10px;border-radius:8px;color:var(--neutral-90)}
+    .mobile-menu a:focus{outline:var(--focus-ring)}
+    .mobile-menu.show{display:block}
+
+    /* Focus visibility */
+    :focus{outline-offset:3px}
+    [tabindex="0"]:focus{outline:var(--focus-ring)}
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce){
+      *{transition:none!important;animation:none!important}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav-inner" role="navigation" aria-label="Glavna navigacija">
+      <a href="#hero" class="brand">
+        <svg width="44" height="44" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+          <defs>
+            <linearGradient id="g1" x1="0" x2="1" y1="0" y2="1">
+              <stop offset="0" stop-color="#e0cfa6"/>
+              <stop offset="1" stop-color="#9bbf6a"/>
+            </linearGradient>
+          </defs>
+          <rect width="64" height="64" rx="12" fill="url(#g1)"></rect>
+          <path d="M16 40c6-12 32-8 32-20-8 0-16 2-24 6-6 2-10 8-8 14z" fill="#0f1312" opacity="0.95"></path>
+        </svg>
+        <div>
+          <div class="wordmark">Bio Dona</div>
+          <div class="submark">delikatesa • prirodni izbori</div>
+        </div>
+      </a>
+
+      <nav class="primary" aria-label="Sekcije">
+        <a href="#usluge">Ponuda</a>
+        <a href="#o-nama">O nama</a>
+        <a href="#prednosti">Zašto odabrati</a>
+        <a href="#kontakt">Kontakt</a>
+      </nav>
+
+      <div style="display:flex;gap:12px;align-items:center">
+        <a class="cta" href="tel:+385977205190" aria-label="Nazovite 097 7205190">Nazovite nas</a>
+        <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="mobileMenu" aria-label="Otvori izbornik">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <div id="mobileMenu" class="mobile-menu" role="menu" aria-hidden="true">
+      <a href="#usluge" role="menuitem">Ponuda</a>
+      <a href="#o-nama" role="menuitem">O nama</a>
+      <a href="#prednosti" role="menuitem">Zašto odabrati</a>
+      <a href="#kontakt" role="menuitem">Kontakt</a>
+      <a href="tel:+385977205190" role="menuitem">Nazovite: 097 7205190</a>
+      <a href="mailto:biodona0@gmail.com" role="menuitem">biodona0@gmail.com</a>
+    </div>
+  </header>
+
+  <main>
+    <section id="hero" class="hero" aria-labelledby="hero-title">
+      <div class="hero-left">
+        <span class="eyebrow" aria-hidden="true">Specijalizirano</span>
+        <h1 id="hero-title">Bio Dona — delikatese i prirodni izbori za svjesne kupce</h1>
+        <p class="lead">Pažljivo odabrani proizvodi i delikatese, složeni da ponude ukusne i prirodne opcije. Kontaktirajte nas za informacije, narudžbe i savjet pri odabiru.</p>
+
+        <div class="hero-actions" role="group" aria-label="Akcije">
+          <a class="cta" href="tel:+385977205190">Nazovite: 097 7205190</a>
+          <a class="btn-secondary" href="#usluge">Pogledajte ponudu</a>
+        </div>
+
+        <p style="color:var(--neutral-70);font-size:13px;margin-top:8px">Radimo izravnu komunikaciju telefonom i emailom. Adresa poslovnice nije zadana — javite se za detalje.</p>
+      </div>
+
+      <aside class="hero-right" aria-hidden="true">
+        <svg class="decorative-svg" viewBox="0 0 800 600" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true">
+          <defs>
+            <linearGradient id="lg" x1="0" x2="1">
+              <stop offset="0" stop-color="#9bbf6a" stop-opacity="0.25"/>
+              <stop offset="1" stop-color="#e0cfa6" stop-opacity="0.12"/>
+            </linearGradient>
+          </defs>
+          <rect width="800" height="600" fill="none"/>
+          <g transform="translate(-60,-40)">
+            <path d="M60 400 C180 200 420 220 740 80" stroke="url(#lg)" stroke-width="34" stroke-linecap="round" fill="none"/>
+            <circle cx="520" cy="200" r="120" fill="rgba(224,207,166,0.03)"/>
+          </g>
+        </svg>
+
+        <div class="composition" aria-hidden="false">
+          <div class="tile" role="article" tabindex="0">
+            <svg width="36" height="36" viewBox="0 0 24 24" class="icon" aria-hidden="true" focusable="false">
+              <path d="M12 2v20M2 12h20" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            </svg>
+            <h4>Pažljiv izbor</h4>
+            <p>Ručna selekcija dobavljača i proizvoda za uravnotečen i prirodan izbor.</p>
+          </div>
+
+          <div class="tile" role="article" tabindex="0">
+            <svg width="36" height="36" viewBox="0 0 24 24" class="icon" aria-hidden="true" focusable="false">
+              <path d="M12 3c4.97 0 9 4.03 9 9s-4.03 9-9 9-9-4.03-9-9 4.03-9 9-9z" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+              <path d="M8 12s1.5 3 4 3 4-3 4-3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            </svg>
+            <h4>Okus i jasnoća</h4>
+            <p>Proizvodi birani prema kvaliteti sastojaka i prirodnom ukusu.</p>
+          </div>
+
+          <div class="tile" role="article" tabindex="0">
+            <svg width="36" height="36" viewBox="0 0 24 24" class="icon" aria-hidden="true" focusable="false">
+              <path d="M3 12h18M12 3v18" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            </svg>
+            <h4>Praktična podrška</h4>
+            <p>Kontaktirajte nas za savjet pri izboru ili narudžbi—jednostavno i brzo.</p>
+          </div>
+
+          <div class="tile" role="article" tabindex="0">
+            <svg width="36" height="36" viewBox="0 0 24 24" class="icon" aria-hidden="true" focusable="false">
+              <path d="M4 7h16M4 12h10M4 17h7" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            </svg>
+            <h4>Raznolika ponuda</h4>
+            <p>Kratki pregled kategorija: delikatesni proizvodi, zdrave namirnice i dodaci.</p>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <section id="usluge" aria-labelledby="usluge-title">
+      <div style="display:flex;align-items:baseline;gap:12px;margin-bottom:18px">
+        <h2 id="usluge-title" style="margin:0;font-family:var(--font-heading);font-size:22px">Ponuda</h2>
+        <p style="margin:0;color:var(--neutral-70)">Kategorije proizvoda i usluga prilagođene gurmanskim i zdravim preferencijama.</p>
+      </div>
+
+      <div class="grid usluge-grid">
+        <article class="card" tabindex="0" aria-labelledby="c1">
+          <h3 id="c1">Delikatese</h3>
+          <p>Izbor premium delikatesnih sastojaka i gotovih proizvoda za posebne prilike i svakodnevnu upotrebu.</p>
+        </article>
+
+        <article class="card" tabindex="0" aria-labelledby="c2">
+          <h3 id="c2">Zdrave namirnice</h3>
+          <p>Prirodne, pažljivo odabrane namirnice koje podržavaju uravnoteženu prehranu i različite prehrambene stilove.</p>
+        </article>
+
+        <article class="card" tabindex="0" aria-labelledby="c3">
+          <h3 id="c3">Dodaci i začini</h3>
+          <p>Specijalni začini, ulja i prilozi koji obogaćuju okus i pružaju dodatni karakter jelima.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="o-nama" aria-labelledby="onama-title">
+      <div class="split">
+        <div>
+          <h2 id="onama-title" style="font-family:var(--font-heading);font-size:22px;margin-top:0">O nama</h2>
+          <p style="color:var(--neutral-70);max-width:56ch">Bio Dona je specijalizirani izbor proizvoda fokusiran na delikatese i prirodne namirnice. Komunikacija je usmjerena izravno s kupcem — preko telefona i emaila — kako bismo pomogli pri odabiru i pružili informacije o dostupnosti.</p>
+
+          <div style="margin-top:18px;display:flex;gap:12px;flex-wrap:wrap">
+            <a class="btn-secondary" href="mailto:biodona0@gmail.com">Pišite nam</a>
+            <a class="btn-secondary" href="tel:+385977205190">Nazovite</a>
+          </div>
+        </div>
+
+        <div>
+          <div style="background:linear-gradient(180deg, rgba(155,191,106,0.06), rgba(224,207,166,0.03));padding:20px;border-radius:12px;border:1px solid rgba(255,255,255,0.02)">
+            <h3 style="margin-top:0;font-family:var(--font-heading);font-size:18px">Naš pristup</h3>
+            <ul style="margin:12px 0 0 18px;color:var(--neutral-70);line-height:1.6">
+              <li>Pažljiv odabir proizvoda prema kvaliteti sastojaka</li>
+              <li>Transparentna komunikacija putem telefona i emaila</li>
+              <li>Fokus na okus, prirodnost i jednostavnost odabira</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="prednosti" aria-labelledby="prednosti-title">
+      <h2 id="prednosti-title" style="font-family:var(--font-heading);font-size:22px;margin-top:0">Zašto odabrati Bio Dona</h2>
+
+      <div class="benefits" style="margin-top:16px">
+        <div class="benefit" tabindex="0">
+          <div class="icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 2v20" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div>
+            <h4 style="margin:0;font-family:var(--font-heading);font-size:15px">Promišljen izbor</h4>
+            <p style="margin:6px 0 0;color:var(--neutral-70)">Svaki proizvod u ponudi odabran je prema jasno definiranim kriterijima kvalitete i prirodnih sastojaka.</p>
+          </div>
+        </div>
+
+        <div class="benefit" tabindex="0">
+          <div class="icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 12h16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div>
+            <h4 style="margin:0;font-family:var(--font-heading);font-size:15px">Jasna komunikacija</h4>
+            <p style="margin:6px 0 0;color:var(--neutral-70)">Kontaktirajte nas telefonom ili emailom za konkretnu informaciju o proizvodima i njihovoj dostupnosti.</p>
+          </div>
+        </div>
+
+        <div class="benefit" tabindex="0">
+          <div class="icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M3 6h18M3 12h12M3 18h8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div>
+            <h4 style="margin:0;font-family:var(--font-heading);font-size:15px">Praktične informacije</h4>
+            <p style="margin:6px 0 0;color:var(--neutral-70)">Sve informacije o ponudama i narudžbama dostupne su putem navedenih kontakata.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="kontakt" aria-labelledby="kontakt-title">
+      <h2 id="kontakt-title" style="font-family:var(--font-heading);font-size:22px;margin-top:0">Kontakt</h2>
+
+      <div style="display:flex;gap:24px;flex-wrap:wrap;margin-top:16px">
+        <div class="contact-card" role="region" aria-label="Kontakt informacije">
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <div>
+              <h3 style="margin:0;font-family:var(--font-heading);font-size:16px">Kontakt podaci</h3>
+              <p style="margin:6px 0 0;color:var(--neutral-70)">Za informacije i narudžbe nazovite ili pošaljite email.</p>
+            </div>
+            <div style="text-align:right;color:var(--neutral-70);font-size:13px">Bio Dona</div>
+          </div>
+
+          <div style="border-top:1px dashed rgba(255,255,255,0.02);margin-top:12px;padding-top:12px">
+            <div class="contact-row">
+              <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M21 16.5V20a1 1 0 0 1-1.11 1A19 19 0 0 1 3 5.11 1 1 0 0 1 4 4h3.5a1 1 0 0 1 1 .75c.2.95.6 2.1 1.2 3.2.6 1.1 1.5 2.2 2.7 3.4 1.2 1.2 2.3 2.1 3.4 2.7 1.1.6 2.3 1 3.2 1.2a1 1 0 0 1 .75 1V20z" stroke="currentColor" stroke-width="0.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <a class="contact-link" href="tel:+385977205190">097 7205190</a>
+            </div>
+
+            <div class="contact-row">
+              <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 8.5v7A2.5 2.5 0 0 0 5.5 18h13A2.5 2.5 0 0 0 21 15.5v-7" stroke="currentColor" stroke-width="0.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 6.5l-9 6-9-6" stroke="currentColor" stroke-width="0.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <a class="contact-link" href="mailto:biodona0@gmail.com">biodona0@gmail.com</a>
+            </div>
+
+            <div style="margin-top:10px;color:var(--neutral-70);font-size:13px">
+              Web: <a href="https://www.bio-dona.com" class="contact-link" target="_blank" rel="noopener">bio-dona.com</a>
+            </div>
+          </div>
+        </div>
+
+        <div style="flex:1;min-width:260px">
+          <h3 style="font-family:var(--font-heading);font-size:16px;margin:0">Brzi upit</h3>
+          <p style="color:var(--neutral-70);margin:8px 0 12px">Pošaljite kratku poruku putem emaila ili nas nazovite. Odgovaramo putem istih kanala.</p>
+
+          <div style="display:flex;gap:10px;flex-wrap:wrap">
+            <a class="btn-secondary" href="mailto:biodona0@gmail.com">Pošaljite email</a>
+            <a class="cta" href="tel:+385977205190">Nazovite</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <div style="font-family:var(--font-heading);font-size:15px">Bio Dona</div>
+        <div style="color:var(--neutral-70);font-size:13px">Delikatesa i prirodni izbori</div>
+      </div>
+
+      <nav aria-label="Footer navigacija" style="display:flex;gap:12px;align-items:center">
+        <a href="#usluge">Ponuda</a>
+        <a href="#kontakt">Kontakt</a>
+        <a href="https://www.bio-dona.com" target="_blank" rel="noopener">Web</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script>
+    (function(){
+      var menuToggle = document.getElementById('menuToggle');
+      var mobileMenu = document.getElementById('mobileMenu');
+
+      function toggleMenu(){
+        var expanded = menuToggle.getAttribute('aria-expanded') === 'true';
+        menuToggle.setAttribute('aria-expanded', String(!expanded));
+        if(!expanded){
+          mobileMenu.classList.add('show');
+          mobileMenu.setAttribute('aria-hidden','false');
+          // focus first link for keyboard users
+          var first = mobileMenu.querySelector('a');
+          if(first) first.focus();
+        } else {
+          mobileMenu.classList.remove('show');
+          mobileMenu.setAttribute('aria-hidden','true');
+          menuToggle.focus();
+        }
+      }
+
+      menuToggle.addEventListener('click', toggleMenu);
+      // close on outside click
+      document.addEventListener('click', function(e){
+        if(!mobileMenu.contains(e.target) && !menuToggle.contains(e.target) && mobileMenu.classList.contains('show')){
+          mobileMenu.classList.remove('show');
+          mobileMenu.setAttribute('aria-hidden','true');
+          menuToggle.setAttribute('aria-expanded','false');
+        }
+      });
+
+      // close on Escape
+      document.addEventListener('keydown', function(e){
+        if(e.key === 'Escape' && mobileMenu.classList.contains('show')){
+          mobileMenu.classList.remove('show');
+          mobileMenu.setAttribute('aria-hidden','true');
+          menuToggle.setAttribute('aria-expanded','false');
+          menuToggle.focus();
+        }
+      });
+
+      // Smooth in-page scroll for keyboard and mouse users
+      document.querySelectorAll('a[href^="#"]').forEach(function(anchor){
+        anchor.addEventListener('click', function(e){
+          var href = anchor.getAttribute('href');
+          if(href.length > 1){
+            var target = document.querySelector(href);
+            if(target){
+              e.preventDefault();
+              target.scrollIntoView({behavior:'smooth', block:'start'});
+              history.replaceState(null, '', href);
+            }
+          }
+        });
+      });
+
+      // Accessibility: ensure focus styles visible when navigating by keyboard
+      function handleFirstTab(e) {
+        if (e.key === 'Tab') {
+          document.documentElement.classList.add('user-is-tabbing');
+          window.removeEventListener('keydown', handleFirstTab);
+        }
+      }
+      window.addEventListener('keydown', handleFirstTab);
+    })();
+  </script>
+</body>
+</html>
