@@ -1,0 +1,469 @@
+ <!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Zastupstvo A1 Kutina — Komercijalno zastupništvo</title>
+  <meta name="description" content="Zastupstvo A1 Kutina — lokalno komercijalno zastupništvo. Informacije i upiti dostupni su putem službene web stranice." />
+  <meta property="og:title" content="Zastupstvo A1 Kutina — Komercijalno zastupništvo" />
+  <meta property="og:description" content="Lokalno komercijalno zastupništvo. Posjetite službenu stranicu za kontakt i detalje." />
+  <meta property="og:type" content="website" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --color-primary: #0b5f73; /* deep teal */
+      --color-secondary: #f2bf5b; /* warm gold */
+      --color-accent: #e07a5f; /* coral accent */
+      --bg: #fbfbfc;
+      --surface: #ffffff;
+      --muted: #6b7280;
+      --text: #0f1724;
+      --radius-sm: 8px;
+      --radius-md: 16px;
+      --radius-lg: 28px;
+      --shadow-1: 0 6px 18px rgba(11,95,115,0.08);
+      --shadow-2: 0 10px 30px rgba(11,95,115,0.06);
+      --gap: 24px;
+      --max-width: 1200px;
+      --fluid-h1: clamp(1.6rem, 1.2rem + 3.6vw, 3.2rem);
+      --fluid-h2: clamp(1.15rem, 1rem + 1.8vw, 1.8rem);
+      --ease: cubic-bezier(.2,.9,.2,1);
+      --glass: linear-gradient(180deg, rgba(255,255,255,0.55), rgba(255,255,255,0.38));
+    }
+    *,*::before,*::after{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      color:var(--text);
+      background:linear-gradient(180deg, var(--bg), #f9fafb);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+      -webkit-tap-highlight-color:transparent;
+    }
+
+    .container{max-width:var(--max-width);margin:0 auto;padding:0 20px;}
+
+    /* Navigation */
+    header{
+      position:sticky;top:18px;z-index:60;
+      display:flex;justify-content:center;pointer-events:auto;
+    }
+    .nav-wrap{
+      width:100%;
+      background:transparent;
+      display:flex;align-items:center;justify-content:space-between;
+      gap:16px;padding:8px 12px;
+      backdrop-filter: blur(6px);
+      max-width:var(--max-width);
+    }
+    .brand{
+      display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--text);
+      font-weight:700;font-size:1rem;
+    }
+    .logo-mark{
+      width:44px;height:44px;border-radius:10px;display:inline-grid;place-items:center;
+      background:linear-gradient(135deg,var(--color-primary),#0e8aa7);
+      color:white;flex:0 0 44px;box-shadow:var(--shadow-1);
+    }
+    .brand strong{font-family:Playfair Display, serif;font-weight:600;letter-spacing:-0.02em;}
+
+    nav{display:flex;align-items:center;gap:18px;}
+    .nav-links{display:flex;gap:14px;align-items:center;}
+    .nav-links a{
+      color:var(--muted);text-decoration:none;padding:8px;border-radius:10px;font-weight:600;font-size:.95rem;
+    }
+    .nav-links a:hover,.nav-links a:focus{color:var(--text);outline:none;box-shadow:inset 0 -2px 0 var(--color-secondary);transition:all .18s var(--ease)}
+    .cta-site{
+      background:var(--color-primary);color:white;padding:10px 14px;border-radius:12px;text-decoration:none;font-weight:700;
+      box-shadow:var(--shadow-1);display:inline-flex;align-items:center;gap:10px;
+    }
+    .menu-toggle{display:none;background:transparent;border:0;padding:8px;border-radius:10px;color:var(--muted);}
+
+    /* Hero */
+    .hero{
+      padding:84px 0 56px;
+      display:grid;grid-template-columns:1fr 440px;gap:36px;align-items:center;
+    }
+    .hero-left{padding-right:10px;}
+    h1{
+      margin:0 0 14px 0;
+      font-family:Playfair Display, serif;
+      font-size:var(--fluid-h1);
+      line-height:1.02;
+      letter-spacing:-0.01em;
+      color:var(--text);
+    }
+    p.lead{
+      margin:0 0 22px 0;color:var(--muted);font-size:1.05rem;max-width:72ch;
+    }
+    .hero-ctas{display:flex;gap:12px;align-items:center;}
+    .btn{
+      display:inline-flex;align-items:center;gap:10px;padding:12px 16px;border-radius:12px;text-decoration:none;font-weight:700;
+      transition:transform .18s var(--ease),box-shadow .18s var(--ease);
+    }
+    .btn-primary{background:var(--color-primary);color:white;box-shadow:var(--shadow-1)}
+    .btn-primary:hover{transform:translateY(-4px)}
+    .btn-ghost{background:transparent;border:1px solid rgba(15,23,36,0.06);color:var(--text)}
+    .hero-meta{display:flex;gap:18px;margin-top:18px;color:var(--muted);font-size:.95rem}
+
+    /* Visual card */
+    .hero-right{
+      position:relative;
+      min-height:320px;
+      display:grid;place-items:center;
+    }
+    .visual-card{
+      width:100%;height:100%;background:var(--surface);border-radius:var(--radius-lg);padding:22px;
+      box-shadow:var(--shadow-2);display:grid;grid-template-rows:1fr auto;overflow:hidden;
+      align-items:stretch;transition:transform .25s var(--ease),box-shadow .25s var(--ease);
+    }
+    .visual-top{
+      display:flex;gap:12px;align-items:center;
+    }
+    .geom{
+      width:108px;height:108px;border-radius:16px;flex:0 0 108px;background:
+      conic-gradient(from 180deg at 50% 50%, rgba(224,122,95,0.12), rgba(15,23,36,0.03));
+      display:grid;place-items:center;border:1px solid rgba(11,95,115,0.06);
+    }
+    .geom svg{width:64px;height:64px;transform:rotate(-12deg)}
+    .visual-content h3{margin:0;font-size:1.05rem}
+    .visual-content p{margin:6px 0 0;color:var(--muted);font-size:.95rem}
+
+    /* Services */
+    section{padding:72px 0}
+    .section-head{display:flex;justify-content:space-between;align-items:end;gap:12px}
+    .grid{
+      display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:22px;
+    }
+    .card{
+      background:linear-gradient(180deg,rgba(255,255,255,0.98),var(--surface));
+      border-radius:14px;padding:20px;box-shadow:var(--shadow-1);min-height:150px;
+      transition:transform .18s var(--ease),box-shadow .18s var(--ease);
+    }
+    .card:hover{transform:translateY(-6px);box-shadow:0 16px 40px rgba(11,95,115,0.08)}
+    .card h4{margin:0 0 8px;font-size:1.05rem}
+    .card p{margin:0;color:var(--muted)}
+
+    /* About */
+    .about{
+      display:grid;grid-template-columns:1fr 340px;gap:28px;align-items:start;
+    }
+    .about .note{background:var(--surface);padding:18px;border-radius:12px;box-shadow:var(--shadow-1)}
+    .pill{display:inline-flex;align-items:center;gap:8px;background:rgba(11,95,115,0.06);padding:8px 12px;border-radius:999px;font-weight:700;color:var(--color-primary)}
+
+    /* Steps */
+    .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:18px}
+    .step{background:linear-gradient(180deg, #fff, #fbfbfb);padding:18px;border-radius:12px;border:1px solid rgba(15,23,36,0.04)}
+    .step h5{margin:0 0 8px}
+    .step p{margin:0;color:var(--muted)}
+
+    /* Contact */
+    .contact-card{background:linear-gradient(180deg, rgba(224,122,95,0.04), rgba(11,95,115,0.02));padding:22px;border-radius:14px;display:flex;gap:18px;align-items:center;justify-content:space-between}
+    .contact-info{display:flex;flex-direction:column;gap:8px}
+    .contact-info a{color:var(--color-primary);font-weight:700;text-decoration:none}
+
+    footer{padding:40px 0;border-top:1px solid rgba(15,23,36,0.04);color:var(--muted)}
+    .footer-inner{display:flex;justify-content:space-between;align-items:center;gap:12px}
+    .small{font-size:.95rem;color:var(--muted)}
+
+    /* Responsive */
+    @media (max-width:980px){
+      .hero{grid-template-columns:1fr;gap:26px;padding-top:56px}
+      .hero-right{order:-1}
+      .grid{grid-template-columns:repeat(2,1fr)}
+      .about{grid-template-columns:1fr}
+      nav{display:none}
+      .menu-toggle{display:inline-flex}
+    }
+    @media (max-width:560px){
+      :root{--gap:18px}
+      .grid{grid-template-columns:1fr}
+      .visual-card{border-radius:18px}
+      .brand strong{font-size:1rem}
+      .hero{padding:44px 0}
+      h1{font-size:1.6rem}
+      .hero-meta{flex-direction:column;align-items:flex-start;gap:8px}
+    }
+
+    /* Focus & reduced motion */
+    :focus{outline:3px solid rgba(11,95,115,0.12);outline-offset:3px;border-radius:8px}
+    @media (prefers-reduced-motion: reduce){
+      *{transition:none!important;animation:none!important}
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;">Preskoči na sadržaj</a>
+  <header>
+    <div class="nav-wrap container" role="navigation" aria-label="Glavna navigacija">
+      <a class="brand" href="#main">
+        <span class="logo-mark" aria-hidden="true">
+          <svg viewBox="0 0 64 64" width="28" height="28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="2" y="2" width="60" height="60" rx="12" fill="rgba(255,255,255,0.06)"/>
+            <path d="M14 46L28 20l18 26" stroke="white" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+        <strong>Zastupstvo A1 Kutina</strong>
+      </a>
+
+      <nav>
+        <div class="nav-links" id="navLinks">
+          <a href="#usluge">Usluge</a>
+          <a href="#kako">Kako radimo</a>
+          <a href="#o-nama">O nama</a>
+          <a href="#kontakt">Kontakt</a>
+        </div>
+      </nav>
+
+      <div style="display:flex;gap:12px;align-items:center">
+        <a class="cta-site" href="http://www.inukom.hr/" target="_blank" rel="noopener">Službena stranica</a>
+        <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="mobileMenu" aria-label="Otvorite izbornik">
+          <svg width="20" height="14" viewBox="0 0 20 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect width="20" height="2" rx="1" fill="currentColor"/>
+            <rect y="6" width="20" height="2" rx="1" fill="currentColor"/>
+            <rect y="12" width="20" height="2" rx="1" fill="currentColor"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div id="mobileMenu" style="display:none;background:var(--surface);position:fixed;inset:72px 20px 20px 20px;border-radius:14px;box-shadow:var(--shadow-2);padding:18px;z-index:80">
+    <nav aria-label="Mobilna navigacija">
+      <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:12px">
+        <li><a href="#usluge">Usluge</a></li>
+        <li><a href="#kako">Kako radimo</a></li>
+        <li><a href="#o-nama">O nama</a></li>
+        <li><a href="#kontakt">Kontakt</a></li>
+        <li><a href="http://www.inukom.hr/" target="_blank" rel="noopener" class="cta-site" style="display:inline-block;margin-top:8px;">Službena stranica</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <main id="main" class="container" tabindex="-1">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-left">
+        <p class="pill" aria-hidden="true">Lokalno | Komercijalno</p>
+        <h1 id="hero-title">Zastupstvo A1 Kutina — jasno komercijalno predstavljanje</h1>
+        <p class="lead">Povezujemo poslovne prilike i olakšavamo komunikaciju s partnerima. Jasna prezentacija i koordinacija komercijalnih aktivnosti — informirajte se putem službene web stranice.</p>
+
+        <div class="hero-ctas">
+          <a class="btn btn-primary" href="http://www.inukom.hr/" target="_blank" rel="noopener">Posjetite službenu stranicu</a>
+          <a class="btn btn-ghost" href="#kako">Kako surađujemo</a>
+        </div>
+
+        <div class="hero-meta" aria-hidden="true">
+          <span>Transparentan pristup</span>
+          <span style="opacity:.6">—</span>
+          <span>Lokalna prisutnost</span>
+        </div>
+      </div>
+
+      <div class="hero-right" aria-hidden="true">
+        <div class="visual-card" role="img" aria-label="Grafički prikaz poslovne suradnje">
+          <div style="display:flex;gap:16px;align-items:center" class="visual-top">
+            <div class="geom" aria-hidden="true">
+              <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <circle cx="32" cy="32" r="28" stroke="rgba(224,122,95,0.18)" stroke-width="2"/>
+                <path d="M20 42c6-8 12-24 24-18" stroke="rgba(11,95,115,0.9)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div class="visual-content">
+              <h3>Profesionalno predstavljanje</h3>
+              <p>Jasna komunikacija partnerima i prilagodba poslovnih poruka tržištu.</p>
+            </div>
+          </div>
+
+          <div style="margin-top:18px;display:flex;gap:12px;align-items:center">
+            <div style="flex:1;color:var(--muted);font-size:.95rem">
+              Diskretna grafika i struktura informacija olakšavaju pregled i orijentaciju.
+            </div>
+            <div style="min-width:84px;text-align:right">
+              <svg width="64" height="36" viewBox="0 0 64 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <rect x="2" y="6" width="50" height="24" rx="6" fill="rgba(11,95,115,0.06)"/>
+                <path d="M6 18h12M20 18h20" stroke="rgba(11,95,115,0.12)" stroke-width="2" stroke-linecap="round"/>
+                <circle cx="58" cy="18" r="6" fill="var(--color-secondary)" />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="usluge" aria-labelledby="usluge-title">
+      <div class="section-head">
+        <div>
+          <h2 id="usluge-title" style="margin:0;font-size:var(--fluid-h2);font-weight:700">Ukratko o ponudi</h2>
+          <p style="margin:8px 0 0;color:var(--muted)">Opise i detalje možete pronaći na službenoj web stranici. Ovdje su istaknute ključne aktivnosti i način suradnje.</p>
+        </div>
+        <div class="small" style="color:var(--muted)">Neutralan pregled aktivnosti</div>
+      </div>
+
+      <div class="grid" style="margin-top:20px">
+        <article class="card" aria-labelledby="card1">
+          <h4 id="card1">Predstavljanje poslovnih interesa</h4>
+          <p>Organizacija kontakata i komunikacija prema partnerima u okviru komercijalnih aktivnosti.</p>
+        </article>
+
+        <article class="card" aria-labelledby="card2">
+          <h4 id="card2">Koordinacija i komunikacija</h4>
+          <p>Fokus na jasnoj prezentaciji, koordinaciji sastanaka i pratnji dogovora s partnerima.</p>
+        </article>
+
+        <article class="card" aria-labelledby="card3">
+          <h4 id="card3">Lokalna podrška</h4>
+          <p>Praktična potpora u lokalnim poslovnim okolnostima i organizacija logistike pregovora.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="o-nama" aria-labelledby="o-nama-title">
+      <div class="about">
+        <div>
+          <h2 id="o-nama-title" style="margin:0;font-size:var(--fluid-h2);font-weight:700">O nama</h2>
+          <p style="margin:10px 0 0;color:var(--muted)">Zastupstvo A1 Kutina djeluje u području komercijalnog zastupništva. Ovaj prikaz sadrži neutralne informacije. Za potvrđene podatke i upite u vezi usluga posjetite službenu web stranicu.</p>
+          <div class="note" style="margin-top:16px">
+            <strong>Važno</strong>
+            <p style="margin:8px 0 0;color:var(--muted)">Navedeni podaci su neprovjereni. Kontakt i detaljne informacije nalaze se na službenoj web stranici.</p>
+          </div>
+        </div>
+
+        <aside>
+          <div style="display:flex;flex-direction:column;gap:12px">
+            <div style="background:var(--surface);padding:16px;border-radius:12px;box-shadow:var(--shadow-1)">
+              <strong>Pristup</strong>
+              <p style="margin:8px 0 0;color:var(--muted)">Fokus na jasnoj i diskretnoj prezentaciji poslovnih aktivnosti.</p>
+            </div>
+
+            <div style="background:linear-gradient(180deg, rgba(11,95,115,0.04), rgba(224,122,95,0.02));padding:16px;border-radius:12px;">
+              <strong>Transparentnost</strong>
+              <p style="margin:8px 0 0;color:var(--muted)">Komunikacija usmjerena na jasnoću i efikasnost.</p>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="kako" aria-labelledby="kako-title">
+      <div class="section-head">
+        <div>
+          <h2 id="kako-title" style="margin:0;font-size:var(--fluid-h2);font-weight:700">Kako funkcionira suradnja</h2>
+          <p style="margin:8px 0 0;color:var(--muted)">Pristup je jednostavan i adaptibilan prema potrebama partnera. Za konkretne dogovore koristite službenu web stranicu.</p>
+        </div>
+      </div>
+
+      <div class="steps" style="margin-top:18px">
+        <div class="step" role="article" aria-labelledby="step1">
+          <h5 id="step1">1. Kontakt i dogovor</h5>
+          <p>Prvi korak je uspostava kontakta i razjašnjavanje interesa. Koristi se službena komunikacija.</p>
+        </div>
+
+        <div class="step" role="article" aria-labelledby="step2">
+          <h5 id="step2">2. Priprema i koordinacija</h5>
+          <p>Priprema materijala i koordinacija termina s partnerima u skladu s dogovorom.</p>
+        </div>
+
+        <div class="step" role="article" aria-labelledby="step3">
+          <h5 id="step3">3. Predstavljanje i praćenje</h5>
+          <p>Podrška u predstavljenim aktivnostima i praćenje daljnjih koraka prema potrebama.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="kontakt" aria-labelledby="kontakt-title">
+      <h2 id="kontakt-title" style="font-size:var(--fluid-h2);margin:0 0 12px;font-weight:700">Kontakt i dalje informacije</h2>
+      <p style="margin:0 0 18px;color:var(--muted)">Službene i potvrđene kontakt informacije dostupne su na službenoj web stranici.</p>
+
+      <div class="contact-card" role="region" aria-label="Kontakt">
+        <div class="contact-info">
+          <div style="font-weight:700">Zastupstvo A1 Kutina</div>
+          <div class="small" style="color:var(--muted)">Za upite i detalje posjetite službenu web stranicu:</div>
+          <a href="http://www.inukom.hr/" target="_blank" rel="noopener">http://www.inukom.hr/</a>
+        </div>
+
+        <div style="text-align:right">
+          <a class="btn btn-primary" href="http://www.inukom.hr/" target="_blank" rel="noopener">Posjetite stranicu</a>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer-inner container">
+        <div>
+          <div style="display:flex;align-items:center;gap:10px">
+            <div class="logo-mark" style="width:36px;height:36px;border-radius:8px;display:grid;place-items:center;font-size:.9rem">A1</div>
+            <div>
+              <div style="font-weight:700">Zastupstvo A1 Kutina</div>
+              <div class="small">Neprovjereni poslovni podaci • Službena web stranica dostupna putem linka</div>
+            </div>
+          </div>
+        </div>
+        <div class="small">
+          <div style="display:flex;gap:14px;align-items:center">
+            <div><a href="#usluge" style="color:inherit;text-decoration:none">Usluge</a></div>
+            <div><a href="#kako" style="color:inherit;text-decoration:none">Kako radimo</a></div>
+            <div><a href="#kontakt" style="color:inherit;text-decoration:none">Kontakt</a></div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    (function(){
+      const toggle = document.getElementById('menuToggle');
+      const mobile = document.getElementById('mobileMenu');
+      const navLinks = document.querySelectorAll('#mobileMenu a, .nav-links a');
+
+      function openMenu(){
+        mobile.style.display = 'block';
+        toggle.setAttribute('aria-expanded','true');
+      }
+      function closeMenu(){
+        mobile.style.display = 'none';
+        toggle.setAttribute('aria-expanded','false');
+      }
+      toggle.addEventListener('click', function(){
+        const expanded = toggle.getAttribute('aria-expanded') === 'true';
+        if(expanded) closeMenu(); else openMenu();
+      });
+
+      // Close mobile menu when link clicked
+      navLinks.forEach(a => a.addEventListener('click', function(){
+        if(window.innerWidth <= 980) closeMenu();
+      }));
+
+      // Keyboard accessibility for mobile menu (close on Escape)
+      document.addEventListener('keydown', function(e){
+        if(e.key === 'Escape') closeMenu();
+      });
+
+      // Smooth scroll for internal anchors
+      document.querySelectorAll('a[href^="#"]').forEach(a=>{
+        a.addEventListener('click', function(e){
+          const href = a.getAttribute('href');
+          if(href.length > 1){
+            const target = document.querySelector(href);
+            if(target){
+              e.preventDefault();
+              target.scrollIntoView({behavior:'smooth',block:'start'});
+              target.focus({preventScroll:true});
+            }
+          }
+        });
+      });
+
+      // Respect prefers-reduced-motion for smooth scroll
+      const prm = window.matchMedia('(prefers-reduced-motion: reduce)');
+      if(prm.matches){
+        // if reduced motion, remove smooth behavior
+        document.querySelectorAll('a[href^="#"]').forEach(a=>{
+          a.removeEventListener('click',function(){});
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
