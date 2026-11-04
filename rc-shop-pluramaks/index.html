@@ -1,0 +1,405 @@
+ <!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>RC shop Pluramaks — oprema i pribor za modelarstvo</title>
+  <meta name="description" content="RC shop Pluramaks — specijalizirana ponuda za entuzijaste modelarstva. Pregledajte modele, pribor i rezervne dijelove te saznajte kako kupiti." />
+  <meta property="og:title" content="RC shop Pluramaks — oprema i pribor za modelarstvo" />
+  <meta property="og:description" content="Specijalizirana ponuda za entuzijaste modelarstva. Posjetite službenu stranicu za pregled asortimana." />
+  <meta property="og:url" content="http://www.pluramaks.com/" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      /* Design system */
+      --color-primary:#0b3b5a;        /* deep blue */
+      --color-secondary:#f2c94c;      /* warm accent (gold) */
+      --color-accent:#ff6b35;         /* energetic accent */
+      --neutral-900:#0f1720;
+      --neutral-700:#334155;
+      --neutral-500:#64748b;
+      --neutral-200:#e6eef6;
+      --bg:#fbfdff;
+      --card:#ffffff;
+      --glass: rgba(255,255,255,0.6);
+      --radius-sm:8px;
+      --radius-md:16px;
+      --shadow-soft: 0 6px 24px rgba(11,59,90,0.08);
+      --shadow-tight: 0 4px 12px rgba(11,59,90,0.06);
+      --spacing-xs:8px;
+      --spacing-sm:16px;
+      --spacing-md:24px;
+      --spacing-lg:40px;
+      --max-width:1200px;
+      --focus: 3px solid rgba(11,59,90,0.12);
+      --transition: 180ms cubic-bezier(.2,.9,.3,1);
+      --heading-font: "Playfair Display", Georgia, serif;
+      --body-font: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    }
+
+    /* Fluid typography */
+    html { font-family: var(--body-font); color:var(--neutral-900); background:linear-gradient(180deg,var(--bg),#f7fbff 60%); -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;}
+    :root { font-size: 16px; }
+    h1 { font-family: var(--heading-font); font-weight:700; font-size: clamp(1.6rem, 1.2rem + 2.2vw, 3.2rem); line-height:1.02; margin:0; color:var(--neutral-900); letter-spacing:-0.02em;}
+    h2 { font-family: var(--heading-font); font-size: clamp(1.05rem, 0.8rem + 1.2vw, 1.6rem); margin:0 0 var(--spacing-sm) 0; color:var(--color-primary); }
+    p { font-size: clamp(0.95rem, 0.85rem + .2vw, 1rem); color:var(--neutral-700); margin:0 0 var(--spacing-sm) 0; line-height:1.6; }
+    small { color:var(--neutral-500); }
+
+    /* Layout */
+    .wrap { max-width:var(--max-width); margin:0 auto; padding:0 var(--spacing-sm); }
+    header { position:sticky; top:0; z-index:40; backdrop-filter: blur(6px); background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.75)); border-bottom:1px solid rgba(11,59,90,0.04); }
+    .nav-inner { display:flex; align-items:center; justify-content:space-between; gap:16px; height:72px; }
+    .brand { display:flex; align-items:center; gap:14px; text-decoration:none; color:var(--neutral-900); }
+    .brand-logo { width:44px; height:44px; background:linear-gradient(135deg,var(--color-primary),var(--color-accent)); border-radius:10px; display:flex; align-items:center; justify-content:center; box-shadow:var(--shadow-tight); color:white; font-weight:700; font-family:var(--heading-font); }
+    .brand-word { font-family:var(--heading-font); font-size:1.05rem; letter-spacing:0.02em; }
+    nav { display:flex; gap:18px; align-items:center; }
+    .nav-links { display:flex; gap:14px; align-items:center; }
+    .nav-links a { color:var(--neutral-700); text-decoration:none; padding:8px 10px; border-radius:8px; font-weight:600; transition:all var(--transition); }
+    .nav-links a:hover, .nav-links a:focus { color:var(--color-primary); outline: none; box-shadow: var(--focus); background: transparent; transform: translateY(-2px); }
+    .cta-primary { background:var(--color-primary); color:white; padding:10px 14px; border-radius:10px; font-weight:600; text-decoration:none; box-shadow: var(--shadow-soft); transition: transform var(--transition), box-shadow var(--transition); }
+    .cta-primary:hover { transform:translateY(-3px); box-shadow: 0 10px 30px rgba(11,59,90,0.12); }
+    .cta-secondary { background:transparent; color:var(--color-primary); padding:8px 12px; border-radius:10px; border:1px solid rgba(11,59,90,0.06); text-decoration:none; font-weight:600; }
+
+    /* Hamburger / mobile */
+    .hamburger { display:none; background:transparent; border:0; padding:8px; border-radius:8px; }
+    .menu-panel { display:none; }
+
+    /* Hero */
+    .hero { padding: calc(var(--spacing-lg) + 8px) 0; display:grid; grid-template-columns: 1fr 420px; gap:36px; align-items:center; }
+    .hero-card { background:linear-gradient(180deg, rgba(255,255,255,0.8), rgba(255,255,255,0.92)); border-radius:var(--radius-md); padding:28px; box-shadow:var(--shadow-soft); border:1px solid rgba(11,59,90,0.04); }
+    .hero-eyebrow { font-weight:600; color:var(--neutral-500); letter-spacing:0.12em; text-transform:uppercase; font-size:0.78rem; margin-bottom:12px; }
+    .hero-kicker { display:flex; gap:12px; align-items:center; margin-bottom:18px; }
+    .badge { background:var(--neutral-200); color:var(--neutral-700); padding:6px 10px; border-radius:10px; font-weight:600; font-size:0.9rem; }
+    .hero-visual { display:flex; align-items:center; justify-content:center; height:100%; }
+
+    /* stylized SVG composition */
+    .visual-wrap { width:100%; max-width:420px; border-radius:16px; position:relative; padding:28px; background:linear-gradient(135deg, rgba(11,59,90,0.04), rgba(255,107,53,0.02)); box-shadow:var(--shadow-tight); overflow:visible; }
+
+    /* Services */
+    #ponuda { padding: var(--spacing-lg) 0; }
+    .grid { display:grid; gap:20px; grid-template-columns: repeat(3,1fr); }
+    .card { background:var(--card); border-radius:var(--radius-sm); padding:20px; box-shadow:var(--shadow-tight); border:1px solid rgba(11,59,90,0.03); transition: transform var(--transition), box-shadow var(--transition); }
+    .card:hover { transform: translateY(-6px); box-shadow: 0 18px 36px rgba(11,59,90,0.06); }
+    .icon { width:56px; height:56px; display:flex; align-items:center; justify-content:center; border-radius:12px; background:linear-gradient(180deg,var(--color-secondary),rgba(242,201,76,0.7)); color:var(--neutral-900); margin-bottom:12px; }
+
+    /* About / approach */
+    .split { display:grid; grid-template-columns: 1fr 360px; gap:32px; align-items:start; padding: var(--spacing-lg) 0; }
+
+    /* How it works */
+    .steps { display:flex; gap:16px; flex-direction:column; }
+    .step { display:flex; gap:12px; align-items:flex-start; padding:12px; border-radius:12px; background:linear-gradient(180deg, rgba(11,59,90,0.02), rgba(11,59,90,0.01)); }
+
+    /* Contact */
+    #kontakt { padding: var(--spacing-lg) 0; }
+    .contact-panel { display:flex; gap:20px; align-items:center; justify-content:space-between; background:linear-gradient(90deg,#ffffff, #fbfbff); padding:20px; border-radius:12px; box-shadow:var(--shadow-tight); border:1px solid rgba(11,59,90,0.04); }
+    .contact-actions { display:flex; gap:12px; align-items:center; }
+
+    footer { padding:18px 0 48px 0; color:var(--neutral-500); }
+    .footer-inner { display:flex; justify-content:space-between; gap:20px; align-items:center; flex-wrap:wrap; }
+
+    /* Responsiveness */
+    @media (max-width:1100px){
+      .hero { grid-template-columns: 1fr; }
+      .split { grid-template-columns: 1fr; }
+      .grid { grid-template-columns: repeat(2,1fr); }
+      .visual-wrap { order: -1; }
+    }
+    @media (max-width:720px){
+      .nav-links { display:none; }
+      .hamburger { display:inline-flex; }
+      .menu-panel { display:block; position:absolute; top:72px; left:0; right:0; background:linear-gradient(180deg,white, #fbfdff); border-bottom:1px solid rgba(11,59,90,0.04); padding:16px; box-shadow:var(--shadow-soft); transform-origin:top; }
+      .menu-panel[aria-hidden="true"]{ display:none; }
+      .menu-links { display:flex; flex-direction:column; gap:8px; }
+      .grid { grid-template-columns: 1fr; }
+      .hero { padding: var(--spacing-md) 0; }
+      .hero-card { padding:18px; }
+      .brand-word { display:none; }
+    }
+
+    /* Focus & reduced motion */
+    :focus { outline: none; box-shadow: var(--focus); border-radius:8px; }
+    @media (prefers-reduced-motion: reduce){
+      * { transition:none !important; animation:none !important; scroll-behavior:auto !important; }
+    }
+
+    /* Minor utilities */
+    .muted { color:var(--neutral-500); font-size:0.95rem; }
+    .label { font-size:0.9rem; font-weight:700; color:var(--neutral-700); }
+    .kicker { font-weight:600; color:var(--neutral-500); font-size:0.95rem; text-transform:uppercase; letter-spacing:0.08em; }
+  </style>
+</head>
+<body>
+  <header role="banner" aria-label="Glavna navigacija">
+    <div class="wrap nav-inner">
+      <a class="brand" href="#top">
+        <div class="brand-logo" aria-hidden="true">PM</div>
+        <div>
+          <div class="brand-word">RC shop Pluramaks</div>
+          <small class="muted">oprema za modelarstvo</small>
+        </div>
+      </a>
+
+      <nav role="navigation" aria-label="Glavni izbornik">
+        <div class="nav-links" aria-hidden="false">
+          <a href="#ponuda">Ponuda</a>
+          <a href="#o-nama">O nama</a>
+          <a href="#kako-funkcionira">Kako</a>
+          <a href="#kontakt">Kontakt</a>
+        </div>
+
+        <div class="contact-actions">
+          <a class="cta-secondary" href="http://www.pluramaks.com/" target="_blank" rel="noopener">Posjetite web</a>
+          <a class="cta-primary" href="#ponuda">Pogledajte ponudu</a>
+          <button class="hamburger" aria-controls="mobile-menu" aria-expanded="false" aria-label="Otvorite izbornik" id="hamburger">
+            <svg width="22" height="14" viewBox="0 0 22 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect width="22" height="2" rx="1" fill="#0B3B5A"/>
+              <rect y="6" width="22" height="2" rx="1" fill="#0B3B5A"/>
+              <rect y="12" width="22" height="2" rx="1" fill="#0B3B5A"/>
+            </svg>
+          </button>
+        </div>
+      </nav>
+    </div>
+
+    <div id="mobile-menu" class="menu-panel" aria-hidden="true">
+      <div class="wrap menu-links">
+        <a href="#ponuda">Ponuda</a>
+        <a href="#o-nama">O nama</a>
+        <a href="#kako-funkcionira">Kako funkcionira</a>
+        <a href="#kontakt">Kontakt</a>
+        <a href="http://www.pluramaks.com/" target="_blank" rel="noopener">Posjetite web</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="wrap hero" aria-labelledby="hero-title">
+      <div class="hero-card" role="region" aria-label="Uvod u RC shop Pluramaks">
+        <div class="hero-eyebrow hero-kicker">
+          <div class="badge">RC shop</div>
+          <div class="muted">Specijalizirana ponuda</div>
+        </div>
+
+        <h1 id="hero-title">Oprema i pribor za RC modelarstvo — jasno, pregledno, praktično</h1>
+        <p class="muted" style="margin-top:12px;">
+          RC shop Pluramaks nudi selekciju proizvoda i dodataka za entuzijaste modelarstva. Pregledajte kategorije, usporedite opcije i pronađite što vam treba za sljedeći projekt.
+        </p>
+
+        <div style="display:flex; gap:12px; margin-top:20px; align-items:center;">
+          <a class="cta-primary" href="#ponuda">Pogledajte ponudu</a>
+          <a class="cta-secondary" href="#kontakt">Kontakt</a>
+        </div>
+
+        <div style="margin-top:22px; display:flex; gap:12px; align-items:center;">
+          <small class="muted">Službena stranica:</small>
+          <a href="http://www.pluramaks.com/" target="_blank" rel="noopener" class="muted">pluramaks.com</a>
+        </div>
+      </div>
+
+      <div class="visual-wrap" aria-hidden="true">
+        <!-- Original decorative SVG composition inspired by model components -->
+        <svg width="100%" height="320" viewBox="0 0 420 320" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Dekorativni vektor">
+          <defs>
+            <linearGradient id="g1" x1="0" x2="1">
+              <stop offset="0" stop-color="#0B3B5A" stop-opacity="0.95"/>
+              <stop offset="1" stop-color="#FF6B35" stop-opacity="0.9"/>
+            </linearGradient>
+            <linearGradient id="g2" x1="0" x2="1">
+              <stop offset="0" stop-color="#F2C94C"/>
+              <stop offset="1" stop-color="#FFD68F" stop-opacity="0.9"/>
+            </linearGradient>
+          </defs>
+
+          <rect x="12" y="14" width="396" height="292" rx="18" fill="url(#g2)" opacity="0.08"/>
+
+          <g transform="translate(20,18)">
+            <path d="M34 28c26-6 78-18 138-4 66 16 86 44 94 92" stroke="url(#g1)" stroke-width="4" stroke-linecap="round" fill="none" opacity="0.95"/>
+            <circle cx="156" cy="118" r="48" fill="#fff" opacity="0.08"/>
+            <rect x="92" y="68" width="140" height="88" rx="12" fill="#fff" opacity="0.02"/>
+            <g transform="translate(40,28)">
+              <rect x="0" y="120" width="60" height="18" rx="6" fill="#0B3B5A" opacity="0.06"/>
+              <rect x="80" y="132" width="180" height="12" rx="6" fill="#0B3B5A" opacity="0.04"/>
+            </g>
+            <!-- stylized model silhouette (abstract) -->
+            <path d="M280 170c8-18 16-34 8-44-6-8-22-10-38-6-14 3-26 10-36 20-16 16-28 34-36 54" stroke="#0B3B5A" stroke-width="3.2" stroke-linecap="round" fill="none" />
+            <circle cx="260" cy="206" r="22" fill="#fff" opacity="0.02" stroke="#0B3B5A" stroke-width="2"/>
+            <g transform="translate(18,18)" opacity="0.95">
+              <rect x="6" y="6" width="44" height="44" rx="10" fill="url(#g1)"/>
+              <text x="34" y="40" fill="white" font-family='Playfair Display' font-size="22" font-weight="600" text-anchor="middle">PM</text>
+            </g>
+          </g>
+        </svg>
+      </div>
+    </section>
+
+    <section id="ponuda" class="wrap" aria-labelledby="ponuda-title">
+      <h2 id="ponuda-title">Ponuda</h2>
+      <p class="muted" style="margin-bottom:18px;">Pregled ponude strukturiran da pomogne entuzijastima pronaći odgovarajuće komponente i dodatke. Na slici su predstavljene kategorije radi brze orijentacije.</p>
+
+      <div class="grid" role="list" aria-label="Kategorije proizvoda">
+        <article class="card" role="listitem" aria-labelledby="c1">
+          <div class="icon" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 12h18" stroke="#0B3B5A" stroke-width="1.6" stroke-linecap="round"/><path d="M6 6h12" stroke="#0B3B5A" stroke-width="1.6" stroke-linecap="round"/><path d="M6 18h12" stroke="#0B3B5A" stroke-width="1.6" stroke-linecap="round"/></svg>
+          </div>
+          <h3 id="c1">Kategorije i asortiman</h3>
+          <p class="muted">Pregled glavnih skupina proizvoda i pomoć pri orijentaciji u ponudi. Informacije su opisne i pomažu u izboru.</p>
+        </article>
+
+        <article class="card" role="listitem" aria-labelledby="c2">
+          <div class="icon" aria-hidden="true" style="background:linear-gradient(180deg,#FF6B35,#FF9B7A)">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M12 3v18" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/><path d="M3 12h18" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/></svg>
+          </div>
+          <h3 id="c2">Pribor i dijelovi</h3>
+          <p class="muted">Komponente i dodaci koji podržavaju održavanje i nadogradnju modela. Kratki opisi pomažu pri brzom odabiru.</p>
+        </article>
+
+        <article class="card" role="listitem" aria-labelledby="c3">
+          <div class="icon" aria-hidden="true" style="background:linear-gradient(180deg,#F2C94C,#FFF2CC)">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M4 19l7-14 7 14H4z" stroke="#0B3B5A" stroke-width="1.2" stroke-linejoin="round" fill="none"/></svg>
+          </div>
+          <h3 id="c3">Savjeti i informacije</h3>
+          <p class="muted">Kratke i korisne informacije o odabiru dijelova i osnovnim postupcima koji su korisni pri održavanju modela.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="o-nama" class="wrap" aria-labelledby="about">
+      <div class="split">
+        <div>
+          <h2 id="about">O nama</h2>
+          <p class="muted">RC shop Pluramaks fokusira se na potrebe entuzijasta modelarstva. Stranica i ponuda uređeni su tako da budu pregledni i korisni pri odabiru komponenata i pribora.</p>
+
+          <h3 style="margin-top:18px;">Naša filozofija pristupa</h3>
+          <p class="muted">Jednostavnost pregleda, jasne informacije i brza poveznica na službenu web stranicu omogućavaju da brzo pronađete što vam treba za vaš projekt — bez nepotrebne buke.</p>
+        </div>
+
+        <aside aria-label="Brze stavke" style="background:linear-gradient(180deg,#fff,#fbfdff); padding:20px; border-radius:12px; box-shadow:var(--shadow-tight); border:1px solid rgba(11,59,90,0.03);">
+          <div class="label">Brzi savjet</div>
+          <p class="muted" style="margin-top:8px;">Prije narudžbe provjerite točan model/kompatibilnost i specifikaciju na službenoj stranici prodavača.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section id="kako-funkcionira" class="wrap" aria-labelledby="how">
+      <h2 id="how">Kako funkcionira</h2>
+      <p class="muted">Jednostavan tijek za pronalazak i naručivanje proizvoda — jasno i brzo.</p>
+
+      <div class="steps" style="margin-top:16px;">
+        <div class="step" role="article">
+          <div class="label" aria-hidden="true" style="width:44px; height:44px; background:var(--neutral-200); display:flex; align-items:center; justify-content:center; border-radius:10px;">1</div>
+          <div>
+            <div style="font-weight:700;">Orijentacija u ponudi</div>
+            <p class="muted" style="margin-top:6px;">Pogledajte kategorije i kratke opise te odaberite željenu grupu proizvoda.</p>
+          </div>
+        </div>
+
+        <div class="step" role="article">
+          <div class="label" aria-hidden="true" style="width:44px; height:44px; background:var(--neutral-200); display:flex; align-items:center; justify-content:center; border-radius:10px;">2</div>
+          <div>
+            <div style="font-weight:700;">Provjera informacija</div>
+            <p class="muted" style="margin-top:6px;">Za detalje i narudžbu koristite službenu web stranicu trgovca (link iz navigacije).</p>
+          </div>
+        </div>
+
+        <div class="step" role="article">
+          <div class="label" aria-hidden="true" style="width:44px; height:44px; background:var(--neutral-200); display:flex; align-items:center; justify-content:center; border-radius:10px;">3</div>
+          <div>
+            <div style="font-weight:700;">Podrška i dodatne informacije</div>
+            <p class="muted" style="margin-top:6px;">Ako trebate pomoć s odabirom, koristite kontakt putem službene stranice za direktan upit.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="kontakt" class="wrap" aria-labelledby="kontakt-title">
+      <h2 id="kontakt-title">Kontakt</h2>
+      <p class="muted">Dostupne su osnovne informacije i poveznica na službenu web stranicu gdje možete nastaviti s pregledom ponude ili postaviti upit.</p>
+
+      <div style="margin-top:18px;" class="contact-panel" role="region" aria-label="Kontakt panel">
+        <div>
+          <div class="label">RC shop Pluramaks</div>
+          <p class="muted" style="margin-top:6px;">Za detalje asortimana i narudžbe posjetite službenu stranicu.</p>
+          <div style="margin-top:10px;">
+            <a class="cta-primary" href="http://www.pluramaks.com/" target="_blank" rel="noopener">Posjetite službenu stranicu</a>
+            <a class="cta-secondary" href="#ponuda" style="margin-left:8px;">Pogledajte ponudu ovdje</a>
+          </div>
+        </div>
+
+        <div style="text-align:right;">
+          <small class="muted">Napomena</small>
+          <p class="muted" style="margin-top:6px; max-width:320px;">Ovaj prikaz služi za pregled informacija o ponudi i poveznicu na službenu stranicu. Kontakt podaci nisu dostavljeni u izvornim podacima.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer role="contentinfo">
+    <div class="wrap footer-inner">
+      <div>
+        <div style="font-weight:700;">RC shop Pluramaks</div>
+        <div class="muted" style="margin-top:6px;">Specijalizirana ponuda za modelarstvo — pregled i informacije</div>
+      </div>
+
+      <nav aria-label="Footer navigacija" style="display:flex; gap:18px; align-items:center;">
+        <a href="#ponuda">Ponuda</a>
+        <a href="#o-nama">O nama</a>
+        <a href="http://www.pluramaks.com/" target="_blank" rel="noopener">Službena stranica</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle (accessible)
+    (function(){
+      const btn = document.getElementById('hamburger');
+      const panel = document.getElementById('mobile-menu');
+
+      function setState(open){
+        btn.setAttribute('aria-expanded', String(open));
+        panel.setAttribute('aria-hidden', String(!open));
+      }
+
+      btn.addEventListener('click', function(){
+        const expanded = btn.getAttribute('aria-expanded') === 'true';
+        setState(!expanded);
+      });
+
+      // Close on Escape
+      document.addEventListener('keydown', function(e){
+        if (e.key === 'Escape'){
+          setState(false);
+          btn.focus();
+        }
+      });
+
+      // Close menu when a link is clicked (mobile)
+      panel.addEventListener('click', function(e){
+        if(e.target.tagName === 'A') setState(false);
+      });
+    })();
+
+    // Subtle reveal for sections (performance-friendly)
+    (function(){
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      const opts = {threshold: 0.08};
+      const io = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if(entry.isIntersecting){
+            entry.target.style.transform = 'none';
+            entry.target.style.opacity = '1';
+            obs.unobserve(entry.target);
+          }
+        });
+      }, opts);
+
+      document.querySelectorAll('section, .card, .step').forEach(el => {
+        el.style.transition = 'opacity 420ms var(--transition), transform 420ms var(--transition)';
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(12px)';
+        io.observe(el);
+      });
+    })();
+  </script>
+</body>
+</html>
