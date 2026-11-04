@@ -1,0 +1,481 @@
+ <!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Alpina — Odjeća i obuća | Pregled ponude</title>
+  <meta name="description" content="Alpina — izbor odjeće i obuće. Pregledajte kategorije, saznajte što nudimo i posjetite službeni webshop za detalje." />
+  <meta property="og:title" content="Alpina — Odjeća i obuća" />
+  <meta property="og:description" content="Alpina — izbor odjeće i obuće. Pregledajte kategorije i posjetite službeni webshop." />
+  <meta property="og:url" content="https://www.alpinashop.hr/" />
+  <meta name="theme-color" content="#0b2a2b" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      /* Design system */
+      --color-primary: #0b2a2b;       /* deep teal/ink */
+      --color-secondary: #f1efe9;     /* warm neutral */
+      --color-accent: #c47f3a;        /* warm bronze */
+      --muted: #6b6b6b;
+      --bg: #ffffff;
+      --card-bg: #fbfaf8;
+      --text: #0b0b0b;
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --shadow-soft: 0 6px 20px rgba(11,42,43,0.08);
+      --gap: 24px;
+
+      /* Type scale (fluid) */
+      --fs-hero: clamp(1.9rem, 2.8vw + 0.6rem, 3.6rem);
+      --fs-h1: clamp(1.6rem, 2.2vw + 0.4rem, 2.4rem);
+      --fs-h2: clamp(1.125rem, 1.4vw + 0.2rem, 1.4rem);
+      --fs-body: clamp(0.95rem, 0.9vw + 0.2rem, 1.05rem);
+      --max-width: 1200px;
+    }
+
+    /* Base */
+    *,*::before,*::after{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      color:var(--text);
+      background:linear-gradient(180deg, var(--secondary-bg, var(--bg)) 0%, #fbfbfb 100%);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+      -webkit-tap-highlight-color:transparent;
+      scroll-behavior:smooth;
+    }
+    a{color:inherit;text-decoration:none}
+
+    /* Container */
+    .container{max-width:var(--max-width);margin:0 auto;padding:0 20px}
+
+    /* Navigation */
+    header{
+      position:sticky;top:0;z-index:60;
+      backdrop-filter: blur(6px);
+      background:linear-gradient(180deg, rgba(255,255,255,0.82), rgba(255,255,255,0.65));
+      border-bottom:1px solid rgba(11,42,43,0.04);
+    }
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:var(--gap);height:76px}
+    .brand{
+      display:flex;align-items:center;gap:14px;font-weight:700;
+    }
+    .brand .wordmark{
+      font-family:"Playfair Display", serif;
+      font-size:1.05rem;color:var(--color-primary);letter-spacing:0.4px;
+    }
+    .nav-links{display:flex;align-items:center;gap:18px}
+    nav a{font-weight:600;color:var(--muted);font-size:.95rem;padding:8px;border-radius:10px}
+    nav a:hover, nav a:focus{color:var(--color-primary);outline: none}
+    .cta-primary{
+      background:linear-gradient(90deg,var(--color-accent), #d18a49);
+      color:#fff;padding:10px 16px;border-radius:12px;font-weight:700;
+      box-shadow:var(--shadow-soft);display:inline-flex;align-items:center;gap:10px;border:none;cursor:pointer;
+    }
+    .menu-toggle{display:none;background:none;border:1px solid rgba(11,42,43,0.06);padding:8px;border-radius:10px}
+
+    /* Hero */
+    .hero{display:grid;grid-template-columns:1fr 460px;gap:40px;align-items:stretch;padding:64px 0}
+    .hero-left{
+      display:flex;flex-direction:column;justify-content:center;gap:20px;padding-right:10px;
+    }
+    h1{
+      margin:0;font-family:"Playfair Display",serif;font-size:var(--fs-hero);line-height:1.02;color:var(--color-primary);
+      letter-spacing: -0.02em;
+    }
+    p.lead{margin:0;color:var(--muted);font-size:var(--fs-body);max-width:56ch}
+    .hero-ctas{display:flex;gap:12px;margin-top:12px}
+    .btn-ghost{
+      padding:10px 14px;border-radius:12px;border:1px solid rgba(11,42,43,0.08);background:transparent;font-weight:600;color:var(--color-primary)
+    }
+    .hero-right{
+      background:linear-gradient(135deg, rgba(196,127,58,0.07), rgba(11,42,43,0.02));
+      border-radius:var(--radius-md);padding:28px;display:flex;flex-direction:column;gap:18px;justify-content:center;align-items:center;
+      box-shadow:var(--shadow-soft);
+      position:relative;overflow:hidden;
+    }
+    .visual-figure{width:100%;max-width:380px;display:flex;justify-content:center;align-items:center}
+    .visual-figure svg{width:100%;height:auto;display:block}
+
+    /* Sections */
+    section{padding:64px 0;border-top:1px solid rgba(11,42,43,0.03)}
+    .section-head{display:flex;align-items:center;gap:18px;margin-bottom:22px}
+    .eyebrow{font-size:.85rem;color:var(--muted);font-weight:700;letter-spacing:0.12em;text-transform:uppercase}
+    .grid{display:grid;gap:20px}
+    .grid.cards{grid-template-columns:repeat(3,1fr)}
+    .card{
+      background:var(--card-bg);padding:22px;border-radius:12px;box-shadow:var(--shadow-soft);display:flex;flex-direction:column;gap:12px;
+      transition:transform .22s ease, box-shadow .22s ease;
+      border:1px solid rgba(11,42,43,0.03)
+    }
+    .card:hover{transform:translateY(-6px);box-shadow:0 14px 40px rgba(11,42,43,0.08)}
+    .card h3{margin:0;font-size:var(--fs-h2);color:var(--color-primary)}
+    .card p{margin:0;color:var(--muted);font-size:var(--fs-body)}
+
+    /* Advantages */
+    .advantages{display:flex;gap:18px;flex-wrap:wrap}
+    .adv{flex:1;min-width:220px;background:linear-gradient(180deg, #fff, #fbfbfb);padding:18px;border-radius:12px;border:1px solid rgba(11,42,43,0.03)}
+    .adv svg{width:46px;height:46px;display:block;margin-bottom:10px}
+
+    /* How it works */
+    .steps{display:flex;gap:18px;flex-wrap:wrap}
+    .step{flex:1;min-width:200px;background:rgba(12,40,40,0.02);padding:18px;border-radius:12px;border:1px dashed rgba(11,42,43,0.04)}
+    .step h4{margin:0 0 8px 0;font-size:1rem}
+
+    /* Contact & footer */
+    .contact-card{display:flex;gap:18px;align-items:flex-start;padding:22px;border-radius:12px;background:linear-gradient(180deg,#fff,#fbfbf6);border:1px solid rgba(11,42,43,0.03)}
+    .contact-actions{display:flex;flex-direction:column;gap:10px;margin-left:auto}
+    footer{padding:40px 0;background:linear-gradient(180deg,#fafafa,#fff);border-top:1px solid rgba(11,42,43,0.03)}
+    .footer-inner{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;flex-wrap:wrap}
+    .footer-nav{display:flex;gap:12px;flex-wrap:wrap}
+
+    /* Responsive */
+    @media (max-width:1024px){
+      .hero{grid-template-columns:1fr;gap:28px;padding:48px 0}
+      .hero-right{order:-1;padding:20px}
+      .nav-links{display:none}
+      .menu-toggle{display:inline-flex}
+    }
+    @media (max-width:700px){
+      .grid.cards{grid-template-columns:1fr}
+      .advantages{flex-direction:column}
+      .hero-left{padding-right:0}
+      .brand .wordmark{font-size:1rem}
+    }
+
+    /* Accessibility & motion */
+    :focus{outline:3px solid rgba(196,127,58,0.18);outline-offset:3px;border-radius:8px}
+    @media (prefers-reduced-motion: reduce){
+      *{transition:none!important}
+    }
+
+    /* Reveal animations */
+    .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease, transform .6s ease}
+    .reveal.is-visible{opacity:1;transform:none}
+
+    /* small utilities */
+    .muted{color:var(--muted)}
+    .stack{display:flex;flex-direction:column;gap:10px}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav-inner" role="banner">
+      <div class="brand" aria-label="Alpina">
+        <svg width="44" height="44" viewBox="0 0 48 48" fill="none" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+          <rect width="48" height="48" rx="10" fill="#0B2A2B"/>
+          <path d="M14 32L24 16L34 32H14Z" fill="#F1EFE9"/>
+        </svg>
+        <div class="wordmark">Alpina</div>
+      </div>
+
+      <nav class="nav-links" role="navigation" aria-label="Glavna navigacija">
+        <a href="#ponuda">Ponuda</a>
+        <a href="#o-nama">O nama</a>
+        <a href="#prednosti">Zašto Alpina</a>
+        <a href="#kontakt">Kontakt</a>
+      </nav>
+
+      <div style="display:flex;align-items:center;gap:12px">
+        <a class="cta-primary" href="https://www.alpinashop.hr/" target="_blank" rel="noopener">Posjetite webshop</a>
+        <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="mobileMenu" aria-label="Otvorite izbornik">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16" stroke="#0b2a2b" stroke-width="1.6" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div id="mobileMenu" style="display:none;padding:12px 20px;border-top:1px solid rgba(11,42,43,0.03);background:rgba(255,255,255,0.98)">
+      <div class="container" style="display:flex;flex-direction:column;gap:8px">
+        <a href="#ponuda">Ponuda</a>
+        <a href="#o-nama">O nama</a>
+        <a href="#prednosti">Zašto Alpina</a>
+        <a href="#kontakt">Kontakt</a>
+        <a class="cta-primary" href="https://www.alpinashop.hr/" target="_blank" rel="noopener" style="width:fit-content;margin-top:8px">Webshop</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container hero-left">
+        <div class="reveal" style="max-width:48ch">
+          <p class="eyebrow muted">Trgovina</p>
+          <h1 id="hero-title">Odjeća i obuća s jasnim stilom</h1>
+          <p class="lead">Alpina donosi preglednu ponudu odjeće i obuće za svakodnevni stil. Pregledajte kategorije, pronađite inspiraciju i posjetite službeni webshop za detalje.</p>
+          <div class="hero-ctas">
+            <a class="cta-primary" href="https://www.alpinashop.hr/" target="_blank" rel="noopener">Posjetite webshop</a>
+            <a class="btn-ghost" href="#ponuda">Pregled ponude</a>
+          </div>
+        </div>
+
+        <div class="reveal" style="margin-top:18px">
+          <div style="display:flex;gap:14px;align-items:center">
+            <div style="width:64px;height:64px;border-radius:12px;background:linear-gradient(135deg,#fff,#fbfbfb);display:flex;align-items:center;justify-content:center;border:1px solid rgba(11,42,43,0.03);box-shadow:var(--shadow-soft)">
+              <!-- simple icon -->
+              <svg width="34" height="34" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M3 7h18" stroke="#C47F3A" stroke-width="1.5" stroke-linecap="round"/>
+                <path d="M6 11h12" stroke="#0B2A2B" stroke-width="1.6" stroke-linecap="round"/>
+                <path d="M8 15h8" stroke="#6B6B6B" stroke-width="1.4" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div>
+              <div style="font-weight:700">Jednostavno pregledavanje</div>
+              <div class="muted" style="font-size:.95rem">Kategorije i filtriranje za brže pronalaženje.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <aside class="container hero-right" aria-hidden="false">
+        <div style="position:absolute;right:-60px;top:-40px;opacity:0.06;transform:rotate(18deg)">
+          <svg width="240" height="240" viewBox="0 0 240 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="120" cy="120" r="120" fill="#C47F3A"/>
+          </svg>
+        </div>
+
+        <div class="visual-figure" aria-hidden="true">
+          <!-- Inline illustrative composition (shoe + folded shirt) -->
+          <svg viewBox="0 0 600 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="visTitle visDesc">
+            <title id="visTitle">Ilustracija obuće i odjeće</title>
+            <desc id="visDesc">Stilizirana crtež obuće i komada odjeće u elegntnoj kompoziciji.</desc>
+            <g transform="translate(40,20)" fill="none" stroke="none">
+              <!-- shoe -->
+              <g transform="translate(0,40)">
+                <path d="M260 230c0 0 18-36 86-36 34 0 58 20 82 36" fill="#f6efeb" stroke="#d7b09a"/>
+                <path d="M42 196c48-40 160-48 216-48 56 0 120 8 160 48 0 0-18 30-36 34-22 6-48 4-90 6-42 2-84 6-132 0-48-6-86-20-118-40z" fill="#fff" stroke="#0b2a2b" opacity="0.9"/>
+                <rect x="60" y="170" width="320" height="24" rx="12" fill="#c47f3a" opacity="0.12"/>
+              </g>
+
+              <!-- folded shirt -->
+              <g transform="translate(0,0)">
+                <rect x="40" y="22" width="300" height="140" rx="18" fill="#ffffff" stroke="#0b2a2b" opacity="0.03"/>
+                <path d="M56 36c28-18 72-26 116-18 44 8 82 32 104 58" stroke="#c47f3a" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
+              </g>
+            </g>
+          </svg>
+        </div>
+
+        <div style="width:100%;display:flex;justify-content:center">
+          <div style="font-size:.95rem;color:var(--muted);text-align:center;max-width:36ch">Vizualno uređena prezentacija fokusirana na odjeću i obuću — namijenjena lakšem pregledu ponude na webshopu.</div>
+        </div>
+      </aside>
+    </section>
+
+    <section id="ponuda" aria-labelledby="ponuda-title" class="container">
+      <header class="section-head">
+        <div>
+          <div class="eyebrow">Ponuda</div>
+          <h2 id="ponuda-title" style="margin:6px 0 0 0;font-size:var(--fs-h1);font-family:Playfair Display, serif;color:var(--color-primary)">Kategorije na jednom mjestu</h2>
+        </div>
+      </header>
+
+      <div class="grid cards reveal">
+        <article class="card" aria-labelledby="k1">
+          <svg aria-hidden="true" width="56" height="56" viewBox="0 0 24 24" style="margin-bottom:6px"><path d="M4 6h16v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6z" fill="#C47F3A" opacity="0.12"/><path d="M8 10h8" stroke="#0b2a2b" stroke-width="1.6" stroke-linecap="round"/></svg>
+          <h3 id="k1">Odjeća</h3>
+          <p>Raznovrsne kategorije odjeće predstavljenih artikala i stilova. Pregledajte kolekcije i pronađite komade koji odgovaraju vašem stilu.</p>
+        </article>
+
+        <article class="card" aria-labelledby="k2">
+          <svg aria-hidden="true" width="56" height="56" viewBox="0 0 24 24" style="margin-bottom:6px"><path d="M2 12c6-6 14-6 20 0" stroke="#C47F3A" stroke-width="1.8" stroke-linecap="round" fill="none" opacity="0.14"/><path d="M4 18h16" stroke="#0b2a2b" stroke-width="1.6" stroke-linecap="round"/></svg>
+          <h3 id="k2">Obuća</h3>
+          <p>Obuća u različitim stilovima i namjenama — pregled i navigacija po tipovima za brže pronalaženje željenog modela.</p>
+        </article>
+
+        <article class="card" aria-labelledby="k3">
+          <svg aria-hidden="true" width="56" height="56" viewBox="0 0 24 24" style="margin-bottom:6px"><circle cx="12" cy="9" r="6" fill="#C47F3A" opacity="0.12"/><path d="M4 20c4-4 8-6 14 0" stroke="#0b2a2b" stroke-width="1.5" stroke-linecap="round"/></svg>
+          <h3 id="k3">Dodaci i pregled</h3>
+          <p>Kratki pregled dodataka i korisne informacije za odabir veličine i stila. Namijenjeno brzom informiranju prije odluke.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="o-nama" aria-labelledby="o-title" class="container reveal">
+      <header class="section-head">
+        <div>
+          <div class="eyebrow">O nama</div>
+          <h2 id="o-title" style="margin:6px 0 0 0;font-size:var(--fs-h1);font-family:Playfair Display, serif;color:var(--color-primary)">Jasno i pregledno</h2>
+        </div>
+      </header>
+
+      <div style="display:flex;gap:24px;align-items:start;flex-wrap:wrap">
+        <div style="flex:1;min-width:260px">
+          <p class="muted" style="font-size:var(--fs-body)">Alpina je mjesto gdje su odjeća i obuća prikazani s fokusom na preglednost i praktičnost. Ova stranica služi kao vizualni vodič kroz ponudu; za detalje i narudžbe posjetite službeni webshop.</p>
+        </div>
+
+        <div style="flex:1;min-width:260px">
+          <ul style="margin:0;padding-left:18px;color:var(--muted);">
+            <li>Pregled kategorija i osnovne informacije</li>
+            <li>Dizajniran za jasnoću pri odabiru artikala</li>
+            <li>Direktna poveznica na službeni webshop za više informacija</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="prednosti" aria-labelledby="prednosti-title" class="container reveal">
+      <header class="section-head">
+        <div>
+          <div class="eyebrow">Pristup</div>
+          <h2 id="prednosti-title" style="margin:6px 0 0 0;font-size:var(--fs-h1);font-family:Playfair Display, serif;color:var(--color-primary)">Zašto pregledavati kod nas</h2>
+        </div>
+      </header>
+
+      <div class="advantages">
+        <div class="adv">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7l3-7z" fill="#C47F3A" opacity="0.12"/></svg>
+          <h4 style="margin:0 0 8px 0">Jasan prikaz</h4>
+          <p class="muted" style="margin:0">Strukturirana prezentacija olakšava usporedbu i pronalaženje željenog artikla.</p>
+        </div>
+
+        <div class="adv">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4" fill="#0B2A2B" opacity="0.06"/></svg>
+          <h4 style="margin:0 0 8px 0">Moderan pristup</h4>
+          <p class="muted" style="margin:0">Editorialno oblikovana stranica s dobrim rasporedom i tipografijom.</p>
+        </div>
+
+        <div class="adv">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="8" r="4" fill="#C47F3A" opacity="0.12"/></svg>
+          <h4 style="margin:0 0 8px 0">Jednostavno za korištenje</h4>
+          <p class="muted" style="margin:0">Fokus na preglednost, brze poveznice i prilagođeni mobilni prikaz.</p>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="how-title" class="container reveal">
+      <header class="section-head">
+        <div>
+          <div class="eyebrow">Kako koristiti</div>
+          <h2 id="how-title" style="margin:6px 0 0 0;font-size:var(--fs-h1);font-family:Playfair Display, serif;color:var(--color-primary)">Brzi vodič kroz stranicu</h2>
+        </div>
+      </header>
+
+      <div class="steps">
+        <div class="step">
+          <h4>1. Pregledajte kategorije</h4>
+          <p class="muted" style="margin:0">Zapravite ponudu kroz sekciju Ponuda — odjeća, obuća i dodaci.</p>
+        </div>
+        <div class="step">
+          <h4>2. Saznajte više</h4>
+          <p class="muted" style="margin:0">Za detaljne informacije i dostupnost posjetite službeni webshop putem gumba "Posjetite webshop".</p>
+        </div>
+        <div class="step">
+          <h4>3. Dizajn i stil</h4>
+          <p class="muted" style="margin:0">Inspirirajte se uredničkim prikazima i kompozicijama koje pomažu pri odabiru.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="kontakt" aria-labelledby="kontakt-title" class="container reveal" style="padding-bottom:80px">
+      <header class="section-head">
+        <div>
+          <div class="eyebrow">Kontakt</div>
+          <h2 id="kontakt-title" style="margin:6px 0 0 0;font-size:var(--fs-h1);font-family:Playfair Display, serif;color:var(--color-primary)">Kako stupiti u kontakt</h2>
+        </div>
+      </header>
+
+      <div class="contact-card" role="region" aria-label="Kontakt informacije">
+        <div style="display:flex;gap:16px;align-items:flex-start">
+          <svg width="56" height="56" viewBox="0 0 24 24" aria-hidden="true"><rect x="1" y="4" width="22" height="16" rx="3" fill="#C47F3A" opacity="0.08"/><path d="M3 7h18" stroke="#0b2a2b" stroke-width="1.4"/></svg>
+          <div>
+            <div style="font-weight:700">Alpina — odjeća i obuća</div>
+            <p class="muted" style="margin-top:6px">Svi detalji i mogućnosti narudžbe nalaze se na službenom webshopu. Ako želite više informacija, kliknite na poveznicu ispod.</p>
+          </div>
+        </div>
+
+        <div class="contact-actions" aria-hidden="false">
+          <a class="cta-primary" href="https://www.alpinashop.hr/" target="_blank" rel="noopener">Otvori webshop</a>
+          <a class="btn-ghost" href="#top" id="backToTop">Natrag na vrh</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <div style="display:flex;align-items:center;gap:10px">
+          <svg width="36" height="36" viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="10" fill="#0B2A2B"/><path d="M14 32L24 16L34 32H14Z" fill="#F1EFE9"/></svg>
+          <div style="font-weight:700">Alpina</div>
+        </div>
+        <div class="muted" style="font-size:.95rem">Trgovina odjećom i obućom — pregled ponude i poveznica na službeni webshop.</div>
+      </div>
+
+      <nav class="footer-nav" aria-label="Footer navigacija">
+        <a href="#ponuda">Ponuda</a>
+        <a href="#o-nama">O nama</a>
+        <a href="#kontakt">Kontakt</a>
+        <a href="https://www.alpinashop.hr/" target="_blank" rel="noopener">Webshop</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    (function(){
+      const toggle = document.getElementById('menuToggle');
+      const menu = document.getElementById('mobileMenu');
+      toggle.addEventListener('click', () => {
+        const expanded = toggle.getAttribute('aria-expanded') === 'true';
+        toggle.setAttribute('aria-expanded', String(!expanded));
+        if(expanded){
+          menu.style.display = 'none';
+        } else {
+          menu.style.display = 'block';
+        }
+      });
+    })();
+
+    // Smooth reveal on scroll (respect reduced motion)
+    (function(){
+      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if(prefersReduced) {
+        document.querySelectorAll('.reveal').forEach(el => el.classList.add('is-visible'));
+        return;
+      }
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if(entry.isIntersecting){
+            entry.target.classList.add('is-visible');
+            io.unobserve(entry.target);
+          }
+        });
+      }, {threshold: 0.12});
+      document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+    })();
+
+    // Back to top focus handling
+    document.getElementById('backToTop').addEventListener('click', function(e){
+      e.preventDefault();
+      window.scrollTo({top:0,behavior:'smooth'});
+      // set focus to main heading for better keyboard users
+      const h = document.getElementById('hero-title');
+      if(h) setTimeout(()=> h.focus({preventScroll:true}), 600);
+    });
+
+    // Ensure keyboard accessible menu: close on Esc
+    document.addEventListener('keydown', (e) => {
+      if(e.key === 'Escape'){
+        const menu = document.getElementById('mobileMenu');
+        const toggle = document.getElementById('menuToggle');
+        if(menu && menu.style.display === 'block'){
+          menu.style.display = 'none';
+          toggle.setAttribute('aria-expanded','false');
+          toggle.focus();
+        }
+      }
+    });
+
+    // Enhance external links to open safely
+    (function(){
+      document.querySelectorAll('a[target="_blank"]').forEach(a => {
+        a.setAttribute('rel', (a.getAttribute('rel') || '') + ' noopener noreferrer');
+      });
+    })();
+  </script>
+</body>
+</html>
