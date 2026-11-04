@@ -1,0 +1,398 @@
+ <!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Postaja granične policije Macelj — službene informacije i rad</title>
+  <meta name="description" content="Postaja granične policije Macelj — informacije o nadzoru graničnih prijelaza, suradnji s drugim službama i korisnim uputama za putnike. Posjetite službenu stranicu za detalje." />
+  <meta property="og:title" content="Postaja granične policije Macelj — službene informacije" />
+  <meta property="og:description" content="Informacije o radu postaje, nadzoru graničnih prijelaza i savjeti putnicima. Službena poveznica na izvorne informacije." />
+  <meta property="og:url" content="http://krapinsko-zagorska.policija.hr/MainPu.aspx?id=14787" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Roboto+Slab:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      /* Boje */
+      --color-primary:#0b3b5f; /* tamno plava - autoritet */
+      --color-secondary:#0f768e; /* petrol / akcent */
+      --color-accent:#f6c84c; /* zlatni akcent za CTA */
+      --neutral-900:#0b0f12;
+      --neutral-800:#1b2326;
+      --neutral-600:#5a6b73;
+      --neutral-300:#dfe7ea;
+      --bg:#f7fbfc;
+      --card:#ffffff;
+
+      /* Tipografija */
+      --ff-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      --ff-display: "Roboto Slab", Georgia, serif;
+
+      /* Spacing */
+      --space-xxs:6px;
+      --space-xs:10px;
+      --space-s:16px;
+      --space-m:24px;
+      --space-l:40px;
+      --space-xl:64px;
+
+      /* Radii */
+      --radius-sm:8px;
+      --radius-md:14px;
+      --radius-lg:20px;
+
+      /* Shadow */
+      --shadow-soft: 0 6px 20px rgba(11,59,95,0.08);
+      --shadow-strong: 0 18px 40px rgba(11,59,95,0.12);
+
+      /* Border */
+      --border: 1px solid rgba(11,59,95,0.06);
+
+      /* Others */
+      --container:1200px;
+      --focus: 3px solid rgba(15,118,142,0.18);
+      --transition: 180ms cubic-bezier(.2,.9,.3,1);
+    }
+
+    /* Fluid typography */
+    html { font-family:var(--ff-sans); color:var(--neutral-900); background:var(--bg); -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; }
+    :root { font-size: 16px; }
+    h1 { font-family:var(--ff-display); font-weight:700; font-size: clamp(1.6rem, 2.4vw + 0.8rem, 3.2rem); line-height:1.02; margin:0; color:var(--neutral-900); }
+    h2 { font-family:var(--ff-display); font-weight:600; font-size: clamp(1.1rem, 1.4vw + 0.6rem, 1.6rem); margin:0; color:var(--neutral-800); }
+    p, a, li { font-size: clamp(0.95rem, 0.6vw + 0.8rem, 1.05rem); line-height:1.5; color:var(--neutral-800); }
+
+    /* Layout */
+    .container { max-width:var(--container); margin:0 auto; padding:0 var(--space-m); }
+    header { background:linear-gradient(180deg, rgba(11,59,95,0.05), transparent); position:sticky; top:0; z-index:40; backdrop-filter: blur(4px); border-bottom:var(--border); }
+    .nav-inner { display:flex; align-items:center; justify-content:space-between; gap:var(--space-s); padding:calc(var(--space-s) / 1.2) 0; }
+
+    .brand {
+      display:flex; align-items:center; gap:12px; text-decoration:none; color:var(--neutral-900);
+    }
+    .brand-mark { width:46px; height:46px; border-radius:10px; display:grid; place-items:center; background:linear-gradient(135deg,var(--color-primary), var(--color-secondary)); color:white; box-shadow: var(--shadow-soft); flex:0 0 46px; }
+    .brand-word { font-weight:700; font-family:var(--ff-display); font-size:1rem; letter-spacing:0.2px; }
+
+    nav ul { display:flex; gap:var(--space-m); align-items:center; list-style:none; margin:0; padding:0; }
+    nav a { color:var(--neutral-800); text-decoration:none; font-weight:600; padding:6px 8px; border-radius:8px; }
+    nav a:hover, nav a:focus { background:rgba(11,59,95,0.04); outline:none; }
+    .cta-primary { background:linear-gradient(90deg,var(--color-accent), #f2b63a); color:var(--neutral-900); padding:10px 16px; border-radius:12px; box-shadow: var(--shadow-soft); font-weight:700; text-decoration:none; }
+    .cta-primary:hover { transform:translateY(-2px); box-shadow:var(--shadow-strong); }
+    .menu-toggle { display:none; background:none; border:0; padding:8px; border-radius:10px; }
+
+    /* Hero */
+    .hero { padding:var(--space-xl) 0; position:relative; overflow:hidden; }
+    .hero-grid { display:grid; grid-template-columns: 1fr 420px; gap:var(--space-l); align-items:center; }
+    .hero-card { background:linear-gradient(180deg, rgba(255,255,255,0.8), rgba(255,255,255,0.96)); padding:var(--space-l); border-radius:var(--radius-lg); box-shadow:var(--shadow-strong); border:var(--border); }
+    .hero-eyebrow { display:inline-flex; gap:10px; align-items:center; color:var(--neutral-600); font-weight:600; font-size:0.95rem; }
+    .hero-eyebrow svg { opacity:0.95; }
+
+    .hero-visual { width:100%; height:320px; border-radius:12px; background:
+      radial-gradient(1200px 300px at 10% 10%, rgba(15,118,142,0.06), transparent 10%),
+      linear-gradient(180deg, rgba(11,59,95,0.02), rgba(15,118,142,0.03));
+      display:grid; place-items:center; position:relative; overflow:hidden; }
+    .hero-visual svg.decor { position:absolute; right:-6%; top:-8%; width:55%; opacity:0.12; transform:rotate(6deg); }
+    .hero-visual .badge { position:relative; z-index:2; width:88%; text-align:left; padding:18px; background:linear-gradient(90deg, rgba(11,59,95,0.06), rgba(15,118,142,0.03)); border-radius:12px; border:1px solid rgba(11,59,95,0.04); }
+
+    .kpis { display:flex; gap:var(--space-m); margin-top:var(--space-m); }
+    .kpi { background:var(--card); padding:14px; border-radius:12px; box-shadow: var(--shadow-soft); border:var(--border); flex:1; text-align:center; }
+    .kpi small { display:block; color:var(--neutral-600); font-weight:600; margin-bottom:6px; }
+    .kpi strong { font-size:1.05rem; color:var(--neutral-900); }
+
+    /* Services */
+    .services { padding:var(--space-xl) 0; }
+    .grid-cards { display:grid; grid-template-columns:repeat(3,1fr); gap:var(--space-m); }
+    .card { background:var(--card); padding:18px; border-radius:var(--radius-md); border:var(--border); box-shadow:var(--shadow-soft); transition: transform var(--transition), box-shadow var(--transition); }
+    .card:hover { transform:translateY(-6px); box-shadow:var(--shadow-strong); }
+    .card-icon { width:56px; height:56px; border-radius:12px; display:grid; place-items:center; background:linear-gradient(180deg, rgba(11,59,95,0.06), rgba(15,118,142,0.03)); margin-bottom:12px; }
+
+    /* About / Approach */
+    .about { display:flex; gap:var(--space-l); align-items:center; padding:var(--space-xl) 0; }
+    .about-visual { width:320px; height:220px; border-radius:16px; background:linear-gradient(135deg, rgba(15,118,142,0.06), rgba(11,59,95,0.04)); display:grid; place-items:center; box-shadow:var(--shadow-soft); border:var(--border); }
+
+    /* Contact */
+    .contact { padding:var(--space-xl) 0; background:linear-gradient(180deg, rgba(15,118,142,0.02), transparent); border-top:var(--border); }
+    .contact-grid { display:flex; gap:var(--space-l); align-items:center; justify-content:space-between; }
+    .contact-card { background:var(--card); padding:18px; border-radius:14px; box-shadow:var(--shadow-soft); border:var(--border); flex:1; }
+
+    footer { padding:var(--space-m) 0; color:var(--neutral-600); font-size:0.95rem; border-top:1px solid rgba(11,59,95,0.03); }
+
+    /* Responsive */
+    @media (max-width:1100px){
+      .hero-grid{ grid-template-columns: 1fr; }
+      .hero-visual{ height:260px; }
+      .grid-cards{ grid-template-columns:repeat(2,1fr); }
+      .nav-inner{ padding:10px 0; }
+    }
+    @media (max-width:720px){
+      .menu-toggle{ display:inline-flex; }
+      nav ul{ display:none; position:absolute; right:var(--space-m); top:66px; background:var(--card); border-radius:12px; box-shadow:var(--shadow-strong); padding:12px; flex-direction:column; min-width:220px; }
+      nav ul.open{ display:flex; }
+      .grid-cards{ grid-template-columns:1fr; }
+      .about{ flex-direction:column; }
+      .contact-grid{ flex-direction:column; align-items:stretch; gap:var(--space-s); }
+      .hero-visual{ height:200px; }
+    }
+
+    /* Accessibility and interactions */
+    a:focus-visible, button:focus-visible { outline: none; box-shadow: var(--focus); border-radius:10px; }
+    .sr-only { position:absolute; left:-10000px; top:auto; width:1px; height:1px; overflow:hidden; }
+    @media (prefers-reduced-motion: reduce){
+      * { transition:none !important; animation:none !important; scroll-behavior:auto !important; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav-inner" role="navigation" aria-label="Glavna navigacija">
+      <a class="brand" href="#hero">
+        <div class="brand-mark" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+            <path d="M3 12c0-4.9706 4.0294-9 9-9s9 4.0294 9 9-4.0294 9-9 9S3 16.9706 3 12z" fill="white" opacity="0.06"/>
+            <path d="M7 12l3 3 7-8" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div>
+          <div class="brand-word">Postaja granične policije Macelj</div>
+        </div>
+      </a>
+
+      <nav>
+        <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="mainMenu" aria-label="Otvorite izbornik">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        </button>
+        <ul id="mainMenu">
+          <li><a href="#hero">Početna</a></li>
+          <li><a href="#usluge">Djelatnosti</a></li>
+          <li><a href="#o-nama">O postaji</a></li>
+          <li><a href="#kontakt">Kontakt</a></li>
+          <li><a class="cta-primary" href="http://krapinsko-zagorska.policija.hr/MainPu.aspx?id=14787" target="_blank" rel="noopener">Službena stranica</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="hero" class="hero container" aria-labelledby="hero-title">
+      <div class="hero-grid">
+        <div class="hero-card" role="region" aria-label="Istaknute informacije">
+          <div class="hero-eyebrow" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" style="opacity:.9"><path d="M12 2v20M2 12h20" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Granična kontrola — Macelj
+          </div>
+          <h1 id="hero-title">Postaja granične policije Macelj — nadzor i podrška na graničnom prijelazu</h1>
+          <p style="margin-top:12px; color:var(--neutral-600);">
+            Osiguravamo javni red i sigurnost u području graničnog prijelaza, pružamo informacije putnicima i surađujemo s drugim državnim i lokalnim službama. Za detaljne službene informacije posjetite službenu stranicu.
+          </p>
+
+          <div style="display:flex; gap:12px; margin-top:18px; align-items:center;">
+            <a class="cta-primary" href="http://krapinsko-zagorska.policija.hr/MainPu.aspx?id=14787" target="_blank" rel="noopener">Posjetite službenu stranicu</a>
+            <a href="#kontakt" style="background:transparent; color:var(--neutral-800); padding:10px 14px; border-radius:10px; border:1px solid rgba(11,59,95,0.06); text-decoration:none; font-weight:600;">Kontakt</a>
+          </div>
+
+          <div class="kpis" aria-hidden="true" style="margin-top:20px;">
+            <div class="kpi">
+              <small>Nadzor</small>
+              <strong>Granični nadzor i kontrola</strong>
+            </div>
+            <div class="kpi">
+              <small>Koordinacija</small>
+              <strong>Suradnja s nadležnim službama</strong>
+            </div>
+            <div class="kpi">
+              <small>Informacije</small>
+              <strong>Upute za putnike</strong>
+            </div>
+          </div>
+        </div>
+
+        <aside class="hero-visual" aria-hidden="false" role="img" aria-label="Grafički prikaz nadzora graničnog prijelaza">
+          <svg class="decor" viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <defs>
+              <linearGradient id="g1" x1="0" x2="1" y1="0" y2="1">
+                <stop offset="0" stop-color="#0b3b5f" stop-opacity="0.18" />
+                <stop offset="1" stop-color="#0f768e" stop-opacity="0.08" />
+              </linearGradient>
+            </defs>
+            <rect x="0" y="0" width="800" height="400" fill="url(#g1)"/>
+            <g fill="none" stroke="#fff" stroke-opacity="0.04" stroke-width="2">
+              <path d="M60 300c80-120 220-120 300-60s180 40 260-60"/>
+              <path d="M-20 160c80-60 200-80 340-40s220 100 360 60"/>
+            </g>
+          </svg>
+
+          <div class="badge" style="max-width:520px;">
+            <h2 style="margin:0 0 8px 0;">Što možete očekivati na prijelazu</h2>
+            <p style="margin:0 0 12px 0; color:var(--neutral-600);">
+              Redovite provjere dokumenata, sigurnosne kontrole i suradnja s carinskim i drugim nadležnim tijelima kako bi prelazak granice bio uredan i siguran.
+            </p>
+            <div style="display:flex; gap:10px; align-items:center;">
+              <a class="cta-primary" href="http://krapinsko-zagorska.policija.hr/MainPu.aspx?id=14787" target="_blank" rel="noopener">Službene informacije</a>
+              <a href="#usluge" style="text-decoration:none; color:var(--neutral-800); padding:8px 12px; border-radius:10px; border:1px solid rgba(11,59,95,0.04);">Saznajte više</a>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="usluge" class="services container" aria-labelledby="usluge-title">
+      <h2 id="usluge-title">Djelatnosti i odgovornosti</h2>
+      <p style="color:var(--neutral-600); margin-top:10px; max-width:780px;">
+        Postaja obavlja funkcije vezane uz nadzor i kontrolu na svom području djelovanja. Slijedi kratak pregled glavnih vrsta poslova koje obavljaju policijske postaje na graničnim prijelazima.
+      </p>
+
+      <div style="margin-top:18px;" class="grid-cards" role="list">
+        <article class="card" role="listitem" aria-labelledby="srv1">
+          <div class="card-icon" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M3 12h18M12 3v18" stroke="#0b3b5f" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h3 id="srv1" style="margin:0 0 8px 0; font-family:var(--ff-display); font-size:1.05rem;">Nadzor graničnih prijelaza</h3>
+          <p style="margin:0; color:var(--neutral-600);">
+            Kontrole putnika i vozila radi sigurnosti i zakonitosti prelaska granice te suradnja s carinom i drugim službama.
+          </p>
+        </article>
+
+        <article class="card" role="listitem" aria-labelledby="srv2">
+          <div class="card-icon" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M3 12h18M7 8h10M7 16h10" stroke="#0f768e" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h3 id="srv2" style="margin:0 0 8px 0; font-family:var(--ff-display); font-size:1.05rem;">Suradnja i koordinacija</h3>
+          <p style="margin:0; color:var(--neutral-600);">
+            Razmjena informacija i koordinacija radnji s lokalnim, državnim i međunarodnim partnerima u okviru nadležnosti.
+          </p>
+        </article>
+
+        <article class="card" role="listitem" aria-labelledby="srv3">
+          <div class="card-icon" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M12 2l3 6 6 .5-4.5 3.8 1.4 6-5-3.2L7.1 19 8.5 13 4 9.2 10 8.5 12 2z" stroke="#0b3b5f" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+          </div>
+          <h3 id="srv3" style="margin:0 0 8px 0; font-family:var(--ff-display); font-size:1.05rem;">Informiranje putnika</h3>
+          <p style="margin:0; color:var(--neutral-600);">
+            Davanje uputa i obavijesti putnicima o uvjetima prelaska granice i potrebnim dokumentima. Za službene i detaljne upute posjetite službenu stranicu.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section id="o-nama" class="about container" aria-labelledby="about-title">
+      <div style="flex:1;">
+        <h2 id="about-title">O postaji</h2>
+        <p style="color:var(--neutral-600); margin-top:10px;">
+          Postaja granične policije Macelj djeluje u okviru nadležnosti Policijske uprave Krapinsko-zagorske i zadužena je za provedbu propisanih aktivnosti na graničnom prijelazu. Ovdje predstavljamo općenite zadatke i način rada koji omogućuju sigurnost i uredan promet kroz prijelaz.
+        </p>
+
+        <div style="display:grid; grid-template-columns:repeat(2,1fr); gap:12px; margin-top:16px;">
+          <div class="card" style="box-shadow:none;">
+            <strong>Transparentnost</strong>
+            <p style="margin:8px 0 0 0; color:var(--neutral-600);">Jasne informacije za građane i suradnja s lokalnom zajednicom.</p>
+          </div>
+          <div class="card" style="box-shadow:none;">
+            <strong>Suradnja</strong>
+            <p style="margin:8px 0 0 0; color:var(--neutral-600);">Rad s drugim službama radi cjelovitog nadzora i sigurnosti.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-visual" aria-hidden="true">
+        <svg width="220" height="160" viewBox="0 0 220 160" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect x="4" y="4" width="212" height="152" rx="12" fill="rgba(11,59,95,0.04)"/>
+          <g transform="translate(20,18)" fill="none" stroke="#0f768e" stroke-width="1.6">
+            <rect x="2" y="2" width="116" height="56" rx="8"/>
+            <rect x="2" y="68" width="116" height="56" rx="8"/>
+            <path d="M132 10h48v112h-48" stroke="#0b3b5f" stroke-linejoin="round"/>
+            <circle cx="154" cy="36" r="6" fill="#0b3b5f"/>
+            <circle cx="154" cy="76" r="6" fill="#0f768e"/>
+          </g>
+        </svg>
+      </div>
+    </section>
+
+    <section id="pristup" class="container" style="padding-bottom:var(--space-xl);">
+      <h2>Naš pristup</h2>
+      <p style="color:var(--neutral-600); margin-top:10px; max-width:900px;">
+        Postaja radi sukladno zakonima i propisima. Prioritet je siguran i moderan postupak provjere uz poštivanje prava putnika. Ako trebate službene informacije ili kontakt, upućujemo na službenu mrežnu stranicu nadležne policijske uprave.
+      </p>
+    </section>
+
+    <section id="kontakt" class="contact container" aria-labelledby="kontakt-title">
+      <h2 id="kontakt-title">Kontakt i korisne poveznice</h2>
+      <div class="contact-grid" style="margin-top:12px;">
+        <div class="contact-card" aria-labelledby="kontakt-a">
+          <h3 id="kontakt-a" style="margin:0 0 8px 0;">Službena stranica</h3>
+          <p style="margin:0 0 12px 0; color:var(--neutral-600);">Za najtočnije i ažurirane informacije o radu postaje, radnom vremenu prijelaza i kontaktima posjetite službenu stranicu:</p>
+          <a href="http://krapinsko-zagorska.policija.hr/MainPu.aspx?id=14787" target="_blank" rel="noopener" class="cta-primary">Otvori službenu stranicu</a>
+        </div>
+
+        <div class="contact-card" aria-labelledby="kontakt-b">
+          <h3 id="kontakt-b" style="margin:0 0 8px 0;">Kako do dodatnih informacija</h3>
+          <p style="margin:0 0 12px 0; color:var(--neutral-600);">
+            Detaljne kontakt podatke i službene obavijesti objavljuje Policijska uprava Krapinsko-zagorska. Ako vam trebaju službeni kontakti, molimo provjerite izvor na gornjoj poveznici.
+          </p>
+          <nav aria-label="Brze poveznice">
+            <a href="#usluge" style="text-decoration:none; color:var(--neutral-800); padding:8px 12px; border-radius:8px; border:1px solid rgba(11,59,95,0.04); margin-right:8px; display:inline-block;">Djelatnosti</a>
+            <a href="#o-nama" style="text-decoration:none; color:var(--neutral-800); padding:8px 12px; border-radius:8px; border:1px solid rgba(11,59,95,0.04); display:inline-block;">O postaji</a>
+          </nav>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container" style="display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap;">
+      <div style="display:flex; gap:12px; align-items:center;">
+        <div class="brand-mark" aria-hidden="true" style="width:38px; height:38px; border-radius:8px;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 12l3 3 7-8" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div>
+          <div style="font-weight:700;">Postaja granične policije Macelj</div>
+          <div style="color:var(--neutral-600); font-size:0.95rem;">Dodatne informacije na službenoj stranici</div>
+        </div>
+      </div>
+
+      <div style="display:flex; gap:12px; align-items:center;">
+        <a href="http://krapinsko-zagorska.policija.hr/MainPu.aspx?id=14787" target="_blank" rel="noopener" style="text-decoration:none; color:var(--neutral-600); font-weight:600;">Službena stranica</a>
+        <span style="color:var(--neutral-300);">|</span>
+        <div style="color:var(--neutral-600); font-size:0.95rem;">© Informativno — ne sadrži sve službene kontakte</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function(){
+      const btn = document.getElementById('menuToggle');
+      const menu = document.getElementById('mainMenu');
+      btn.addEventListener('click', () => {
+        const open = menu.classList.toggle('open');
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+
+      // Smooth scroll for internal links
+      document.addEventListener('click', (e) => {
+        const a = e.target.closest('a');
+        if(!a) return;
+        const href = a.getAttribute('href');
+        if(href && href.startsWith('#')){
+          const target = document.querySelector(href);
+          if(target){
+            e.preventDefault();
+            target.scrollIntoView({behavior: 'smooth', block:'start'});
+            // close mobile menu
+            if(menu.classList.contains('open')){
+              menu.classList.remove('open');
+              btn.setAttribute('aria-expanded','false');
+            }
+            target.focus({preventScroll:true});
+            return;
+          }
+        }
+      });
+
+      // Keyboard accessibility for menu toggle
+      btn.addEventListener('keydown', (e) => {
+        if(e.key === 'Enter' || e.key === ' '){
+          e.preventDefault();
+          btn.click();
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
