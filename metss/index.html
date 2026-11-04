@@ -1,0 +1,491 @@
+ <!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>METSS — trgovina i convenience rješenja</title>
+  <meta name="description" content="METSS — poslovna djelatnost u sektoru trgovine i convenience. Profesionalan i prilagođen pristup maloprodaji i trgovini. Posjetite službenu stranicu za više informacija." />
+  <meta property="og:title" content="METSS — trgovina i convenience rješenja" />
+  <meta property="og:description" content="METSS djeluje u sektoru trgovine i convenience. Informacije potražite na službenoj web stranici." />
+  <meta property="og:type" content="website" />
+  <link rel="canonical" href="http://metss.hr/" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      /* Boje */
+      --color-bg:#0f1112; /* odabir tamne, premium pozadine */
+      --surface:#0f1213;
+      --card:#0f1415;
+      --muted:#97a0a6;
+      --accent:#0aa39b; /* primarna akcent boja (tirkizno-zelena) */
+      --accent-2:#f2c46b; /* sekundarna akcent boja (topli zlatni ton) */
+      --text:#e8eef0;
+      --glass: rgba(255,255,255,0.03);
+
+      /* Tipografija */
+      --ff-heading: "Playfair Display", serif;
+      --ff-body: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+
+      /* Spacing */
+      --space-xs:8px;
+      --space-sm:12px;
+      --space-md:20px;
+      --space-lg:36px;
+      --space-xl:64px;
+
+      --radius-sm:8px;
+      --radius-md:14px;
+      --radius-lg:24px;
+
+      --shadow-soft: 0 6px 20px rgba(2,6,23,0.6);
+      --focus: 3px solid rgba(10,163,155,0.18);
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background:linear-gradient(180deg,var(--surface),var(--bg, #0b0c0d));
+      color:var(--text);
+      font-family:var(--ff-body);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+      -webkit-tap-highlight-color:transparent;
+    }
+
+    /* Fluid typography */
+    h1{font-family:var(--ff-heading);font-weight:700;
+      font-size:clamp(28px, 4.4vw, 48px);
+      margin:0 0 var(--space-sm) 0;
+      letter-spacing:-0.02em;
+      color:var(--text);
+    }
+    h2{font-family:var(--ff-heading);margin:0;font-weight:600;font-size:clamp(18px,2.8vw,28px);color:var(--text)}
+    p{margin:0 0 var(--space-md) 0;color:var(--muted);font-size:clamp(14px,1.8vw,16px)}
+    a{color:inherit;text-decoration:none}
+
+    /* Container */
+    .wrap{max-width:1200px;margin:0 auto;padding:0 20px}
+
+    /* NAV */
+    header{
+      position:sticky;top:0;z-index:40;
+      backdrop-filter: blur(6px);
+      background:linear-gradient(180deg, rgba(8,9,10,0.55), rgba(8,9,10,0.35));
+      border-bottom:1px solid rgba(255,255,255,0.03);
+    }
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
+    .brand{display:flex;gap:14px;align-items:center;}
+    .logo{
+      width:48px;height:48px;border-radius:10px;
+      display:inline-grid;place-items:center;
+      background:linear-gradient(135deg,var(--accent),var(--accent-2));
+      box-shadow:var(--shadow-soft);
+      flex:0 0 48px;
+    }
+    .logo svg{width:30px;height:30px;display:block}
+    .wordmark{font-family:var(--ff-heading);font-weight:700;font-size:18px;color:var(--text);line-height:1}
+    nav{display:flex;align-items:center;gap:28px}
+    .nav-links{display:flex;gap:20px;align-items:center}
+    .nav-links a{color:var(--muted);font-weight:600;font-size:15px;padding:8px;border-radius:8px}
+    .nav-links a:hover,.nav-links a:focus{color:var(--text);background:var(--glass);outline: none}
+    .cta{
+      display:inline-flex;align-items:center;gap:10px;
+      background:linear-gradient(90deg,var(--accent),#0fb4a9);
+      color:#052322;font-weight:700;padding:10px 16px;border-radius:12px;
+      box-shadow:0 8px 24px rgba(10,163,155,0.14);
+      transition:transform .18s ease, box-shadow .18s ease;
+    }
+    .cta:active{transform:translateY(1px)}
+    .site-link{font-size:13px;color:var(--muted);}
+
+    /* mobile nav */
+    .menu-btn{display:none;background:none;border:0;color:var(--text);padding:8px;border-radius:8px}
+    .menu-btn:focus{outline:none;box-shadow:var(--focus)}
+
+    /* HERO */
+    .hero{
+      padding:calc(var(--space-xl) + 10px) 0 calc(var(--space-lg) + 20px);
+      display:grid;grid-template-columns:1fr 460px;gap:48px;align-items:center;
+    }
+    .hero-copy{max-width:720px}
+    .kicker{
+      display:inline-block;background:rgba(255,255,255,0.03);padding:6px 10px;border-radius:999px;font-size:13px;color:var(--muted);margin-bottom:14px
+    }
+    .lead{font-size:clamp(16px,2.4vw,18px);color:var(--muted);margin-bottom:22px}
+    .hero-cta{display:flex;gap:14px;align-items:center;margin-top:18px}
+    .btn-primary{background:var(--text);color:#071018;padding:12px 18px;border-radius:12px;font-weight:700;border:0;cursor:pointer;box-shadow:0 10px 30px rgba(2,6,23,0.5);transition:transform .18s ease}
+    .btn-primary:hover{transform:translateY(-3px)}
+    .btn-ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--text);padding:10px 16px;border-radius:12px}
+    .meta-list{display:flex;gap:14px;margin-top:20px;color:var(--muted);font-size:14px;flex-wrap:wrap}
+
+    /* Visual card */
+    .hero-visual{
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:18px;padding:22px;border:1px solid rgba(255,255,255,0.03);
+      box-shadow:var(--shadow-soft);min-height:360px;display:flex;align-items:center;justify-content:center;
+    }
+    .visual-scene{width:100%;height:100%;display:grid;place-items:center;position:relative}
+    .scene-card{width:100%;height:100%;background:linear-gradient(180deg,#07101744, transparent);border-radius:12px;display:flex;padding:18px;gap:12px;align-items:flex-start;justify-content:flex-start}
+    /* stylized store illustration */
+    .shop-svg{max-width:380px;width:100%;height:auto;display:block}
+
+    /* USLUGE */
+    section{padding:56px 0;border-top:1px solid rgba(255,255,255,0.02)}
+    .grid{display:grid;gap:20px}
+    .services{grid-template-columns:repeat(3,1fr)}
+    .card{
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.015));
+      padding:20px;border-radius:14px;border:1px solid rgba(255,255,255,0.03);
+      transition:transform .16s ease, box-shadow .16s ease;
+    }
+    .card:hover{transform:translateY(-8px);box-shadow:0 20px 40px rgba(2,6,23,0.6)}
+    .card h3{font-size:18px;margin-bottom:8px;color:var(--text)}
+    .card p{margin:0;color:var(--muted);font-size:15px}
+
+    /* O NAMA */
+    .about{display:grid;grid-template-columns:1fr 360px;gap:36px;align-items:start}
+    .about-card{background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.03)}
+    .approach-list{display:flex;flex-direction:column;gap:12px}
+
+    /* PREDNOSTI */
+    .features{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+    .feature{background:var(--card);padding:16px;border-radius:12px;border:1px solid rgba(255,255,255,0.02)}
+    .feature h4{margin:0 0 6px 0;color:var(--text);font-size:15px}
+    .feature p{margin:0;color:var(--muted);font-size:14px}
+
+    /* KONTAKT */
+    .contact-wrap{display:flex;gap:24px;flex-wrap:wrap;align-items:stretch}
+    .contact-cta{flex:1 1 360px;background:linear-gradient(90deg,var(--accent),var(--accent-2));padding:20px;border-radius:14px;color:#041918}
+    .contact-cta h3{color:#041918;margin:0 0 8px 0}
+    .contact-info{flex:1 1 320px;background:var(--card);padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.03)}
+    .small{font-size:13px;color:var(--muted)}
+
+    footer{padding:28px 0;border-top:1px solid rgba(255,255,255,0.03);margin-top:36px}
+    .footer-inner{display:flex;align-items:center;justify-content:space-between;gap:12px}
+
+    /* Responsive */
+    @media (max-width:1024px){
+      .hero{grid-template-columns:1fr 380px;padding:48px 0 36px}
+      .services{grid-template-columns:repeat(2,1fr)}
+      .about{grid-template-columns:1fr}
+      .hero-visual{min-height:300px}
+    }
+    @media (max-width:720px){
+      .nav-links{display:none}
+      .menu-btn{display:inline-flex}
+      .hero{grid-template-columns:1fr;gap:26px;padding:40px 0}
+      .hero-visual{order:2;height:260px;min-height:auto}
+      .hero-copy{order:1}
+      .services{grid-template-columns:1fr}
+      .features{grid-template-columns:1fr}
+      .contact-wrap{flex-direction:column}
+      .brand .wordmark{font-size:16px}
+    }
+
+    /* small interactions & accessibility */
+    .focus-ring:focus{box-shadow:var(--focus);outline:none}
+    button{font-family:inherit}
+    [hidden]{display:none !important}
+
+    /* motion preferences */
+    @media (prefers-reduced-motion: reduce){
+      *{transition:none !important;animation:none !important}
+    }
+
+    /* utility */
+    .muted{color:var(--muted)}
+    .align-center{text-align:center}
+    .center{display:grid;place-items:center}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap nav-inner" role="banner">
+      <div class="brand">
+        <div class="logo" aria-hidden="true">
+          <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="METSS logo">
+            <rect x="4" y="6" width="40" height="36" rx="8" fill="white" opacity="0.06"/>
+            <path d="M12 30v-8a6 6 0 016-6h8a6 6 0 016 6v8" stroke="#04201F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M16 20h16" stroke="#04201F" stroke-width="2.2" stroke-linecap="round"/>
+            <circle cx="34" cy="18" r="2.2" fill="#04201F"/>
+          </svg>
+        </div>
+        <div>
+          <div class="wordmark">METSS</div>
+          <div class="site-link">trgovina • convenience</div>
+        </div>
+      </div>
+
+      <nav role="navigation" aria-label="Glavna navigacija">
+        <div class="nav-links" id="navLinks">
+          <a href="#hero">Početna</a>
+          <a href="#usluge">Ponuda</a>
+          <a href="#o-nama">O nama</a>
+          <a href="#prednosti">Pristup</a>
+          <a href="#kontakt">Kontakt</a>
+        </div>
+
+        <a class="cta" href="#kontakt" aria-label="Kontaktirajte METSS">Kontakt</a>
+
+        <button class="menu-btn focus-ring" id="menuBtn" aria-expanded="false" aria-controls="mobileMenu" aria-label="Otvori izbornik">
+          <svg width="22" height="14" viewBox="0 0 22 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect y="1" width="22" height="2" rx="1" fill="currentColor"/>
+            <rect y="6" width="22" height="2" rx="1" fill="currentColor"/>
+            <rect y="11" width="22" height="2" rx="1" fill="currentColor"/>
+          </svg>
+        </button>
+      </nav>
+    </div>
+
+    <div id="mobileMenu" hidden>
+      <div class="wrap" style="padding-bottom:12px;">
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          <a href="#hero" class="focus-ring" style="padding:10px;border-radius:8px;color:var(--text);display:block">Početna</a>
+          <a href="#usluge" class="focus-ring" style="padding:10px;border-radius:8px;color:var(--text);display:block">Ponuda</a>
+          <a href="#o-nama" class="focus-ring" style="padding:10px;border-radius:8px;color:var(--text);display:block">O nama</a>
+          <a href="#prednosti" class="focus-ring" style="padding:10px;border-radius:8px;color:var(--text);display:block">Pristup</a>
+          <a href="#kontakt" class="focus-ring" style="padding:10px;border-radius:8px;color:var(--text);display:block">Kontakt</a>
+          <a href="http://metss.hr/" class="focus-ring" style="padding:10px;border-radius:8px;color:var(--text);display:block">Službena stranica</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="hero" class="hero wrap" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <span class="kicker">METSS</span>
+        <h1 id="hero-title">Prilagođena rješenja za trgovinu i convenience</h1>
+        <p class="lead">METSS djeluje u području trgovine i convenience. Fokus je na podršci maloprodajnim operacijama kroz praktična i profesionalna rješenja prilagođena potrebama lokacije i kupaca.</p>
+
+        <div class="hero-cta" role="group" aria-label="Glavni pozivi na akciju">
+          <a class="btn-primary" href="#kontakt">Kontakt — saznajte više</a>
+          <a class="btn-ghost" href="http://metss.hr/" target="_blank" rel="noopener">Posjetite službenu stranicu</a>
+        </div>
+
+        <div class="meta-list" aria-hidden="false">
+          <div class="muted">Djelatnost: trgovina, convenience</div>
+          <div class="muted">Web: <a href="http://metss.hr/" target="_blank" rel="noopener" style="color:var(--text)">metss.hr</a></div>
+        </div>
+      </div>
+
+      <div class="hero-visual" aria-hidden="false">
+        <div class="visual-scene" role="img" aria-label="Ilustracija trgovine i logistike">
+          <div class="scene-card" style="width:96%;height:92%;">
+            <!-- Inline SVG ilustracija: stilizirana trgovina -->
+            <svg class="shop-svg" viewBox="0 0 720 520" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
+              <defs>
+                <linearGradient id="g1" x1="0" x2="1" y1="0" y2="1">
+                  <stop offset="0" stop-color="#11b39f"/>
+                  <stop offset="1" stop-color="#f2c46b"/>
+                </linearGradient>
+                <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+                  <feDropShadow dx="0" dy="14" stdDeviation="30" flood-color="#000" flood-opacity="0.35"/>
+                </filter>
+              </defs>
+
+              <rect x="20" y="60" width="680" height="360" rx="20" fill="#061215" opacity="0.6"/>
+              <!-- shop front -->
+              <rect x="60" y="120" width="520" height="240" rx="12" fill="#092225"/>
+              <rect x="600" y="220" width="60" height="120" rx="8" fill="#0e2c2b"/>
+              <rect x="78" y="140" width="480" height="60" rx="8" fill="#062827"/>
+              <rect x="110" y="210" width="120" height="120" rx="8" fill="#0d3a36"/>
+              <rect x="250" y="210" width="120" height="120" rx="8" fill="#0d3a36"/>
+              <rect x="390" y="210" width="120" height="120" rx="8" fill="#0d3a36"/>
+              <!-- awning -->
+              <g transform="translate(70,110)">
+                <rect x="0" y="0" width="520" height="36" rx="10" fill="url(#g1)" opacity="0.14"/>
+                <g>
+                  <rect x="6" y="8" width="48" height="20" rx="6" fill="#052a28"/>
+                  <rect x="66" y="8" width="48" height="20" rx="6" fill="#052a28"/>
+                  <rect x="126" y="8" width="48" height="20" rx="6" fill="#052a28"/>
+                  <rect x="186" y="8" width="48" height="20" rx="6" fill="#052a28"/>
+                  <rect x="246" y="8" width="48" height="20" rx="6" fill="#052a28"/>
+                </g>
+              </g>
+
+              <!-- decorative circles -->
+              <circle cx="620" cy="120" r="36" fill="url(#g1)" opacity="0.08" filter="url(#soft)"/>
+              <circle cx="80" cy="420" r="22" fill="#0aa39b" opacity="0.06"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="usluge" class="wrap" aria-labelledby="usluge-title">
+      <h2 id="usluge-title">Ponuda — sažeti pregled djelatnosti</h2>
+      <p class="lead">METSS je aktivan u trgovini i segmentu convenience. Ispod su opisi tipičnih područja povezanih s ovom djelatnošću — ovdje su predstavljene generičke kategorije bez izmišljanja specifičnih usluga.</p>
+
+      <div class="grid services" style="margin-top:20px;grid-template-columns:repeat(3,1fr)">
+        <article class="card" aria-labelledby="s1">
+          <h3 id="s1">Maloprodajni asortiman</h3>
+          <p>Komercijalni prostori prilagođeni za svakodnevnu nabavu širokog spektra proizvoda, s fokusom na praktičnost i dostupnost kupcima.</p>
+        </article>
+
+        <article class="card" aria-labelledby="s2">
+          <h3 id="s2">Rješenja za convenience</h3>
+          <p>Format trgovine osmišljen za brzu kupovinu — organizacija prostora i ponude koja odgovara lokalnim potrebama i tempu kupaca.</p>
+        </article>
+
+        <article class="card" aria-labelledby="s3">
+          <h3 id="s3">Operativna podrška</h3>
+          <p>Podrška u svakodnevnim aktivnostima prodajnog mjesta, s naglaskom na učinkovitost, pristup kupcima i urednu prezentaciju asortimana.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="o-nama" class="wrap" aria-labelledby="about-title">
+      <h2 id="about-title">O METSS-u</h2>
+      <div class="about" style="margin-top:18px">
+        <div>
+          <p class="lead">Informacije u ovom prikazu temelje se na dostupnim poslovnim podacima: djelatnosti su navedene kao "trgovina" i "convenience". Nema dodatnih provjerenih kontaktnih podataka u ovom materijalu.</p>
+
+          <div class="about-card" aria-hidden="false">
+            <h3 style="margin-top:0;margin-bottom:8px">Transparentan i praktičan pristup</h3>
+            <p class="muted">Opis nastoji jasno predstaviti područje poslovanja bez pretjeranih tvrdnji ili neprovjerenih informacija. Ako tražite detalje, preporučujemo posjetu službenoj web stranici.</p>
+          </div>
+        </div>
+
+        <aside class="about-card" aria-labelledby="about-aside">
+          <h3 id="about-aside">Ključne informacije</h3>
+          <p class="small">Naziv tvrtke: METSS</p>
+          <p class="small">Djelatnost: trgovina, convenience</p>
+          <p class="small">Web: <a href="http://metss.hr/" target="_blank" rel="noopener" style="color:var(--text)">metss.hr</a></p>
+          <p class="small muted" style="margin-top:8px">Napomena: Ostali kontakt podaci (adresa, telefon, email) nisu dostupni u izvoru i nisu ovdje dodani.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section id="prednosti" class="wrap" aria-labelledby="prednosti-title">
+      <h2 id="prednosti-title">Pristup i vrijednost</h2>
+      <p class="lead">Kratko objašnjenje pristupa koji se primjenjuje u okviru trgovine i convenience formata — bez izmjene konkretnih podataka.</p>
+
+      <div class="features" style="margin-top:18px">
+        <div class="feature" role="article" aria-labelledby="f1">
+          <h4 id="f1">Praktičnost</h4>
+          <p>Rješenja i organizacija prostora usmjerena su na praktičnost za krajnjeg kupca i jednostavno upravljanje za osoblje.</p>
+        </div>
+
+        <div class="feature" role="article" aria-labelledby="f2">
+          <h4 id="f2">Prilagodljivost</h4>
+          <p>Ponuda i raspored mogu se prilagoditi lokalnim potrebama i prometu kupaca, uz poštovanje lokalnih standarda trgovine.</p>
+        </div>
+
+        <div class="feature" role="article" aria-labelledby="f3">
+          <h4 id="f3">Profesionalna izvedba</h4>
+          <p>Fokus na urednom predstavljanju asortimana, jasnim informacijama za kupce i dosljednom provođenju radnih procesa.</p>
+        </div>
+
+        <div class="feature" role="article" aria-labelledby="f4">
+          <h4 id="f4">Jasna komunikacija</h4>
+          <p>Otvorena i jasna komunikacija ključna je u radu s partnerima i krajnjim kupcima. Detaljnije informacije dostupne su na službenim kanalima.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="kontakt" class="wrap" aria-labelledby="kontakt-title">
+      <h2 id="kontakt-title">Kontakt</h2>
+      <p class="lead">U nastavku su dostupni verificirani podaci i sigurne opcije za daljnje informacije.</p>
+
+      <div class="contact-wrap" style="margin-top:16px">
+        <div class="contact-cta" aria-labelledby="cta-title">
+          <h3 id="cta-title">Posjetite službenu stranicu</h3>
+          <p class="small">Za najtočnije i ažurirane informacije, uključujući kontakt podatke i poslovne obavijesti, pratite službenu web stranicu.</p>
+          <p style="margin-top:14px">
+            <a class="btn-primary" href="http://metss.hr/" target="_blank" rel="noopener">metss.hr — otvorite</a>
+          </p>
+        </div>
+
+        <div class="contact-info" aria-labelledby="contact-info-title">
+          <h3 id="contact-info-title" style="margin-top:0;margin-bottom:8px">Dostupni podaci</h3>
+          <p class="small muted">Trenutno dostupni i verificirani podaci su: naziv tvrtke i djelatnost. Ostali kontakt podaci (telefon, email, adresa) nisu dostavljeni u izvoru i stoga nisu ovdje navedeni.</p>
+
+          <div style="margin-top:12px">
+            <p class="small">Ako imate dokumentaciju ili konkretno pitanje za METSS, preporučujemo kontakt putem službene web stranice.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-inner" role="contentinfo">
+      <div style="display:flex;gap:12px;align-items:center">
+        <div class="logo" style="width:42px;height:42px;border-radius:10px">
+          <svg width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="4" y="6" width="40" height="36" rx="8" fill="white" opacity="0.06"/>
+            <path d="M12 30v-8a6 6 0 016-6h8a6 6 0 016 6v8" stroke="#04201F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div>
+          <div style="font-weight:700">METSS</div>
+          <div class="small muted">trgovina • convenience</div>
+        </div>
+      </div>
+
+      <div style="display:flex;gap:16px;align-items:center">
+        <a href="#kontakt" class="small">Kontakt</a>
+        <a href="#o-nama" class="small">O nama</a>
+        <a href="http://metss.hr/" target="_blank" rel="noopener" class="small">Službena stranica</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function(){
+      const menuBtn = document.getElementById('menuBtn');
+      const mobileMenu = document.getElementById('mobileMenu');
+      menuBtn.addEventListener('click', function(){
+        const expanded = this.getAttribute('aria-expanded') === 'true';
+        this.setAttribute('aria-expanded', String(!expanded));
+        if(expanded){
+          mobileMenu.hidden = true;
+        } else {
+          mobileMenu.hidden = false;
+          mobileMenu.querySelectorAll('a')[0]?.focus();
+        }
+      });
+
+      // Close mobile menu on outside click or escape
+      document.addEventListener('click', (e)=>{
+        if(!mobileMenu.hidden && !mobileMenu.contains(e.target) && !menuBtn.contains(e.target)){
+          mobileMenu.hidden = true;
+          menuBtn.setAttribute('aria-expanded','false');
+        }
+      });
+      document.addEventListener('keydown', (e)=>{
+        if(e.key === 'Escape'){
+          mobileMenu.hidden = true;
+          menuBtn.setAttribute('aria-expanded','false');
+          menuBtn.focus();
+        }
+      });
+
+      // Simple reveal on scroll for sections (performant)
+      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if(!prefersReduced){
+        const els = document.querySelectorAll('section, .card, .feature, .hero-visual');
+        const io = new IntersectionObserver((entries)=>{
+          entries.forEach(entry=>{
+            if(entry.isIntersecting){
+              entry.target.style.transition = 'opacity .6s ease, transform .6s ease';
+              entry.target.style.opacity = 1;
+              entry.target.style.transform = 'translateY(0)';
+              io.unobserve(entry.target);
+            }
+          });
+        }, {threshold: 0.12});
+        els.forEach(el=>{
+          el.style.opacity = 0;
+          el.style.transform = 'translateY(12px)';
+          io.observe(el);
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
