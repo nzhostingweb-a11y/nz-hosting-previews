@@ -1,0 +1,734 @@
+ <!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>OTP banka — bankarske i financijske usluge prilagođene vama</title>
+  <meta name="description" content="OTP banka — jasno i pristupačno predstavljanje bankarskih i financijskih usluga. Kontaktirajte nas na +385 72 206 024 ili posjetite službenu stranicu za više informacija." />
+  <meta property="og:title" content="OTP banka — bankarske i financijske usluge prilagođene vama" />
+  <meta property="og:description" content="Kontaktirajte OTP banku na +385 72 206 024. Profesionalan pristup i jasne informacije o uslugama." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Merriweather:wght@300;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      /* Design system - boje */
+      --color-primary: #0a5b5b;        /* tamno tirkizno/teal */
+      --color-secondary: #0f8b7a;      /* svjetliji teal */
+      --color-accent: #c9a24b;         /* zlatni akcent */
+      --neutral-900: #0b0b0b;
+      --neutral-800: #1f2933;
+      --neutral-700: #374151;
+      --neutral-500: #9aa2a8;
+      --neutral-200: #e6eaec;
+      --bg: #ffffff;
+      --card-bg: linear-gradient(180deg, #ffffff 0%, #fbfdfc 100%);
+      --radius: 12px;
+      --radius-sm: 8px;
+      --shadow-1: 0 6px 20px rgba(11,18,24,0.08);
+      --shadow-2: 0 2px 8px rgba(11,18,24,0.06);
+      --focus: 3px solid rgba(10,91,91,0.15);
+      /* Typography */
+      --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      --font-serif: "Merriweather", Georgia, "Times New Roman", serif;
+      --base-line-height: 1.45;
+      /* Spacing scale */
+      --space-xxs: 6px;
+      --space-xs: 12px;
+      --space-sm: 16px;
+      --space-md: 24px;
+      --space-lg: 40px;
+      --space-xl: 64px;
+      /* Breakpoints */
+      --bp-medium: 768px;
+      --bp-desktop: 1200px;
+    }
+
+    /* Reset & base */
+    *,*::before,*::after{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:var(--font-sans);
+      color:var(--neutral-900);
+      background:var(--bg);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:var(--base-line-height);
+      -webkit-text-size-adjust:100%;
+      text-rendering:optimizeLegibility;
+      font-size:16px;
+    }
+    a{color:inherit; text-decoration:none}
+    img,svg{max-width:100%;height:auto;display:block}
+    main{display:block}
+
+    /* Fluid typography */
+    h1{
+      font-family:var(--font-serif);
+      font-weight:700;
+      font-size:clamp(1.75rem, 1.5rem + 2.5vw, 3.2rem);
+      line-height:1.02;
+      margin:0 0 var(--space-sm) 0;
+      color:var(--neutral-900);
+      letter-spacing:-0.02em;
+    }
+    h2{
+      font-family:var(--font-sans);
+      font-weight:700;
+      font-size:clamp(1.1rem, 1rem + 1.2vw, 1.5rem);
+      margin:0 0 var(--space-xs) 0;
+      color:var(--neutral-800);
+    }
+    p{margin:0 0 var(--space-sm) 0; color:var(--neutral-700); font-size:clamp(0.95rem,0.85rem + 0.6vw,1rem);}
+    small{font-size:0.9rem;color:var(--neutral-500)}
+
+    /* Layout */
+    .container{
+      width:calc(100% - 40px);
+      max-width:1200px;
+      margin:0 auto;
+      padding:0;
+    }
+
+    /* NAV */
+    header{
+      position:sticky;
+      top:0;
+      z-index:60;
+      backdrop-filter: blur(6px);
+      background:linear-gradient(to bottom, rgba(255,255,255,0.86), rgba(255,255,255,0.6));
+      border-bottom:1px solid rgba(11,18,24,0.04);
+    }
+    .nav-inner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      padding:18px 20px;
+      max-width:1200px;
+      margin:0 auto;
+    }
+    .brand{
+      display:flex;
+      gap:12px;
+      align-items:center;
+    }
+    .brand-mark{
+      width:48px;height:48px;flex:0 0 48px;
+      display:grid;place-items:center;
+      border-radius:10px;
+      background:linear-gradient(180deg,var(--color-primary),var(--color-secondary));
+      box-shadow:var(--shadow-2);
+    }
+    .brand-mark svg{filter:drop-shadow(0 6px 18px rgba(10,91,91,0.12))}
+    .brand-title{
+      display:flex;flex-direction:column;
+      line-height:1;
+    }
+    .brand-title .title{font-weight:800;font-family:var(--font-sans);font-size:1rem;color:var(--neutral-900)}
+    .brand-title .tag{font-size:0.85rem;color:var(--neutral-500)}
+
+    nav.primary{
+      display:flex;
+      gap:20px;
+      align-items:center;
+    }
+    nav.primary a{
+      color:var(--neutral-700);
+      padding:8px 10px;
+      border-radius:8px;
+      font-weight:600;
+      transition:all .18s ease;
+    }
+    nav.primary a:hover, nav.primary a:focus{
+      color:var(--neutral-900);
+      transform:translateY(-2px);
+      outline:none;
+    }
+    .cta-wrap{display:flex;gap:12px;align-items:center}
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:10px 16px;
+      border-radius:10px;
+      font-weight:700;
+      cursor:pointer;
+      border:0;
+      transition:transform .16s ease, box-shadow .16s ease;
+    }
+    .btn:focus{outline:none; box-shadow:var(--focus); border-radius:8px}
+    .btn-primary{
+      background:var(--color-primary);
+      color:white;
+      box-shadow:0 8px 30px rgba(10,91,91,0.12);
+    }
+    .btn-primary:hover{transform:translateY(-3px)}
+    .btn-ghost{
+      background:transparent;
+      color:var(--neutral-700);
+      padding:8px 12px;
+      border-radius:8px;
+    }
+    .hamburger{
+      display:none;
+      width:44px;height:44px;border-radius:10px;background:transparent;border:0;
+    }
+
+    /* HERO */
+    .hero{
+      padding:48px 20px 56px;
+      display:grid;
+      grid-template-columns:1fr 520px;
+      gap:40px;
+      align-items:center;
+      max-width:1400px;
+      margin:0 auto;
+    }
+    .hero-card{
+      background:var(--card-bg);
+      border-radius:var(--radius);
+      padding:34px;
+      box-shadow:var(--shadow-1);
+      position:relative;
+      overflow:hidden;
+    }
+    .hero-intro{max-width:720px}
+    .lead{
+      display:inline-block;
+      background:rgba(10,91,91,0.06);
+      color:var(--color-primary);
+      padding:6px 10px;
+      border-radius:999px;
+      font-weight:700;
+      font-size:0.9rem;
+      margin-bottom:16px;
+    }
+    .hero-visual{
+      min-height:320px;
+      border-radius:10px;
+      background:
+        radial-gradient(600px 200px at 10% 10%, rgba(12,80,78,0.06), transparent 10%),
+        linear-gradient(180deg, rgba(15,139,122,0.06), rgba(200,162,75,0.02));
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:20px;
+      position:relative;
+    }
+    .hero-visual .art{
+      width:100%;
+      max-width:420px;
+      height:240px;
+      background:linear-gradient(135deg, rgba(10,91,91,0.06), rgba(15,139,122,0.02));
+      border-radius:12px;
+      display:grid;
+      place-items:center;
+      box-shadow:var(--shadow-2);
+      position:relative;
+      overflow:visible;
+    }
+    .hero-visual .decor{
+      position:absolute;
+      top:-18px; right:-18px;
+      width:140px;height:140px;border-radius:18px;
+      background:linear-gradient(135deg, rgba(201,162,75,0.12), rgba(10,91,91,0.04));
+      transform:rotate(12deg);
+      filter:blur(6px);
+      pointer-events:none;
+    }
+
+    .kicker{font-weight:700;color:var(--neutral-800);margin-bottom:12px}
+    .sub{color:var(--neutral-700);margin-bottom:20px;max-width:56ch}
+    .hero-actions{display:flex;gap:12px;align-items:center;margin-top:8px}
+    .secondary-link{font-weight:600;color:var(--neutral-700);padding:8px 10px;border-radius:8px}
+
+    /* Service cards */
+    .services{
+      padding:40px 20px;
+      background:linear-gradient(180deg, rgba(250,252,251,0.8), rgba(255,255,255,1));
+    }
+    .cards{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:20px;
+      max-width:1200px;margin:0 auto;
+    }
+    .card{
+      background:white;border-radius:12px;padding:20px;box-shadow:var(--shadow-2);border:1px solid rgba(11,18,24,0.04);
+      display:flex;gap:16px;align-items:flex-start;min-height:120px;
+    }
+    .ico{
+      width:56px;height:56px;border-radius:10px;background:linear-gradient(180deg,var(--color-secondary),var(--color-primary));display:grid;place-items:center;color:white;flex:0 0 56px;
+    }
+    .card h3{margin:0;font-size:1.05rem}
+    .card p{margin-top:6px;font-size:0.95rem;color:var(--neutral-700)}
+
+    /* Approach */
+    .approach{
+      padding:48px 20px;
+      display:flex;
+      justify-content:center;
+    }
+    .steps{
+      max-width:1100px;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:22px;
+      align-items:stretch;
+    }
+    .step{
+      background:white;border-radius:12px;padding:20px;box-shadow:var(--shadow-2);border:1px solid rgba(11,18,24,0.04);
+      display:flex;gap:14px;align-items:flex-start;
+    }
+    .step .num{
+      width:44px;height:44px;border-radius:10px;background:var(--neutral-200);display:grid;place-items:center;font-weight:700;color:var(--neutral-700);
+      flex:0 0 44px;
+    }
+
+    /* Additional premium section - FAQ */
+    .faq{
+      padding:48px 20px;
+      background:linear-gradient(180deg,#ffffff, #fbfdfc);
+    }
+    .faq-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 360px;gap:28px;align-items:start}
+    .qa{background:white;padding:18px;border-radius:12px;box-shadow:var(--shadow-2);border:1px solid rgba(11,18,24,0.04)}
+    .qa button{
+      width:100%;
+      text-align:left;
+      font-weight:700;
+      padding:10px 12px;
+      background:transparent;border:0;
+      display:flex;justify-content:space-between;align-items:center;
+      cursor:pointer;
+    }
+    .answer{padding:0 12px 12px 12px;color:var(--neutral-700);font-size:0.95rem}
+
+    /* Contact */
+    .contact{
+      padding:48px 20px 80px;
+      display:flex;
+      justify-content:center;
+    }
+    .contact-card{
+      max-width:900px;width:100%;
+      display:flex;gap:20px;align-items:center;background:linear-gradient(180deg,#ffffff,#fbfdfc);
+      padding:22px;border-radius:14px;box-shadow:var(--shadow-1);border:1px solid rgba(11,18,24,0.04);
+    }
+    .contact-info{flex:1}
+    .phone{display:flex;align-items:center;gap:12px;font-weight:800;font-size:1.05rem;color:var(--neutral-900)}
+    .contact-cta{display:flex;gap:12px;margin-top:12px}
+
+    /* Footer */
+    footer{
+      padding:28px 20px;background:#0b1720;color:white;margin-top:40px;border-top:1px solid rgba(255,255,255,0.04);
+    }
+    .footer-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:20px}
+    .footer-links a{color:rgba(255,255,255,0.9);margin-right:16px;font-weight:600}
+
+    /* Responsive */
+    @media (max-width:1200px){
+      .hero{grid-template-columns:1fr 420px}
+    }
+    @media (max-width:980px){
+      .cards{grid-template-columns:repeat(2,1fr)}
+      .steps{grid-template-columns:1fr}
+      .faq-inner{grid-template-columns:1fr}
+    }
+    @media (max-width:760px){
+      .nav-inner{padding:12px 14px}
+      nav.primary{display:none}
+      .hamburger{display:inline-flex}
+      .hero{grid-template-columns:1fr;margin-top:6px;padding-top:24px;gap:20px}
+      .hero-card{padding:20px}
+      .hero-visual{min-height:220px}
+      .cards{grid-template-columns:1fr}
+      .brand-title .tag{display:none}
+      .footer-inner{flex-direction:column;align-items:flex-start;gap:8px}
+    }
+
+    /* Mobile menu */
+    .mobile-menu{
+      display:none;
+      position:fixed;
+      inset:0;
+      background:linear-gradient(180deg, rgba(10,11,12,0.6), rgba(10,11,12,0.85));
+      z-index:80;
+      padding:20px;
+      justify-content:center;
+      align-items:center;
+    }
+    .mobile-menu.open{display:flex}
+    .mobile-panel{
+      width:100%;
+      max-width:420px;
+      background:var(--bg);
+      border-radius:14px;
+      padding:20px;
+      box-shadow:0 18px 60px rgba(2,6,23,0.6);
+    }
+    .mobile-panel nav{display:flex;flex-direction:column;gap:12px}
+    .mobile-panel nav a{padding:12px;border-radius:8px}
+
+    /* small interactions */
+    .card, .step, .qa, .contact-card{transition:transform .18s ease, box-shadow .18s ease}
+    .card:hover, .step:hover, .qa:hover, .contact-card:hover{transform:translateY(-6px)}
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav-inner" role="navigation" aria-label="Glavna navigacija">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true">
+          <!-- simple geometric mark -->
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+            <rect x="2" y="2" width="20" height="20" rx="5" fill="white" opacity="0.06"/>
+            <path d="M6 8C8 6 11 6 13 8L18 13" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M6 16C8 18 11 18 13 16L18 11" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="brand-title">
+          <div class="title">OTP banka</div>
+          <div class="tag">bankarske i financijske usluge</div>
+        </div>
+      </div>
+
+      <nav class="primary" aria-label="Sekcije">
+        <a href="#usluge">Usluge</a>
+        <a href="#o-nama">O nama</a>
+        <a href="#kako">Suradnja</a>
+        <a href="#kontakt">Kontakt</a>
+      </nav>
+
+      <div class="cta-wrap">
+        <a class="btn btn-ghost" href="https://www.otpbanka.hr/" rel="noopener" target="_blank">Službena stranica</a>
+        <a class="btn btn-primary" href="tel:+38572206024" aria-label="Nazovite OTP banku na broj +385 72 206 024">Nazovite nas</a>
+        <button class="hamburger" id="hamburger" aria-expanded="false" aria-controls="mobile-menu" aria-label="Otvorite izbornik">
+          <svg width="18" height="14" viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M1 1h16M1 7h16M1 13h16" stroke="#0b1720" stroke-width="1.6" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div id="mobile-menu" class="mobile-menu" aria-hidden="true">
+    <div class="mobile-panel" role="dialog" aria-modal="true" aria-label="Mobilni izbornik">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+        <div style="font-weight:800">OTP banka</div>
+        <button id="mobile-close" aria-label="Zatvori izbornik" style="background:transparent;border:0;font-weight:700;font-size:16px">Zatvori</button>
+      </div>
+      <nav>
+        <a href="#usluge">Usluge</a>
+        <a href="#o-nama">O nama</a>
+        <a href="#kako">Suradnja</a>
+        <a href="#kontakt">Kontakt</a>
+        <a href="https://www.otpbanka.hr/" target="_blank" rel="noopener">Službena stranica</a>
+        <a href="tel:+38572206024">Nazovite nas</a>
+      </nav>
+    </div>
+  </div>
+
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-card">
+        <span class="lead" aria-hidden="true">Otp banka</span>
+        <div class="hero-intro">
+          <h1 id="hero-title">Jasne i dostupne bankarske usluge — bez komplikacija</h1>
+          <p class="sub">OTP banka pruža sveobuhvatan pristup bankarskim i financijskim uslugama prilagođenim potrebama klijenata. Naša je zadaća osigurati transparentne informacije i podršku pri svakom koraku.</p>
+
+          <div class="hero-actions" role="group" aria-label="Pozivi na akciju">
+            <a class="btn btn-primary" href="tel:+38572206024">Nazovite +385 72 206 024</a>
+            <a class="secondary-link" href="https://www.otpbanka.hr/" target="_blank" rel="noopener">Posjetite službenu stranicu</a>
+          </div>
+
+          <div style="margin-top:22px;display:flex;gap:12px;align-items:center;">
+            <div style="display:flex;gap:10px;align-items:center">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M12 2v20" stroke="#0f8b7a" stroke-width="1.6" stroke-linecap="round"/>
+                <path d="M6 8h12" stroke="#0f8b7a" stroke-width="1.6" stroke-linecap="round"/>
+              </svg>
+              <small>Transparentne informacije i dostupna podrška</small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <aside class="hero-visual" aria-hidden="true">
+        <div class="hero-visual-inner">
+          <div class="hero-visual art" role="img" aria-label="Ilustracija financijskog pristupa">
+            <!-- abstract SVG composition as visual, not a photo -->
+            <svg width="360" height="220" viewBox="0 0 360 220" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect x="6" y="30" width="220" height="140" rx="14" fill="white" opacity="0.06"/>
+              <rect x="130" y="6" width="220" height="140" rx="14" fill="white" opacity="0.04"/>
+              <g transform="translate(30,40)" fill="none" stroke="#0a5b5b" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M0 100 L40 60 L80 80 L120 50 L160 70 L200 40" opacity="0.95"/>
+              </g>
+              <circle cx="280" cy="160" r="28" fill="#c9a24b" opacity="0.14"/>
+              <rect x="18" y="152" width="140" height="40" rx="8" fill="#0f8b7a" opacity="0.08"/>
+              <text x="26" y="176" fill="#0a5b5b" font-family="Inter, sans-serif" font-size="18" font-weight="700">Transparentno</text>
+            </svg>
+            <div class="decor" aria-hidden="true"></div>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <section id="usluge" class="services" aria-labelledby="usluge-title">
+      <div class="container">
+        <h2 id="usluge-title">Što nudimo</h2>
+        <p style="max-width:64ch">OTP banka nudi niz bankarskih i financijskih rješenja prilagođenih privatnim i poslovnim klijentima. Fokusirani smo na jasnoću, sigurnost i praktičnost u svakodnevnim financijskim postupcima.</p>
+
+        <div class="cards" style="margin-top:22px">
+          <article class="card" aria-labelledby="card-1">
+            <div class="ico" aria-hidden="true">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M4 7h16v10H4z" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M8 12h8" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div>
+              <h3 id="card-1">Osobno bankarstvo</h3>
+              <p>Rješenja za upravljanje osobnim računima i svakodnevnim financijama, s naglaskom na jednostavnost i transparentnost.</p>
+            </div>
+          </article>
+
+          <article class="card" aria-labelledby="card-2">
+            <div class="ico" aria-hidden="true">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M3 12h18" stroke="white" stroke-width="1.6" stroke-linecap="round"/>
+                <path d="M7 6v12" stroke="white" stroke-width="1.6" stroke-linecap="round"/>
+                <path d="M17 6v12" stroke="white" stroke-width="1.6" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div>
+              <h3 id="card-2">Poslovno bankarstvo</h3>
+              <p>Podrška za poslovne potrebe, usmjerena na praktičnost upravljanja novčanim tokom i svakodnevnim obvezama.</p>
+            </div>
+          </article>
+
+          <article class="card" aria-labelledby="card-3">
+            <div class="ico" aria-hidden="true">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 3v18" stroke="white" stroke-width="1.6" stroke-linecap="round"/>
+                <path d="M3 12h18" stroke="white" stroke-width="1.6" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div>
+              <h3 id="card-3">Digitalne usluge</h3>
+              <p>Pristup informacijama i upravljanje računima putem digitalnih kanala uz fokus na sigurnost i dostupnost.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="o-nama" style="padding:40px 20px">
+      <div class="container">
+        <h2>O nama</h2>
+        <p>OTP banka predstavlja grupu bankarskih usluga usmjerenu na pružanje jasnih informacija i podrške klijentima. Naša komunikacija s klijentima temelji se na transparentnosti i dostupnosti, bez nepotrebne složenosti.</p>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px">
+          <div style="background:white;padding:18px;border-radius:12px;box-shadow:var(--shadow-2);border:1px solid rgba(11,18,24,0.04)">
+            <h3>Naš pristup</h3>
+            <p>Pristupamo svakom upitu sistematski: definiramo potrebe, predlažemo dostupne opcije i omogućujemo jasne korake za realizaciju usluge.</p>
+          </div>
+          <div style="background:white;padding:18px;border-radius:12px;box-shadow:var(--shadow-2);border:1px solid rgba(11,18,24,0.04)">
+            <h3>Transparentnost</h3>
+            <p>Sve informacije objavljujemo jasno i čitko. Pomoći ćemo pri razumijevanju opcija kako biste mogli donijeti informirane odluke.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="kako" class="approach" aria-labelledby="kako-title">
+      <div class="container">
+        <h2 id="kako-title">Kako surađujemo</h2>
+        <div class="steps" style="margin-top:18px">
+          <div class="step" aria-labelledby="s1">
+            <div class="num">1</div>
+            <div>
+              <h3 id="s1">Kontakt</h3>
+              <p>Pošaljite upit ili nazovite za osnovne informacije. Nismo ovdje da kompliciramo — cilj je razumjeti vašu potrebu.</p>
+            </div>
+          </div>
+
+          <div class="step" aria-labelledby="s2">
+            <div class="num">2</div>
+            <div>
+              <h3 id="s2">Procjena</h3>
+              <p>Zajedno identificiramo koji pristup najbolje odgovara vašoj situaciji i jasno prikazujemo sljedeće korake.</p>
+            </div>
+          </div>
+
+          <div class="step" aria-labelledby="s3">
+            <div class="num">3</div>
+            <div>
+              <h3 id="s3">Rješenje</h3>
+              <p>Predlažemo praktična i razumljiva rješenja prilagođena vašim potrebama, bez nepotrebnih komplikacija.</p>
+            </div>
+          </div>
+
+          <div class="step" aria-labelledby="s4">
+            <div class="num">4</div>
+            <div>
+              <h3 id="s4">Podrška</h3>
+              <p>Ostanemo dostupni za dodatna pitanja i podršku pri provođenju odabranog rješenja.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq" aria-labelledby="faq-title">
+      <div class="container">
+        <h2 id="faq-title">Najčešća pitanja</h2>
+        <div class="faq-inner" style="margin-top:18px">
+          <div>
+            <div class="qa">
+              <button aria-expanded="false" aria-controls="a1" id="q1">Kako mogu stupiti u kontakt?</button>
+              <div id="a1" class="answer" hidden>Najbrže putem telefona: <a href="tel:+38572206024">+385 72 206 024</a> ili posjetom službene stranice.</div>
+            </div>
+
+            <div class="qa" style="margin-top:12px">
+              <button aria-expanded="false" aria-controls="a2" id="q2">Jesu li informacije javno dostupne?</button>
+              <div id="a2" class="answer" hidden>Sve opće informacije i uvjeti dostupni su na službenoj web stranici. Za specifične upite obratite se izravno kontaktu.</div>
+            </div>
+
+            <div class="qa" style="margin-top:12px">
+              <button aria-expanded="false" aria-controls="a3" id="q3">Što očekivati nakon inicijalnog kontakta?</button>
+              <div id="a3" class="answer" hidden>Nakon inicijalnog kontakta slijedi procjena potreba i prijedlog dostupnih opcija te usmjeravanje prema daljnjim koracima.</div>
+            </div>
+          </div>
+
+          <aside style="background:white;padding:18px;border-radius:12px;box-shadow:var(--shadow-2);border:1px solid rgba(11,18,24,0.04)">
+            <h3>Brzi kontakti</h3>
+            <p style="margin-bottom:8px">Telefon:</p>
+            <p class="phone" style="margin-bottom:12px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M22 16.92V20a2 2 0 0 1-2.18 2A19.86 19.86 0 0 1 3 5.18 2 2 0 0 1 5 3h3.09a2 2 0 0 1 2 1.72c.12 1.05.35 2.06.69 3.02a2 2 0 0 1-.45 2.11L9.7 11.7a16 16 0 0 0 6.6 6.6l1.89-1.89a2 2 0 0 1 2.11-.45c.96.34 1.97.57 3.02.69a2 2 0 0 1 1.72 2z" stroke="#0a5b5b" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg> <a href="tel:+38572206024" style="color:var(--neutral-800);text-decoration:none">+385 72 206 024</a></p>
+            <p style="margin-top:6px">Službena stranica:</p>
+            <p style="margin-bottom:0"><a href="https://www.otpbanka.hr/" target="_blank" rel="noopener">www.otpbanka.hr</a></p>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section id="kontakt" class="contact" aria-labelledby="kontakt-title">
+      <div class="contact-card">
+        <div class="contact-info">
+          <h2 id="kontakt-title">Kontaktirajte nas</h2>
+          <p>Za opće informacije i podršku obratite se putem telefona ili posjetite službenu stranicu. Detalje i specifične upite rado ćemo razmotriti tijekom razgovora.</p>
+          <div class="contact-cta">
+            <a class="btn btn-primary" href="tel:+38572206024" aria-label="Nazovite OTP banku">Nazovite +385 72 206 024</a>
+            <a class="btn btn-ghost" href="https://www.otpbanka.hr/" target="_blank" rel="noopener">Službena stranica</a>
+          </div>
+        </div>
+
+        <div style="min-width:220px;display:flex;flex-direction:column;align-items:flex-end;gap:8px">
+          <div style="background:linear-gradient(180deg,#ffffff,#fbfdfc);padding:12px;border-radius:10px;box-shadow:var(--shadow-2);border:1px solid rgba(11,18,24,0.04);width:100%;text-align:right">
+            <div style="font-weight:800">Telefonski kontakt</div>
+            <div style="color:var(--neutral-700);margin-top:6px"><a href="tel:+38572206024">+385 72 206 024</a></div>
+          </div>
+
+          <div style="text-align:right;font-size:0.9rem;color:var(--neutral-500);">Napomena: Podaci o tvrtki nisu provjereni i služe isključivo za kontakt.</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <div style="font-weight:800">OTP banka</div>
+        <div style="color:rgba(255,255,255,0.75);margin-top:6px">Telefon: <a href="tel:+38572206024" style="color:rgba(255,255,255,0.95);text-decoration:none">+385 72 206 024</a></div>
+      </div>
+
+      <div class="footer-links" role="navigation" aria-label="Podnožje">
+        <a href="#usluge">Usluge</a>
+        <a href="#kontakt">Kontakt</a>
+        <a href="https://www.otpbanka.hr/" target="_blank" rel="noopener">Službena stranica</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function(){
+      // Respect prefers-reduced-motion
+      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      // Mobile menu behaviour
+      const hamburger = document.getElementById('hamburger');
+      const mobileMenu = document.getElementById('mobile-menu');
+      const mobileClose = document.getElementById('mobile-close');
+
+      function openMenu(){
+        mobileMenu.classList.add('open');
+        mobileMenu.setAttribute('aria-hidden','false');
+        hamburger.setAttribute('aria-expanded','true');
+        // trap focus: focus first link
+        const firstLink = mobileMenu.querySelector('a');
+        if(firstLink) firstLink.focus();
+        document.body.style.overflow = 'hidden';
+      }
+      function closeMenu(){
+        mobileMenu.classList.remove('open');
+        mobileMenu.setAttribute('aria-hidden','true');
+        hamburger.setAttribute('aria-expanded','false');
+        hamburger.focus();
+        document.body.style.overflow = '';
+      }
+
+      hamburger.addEventListener('click', function(){
+        const expanded = this.getAttribute('aria-expanded') === 'true';
+        if(!expanded) openMenu(); else closeMenu();
+      });
+      mobileClose && mobileClose.addEventListener('click', closeMenu);
+      mobileMenu.addEventListener('click', function(e){
+        if(e.target === mobileMenu) closeMenu();
+      });
+
+      // keyboard shortcut to close menu (Escape)
+      document.addEventListener('keydown', function(e){
+        if(e.key === 'Escape' && mobileMenu.classList.contains('open')) closeMenu();
+      });
+
+      // FAQ toggles
+      const qButtons = document.querySelectorAll('.qa button');
+      qButtons.forEach(btn=>{
+        btn.addEventListener('click', function(){
+          const controls = this.getAttribute('aria-controls');
+          const panel = document.getElementById(controls);
+          const expanded = this.getAttribute('aria-expanded') === 'true';
+          if(expanded){
+            this.setAttribute('aria-expanded','false');
+            panel.hidden = true;
+          } else {
+            // close others
+            qButtons.forEach(b=>{
+              const c = b.getAttribute('aria-controls');
+              const p = document.getElementById(c);
+              b.setAttribute('aria-expanded','false');
+              if(p) p.hidden = true;
+            });
+            this.setAttribute('aria-expanded','true');
+            panel.hidden = false;
+            if(!reduce){
+              panel.scrollIntoView({behavior:'smooth', block:'nearest'});
+            }
+          }
+        });
+      });
+
+      // Ensure focus outlines visible when navigating with keyboard
+      function handleFirstTab(e) {
+        if(e.key === 'Tab') {
+          document.documentElement.classList.add('show-focus');
+          window.removeEventListener('keydown', handleFirstTab);
+        }
+      }
+      window.addEventListener('keydown', handleFirstTab);
+    })();
+  </script>
+</body>
+</html>
