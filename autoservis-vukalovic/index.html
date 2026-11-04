@@ -1,0 +1,578 @@
+ <!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Autoservis Vukalović — Servis i popravak vozila</title>
+  <meta name="description" content="Autoservis Vukalović – profesionalni servis i popravci vozila. Precizna dijagnostika, mehanički radovi i održavanje osobnih automobila. Nazovite: +385 42 320 634" />
+  <meta property="og:title" content="Autoservis Vukalović — Servis i popravak vozila" />
+  <meta property="og:description" content="Profesionalan servis i popravci osobnih vozila. Precizna dijagnostika, mehanički radovi i održavanje. Kontakt: +385 42 320 634" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Merriweather:wght@300;700&display=swap" rel="stylesheet" />
+  <style>
+    :root{
+      /* Boje */
+      --color-primary: #0f3b4a;       /* tamni petrol */
+      --color-secondary: #e7f3f6;     /* svijetli hladni ton */
+      --color-accent: #d18b2a;        /* topao karamel */
+      --neutral-900: #0b0b0c;
+      --neutral-700: #2f3336;
+      --neutral-500: #7d8589;
+      --neutral-200: #eef3f4;
+      --bg: #ffffff;
+      --glass: rgba(255,255,255,0.6);
+
+      /* Tipografija */
+      --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      --font-serif: "Merriweather", Georgia, serif;
+      --base-size: 16px;
+
+      /* Spacing */
+      --space-xs: 6px;
+      --space-sm: 12px;
+      --space-md: 20px;
+      --space-lg: 36px;
+      --space-xl: 64px;
+
+      /* Radius & shadows */
+      --radius-sm: 6px;
+      --radius-md: 12px;
+      --shadow-subtle: 0 6px 20px rgba(15,59,74,0.07);
+
+      /* Border */
+      --border-1: 1px solid rgba(11,11,12,0.06);
+
+      /* Transitions */
+      --transition-fast: 180ms;
+      --transition-medium: 320ms;
+    }
+
+    /* Fluid typography */
+    html { font-family: var(--font-sans); font-size: 16px; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; color:var(--neutral-700); background:var(--bg); }
+    h1 { font-family: var(--font-serif); margin:0; color:var(--neutral-900); line-height:1.02; font-weight:700;
+         font-size: clamp(1.8rem, 2.6vw + 1rem, 3.6rem); letter-spacing:-0.01em; }
+    h2 { font-family: var(--font-serif); margin:0 0 var(--space-sm) 0; color:var(--neutral-900); font-size: clamp(1.1rem, 1.6vw + .4rem, 1.6rem); }
+    p, li { font-size: clamp(.95rem, .9vw + .6rem, 1rem); color:var(--neutral-700); margin:0 0 var(--space-sm) 0; }
+    small { font-size: .85rem; color:var(--neutral-500); }
+
+    /* Layout */
+    .container { max-width:1200px; margin:0 auto; padding:0 var(--space-md); }
+    header { position:sticky; top:0; z-index:40; backdrop-filter: blur(6px); background:linear-gradient(180deg, rgba(255,255,255,0.7), rgba(255,255,255,0.5)); border-bottom:var(--border-1); }
+    .nav { display:flex; align-items:center; justify-content:space-between; gap:var(--space-md); padding:calc(var(--space-sm)) 0; }
+    .brand { display:flex; align-items:center; gap:12px; text-decoration:none; color:var(--neutral-900); }
+    .brand-mark { width:44px; height:44px; display:grid; place-items:center; background:linear-gradient(135deg,var(--color-primary), #0b5a66); border-radius:10px; box-shadow:var(--shadow-subtle); }
+    .brand-word { font-weight:700; letter-spacing:0.02em; font-size:1rem; display:flex; flex-direction:column; line-height:1; }
+    .brand-word span { font-family: var(--font-serif); font-weight:700; font-size:.98rem; color:var(--neutral-900); }
+
+    nav ul { display:flex; gap:18px; align-items:center; list-style:none; margin:0; padding:0; }
+    nav a { color:var(--neutral-700); text-decoration:none; font-weight:600; padding:8px 10px; border-radius:8px; transition:all var(--transition-fast); }
+    nav a:hover, nav a:focus { background:var(--color-secondary); color:var(--neutral-900); outline:none; }
+
+    .cta { display:inline-flex; align-items:center; gap:10px; padding:10px 14px; background:var(--color-accent); color:white; border-radius:10px; text-decoration:none; font-weight:700; box-shadow:0 6px 18px rgba(209,139,42,0.18); transition:transform var(--transition-medium), box-shadow var(--transition-medium); }
+    .cta:hover, .cta:focus { transform:translateY(-2px); box-shadow:0 12px 30px rgba(209,139,42,0.22); }
+
+    /* Mobile nav */
+    .menu-toggle { display:none; background:transparent; border:0; padding:8px; border-radius:8px; }
+    .menu-toggle:focus { outline:3px solid rgba(15,59,74,0.12); }
+
+    /* Hero */
+    .hero { display:grid; grid-template-columns: 1fr 420px; gap:48px; align-items:center; padding: calc(var(--space-xl)) 0; }
+    .hero-card { padding:28px; border-radius:var(--radius-md); background:linear-gradient(180deg, var(--color-secondary), rgba(234,244,246,0.75)); box-shadow:var(--shadow-subtle); border:var(--border-1); }
+    .hero-sub { color:var(--neutral-500); font-weight:600; letter-spacing:0.02em; }
+    .hero-lead { margin-top:18px; margin-bottom:22px; color:var(--neutral-900); }
+    .hero-visual { display:flex; align-items:center; justify-content:center; position:relative; border-radius:var(--radius-md); padding:22px; background: linear-gradient(180deg, rgba(11,11,12,0.02), rgba(11,11,12,0.01)); }
+    .hero-visual svg { width:100%; height:auto; max-width:360px; display:block; }
+
+    .kpis { display:flex; gap:16px; margin-top:20px; }
+    .kpi { background:white; padding:10px 12px; border-radius:10px; box-shadow:var(--shadow-subtle); text-align:center; min-width:110px; }
+    .kpi b { display:block; color:var(--neutral-900); font-size:1.05rem; }
+
+    /* Services */
+    section { padding: calc(var(--space-lg)) 0; }
+    .grid { display:grid; gap:20px; grid-template-columns: repeat(3, 1fr); }
+    .service { background:linear-gradient(180deg,#fff, var(--neutral-200)); padding:20px; border-radius:12px; border:var(--border-1); transition:transform var(--transition-medium), box-shadow var(--transition-medium); display:flex; gap:14px; align-items:flex-start; }
+    .service:hover, .service:focus-within { transform:translateY(-6px); box-shadow:0 18px 40px rgba(11,11,12,0.06); }
+    .icon-box { width:56px; height:56px; border-radius:10px; background:linear-gradient(180deg,var(--color-primary), #0b5a66); display:grid; place-items:center; color:white; flex-shrink:0; }
+    .service h3 { margin:0; font-size:1.05rem; color:var(--neutral-900); font-family:var(--font-serif); }
+    .service p { margin:8px 0 0 0; color:var(--neutral-700); font-size:.97rem; }
+
+    /* About & advantages */
+    .split { display:grid; grid-template-columns: 1fr 1fr; gap:34px; align-items:center; }
+    .card-soft { padding:22px; border-radius:12px; background:var(--neutral-200); border:var(--border-1); }
+
+    .list-advantages { display:grid; gap:12px; }
+    .adv { display:flex; gap:12px; align-items:flex-start; background:white; padding:12px; border-radius:10px; border:var(--border-1); }
+
+    /* How it works */
+    .steps { display:flex; gap:14px; align-items:stretch; }
+    .step { flex:1; padding:18px; border-radius:12px; background:linear-gradient(180deg,#fff, #fbfdff); border:var(--border-1); text-align:center; }
+    .step strong { display:block; margin-bottom:8px; color:var(--neutral-900); }
+
+    /* Contact */
+    .contact-grid { display:grid; grid-template-columns: 1fr 360px; gap:24px; align-items:start; }
+    .phone-card { display:flex; flex-direction:column; gap:12px; padding:20px; border-radius:12px; background: linear-gradient(180deg,#fff, var(--neutral-200)); border:var(--border-1); box-shadow:var(--shadow-subtle); }
+    .phone-large { font-family:var(--font-serif); font-weight:700; font-size:1.2rem; color:var(--neutral-900); }
+    .links { display:flex; gap:10px; flex-wrap:wrap; }
+
+    /* Footer */
+    footer { padding:28px 0; border-top:var(--border-1); }
+    .footer-inner { display:flex; justify-content:space-between; gap:20px; align-items:center; flex-wrap:wrap; }
+    .footer-nav { display:flex; gap:12px; flex-wrap:wrap; }
+
+    /* Responsiveness */
+    @media (max-width:1100px){
+      .hero { grid-template-columns: 1fr; text-align:left; }
+      .hero-visual { order: -1; margin-bottom:12px; }
+      .grid { grid-template-columns: repeat(2, 1fr); }
+      .container { padding:0 var(--space-sm); }
+      .split { grid-template-columns: 1fr; }
+      .contact-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width:650px){
+      nav ul { display:none; }
+      .menu-toggle { display:inline-flex; }
+      .grid { grid-template-columns: 1fr; }
+      .kpis { flex-direction:column; gap:12px; }
+    }
+
+    /* Mobile menu panel */
+    .mobile-panel { position:fixed; inset:0; background:rgba(11,11,12,0.5); display:none; align-items:flex-start; justify-content:flex-end; z-index:60; }
+    .mobile-panel.open { display:flex; }
+    .mobile-sheet { width:280px; background:var(--bg); height:100%; padding:26px; box-shadow: -18px 0 40px rgba(11,11,12,0.18); display:flex; flex-direction:column; gap:20px; }
+    .mobile-sheet nav a { display:block; padding:12px 8px; border-radius:8px; }
+
+    /* small interactions & accessibility */
+    a:focus { outline:3px solid rgba(15,59,74,0.12); outline-offset:3px; }
+    .reveal { opacity:0; transform:translateY(8px); transition:opacity 420ms var(--transition-medium), transform 420ms var(--transition-medium); }
+    .reveal.is-visible { opacity:1; transform:none; }
+    @media (prefers-reduced-motion: reduce){
+      .reveal { transition:none; transform:none; opacity:1; }
+      * { transition:none !important; animation:none !important; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav" role="navigation" aria-label="Glavna navigacija">
+      <a class="brand" href="#" aria-label="Autoservis Vukalović - početna">
+        <div class="brand-mark" aria-hidden="true">
+          <!-- simple gear + car monogram -->
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
+            <rect x="2" y="8" width="20" height="8" rx="2" fill="rgba(255,255,255,0.12)"/>
+            <path d="M4 10 L6 7 H18 L20 10" stroke="white" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="7.5" cy="16.5" r="1.6" fill="white"/>
+            <circle cx="16.5" cy="16.5" r="1.6" fill="white"/>
+          </svg>
+        </div>
+        <div class="brand-word">
+          <span>Autoservis Vukalović</span>
+          <small style="color:var(--neutral-500)">Servis vozila</small>
+        </div>
+      </a>
+
+      <nav aria-label="Sekcije web stranice">
+        <ul>
+          <li><a href="#usluge">Usluge</a></li>
+          <li><a href="#o-nama">O nama</a></li>
+          <li><a href="#prednosti">Prednosti</a></li>
+          <li><a href="#kontakt">Kontakt</a></li>
+        </ul>
+      </nav>
+
+      <div style="display:flex; gap:12px; align-items:center;">
+        <a class="cta" href="tel:+38542320634" aria-label="Nazovite Autoservis Vukalović">
+          <!-- phone icon -->
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.86 19.86 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.86 19.86 0 0 1 3.08 4.18 2 2 0 0 1 5 2h3a2 2 0 0 1 2 1.72c.12 1.04.37 2.05.72 3.02a2 2 0 0 1-.45 2.11L9.91 10.09a16 16 0 0 0 6 6l1.24-1.24a2 2 0 0 1 2.11-.45c.97.35 1.98.6 3.02.72A2 2 0 0 1 22 16.92z" fill="white"/>
+          </svg>
+          Nazovite
+        </a>
+
+        <button class="menu-toggle" id="menuToggle" aria-controls="mobilePanel" aria-expanded="false" aria-label="Otvorite navigacijski izbornik">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4 7h16M4 12h16M4 17h16" stroke="var(--neutral-700)" stroke-width="1.6" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="mobile-panel" id="mobilePanel" aria-hidden="true">
+      <div class="mobile-sheet" role="dialog" aria-modal="true" aria-label="Mobilni izbornik">
+        <div style="display:flex; align-items:center; justify-content:space-between;">
+          <div style="display:flex; gap:10px; align-items:center;">
+            <div class="brand-mark" aria-hidden="true" style="width:40px;height:40px;">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+                <rect x="2" y="8" width="20" height="8" rx="2" fill="rgba(255,255,255,0.12)"/>
+                <path d="M4 10 L6 7 H18 L20 10" stroke="white" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div>
+              <div style="font-weight:700;">Autoservis Vukalović</div>
+              <small style="color:var(--neutral-500)">Servis vozila</small>
+            </div>
+          </div>
+          <button id="closeMobile" aria-label="Zatvori izbornik" style="background:transparent;border:0;padding:8px;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+              <path d="M18 6L6 18M6 6l12 12" stroke="var(--neutral-700)" stroke-width="1.6" stroke-linecap="round"/>
+            </svg>
+          </button>
+        </div>
+
+        <nav>
+          <a href="#usluge">Usluge</a>
+          <a href="#o-nama">O nama</a>
+          <a href="#prednosti">Prednosti</a>
+          <a href="#kontakt">Kontakt</a>
+        </nav>
+
+        <div style="margin-top:auto;">
+          <a class="cta" href="tel:+38542320634" style="width:100%;justify-content:center;">Poziv</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="container hero" aria-labelledby="hero-heading">
+      <div class="hero-card reveal" role="region" aria-label="Glavni prikaz usluga">
+        <div class="hero-sub">Autoservis i popravak vozila</div>
+        <h1 id="hero-heading" class="hero-lead">Precizna dijagnostika i stručni mehanički radovi za vaš automobil</h1>
+        <p>Riješite kvar jasno i efikasno — fokusirani smo na sigurnost vozila, transparentnu komunikaciju i kvalitetan rad koji možete provjeriti. Kontaktirajte nas telefonom za brzi dogovor termina.</p>
+
+        <div style="display:flex; gap:12px; margin-top:20px; flex-wrap:wrap;">
+          <a class="cta" href="tel:+38542320634" aria-label="Nazovite autoservis">Nazovite sada</a>
+          <a href="#usluge" style="display:inline-flex; align-items:center; gap:8px; padding:10px 14px; border-radius:10px; background:transparent; border:1px solid rgba(15,59,74,0.06); text-decoration:none; color:var(--neutral-700); font-weight:700;">Pogledajte usluge</a>
+        </div>
+
+        <div class="kpis" aria-hidden="true">
+          <div class="kpi">
+            <small>Brza procjena</small>
+            <b>Jasna ponuda</b>
+          </div>
+          <div class="kpi">
+            <small>Precizna dijagnostika</small>
+            <b>Moderni uređaji</b>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual reveal" aria-hidden="true">
+        <!-- Decorative scalable SVG composition representing automotive precision -->
+        <svg viewBox="0 0 520 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="svgTitle">
+          <title id="svgTitle">Ilustracija: servis automobila</title>
+          <defs>
+            <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#0f3b4a" stop-opacity="0.95"/>
+              <stop offset="1" stop-color="#0b5a66" stop-opacity="0.95"/>
+            </linearGradient>
+          </defs>
+
+          <!-- grid / architectural shape -->
+          <g fill="none" stroke="rgba(11,11,12,0.06)" stroke-width="1.2">
+            <path d="M10 260 L510 260" />
+            <path d="M10 220 L510 220" />
+            <path d="M10 180 L510 180" />
+            <path d="M10 140 L510 140" />
+          </g>
+
+          <!-- car silhouette -->
+          <g transform="translate(40,40)" fill="none" stroke="url(#g1)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M40 120 L70 90 L160 90 L200 60 L340 60 L380 90 L440 90 L470 120" />
+            <path d="M60 120 Q80 150 120 150 H360 Q400 150 420 120" />
+            <circle cx="140" cy="160" r="18" stroke-width="4" fill="#f5f7f8"/>
+            <circle cx="360" cy="160" r="18" stroke-width="4" fill="#f5f7f8"/>
+          </g>
+
+          <!-- precision target mark -->
+          <g transform="translate(360,18)">
+            <circle cx="0" cy="0" r="22" fill="#fff" opacity="0.04"/>
+            <circle cx="0" cy="0" r="12" fill="#d18b2a" opacity="0.12"/>
+            <path d="M0 -10 L0 10 M -10 0 L10 0" stroke="#d18b2a" stroke-width="1.5" stroke-linecap="round"/>
+          </g>
+        </svg>
+      </div>
+    </section>
+
+    <section id="usluge" class="container reveal" aria-labelledby="usluge-heading">
+      <h2 id="usluge-heading">Usluge</h2>
+      <p>Radimo na osobnim vozilima — fokusiramo se na jasnu dijagnostiku, stručno izvođenje radova i transparentnu komunikaciju o opsegu potrebnih popravaka.</p>
+
+      <div class="grid" style="margin-top:18px;">
+        <article class="service" tabindex="0" aria-labelledby="s1">
+          <div class="icon-box" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M3 10h4l2-3h6l2 3h4" stroke="white" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M7 15c0 1.5-.5 2-2 2s-2-.5-2-2" stroke="white" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M19 15c0 1.5.5 2 2 2s2-.5 2-2" stroke="white" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div>
+            <h3 id="s1">Redovni servis i održavanje</h3>
+            <p>Servisna i redovna održavanja: provjera tekućina, elemenata kočnica, filtera i osnovnih sigurnosnih komponenti radi pouzdanog rada vozila.</p>
+          </div>
+        </article>
+
+        <article class="service" tabindex="0" aria-labelledby="s2">
+          <div class="icon-box" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 2v4" stroke="white" stroke-width="1.4" stroke-linecap="round"/>
+              <path d="M5 9h14" stroke="white" stroke-width="1.4" stroke-linecap="round"/>
+              <path d="M7 21h10" stroke="white" stroke-width="1.4" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div>
+            <h3 id="s2">Mehanički popravci</h3>
+            <p>Popravci motora, mjenjača i drugih ključnih mehaničkih sustava — radovi izvedeni s pažnjom prema detaljima i sigurnosnim standardima.</p>
+          </div>
+        </article>
+
+        <article class="service" tabindex="0" aria-labelledby="s3">
+          <div class="icon-box" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4 7h16M7 7v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V7" stroke="white" stroke-width="1.4" stroke-linecap="round"/>
+              <path d="M8 12h8" stroke="white" stroke-width="1.4" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div>
+            <h3 id="s3">Dijagnostika i elektronika</h3>
+            <p>Elektronička dijagnostika i otklanjanje kvarova upravljačkih sustava vozila pomoću modernih uređaja i metoda analize.</p>
+          </div>
+        </article>
+
+        <article class="service" tabindex="0" aria-labelledby="s4">
+          <div class="icon-box" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 3v2M4.2 6.5l1.4 1.4M1 12h2M4.3 17.5l1.4-1.4M12 19v2M19.8 17.5l-1.4-1.4M21 12h-2M19.8 6.5l-1.4 1.4" stroke="white" stroke-width="1.2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div>
+            <h3 id="s4">Kočnice i ogibljenje</h3>
+            <p>Pregled i popravak sustava kočenja te ogibljenja radi sigurnog i udobnog upravljanja vozilom.</p>
+          </div>
+        </article>
+
+        <article class="service" tabindex="0" aria-labelledby="s5">
+          <div class="icon-box" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M3 12h18M12 3v18" stroke="white" stroke-width="1.6" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div>
+            <h3 id="s5">Pregled prije kupnje / tehnički pregled priprema</h3>
+            <p>Temeljita provjera vozila i savjet pri pripremi za tehnički ili predkupovni pregled.</p>
+          </div>
+        </article>
+
+        <article class="service" tabindex="0" aria-labelledby="s6">
+          <div class="icon-box" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M5 12h14M12 5v14" stroke="white" stroke-width="1.4" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div>
+            <h3 id="s6">Prilagođeni radovi prema potrebama</h3>
+            <p>Rješavamo specifične potrebe vozila uz prethodnu procjenu i jasnu komunikaciju o opsegu radova.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="o-nama" class="container reveal" aria-labelledby="onas-heading">
+      <h2 id="onas-heading">O nama</h2>
+      <div class="split" style="margin-top:18px;">
+        <div>
+          <p>Autoservis Vukalović pruža radove na osobnim vozilima uz predan pristup detaljima. Radimo s ciljem što jasnije komunikacije o potrebnim intervencijama i transparentnog pristupa u radu.</p>
+          <div style="margin-top:18px;" class="card-soft">
+            <h3 style="margin-bottom:6px;">Naš pristup</h3>
+            <p>Svaki kvar pristupamo sustavno: dijagnostika, pregled, savjet i izvedba radova. Prioritet su sigurnost vozila te jasno objašnjenje potrebnih zahvata vlasniku vozila.</p>
+          </div>
+        </div>
+
+        <aside class="card-soft" aria-label="Vizualna prezentacija">
+          <strong>Profesionalna oprema</strong>
+          <p style="margin-top:8px;">Koristimo moderne alate za dijagnostiku i rad u radionici kako bi radovi bili izvedeni precizno i učinkovito.</p>
+          <div style="margin-top:12px; display:flex; gap:10px;">
+            <svg width="44" height="44" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 12h18" stroke="#0f3b4a" stroke-width="1.6" stroke-linecap="round"/></svg>
+            <svg width="44" height="44" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2v20" stroke="#0f3b4a" stroke-width="1.6" stroke-linecap="round"/></svg>
+            <svg width="44" height="44" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 6h16v12H4z" stroke="#0f3b4a" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="prednosti" class="container reveal" aria-labelledby="prednosti-heading">
+      <h2 id="prednosti-heading">Prednosti suradnje</h2>
+      <p>Kratko i jasno — što možete očekivati kad nas odaberete za servis vašeg vozila.</p>
+
+      <div class="list-advantages" style="margin-top:14px;">
+        <div class="adv" tabindex="0">
+          <div style="width:44px;height:44px;border-radius:10px;background:var(--color-accent);display:grid;place-items:center;color:white;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2v6" stroke="white" stroke-width="1.6" stroke-linecap="round"/><path d="M6 12h12" stroke="white" stroke-width="1.6" stroke-linecap="round"/></svg>
+          </div>
+          <div>
+            <strong>Jasna komunikacija</strong>
+            <p style="margin-top:6px;">Opis stanja vozila i predloženi radovi objašnjeni su razumljivo i bez nepotrebnih stručnih izraza.</p>
+          </div>
+        </div>
+
+        <div class="adv" tabindex="0">
+          <div style="width:44px;height:44px;border-radius:10px;background:var(--color-primary);display:grid;place-items:center;color:white;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 7h18M3 12h18M3 17h18" stroke="white" stroke-width="1.4" stroke-linecap="round"/></svg>
+          </div>
+          <div>
+            <strong>Precizna dijagnostika</strong>
+            <p style="margin-top:6px;">Upotrebljavamo odgovarajuće dijagnostičke alate kao temelj za donošenje odluka o popravcima.</p>
+          </div>
+        </div>
+
+        <div class="adv" tabindex="0">
+          <div style="width:44px;height:44px;border-radius:10px;background:#2ea8a5;display:grid;place-items:center;color:white;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v18" stroke="white" stroke-width="1.6" stroke-linecap="round"/></svg>
+          </div>
+          <div>
+            <strong>Fokus na sigurnost</strong>
+            <p style="margin-top:6px;">Sve intervencije radimo s ciljem očuvanja sigurnosti i pouzdanosti vozila.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="container reveal" aria-labelledby="how-heading" style="padding-bottom:18px;">
+      <h2 id="how-heading">Kako izgleda suradnja</h2>
+      <p>Jednostavne faze rada koje prati jasna komunikacija — od prve procjene do isporuke vozila.</p>
+
+      <div class="steps" style="margin-top:18px;">
+        <div class="step" tabindex="0">
+          <strong>1. Kontakt</strong>
+          <small>Dogovor telefonom za procjenu i termin.</small>
+        </div>
+        <div class="step" tabindex="0">
+          <strong>2. Dijagnostika</strong>
+          <small>Detaljan pregled i prijedlog radova bez nejasnih troškova.</small>
+        </div>
+        <div class="step" tabindex="0">
+          <strong>3. Radovi</strong>
+          <small>Izvođenje radova uz transparentnu evidenciju i savjet.</small>
+        </div>
+        <div class="step" tabindex="0">
+          <strong>4. Predaja</strong>
+          <small>Isporuka vozila uz objašnjenje izvršenih zahvata.</small>
+        </div>
+      </div>
+    </section>
+
+    <section id="kontakt" class="container reveal" aria-labelledby="kontakt-heading" style="padding-bottom:60px;">
+      <h2 id="kontakt-heading">Kontakt</h2>
+      <p>Ako želite brz dogovor termina ili imate upit, nazovite nas ili posjetite našu profil stranicu.</p>
+
+      <div class="contact-grid" style="margin-top:18px;">
+        <div class="phone-card" role="region" aria-label="Kontakt informacije">
+          <div>
+            <small>Telefon</small>
+            <div class="phone-large"><a href="tel:+38542320634" style="text-decoration:none;color:var(--neutral-900);">+385 42 320 634</a></div>
+          </div>
+
+          <div>
+            <small>Web profil</small>
+            <div><a href="https://www.autoyas.com/HR/Varazdin/178691482324011/Autoservis-Vukalovi%C4%87" target="_blank" rel="noopener noreferrer" style="color:var(--color-primary);text-decoration:underline;">Profil na autoyas.com</a></div>
+          </div>
+
+          <div style="margin-top:10px;">
+            <small>Dogovor termina</small>
+            <div style="margin-top:8px;">
+              <a class="cta" href="tel:+38542320634" aria-label="Nazovite za dogovor termina">Nazovite / Zatražite termin</a>
+            </div>
+          </div>
+
+          <div style="margin-top:10px;">
+            <small>Lokacija</small>
+            <p style="margin-top:6px;">Točna adresa nije dostupna na ovom profilu. Nazovite za informacije o lokaciji i dolasku u radionicu.</p>
+          </div>
+        </div>
+
+        <aside class="card-soft" aria-label="Napomena o komunikaciji">
+          <h3 style="margin-bottom:8px;">Način komunikacije</h3>
+          <p>Preferiramo telefonski kontakt za brzi dogovor termina i jasnu procjenu potreba. Nakon dogovora na licu mjesta objašnjavamo preporučene radove i procijenjeni opseg.</p>
+          <div style="margin-top:12px;">
+            <small>Rad s podacima: podaci objavljeni na ovoj stranici su preuzeti iz poslovnog profila i nisu dodatno potvrđeni. Za točne podatke nazovite broj iz kontakta.</small>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <div>
+        <div style="font-weight:700;">Autoservis Vukalović</div>
+        <small style="color:var(--neutral-500);">Servis i popravak vozila</small>
+      </div>
+
+      <nav class="footer-nav" aria-label="Podnožje navigacija">
+        <a href="#usluge">Usluge</a>
+        <a href="#o-nama">O nama</a>
+        <a href="#kontakt">Kontakt</a>
+        <a href="https://www.autoyas.com/HR/Varazdin/178691482324011/Autoservis-Vukalovi%C4%87" target="_blank" rel="noopener noreferrer">Profil</a>
+      </nav>
+
+      <div>
+        <small><a href="tel:+38542320634" style="text-decoration:none;color:var(--neutral-700);">+385 42 320 634</a></small>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggling with accessibility
+    (function(){
+      const toggle = document.getElementById('menuToggle');
+      const panel = document.getElementById('mobilePanel');
+      const closeBtn = document.getElementById('closeMobile');
+
+      function openMenu(){
+        panel.classList.add('open');
+        panel.setAttribute('aria-hidden','false');
+        toggle.setAttribute('aria-expanded','true');
+        // focus trap start
+        closeBtn.focus();
+      }
+      function closeMenu(){
+        panel.classList.remove('open');
+        panel.setAttribute('aria-hidden','true');
+        toggle.setAttribute('aria-expanded','false');
+        toggle.focus();
+      }
+
+      toggle.addEventListener('click', function(){ 
+        const open = panel.classList.contains('open');
+        if(open) closeMenu(); else openMenu();
+      });
+      closeBtn.addEventListener('click', closeMenu);
+      panel.addEventListener('click', function(e){
+        if(e.target === panel) closeMenu();
+      });
+      document.addEventListener('keydown', function(e){
+        if(e.key === 'Escape' && panel.classList.contains('open')) closeMenu();
+      });
+
+      // Smooth reveal on scroll (lightweight)
+      const reveals = document.querySelectorAll('.reveal');
+      const observer = new IntersectionObserver((entries)=>{
+        entries.forEach(entry=>{
+          if(entry.isIntersecting){
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {threshold: 0.08});
+
+      reveals.forEach(r=>observer.observe(r));
+
+      // Ensure nav links close mobile menu on click
+      document.querySelectorAll('.mobile-sheet nav a').forEach(a=>{
+        a.addEventListener('click', closeMenu);
+      });
+    })();
+  </script>
+</body>
+</html>
