@@ -1,0 +1,604 @@
+ <!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Caffe Bar High Life — caffe bar i catering | Premium iskustvo</title>
+  <meta name="description" content="Caffe Bar High Life — elegantan caffe bar i catering usluge. Svježe kave, pažljivo pripremljeni napici i profesionalni pristup event keteringu. Kontaktirajte nas putem obrasca." />
+  <meta property="og:title" content="Caffe Bar High Life — caffe bar i catering" />
+  <meta property="og:description" content="Elegantno mjesto za kavu i piće te podrška pri organizaciji keteringa i posluživanja na događanjima." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      /* Boje */
+      --color-primary:#2b2b2b;           /* tamna baza - elegantna */
+      --color-secondary:#caa15a;         /* toplica, premium zlatno-bež */
+      --color-accent:#d96542;            /* naglasak - topla koraljna */
+      --muted-1:#f7f5f2;                 /* svijetla pozadina */
+      --muted-2:#efebe6;                 /* sekundarna pozadina */
+      --text:#111111;
+      --glass: rgba(255,255,255,0.06);
+
+      /* Tipografija */
+      --font-heading: "Playfair Display", Georgia, serif;
+      --font-body: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+      /* Spacing */
+      --space-xs:6px;
+      --space-sm:12px;
+      --space-md:20px;
+      --space-lg:36px;
+      --space-xl:64px;
+
+      /* Border radius */
+      --radius-sm:8px;
+      --radius-md:14px;
+      --radius-lg:20px;
+
+      /* Shadow */
+      --shadow-soft: 0 6px 20px rgba(17,17,17,0.07);
+      --shadow-card: 0 10px 30px rgba(17,17,17,0.08);
+
+      /* Breakpoints */
+      --bp-tablet: 768px;
+      --bp-desktop: 1280px;
+    }
+
+    /* Reset & base */
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:var(--font-body);
+      color:var(--text);
+      background:linear-gradient(180deg,var(--muted-1) 0%, #fff 40%);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+      font-size:clamp(14px,1.6vw,16px);
+      -webkit-touch-callout:none;
+    }
+    a{color:inherit;text-decoration:none}
+    img,svg{max-width:100%;height:auto;display:block}
+
+    /* Container */
+    .wrap{max-width:1200px;margin:0 auto;padding:0 20px}
+
+    /* NAV */
+    header{
+      position:sticky;top:16px;z-index:60;
+      display:flex;align-items:center;justify-content:center;
+      pointer-events:none;
+    }
+    .nav-inner{
+      width:100%;max-width:1200px;background:rgba(255,255,255,0.6);
+      backdrop-filter:blur(6px);
+      border-radius:14px;padding:10px 18px;
+      display:flex;align-items:center;gap:18px;box-shadow:var(--shadow-soft);
+      pointer-events:auto;
+    }
+    .brand{
+      display:flex;align-items:center;gap:12px;
+      margin-right:auto;
+    }
+    .logo-mark{
+      width:56px;height:56px;border-radius:12px;
+      background:linear-gradient(135deg,var(--color-secondary),#e6b86d);
+      display:flex;align-items:center;justify-content:center;
+      box-shadow:var(--shadow-soft);
+      flex-shrink:0;
+    }
+    .logo-mark svg{width:30px;height:30px;display:block}
+    .wordmark{
+      display:flex;flex-direction:column;line-height:1;
+    }
+    .wordmark .name{
+      font-family:var(--font-heading);font-weight:700;font-size:18px;color:var(--color-primary);
+      letter-spacing:0.6px;
+    }
+    .wordmark .tag{
+      font-size:12px;color:#726d66;margin-top:2px;
+    }
+
+    nav ul{list-style:none;margin:0;padding:0;display:flex;gap:14px;align-items:center}
+    nav a{padding:8px 10px;border-radius:10px;color:var(--color-primary);font-weight:600}
+    nav a:focus{outline:3px solid rgba(202,161,90,0.16);outline-offset:3px}
+
+    .cta-primary{
+      background:linear-gradient(90deg,var(--color-secondary),#e0b56c);
+      color:white;padding:10px 16px;border-radius:12px;font-weight:700;
+      box-shadow:0 8px 26px rgba(202,161,90,0.14);
+      transition:transform .18s ease, box-shadow .18s ease;
+    }
+    .cta-primary:hover{transform:translateY(-3px);box-shadow:0 16px 40px rgba(202,161,90,0.18)}
+    .cta-ghost{padding:8px 12px;border-radius:10px;color:var(--color-primary);background:transparent}
+
+    /* Hamburger for mobile */
+    .hamburger{
+      display:none;background:transparent;border:0;padding:8px;border-radius:10px;
+    }
+    .hamburger svg{width:24px;height:24px}
+    .nav-right{display:flex;gap:8px;align-items:center}
+
+    /* HERO */
+    .hero{
+      margin:48px auto 24px;
+      max-width:1200px;
+      display:grid;grid-template-columns:1fr 460px;gap:36px;align-items:center;padding:36px;border-radius:20px;
+      background:linear-gradient(180deg, rgba(255,255,255,0.9), rgba(249,247,243,0.95));
+      box-shadow:var(--shadow-card);
+    }
+    .hero-left{padding:10px 8px}
+    .kicker{
+      display:inline-block;padding:6px 10px;border-radius:999px;background:var(--muted-2);
+      color:#6b645d;font-weight:700;font-size:13px;margin-bottom:14px;
+    }
+    h1{
+      font-family:var(--font-heading);font-weight:700;margin:0 0 14px;
+      font-size:clamp(28px,3.6vw,44px);line-height:1.02;color:var(--color-primary);
+    }
+    .lead{color:#4e4a46;font-size:clamp(15px,1.8vw,17px);margin-bottom:20px;max-width:62ch}
+    .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-top:10px}
+    .meta{
+      margin-top:18px;color:#6d675f;font-size:14px;display:flex;gap:14px;align-items:center;flex-wrap:wrap;
+    }
+
+    /* Visual card on right */
+    .hero-right{
+      position:relative;padding:20px;border-radius:14px;overflow:hidden;background:
+      linear-gradient(180deg, rgba(43,43,43,0.03), rgba(217,193,167,0.02));
+      min-height:320px;display:flex;align-items:center;justify-content:center;
+    }
+    .visual-card{
+      width:100%;height:100%;border-radius:12px;padding:18px;background:linear-gradient(135deg,#fff, #fbfaf8);
+      display:grid;grid-template-rows:auto 1fr auto;gap:12px;box-shadow:var(--shadow-soft);
+    }
+    .visual-header{display:flex;justify-content:space-between;align-items:center}
+    .visual-title{font-weight:700;color:var(--color-primary);font-family:var(--font-heading)}
+    .visual-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+    .pill{
+      background:linear-gradient(90deg, rgba(217,193,167,0.18), rgba(217,193,167,0.06));
+      padding:10px;border-radius:10px;display:flex;gap:10px;align-items:center;
+    }
+    .pill svg{width:36px;height:36px;flex-shrink:0}
+    .visual-cta{display:flex;gap:10px;align-items:center;justify-content:flex-end;margin-top:6px}
+
+    /* USLUGE */
+    .section{padding:48px 0}
+    .section-head{display:flex;align-items:end;justify-content:space-between;gap:12px;margin-bottom:18px}
+    .section-head h2{margin:0;font-family:var(--font-heading);font-size:20px}
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .card{
+      background:white;border-radius:14px;padding:18px;box-shadow:var(--shadow-soft);
+      transition:transform .18s ease, box-shadow .18s ease;border:1px solid rgba(17,17,17,0.03);
+    }
+    .card:hover{transform:translateY(-8px);box-shadow:0 20px 50px rgba(17,17,17,0.08)}
+    .card .icon{width:56px;height:56px;border-radius:10px;background:linear-gradient(180deg,var(--muted-2),#fff);display:flex;align-items:center;justify-content:center;margin-bottom:14px}
+    .card h3{margin:0 0 8px;font-size:16px;color:var(--color-primary);font-weight:700}
+    .card p{margin:0;color:#6b645d;font-size:14px}
+
+    /* O NAMA */
+    .about{
+      display:grid;grid-template-columns:1fr 380px;gap:28px;align-items:start;
+    }
+    .about .text p{color:#5f5952}
+    .about .visual{
+      background:linear-gradient(135deg, rgba(217,193,167,0.08), rgba(217,193,167,0.03));
+      border-radius:16px;padding:18px;box-shadow:var(--shadow-soft)
+    }
+
+    /* PRISTUP */
+    .grid-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+    .step{background:white;padding:14px;border-radius:12px;border:1px solid rgba(17,17,17,0.03);text-align:center}
+    .step .num{width:44px;height:44px;border-radius:10px;background:var(--muted-2);display:inline-flex;align-items:center;justify-content:center;font-weight:700;margin-bottom:8px}
+
+    /* CONTACT */
+    .contact{
+      display:grid;grid-template-columns:1fr 380px;gap:28px;align-items:start;padding-bottom:60px;
+    }
+    .contact form{background:white;padding:18px;border-radius:12px;box-shadow:var(--shadow-soft)}
+    .field{display:flex;flex-direction:column;margin-bottom:12px}
+    label{font-size:13px;margin-bottom:6px;color:#49443f}
+    input[type="text"], input[type="email"], textarea{
+      padding:12px;border-radius:10px;border:1px solid rgba(17,17,17,0.06);font-size:15px;
+      background:transparent;color:var(--color-primary)
+    }
+    textarea{min-height:120px;resize:vertical}
+    .form-actions{display:flex;gap:12px;align-items:center;margin-top:8px}
+    .btn{padding:10px 14px;border-radius:10px;font-weight:700;border:0;cursor:pointer}
+    .btn-primary{background:var(--color-primary);color:white}
+    .btn-outline{background:transparent;border:1px solid rgba(17,17,17,0.06);color:var(--color-primary)}
+
+    /* FOOTER */
+    footer{padding:28px 0;border-top:1px solid rgba(17,17,17,0.04);margin-top:20px}
+    .footer-inner{display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap}
+    .small{color:#6b655f;font-size:14px}
+
+    /* Responsive */
+    @media (max-width:1200px){
+      .hero{grid-template-columns:1fr 360px}
+      .cards{grid-template-columns:repeat(2,1fr)}
+      .grid-steps{grid-template-columns:repeat(2,1fr)}
+    }
+    @media (max-width:768px){
+      header{top:12px}
+      .nav-inner{padding:8px 12px}
+      nav ul{display:none}
+      .hamburger{display:inline-flex}
+      .hero{grid-template-columns:1fr;padding:20px;margin:28px 12px;border-radius:16px}
+      .hero-right{order:2;min-height:220px}
+      .hero-left{order:1}
+      .about{grid-template-columns:1fr}
+      .contact{grid-template-columns:1fr}
+      .cards{grid-template-columns:1fr}
+      .grid-steps{grid-template-columns:1fr}
+      .logo-mark{width:44px;height:44px}
+      .wordmark .name{font-size:16px}
+    }
+
+    /* Focus visible */
+    :focus{outline:3px solid rgba(217,193,167,0.14);outline-offset:3px}
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce){
+      *{transition:none!important;animation:none!important}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav-inner wrap" role="navigation" aria-label="Glavna navigacija">
+      <div class="brand">
+        <div class="logo-mark" aria-hidden="true">
+          <!-- stilizirana šoljica / šipka -->
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+            <rect x="2" y="5" width="14" height="12" rx="2" fill="white" opacity="0.95"/>
+            <path d="M18 8c0 2.5-2 4.5-4.5 4.5" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M7 9c0-1.5 1.2-2.7 2.7-2.7" stroke="#b6773f" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="wordmark">
+          <div class="name">Caffe Bar High Life</div>
+          <div class="tag">caffe bar • catering</div>
+        </div>
+      </div>
+
+      <nav>
+        <ul id="primary-nav">
+          <li><a href="#usluge">Ponuda</a></li>
+          <li><a href="#o-nama">O nama</a></li>
+          <li><a href="#pristup">Pristup</a></li>
+          <li><a href="#kontakt">Kontakt</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-right">
+        <a class="cta-primary" href="#kontakt">Rezervirajte / Kontakt</a>
+        <button class="hamburger" id="menuToggle" aria-controls="mobileMenu" aria-expanded="false" aria-label="Otvori izbornik">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4 7h16M4 12h16M4 17h16" stroke="#2b2b2b" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile menu (hidden by default) -->
+  <div id="mobileMenu" aria-hidden="true" style="display:none;position:fixed;inset:80px 18px auto 18px;z-index:70">
+    <div style="background:white;border-radius:12px;padding:14px;box-shadow:0 14px 40px rgba(17,17,17,0.12)">
+      <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px">
+        <li><a href="#usluge">Ponuda</a></li>
+        <li><a href="#o-nama">O nama</a></li>
+        <li><a href="#pristup">Pristup</a></li>
+        <li><a href="#kontakt">Kontakt</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <main>
+    <section class="hero wrap" aria-labelledby="hero-heading">
+      <div class="hero-left">
+        <span class="kicker">Lokalno · Profesionalno</span>
+        <h1 id="hero-heading">Caffe Bar High Life — pažljivo pripremljena kava i profesionalna podrška za ketering</h1>
+        <p class="lead">Elegantan caffe bar i podrška za posluživanje na događanjima. Fokus nam je na kvaliteti pića i besprijekornom iskustvu gostiju — u prostoru i izvan njega.</p>
+        <div class="hero-ctas" role="group" aria-label="Glavni akcijski gumbi">
+          <a class="cta-primary" href="#kontakt">Kontaktirajte nas</a>
+          <a class="cta-ghost" href="#usluge">Pogledajte ponudu</a>
+        </div>
+        <div class="meta" aria-hidden="false">
+          <span style="display:inline-flex;align-items:center;gap:8px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><path d="M12 2v4" stroke="#6b645d" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 6h8" stroke="#6b645d" stroke-width="1.6" stroke-linecap="round"/></svg> Profesionalan pristup</span>
+          <span style="display:inline-flex;align-items:center;gap:8px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><path d="M6 9h12M6 13h8" stroke="#6b645d" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Jasna ponuda i prilagodba</span>
+        </div>
+      </div>
+
+      <div class="hero-right" aria-hidden="false">
+        <div class="visual-card" role="img" aria-label="Vizualna prezentacija - stilizirani prikaz šalice i ponude">
+          <div class="visual-header">
+            <div>
+              <div style="font-size:13px;color:#6b645d">Preporuka dana</div>
+              <div class="visual-title" style="font-size:18px">Espresso & Signature napitci</div>
+            </div>
+            <div style="font-size:13px;color:#8b8278">Svježe pripremljeno</div>
+          </div>
+
+          <div class="visual-grid" aria-hidden="true">
+            <div class="pill">
+              <svg viewBox="0 0 24 24" fill="none" width="36" height="36" xmlns="http://www.w3.org/2000/svg"><path d="M3 7h14v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7z" fill="#f8f6f3"/><path d="M20 9v3" stroke="#d96542" stroke-width="1.6" stroke-linecap="round"/></svg>
+              <div>
+                <strong style="display:block">Kava za ponijeti</strong>
+                <span style="color:#6b645d;font-size:13px">Brzo i pažljivo</span>
+              </div>
+            </div>
+
+            <div class="pill">
+              <svg viewBox="0 0 24 24" fill="none" width="36" height="36" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="4" width="20" height="12" rx="2" fill="#fff"/><path d="M6 16v2a2 2 0 0 0 2 2h8" stroke="#b6773f" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <div>
+                <strong style="display:block">Ketering podrška</strong>
+                <span style="color:#6b645d;font-size:13px">Za događanja</span>
+              </div>
+            </div>
+
+            <div class="pill">
+              <svg viewBox="0 0 24 24" fill="none" width="36" height="36" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="8" r="4" fill="#fff"/><path d="M6 20a8 8 0 0 1 12 0" stroke="#caa15a" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <div>
+                <strong style="display:block">Prirodni sastojci</strong>
+                <span style="color:#6b645d;font-size:13px">Kvaliteta u tanjiru</span>
+              </div>
+            </div>
+
+            <div class="pill">
+              <svg viewBox="0 0 24 24" fill="none" width="36" height="36" xmlns="http://www.w3.org/2000/svg"><path d="M3 7h18" stroke="#d1b07a" stroke-width="1.6" stroke-linecap="round"/><path d="M6 11h12" stroke="#d96542" stroke-width="1.6" stroke-linecap="round"/></svg>
+              <div>
+                <strong style="display:block">Brza organizacija</strong>
+                <span style="color:#6b645d;font-size:13px">Jasno i pouzdano</span>
+              </div>
+            </div>
+          </div>
+
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-top:6px">
+            <div style="color:#6b645d;font-size:13px">Pogodno za male i srednje evente</div>
+            <div class="visual-cta">
+              <a class="cta-ghost" href="#pristup">Kako radimo</a>
+              <a class="cta-primary" href="#kontakt">Kontakt</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="usluge" class="section wrap" aria-labelledby="usluge-heading">
+      <div class="section-head">
+        <h2 id="usluge-heading">Ponuda</h2>
+        <div style="color:#6b645d">Jasna podjela usluga i načina suradnje</div>
+      </div>
+
+      <div class="cards" role="list">
+        <article class="card" role="listitem" aria-labelledby="card1-title">
+          <div class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="32" height="32" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 8h12v8H4z" fill="#fff"/><path d="M8 4v4" stroke="#d96542" stroke-width="1.6" stroke-linecap="round"/></svg>
+          </div>
+          <h3 id="card1-title">Caffe bar usluge</h3>
+          <p>Priprema kave i napitaka u prostoru caffe bara. Fokus na kvaliteti sastojaka i prezentaciji.</p>
+        </article>
+
+        <article class="card" role="listitem" aria-labelledby="card2-title">
+          <div class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="32" height="32" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 7h18v6H3z" fill="#fff"/><path d="M7 13v4" stroke="#caa15a" stroke-width="1.6" stroke-linecap="round"/></svg>
+          </div>
+          <h3 id="card2-title">Ketering podrška</h3>
+          <p>Organizirana dostava i posluživanje za događanja. Ponuda se prilagođava potrebama organizatora i lokaciji.</p>
+        </article>
+
+        <article class="card" role="listitem" aria-labelledby="card3-title">
+          <div class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="32" height="32" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="6" width="18" height="12" rx="2" fill="#fff"/><path d="M6 18v2" stroke="#b6773f" stroke-width="1.6" stroke-linecap="round"/></svg>
+          </div>
+          <h3 id="card3-title">Pauze i poslovni događaji</h3>
+          <p>Praktične opcije posluživanja za poslovne sastanke i kraće događaje, uz jasno definirane opcije.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="o-nama" class="section wrap" aria-labelledby="onama-heading">
+      <div class="section-head">
+        <h2 id="onama-heading">O nama</h2>
+        <div style="color:#6b645d">Krata i profesionalna prezentacija</div>
+      </div>
+
+      <div class="about">
+        <div class="text">
+          <p>Caffe Bar High Life je lokalni caffe bar koji nudi pažljivo pripremljene napitke i podršku pri posluživanjima na događanjima. Radimo s ciljem da svako posluživanje izgleda dobro i protekne bez problema. U komunikaciji preferiramo izravnost i jasne dogovore.</p>
+          <p>Ne bavimo se masovnim konceptima — fokus nam je na kvalitetnim iskustvima gostiju i profesionalnoj organizaciji prilikom suradnje s klijentima.</p>
+        </div>
+
+        <div class="visual" aria-hidden="true">
+          <svg viewBox="0 0 600 360" width="100%" height="160" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" style="border-radius:10px">
+            <defs>
+              <linearGradient id="g1" x1="0" x2="1">
+                <stop offset="0" stop-color="#fff"/>
+                <stop offset="1" stop-color="#f9f7f5"/>
+              </linearGradient>
+            </defs>
+            <rect width="600" height="360" fill="url(#g1)"/>
+            <g transform="translate(30,30)">
+              <rect x="0" y="0" width="220" height="120" rx="10" fill="#fff" opacity="0.95" stroke="#efe6db"/>
+              <rect x="250" y="10" width="300" height="120" rx="10" fill="#fff" opacity="0.95" stroke="#efe6db"/>
+              <g transform="translate(10,10)" fill="#d96542" opacity="0.9">
+                <circle cx="40" cy="40" r="18"/>
+              </g>
+            </g>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <section id="pristup" class="section wrap" aria-labelledby="pristup-heading">
+      <div class="section-head">
+        <h2 id="pristup-heading">Naš pristup</h2>
+        <div style="color:#6b645d">Jasan proces — jednostavni koraci</div>
+      </div>
+
+      <div class="grid-steps" role="list">
+        <div class="step" role="listitem" aria-labelledby="s1">
+          <div class="num">1</div>
+          <h3 id="s1" style="margin:6px 0 0;font-size:15px">Kontakt i zahtjev</h3>
+          <p style="color:#6b645d;font-size:13px;margin-top:8px">Pošaljite osnovne informacije i dogovorite termin razgovora.</p>
+        </div>
+
+        <div class="step" role="listitem" aria-labelledby="s2">
+          <div class="num">2</div>
+          <h3 id="s2" style="margin:6px 0 0;font-size:15px">Prijedlog i prilagodba</h3>
+          <p style="color:#6b645d;font-size:13px;margin-top:8px">Predlažemo opcije prema opsegu događaja i vašim preferencama.</p>
+        </div>
+
+        <div class="step" role="listitem" aria-labelledby="s3">
+          <div class="num">3</div>
+          <h3 id="s3" style="margin:6px 0 0;font-size:15px">Potvrda i logistika</h3>
+          <p style="color:#6b645d;font-size:13px;margin-top:8px">Dogovaramo detalje dovoljno rano kako bi sve proteklo glatko.</p>
+        </div>
+
+        <div class="step" role="listitem" aria-labelledby="s4">
+          <div class="num">4</div>
+          <h3 id="s4" style="margin:6px 0 0;font-size:15px">Realizacija</h3>
+          <p style="color:#6b645d;font-size:13px;margin-top:8px">Izvršenje posluživanja s pažnjom i profesionalnim pristupom.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="kontakt" class="section wrap" aria-labelledby="kontakt-heading">
+      <div class="section-head">
+        <h2 id="kontakt-heading">Kontakt</h2>
+        <div style="color:#6b645d">Javite se za upit ili rezervaciju</div>
+      </div>
+
+      <div class="contact" role="region" aria-label="Kontakt forma i informacije">
+        <form onsubmit="handleForm(event)" aria-label="Kontakt forma">
+          <div class="field">
+            <label for="ime">Ime i prezime</label>
+            <input id="ime" name="ime" type="text" required />
+          </div>
+
+          <div class="field">
+            <label for="email">Email adresa</label>
+            <input id="email" name="email" type="email" required />
+          </div>
+
+          <div class="field">
+            <label for="poruka">Poruka</label>
+            <textarea id="poruka" name="poruka" required placeholder="Kratki opis upita, datum događaja ili dodatne informacije"></textarea>
+          </div>
+
+          <div class="form-actions">
+            <button class="btn btn-primary" type="submit">Pošalji upit</button>
+            <a class="btn btn-outline" href="#usluge">Pogledajte ponudu</a>
+          </div>
+          <p style="color:#6b645d;font-size:13px;margin-top:10px">Napomena: Ova forma priprema upit. Odgovorit ćemo putem emaila ako navedete adresu.</p>
+        </form>
+
+        <aside style="display:flex;flex-direction:column;gap:12px">
+          <div style="background:white;padding:16px;border-radius:12px;box-shadow:var(--shadow-soft)">
+            <div style="font-weight:700;margin-bottom:6px">Caffe Bar High Life</div>
+            <div class="small">Djelatnost: caffe bar i catering</div>
+            <div style="margin-top:10px;color:#6b645d;font-size:14px">
+              Web: <a href="https://www.caffe-high-life.com" target="_blank" rel="noopener">www.caffe-high-life.com</a>
+            </div>
+          </div>
+
+          <div style="background:linear-gradient(90deg, rgba(202,161,90,0.06), rgba(217,193,167,0.03));padding:14px;border-radius:12px">
+            <div style="font-weight:700">Brzi savjeti</div>
+            <ul style="margin:8px 0 0 18px;color:#6b645d">
+              <li>U poruci navedite željeni datum i broj gostiju.</li>
+              <li>Rado prilagođavamo ponude prema prostoru i rasporedu.</li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-inner">
+      <div style="display:flex;flex-direction:column">
+        <div style="font-weight:700">Caffe Bar High Life</div>
+        <div class="small">Premium caffe bar i catering</div>
+      </div>
+
+      <div class="small">
+        Web: <a href="https://www.caffe-high-life.com" target="_blank" rel="noopener">www.caffe-high-life.com</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Minimal interactivity: mobile menu and form handling.
+    (function(){
+      var toggle = document.getElementById('menuToggle');
+      var menu = document.getElementById('mobileMenu');
+      toggle.addEventListener('click', function(){
+        var expanded = this.getAttribute('aria-expanded') === 'true';
+        this.setAttribute('aria-expanded', String(!expanded));
+        if(expanded){
+          menu.style.display = 'none';
+          menu.setAttribute('aria-hidden','true');
+        } else {
+          menu.style.display = 'block';
+          menu.setAttribute('aria-hidden','false');
+        }
+      });
+
+      // Close mobile menu when clicking a link inside
+      menu.addEventListener('click', function(e){
+        if(e.target.tagName.toLowerCase() === 'a'){
+          toggle.setAttribute('aria-expanded','false');
+          menu.style.display = 'none';
+          menu.setAttribute('aria-hidden','true');
+        }
+      });
+
+      // Smooth scrolling for internal anchors
+      document.querySelectorAll('a[href^="#"]').forEach(function(a){
+        a.addEventListener('click', function(e){
+          var href = this.getAttribute('href');
+          if(href.length > 1){
+            var el = document.querySelector(href);
+            if(el){
+              e.preventDefault();
+              el.scrollIntoView({behavior:'smooth',block:'start'});
+              // close mobile menu if open
+              if(menu.style.display === 'block'){
+                toggle.setAttribute('aria-expanded','false');
+                menu.style.display = 'none';
+                menu.setAttribute('aria-hidden','true');
+              }
+            }
+          }
+        });
+      });
+    })();
+
+    // Simple form handler: does not send data anywhere to avoid inventing endpoints.
+    function handleForm(e){
+      e.preventDefault();
+      var form = e.target;
+      // Basic validation already handled by required attributes.
+      // Show a polite in-page acknowledgement.
+      var msg = document.createElement('div');
+      msg.setAttribute('role','status');
+      msg.style.marginTop = '12px';
+      msg.style.padding = '12px';
+      msg.style.borderRadius = '10px';
+      msg.style.background = 'linear-gradient(90deg, rgba(202,161,90,0.06), rgba(217,193,167,0.03))';
+      msg.style.color = '#5b5248';
+      msg.textContent = 'Hvala! Vaš upit je pripremljen. Poslat ćemo odgovor na email koji navedete.';
+      // Remove previous messages
+      var existing = form.querySelector('[role="status"]');
+      if(existing) existing.remove();
+      form.appendChild(msg);
+      form.reset();
+      // For privacy and safety, form data is not transmitted by this static page.
+    }
+  </script>
+</body>
+</html>
