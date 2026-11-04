@@ -1,0 +1,517 @@
+ <!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Usluge Dolenčić — Usluge za komercijalna vozila</title>
+  <meta name="description" content="Usluge Dolenčić | Profesionalne usluge prilagođene komercijalnim vozilima i poslovnim flotama. Kontakt: +385 99 3430 830. Posjetite službenu stranicu za više informacija." />
+  <meta property="og:title" content="Usluge Dolenčić — Usluge za komercijalna vozila" />
+  <meta property="og:description" content="Profesionalna podrška za komercijalna vozila i poslovne flote. Nazovite +385 99 3430 830 ili posjetite usluge-dolencic.vulco.hr" />
+  <meta name="theme-color" content="#F8FAFB" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      /* Boje i design system */
+      --color-primary: #0b4f6c;       /* duboka petrol plava */
+      --color-secondary: #f39c12;     /* topao ambra akcent */
+      --color-accent: #17a2b8;        /* sekundarni akcent za CTA hover */
+      --bg: #F8FAFB;
+      --card: #FFFFFF;
+      --muted: #6b7280;
+      --text: #0b1720;
+      --radius-sm: 8px;
+      --radius-md: 16px;
+      --radius-lg: 28px;
+      --shadow-1: 0 6px 18px rgba(11,20,32,0.06);
+      --shadow-2: 0 10px 30px rgba(11,20,32,0.08);
+      --glass: rgba(255,255,255,0.6);
+      --gap: 24px;
+      --container: 1200px;
+      --focus: 3px solid rgba(23,162,184,0.18);
+
+      /* Tipografija */
+      --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      --font-serif: "Merriweather", Georgia, serif;
+
+      /* Responsive sizing */
+      --h1-min: 28px;
+      --h1-preferred: 4.4vw;
+      --h1-max: 48px;
+    }
+
+    /* Reset i baza */
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:var(--font-sans);
+      background:linear-gradient(180deg,var(--bg),#f4f7f8);
+      color:var(--text);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+      font-size:16px;
+    }
+
+    a{text-decoration:none;color:inherit}
+    img,svg{max-width:100%;height:auto;display:block}
+
+    /* Layout */
+    .site-max{max-width:var(--container);margin:0 auto;padding:0 20px}
+
+    /* Skip link */
+    .skip-link{position:absolute;left:8px;top:8px;background:#000;color:#fff;padding:8px 12px;border-radius:6px;z-index:120;transform:translateY(-120%);transition:transform .18s ease}
+    .skip-link:focus{transform:translateY(0)}
+
+    /* Nav */
+    header{position:sticky;top:0;z-index:110;background:linear-gradient(180deg,rgba(248,250,251,0.9),rgba(248,250,251,0.72));backdrop-filter: blur(6px);border-bottom:1px solid rgba(11,20,32,0.04)}
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:18px 0;gap:16px}
+    .brand{display:flex;align-items:center;gap:14px}
+    .logo-mark{width:46px;height:46px;background:linear-gradient(135deg,var(--color-primary),#0e6a88);border-radius:10px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-family:var(--font-serif);box-shadow:var(--shadow-1)}
+    .wordmark{font-weight:700;font-family:var(--font-sans);letter-spacing:0.2px}
+    nav ul{display:flex;gap:18px;align-items:center;margin:0;padding:0;list-style:none}
+    nav a{color:var(--muted);padding:8px 10px;border-radius:8px;font-weight:600;font-size:15px}
+    nav a:hover, nav a:focus{color:var(--color-primary);outline:none}
+    .cta-phone{background:var(--color-primary);color:#fff;padding:10px 14px;border-radius:12px;font-weight:700;box-shadow:var(--shadow-1);transition:transform .12s ease,box-shadow .12s ease}
+    .cta-phone:hover{transform:translateY(-3px);box-shadow:var(--shadow-2)}
+    .menu-toggle{display:none;background:none;border:0;padding:8px;border-radius:8px}
+
+    /* Hero */
+    .hero{display:flex;align-items:center;gap:40px;padding:54px 0}
+    .hero-grid{display:grid;grid-template-columns:1fr 460px;align-items:center;gap:40px}
+    .hero h1{font-family:var(--font-serif);font-weight:700;margin:0;color:var(--color-primary);
+      font-size:clamp(var(--h1-min),var(--h1-preferred),var(--h1-max));
+      line-height:1.02;
+    }
+    .lead{color:var(--muted);margin-top:12px;font-size:1.06rem;max-width:62ch}
+    .hero-ctas{display:flex;gap:12px;margin-top:20px;align-items:center}
+    .btn{display:inline-flex;align-items:center;gap:10px;padding:12px 16px;border-radius:12px;font-weight:700;cursor:pointer;border:0}
+    .btn-primary{background:linear-gradient(90deg,var(--color-secondary),#ffb86b);color:#082226;box-shadow:0 8px 24px rgba(243,156,18,0.14)}
+    .btn-outline{background:transparent;border:1px solid rgba(11,20,32,0.06);color:var(--color-primary);padding:10px 14px}
+    .hero-card{background:linear-gradient(180deg,var(--card),#fff);border-radius:16px;padding:18px;box-shadow:var(--shadow-1);display:flex;flex-direction:column;gap:12px}
+    .hero-visual{display:flex;align-items:center;justify-content:center;position:relative;padding:20px}
+    .van-graphic{width:100%;height:auto;max-height:320px}
+
+    /* Sections */
+    section{padding:64px 0}
+    .section-head{display:flex;align-items:end;justify-content:space-between;gap:18px;margin-bottom:20px}
+    .section-title{font-family:var(--font-serif);font-size:1.44rem;color:var(--color-primary);margin:0}
+    .grid{display:grid;gap:18px}
+    .cards-3{grid-template-columns:repeat(3,1fr)}
+    .card{background:var(--card);padding:22px;border-radius:12px;box-shadow:var(--shadow-1);border:1px solid rgba(11,20,32,0.03);display:flex;flex-direction:column;gap:12px}
+    .icon-wrap{width:56px;height:56px;border-radius:12px;background:linear-gradient(180deg,rgba(11,79,108,0.06),rgba(11,79,108,0.02));display:flex;align-items:center;justify-content:center;color:var(--color-primary);font-weight:700}
+    .card h3{margin:0;font-size:1.06rem;color:var(--color-primary)}
+    .card p{margin:0;color:var(--muted)}
+
+    /* How it works */
+    .steps{display:flex;gap:14px;align-items:center}
+    .step{flex:1;background:linear-gradient(180deg,#fff,#fbfdff);padding:18px;border-radius:12px;box-shadow:var(--shadow-1);display:flex;gap:12px;align-items:flex-start}
+    .step .num{width:44px;height:44px;border-radius:10px;background:var(--color-primary);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700}
+
+    /* Contact */
+    .contact-panel{display:flex;gap:20px;align-items:center;padding:22px;border-radius:16px;background:linear-gradient(180deg,#fff,#f9fbfc);box-shadow:var(--shadow-2)}
+    .contact-info{display:flex;flex-direction:column;gap:8px}
+    .contact-info .meta{color:var(--muted);font-weight:600}
+    .contact-actions{display:flex;gap:12px}
+
+    /* Footer */
+    footer{padding:36px 0;border-top:1px solid rgba(11,20,32,0.04);background:transparent}
+    .footer-grid{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap}
+    .muted-small{color:var(--muted);font-size:14px}
+
+    /* Responsive */
+    @media (max-width:1024px){
+      .hero-grid{grid-template-columns:1fr 360px}
+    }
+    @media (max-width:880px){
+      nav ul{display:none}
+      .menu-toggle{display:inline-flex}
+      .hero-grid{grid-template-columns:1fr;gap:28px}
+      .hero{padding:34px 0}
+      .cards-3{grid-template-columns:1fr}
+      .section-head{flex-direction:column;align-items:flex-start;gap:10px}
+      .steps{flex-direction:column}
+      .contact-panel{flex-direction:column;align-items:flex-start}
+    }
+
+    /* Focus styles & accessibility */
+    a:focus, button:focus, .menu-toggle:focus{outline:var(--focus);outline-offset:4px}
+    [role="dialog"]{outline:none}
+
+    /* Small animations & reveals */
+    .reveal{opacity:0;transform:translateY(10px);transition:opacity .6s ease,transform .6s ease}
+    .reveal.visible{opacity:1;transform:none}
+    .btn-primary{transition:transform .12s ease,box-shadow .12s ease,filter .12s ease}
+    .btn-primary:active{transform:translateY(1px)}
+    @media (prefers-reduced-motion:reduce){
+      .reveal{transition:none!important}
+      .btn-primary{transition:none!important}
+    }
+
+    /* Utilities */
+    .muted{color:var(--muted)}
+    .small{font-size:0.94rem}
+    .center{text-align:center}
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Preskoči na sadržaj</a>
+  <header>
+    <div class="site-max nav-inner">
+      <div class="brand" aria-hidden="false">
+        <div class="logo-mark" aria-hidden="true">UD</div>
+        <div>
+          <div class="wordmark">Usluge Dolenčić</div>
+          <div class="muted-small muted">Usluge za komercijalna vozila</div>
+        </div>
+      </div>
+
+      <nav aria-label="Glavna navigacija">
+        <button class="menu-toggle" aria-controls="mobile-menu" aria-expanded="false" aria-label="Otvori izbornik">
+          <svg width="28" height="20" viewBox="0 0 28 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect y="0" width="28" height="2" rx="1" fill="#0B1720"/><rect y="9" width="28" height="2" rx="1" fill="#0B1720"/><rect y="18" width="28" height="2" rx="1" fill="#0B1720"/></svg>
+        </button>
+        <ul id="primary-nav">
+          <li><a href="#hero">Početna</a></li>
+          <li><a href="#ponuda">Ponuda</a></li>
+          <li><a href="#o-nama">O nama</a></li>
+          <li><a href="#kontakt">Kontakt</a></li>
+        </ul>
+      </nav>
+
+      <div style="display:flex;gap:12px;align-items:center">
+        <a class="cta-phone" href="tel:+385993430830" aria-label="Nazovite Usluge Dolenčić na broj +385 99 3430 830">+385 99 3430 830</a>
+        <a class="muted-small" href="https://usluge-dolencic.vulco.hr/" target="_blank" rel="noopener">Službena stranica</a>
+      </div>
+    </div>
+
+    <!-- Mobile menu (visually hidden until toggled) -->
+    <div id="mobile-menu" role="dialog" aria-modal="false" style="display:none;background:linear-gradient(180deg,#fff,#fbfdff);border-top:1px solid rgba(11,20,32,0.04)">
+      <div class="site-max" style="padding:12px 0">
+        <ul style="list-style:none;padding:6px 0;margin:0;display:flex;flex-direction:column;gap:6px">
+          <li><a href="#hero">Početna</a></li>
+          <li><a href="#ponuda">Ponuda</a></li>
+          <li><a href="#o-nama">O nama</a></li>
+          <li><a href="#kontakt">Kontakt</a></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section id="hero" class="hero" aria-labelledby="hero-title">
+      <div class="site-max hero-grid">
+        <div>
+          <h1 id="hero-title">Usluge za komercijalna vozila — jasna i praktična podrška</h1>
+          <p class="lead">Usluge Dolenčić pruža profesionalne usluge namijenjene komercijalnim vozilima i poslovnim flotama. Za konkretne informacije i dogovor nazovite nas ili posjetite službenu stranicu.</p>
+
+          <div class="hero-ctas">
+            <a class="btn btn-primary" href="tel:+385993430830" aria-label="Nazovite +385 99 3430 830">
+              Nazovite sada
+            </a>
+            <a class="btn btn-outline" href="#ponuda">Saznajte više</a>
+            <a class="muted-small" href="https://usluge-dolencic.vulco.hr/" target="_blank" rel="noopener" style="align-self:center">Posjetite web</a>
+          </div>
+
+          <div style="margin-top:28px;max-width:680px" class="reveal">
+            <div class="hero-card" role="region" aria-label="Sažetak ponude">
+              <div style="display:flex;align-items:center;justify-content:space-between;gap:12px">
+                <div>
+                  <div class="muted-small">Kontakt</div>
+                  <div style="font-weight:700;font-size:1.06rem">+385 99 3430 830</div>
+                </div>
+                <div class="muted-small center">Službena stranica<br><a href="https://usluge-dolencic.vulco.hr/" target="_blank" rel="noopener" class="muted">usluge-dolencic.vulco.hr</a></div>
+              </div>
+              <div class="muted small" style="margin-top:8px">Ako želite detaljan opis usluga za vaša vozila ili poslovnu flotu, nazovite ili pošaljite upit putem službene stranice. Rado ćemo razgovarati o vašim potrebama.</div>
+            </div>
+          </div>
+        </div>
+
+        <aside class="hero-visual" aria-hidden="true">
+          <!-- Decorative SVG representing komercijalno vozilo (stilizirano, ne stvarna fotografija) -->
+          <svg class="van-graphic" viewBox="0 0 680 420" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="vanTitle vanDesc">
+            <title id="vanTitle">Ilustracija komercijalnog vozila</title>
+            <desc id="vanDesc">Stilizirana grafika kombija i mrežaste kompozicije u brand bojama.</desc>
+            <rect x="0" y="0" width="680" height="420" rx="20" fill="url(#bgGrad)"/>
+            <defs>
+              <linearGradient id="bgGrad" x1="0" x2="1">
+                <stop offset="0" stop-color="#ffffff"/>
+                <stop offset="1" stop-color="#f1fbfd"/>
+              </linearGradient>
+            </defs>
+
+            <!-- Decorative grid -->
+            <g opacity="0.12">
+              <rect x="30" y="40" width="300" height="120" rx="14" fill="#0b4f6c"/>
+              <rect x="55" y="68" width="250" height="64" rx="8" fill="#fff"/>
+            </g>
+
+            <!-- Stylized van body -->
+            <g transform="translate(40,120)">
+              <path d="M28 156h500v-108c0-22-18-40-40-40H140c-28 0-46 8-70 24-18 12-32 32-42 60l-0.5 4H28z" fill="#0e6a88"/>
+              <rect x="120" y="12" width="220" height="96" rx="12" fill="#fff" opacity="0.96"/>
+              <rect x="140" y="30" width="180" height="60" rx="8" fill="#f4fbfb"/>
+              <circle cx="120" cy="156" r="34" fill="#082226"/>
+              <circle cx="420" cy="156" r="34" fill="#082226"/>
+              <circle cx="120" cy="156" r="22" fill="#cfdfe2"/>
+              <circle cx="420" cy="156" r="22" fill="#cfdfe2"/>
+              <rect x="360" y="54" width="60" height="36" rx="6" fill="#0b4f6c"/>
+              <rect x="200" y="54" width="80" height="36" rx="6" fill="#17a2b8"/>
+              <path d="M40 56c18-12 38-18 60-18h320" stroke="#ffffff" stroke-opacity="0.06" stroke-width="6" stroke-linecap="round"/>
+            </g>
+
+            <!-- Accent circles -->
+            <circle cx="540" cy="60" r="28" fill="#f39c12" opacity="0.18"/>
+            <circle cx="580" cy="320" r="16" fill="#17a2b8" opacity="0.12"/>
+          </svg>
+        </aside>
+      </div>
+    </section>
+
+    <section id="ponuda" aria-labelledby="ponuda-title">
+      <div class="site-max">
+        <div class="section-head">
+          <h2 id="ponuda-title" class="section-title">Naša ponuda</h2>
+          <div class="muted-small">Prilaz prilagođen komercijalnim vozilima i flotama</div>
+        </div>
+
+        <p class="muted small" style="max-width:74ch">Usluge Dolenčić fokusirane su na praktičnu podršku komercijalnim vozilima. Opise i opseg konkretnih usluga dogovaramo izravno s klijentima — nazovite kako bismo zajednički definirali najbolji pristup za vaše potrebe.</p>
+
+        <div style="margin-top:20px" class="grid cards-3">
+          <article class="card reveal" tabindex="0" aria-labelledby="card1">
+            <div style="display:flex;align-items:center;justify-content:space-between">
+              <div style="display:flex;gap:12px;align-items:center">
+                <div class="icon-wrap" aria-hidden="true">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M3 13h18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M7 6h10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M8 20h8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+                </div>
+                <h3 id="card1">Individualan pristup</h3>
+              </div>
+            </div>
+            <p class="muted">Svaki upit rješavamo prema specifičnostima vozila i operacije. Kontaktom definiramo opseg i način suradnje.</p>
+          </article>
+
+          <article class="card reveal" tabindex="0" aria-labelledby="card2">
+            <div style="display:flex;align-items:center;justify-content:space-between">
+              <div style="display:flex;gap:12px;align-items:center">
+                <div class="icon-wrap" aria-hidden="true">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M3 12h18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M3 6h18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+                </div>
+                <h3 id="card2">Jasan kontakt</h3>
+              </div>
+            </div>
+            <p class="muted">Za informacije nazovite broj naveden u vrhu stranice ili posjetite službenu web stranicu.</p>
+          </article>
+
+          <article class="card reveal" tabindex="0" aria-labelledby="card3">
+            <div style="display:flex;align-items:center;justify-content:space-between">
+              <div style="display:flex;gap:12px;align-items:center">
+                <div class="icon-wrap" aria-hidden="true">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M12 3v18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M3 12h18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+                </div>
+                <h3 id="card3">Fleksibilna suradnja</h3>
+              </div>
+            </div>
+            <p class="muted">Pristup prilagođavamo opsegu i učestalosti potrebne podrške — o tome detaljno razgovaramo telefonom.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="o-nama" aria-labelledby="o-nama-title">
+      <div class="site-max">
+        <div class="section-head">
+          <h2 id="o-nama-title" class="section-title">O nama</h2>
+          <div class="muted-small">Jasno, profesionalno i neposredno</div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:1fr 360px;gap:28px;align-items:start">
+          <div>
+            <p class="muted">Usluge Dolenčić djeluje u području usluga za komercijalna vozila. Ovdje na web stranici nalaze se osnovne informacije i kontakt podaci. Za sve detalje o dostupnim opcijama i specifičnim rješenjima molimo kontaktirajte nas telefonom ili putem službene web stranice.</p>
+
+            <h3 style="margin-top:18px">Naš pristup</h3>
+            <p class="muted">Naš rad zasniva se na direktnoj komunikaciji s klijentom kako bismo jasno definirali potrebe i očekivanja — bez pretpostavki i nepotrebnih obećanja. Svaku suradnju započinjemo razgovorom i procjenom, nakon čega predlažemo sljedeće korake.</p>
+          </div>
+
+          <aside class="card" aria-hidden="true">
+            <div style="display:flex;align-items:center;gap:12px">
+              <div style="width:56px;height:56px;border-radius:12px;background:linear-gradient(180deg,var(--color-secondary),#ffc87f);display:flex;align-items:center;justify-content:center;color:#082226;font-weight:800">UD</div>
+              <div>
+                <div style="font-weight:700">Usluge Dolenčić</div>
+                <div class="muted-small muted">Kontakt: <a href="tel:+385993430830">+385 99 3430 830</a></div>
+                <div style="margin-top:6px"><a href="https://usluge-dolencic.vulco.hr/" target="_blank" rel="noopener" class="muted-small muted">Posjetite službenu stranicu</a></div>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="prednosti-title">
+      <div class="site-max">
+        <div class="section-head">
+          <h2 id="prednosti-title" class="section-title">Prednosti suradnje</h2>
+          <div class="muted-small">Što možete očekivati u komunikaciji s nama</div>
+        </div>
+
+        <div class="grid cards-3" style="margin-top:8px">
+          <div class="card reveal" tabindex="0">
+            <h3>Jasna komunikacija</h3>
+            <p class="muted">Kontakt je jasan i neposredan — sve informacije dogovaraju se izravno s vama.</p>
+          </div>
+
+          <div class="card reveal" tabindex="0">
+            <h3>Prilagodljivost</h3>
+            <p class="muted">Rješenja se prilagođavaju potrebama vozila i operacije, bez univerzalnih pretpostavki.</p>
+          </div>
+
+          <div class="card reveal" tabindex="0">
+            <h3>Diskrecija i transparentnost</h3>
+            <p class="muted">Razgovori i dogovori ostaju između uključenih strana; sve opcije predstavljamo jasno i realno.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="kako-title">
+      <div class="site-max">
+        <div class="section-head">
+          <h2 id="kako-title" class="section-title">Kako obično surađujemo</h2>
+          <div class="muted-small">Pregled tipičnog tijeka kontakta</div>
+        </div>
+
+        <div class="steps reveal" style="margin-top:8px">
+          <div class="step" tabindex="0">
+            <div class="num">1</div>
+            <div>
+              <div style="font-weight:700">Kontakt</div>
+              <div class="muted">Nazovite broj ili posjetite web kako biste započeli razgovor o potrebama.</div>
+            </div>
+          </div>
+
+          <div class="step" tabindex="0">
+            <div class="num">2</div>
+            <div>
+              <div style="font-weight:700">Procjena</div>
+              <div class="muted">Razgovaramo o detaljima kako bismo razumjeli točno što je potrebno.</div>
+            </div>
+          </div>
+
+          <div class="step" tabindex="0">
+            <div class="num">3</div>
+            <div>
+              <div style="font-weight:700">Dogovor</div>
+              <div class="muted">Dogovaramo sljedeće korake koji su jasni i izvedivi.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="kontakt" aria-labelledby="kontakt-title">
+      <div class="site-max">
+        <div class="section-head">
+          <h2 id="kontakt-title" class="section-title">Kontakt</h2>
+          <div class="muted-small">Brzi način za uspostaviti vezu</div>
+        </div>
+
+        <div class="contact-panel reveal" role="region" aria-label="Kontakt informacije">
+          <div class="contact-info">
+            <div class="meta">Telefon</div>
+            <div style="font-weight:700;font-size:1.06rem"><a href="tel:+385993430830">+385 99 3430 830</a></div>
+            <div style="margin-top:6px" class="muted-small muted">Web: <a href="https://usluge-dolencic.vulco.hr/" target="_blank" rel="noopener">usluge-dolencic.vulco.hr</a></div>
+          </div>
+
+          <div class="contact-actions" aria-hidden="false">
+            <a class="btn btn-primary" href="tel:+385993430830" aria-label="Nazovite Usluge Dolenčić">Nazovite</a>
+            <a class="btn btn-outline" href="https://usluge-dolencic.vulco.hr/" target="_blank" rel="noopener">Posjetite web</a>
+          </div>
+        </div>
+
+        <p class="muted small" style="margin-top:12px">Nemamo dodatne kontakt adrese ili e‑mail objavljene na ovoj stranici. Za sve upite koristite telefonski kontakt ili službenu web stranicu.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="site-max footer-grid">
+      <div>
+        <div style="font-weight:700">Usluge Dolenčić</div>
+        <div class="muted-small muted">Usluge za komercijalna vozila</div>
+      </div>
+
+      <div class="muted-small muted">
+        <div>Kontakt: <a href="tel:+385993430830">+385 99 3430 830</a></div>
+        <div style="margin-top:6px"><a href="https://usluge-dolencic.vulco.hr/" target="_blank" rel="noopener" class="muted">usluge-dolencic.vulco.hr</a></div>
+      </div>
+
+      <div class="muted-small muted">© Sadržaj namijenjen informiranju. Podaci su neprovjereni poslovni podaci.</div>
+    </div>
+  </footer>
+
+  <script>
+    (function(){
+      // Mobile menu toggle
+      const toggle = document.querySelector('.menu-toggle');
+      const mobileMenu = document.getElementById('mobile-menu');
+      toggle && toggle.addEventListener('click', function(){
+        const expanded = this.getAttribute('aria-expanded') === 'true';
+        this.setAttribute('aria-expanded', String(!expanded));
+        if(!expanded){
+          mobileMenu.style.display = 'block';
+          mobileMenu.setAttribute('aria-modal','true');
+          mobileMenu.setAttribute('role','dialog');
+        } else {
+          mobileMenu.style.display = 'none';
+          mobileMenu.removeAttribute('aria-modal');
+        }
+      });
+
+      // Smooth scroll for internal links
+      document.querySelectorAll('a[href^="#"]').forEach(a=>{
+        a.addEventListener('click', function(e){
+          const href = this.getAttribute('href');
+          if(href === "#" || href === "#0") return;
+          const el = document.querySelector(href);
+          if(el){
+            e.preventDefault();
+            el.scrollIntoView({behavior:'smooth',block:'start'});
+            // Close mobile menu if open
+            if(mobileMenu.style.display === 'block'){
+              mobileMenu.style.display = 'none';
+              toggle.setAttribute('aria-expanded','false');
+            }
+          }
+        });
+      });
+
+      // Reveal on scroll (lightweight)
+      const prefersReduced = window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+      if(!prefersReduced){
+        const reveals = document.querySelectorAll('.reveal');
+        const obs = new IntersectionObserver((entries)=>{
+          entries.forEach(entry=>{
+            if(entry.isIntersecting){
+              entry.target.classList.add('visible');
+            }
+          });
+        },{threshold:0.12});
+        reveals.forEach(r=>obs.observe(r));
+      } else {
+        // If reduced motion, show all
+        document.querySelectorAll('.reveal').forEach(el=>el.classList.add('visible'));
+      }
+
+      // Ensure keyboard accessibility for menu (close on Esc)
+      document.addEventListener('keydown', function(e){
+        if(e.key === 'Escape'){
+          if(mobileMenu.style.display === 'block'){
+            mobileMenu.style.display = 'none';
+            toggle.setAttribute('aria-expanded','false');
+            toggle.focus();
+          }
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
